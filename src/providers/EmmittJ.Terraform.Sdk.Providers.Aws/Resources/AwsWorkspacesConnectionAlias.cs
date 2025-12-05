@@ -55,7 +55,7 @@ public partial class AwsWorkspacesConnectionAlias(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,25 +72,25 @@ public partial class AwsWorkspacesConnectionAlias(string name) : TerraformResour
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The identifier of the Amazon Web Services account that owns the connection alias.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// The current state of the connection alias.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

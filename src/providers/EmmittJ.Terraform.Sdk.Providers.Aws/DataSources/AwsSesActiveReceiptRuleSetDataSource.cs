@@ -13,7 +13,7 @@ public partial class AwsSesActiveReceiptRuleSetDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSesActiveReceiptRuleSetDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -30,12 +30,12 @@ public partial class AwsSesActiveReceiptRuleSetDataSource(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The rule_set_name attribute.
     /// </summary>
     public TerraformValue<string> RuleSetName
-        => AsReference("rule_set_name");
+        => CreateReference("rule_set_name");
 
 }

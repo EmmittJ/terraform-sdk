@@ -91,7 +91,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformValue<double> MaxConcurrentRequests
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_requests") ?? AsReference("max_concurrent_requests");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_requests") ?? CreateReference("max_concurrent_requests");
         set => SetArgument("max_concurrent_requests", value);
     }
 
@@ -1297,7 +1297,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1345,7 +1345,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1366,7 +1366,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> RuntimeApiVersion
     {
-        get => GetArgument<TerraformValue<string>>("runtime_api_version") ?? AsReference("runtime_api_version");
+        get => GetArgument<TerraformValue<string>>("runtime_api_version") ?? CreateReference("runtime_api_version");
         set => SetArgument("runtime_api_version", value);
     }
 
@@ -1404,7 +1404,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -1431,7 +1431,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// Full path to the Version resource in the API. Example, &amp;quot;v1&amp;quot;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// ApiConfig block (nesting mode: list).

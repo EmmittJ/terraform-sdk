@@ -95,7 +95,7 @@ public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
     /// The storage_path attribute.
     /// </summary>
     public TerraformValue<string> StoragePath
-        => AsReference("storage_path");
+        => CreateReference("storage_path");
 
 }
 
@@ -153,7 +153,7 @@ public partial class AzurermNetworkPacketCapture(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

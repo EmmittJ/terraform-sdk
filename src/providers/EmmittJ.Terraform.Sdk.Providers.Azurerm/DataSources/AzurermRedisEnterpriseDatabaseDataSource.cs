@@ -47,7 +47,7 @@ public partial class AzurermRedisEnterpriseDatabaseDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,25 +65,25 @@ public partial class AzurermRedisEnterpriseDatabaseDataSource(string name) : Ter
     /// The linked_database_group_nickname attribute.
     /// </summary>
     public TerraformValue<string> LinkedDatabaseGroupNickname
-        => AsReference("linked_database_group_nickname");
+        => CreateReference("linked_database_group_nickname");
 
     /// <summary>
     /// The linked_database_id attribute.
     /// </summary>
     public TerraformList<string> LinkedDatabaseId
-        => AsReference("linked_database_id");
+        => CreateReference("linked_database_id");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-        => AsReference("primary_access_key");
+        => CreateReference("primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-        => AsReference("secondary_access_key");
+        => CreateReference("secondary_access_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class AwsQuicksightDataSetDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? CreateReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsQuicksightDataSetDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsQuicksightDataSetDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsQuicksightDataSetDataSource(string name) : TerraformData
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,72 +58,72 @@ public partial class AwsQuicksightDataSetDataSource(string name) : TerraformData
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The column_groups attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ColumnGroups
-        => AsReference("column_groups");
+        => CreateReference("column_groups");
 
     /// <summary>
     /// The column_level_permission_rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ColumnLevelPermissionRules
-        => AsReference("column_level_permission_rules");
+        => CreateReference("column_level_permission_rules");
 
     /// <summary>
     /// The data_set_usage_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataSetUsageConfiguration
-        => AsReference("data_set_usage_configuration");
+        => CreateReference("data_set_usage_configuration");
 
     /// <summary>
     /// The field_folders attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> FieldFolders
-        => AsReference("field_folders");
+        => CreateReference("field_folders");
 
     /// <summary>
     /// The import_mode attribute.
     /// </summary>
     public TerraformValue<string> ImportMode
-        => AsReference("import_mode");
+        => CreateReference("import_mode");
 
     /// <summary>
     /// The logical_table_map attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LogicalTableMap
-        => AsReference("logical_table_map");
+        => CreateReference("logical_table_map");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Permissions
-        => AsReference("permissions");
+        => CreateReference("permissions");
 
     /// <summary>
     /// The physical_table_map attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PhysicalTableMap
-        => AsReference("physical_table_map");
+        => CreateReference("physical_table_map");
 
     /// <summary>
     /// The row_level_permission_data_set attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RowLevelPermissionDataSet
-        => AsReference("row_level_permission_data_set");
+        => CreateReference("row_level_permission_data_set");
 
     /// <summary>
     /// The row_level_permission_tag_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RowLevelPermissionTagConfiguration
-        => AsReference("row_level_permission_tag_configuration");
+        => CreateReference("row_level_permission_tag_configuration");
 
 }

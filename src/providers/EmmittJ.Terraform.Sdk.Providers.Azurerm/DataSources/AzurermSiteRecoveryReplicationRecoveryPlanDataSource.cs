@@ -36,7 +36,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource(string
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource(string
     /// The azure_to_azure_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AzureToAzureSettings
-        => AsReference("azure_to_azure_settings");
+        => CreateReference("azure_to_azure_settings");
 
     /// <summary>
     /// The failover_deployment_model attribute.
     /// </summary>
     public TerraformValue<string> FailoverDeploymentModel
-        => AsReference("failover_deployment_model");
+        => CreateReference("failover_deployment_model");
 
     /// <summary>
     /// The recovery_group attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> RecoveryGroup
-        => AsReference("recovery_group");
+        => CreateReference("recovery_group");
 
     /// <summary>
     /// The source_recovery_fabric_id attribute.
     /// </summary>
     public TerraformValue<string> SourceRecoveryFabricId
-        => AsReference("source_recovery_fabric_id");
+        => CreateReference("source_recovery_fabric_id");
 
     /// <summary>
     /// The target_recovery_fabric_id attribute.
     /// </summary>
     public TerraformValue<string> TargetRecoveryFabricId
-        => AsReference("target_recovery_fabric_id");
+        => CreateReference("target_recovery_fabric_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

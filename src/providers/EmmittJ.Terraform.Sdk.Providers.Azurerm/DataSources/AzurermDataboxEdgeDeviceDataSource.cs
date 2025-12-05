@@ -36,7 +36,7 @@ public partial class AzurermDataboxEdgeDeviceDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,25 +64,25 @@ public partial class AzurermDataboxEdgeDeviceDataSource(string name) : Terraform
     /// The device_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeviceProperties
-        => AsReference("device_properties");
+        => CreateReference("device_properties");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

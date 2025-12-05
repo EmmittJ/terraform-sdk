@@ -64,7 +64,7 @@ public partial class AzurermApplicationInsightsApiKey(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermApplicationInsightsApiKey(string name) : TerraformRe
     /// The api_key attribute.
     /// </summary>
     public TerraformValue<string> ApiKey
-        => AsReference("api_key");
+        => CreateReference("api_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

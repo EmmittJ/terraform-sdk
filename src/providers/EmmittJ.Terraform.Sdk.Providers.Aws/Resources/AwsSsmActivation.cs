@@ -22,7 +22,7 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// </summary>
     public TerraformValue<string> ExpirationDate
     {
-        get => GetArgument<TerraformValue<string>>("expiration_date") ?? AsReference("expiration_date");
+        get => GetArgument<TerraformValue<string>>("expiration_date") ?? CreateReference("expiration_date");
         set => SetArgument("expiration_date", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -94,18 +94,18 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// The activation_code attribute.
     /// </summary>
     public TerraformValue<string> ActivationCode
-        => AsReference("activation_code");
+        => CreateReference("activation_code");
 
     /// <summary>
     /// The expired attribute.
     /// </summary>
     public TerraformValue<bool> Expired
-        => AsReference("expired");
+        => CreateReference("expired");
 
     /// <summary>
     /// The registration_count attribute.
     /// </summary>
     public TerraformValue<double> RegistrationCount
-        => AsReference("registration_count");
+        => CreateReference("registration_count");
 
 }

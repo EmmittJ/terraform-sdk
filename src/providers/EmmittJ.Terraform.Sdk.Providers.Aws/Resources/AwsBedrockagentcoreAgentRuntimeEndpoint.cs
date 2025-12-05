@@ -64,7 +64,7 @@ public partial class AwsBedrockagentcoreAgentRuntimeEndpoint(string name) : Terr
     /// </summary>
     public TerraformValue<string> AgentRuntimeVersion
     {
-        get => GetArgument<TerraformValue<string>>("agent_runtime_version") ?? AsReference("agent_runtime_version");
+        get => GetArgument<TerraformValue<string>>("agent_runtime_version") ?? CreateReference("agent_runtime_version");
         set => SetArgument("agent_runtime_version", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsBedrockagentcoreAgentRuntimeEndpoint(string name) : Terr
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -109,19 +109,19 @@ public partial class AwsBedrockagentcoreAgentRuntimeEndpoint(string name) : Terr
     /// The agent_runtime_arn attribute.
     /// </summary>
     public TerraformValue<string> AgentRuntimeArn
-        => AsReference("agent_runtime_arn");
+        => CreateReference("agent_runtime_arn");
 
     /// <summary>
     /// The agent_runtime_endpoint_arn attribute.
     /// </summary>
     public TerraformValue<string> AgentRuntimeEndpointArn
-        => AsReference("agent_runtime_endpoint_arn");
+        => CreateReference("agent_runtime_endpoint_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

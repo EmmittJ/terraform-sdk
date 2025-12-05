@@ -96,7 +96,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// InboundIpRule block (nesting mode: list).

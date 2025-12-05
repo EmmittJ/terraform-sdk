@@ -13,7 +13,7 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -76,30 +76,30 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     /// The name used for this key pair
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The private key in JSON format, base64 encoded. This is what you normally get as a file when creating service account keys through the CLI or web console. This is only populated when creating a new key.
     /// </summary>
     public TerraformValue<string> PrivateKey
-        => AsReference("private_key");
+        => CreateReference("private_key");
 
     /// <summary>
     /// The public key, base64 encoded
     /// </summary>
     public TerraformValue<string> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
     /// <summary>
     /// The key can be used after this timestamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ValidAfter
-        => AsReference("valid_after");
+        => CreateReference("valid_after");
 
     /// <summary>
     /// The key can be used before this timestamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ValidBefore
-        => AsReference("valid_before");
+        => CreateReference("valid_before");
 
 }

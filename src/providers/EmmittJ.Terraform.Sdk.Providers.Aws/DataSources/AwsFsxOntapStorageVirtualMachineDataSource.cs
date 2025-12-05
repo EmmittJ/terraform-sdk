@@ -47,7 +47,7 @@ public partial class AwsFsxOntapStorageVirtualMachineDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsFsxOntapStorageVirtualMachineDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsFsxOntapStorageVirtualMachineDataSource(string name) : T
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -73,61 +73,61 @@ public partial class AwsFsxOntapStorageVirtualMachineDataSource(string name) : T
     /// The active_directory_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ActiveDirectoryConfiguration
-        => AsReference("active_directory_configuration");
+        => CreateReference("active_directory_configuration");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoints
-        => AsReference("endpoints");
+        => CreateReference("endpoints");
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
     public TerraformValue<string> FileSystemId
-        => AsReference("file_system_id");
+        => CreateReference("file_system_id");
 
     /// <summary>
     /// The lifecycle_status attribute.
     /// </summary>
     public TerraformValue<string> LifecycleStatus
-        => AsReference("lifecycle_status");
+        => CreateReference("lifecycle_status");
 
     /// <summary>
     /// The lifecycle_transition_reason attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LifecycleTransitionReason
-        => AsReference("lifecycle_transition_reason");
+        => CreateReference("lifecycle_transition_reason");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The subtype attribute.
     /// </summary>
     public TerraformValue<string> Subtype
-        => AsReference("subtype");
+        => CreateReference("subtype");
 
     /// <summary>
     /// The uuid attribute.
     /// </summary>
     public TerraformValue<string> Uuid
-        => AsReference("uuid");
+        => CreateReference("uuid");
 
     /// <summary>
     /// Filter block (nesting mode: set).

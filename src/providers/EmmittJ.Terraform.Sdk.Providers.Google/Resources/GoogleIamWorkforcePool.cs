@@ -138,7 +138,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     /// Format: &#39;locations/{location}/workforcePools/{workforcePoolId}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The state of the pool.
@@ -207,7 +207,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     ///    tokens grant access again.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// AccessRestrictions block (nesting mode: list).

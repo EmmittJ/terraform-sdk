@@ -126,13 +126,13 @@ public class AzurermFirewallPolicyIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -545,7 +545,7 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -628,19 +628,19 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     /// The child_policies attribute.
     /// </summary>
     public TerraformList<string> ChildPolicies
-        => AsReference("child_policies");
+        => CreateReference("child_policies");
 
     /// <summary>
     /// The firewalls attribute.
     /// </summary>
     public TerraformList<string> Firewalls
-        => AsReference("firewalls");
+        => CreateReference("firewalls");
 
     /// <summary>
     /// The rule_collection_groups attribute.
     /// </summary>
     public TerraformList<string> RuleCollectionGroups
-        => AsReference("rule_collection_groups");
+        => CreateReference("rule_collection_groups");
 
     /// <summary>
     /// Dns block (nesting mode: list).

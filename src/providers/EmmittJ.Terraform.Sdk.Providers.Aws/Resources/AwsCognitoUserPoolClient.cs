@@ -45,7 +45,7 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn") ?? AsReference("role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn") ?? CreateReference("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool> UserDataShared
     {
-        get => GetArgument<TerraformValue<bool>>("user_data_shared") ?? AsReference("user_data_shared");
+        get => GetArgument<TerraformValue<bool>>("user_data_shared") ?? CreateReference("user_data_shared");
         set => SetArgument("user_data_shared", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsCognitoUserPoolClientTokenValidityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AccessToken
     {
-        get => GetArgument<TerraformValue<string>>("access_token") ?? AsReference("access_token");
+        get => GetArgument<TerraformValue<string>>("access_token") ?? CreateReference("access_token");
         set => SetArgument("access_token", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsCognitoUserPoolClientTokenValidityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> IdToken
     {
-        get => GetArgument<TerraformValue<string>>("id_token") ?? AsReference("id_token");
+        get => GetArgument<TerraformValue<string>>("id_token") ?? CreateReference("id_token");
         set => SetArgument("id_token", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsCognitoUserPoolClientTokenValidityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> RefreshToken
     {
-        get => GetArgument<TerraformValue<string>>("refresh_token") ?? AsReference("refresh_token");
+        get => GetArgument<TerraformValue<string>>("refresh_token") ?? CreateReference("refresh_token");
         set => SetArgument("refresh_token", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> AccessTokenValidity
     {
-        get => GetArgument<TerraformValue<double>>("access_token_validity") ?? AsReference("access_token_validity");
+        get => GetArgument<TerraformValue<double>>("access_token_validity") ?? CreateReference("access_token_validity");
         set => SetArgument("access_token_validity", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string> AllowedOauthFlows
     {
-        get => GetArgument<TerraformSet<string>>("allowed_oauth_flows") ?? AsReference("allowed_oauth_flows");
+        get => GetArgument<TerraformSet<string>>("allowed_oauth_flows") ?? CreateReference("allowed_oauth_flows");
         set => SetArgument("allowed_oauth_flows", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool> AllowedOauthFlowsUserPoolClient
     {
-        get => GetArgument<TerraformValue<bool>>("allowed_oauth_flows_user_pool_client") ?? AsReference("allowed_oauth_flows_user_pool_client");
+        get => GetArgument<TerraformValue<bool>>("allowed_oauth_flows_user_pool_client") ?? CreateReference("allowed_oauth_flows_user_pool_client");
         set => SetArgument("allowed_oauth_flows_user_pool_client", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string> AllowedOauthScopes
     {
-        get => GetArgument<TerraformSet<string>>("allowed_oauth_scopes") ?? AsReference("allowed_oauth_scopes");
+        get => GetArgument<TerraformSet<string>>("allowed_oauth_scopes") ?? CreateReference("allowed_oauth_scopes");
         set => SetArgument("allowed_oauth_scopes", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> AuthSessionValidity
     {
-        get => GetArgument<TerraformValue<double>>("auth_session_validity") ?? AsReference("auth_session_validity");
+        get => GetArgument<TerraformValue<double>>("auth_session_validity") ?? CreateReference("auth_session_validity");
         set => SetArgument("auth_session_validity", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string> CallbackUrls
     {
-        get => GetArgument<TerraformSet<string>>("callback_urls") ?? AsReference("callback_urls");
+        get => GetArgument<TerraformSet<string>>("callback_urls") ?? CreateReference("callback_urls");
         set => SetArgument("callback_urls", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> DefaultRedirectUri
     {
-        get => GetArgument<TerraformValue<string>>("default_redirect_uri") ?? AsReference("default_redirect_uri");
+        get => GetArgument<TerraformValue<string>>("default_redirect_uri") ?? CreateReference("default_redirect_uri");
         set => SetArgument("default_redirect_uri", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool> EnablePropagateAdditionalUserContextData
     {
-        get => GetArgument<TerraformValue<bool>>("enable_propagate_additional_user_context_data") ?? AsReference("enable_propagate_additional_user_context_data");
+        get => GetArgument<TerraformValue<bool>>("enable_propagate_additional_user_context_data") ?? CreateReference("enable_propagate_additional_user_context_data");
         set => SetArgument("enable_propagate_additional_user_context_data", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool> EnableTokenRevocation
     {
-        get => GetArgument<TerraformValue<bool>>("enable_token_revocation") ?? AsReference("enable_token_revocation");
+        get => GetArgument<TerraformValue<bool>>("enable_token_revocation") ?? CreateReference("enable_token_revocation");
         set => SetArgument("enable_token_revocation", value);
     }
 
@@ -227,7 +227,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string> ExplicitAuthFlows
     {
-        get => GetArgument<TerraformSet<string>>("explicit_auth_flows") ?? AsReference("explicit_auth_flows");
+        get => GetArgument<TerraformSet<string>>("explicit_auth_flows") ?? CreateReference("explicit_auth_flows");
         set => SetArgument("explicit_auth_flows", value);
     }
 
@@ -245,7 +245,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> IdTokenValidity
     {
-        get => GetArgument<TerraformValue<double>>("id_token_validity") ?? AsReference("id_token_validity");
+        get => GetArgument<TerraformValue<double>>("id_token_validity") ?? CreateReference("id_token_validity");
         set => SetArgument("id_token_validity", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string> LogoutUrls
     {
-        get => GetArgument<TerraformSet<string>>("logout_urls") ?? AsReference("logout_urls");
+        get => GetArgument<TerraformSet<string>>("logout_urls") ?? CreateReference("logout_urls");
         set => SetArgument("logout_urls", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> PreventUserExistenceErrors
     {
-        get => GetArgument<TerraformValue<string>>("prevent_user_existence_errors") ?? AsReference("prevent_user_existence_errors");
+        get => GetArgument<TerraformValue<string>>("prevent_user_existence_errors") ?? CreateReference("prevent_user_existence_errors");
         set => SetArgument("prevent_user_existence_errors", value);
     }
 
@@ -282,7 +282,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string> ReadAttributes
     {
-        get => GetArgument<TerraformSet<string>>("read_attributes") ?? AsReference("read_attributes");
+        get => GetArgument<TerraformSet<string>>("read_attributes") ?? CreateReference("read_attributes");
         set => SetArgument("read_attributes", value);
     }
 
@@ -291,7 +291,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> RefreshTokenValidity
     {
-        get => GetArgument<TerraformValue<double>>("refresh_token_validity") ?? AsReference("refresh_token_validity");
+        get => GetArgument<TerraformValue<double>>("refresh_token_validity") ?? CreateReference("refresh_token_validity");
         set => SetArgument("refresh_token_validity", value);
     }
 
@@ -300,7 +300,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -309,7 +309,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string> SupportedIdentityProviders
     {
-        get => GetArgument<TerraformSet<string>>("supported_identity_providers") ?? AsReference("supported_identity_providers");
+        get => GetArgument<TerraformSet<string>>("supported_identity_providers") ?? CreateReference("supported_identity_providers");
         set => SetArgument("supported_identity_providers", value);
     }
 
@@ -328,7 +328,7 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string> WriteAttributes
     {
-        get => GetArgument<TerraformSet<string>>("write_attributes") ?? AsReference("write_attributes");
+        get => GetArgument<TerraformSet<string>>("write_attributes") ?? CreateReference("write_attributes");
         set => SetArgument("write_attributes", value);
     }
 
@@ -336,13 +336,13 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// The client_secret attribute.
     /// </summary>
     public TerraformValue<string> ClientSecret
-        => AsReference("client_secret");
+        => CreateReference("client_secret");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// AnalyticsConfiguration block (nesting mode: list).

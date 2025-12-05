@@ -41,7 +41,7 @@ public partial class AwsAppsyncApiKey(string name) : TerraformResource("aws_apps
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsAppsyncApiKey(string name) : TerraformResource("aws_apps
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,12 +58,12 @@ public partial class AwsAppsyncApiKey(string name) : TerraformResource("aws_apps
     /// The api_key_id attribute.
     /// </summary>
     public TerraformValue<string> ApiKeyId
-        => AsReference("api_key_id");
+        => CreateReference("api_key_id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     public TerraformValue<string> Key
-        => AsReference("key");
+        => CreateReference("key");
 
 }

@@ -35,7 +35,7 @@ public partial class GoogleIapClientDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -43,12 +43,12 @@ public partial class GoogleIapClientDataSource(string name) : TerraformDataSourc
     /// Human-friendly name given to the OAuth client.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Output only. Client secret of the OAuth client.
     /// </summary>
     public TerraformValue<string> Secret
-        => AsReference("secret");
+        => CreateReference("secret");
 
 }

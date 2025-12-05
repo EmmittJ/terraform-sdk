@@ -116,7 +116,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     /// Output only. Indicates if the initialUser.password field has been set.
     /// </summary>
     public TerraformValue<bool> PasswordSet
-        => AsReference("password_set");
+        => CreateReference("password_set");
 
     /// <summary>
     /// The database username.
@@ -173,7 +173,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     /// Output only. The private IP address for the Instance. This is the connection endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> PrivateIp
-        => AsReference("private_ip");
+        => CreateReference("private_ip");
 
     /// <summary>
     /// MachineConfig block (nesting mode: list).
@@ -229,19 +229,19 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : Terr
     /// Output only. The Cloud SQL instance ID that this connection profile is associated with.
     /// </summary>
     public TerraformValue<string> CloudSqlId
-        => AsReference("cloud_sql_id");
+        => CreateReference("cloud_sql_id");
 
     /// <summary>
     /// Output only. The Cloud SQL database instance&#39;s private IP.
     /// </summary>
     public TerraformValue<string> PrivateIp
-        => AsReference("private_ip");
+        => CreateReference("private_ip");
 
     /// <summary>
     /// Output only. The Cloud SQL database instance&#39;s public IP.
     /// </summary>
     public TerraformValue<string> PublicIp
-        => AsReference("public_ip");
+        => CreateReference("public_ip");
 
     /// <summary>
     /// Settings block (nesting mode: list).
@@ -362,7 +362,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// Output only. Indicates If this connection profile root password is stored.
     /// </summary>
     public TerraformValue<bool> RootPasswordSet
-        => AsReference("root_password_set");
+        => CreateReference("root_password_set");
 
     /// <summary>
     /// The Database Migration Service source connection profile ID, in the format: projects/my_project_name/locations/us-central1/connectionProfiles/connection_profile_ID
@@ -567,7 +567,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// Output only. Indicates If this connection profile password is stored.
     /// </summary>
     public TerraformValue<bool> PasswordSet
-        => AsReference("password_set");
+        => CreateReference("password_set");
 
     /// <summary>
     /// The network port of the source MySQL database.
@@ -698,7 +698,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     /// Output only. Indicates If this connection profile password is stored.
     /// </summary>
     public TerraformValue<bool> PasswordSet
-        => AsReference("password_set");
+        => CreateReference("password_set");
 
     /// <summary>
     /// Required. The network port of the source Oracle database.
@@ -891,7 +891,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockSslBlock 
     /// The current connection profile state.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }
 
@@ -951,7 +951,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// Output only. If the source is a Cloud SQL database, this field indicates the network architecture it&#39;s associated with.
     /// </summary>
     public TerraformValue<string> NetworkArchitecture
-        => AsReference("network_architecture");
+        => CreateReference("network_architecture");
 
     /// <summary>
     /// Input only. The password for the user that Database Migration Service will be using to connect to the database.
@@ -967,7 +967,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// Output only. Indicates If this connection profile password is stored.
     /// </summary>
     public TerraformValue<bool> PasswordSet
-        => AsReference("password_set");
+        => CreateReference("password_set");
 
     /// <summary>
     /// The network port of the source MySQL database.
@@ -1123,7 +1123,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1154,7 +1154,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1162,44 +1162,44 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC &#39;Zulu&#39; format, accurate to nanoseconds. Example: &#39;2014-10-02T15:01:23.045123456Z&#39;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The database provider.
     /// </summary>
     public TerraformValue<string> Dbprovider
-        => AsReference("dbprovider");
+        => CreateReference("dbprovider");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Output only. The error details in case of state FAILED.
     /// </summary>
     public TerraformList<TerraformMap<object>> Error
-        => AsReference("error");
+        => CreateReference("error");
 
     /// <summary>
     /// The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The current connection profile state.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Alloydb block (nesting mode: list).

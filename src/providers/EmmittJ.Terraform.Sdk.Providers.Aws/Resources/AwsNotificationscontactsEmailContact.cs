@@ -41,12 +41,12 @@ public partial class AwsNotificationscontactsEmailContact(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
 }

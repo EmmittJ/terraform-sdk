@@ -31,7 +31,7 @@ public partial class AwsMqBrokerInstanceTypeOfferingsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsMqBrokerInstanceTypeOfferingsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -57,6 +57,6 @@ public partial class AwsMqBrokerInstanceTypeOfferingsDataSource(string name) : T
     /// The broker_instance_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BrokerInstanceOptions
-        => AsReference("broker_instance_options");
+        => CreateReference("broker_instance_options");
 
 }

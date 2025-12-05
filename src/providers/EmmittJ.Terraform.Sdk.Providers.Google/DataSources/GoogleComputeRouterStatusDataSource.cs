@@ -13,7 +13,7 @@ public partial class GoogleComputeRouterStatusDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleComputeRouterStatusDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,18 +49,18 @@ public partial class GoogleComputeRouterStatusDataSource(string name) : Terrafor
     /// Best routes for this router&#39;s network.
     /// </summary>
     public TerraformList<TerraformMap<object>> BestRoutes
-        => AsReference("best_routes");
+        => CreateReference("best_routes");
 
     /// <summary>
     /// Best routes learned by this router.
     /// </summary>
     public TerraformList<TerraformMap<object>> BestRoutesForRouter
-        => AsReference("best_routes_for_router");
+        => CreateReference("best_routes_for_router");
 
     /// <summary>
     /// URI of the network to which this router belongs.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
 }

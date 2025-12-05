@@ -65,7 +65,7 @@ public class AwsLambdaFunctionEphemeralStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? CreateReference("size");
         set => SetArgument("size", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LogGroup
     {
-        get => GetArgument<TerraformValue<string>>("log_group") ?? AsReference("log_group");
+        get => GetArgument<TerraformValue<string>>("log_group") ?? CreateReference("log_group");
         set => SetArgument("log_group", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsLambdaFunctionSnapStartBlock : TerraformBlock
     /// The optimization_status attribute.
     /// </summary>
     public TerraformValue<string> OptimizationStatus
-        => AsReference("optimization_status");
+        => CreateReference("optimization_status");
 
 }
 
@@ -337,7 +337,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }
 
@@ -353,7 +353,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformList<string> Architectures
     {
-        get => GetArgument<TerraformList<string>>("architectures") ?? AsReference("architectures");
+        get => GetArgument<TerraformList<string>>("architectures") ?? CreateReference("architectures");
         set => SetArgument("architectures", value);
     }
 
@@ -408,7 +408,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -471,7 +471,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -562,7 +562,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string> SourceCodeHash
     {
-        get => GetArgument<TerraformValue<string>>("source_code_hash") ?? AsReference("source_code_hash");
+        get => GetArgument<TerraformValue<string>>("source_code_hash") ?? CreateReference("source_code_hash");
         set => SetArgument("source_code_hash", value);
     }
 
@@ -589,7 +589,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -606,61 +606,61 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The code_sha256 attribute.
     /// </summary>
     public TerraformValue<string> CodeSha256
-        => AsReference("code_sha256");
+        => CreateReference("code_sha256");
 
     /// <summary>
     /// The invoke_arn attribute.
     /// </summary>
     public TerraformValue<string> InvokeArn
-        => AsReference("invoke_arn");
+        => CreateReference("invoke_arn");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The qualified_arn attribute.
     /// </summary>
     public TerraformValue<string> QualifiedArn
-        => AsReference("qualified_arn");
+        => CreateReference("qualified_arn");
 
     /// <summary>
     /// The qualified_invoke_arn attribute.
     /// </summary>
     public TerraformValue<string> QualifiedInvokeArn
-        => AsReference("qualified_invoke_arn");
+        => CreateReference("qualified_invoke_arn");
 
     /// <summary>
     /// The signing_job_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningJobArn
-        => AsReference("signing_job_arn");
+        => CreateReference("signing_job_arn");
 
     /// <summary>
     /// The signing_profile_version_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningProfileVersionArn
-        => AsReference("signing_profile_version_arn");
+        => CreateReference("signing_profile_version_arn");
 
     /// <summary>
     /// The source_code_size attribute.
     /// </summary>
     public TerraformValue<double> SourceCodeSize
-        => AsReference("source_code_size");
+        => CreateReference("source_code_size");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// DeadLetterConfig block (nesting mode: list).

@@ -97,7 +97,7 @@ public partial class GoogleKmsCryptoKeyVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -107,7 +107,7 @@ public partial class GoogleKmsCryptoKeyVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -115,32 +115,32 @@ public partial class GoogleKmsCryptoKeyVersion(string name) : TerraformResource(
     /// The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports.
     /// </summary>
     public TerraformValue<string> Algorithm
-        => AsReference("algorithm");
+        => CreateReference("algorithm");
 
     /// <summary>
     /// Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on the HSM, independently of Google.
     /// Only provided for key versions with protectionLevel HSM.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attestation
-        => AsReference("attestation");
+        => CreateReference("attestation");
 
     /// <summary>
     /// The time this CryptoKeyVersion key material was generated
     /// </summary>
     public TerraformValue<string> GenerateTime
-        => AsReference("generate_time");
+        => CreateReference("generate_time");
 
     /// <summary>
     /// The resource name for this CryptoKeyVersion.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion.
     /// </summary>
     public TerraformValue<string> ProtectionLevel
-        => AsReference("protection_level");
+        => CreateReference("protection_level");
 
     /// <summary>
     /// ExternalProtectionLevelOptions block (nesting mode: list).

@@ -49,7 +49,7 @@ public partial class AwsSnsSmsPreferences(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsSnsSmsPreferences(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double> MonthlySpendLimit
     {
-        get => GetArgument<TerraformValue<double>>("monthly_spend_limit") ?? AsReference("monthly_spend_limit");
+        get => GetArgument<TerraformValue<double>>("monthly_spend_limit") ?? CreateReference("monthly_spend_limit");
         set => SetArgument("monthly_spend_limit", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsSnsSmsPreferences(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

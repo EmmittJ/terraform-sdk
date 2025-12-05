@@ -166,7 +166,7 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -232,37 +232,37 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     /// The elastic_cloud_deployment_id attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudDeploymentId
-        => AsReference("elastic_cloud_deployment_id");
+        => CreateReference("elastic_cloud_deployment_id");
 
     /// <summary>
     /// The elastic_cloud_sso_default_url attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudSsoDefaultUrl
-        => AsReference("elastic_cloud_sso_default_url");
+        => CreateReference("elastic_cloud_sso_default_url");
 
     /// <summary>
     /// The elastic_cloud_user_id attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudUserId
-        => AsReference("elastic_cloud_user_id");
+        => CreateReference("elastic_cloud_user_id");
 
     /// <summary>
     /// The elasticsearch_service_url attribute.
     /// </summary>
     public TerraformValue<string> ElasticsearchServiceUrl
-        => AsReference("elasticsearch_service_url");
+        => CreateReference("elasticsearch_service_url");
 
     /// <summary>
     /// The kibana_service_url attribute.
     /// </summary>
     public TerraformValue<string> KibanaServiceUrl
-        => AsReference("kibana_service_url");
+        => CreateReference("kibana_service_url");
 
     /// <summary>
     /// The kibana_sso_uri attribute.
     /// </summary>
     public TerraformValue<string> KibanaSsoUri
-        => AsReference("kibana_sso_uri");
+        => CreateReference("kibana_sso_uri");
 
     /// <summary>
     /// Logs block (nesting mode: list).

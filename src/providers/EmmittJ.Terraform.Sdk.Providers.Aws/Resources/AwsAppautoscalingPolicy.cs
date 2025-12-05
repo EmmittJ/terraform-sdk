@@ -36,7 +36,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock : 
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock : 
     /// </summary>
     public TerraformValue<double> SchedulingBufferTime
     {
-        get => GetArgument<TerraformValue<double>>("scheduling_buffer_time") ?? AsReference("scheduling_buffer_time");
+        get => GetArgument<TerraformValue<double>>("scheduling_buffer_time") ?? CreateReference("scheduling_buffer_time");
         set => SetArgument("scheduling_buffer_time", value);
     }
 
@@ -1346,7 +1346,7 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1374,7 +1374,7 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1412,13 +1412,13 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     /// The alarm_arns attribute.
     /// </summary>
     public TerraformList<string> AlarmArns
-        => AsReference("alarm_arns");
+        => CreateReference("alarm_arns");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// PredictiveScalingPolicyConfiguration block (nesting mode: list).

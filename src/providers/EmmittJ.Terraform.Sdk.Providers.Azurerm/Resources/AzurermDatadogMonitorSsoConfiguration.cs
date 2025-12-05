@@ -83,7 +83,7 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     /// </summary>
     public TerraformValue<string> SingleSignOn
     {
-        get => GetArgument<TerraformValue<string>>("single_sign_on") ?? AsReference("single_sign_on");
+        get => GetArgument<TerraformValue<string>>("single_sign_on") ?? CreateReference("single_sign_on");
         set => SetArgument("single_sign_on", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> SingleSignOnEnabled
     {
-        get => GetArgument<TerraformValue<string>>("single_sign_on_enabled") ?? AsReference("single_sign_on_enabled");
+        get => GetArgument<TerraformValue<string>>("single_sign_on_enabled") ?? CreateReference("single_sign_on_enabled");
         set => SetArgument("single_sign_on_enabled", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     /// The login_url attribute.
     /// </summary>
     public TerraformValue<string> LoginUrl
-        => AsReference("login_url");
+        => CreateReference("login_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

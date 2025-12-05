@@ -70,7 +70,7 @@ public partial class AwsEc2InstanceTypeOfferingDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsEc2InstanceTypeOfferingDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,13 +105,13 @@ public partial class AwsEc2InstanceTypeOfferingDataSource(string name) : Terrafo
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-        => AsReference("instance_type");
+        => CreateReference("instance_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// Filter block (nesting mode: set).

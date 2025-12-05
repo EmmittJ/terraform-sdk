@@ -157,7 +157,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -176,7 +176,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -184,7 +184,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// The time at which the curation was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The error code of the last execution of the curation. The error code is
@@ -195,14 +195,14 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// UNAUTHORIZED
     /// </summary>
     public TerraformValue<string> LastExecutionErrorCode
-        => AsReference("last_execution_error_code");
+        => CreateReference("last_execution_error_code");
 
     /// <summary>
     /// Error message describing the failure, if any, during the last execution of
     /// the curation.
     /// </summary>
     public TerraformValue<string> LastExecutionErrorMessage
-        => AsReference("last_execution_error_message");
+        => CreateReference("last_execution_error_message");
 
     /// <summary>
     /// The last execution state of the curation.
@@ -212,7 +212,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// FAILED
     /// </summary>
     public TerraformValue<string> LastExecutionState
-        => AsReference("last_execution_state");
+        => CreateReference("last_execution_state");
 
     /// <summary>
     /// Identifier. The name of the curation.
@@ -221,7 +221,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// &#39;projects/{project}/locations/{location}/curations/{curation}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The plugin instances and associated actions that are using the curation.
@@ -229,13 +229,13 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// multiple actions in a plugin instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> PluginInstanceActions
-        => AsReference("plugin_instance_actions");
+        => CreateReference("plugin_instance_actions");
 
     /// <summary>
     /// The time at which the curation was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Endpoint block (nesting mode: list).

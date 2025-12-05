@@ -115,7 +115,7 @@ public partial class AzurermStorageDataLakeGen2Filesystem(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> DefaultEncryptionScope
     {
-        get => GetArgument<TerraformValue<string>>("default_encryption_scope") ?? AsReference("default_encryption_scope");
+        get => GetArgument<TerraformValue<string>>("default_encryption_scope") ?? CreateReference("default_encryption_scope");
         set => SetArgument("default_encryption_scope", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermStorageDataLakeGen2Filesystem(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Group
     {
-        get => GetArgument<TerraformValue<string>>("group") ?? AsReference("group");
+        get => GetArgument<TerraformValue<string>>("group") ?? CreateReference("group");
         set => SetArgument("group", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermStorageDataLakeGen2Filesystem(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermStorageDataLakeGen2Filesystem(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Owner
     {
-        get => GetArgument<TerraformValue<string>>("owner") ?? AsReference("owner");
+        get => GetArgument<TerraformValue<string>>("owner") ?? CreateReference("owner");
         set => SetArgument("owner", value);
     }
 

@@ -120,7 +120,7 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -139,7 +139,7 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -147,20 +147,20 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     /// The time when the Entry Link was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The relative resource name of the Entry Link, of the form:
     /// projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The time when the Entry Link was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// EntryReferences block (nesting mode: list).

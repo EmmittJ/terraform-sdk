@@ -70,7 +70,7 @@ public partial class AwsKeyPairDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsKeyPairDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsKeyPairDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -123,31 +123,31 @@ public partial class AwsKeyPairDataSource(string name) : TerraformDataSource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The fingerprint attribute.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
     public TerraformValue<string> KeyType
-        => AsReference("key_type");
+        => CreateReference("key_type");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
     /// <summary>
     /// Filter block (nesting mode: set).

@@ -102,7 +102,7 @@ public partial class AzurermApiManagementUser(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermApiManagementUser(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 

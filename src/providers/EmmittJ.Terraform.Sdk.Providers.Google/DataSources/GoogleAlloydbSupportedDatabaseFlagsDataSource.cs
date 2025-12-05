@@ -13,7 +13,7 @@ public partial class GoogleAlloydbSupportedDatabaseFlagsDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,6 +40,6 @@ public partial class GoogleAlloydbSupportedDatabaseFlagsDataSource(string name) 
     /// The supported_database_flags attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SupportedDatabaseFlags
-        => AsReference("supported_database_flags");
+        => CreateReference("supported_database_flags");
 
 }

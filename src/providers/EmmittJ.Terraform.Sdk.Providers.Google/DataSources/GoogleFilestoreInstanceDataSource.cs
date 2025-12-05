@@ -13,7 +13,7 @@ public partial class GoogleFilestoreInstanceDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,64 +49,64 @@ public partial class GoogleFilestoreInstanceDataSource(string name) : TerraformD
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Indicates whether the instance is protected against deletion.
     /// </summary>
     public TerraformValue<bool> DeletionProtectionEnabled
-        => AsReference("deletion_protection_enabled");
+        => CreateReference("deletion_protection_enabled");
 
     /// <summary>
     /// The reason for enabling deletion protection.
     /// </summary>
     public TerraformValue<string> DeletionProtectionReason
-        => AsReference("deletion_protection_reason");
+        => CreateReference("deletion_protection_reason");
 
     /// <summary>
     /// A description of the instance.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Output only fields for replication configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveReplication
-        => AsReference("effective_replication");
+        => CreateReference("effective_replication");
 
     /// <summary>
     /// Server-specified ETag for the instance resource to prevent
     /// simultaneous updates from overwriting each other.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// File system shares on the instance. For this version, only a
     /// single file share is supported.
     /// </summary>
     public TerraformList<TerraformMap<object>> FileShares
-        => AsReference("file_shares");
+        => CreateReference("file_shares");
 
     /// <summary>
     /// Replication configuration, once set, this cannot be updated.
     /// Additionally this should be specified on the replica instance only, indicating the active as the peer_instance
     /// </summary>
     public TerraformList<TerraformMap<object>> InitialReplication
-        => AsReference("initial_replication");
+        => CreateReference("initial_replication");
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
     public TerraformValue<string> KmsKeyName
-        => AsReference("kms_key_name");
+        => CreateReference("kms_key_name");
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -116,21 +116,21 @@ public partial class GoogleFilestoreInstanceDataSource(string name) : TerraformD
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// VPC networks to which the instance is connected. For this version,
     /// only a single network is supported.
     /// </summary>
     public TerraformList<TerraformMap<object>> Networks
-        => AsReference("networks");
+        => CreateReference("networks");
 
     /// <summary>
     /// Performance configuration for the instance. If not provided,
     /// the default performance settings will be used.
     /// </summary>
     public TerraformList<TerraformMap<object>> PerformanceConfig
-        => AsReference("performance_config");
+        => CreateReference("performance_config");
 
     /// <summary>
     /// Either NFSv3, for using NFS version 3 as file sharing protocol,
@@ -139,7 +139,7 @@ public partial class GoogleFilestoreInstanceDataSource(string name) : TerraformD
     /// The default is NFSv3. Default value: &amp;quot;NFS_V3&amp;quot; Possible values: [&amp;quot;NFS_V3&amp;quot;, &amp;quot;NFS_V4_1&amp;quot;]
     /// </summary>
     public TerraformValue<string> Protocol
-        => AsReference("protocol");
+        => CreateReference("protocol");
 
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys
@@ -153,26 +153,26 @@ public partial class GoogleFilestoreInstanceDataSource(string name) : TerraformD
     /// resource, see the &#39;google_tags_tag_value&#39; resource.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The service tier of the instance.
     /// Possible values include: STANDARD, PREMIUM, BASIC_HDD, BASIC_SSD, HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE
     /// </summary>
     public TerraformValue<string> Tier
-        => AsReference("tier");
+        => CreateReference("tier");
 
     /// <summary>
     /// The name of the Filestore zone of the instance.
     /// </summary>
     public TerraformValue<string> Zone
-        => AsReference("zone");
+        => CreateReference("zone");
 
 }

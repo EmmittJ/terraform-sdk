@@ -13,7 +13,7 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,13 +40,13 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Settings for ingestion from a data source into this topic.
     /// </summary>
     public TerraformList<TerraformMap<object>> IngestionDataSourceSettings
-        => AsReference("ingestion_data_source_settings");
+        => CreateReference("ingestion_data_source_settings");
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -56,7 +56,7 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// The expected format is &#39;projects/*/locations/*/keyRings/*/cryptoKeys/*&#39;
     /// </summary>
     public TerraformValue<string> KmsKeyName
-        => AsReference("kms_key_name");
+        => CreateReference("kms_key_name");
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Topic.
@@ -66,7 +66,7 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Indicates the minimum duration to retain a message after it is published
@@ -79,7 +79,7 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// letter &#39;s&#39; (seconds). Cannot be more than 31 days or less than 10 minutes.
     /// </summary>
     public TerraformValue<string> MessageRetentionDuration
-        => AsReference("message_retention_duration");
+        => CreateReference("message_retention_duration");
 
     /// <summary>
     /// Policy constraining the set of Google Cloud Platform regions where
@@ -87,20 +87,20 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// constraints are in effect.
     /// </summary>
     public TerraformList<TerraformMap<object>> MessageStoragePolicy
-        => AsReference("message_storage_policy");
+        => CreateReference("message_storage_policy");
 
     /// <summary>
     /// Transforms to be applied to messages published to the topic. Transforms are applied in the
     /// order specified.
     /// </summary>
     public TerraformList<TerraformMap<object>> MessageTransforms
-        => AsReference("message_transforms");
+        => CreateReference("message_transforms");
 
     /// <summary>
     /// Settings for validating messages published against a schema.
     /// </summary>
     public TerraformList<TerraformMap<object>> SchemaSettings
-        => AsReference("schema_settings");
+        => CreateReference("schema_settings");
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the topic. Tag keys and
@@ -113,13 +113,13 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// resource.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
 }

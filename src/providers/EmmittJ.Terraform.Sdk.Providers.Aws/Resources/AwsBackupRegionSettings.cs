@@ -13,7 +13,7 @@ public partial class AwsBackupRegionSettings(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsBackupRegionSettings(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsBackupRegionSettings(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<bool> ResourceTypeManagementPreference
     {
-        get => GetArgument<TerraformMap<bool>>("resource_type_management_preference") ?? AsReference("resource_type_management_preference");
+        get => GetArgument<TerraformMap<bool>>("resource_type_management_preference") ?? CreateReference("resource_type_management_preference");
         set => SetArgument("resource_type_management_preference", value);
     }
 

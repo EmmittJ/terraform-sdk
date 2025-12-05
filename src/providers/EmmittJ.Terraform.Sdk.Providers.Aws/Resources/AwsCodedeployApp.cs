@@ -22,7 +22,7 @@ public partial class AwsCodedeployApp(string name) : TerraformResource("aws_code
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCodedeployApp(string name) : TerraformResource("aws_code
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsCodedeployApp(string name) : TerraformResource("aws_code
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -67,24 +67,24 @@ public partial class AwsCodedeployApp(string name) : TerraformResource("aws_code
     /// The application_id attribute.
     /// </summary>
     public TerraformValue<string> ApplicationId
-        => AsReference("application_id");
+        => CreateReference("application_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The github_account_name attribute.
     /// </summary>
     public TerraformValue<string> GithubAccountName
-        => AsReference("github_account_name");
+        => CreateReference("github_account_name");
 
     /// <summary>
     /// The linked_to_github attribute.
     /// </summary>
     public TerraformValue<bool> LinkedToGithub
-        => AsReference("linked_to_github");
+        => CreateReference("linked_to_github");
 
 }

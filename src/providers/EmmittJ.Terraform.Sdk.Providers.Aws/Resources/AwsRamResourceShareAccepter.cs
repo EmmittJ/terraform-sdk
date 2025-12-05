@@ -45,7 +45,7 @@ public partial class AwsRamResourceShareAccepter(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsRamResourceShareAccepter(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,43 +72,43 @@ public partial class AwsRamResourceShareAccepter(string name) : TerraformResourc
     /// The invitation_arn attribute.
     /// </summary>
     public TerraformValue<string> InvitationArn
-        => AsReference("invitation_arn");
+        => CreateReference("invitation_arn");
 
     /// <summary>
     /// The receiver_account_id attribute.
     /// </summary>
     public TerraformValue<string> ReceiverAccountId
-        => AsReference("receiver_account_id");
+        => CreateReference("receiver_account_id");
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     public TerraformList<string> Resources
-        => AsReference("resources");
+        => CreateReference("resources");
 
     /// <summary>
     /// The sender_account_id attribute.
     /// </summary>
     public TerraformValue<string> SenderAccountId
-        => AsReference("sender_account_id");
+        => CreateReference("sender_account_id");
 
     /// <summary>
     /// The share_id attribute.
     /// </summary>
     public TerraformValue<string> ShareId
-        => AsReference("share_id");
+        => CreateReference("share_id");
 
     /// <summary>
     /// The share_name attribute.
     /// </summary>
     public TerraformValue<string> ShareName
-        => AsReference("share_name");
+        => CreateReference("share_name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

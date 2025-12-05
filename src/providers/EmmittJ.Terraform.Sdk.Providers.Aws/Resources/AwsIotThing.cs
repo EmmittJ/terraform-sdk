@@ -22,7 +22,7 @@ public partial class AwsIotThing(string name) : TerraformResource("aws_iot_thing
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsIotThing(string name) : TerraformResource("aws_iot_thing
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,18 +58,18 @@ public partial class AwsIotThing(string name) : TerraformResource("aws_iot_thing
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The default_client_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultClientId
-        => AsReference("default_client_id");
+        => CreateReference("default_client_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

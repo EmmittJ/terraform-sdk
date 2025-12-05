@@ -22,7 +22,7 @@ public partial class GoogleProjectIamCustomRole(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleProjectIamCustomRole(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -78,12 +78,12 @@ public partial class GoogleProjectIamCustomRole(string name) : TerraformResource
     /// The current deleted state of the role.
     /// </summary>
     public TerraformValue<bool> Deleted
-        => AsReference("deleted");
+        => CreateReference("deleted");
 
     /// <summary>
     /// The name of the role in the format projects/{{project}}/roles/{{role_id}}. Like id, this field can be used as a reference in other resources such as IAM role bindings.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
 }

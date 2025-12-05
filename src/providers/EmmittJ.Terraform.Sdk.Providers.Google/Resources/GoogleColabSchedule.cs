@@ -282,7 +282,7 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -320,7 +320,7 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -329,7 +329,7 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -337,13 +337,13 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     /// The resource name of the Schedule
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The state of the schedule.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// CreateNotebookExecutionJobRequest block (nesting mode: list).

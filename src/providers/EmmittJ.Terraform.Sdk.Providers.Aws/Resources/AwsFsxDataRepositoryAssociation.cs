@@ -51,7 +51,7 @@ public class AwsFsxDataRepositoryAssociationS3BlockAutoExportPolicyBlock : Terra
     /// </summary>
     public TerraformList<string> Events
     {
-        get => GetArgument<TerraformList<string>>("events") ?? AsReference("events");
+        get => GetArgument<TerraformList<string>>("events") ?? CreateReference("events");
         set => SetArgument("events", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsFsxDataRepositoryAssociationS3BlockAutoImportPolicyBlock : Terra
     /// </summary>
     public TerraformList<string> Events
     {
-        get => GetArgument<TerraformList<string>>("events") ?? AsReference("events");
+        get => GetArgument<TerraformList<string>>("events") ?? CreateReference("events");
         set => SetArgument("events", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsFsxDataRepositoryAssociation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsFsxDataRepositoryAssociation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<double> ImportedFileChunkSize
     {
-        get => GetArgument<TerraformValue<double>>("imported_file_chunk_size") ?? AsReference("imported_file_chunk_size");
+        get => GetArgument<TerraformValue<double>>("imported_file_chunk_size") ?? CreateReference("imported_file_chunk_size");
         set => SetArgument("imported_file_chunk_size", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AwsFsxDataRepositoryAssociation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AwsFsxDataRepositoryAssociation(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -224,13 +224,13 @@ public partial class AwsFsxDataRepositoryAssociation(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// S3 block (nesting mode: list).

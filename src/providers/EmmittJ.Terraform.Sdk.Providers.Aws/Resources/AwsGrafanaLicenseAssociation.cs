@@ -54,7 +54,7 @@ public partial class AwsGrafanaLicenseAssociation(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsGrafanaLicenseAssociation(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -91,13 +91,13 @@ public partial class AwsGrafanaLicenseAssociation(string name) : TerraformResour
     /// The free_trial_expiration attribute.
     /// </summary>
     public TerraformValue<string> FreeTrialExpiration
-        => AsReference("free_trial_expiration");
+        => CreateReference("free_trial_expiration");
 
     /// <summary>
     /// The license_expiration attribute.
     /// </summary>
     public TerraformValue<string> LicenseExpiration
-        => AsReference("license_expiration");
+        => CreateReference("license_expiration");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzurermElasticSanDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,67 +64,67 @@ public partial class AzurermElasticSanDataSource(string name) : TerraformDataSou
     /// The base_size_in_tib attribute.
     /// </summary>
     public TerraformValue<double> BaseSizeInTib
-        => AsReference("base_size_in_tib");
+        => CreateReference("base_size_in_tib");
 
     /// <summary>
     /// The extended_size_in_tib attribute.
     /// </summary>
     public TerraformValue<double> ExtendedSizeInTib
-        => AsReference("extended_size_in_tib");
+        => CreateReference("extended_size_in_tib");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The total_iops attribute.
     /// </summary>
     public TerraformValue<double> TotalIops
-        => AsReference("total_iops");
+        => CreateReference("total_iops");
 
     /// <summary>
     /// The total_mbps attribute.
     /// </summary>
     public TerraformValue<double> TotalMbps
-        => AsReference("total_mbps");
+        => CreateReference("total_mbps");
 
     /// <summary>
     /// The total_size_in_tib attribute.
     /// </summary>
     public TerraformValue<double> TotalSizeInTib
-        => AsReference("total_size_in_tib");
+        => CreateReference("total_size_in_tib");
 
     /// <summary>
     /// The total_volume_size_in_gib attribute.
     /// </summary>
     public TerraformValue<double> TotalVolumeSizeInGib
-        => AsReference("total_volume_size_in_gib");
+        => CreateReference("total_volume_size_in_gib");
 
     /// <summary>
     /// The volume_group_count attribute.
     /// </summary>
     public TerraformValue<double> VolumeGroupCount
-        => AsReference("volume_group_count");
+        => CreateReference("volume_group_count");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

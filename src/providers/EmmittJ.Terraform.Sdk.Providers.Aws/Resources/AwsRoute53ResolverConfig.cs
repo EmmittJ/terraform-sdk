@@ -23,7 +23,7 @@ public partial class AwsRoute53ResolverConfig(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRoute53ResolverConfig(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,6 +50,6 @@ public partial class AwsRoute53ResolverConfig(string name) : TerraformResource("
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
 }

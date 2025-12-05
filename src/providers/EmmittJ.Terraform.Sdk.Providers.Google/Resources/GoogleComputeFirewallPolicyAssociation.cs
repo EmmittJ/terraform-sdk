@@ -80,7 +80,7 @@ public partial class GoogleComputeFirewallPolicyAssociation(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleComputeFirewallPolicyAssociation(string name) : Terra
     /// The short name of the firewall policy of the association.
     /// </summary>
     public TerraformValue<string> ShortName
-        => AsReference("short_name");
+        => CreateReference("short_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

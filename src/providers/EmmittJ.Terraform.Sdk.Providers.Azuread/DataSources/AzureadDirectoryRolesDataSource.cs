@@ -36,7 +36,7 @@ public partial class AzureadDirectoryRolesDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -44,19 +44,19 @@ public partial class AzureadDirectoryRolesDataSource(string name) : TerraformDat
     /// The object IDs of the roles
     /// </summary>
     public TerraformList<string> ObjectIds
-        => AsReference("object_ids");
+        => CreateReference("object_ids");
 
     /// <summary>
     /// A list of roles
     /// </summary>
     public TerraformList<TerraformMap<object>> Roles
-        => AsReference("roles");
+        => CreateReference("roles");
 
     /// <summary>
     /// The template IDs of the roles
     /// </summary>
     public TerraformList<string> TemplateIds
-        => AsReference("template_ids");
+        => CreateReference("template_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

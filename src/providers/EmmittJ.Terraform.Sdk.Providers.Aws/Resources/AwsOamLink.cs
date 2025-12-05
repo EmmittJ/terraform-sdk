@@ -134,7 +134,7 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -199,25 +199,25 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The label attribute.
     /// </summary>
     public TerraformValue<string> Label
-        => AsReference("label");
+        => CreateReference("label");
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
     public TerraformValue<string> LinkId
-        => AsReference("link_id");
+        => CreateReference("link_id");
 
     /// <summary>
     /// The sink_arn attribute.
     /// </summary>
     public TerraformValue<string> SinkArn
-        => AsReference("sink_arn");
+        => CreateReference("sink_arn");
 
     /// <summary>
     /// LinkConfiguration block (nesting mode: list).

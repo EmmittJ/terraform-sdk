@@ -17,13 +17,13 @@ public class AzurermVmwarePrivateCloudManagementClusterBlock : TerraformBlock
     /// The hosts attribute.
     /// </summary>
     public TerraformList<string> Hosts
-        => AsReference("hosts");
+        => CreateReference("hosts");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<double> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The size attribute.
@@ -99,7 +99,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -193,55 +193,55 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     /// The circuit attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Circuit
-        => AsReference("circuit");
+        => CreateReference("circuit");
 
     /// <summary>
     /// The hcx_cloud_manager_endpoint attribute.
     /// </summary>
     public TerraformValue<string> HcxCloudManagerEndpoint
-        => AsReference("hcx_cloud_manager_endpoint");
+        => CreateReference("hcx_cloud_manager_endpoint");
 
     /// <summary>
     /// The management_subnet_cidr attribute.
     /// </summary>
     public TerraformValue<string> ManagementSubnetCidr
-        => AsReference("management_subnet_cidr");
+        => CreateReference("management_subnet_cidr");
 
     /// <summary>
     /// The nsxt_certificate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> NsxtCertificateThumbprint
-        => AsReference("nsxt_certificate_thumbprint");
+        => CreateReference("nsxt_certificate_thumbprint");
 
     /// <summary>
     /// The nsxt_manager_endpoint attribute.
     /// </summary>
     public TerraformValue<string> NsxtManagerEndpoint
-        => AsReference("nsxt_manager_endpoint");
+        => CreateReference("nsxt_manager_endpoint");
 
     /// <summary>
     /// The provisioning_subnet_cidr attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningSubnetCidr
-        => AsReference("provisioning_subnet_cidr");
+        => CreateReference("provisioning_subnet_cidr");
 
     /// <summary>
     /// The vcenter_certificate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> VcenterCertificateThumbprint
-        => AsReference("vcenter_certificate_thumbprint");
+        => CreateReference("vcenter_certificate_thumbprint");
 
     /// <summary>
     /// The vcsa_endpoint attribute.
     /// </summary>
     public TerraformValue<string> VcsaEndpoint
-        => AsReference("vcsa_endpoint");
+        => CreateReference("vcsa_endpoint");
 
     /// <summary>
     /// The vmotion_subnet_cidr attribute.
     /// </summary>
     public TerraformValue<string> VmotionSubnetCidr
-        => AsReference("vmotion_subnet_cidr");
+        => CreateReference("vmotion_subnet_cidr");
 
     /// <summary>
     /// ManagementCluster block (nesting mode: list).

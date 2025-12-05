@@ -13,7 +13,7 @@ public partial class AwsBackupSelectionDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsBackupSelectionDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,18 +50,18 @@ public partial class AwsBackupSelectionDataSource(string name) : TerraformDataSo
     /// The iam_role_arn attribute.
     /// </summary>
     public TerraformValue<string> IamRoleArn
-        => AsReference("iam_role_arn");
+        => CreateReference("iam_role_arn");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     public TerraformSet<string> Resources
-        => AsReference("resources");
+        => CreateReference("resources");
 
 }

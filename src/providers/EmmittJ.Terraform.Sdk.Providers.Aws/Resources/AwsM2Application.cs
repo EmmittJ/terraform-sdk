@@ -124,7 +124,7 @@ public partial class AwsM2Application(string name) : TerraformResource("aws_m2_a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -150,31 +150,31 @@ public partial class AwsM2Application(string name) : TerraformResource("aws_m2_a
     /// The application_id attribute.
     /// </summary>
     public TerraformValue<string> ApplicationId
-        => AsReference("application_id");
+        => CreateReference("application_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The current_version attribute.
     /// </summary>
     public TerraformValue<double> CurrentVersion
-        => AsReference("current_version");
+        => CreateReference("current_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Definition block (nesting mode: list).

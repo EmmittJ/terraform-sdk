@@ -13,7 +13,7 @@ public partial class AwsRoute53ZoneDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsRoute53ZoneDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsRoute53ZoneDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsRoute53ZoneDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id") ?? AsReference("vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id") ?? CreateReference("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsRoute53ZoneDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> ZoneId
     {
-        get => GetArgument<TerraformValue<string>>("zone_id") ?? AsReference("zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id") ?? CreateReference("zone_id");
         set => SetArgument("zone_id", value);
     }
 
@@ -66,48 +66,48 @@ public partial class AwsRoute53ZoneDataSource(string name) : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-        => AsReference("caller_reference");
+        => CreateReference("caller_reference");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-        => AsReference("comment");
+        => CreateReference("comment");
 
     /// <summary>
     /// The linked_service_description attribute.
     /// </summary>
     public TerraformValue<string> LinkedServiceDescription
-        => AsReference("linked_service_description");
+        => CreateReference("linked_service_description");
 
     /// <summary>
     /// The linked_service_principal attribute.
     /// </summary>
     public TerraformValue<string> LinkedServicePrincipal
-        => AsReference("linked_service_principal");
+        => CreateReference("linked_service_principal");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformList<string> NameServers
-        => AsReference("name_servers");
+        => CreateReference("name_servers");
 
     /// <summary>
     /// The primary_name_server attribute.
     /// </summary>
     public TerraformValue<string> PrimaryNameServer
-        => AsReference("primary_name_server");
+        => CreateReference("primary_name_server");
 
     /// <summary>
     /// The resource_record_set_count attribute.
     /// </summary>
     public TerraformValue<double> ResourceRecordSetCount
-        => AsReference("resource_record_set_count");
+        => CreateReference("resource_record_set_count");
 
 }

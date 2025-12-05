@@ -36,7 +36,7 @@ public partial class AzurermSshPublicKeyDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSshPublicKeyDataSource(string name) : TerraformDataS
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

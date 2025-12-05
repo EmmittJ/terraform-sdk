@@ -64,7 +64,7 @@ public partial class AwsRedshiftClusterIamRoles(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> DefaultIamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("default_iam_role_arn") ?? AsReference("default_iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("default_iam_role_arn") ?? CreateReference("default_iam_role_arn");
         set => SetArgument("default_iam_role_arn", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsRedshiftClusterIamRoles(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string> IamRoleArns
     {
-        get => GetArgument<TerraformSet<string>>("iam_role_arns") ?? AsReference("iam_role_arns");
+        get => GetArgument<TerraformSet<string>>("iam_role_arns") ?? CreateReference("iam_role_arns");
         set => SetArgument("iam_role_arns", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsRedshiftClusterIamRoles(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsRedshiftClusterIamRoles(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

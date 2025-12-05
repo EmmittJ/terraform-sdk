@@ -21,12 +21,12 @@ public partial class GoogleDnsManagedZonesDataSource(string name) : TerraformDat
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The managed_zones attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedZones
-        => AsReference("managed_zones");
+        => CreateReference("managed_zones");
 
 }

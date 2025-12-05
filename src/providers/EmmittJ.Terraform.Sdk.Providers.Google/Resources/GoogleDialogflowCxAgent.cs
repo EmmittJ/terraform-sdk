@@ -601,7 +601,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -633,7 +633,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -679,25 +679,25 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// The unique identifier of the agent.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// A read only boolean field reflecting Zone Isolation status of the agent.
     /// </summary>
     public TerraformValue<bool> SatisfiesPzi
-        => AsReference("satisfies_pzi");
+        => CreateReference("satisfies_pzi");
 
     /// <summary>
     /// A read only boolean field reflecting Zone Separation status of the agent.
     /// </summary>
     public TerraformValue<bool> SatisfiesPzs
-        => AsReference("satisfies_pzs");
+        => CreateReference("satisfies_pzs");
 
     /// <summary>
     /// Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> StartFlow
-        => AsReference("start_flow");
+        => CreateReference("start_flow");
 
     /// <summary>
     /// AdvancedSettings block (nesting mode: list).

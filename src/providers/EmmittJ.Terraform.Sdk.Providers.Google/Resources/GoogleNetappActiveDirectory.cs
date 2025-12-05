@@ -119,7 +119,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -211,7 +211,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> OrganizationalUnit
     {
-        get => GetArgument<TerraformValue<string>>("organizational_unit") ?? AsReference("organizational_unit");
+        get => GetArgument<TerraformValue<string>>("organizational_unit") ?? CreateReference("organizational_unit");
         set => SetArgument("organizational_unit", value);
     }
 
@@ -230,7 +230,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -267,32 +267,32 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// Create time of the active directory. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The state of the Active Directory policy (not the Active Directory itself).
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The state details of the Active Directory.
     /// </summary>
     public TerraformValue<string> StateDetails
-        => AsReference("state_details");
+        => CreateReference("state_details");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

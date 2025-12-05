@@ -97,7 +97,7 @@ public partial class AwsSfnAlias(string name) : TerraformResource("aws_sfn_alias
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsSfnAlias(string name) : TerraformResource("aws_sfn_alias
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -124,13 +124,13 @@ public partial class AwsSfnAlias(string name) : TerraformResource("aws_sfn_alias
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// RoutingConfiguration block (nesting mode: list).

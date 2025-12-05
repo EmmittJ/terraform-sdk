@@ -63,7 +63,7 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> ReadAccessId
     {
-        get => GetArgument<TerraformValue<string>>("read_access_id") ?? AsReference("read_access_id");
+        get => GetArgument<TerraformValue<string>>("read_access_id") ?? CreateReference("read_access_id");
         set => SetArgument("read_access_id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

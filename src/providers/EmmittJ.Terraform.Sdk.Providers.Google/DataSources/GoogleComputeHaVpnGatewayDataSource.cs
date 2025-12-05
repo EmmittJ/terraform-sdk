@@ -13,7 +13,7 @@ public partial class GoogleComputeHaVpnGatewayDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,19 +55,19 @@ public partial class GoogleComputeHaVpnGatewayDataSource(string name) : Terrafor
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The IP family of the gateway IPs for the HA-VPN gateway interfaces. If not specified, IPV4 will be used. Default value: &amp;quot;IPV4&amp;quot; Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
     public TerraformValue<string> GatewayIpVersion
-        => AsReference("gateway_ip_version");
+        => CreateReference("gateway_ip_version");
 
     /// <summary>
     /// A fingerprint for the labels being applied to this VpnGateway, which is essentially a hash
@@ -77,7 +77,7 @@ public partial class GoogleComputeHaVpnGatewayDataSource(string name) : Terrafor
     /// otherwise the request will fail with error 412 conditionNotMet.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// Labels for this resource. These can only be added or modified by the setLabels method.
@@ -88,38 +88,38 @@ public partial class GoogleComputeHaVpnGatewayDataSource(string name) : Terrafor
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The network this VPN gateway is accepting traffic for.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The stack type for this VPN gateway to identify the IP protocols that are enabled.
     /// If not specified, IPV4_ONLY will be used. Default value: &amp;quot;IPV4_ONLY&amp;quot; Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
     public TerraformValue<string> StackType
-        => AsReference("stack_type");
+        => CreateReference("stack_type");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// A list of interfaces on this VPN gateway.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpnInterfaces
-        => AsReference("vpn_interfaces");
+        => CreateReference("vpn_interfaces");
 
 }

@@ -17,7 +17,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorag
     /// The available_size_in_gb attribute.
     /// </summary>
     public TerraformValue<double> AvailableSizeInGb
-        => AsReference("available_size_in_gb");
+        => CreateReference("available_size_in_gb");
 
     /// <summary>
     /// The total_size_in_gb attribute.
@@ -103,7 +103,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVault(string name) : Te
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVault(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

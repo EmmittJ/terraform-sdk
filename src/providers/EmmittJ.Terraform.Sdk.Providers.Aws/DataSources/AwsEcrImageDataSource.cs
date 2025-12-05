@@ -13,7 +13,7 @@ public partial class AwsEcrImageDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsEcrImageDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> ImageDigest
     {
-        get => GetArgument<TerraformValue<string>>("image_digest") ?? AsReference("image_digest");
+        get => GetArgument<TerraformValue<string>>("image_digest") ?? CreateReference("image_digest");
         set => SetArgument("image_digest", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsEcrImageDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsEcrImageDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> RegistryId
     {
-        get => GetArgument<TerraformValue<string>>("registry_id") ?? AsReference("registry_id");
+        get => GetArgument<TerraformValue<string>>("registry_id") ?? CreateReference("registry_id");
         set => SetArgument("registry_id", value);
     }
 
@@ -76,24 +76,24 @@ public partial class AwsEcrImageDataSource(string name) : TerraformDataSource("a
     /// The image_pushed_at attribute.
     /// </summary>
     public TerraformValue<double> ImagePushedAt
-        => AsReference("image_pushed_at");
+        => CreateReference("image_pushed_at");
 
     /// <summary>
     /// The image_size_in_bytes attribute.
     /// </summary>
     public TerraformValue<double> ImageSizeInBytes
-        => AsReference("image_size_in_bytes");
+        => CreateReference("image_size_in_bytes");
 
     /// <summary>
     /// The image_tags attribute.
     /// </summary>
     public TerraformList<string> ImageTags
-        => AsReference("image_tags");
+        => CreateReference("image_tags");
 
     /// <summary>
     /// The image_uri attribute.
     /// </summary>
     public TerraformValue<string> ImageUri
-        => AsReference("image_uri");
+        => CreateReference("image_uri");
 
 }

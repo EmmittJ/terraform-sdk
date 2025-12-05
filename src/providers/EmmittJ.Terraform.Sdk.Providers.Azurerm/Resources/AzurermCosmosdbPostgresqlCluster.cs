@@ -113,7 +113,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> CitusVersion
     {
-        get => GetArgument<TerraformValue<string>>("citus_version") ?? AsReference("citus_version");
+        get => GetArgument<TerraformValue<string>>("citus_version") ?? CreateReference("citus_version");
         set => SetArgument("citus_version", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double> NodeStorageQuotaInMb
     {
-        get => GetArgument<TerraformValue<double>>("node_storage_quota_in_mb") ?? AsReference("node_storage_quota_in_mb");
+        get => GetArgument<TerraformValue<double>>("node_storage_quota_in_mb") ?? CreateReference("node_storage_quota_in_mb");
         set => SetArgument("node_storage_quota_in_mb", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double> NodeVcores
     {
-        get => GetArgument<TerraformValue<double>>("node_vcores") ?? AsReference("node_vcores");
+        get => GetArgument<TerraformValue<double>>("node_vcores") ?? CreateReference("node_vcores");
         set => SetArgument("node_vcores", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool> ShardsOnCoordinatorEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("shards_on_coordinator_enabled") ?? AsReference("shards_on_coordinator_enabled");
+        get => GetArgument<TerraformValue<bool>>("shards_on_coordinator_enabled") ?? CreateReference("shards_on_coordinator_enabled");
         set => SetArgument("shards_on_coordinator_enabled", value);
     }
 
@@ -297,7 +297,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> SqlVersion
     {
-        get => GetArgument<TerraformValue<string>>("sql_version") ?? AsReference("sql_version");
+        get => GetArgument<TerraformValue<string>>("sql_version") ?? CreateReference("sql_version");
         set => SetArgument("sql_version", value);
     }
 
@@ -314,13 +314,13 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// The earliest_restore_time attribute.
     /// </summary>
     public TerraformValue<string> EarliestRestoreTime
-        => AsReference("earliest_restore_time");
+        => CreateReference("earliest_restore_time");
 
     /// <summary>
     /// The servers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Servers
-        => AsReference("servers");
+        => CreateReference("servers");
 
     /// <summary>
     /// MaintenanceWindow block (nesting mode: list).

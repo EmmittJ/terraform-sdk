@@ -23,7 +23,7 @@ public partial class GoogleBackupDrBackupPlanAssociationDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -53,55 +53,55 @@ public partial class GoogleBackupDrBackupPlanAssociationDataSource(string name) 
     /// - A Backup Plan configured for &#39;compute.googleapis.com/Disk&#39; can be used to protect both standard Disks and Regional Disks resources.
     /// </summary>
     public TerraformValue<string> BackupPlan
-        => AsReference("backup_plan");
+        => CreateReference("backup_plan");
 
     /// <summary>
     /// The time when the instance was created
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Resource name of data source which will be used as storage location for backups taken
     /// </summary>
     public TerraformValue<string> DataSource
-        => AsReference("data_source");
+        => CreateReference("data_source");
 
     /// <summary>
     /// The point in time when the last successful backup was captured from the source
     /// </summary>
     public TerraformValue<string> LastSuccessfulBackupConsistencyTime
-        => AsReference("last_successful_backup_consistency_time");
+        => CreateReference("last_successful_backup_consistency_time");
 
     /// <summary>
     /// The name of backup plan association resource created
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The resource for which BPA needs to be created
     /// </summary>
     public TerraformValue<string> Resource
-        => AsReference("resource");
+        => CreateReference("resource");
 
     /// <summary>
     /// The resource type of workload on which backupplan is applied.
     /// Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;, and &amp;quot;compute.googleapis.com/RegionDisk&amp;quot;
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-        => AsReference("resource_type");
+        => CreateReference("resource_type");
 
     /// <summary>
     /// Message for rules config info
     /// </summary>
     public TerraformList<TerraformMap<object>> RulesConfigInfo
-        => AsReference("rules_config_info");
+        => CreateReference("rules_config_info");
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

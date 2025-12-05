@@ -181,7 +181,7 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// </summary>
     public TerraformSet<string> Accounts
     {
-        get => GetArgument<TerraformSet<string>>("accounts") ?? AsReference("accounts");
+        get => GetArgument<TerraformSet<string>>("accounts") ?? CreateReference("accounts");
         set => SetArgument("accounts", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -226,7 +226,7 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// </summary>
     public TerraformSet<string> Regions
     {
-        get => GetArgument<TerraformSet<string>>("regions") ?? AsReference("regions");
+        get => GetArgument<TerraformSet<string>>("regions") ?? CreateReference("regions");
         set => SetArgument("regions", value);
     }
 
@@ -253,13 +253,13 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set.
     /// </summary>
     public TerraformList<TerraformMap<object>> StackInstanceSummaries
-        => AsReference("stack_instance_summaries");
+        => CreateReference("stack_instance_summaries");
 
     /// <summary>
     /// The stack_set_id attribute.
     /// </summary>
     public TerraformValue<string> StackSetId
-        => AsReference("stack_set_id");
+        => CreateReference("stack_set_id");
 
     /// <summary>
     /// DeploymentTargets block (nesting mode: list).

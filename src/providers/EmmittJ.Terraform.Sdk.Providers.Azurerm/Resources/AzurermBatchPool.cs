@@ -857,7 +857,7 @@ public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock
     /// </summary>
     public TerraformList<string> SourcePortRanges
     {
-        get => GetArgument<TerraformList<string>>("source_port_ranges") ?? AsReference("source_port_ranges");
+        get => GetArgument<TerraformList<string>>("source_port_ranges") ?? CreateReference("source_port_ranges");
         set => SetArgument("source_port_ranges", value);
     }
 
@@ -1333,7 +1333,7 @@ public class AzurermBatchPoolTaskSchedulingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> NodeFillType
     {
-        get => GetArgument<TerraformValue<string>>("node_fill_type") ?? AsReference("node_fill_type");
+        get => GetArgument<TerraformValue<string>>("node_fill_type") ?? CreateReference("node_fill_type");
         set => SetArgument("node_fill_type", value);
     }
 
@@ -1568,7 +1568,7 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

@@ -36,7 +36,7 @@ public partial class AzurermVirtualMachineDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermVirtualMachineDataSource(string name) : TerraformDat
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The power_state attribute.
     /// </summary>
     public TerraformValue<string> PowerState
-        => AsReference("power_state");
+        => CreateReference("power_state");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-        => AsReference("private_ip_addresses");
+        => CreateReference("private_ip_addresses");
 
     /// <summary>
     /// The public_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-        => AsReference("public_ip_address");
+        => CreateReference("public_ip_address");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-        => AsReference("public_ip_addresses");
+        => CreateReference("public_ip_addresses");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

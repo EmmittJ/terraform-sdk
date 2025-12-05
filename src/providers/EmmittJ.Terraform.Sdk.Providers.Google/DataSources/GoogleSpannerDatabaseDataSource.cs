@@ -13,7 +13,7 @@ public partial class GoogleSpannerDatabaseDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleSpannerDatabaseDataSource(string name) : TerraformDat
     /// If it is not provided, &amp;quot;GOOGLE_STANDARD_SQL&amp;quot; will be used. Possible values: [&amp;quot;GOOGLE_STANDARD_SQL&amp;quot;, &amp;quot;POSTGRESQL&amp;quot;]
     /// </summary>
     public TerraformValue<string> DatabaseDialect
-        => AsReference("database_dialect");
+        => CreateReference("database_dialect");
 
     /// <summary>
     /// An optional list of DDL statements to run inside the database. Statements can create
@@ -67,14 +67,14 @@ public partial class GoogleSpannerDatabaseDataSource(string name) : TerraformDat
     /// to prior statements will create a plan that marks the resource for recreation.
     /// </summary>
     public TerraformList<string> Ddl
-        => AsReference("ddl");
+        => CreateReference("ddl");
 
     /// <summary>
     /// The default time zone for the database. The default time zone must be a valid name
     /// from the tz database. Default value is &amp;quot;America/Los_angeles&amp;quot;.
     /// </summary>
     public TerraformValue<string> DefaultTimeZone
-        => AsReference("default_time_zone");
+        => CreateReference("default_time_zone");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the database. Defaults to true.
@@ -85,7 +85,7 @@ public partial class GoogleSpannerDatabaseDataSource(string name) : TerraformDat
     /// When the field is set to false, deleting the database is allowed.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// Whether drop protection is enabled for this database. Defaults to false.
@@ -97,19 +97,19 @@ public partial class GoogleSpannerDatabaseDataSource(string name) : TerraformDat
     /// &amp;quot;deletion_protection&amp;quot; attribute does not provide protection against the deletion of the parent instance.
     /// </summary>
     public TerraformValue<bool> EnableDropProtection
-        => AsReference("enable_drop_protection");
+        => CreateReference("enable_drop_protection");
 
     /// <summary>
     /// Encryption configuration for the database
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionConfig
-        => AsReference("encryption_config");
+        => CreateReference("encryption_config");
 
     /// <summary>
     /// An explanation of the status of the database.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The retention period for the database. The retention period must be between 1 hour
@@ -119,6 +119,6 @@ public partial class GoogleSpannerDatabaseDataSource(string name) : TerraformDat
     /// update the database&#39;s version_retention_period.
     /// </summary>
     public TerraformValue<string> VersionRetentionPeriod
-        => AsReference("version_retention_period");
+        => CreateReference("version_retention_period");
 
 }

@@ -42,7 +42,7 @@ public class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlock
     /// it will replace the placeholder in the schema.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// ApiAuthentication block (nesting mode: list).
@@ -481,7 +481,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -500,7 +500,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -520,7 +520,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// Timestamp when the toolset was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// ETag used to ensure the object hasn&#39;t changed during a read-modify-write
@@ -528,7 +528,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// changes.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Identifier. The unique identifier of the toolset.
@@ -536,13 +536,13 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// &#39;projects/{project}/locations/{location}/apps/{app}/toolsets/{toolset}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timestamp when the toolset was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// OpenApiToolset block (nesting mode: list).

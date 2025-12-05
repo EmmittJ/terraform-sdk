@@ -65,7 +65,7 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> GcpOracleZone
     {
-        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? AsReference("gcp_oracle_zone");
+        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? CreateReference("gcp_oracle_zone");
         set => SetArgument("gcp_oracle_zone", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -137,26 +137,26 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// The date and time that the OdbNetwork was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the OdbNetwork.
     /// </summary>
     public TerraformValue<string> EntitlementId
-        => AsReference("entitlement_id");
+        => CreateReference("entitlement_id");
 
     /// <summary>
     /// Identifier. The name of the OdbNetwork resource in the following format:
     /// projects/{project}/locations/{region}/odbNetworks/{odb_network}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// State of the ODB Network.
@@ -167,14 +167,14 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// FAILED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

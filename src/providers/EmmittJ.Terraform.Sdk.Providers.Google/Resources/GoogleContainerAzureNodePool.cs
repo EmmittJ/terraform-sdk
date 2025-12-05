@@ -70,7 +70,7 @@ public class GoogleContainerAzureNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VmSize
     {
-        get => GetArgument<TerraformValue<string>>("vm_size") ?? AsReference("vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size") ?? CreateReference("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleContainerAzureNodePoolConfigBlockRootVolumeBlock : TerraformB
     /// </summary>
     public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? CreateReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
@@ -204,7 +204,7 @@ public class GoogleContainerAzureNodePoolManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> AutoRepair
     {
-        get => GetArgument<TerraformValue<bool>>("auto_repair") ?? AsReference("auto_repair");
+        get => GetArgument<TerraformValue<bool>>("auto_repair") ?? CreateReference("auto_repair");
         set => SetArgument("auto_repair", value);
     }
 
@@ -299,7 +299,7 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> AzureAvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("azure_availability_zone") ?? AsReference("azure_availability_zone");
+        get => GetArgument<TerraformValue<string>>("azure_availability_zone") ?? CreateReference("azure_availability_zone");
         set => SetArgument("azure_availability_zone", value);
     }
 
@@ -318,7 +318,7 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -347,7 +347,7 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -375,43 +375,43 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     /// Output only. The time at which this node pool was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Output only. If set, there are currently pending changes to the node pool.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Output only. The current state of the node pool. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. A globally unique identifier for the node pool.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time at which this node pool was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Autoscaling block (nesting mode: list).

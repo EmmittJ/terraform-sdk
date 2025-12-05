@@ -46,7 +46,7 @@ public partial class AzurermBatchApplicationDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,19 +74,19 @@ public partial class AzurermBatchApplicationDataSource(string name) : TerraformD
     /// The allow_updates attribute.
     /// </summary>
     public TerraformValue<bool> AllowUpdates
-        => AsReference("allow_updates");
+        => CreateReference("allow_updates");
 
     /// <summary>
     /// The default_version attribute.
     /// </summary>
     public TerraformValue<string> DefaultVersion
-        => AsReference("default_version");
+        => CreateReference("default_version");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

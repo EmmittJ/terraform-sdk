@@ -36,7 +36,7 @@ public partial class AzurermVirtualHubConnectionDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AzurermVirtualHubConnectionDataSource(string name) : Terraf
     /// The internet_security_enabled attribute.
     /// </summary>
     public TerraformValue<bool> InternetSecurityEnabled
-        => AsReference("internet_security_enabled");
+        => CreateReference("internet_security_enabled");
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> RemoteVirtualNetworkId
-        => AsReference("remote_virtual_network_id");
+        => CreateReference("remote_virtual_network_id");
 
     /// <summary>
     /// The routing attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Routing
-        => AsReference("routing");
+        => CreateReference("routing");
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualHubId
-        => AsReference("virtual_hub_id");
+        => CreateReference("virtual_hub_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

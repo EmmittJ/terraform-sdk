@@ -13,7 +13,7 @@ public partial class AwsEcsTaskDefinitionDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsEcsTaskDefinitionDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,120 +40,120 @@ public partial class AwsEcsTaskDefinitionDataSource(string name) : TerraformData
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The arn_without_revision attribute.
     /// </summary>
     public TerraformValue<string> ArnWithoutRevision
-        => AsReference("arn_without_revision");
+        => CreateReference("arn_without_revision");
 
     /// <summary>
     /// The container_definitions attribute.
     /// </summary>
     public TerraformValue<string> ContainerDefinitions
-        => AsReference("container_definitions");
+        => CreateReference("container_definitions");
 
     /// <summary>
     /// The cpu attribute.
     /// </summary>
     public TerraformValue<string> Cpu
-        => AsReference("cpu");
+        => CreateReference("cpu");
 
     /// <summary>
     /// The enable_fault_injection attribute.
     /// </summary>
     public TerraformValue<bool> EnableFaultInjection
-        => AsReference("enable_fault_injection");
+        => CreateReference("enable_fault_injection");
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EphemeralStorage
-        => AsReference("ephemeral_storage");
+        => CreateReference("ephemeral_storage");
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionRoleArn
-        => AsReference("execution_role_arn");
+        => CreateReference("execution_role_arn");
 
     /// <summary>
     /// The family attribute.
     /// </summary>
     public TerraformValue<string> Family
-        => AsReference("family");
+        => CreateReference("family");
 
     /// <summary>
     /// The ipc_mode attribute.
     /// </summary>
     public TerraformValue<string> IpcMode
-        => AsReference("ipc_mode");
+        => CreateReference("ipc_mode");
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
     public TerraformValue<string> Memory
-        => AsReference("memory");
+        => CreateReference("memory");
 
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
     public TerraformValue<string> NetworkMode
-        => AsReference("network_mode");
+        => CreateReference("network_mode");
 
     /// <summary>
     /// The pid_mode attribute.
     /// </summary>
     public TerraformValue<string> PidMode
-        => AsReference("pid_mode");
+        => CreateReference("pid_mode");
 
     /// <summary>
     /// The placement_constraints attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PlacementConstraints
-        => AsReference("placement_constraints");
+        => CreateReference("placement_constraints");
 
     /// <summary>
     /// The proxy_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProxyConfiguration
-        => AsReference("proxy_configuration");
+        => CreateReference("proxy_configuration");
 
     /// <summary>
     /// The requires_compatibilities attribute.
     /// </summary>
     public TerraformSet<string> RequiresCompatibilities
-        => AsReference("requires_compatibilities");
+        => CreateReference("requires_compatibilities");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     public TerraformValue<double> Revision
-        => AsReference("revision");
+        => CreateReference("revision");
 
     /// <summary>
     /// The runtime_platform attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RuntimePlatform
-        => AsReference("runtime_platform");
+        => CreateReference("runtime_platform");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The task_role_arn attribute.
     /// </summary>
     public TerraformValue<string> TaskRoleArn
-        => AsReference("task_role_arn");
+        => CreateReference("task_role_arn");
 
     /// <summary>
     /// The volume attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Volume
-        => AsReference("volume");
+        => CreateReference("volume");
 
 }

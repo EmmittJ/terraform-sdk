@@ -13,7 +13,7 @@ public partial class GoogleGkeHubFeatureDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,25 +50,25 @@ public partial class GoogleGkeHubFeatureDataSource(string name) : TerraformDataS
     /// Output only. When the Feature resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. When the Feature resource was deleted.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Optional. Fleet Default Membership Configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> FleetDefaultMemberConfig
-        => AsReference("fleet_default_member_config");
+        => CreateReference("fleet_default_member_config");
 
     /// <summary>
     /// GCP labels for this Feature.
@@ -77,37 +77,37 @@ public partial class GoogleGkeHubFeatureDataSource(string name) : TerraformDataS
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// State of the Feature resource itself.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceState
-        => AsReference("resource_state");
+        => CreateReference("resource_state");
 
     /// <summary>
     /// Optional. Hub-wide Feature configuration. If this Feature does not support any Hub-wide configuration, this field may be unused.
     /// </summary>
     public TerraformList<TerraformMap<object>> Spec
-        => AsReference("spec");
+        => CreateReference("spec");
 
     /// <summary>
     /// Output only. The Hub-wide Feature state
     /// </summary>
     public TerraformList<TerraformMap<object>> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. When the Feature resource was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

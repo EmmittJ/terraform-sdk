@@ -13,7 +13,7 @@ public partial class GoogleTagsTagValueIamPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,6 +41,6 @@ public partial class GoogleTagsTagValueIamPolicy(string name) : TerraformResourc
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
 }

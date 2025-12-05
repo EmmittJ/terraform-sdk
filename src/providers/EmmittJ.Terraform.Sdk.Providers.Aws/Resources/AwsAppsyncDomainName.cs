@@ -42,7 +42,7 @@ public partial class AwsAppsyncDomainName(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsAppsyncDomainName(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,12 +59,12 @@ public partial class AwsAppsyncDomainName(string name) : TerraformResource("aws_
     /// The appsync_domain_name attribute.
     /// </summary>
     public TerraformValue<string> AppsyncDomainName
-        => AsReference("appsync_domain_name");
+        => CreateReference("appsync_domain_name");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
 }

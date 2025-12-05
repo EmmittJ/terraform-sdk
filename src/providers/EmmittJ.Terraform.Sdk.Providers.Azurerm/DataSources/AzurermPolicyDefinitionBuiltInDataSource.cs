@@ -36,7 +36,7 @@ public partial class AzurermPolicyDefinitionBuiltInDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermPolicyDefinitionBuiltInDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermPolicyDefinitionBuiltInDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -71,49 +71,49 @@ public partial class AzurermPolicyDefinitionBuiltInDataSource(string name) : Ter
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformValue<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     public TerraformValue<string> Mode
-        => AsReference("mode");
+        => CreateReference("mode");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformValue<string> Parameters
-        => AsReference("parameters");
+        => CreateReference("parameters");
 
     /// <summary>
     /// The policy_rule attribute.
     /// </summary>
     public TerraformValue<string> PolicyRule
-        => AsReference("policy_rule");
+        => CreateReference("policy_rule");
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
     public TerraformValue<string> PolicyType
-        => AsReference("policy_type");
+        => CreateReference("policy_type");
 
     /// <summary>
     /// The role_definition_ids attribute.
     /// </summary>
     public TerraformList<string> RoleDefinitionIds
-        => AsReference("role_definition_ids");
+        => CreateReference("role_definition_ids");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

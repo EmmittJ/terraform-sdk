@@ -132,7 +132,7 @@ public partial class AzurermNetworkProfile(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermNetworkProfile(string name) : TerraformResource("azu
     /// The container_network_interface_ids attribute.
     /// </summary>
     public TerraformList<string> ContainerNetworkInterfaceIds
-        => AsReference("container_network_interface_ids");
+        => CreateReference("container_network_interface_ids");
 
     /// <summary>
     /// ContainerNetworkInterface block (nesting mode: list).

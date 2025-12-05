@@ -13,7 +13,7 @@ public partial class AwsIamInstanceProfilesDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,18 +31,18 @@ public partial class AwsIamInstanceProfilesDataSource(string name) : TerraformDa
     /// The arns attribute.
     /// </summary>
     public TerraformSet<string> Arns
-        => AsReference("arns");
+        => CreateReference("arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     public TerraformSet<string> Names
-        => AsReference("names");
+        => CreateReference("names");
 
     /// <summary>
     /// The paths attribute.
     /// </summary>
     public TerraformSet<string> Paths
-        => AsReference("paths");
+        => CreateReference("paths");
 
 }

@@ -65,7 +65,7 @@ public partial class AwsSagemakerDevice(string name) : TerraformResource("aws_sa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsSagemakerDevice(string name) : TerraformResource("aws_sa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -82,13 +82,13 @@ public partial class AwsSagemakerDevice(string name) : TerraformResource("aws_sa
     /// The agent_version attribute.
     /// </summary>
     public TerraformValue<string> AgentVersion
-        => AsReference("agent_version");
+        => CreateReference("agent_version");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Device block (nesting mode: list).

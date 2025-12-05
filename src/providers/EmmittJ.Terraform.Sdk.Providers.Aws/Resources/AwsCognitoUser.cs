@@ -58,7 +58,7 @@ public partial class AwsCognitoUser(string name) : TerraformResource("aws_cognit
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsCognitoUser(string name) : TerraformResource("aws_cognit
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -131,36 +131,36 @@ public partial class AwsCognitoUser(string name) : TerraformResource("aws_cognit
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-        => AsReference("last_modified_date");
+        => CreateReference("last_modified_date");
 
     /// <summary>
     /// The mfa_setting_list attribute.
     /// </summary>
     public TerraformSet<string> MfaSettingList
-        => AsReference("mfa_setting_list");
+        => CreateReference("mfa_setting_list");
 
     /// <summary>
     /// The preferred_mfa_setting attribute.
     /// </summary>
     public TerraformValue<string> PreferredMfaSetting
-        => AsReference("preferred_mfa_setting");
+        => CreateReference("preferred_mfa_setting");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The sub attribute.
     /// </summary>
     public TerraformValue<string> Sub
-        => AsReference("sub");
+        => CreateReference("sub");
 
 }

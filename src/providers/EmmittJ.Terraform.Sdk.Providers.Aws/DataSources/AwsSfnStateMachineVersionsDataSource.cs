@@ -13,7 +13,7 @@ public partial class AwsSfnStateMachineVersionsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSfnStateMachineVersionsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,6 +40,6 @@ public partial class AwsSfnStateMachineVersionsDataSource(string name) : Terrafo
     /// The statemachine_versions attribute.
     /// </summary>
     public TerraformList<string> StatemachineVersions
-        => AsReference("statemachine_versions");
+        => CreateReference("statemachine_versions");
 
 }

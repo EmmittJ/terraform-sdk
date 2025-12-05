@@ -1127,7 +1127,7 @@ public partial class AwsWafv2WebAclRuleGroupAssociation(string name) : Terraform
     /// </summary>
     public TerraformValue<string> OverrideAction
     {
-        get => GetArgument<TerraformValue<string>>("override_action") ?? AsReference("override_action");
+        get => GetArgument<TerraformValue<string>>("override_action") ?? CreateReference("override_action");
         set => SetArgument("override_action", value);
     }
 
@@ -1146,7 +1146,7 @@ public partial class AwsWafv2WebAclRuleGroupAssociation(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

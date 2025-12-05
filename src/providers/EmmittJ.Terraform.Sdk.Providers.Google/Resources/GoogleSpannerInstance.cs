@@ -324,7 +324,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> DefaultBackupScheduleType
     {
-        get => GetArgument<TerraformValue<string>>("default_backup_schedule_type") ?? AsReference("default_backup_schedule_type");
+        get => GetArgument<TerraformValue<string>>("default_backup_schedule_type") ?? CreateReference("default_backup_schedule_type");
         set => SetArgument("default_backup_schedule_type", value);
     }
 
@@ -344,7 +344,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Edition
     {
-        get => GetArgument<TerraformValue<string>>("edition") ?? AsReference("edition");
+        get => GetArgument<TerraformValue<string>>("edition") ?? CreateReference("edition");
         set => SetArgument("edition", value);
     }
 
@@ -363,7 +363,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -374,7 +374,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? CreateReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -400,7 +400,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -410,7 +410,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<double> NumNodes
     {
-        get => GetArgument<TerraformValue<double>>("num_nodes") ?? AsReference("num_nodes");
+        get => GetArgument<TerraformValue<double>>("num_nodes") ?? CreateReference("num_nodes");
         set => SetArgument("num_nodes", value);
     }
 
@@ -420,7 +420,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<double> ProcessingUnits
     {
-        get => GetArgument<TerraformValue<double>>("processing_units") ?? AsReference("processing_units");
+        get => GetArgument<TerraformValue<double>>("processing_units") ?? CreateReference("processing_units");
         set => SetArgument("processing_units", value);
     }
 
@@ -429,7 +429,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -437,20 +437,20 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Instance status: &#39;CREATING&#39; or &#39;READY&#39;.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// AutoscalingConfig block (nesting mode: list).

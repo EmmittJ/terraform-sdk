@@ -36,7 +36,7 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     /// The returned token for use in subsequent verification steps.
     /// </summary>
     public TerraformValue<string> Token
-        => AsReference("token");
+        => CreateReference("token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

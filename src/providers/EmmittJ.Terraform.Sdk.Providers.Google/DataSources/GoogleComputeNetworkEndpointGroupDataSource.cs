@@ -13,7 +13,7 @@ public partial class GoogleComputeNetworkEndpointGroupDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,27 +64,27 @@ public partial class GoogleComputeNetworkEndpointGroupDataSource(string name) : 
     /// network endpoint.
     /// </summary>
     public TerraformValue<double> DefaultPort
-        => AsReference("default_port");
+        => CreateReference("default_port");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The uniquely generated identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> GeneratedId
-        => AsReference("generated_id");
+        => CreateReference("generated_id");
 
     /// <summary>
     /// The network to which all network endpoints in the NEG belong.
     /// Uses &amp;quot;default&amp;quot; project network if unspecified.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group.
@@ -98,18 +98,18 @@ public partial class GoogleComputeNetworkEndpointGroupDataSource(string name) : 
     /// Possible values include: GCE_VM_IP, GCE_VM_IP_PORT, NON_GCP_PRIVATE_IP_PORT, INTERNET_IP_PORT, INTERNET_FQDN_PORT, SERVERLESS, and PRIVATE_SERVICE_CONNECT. Default value: &amp;quot;GCE_VM_IP_PORT&amp;quot; Possible values: [&amp;quot;GCE_VM_IP&amp;quot;, &amp;quot;GCE_VM_IP_PORT&amp;quot;, &amp;quot;NON_GCP_PRIVATE_IP_PORT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;]
     /// </summary>
     public TerraformValue<string> NetworkEndpointType
-        => AsReference("network_endpoint_type");
+        => CreateReference("network_endpoint_type");
 
     /// <summary>
     /// Number of network endpoints in the network endpoint group.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// Optional subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
     public TerraformValue<string> Subnetwork
-        => AsReference("subnetwork");
+        => CreateReference("subnetwork");
 
 }

@@ -23,7 +23,7 @@ public partial class AwsGlueConnectionDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsGlueConnectionDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -40,54 +40,54 @@ public partial class AwsGlueConnectionDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The athena_properties attribute.
     /// </summary>
     public TerraformMap<string> AthenaProperties
-        => AsReference("athena_properties");
+        => CreateReference("athena_properties");
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
     public TerraformValue<string> CatalogId
-        => AsReference("catalog_id");
+        => CreateReference("catalog_id");
 
     /// <summary>
     /// The connection_properties attribute.
     /// </summary>
     public TerraformMap<string> ConnectionProperties
-        => AsReference("connection_properties");
+        => CreateReference("connection_properties");
 
     /// <summary>
     /// The connection_type attribute.
     /// </summary>
     public TerraformValue<string> ConnectionType
-        => AsReference("connection_type");
+        => CreateReference("connection_type");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The match_criteria attribute.
     /// </summary>
     public TerraformList<string> MatchCriteria
-        => AsReference("match_criteria");
+        => CreateReference("match_criteria");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The physical_connection_requirements attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PhysicalConnectionRequirements
-        => AsReference("physical_connection_requirements");
+        => CreateReference("physical_connection_requirements");
 
 }

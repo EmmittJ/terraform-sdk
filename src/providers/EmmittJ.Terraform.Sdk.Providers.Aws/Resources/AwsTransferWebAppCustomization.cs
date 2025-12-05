@@ -13,7 +13,7 @@ public partial class AwsTransferWebAppCustomization(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> FaviconFile
     {
-        get => GetArgument<TerraformValue<string>>("favicon_file") ?? AsReference("favicon_file");
+        get => GetArgument<TerraformValue<string>>("favicon_file") ?? CreateReference("favicon_file");
         set => SetArgument("favicon_file", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsTransferWebAppCustomization(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> LogoFile
     {
-        get => GetArgument<TerraformValue<string>>("logo_file") ?? AsReference("logo_file");
+        get => GetArgument<TerraformValue<string>>("logo_file") ?? CreateReference("logo_file");
         set => SetArgument("logo_file", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsTransferWebAppCustomization(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

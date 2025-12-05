@@ -1398,7 +1398,7 @@ public partial class AzurermHdinsightSparkCluster(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1473,13 +1473,13 @@ public partial class AzurermHdinsightSparkCluster(string name) : TerraformResour
     /// The https_endpoint attribute.
     /// </summary>
     public TerraformValue<string> HttpsEndpoint
-        => AsReference("https_endpoint");
+        => CreateReference("https_endpoint");
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SshEndpoint
-        => AsReference("ssh_endpoint");
+        => CreateReference("ssh_endpoint");
 
     /// <summary>
     /// ComponentVersion block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermWebPubsubPrivateLinkResourceDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermWebPubsubPrivateLinkResourceDataSource(string name) 
     /// The shared_private_link_resource_types attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SharedPrivateLinkResourceTypes
-        => AsReference("shared_private_link_resource_types");
+        => CreateReference("shared_private_link_resource_types");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

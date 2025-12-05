@@ -101,7 +101,7 @@ public partial class GoogleDataprocGdcServiceInstance(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleDataprocGdcServiceInstance(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -159,31 +159,31 @@ public partial class GoogleDataprocGdcServiceInstance(string name) : TerraformRe
     /// The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Effective service account associated with ServiceInstance. This will be the service_account if specified. Otherwise, it will be an automatically created per-resource P4SA that also automatically has Fleet Workload. Identity bindings applied.
     /// </summary>
     public TerraformValue<string> EffectiveServiceAccount
-        => AsReference("effective_service_account");
+        => CreateReference("effective_service_account");
 
     /// <summary>
     /// Identifier. The name of the service instance.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Whether the service instance is currently reconciling. True if the current state of the resource does not match the intended state, and the system is working to reconcile them, whether or not the change was user initiated.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The intended state to which the service instance is reconciling. Possible values:
@@ -198,7 +198,7 @@ public partial class GoogleDataprocGdcServiceInstance(string name) : TerraformRe
     /// * &#39;FAILED&#39;
     /// </summary>
     public TerraformValue<string> RequestedState
-        => AsReference("requested_state");
+        => CreateReference("requested_state");
 
     /// <summary>
     /// The current state. Possible values:
@@ -213,32 +213,32 @@ public partial class GoogleDataprocGdcServiceInstance(string name) : TerraformRe
     /// * &#39;FAILED&#39;
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// A message explaining the current state.
     /// </summary>
     public TerraformValue<string> StateMessage
-        => AsReference("state_message");
+        => CreateReference("state_message");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// System generated unique identifier for this service instance, formatted as UUID4.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// GdceCluster block (nesting mode: list).

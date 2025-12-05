@@ -28,7 +28,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> ManagedDraining
     {
-        get => GetArgument<TerraformValue<string>>("managed_draining") ?? AsReference("managed_draining");
+        get => GetArgument<TerraformValue<string>>("managed_draining") ?? CreateReference("managed_draining");
         set => SetArgument("managed_draining", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> ManagedTerminationProtection
     {
-        get => GetArgument<TerraformValue<string>>("managed_termination_protection") ?? AsReference("managed_termination_protection");
+        get => GetArgument<TerraformValue<string>>("managed_termination_protection") ?? CreateReference("managed_termination_protection");
         set => SetArgument("managed_termination_protection", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlockManagedScalingBl
     /// </summary>
     public TerraformValue<double> InstanceWarmupPeriod
     {
-        get => GetArgument<TerraformValue<double>>("instance_warmup_period") ?? AsReference("instance_warmup_period");
+        get => GetArgument<TerraformValue<double>>("instance_warmup_period") ?? CreateReference("instance_warmup_period");
         set => SetArgument("instance_warmup_period", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlockManagedScalingBl
     /// </summary>
     public TerraformValue<double> MaximumScalingStepSize
     {
-        get => GetArgument<TerraformValue<double>>("maximum_scaling_step_size") ?? AsReference("maximum_scaling_step_size");
+        get => GetArgument<TerraformValue<double>>("maximum_scaling_step_size") ?? CreateReference("maximum_scaling_step_size");
         set => SetArgument("maximum_scaling_step_size", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlockManagedScalingBl
     /// </summary>
     public TerraformValue<double> MinimumScalingStepSize
     {
-        get => GetArgument<TerraformValue<double>>("minimum_scaling_step_size") ?? AsReference("minimum_scaling_step_size");
+        get => GetArgument<TerraformValue<double>>("minimum_scaling_step_size") ?? CreateReference("minimum_scaling_step_size");
         set => SetArgument("minimum_scaling_step_size", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlockManagedScalingBl
     /// </summary>
     public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? CreateReference("status");
         set => SetArgument("status", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlockManagedScalingBl
     /// </summary>
     public TerraformValue<double> TargetCapacity
     {
-        get => GetArgument<TerraformValue<double>>("target_capacity") ?? AsReference("target_capacity");
+        get => GetArgument<TerraformValue<double>>("target_capacity") ?? CreateReference("target_capacity");
         set => SetArgument("target_capacity", value);
     }
 
@@ -823,7 +823,7 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -842,7 +842,7 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -860,7 +860,7 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -868,7 +868,7 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// AutoScalingGroupProvider block (nesting mode: list).

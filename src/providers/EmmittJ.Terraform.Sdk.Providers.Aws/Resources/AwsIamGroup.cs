@@ -13,7 +13,7 @@ public partial class AwsIamGroup(string name) : TerraformResource("aws_iam_group
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,12 +40,12 @@ public partial class AwsIamGroup(string name) : TerraformResource("aws_iam_group
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
     public TerraformValue<string> UniqueId
-        => AsReference("unique_id");
+        => CreateReference("unique_id");
 
 }

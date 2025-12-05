@@ -46,7 +46,7 @@ public partial class AzurermPrivateDnsResolverForwardingRuleDataSource(string na
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,25 +64,25 @@ public partial class AzurermPrivateDnsResolverForwardingRuleDataSource(string na
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-        => AsReference("domain_name");
+        => CreateReference("domain_name");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformMap<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// The target_dns_servers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TargetDnsServers
-        => AsReference("target_dns_servers");
+        => CreateReference("target_dns_servers");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

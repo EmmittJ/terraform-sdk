@@ -13,7 +13,7 @@ public partial class GoogleColabRuntimeTemplateIamPolicy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleColabRuntimeTemplateIamPolicy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleColabRuntimeTemplateIamPolicy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -59,6 +59,6 @@ public partial class GoogleColabRuntimeTemplateIamPolicy(string name) : Terrafor
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
 }

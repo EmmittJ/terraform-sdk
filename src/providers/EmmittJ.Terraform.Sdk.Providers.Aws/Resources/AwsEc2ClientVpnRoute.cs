@@ -74,7 +74,7 @@ public partial class AwsEc2ClientVpnRoute(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsEc2ClientVpnRoute(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -101,13 +101,13 @@ public partial class AwsEc2ClientVpnRoute(string name) : TerraformResource("aws_
     /// The origin attribute.
     /// </summary>
     public TerraformValue<string> Origin
-        => AsReference("origin");
+        => CreateReference("origin");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

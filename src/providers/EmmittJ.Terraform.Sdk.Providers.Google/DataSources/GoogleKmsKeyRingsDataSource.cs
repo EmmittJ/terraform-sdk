@@ -30,7 +30,7 @@ public partial class GoogleKmsKeyRingsDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,6 +57,6 @@ public partial class GoogleKmsKeyRingsDataSource(string name) : TerraformDataSou
     /// A list of all the retrieved key rings
     /// </summary>
     public TerraformList<TerraformMap<object>> KeyRings
-        => AsReference("key_rings");
+        => CreateReference("key_rings");
 
 }

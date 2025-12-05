@@ -59,7 +59,7 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Failover
     {
-        get => GetArgument<TerraformValue<bool>>("failover") ?? AsReference("failover");
+        get => GetArgument<TerraformValue<bool>>("failover") ?? CreateReference("failover");
         set => SetArgument("failover", value);
     }
 
@@ -272,7 +272,7 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CacheMode
     {
-        get => GetArgument<TerraformValue<string>>("cache_mode") ?? AsReference("cache_mode");
+        get => GetArgument<TerraformValue<string>>("cache_mode") ?? CreateReference("cache_mode");
         set => SetArgument("cache_mode", value);
     }
 
@@ -281,7 +281,7 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ClientTtl
     {
-        get => GetArgument<TerraformValue<double>>("client_ttl") ?? AsReference("client_ttl");
+        get => GetArgument<TerraformValue<double>>("client_ttl") ?? CreateReference("client_ttl");
         set => SetArgument("client_ttl", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DefaultTtl
     {
-        get => GetArgument<TerraformValue<double>>("default_ttl") ?? AsReference("default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl") ?? CreateReference("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxTtl
     {
-        get => GetArgument<TerraformValue<double>>("max_ttl") ?? AsReference("max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl") ?? CreateReference("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -309,7 +309,7 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> NegativeCaching
     {
-        get => GetArgument<TerraformValue<bool>>("negative_caching") ?? AsReference("negative_caching");
+        get => GetArgument<TerraformValue<bool>>("negative_caching") ?? CreateReference("negative_caching");
         set => SetArgument("negative_caching", value);
     }
 
@@ -318,7 +318,7 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ServeWhileStale
     {
-        get => GetArgument<TerraformValue<double>>("serve_while_stale") ?? AsReference("serve_while_stale");
+        get => GetArgument<TerraformValue<double>>("serve_while_stale") ?? CreateReference("serve_while_stale");
         set => SetArgument("serve_while_stale", value);
     }
 
@@ -724,7 +724,7 @@ public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool> DisableConnectionDrainOnFailover
     {
-        get => GetArgument<TerraformValue<bool>>("disable_connection_drain_on_failover") ?? AsReference("disable_connection_drain_on_failover");
+        get => GetArgument<TerraformValue<bool>>("disable_connection_drain_on_failover") ?? CreateReference("disable_connection_drain_on_failover");
         set => SetArgument("disable_connection_drain_on_failover", value);
     }
 
@@ -736,7 +736,7 @@ public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool> DropTrafficIfUnhealthy
     {
-        get => GetArgument<TerraformValue<bool>>("drop_traffic_if_unhealthy") ?? AsReference("drop_traffic_if_unhealthy");
+        get => GetArgument<TerraformValue<bool>>("drop_traffic_if_unhealthy") ?? CreateReference("drop_traffic_if_unhealthy");
         set => SetArgument("drop_traffic_if_unhealthy", value);
     }
 
@@ -904,7 +904,7 @@ public class GoogleComputeRegionBackendServiceIapBlock : TerraformBlock
     /// OAuth2 Client Secret SHA-256 for IAP
     /// </summary>
     public TerraformValue<string> Oauth2ClientSecretSha256
-        => AsReference("oauth2_client_secret_sha256");
+        => CreateReference("oauth2_client_secret_sha256");
 
 }
 
@@ -934,7 +934,7 @@ public class GoogleComputeRegionBackendServiceLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> OptionalFields
     {
-        get => GetArgument<TerraformList<string>>("optional_fields") ?? AsReference("optional_fields");
+        get => GetArgument<TerraformList<string>>("optional_fields") ?? CreateReference("optional_fields");
         set => SetArgument("optional_fields", value);
     }
 
@@ -944,7 +944,7 @@ public class GoogleComputeRegionBackendServiceLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OptionalMode
     {
-        get => GetArgument<TerraformValue<string>>("optional_mode") ?? AsReference("optional_mode");
+        get => GetArgument<TerraformValue<string>>("optional_mode") ?? CreateReference("optional_mode");
         set => SetArgument("optional_mode", value);
     }
 
@@ -1382,7 +1382,7 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1517,7 +1517,7 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> PortName
     {
-        get => GetArgument<TerraformValue<string>>("port_name") ?? AsReference("port_name");
+        get => GetArgument<TerraformValue<string>>("port_name") ?? CreateReference("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -1526,7 +1526,7 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1538,7 +1538,7 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? CreateReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -1548,7 +1548,7 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1567,7 +1567,7 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> SessionAffinity
     {
-        get => GetArgument<TerraformValue<string>>("session_affinity") ?? AsReference("session_affinity");
+        get => GetArgument<TerraformValue<string>>("session_affinity") ?? CreateReference("session_affinity");
         set => SetArgument("session_affinity", value);
     }
 
@@ -1579,7 +1579,7 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// </summary>
     public TerraformValue<double> TimeoutSec
     {
-        get => GetArgument<TerraformValue<double>>("timeout_sec") ?? AsReference("timeout_sec");
+        get => GetArgument<TerraformValue<double>>("timeout_sec") ?? CreateReference("timeout_sec");
         set => SetArgument("timeout_sec", value);
     }
 
@@ -1587,26 +1587,26 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
     /// object. This field is used in optimistic locking.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> GeneratedId
-        => AsReference("generated_id");
+        => CreateReference("generated_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Backend block (nesting mode: set).

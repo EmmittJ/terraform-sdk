@@ -125,7 +125,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string> DocumentVersion
     {
-        get => GetArgument<TerraformValue<string>>("document_version") ?? AsReference("document_version");
+        get => GetArgument<TerraformValue<string>>("document_version") ?? CreateReference("document_version");
         set => SetArgument("document_version", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformMap<string> Parameters
     {
-        get => GetArgument<TerraformMap<string>>("parameters") ?? AsReference("parameters");
+        get => GetArgument<TerraformMap<string>>("parameters") ?? CreateReference("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -233,13 +233,13 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// OutputLocation block (nesting mode: list).

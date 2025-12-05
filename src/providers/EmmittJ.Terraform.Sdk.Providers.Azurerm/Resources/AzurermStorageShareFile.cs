@@ -99,7 +99,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// The content_length attribute.
     /// </summary>
     public TerraformValue<double> ContentLength
-        => AsReference("content_length");
+        => CreateReference("content_length");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

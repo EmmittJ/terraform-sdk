@@ -597,7 +597,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<double> CaptchaCookieExpirationInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("captcha_cookie_expiration_in_minutes") ?? AsReference("captcha_cookie_expiration_in_minutes");
+        get => GetArgument<TerraformValue<double>>("captcha_cookie_expiration_in_minutes") ?? CreateReference("captcha_cookie_expiration_in_minutes");
         set => SetArgument("captcha_cookie_expiration_in_minutes", value);
     }
 
@@ -633,7 +633,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -642,7 +642,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<double> JsChallengeCookieExpirationInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("js_challenge_cookie_expiration_in_minutes") ?? AsReference("js_challenge_cookie_expiration_in_minutes");
+        get => GetArgument<TerraformValue<double>>("js_challenge_cookie_expiration_in_minutes") ?? CreateReference("js_challenge_cookie_expiration_in_minutes");
         set => SetArgument("js_challenge_cookie_expiration_in_minutes", value);
     }
 
@@ -717,7 +717,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy(string name) : TerraformR
     /// The frontend_endpoint_ids attribute.
     /// </summary>
     public TerraformList<string> FrontendEndpointIds
-        => AsReference("frontend_endpoint_ids");
+        => CreateReference("frontend_endpoint_ids");
 
     /// <summary>
     /// CustomRule block (nesting mode: list).

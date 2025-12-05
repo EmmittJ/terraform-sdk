@@ -13,7 +13,7 @@ public partial class AwsAppconfigApplicationDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsAppconfigApplicationDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsAppconfigApplicationDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -39,12 +39,12 @@ public partial class AwsAppconfigApplicationDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
 }

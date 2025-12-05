@@ -13,7 +13,7 @@ public partial class AwsS3DirectoryBucketsDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,18 +21,18 @@ public partial class AwsS3DirectoryBucketsDataSource(string name) : TerraformDat
     /// The arns attribute.
     /// </summary>
     public TerraformList<string> Arns
-        => AsReference("arns");
+        => CreateReference("arns");
 
     /// <summary>
     /// The buckets attribute.
     /// </summary>
     public TerraformList<string> Buckets
-        => AsReference("buckets");
+        => CreateReference("buckets");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

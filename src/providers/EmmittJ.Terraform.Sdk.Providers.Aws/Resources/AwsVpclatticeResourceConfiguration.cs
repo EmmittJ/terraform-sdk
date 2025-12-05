@@ -174,7 +174,7 @@ public partial class AwsVpclatticeResourceConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<bool> AllowAssociationToShareableServiceNetwork
     {
-        get => GetArgument<TerraformValue<bool>>("allow_association_to_shareable_service_network") ?? AsReference("allow_association_to_shareable_service_network");
+        get => GetArgument<TerraformValue<bool>>("allow_association_to_shareable_service_network") ?? CreateReference("allow_association_to_shareable_service_network");
         set => SetArgument("allow_association_to_shareable_service_network", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AwsVpclatticeResourceConfiguration(string name) : Terraform
     /// </summary>
     public TerraformSet<string> PortRanges
     {
-        get => GetArgument<TerraformSet<string>>("port_ranges") ?? AsReference("port_ranges");
+        get => GetArgument<TerraformSet<string>>("port_ranges") ?? CreateReference("port_ranges");
         set => SetArgument("port_ranges", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AwsVpclatticeResourceConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? CreateReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AwsVpclatticeResourceConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AwsVpclatticeResourceConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<string> ResourceGatewayIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("resource_gateway_identifier") ?? AsReference("resource_gateway_identifier");
+        get => GetArgument<TerraformValue<string>>("resource_gateway_identifier") ?? CreateReference("resource_gateway_identifier");
         set => SetArgument("resource_gateway_identifier", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AwsVpclatticeResourceConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -255,19 +255,19 @@ public partial class AwsVpclatticeResourceConfiguration(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// ResourceConfigurationDefinition block (nesting mode: list).

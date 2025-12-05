@@ -31,7 +31,7 @@ public partial class AwsRedshiftserverlessCredentialsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsRedshiftserverlessCredentialsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,18 +58,18 @@ public partial class AwsRedshiftserverlessCredentialsDataSource(string name) : T
     /// The db_password attribute.
     /// </summary>
     public TerraformValue<string> DbPassword
-        => AsReference("db_password");
+        => CreateReference("db_password");
 
     /// <summary>
     /// The db_user attribute.
     /// </summary>
     public TerraformValue<string> DbUser
-        => AsReference("db_user");
+        => CreateReference("db_user");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
     public TerraformValue<string> Expiration
-        => AsReference("expiration");
+        => CreateReference("expiration");
 
 }

@@ -33,7 +33,7 @@ public partial class AwsIdentitystoreGroupMembershipsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,6 +41,6 @@ public partial class AwsIdentitystoreGroupMembershipsDataSource(string name) : T
     /// The group_memberships attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GroupMemberships
-        => AsReference("group_memberships");
+        => CreateReference("group_memberships");
 
 }

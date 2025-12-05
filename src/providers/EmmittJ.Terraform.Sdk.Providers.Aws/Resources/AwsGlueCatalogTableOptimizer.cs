@@ -109,7 +109,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlockOrphanFileDeletionCon
     /// </summary>
     public TerraformValue<double> RunRateInHours
     {
-        get => GetArgument<TerraformValue<double>>("run_rate_in_hours") ?? AsReference("run_rate_in_hours");
+        get => GetArgument<TerraformValue<double>>("run_rate_in_hours") ?? CreateReference("run_rate_in_hours");
         set => SetArgument("run_rate_in_hours", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlockRetentionConfiguratio
     /// </summary>
     public TerraformValue<double> RunRateInHours
     {
-        get => GetArgument<TerraformValue<double>>("run_rate_in_hours") ?? AsReference("run_rate_in_hours");
+        get => GetArgument<TerraformValue<double>>("run_rate_in_hours") ?? CreateReference("run_rate_in_hours");
         set => SetArgument("run_rate_in_hours", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AwsGlueCatalogTableOptimizer(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

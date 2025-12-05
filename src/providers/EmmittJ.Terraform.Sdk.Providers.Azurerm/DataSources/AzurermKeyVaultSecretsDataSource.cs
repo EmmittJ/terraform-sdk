@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultSecretsDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,13 +54,13 @@ public partial class AzurermKeyVaultSecretsDataSource(string name) : TerraformDa
     /// The names attribute.
     /// </summary>
     public TerraformList<string> Names
-        => AsReference("names");
+        => CreateReference("names");
 
     /// <summary>
     /// The secrets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Secrets
-        => AsReference("secrets");
+        => CreateReference("secrets");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

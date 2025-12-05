@@ -161,7 +161,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -226,7 +226,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-        => AsReference("alias");
+        => CreateReference("alias");
 
     /// <summary>
     /// NatIpConfiguration block (nesting mode: list).

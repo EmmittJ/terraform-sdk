@@ -23,7 +23,7 @@ public partial class AwsBedrockCustomModelDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,96 +31,96 @@ public partial class AwsBedrockCustomModelDataSource(string name) : TerraformDat
     /// The base_model_arn attribute.
     /// </summary>
     public TerraformValue<string> BaseModelArn
-        => AsReference("base_model_arn");
+        => CreateReference("base_model_arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The hyperparameters attribute.
     /// </summary>
     public TerraformMap<string> Hyperparameters
-        => AsReference("hyperparameters");
+        => CreateReference("hyperparameters");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The job_arn attribute.
     /// </summary>
     public TerraformValue<string> JobArn
-        => AsReference("job_arn");
+        => CreateReference("job_arn");
 
     /// <summary>
     /// The job_name attribute.
     /// </summary>
     public TerraformValue<string> JobName
-        => AsReference("job_name");
+        => CreateReference("job_name");
 
     /// <summary>
     /// The job_tags attribute.
     /// </summary>
     public TerraformMap<string> JobTags
-        => AsReference("job_tags");
+        => CreateReference("job_tags");
 
     /// <summary>
     /// The model_arn attribute.
     /// </summary>
     public TerraformValue<string> ModelArn
-        => AsReference("model_arn");
+        => CreateReference("model_arn");
 
     /// <summary>
     /// The model_kms_key_arn attribute.
     /// </summary>
     public TerraformValue<string> ModelKmsKeyArn
-        => AsReference("model_kms_key_arn");
+        => CreateReference("model_kms_key_arn");
 
     /// <summary>
     /// The model_name attribute.
     /// </summary>
     public TerraformValue<string> ModelName
-        => AsReference("model_name");
+        => CreateReference("model_name");
 
     /// <summary>
     /// The model_tags attribute.
     /// </summary>
     public TerraformMap<string> ModelTags
-        => AsReference("model_tags");
+        => CreateReference("model_tags");
 
     /// <summary>
     /// The output_data_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OutputDataConfig
-        => AsReference("output_data_config");
+        => CreateReference("output_data_config");
 
     /// <summary>
     /// The training_data_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrainingDataConfig
-        => AsReference("training_data_config");
+        => CreateReference("training_data_config");
 
     /// <summary>
     /// The training_metrics attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrainingMetrics
-        => AsReference("training_metrics");
+        => CreateReference("training_metrics");
 
     /// <summary>
     /// The validation_data_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValidationDataConfig
-        => AsReference("validation_data_config");
+        => CreateReference("validation_data_config");
 
     /// <summary>
     /// The validation_metrics attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValidationMetrics
-        => AsReference("validation_metrics");
+        => CreateReference("validation_metrics");
 
 }

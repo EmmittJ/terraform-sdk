@@ -46,7 +46,7 @@ public partial class AzurermAadb2cDirectoryDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermAadb2cDirectoryDataSource(string name) : TerraformDa
     /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
     /// </summary>
     public TerraformValue<string> BillingType
-        => AsReference("billing_type");
+        => CreateReference("billing_type");
 
     /// <summary>
     /// Location in which the B2C tenant is hosted and data resides.
     /// </summary>
     public TerraformValue<string> DataResidencyLocation
-        => AsReference("data_residency_location");
+        => CreateReference("data_residency_location");
 
     /// <summary>
     /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
     /// </summary>
     public TerraformValue<string> EffectiveStartDate
-        => AsReference("effective_start_date");
+        => CreateReference("effective_start_date");
 
     /// <summary>
     /// Billing SKU for the B2C tenant.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The Tenant ID for the B2C tenant.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -303,7 +303,7 @@ public partial class GoogleBigqueryDatasetAccess(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -312,7 +312,7 @@ public partial class GoogleBigqueryDatasetAccess(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -357,7 +357,7 @@ public partial class GoogleBigqueryDatasetAccess(string name) : TerraformResourc
     /// If true, represents that that the iam_member in the config was translated to a different member type by the API, and is stored in state as a different member type
     /// </summary>
     public TerraformValue<bool> ApiUpdatedMember
-        => AsReference("api_updated_member");
+        => CreateReference("api_updated_member");
 
     /// <summary>
     /// Condition block (nesting mode: list).

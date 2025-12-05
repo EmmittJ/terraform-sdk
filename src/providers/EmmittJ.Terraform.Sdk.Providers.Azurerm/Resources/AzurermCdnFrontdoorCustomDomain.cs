@@ -68,7 +68,7 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CdnFrontdoorSecretId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_secret_id") ?? AsReference("cdn_frontdoor_secret_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_secret_id") ?? CreateReference("cdn_frontdoor_secret_id");
         set => SetArgument("cdn_frontdoor_secret_id", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -152,13 +152,13 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-        => AsReference("expiration_date");
+        => CreateReference("expiration_date");
 
     /// <summary>
     /// The validation_token attribute.
     /// </summary>
     public TerraformValue<string> ValidationToken
-        => AsReference("validation_token");
+        => CreateReference("validation_token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -153,7 +153,7 @@ public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1101,7 +1101,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> AccelerationStatus
     {
-        get => GetArgument<TerraformValue<string>>("acceleration_status") ?? AsReference("acceleration_status");
+        get => GetArgument<TerraformValue<string>>("acceleration_status") ?? CreateReference("acceleration_status");
         set => SetArgument("acceleration_status", value);
     }
 
@@ -1111,7 +1111,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Acl
     {
-        get => GetArgument<TerraformValue<string>>("acl") ?? AsReference("acl");
+        get => GetArgument<TerraformValue<string>>("acl") ?? CreateReference("acl");
         set => SetArgument("acl", value);
     }
 
@@ -1120,7 +1120,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// </summary>
     public TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket") ?? AsReference("bucket");
+        get => GetArgument<TerraformValue<string>>("bucket") ?? CreateReference("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1129,7 +1129,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// </summary>
     public TerraformValue<string> BucketPrefix
     {
-        get => GetArgument<TerraformValue<string>>("bucket_prefix") ?? AsReference("bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix") ?? CreateReference("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -1147,7 +1147,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1156,7 +1156,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// </summary>
     public TerraformValue<bool> ObjectLockEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("object_lock_enabled") ?? AsReference("object_lock_enabled");
+        get => GetArgument<TerraformValue<bool>>("object_lock_enabled") ?? CreateReference("object_lock_enabled");
         set => SetArgument("object_lock_enabled", value);
     }
 
@@ -1166,7 +1166,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -1175,7 +1175,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1185,7 +1185,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> RequestPayer
     {
-        get => GetArgument<TerraformValue<string>>("request_payer") ?? AsReference("request_payer");
+        get => GetArgument<TerraformValue<string>>("request_payer") ?? CreateReference("request_payer");
         set => SetArgument("request_payer", value);
     }
 
@@ -1203,7 +1203,7 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1211,45 +1211,45 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The bucket_domain_name attribute.
     /// </summary>
     public TerraformValue<string> BucketDomainName
-        => AsReference("bucket_domain_name");
+        => CreateReference("bucket_domain_name");
 
     /// <summary>
     /// The bucket_region attribute.
     /// </summary>
     public TerraformValue<string> BucketRegion
-        => AsReference("bucket_region");
+        => CreateReference("bucket_region");
 
     /// <summary>
     /// The bucket_regional_domain_name attribute.
     /// </summary>
     public TerraformValue<string> BucketRegionalDomainName
-        => AsReference("bucket_regional_domain_name");
+        => CreateReference("bucket_regional_domain_name");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The website_domain attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> WebsiteDomain
-        => AsReference("website_domain");
+        => CreateReference("website_domain");
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> WebsiteEndpoint
-        => AsReference("website_endpoint");
+        => CreateReference("website_endpoint");
 
     /// <summary>
     /// CorsRule block (nesting mode: list).

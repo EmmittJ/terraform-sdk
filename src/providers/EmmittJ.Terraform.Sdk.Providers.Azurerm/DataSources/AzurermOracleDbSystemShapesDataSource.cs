@@ -36,7 +36,7 @@ public partial class AzurermOracleDbSystemShapesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermOracleDbSystemShapesDataSource(string name) : Terraf
     /// The db_system_shapes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbSystemShapes
-        => AsReference("db_system_shapes");
+        => CreateReference("db_system_shapes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

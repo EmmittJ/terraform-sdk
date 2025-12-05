@@ -13,7 +13,7 @@ public partial class GoogleCloudRunServiceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,20 +57,20 @@ public partial class GoogleCloudRunServiceDataSource(string name) : TerraformDat
     /// this field is set to false, the revision name will still autogenerate.)
     /// </summary>
     public TerraformValue<bool> AutogenerateRevisionName
-        => AsReference("autogenerate_revision_name");
+        => CreateReference("autogenerate_revision_name");
 
     /// <summary>
     /// Metadata associated with this Service, including name, namespace, labels,
     /// and annotations.
     /// </summary>
     public TerraformList<TerraformMap<object>> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// The current status of the Service.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// template holds the latest specification for the Revision to
@@ -85,13 +85,13 @@ public partial class GoogleCloudRunServiceDataSource(string name) : TerraformDat
     /// responsible for materializing the container image from source.
     /// </summary>
     public TerraformList<TerraformMap<object>> Template
-        => AsReference("template");
+        => CreateReference("template");
 
     /// <summary>
     /// Traffic specifies how to distribute traffic over a collection of Knative Revisions
     /// and Configurations
     /// </summary>
     public TerraformList<TerraformMap<object>> Traffic
-        => AsReference("traffic");
+        => CreateReference("traffic");
 
 }

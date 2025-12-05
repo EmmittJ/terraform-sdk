@@ -23,7 +23,7 @@ public partial class AwsAmplifyBackendEnvironment(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> DeploymentArtifacts
     {
-        get => GetArgument<TerraformValue<string>>("deployment_artifacts") ?? AsReference("deployment_artifacts");
+        get => GetArgument<TerraformValue<string>>("deployment_artifacts") ?? CreateReference("deployment_artifacts");
         set => SetArgument("deployment_artifacts", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsAmplifyBackendEnvironment(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsAmplifyBackendEnvironment(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsAmplifyBackendEnvironment(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> StackName
     {
-        get => GetArgument<TerraformValue<string>>("stack_name") ?? AsReference("stack_name");
+        get => GetArgument<TerraformValue<string>>("stack_name") ?? CreateReference("stack_name");
         set => SetArgument("stack_name", value);
     }
 
@@ -68,6 +68,6 @@ public partial class AwsAmplifyBackendEnvironment(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
 }

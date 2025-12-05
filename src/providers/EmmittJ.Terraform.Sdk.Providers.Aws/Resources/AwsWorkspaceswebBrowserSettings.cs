@@ -41,7 +41,7 @@ public partial class AwsWorkspaceswebBrowserSettings(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,18 +58,18 @@ public partial class AwsWorkspaceswebBrowserSettings(string name) : TerraformRes
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-        => AsReference("associated_portal_arns");
+        => CreateReference("associated_portal_arns");
 
     /// <summary>
     /// The browser_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> BrowserSettingsArn
-        => AsReference("browser_settings_arn");
+        => CreateReference("browser_settings_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
 }

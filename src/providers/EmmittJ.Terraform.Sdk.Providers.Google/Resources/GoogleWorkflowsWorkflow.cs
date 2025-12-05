@@ -90,7 +90,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -141,7 +141,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -150,7 +150,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -174,7 +174,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -211,38 +211,38 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// The timestamp of when the workflow was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The revision of the workflow. A new one is generated if the service account or source contents is changed.
     /// </summary>
     public TerraformValue<string> RevisionId
-        => AsReference("revision_id");
+        => CreateReference("revision_id");
 
     /// <summary>
     /// State of the workflow deployment.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The timestamp of when the workflow was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

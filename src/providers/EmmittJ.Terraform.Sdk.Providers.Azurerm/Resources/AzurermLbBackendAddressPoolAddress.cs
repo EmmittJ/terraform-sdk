@@ -82,7 +82,7 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     /// The inbound_nat_rule_port_mapping attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InboundNatRulePortMapping
-        => AsReference("inbound_nat_rule_port_mapping");
+        => CreateReference("inbound_nat_rule_port_mapping");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

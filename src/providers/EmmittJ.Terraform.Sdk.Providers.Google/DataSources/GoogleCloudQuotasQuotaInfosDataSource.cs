@@ -13,7 +13,7 @@ public partial class GoogleCloudQuotasQuotaInfosDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,6 +41,6 @@ public partial class GoogleCloudQuotasQuotaInfosDataSource(string name) : Terraf
     /// The quota_infos attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QuotaInfos
-        => AsReference("quota_infos");
+        => CreateReference("quota_infos");
 
 }

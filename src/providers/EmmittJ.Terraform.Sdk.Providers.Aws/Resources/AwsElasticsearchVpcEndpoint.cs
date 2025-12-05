@@ -58,14 +58,14 @@ public class AwsElasticsearchVpcEndpointVpcOptionsBlock : TerraformBlock
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsElasticsearchVpcEndpointVpcOptionsBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }
 
@@ -109,7 +109,7 @@ public partial class AwsElasticsearchVpcEndpoint(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsElasticsearchVpcEndpoint(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsElasticsearchVpcEndpoint(string name) : TerraformResourc
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

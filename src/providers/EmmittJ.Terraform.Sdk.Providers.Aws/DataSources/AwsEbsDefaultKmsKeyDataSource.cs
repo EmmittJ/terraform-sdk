@@ -36,7 +36,7 @@ public partial class AwsEbsDefaultKmsKeyDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsEbsDefaultKmsKeyDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsEbsDefaultKmsKeyDataSource(string name) : TerraformDataS
     /// The key_arn attribute.
     /// </summary>
     public TerraformValue<string> KeyArn
-        => AsReference("key_arn");
+        => CreateReference("key_arn");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

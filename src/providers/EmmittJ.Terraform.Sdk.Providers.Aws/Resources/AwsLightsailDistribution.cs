@@ -286,7 +286,7 @@ public class AwsLightsailDistributionOriginBlock : TerraformBlock
     /// The resource type of the origin resource (e.g., Instance).
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-        => AsReference("resource_type");
+        => CreateReference("resource_type");
 
 }
 
@@ -362,7 +362,7 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -399,7 +399,7 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -417,7 +417,7 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -425,55 +425,55 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     /// The alternate domain names of the distribution.
     /// </summary>
     public TerraformList<string> AlternativeDomainNames
-        => AsReference("alternative_domain_names");
+        => CreateReference("alternative_domain_names");
 
     /// <summary>
     /// The Amazon Resource Name (ARN) of the distribution.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The timestamp when the distribution was created.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The domain name of the distribution.
     /// </summary>
     public TerraformValue<string> DomainName
-        => AsReference("domain_name");
+        => CreateReference("domain_name");
 
     /// <summary>
     /// An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
     /// </summary>
     public TerraformList<TerraformMap<object>> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The public DNS of the origin.
     /// </summary>
     public TerraformValue<string> OriginPublicDns
-        => AsReference("origin_public_dns");
+        => CreateReference("origin_public_dns");
 
     /// <summary>
     /// The Lightsail resource type (e.g., Distribution).
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-        => AsReference("resource_type");
+        => CreateReference("resource_type");
 
     /// <summary>
     /// The status of the distribution.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
     /// </summary>
     public TerraformValue<string> SupportCode
-        => AsReference("support_code");
+        => CreateReference("support_code");
 
     /// <summary>
     /// CacheBehavior block (nesting mode: set).

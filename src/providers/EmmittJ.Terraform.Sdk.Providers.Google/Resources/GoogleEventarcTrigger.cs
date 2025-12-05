@@ -17,7 +17,7 @@ public class GoogleEventarcTriggerDestinationBlock : TerraformBlock
     /// The Cloud Function resource name. Only Cloud Functions V2 is supported. Format projects/{project}/locations/{location}/functions/{function} This is a read-only field. [WARNING] Creating Cloud Functions V2 triggers is only supported via the Cloud Functions product. An error will be returned if the user sets this value.
     /// </summary>
     public TerraformValue<string> CloudFunction
-        => AsReference("cloud_function");
+        => CreateReference("cloud_function");
 
     /// <summary>
     /// The resource name of the Workflow whose Executions are triggered by the events. The Workflow resource should be deployed in the same project as the trigger. Format: &#39;projects/{project}/locations/{location}/workflows/{workflow}&#39;
@@ -95,7 +95,7 @@ public class GoogleEventarcTriggerDestinationBlockCloudRunServiceBlock : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -342,7 +342,7 @@ public class GoogleEventarcTriggerTransportBlockPubsubBlock : TerraformBlock
     /// Output only. The name of the Pub/Sub subscription created and managed by Eventarc system as a transport for the event delivery. Format: &#39;projects/{PROJECT_ID}/subscriptions/{SUBSCRIPTION_NAME}&#39;.
     /// </summary>
     public TerraformValue<string> Subscription
-        => AsReference("subscription");
+        => CreateReference("subscription");
 
     /// <summary>
     /// Optional. The name of the Pub/Sub topic created and managed by Eventarc system as a transport for the event delivery. Format: &#39;projects/{PROJECT_ID}/topics/{TOPIC_NAME}. You may set an existing topic for triggers of the type google.cloud.pubsub.topic.v1.messagePublished&#39; only. The topic you provide here will not be deleted by Eventarc at trigger deletion.
@@ -376,7 +376,7 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> EventDataContentType
     {
-        get => GetArgument<TerraformValue<string>>("event_data_content_type") ?? AsReference("event_data_content_type");
+        get => GetArgument<TerraformValue<string>>("event_data_content_type") ?? CreateReference("event_data_content_type");
         set => SetArgument("event_data_content_type", value);
     }
 
@@ -385,7 +385,7 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -426,7 +426,7 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -443,44 +443,44 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     /// Output only. The reason(s) why a trigger is in FAILED state.
     /// </summary>
     public TerraformMap<string> Conditions
-        => AsReference("conditions");
+        => CreateReference("conditions");
 
     /// <summary>
     /// Output only. The creation time.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Output only. This checksum is computed by the server based on the value of other fields, and may be sent only on create requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The last-modified time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Destination block (nesting mode: list).

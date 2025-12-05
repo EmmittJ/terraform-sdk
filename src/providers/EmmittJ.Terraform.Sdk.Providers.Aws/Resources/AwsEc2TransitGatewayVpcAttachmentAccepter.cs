@@ -13,7 +13,7 @@ public partial class AwsEc2TransitGatewayVpcAttachmentAccepter(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsEc2TransitGatewayVpcAttachmentAccepter(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsEc2TransitGatewayVpcAttachmentAccepter(string name) : Te
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -76,48 +76,48 @@ public partial class AwsEc2TransitGatewayVpcAttachmentAccepter(string name) : Te
     /// The appliance_mode_support attribute.
     /// </summary>
     public TerraformValue<string> ApplianceModeSupport
-        => AsReference("appliance_mode_support");
+        => CreateReference("appliance_mode_support");
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
     public TerraformValue<string> DnsSupport
-        => AsReference("dns_support");
+        => CreateReference("dns_support");
 
     /// <summary>
     /// The ipv6_support attribute.
     /// </summary>
     public TerraformValue<string> Ipv6Support
-        => AsReference("ipv6_support");
+        => CreateReference("ipv6_support");
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupReferencingSupport
-        => AsReference("security_group_referencing_support");
+        => CreateReference("security_group_referencing_support");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     public TerraformSet<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayId
-        => AsReference("transit_gateway_id");
+        => CreateReference("transit_gateway_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// The vpc_owner_id attribute.
     /// </summary>
     public TerraformValue<string> VpcOwnerId
-        => AsReference("vpc_owner_id");
+        => CreateReference("vpc_owner_id");
 
 }

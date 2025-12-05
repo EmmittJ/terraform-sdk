@@ -59,7 +59,7 @@ public class AwsLexv2modelsBotLocaleVoiceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine") ?? AsReference("engine");
+        get => GetArgument<TerraformValue<string>>("engine") ?? CreateReference("engine");
         set => SetArgument("engine", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsLexv2modelsBotLocale(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AwsLexv2modelsBotLocale(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsLexv2modelsBotLocale(string name) : TerraformResource("a
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

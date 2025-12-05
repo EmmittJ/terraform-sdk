@@ -62,7 +62,7 @@ public class GoogleContainerAwsNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? CreateReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleContainerAwsNodePoolConfigBlockRootVolumeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -279,7 +279,7 @@ public class GoogleContainerAwsNodePoolConfigBlockRootVolumeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? CreateReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
@@ -288,7 +288,7 @@ public class GoogleContainerAwsNodePoolConfigBlockRootVolumeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -297,7 +297,7 @@ public class GoogleContainerAwsNodePoolConfigBlockRootVolumeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? CreateReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -386,7 +386,7 @@ public class GoogleContainerAwsNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> CpuCfsQuota
     {
-        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota") ?? AsReference("cpu_cfs_quota");
+        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota") ?? CreateReference("cpu_cfs_quota");
         set => SetArgument("cpu_cfs_quota", value);
     }
 
@@ -404,7 +404,7 @@ public class GoogleContainerAwsNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CpuManagerPolicy
     {
-        get => GetArgument<TerraformValue<string>>("cpu_manager_policy") ?? AsReference("cpu_manager_policy");
+        get => GetArgument<TerraformValue<string>>("cpu_manager_policy") ?? CreateReference("cpu_manager_policy");
         set => SetArgument("cpu_manager_policy", value);
     }
 
@@ -436,7 +436,7 @@ public class GoogleContainerAwsNodePoolManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> AutoRepair
     {
-        get => GetArgument<TerraformValue<bool>>("auto_repair") ?? AsReference("auto_repair");
+        get => GetArgument<TerraformValue<bool>>("auto_repair") ?? CreateReference("auto_repair");
         set => SetArgument("auto_repair", value);
     }
 
@@ -547,7 +547,7 @@ public class GoogleContainerAwsNodePoolUpdateSettingsBlockSurgeSettingsBlock : T
     /// </summary>
     public TerraformValue<double> MaxSurge
     {
-        get => GetArgument<TerraformValue<double>>("max_surge") ?? AsReference("max_surge");
+        get => GetArgument<TerraformValue<double>>("max_surge") ?? CreateReference("max_surge");
         set => SetArgument("max_surge", value);
     }
 
@@ -556,7 +556,7 @@ public class GoogleContainerAwsNodePoolUpdateSettingsBlockSurgeSettingsBlock : T
     /// </summary>
     public TerraformValue<double> MaxUnavailable
     {
-        get => GetArgument<TerraformValue<double>>("max_unavailable") ?? AsReference("max_unavailable");
+        get => GetArgument<TerraformValue<double>>("max_unavailable") ?? CreateReference("max_unavailable");
         set => SetArgument("max_unavailable", value);
     }
 
@@ -596,7 +596,7 @@ public partial class GoogleContainerAwsNodePool(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -625,7 +625,7 @@ public partial class GoogleContainerAwsNodePool(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -653,43 +653,43 @@ public partial class GoogleContainerAwsNodePool(string name) : TerraformResource
     /// Output only. The time at which this node pool was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Output only. If set, there are currently changes in flight to the node pool.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Output only. The lifecycle state of the node pool. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. A globally unique identifier for the node pool.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time at which this node pool was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Autoscaling block (nesting mode: list).

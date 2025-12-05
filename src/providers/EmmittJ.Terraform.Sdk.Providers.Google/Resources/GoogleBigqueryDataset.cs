@@ -502,7 +502,7 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> DefaultCollation
     {
-        get => GetArgument<TerraformValue<string>>("default_collation") ?? AsReference("default_collation");
+        get => GetArgument<TerraformValue<string>>("default_collation") ?? CreateReference("default_collation");
         set => SetArgument("default_collation", value);
     }
 
@@ -580,7 +580,7 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -591,7 +591,7 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<bool> IsCaseInsensitive
     {
-        get => GetArgument<TerraformValue<bool>>("is_case_insensitive") ?? AsReference("is_case_insensitive");
+        get => GetArgument<TerraformValue<bool>>("is_case_insensitive") ?? CreateReference("is_case_insensitive");
         set => SetArgument("is_case_insensitive", value);
     }
 
@@ -630,7 +630,7 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> MaxTimeTravelHours
     {
-        get => GetArgument<TerraformValue<string>>("max_time_travel_hours") ?? AsReference("max_time_travel_hours");
+        get => GetArgument<TerraformValue<string>>("max_time_travel_hours") ?? CreateReference("max_time_travel_hours");
         set => SetArgument("max_time_travel_hours", value);
     }
 
@@ -639,7 +639,7 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -665,7 +665,7 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> StorageBillingModel
     {
-        get => GetArgument<TerraformValue<string>>("storage_billing_model") ?? AsReference("storage_billing_model");
+        get => GetArgument<TerraformValue<string>>("storage_billing_model") ?? CreateReference("storage_billing_model");
         set => SetArgument("storage_billing_model", value);
     }
 
@@ -674,39 +674,39 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// epoch.
     /// </summary>
     public TerraformValue<double> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// A hash of the resource.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The date when this dataset or any of its tables was last modified, in
     /// milliseconds since the epoch.
     /// </summary>
     public TerraformValue<double> LastModifiedTime
-        => AsReference("last_modified_time");
+        => CreateReference("last_modified_time");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Access block (nesting mode: set).

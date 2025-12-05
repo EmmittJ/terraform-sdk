@@ -13,7 +13,7 @@ public partial class GoogleComputeRouterDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class GoogleComputeRouterDataSource(string name) : TerraformDataS
     /// BGP information specific to this router.
     /// </summary>
     public TerraformList<TerraformMap<object>> Bgp
-        => AsReference("bgp");
+        => CreateReference("bgp");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Indicates if a router is dedicated for use with encrypted VLAN
     /// attachments (interconnectAttachments).
     /// </summary>
     public TerraformValue<bool> EncryptedInterconnectRouter
-        => AsReference("encrypted_interconnect_router");
+        => CreateReference("encrypted_interconnect_router");
 
     /// <summary>
     /// Keys used for MD5 authentication.
     /// </summary>
     public TerraformList<TerraformMap<object>> Md5AuthenticationKeys
-        => AsReference("md5_authentication_keys");
+        => CreateReference("md5_authentication_keys");
 
     /// <summary>
     /// Additional params passed with the request, but not persisted as part of resource payload
     /// </summary>
     public TerraformList<TerraformMap<object>> ParamsAttribute
-        => AsReference("params");
+        => CreateReference("params");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
 }

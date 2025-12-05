@@ -439,7 +439,7 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -492,7 +492,7 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -500,14 +500,14 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// Timestamp indicating when the plugin was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Identifier. The name of the plugin.
     /// Format: &#39;projects/{project}/locations/{location}/plugins/{plugin}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The type of the plugin, indicating whether it is &#39;SYSTEM_OWNED&#39; or
@@ -518,7 +518,7 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// USER_OWNED
     /// </summary>
     public TerraformValue<string> OwnershipType
-        => AsReference("ownership_type");
+        => CreateReference("ownership_type");
 
     /// <summary>
     /// Represents the state of the plugin.
@@ -530,13 +530,13 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// DISABLED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timestamp indicating when the plugin was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// ActionsConfig block (nesting mode: list).

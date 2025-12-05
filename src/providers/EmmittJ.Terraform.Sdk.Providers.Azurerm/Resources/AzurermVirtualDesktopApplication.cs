@@ -101,7 +101,7 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> FriendlyName
     {
-        get => GetArgument<TerraformValue<string>>("friendly_name") ?? AsReference("friendly_name");
+        get => GetArgument<TerraformValue<string>>("friendly_name") ?? CreateReference("friendly_name");
         set => SetArgument("friendly_name", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> IconPath
     {
-        get => GetArgument<TerraformValue<string>>("icon_path") ?? AsReference("icon_path");
+        get => GetArgument<TerraformValue<string>>("icon_path") ?? CreateReference("icon_path");
         set => SetArgument("icon_path", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

@@ -126,7 +126,7 @@ public class AwsMskServerlessClusterVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AwsMskServerlessCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsMskServerlessCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsMskServerlessCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -199,19 +199,19 @@ public partial class AwsMskServerlessCluster(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersSaslIam
-        => AsReference("bootstrap_brokers_sasl_iam");
+        => CreateReference("bootstrap_brokers_sasl_iam");
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
     public TerraformValue<string> ClusterUuid
-        => AsReference("cluster_uuid");
+        => CreateReference("cluster_uuid");
 
     /// <summary>
     /// ClientAuthentication block (nesting mode: list).

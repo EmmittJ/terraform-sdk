@@ -13,7 +13,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructuresDataSource(s
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,6 +40,6 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructuresDataSource(s
     /// The cloud_exadata_infrastructures attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudExadataInfrastructures
-        => AsReference("cloud_exadata_infrastructures");
+        => CreateReference("cloud_exadata_infrastructures");
 
 }

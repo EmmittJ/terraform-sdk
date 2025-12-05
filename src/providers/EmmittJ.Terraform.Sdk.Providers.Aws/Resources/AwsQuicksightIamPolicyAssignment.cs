@@ -65,7 +65,7 @@ public partial class AwsQuicksightIamPolicyAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? CreateReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsQuicksightIamPolicyAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace") ?? AsReference("namespace");
+        get => GetArgument<TerraformValue<string>>("namespace") ?? CreateReference("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsQuicksightIamPolicyAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -100,13 +100,13 @@ public partial class AwsQuicksightIamPolicyAssignment(string name) : TerraformRe
     /// The assignment_id attribute.
     /// </summary>
     public TerraformValue<string> AssignmentId
-        => AsReference("assignment_id");
+        => CreateReference("assignment_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Identities block (nesting mode: list).

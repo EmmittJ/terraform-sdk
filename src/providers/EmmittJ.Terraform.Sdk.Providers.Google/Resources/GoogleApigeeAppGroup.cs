@@ -113,7 +113,7 @@ public partial class GoogleApigeeAppGroup(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -151,25 +151,25 @@ public partial class GoogleApigeeAppGroup(string name) : TerraformResource("goog
     /// Internal identifier that cannot be edited
     /// </summary>
     public TerraformValue<string> AppGroupId
-        => AsReference("app_group_id");
+        => CreateReference("app_group_id");
 
     /// <summary>
     /// Created time as milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// Modified time as milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> LastModifiedAt
-        => AsReference("last_modified_at");
+        => CreateReference("last_modified_at");
 
     /// <summary>
     /// App group name displayed in the UI
     /// </summary>
     public TerraformValue<string> Organization
-        => AsReference("organization");
+        => CreateReference("organization");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

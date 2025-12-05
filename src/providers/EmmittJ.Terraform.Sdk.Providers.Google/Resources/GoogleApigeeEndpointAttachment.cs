@@ -55,7 +55,7 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,20 +94,20 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     /// State of the endpoint attachment connection to the service attachment.
     /// </summary>
     public TerraformValue<string> ConnectionState
-        => AsReference("connection_state");
+        => CreateReference("connection_state");
 
     /// <summary>
     /// Host that can be used in either HTTP Target Endpoint directly, or as the host in Target Server.
     /// </summary>
     public TerraformValue<string> Host
-        => AsReference("host");
+        => CreateReference("host");
 
     /// <summary>
     /// Name of the Endpoint Attachment in the following format:
     /// organizations/{organization}/endpointAttachments/{endpointAttachment}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

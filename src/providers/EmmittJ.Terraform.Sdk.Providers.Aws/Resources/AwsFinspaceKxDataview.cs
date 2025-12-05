@@ -164,7 +164,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -218,25 +218,25 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_timestamp attribute.
     /// </summary>
     public TerraformValue<string> CreatedTimestamp
-        => AsReference("created_timestamp");
+        => CreateReference("created_timestamp");
 
     /// <summary>
     /// The last_modified_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTimestamp
-        => AsReference("last_modified_timestamp");
+        => CreateReference("last_modified_timestamp");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// SegmentConfigurations block (nesting mode: list).

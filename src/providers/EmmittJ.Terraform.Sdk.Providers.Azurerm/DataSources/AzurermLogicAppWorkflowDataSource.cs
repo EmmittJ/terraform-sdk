@@ -36,7 +36,7 @@ public partial class AzurermLogicAppWorkflowDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,73 +64,73 @@ public partial class AzurermLogicAppWorkflowDataSource(string name) : TerraformD
     /// The access_endpoint attribute.
     /// </summary>
     public TerraformValue<string> AccessEndpoint
-        => AsReference("access_endpoint");
+        => CreateReference("access_endpoint");
 
     /// <summary>
     /// The connector_endpoint_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ConnectorEndpointIpAddresses
-        => AsReference("connector_endpoint_ip_addresses");
+        => CreateReference("connector_endpoint_ip_addresses");
 
     /// <summary>
     /// The connector_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ConnectorOutboundIpAddresses
-        => AsReference("connector_outbound_ip_addresses");
+        => CreateReference("connector_outbound_ip_addresses");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The logic_app_integration_account_id attribute.
     /// </summary>
     public TerraformValue<string> LogicAppIntegrationAccountId
-        => AsReference("logic_app_integration_account_id");
+        => CreateReference("logic_app_integration_account_id");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformMap<string> Parameters
-        => AsReference("parameters");
+        => CreateReference("parameters");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The workflow_endpoint_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WorkflowEndpointIpAddresses
-        => AsReference("workflow_endpoint_ip_addresses");
+        => CreateReference("workflow_endpoint_ip_addresses");
 
     /// <summary>
     /// The workflow_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WorkflowOutboundIpAddresses
-        => AsReference("workflow_outbound_ip_addresses");
+        => CreateReference("workflow_outbound_ip_addresses");
 
     /// <summary>
     /// The workflow_schema attribute.
     /// </summary>
     public TerraformValue<string> WorkflowSchema
-        => AsReference("workflow_schema");
+        => CreateReference("workflow_schema");
 
     /// <summary>
     /// The workflow_version attribute.
     /// </summary>
     public TerraformValue<string> WorkflowVersion
-        => AsReference("workflow_version");
+        => CreateReference("workflow_version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

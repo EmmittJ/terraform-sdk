@@ -13,7 +13,7 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,12 +59,12 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-        => AsReference("resource_arn");
+        => CreateReference("resource_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
 }

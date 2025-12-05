@@ -36,7 +36,7 @@ public partial class AzurermRoleAssignmentsDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermRoleAssignmentsDataSource(string name) : TerraformDa
     /// The role_assignments attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RoleAssignments
-        => AsReference("role_assignments");
+        => CreateReference("role_assignments");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

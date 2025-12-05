@@ -13,7 +13,7 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Time when the resource was scheduled for deletion.
@@ -60,19 +60,19 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// The number of hours to delay this request. You can set this value to an hour between 0 to 8, where setting it to 0 starts the deletion request immediately. If no value is set, a default value is set at the API Level.
     /// </summary>
     public TerraformValue<double> DeletionDelayHours
-        => AsReference("deletion_delay_hours");
+        => CreateReference("deletion_delay_hours");
 
     /// <summary>
     /// User-provided description for this private cloud.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Time when the resource will be irreversibly deleted.
@@ -80,55 +80,55 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// Details about a HCX Cloud Manager appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Hcx
-        => AsReference("hcx");
+        => CreateReference("hcx");
 
     /// <summary>
     /// The management cluster for this private cloud. This used for creating and managing the default cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagementCluster
-        => AsReference("management_cluster");
+        => CreateReference("management_cluster");
 
     /// <summary>
     /// Network configuration in the consumer project with which the peering has to be done.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkConfig
-        => AsReference("network_config");
+        => CreateReference("network_config");
 
     /// <summary>
     /// Details about a NSX Manager appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Nsx
-        => AsReference("nsx");
+        => CreateReference("nsx");
 
     /// <summary>
     /// While set true, deletion_delay_hours value will be sent in the request even for zero value of the field. This field is only useful for setting 0 value to the deletion_delay_hours field. It can be used both alone and together with deletion_delay_hours.
     /// </summary>
     public TerraformValue<bool> SendDeletionDelayHoursIfZero
-        => AsReference("send_deletion_delay_hours_if_zero");
+        => CreateReference("send_deletion_delay_hours_if_zero");
 
     /// <summary>
     /// State of the resource. New values may be added to this enum when appropriate.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Initial type of the private cloud. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;TIME_LIMITED&amp;quot;, &amp;quot;STRETCHED&amp;quot;]
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Last update time of this resource.
@@ -136,12 +136,12 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Details about a vCenter Server management appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Vcenter
-        => AsReference("vcenter");
+        => CreateReference("vcenter");
 
 }

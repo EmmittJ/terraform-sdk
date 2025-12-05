@@ -65,7 +65,7 @@ public partial class GoogleKmsSecretCiphertext(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleKmsSecretCiphertext(string name) : TerraformResource(
     /// Contains the result of encrypting the provided plaintext, encoded in base64.
     /// </summary>
     public TerraformValue<string> Ciphertext
-        => AsReference("ciphertext");
+        => CreateReference("ciphertext");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

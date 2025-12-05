@@ -13,7 +13,7 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,18 +50,18 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource(string name) : Ter
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The workload_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadProperties
-        => AsReference("workload_properties");
+        => CreateReference("workload_properties");
 
     /// <summary>
     /// The workload_reference attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadReference
-        => AsReference("workload_reference");
+        => CreateReference("workload_reference");
 
 }

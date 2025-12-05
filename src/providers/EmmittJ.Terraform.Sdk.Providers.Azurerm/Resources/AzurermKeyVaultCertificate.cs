@@ -145,7 +145,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockKeyPropertiesBlock 
     /// </summary>
     public TerraformValue<string> Curve
     {
-        get => GetArgument<TerraformValue<string>>("curve") ?? AsReference("curve");
+        get => GetArgument<TerraformValue<string>>("curve") ?? CreateReference("curve");
         set => SetArgument("curve", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockKeyPropertiesBlock 
     /// </summary>
     public TerraformValue<double> KeySize
     {
-        get => GetArgument<TerraformValue<double>>("key_size") ?? AsReference("key_size");
+        get => GetArgument<TerraformValue<double>>("key_size") ?? CreateReference("key_size");
         set => SetArgument("key_size", value);
     }
 
@@ -322,7 +322,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificateProp
     /// </summary>
     public TerraformList<string> ExtendedKeyUsage
     {
-        get => GetArgument<TerraformList<string>>("extended_key_usage") ?? AsReference("extended_key_usage");
+        get => GetArgument<TerraformList<string>>("extended_key_usage") ?? CreateReference("extended_key_usage");
         set => SetArgument("extended_key_usage", value);
     }
 
@@ -470,7 +470,7 @@ public partial class AzurermKeyVaultCertificate(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -507,61 +507,61 @@ public partial class AzurermKeyVaultCertificate(string name) : TerraformResource
     /// The certificate_attribute attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificateAttribute
-        => AsReference("certificate_attribute");
+        => CreateReference("certificate_attribute");
 
     /// <summary>
     /// The certificate_data attribute.
     /// </summary>
     public TerraformValue<string> CertificateData
-        => AsReference("certificate_data");
+        => CreateReference("certificate_data");
 
     /// <summary>
     /// The certificate_data_base64 attribute.
     /// </summary>
     public TerraformValue<string> CertificateDataBase64
-        => AsReference("certificate_data_base64");
+        => CreateReference("certificate_data_base64");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// The resource_manager_versionless_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerVersionlessId
-        => AsReference("resource_manager_versionless_id");
+        => CreateReference("resource_manager_versionless_id");
 
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
     public TerraformValue<string> SecretId
-        => AsReference("secret_id");
+        => CreateReference("secret_id");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
     public TerraformValue<string> VersionlessId
-        => AsReference("versionless_id");
+        => CreateReference("versionless_id");
 
     /// <summary>
     /// The versionless_secret_id attribute.
     /// </summary>
     public TerraformValue<string> VersionlessSecretId
-        => AsReference("versionless_secret_id");
+        => CreateReference("versionless_secret_id");
 
     /// <summary>
     /// Certificate block (nesting mode: list).

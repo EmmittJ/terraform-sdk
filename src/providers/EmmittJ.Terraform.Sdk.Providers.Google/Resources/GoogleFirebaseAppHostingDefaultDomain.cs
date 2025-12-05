@@ -64,7 +64,7 @@ public partial class GoogleFirebaseAppHostingDefaultDomain(string name) : Terraf
     /// </summary>
     public TerraformValue<bool> Disabled
     {
-        get => GetArgument<TerraformValue<bool>>("disabled") ?? AsReference("disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled") ?? CreateReference("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleFirebaseAppHostingDefaultDomain(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleFirebaseAppHostingDefaultDomain(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -110,33 +110,33 @@ public partial class GoogleFirebaseAppHostingDefaultDomain(string name) : Terraf
     /// Time at which the domain was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Identifier. The resource name of the domain, e.g.
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}/domains/{domainId}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Time at which the domain was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

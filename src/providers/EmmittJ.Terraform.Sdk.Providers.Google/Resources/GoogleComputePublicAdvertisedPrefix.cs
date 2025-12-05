@@ -64,7 +64,7 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -120,13 +120,13 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Output Only. The shared secret to be used for reverse DNS verification.
     /// </summary>
     public TerraformValue<string> SharedSecret
-        => AsReference("shared_secret");
+        => CreateReference("shared_secret");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

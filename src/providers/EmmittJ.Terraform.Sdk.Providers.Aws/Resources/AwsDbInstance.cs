@@ -199,7 +199,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<double> AllocatedStorage
     {
-        get => GetArgument<TerraformValue<double>>("allocated_storage") ?? AsReference("allocated_storage");
+        get => GetArgument<TerraformValue<double>>("allocated_storage") ?? CreateReference("allocated_storage");
         set => SetArgument("allocated_storage", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<double> BackupRetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_period") ?? AsReference("backup_retention_period");
+        get => GetArgument<TerraformValue<double>>("backup_retention_period") ?? CreateReference("backup_retention_period");
         set => SetArgument("backup_retention_period", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> BackupTarget
     {
-        get => GetArgument<TerraformValue<string>>("backup_target") ?? AsReference("backup_target");
+        get => GetArgument<TerraformValue<string>>("backup_target") ?? CreateReference("backup_target");
         set => SetArgument("backup_target", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> BackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("backup_window") ?? AsReference("backup_window");
+        get => GetArgument<TerraformValue<string>>("backup_window") ?? CreateReference("backup_window");
         set => SetArgument("backup_window", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> CaCertIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("ca_cert_identifier") ?? AsReference("ca_cert_identifier");
+        get => GetArgument<TerraformValue<string>>("ca_cert_identifier") ?? CreateReference("ca_cert_identifier");
         set => SetArgument("ca_cert_identifier", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> CharacterSetName
     {
-        get => GetArgument<TerraformValue<string>>("character_set_name") ?? AsReference("character_set_name");
+        get => GetArgument<TerraformValue<string>>("character_set_name") ?? CreateReference("character_set_name");
         set => SetArgument("character_set_name", value);
     }
 
@@ -316,7 +316,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> DatabaseInsightsMode
     {
-        get => GetArgument<TerraformValue<string>>("database_insights_mode") ?? AsReference("database_insights_mode");
+        get => GetArgument<TerraformValue<string>>("database_insights_mode") ?? CreateReference("database_insights_mode");
         set => SetArgument("database_insights_mode", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> DbName
     {
-        get => GetArgument<TerraformValue<string>>("db_name") ?? AsReference("db_name");
+        get => GetArgument<TerraformValue<string>>("db_name") ?? CreateReference("db_name");
         set => SetArgument("db_name", value);
     }
 
@@ -334,7 +334,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> DbSubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("db_subnet_group_name") ?? AsReference("db_subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("db_subnet_group_name") ?? CreateReference("db_subnet_group_name");
         set => SetArgument("db_subnet_group_name", value);
     }
 
@@ -397,7 +397,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> DomainFqdn
     {
-        get => GetArgument<TerraformValue<string>>("domain_fqdn") ?? AsReference("domain_fqdn");
+        get => GetArgument<TerraformValue<string>>("domain_fqdn") ?? CreateReference("domain_fqdn");
         set => SetArgument("domain_fqdn", value);
     }
 
@@ -433,7 +433,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine") ?? AsReference("engine");
+        get => GetArgument<TerraformValue<string>>("engine") ?? CreateReference("engine");
         set => SetArgument("engine", value);
     }
 
@@ -442,7 +442,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> EngineLifecycleSupport
     {
-        get => GetArgument<TerraformValue<string>>("engine_lifecycle_support") ?? AsReference("engine_lifecycle_support");
+        get => GetArgument<TerraformValue<string>>("engine_lifecycle_support") ?? CreateReference("engine_lifecycle_support");
         set => SetArgument("engine_lifecycle_support", value);
     }
 
@@ -451,7 +451,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -478,7 +478,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -487,7 +487,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> Identifier
     {
-        get => GetArgument<TerraformValue<string>>("identifier") ?? AsReference("identifier");
+        get => GetArgument<TerraformValue<string>>("identifier") ?? CreateReference("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -496,7 +496,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> IdentifierPrefix
     {
-        get => GetArgument<TerraformValue<string>>("identifier_prefix") ?? AsReference("identifier_prefix");
+        get => GetArgument<TerraformValue<string>>("identifier_prefix") ?? CreateReference("identifier_prefix");
         set => SetArgument("identifier_prefix", value);
     }
 
@@ -515,7 +515,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -524,7 +524,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -533,7 +533,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> LicenseModel
     {
-        get => GetArgument<TerraformValue<string>>("license_model") ?? AsReference("license_model");
+        get => GetArgument<TerraformValue<string>>("license_model") ?? CreateReference("license_model");
         set => SetArgument("license_model", value);
     }
 
@@ -542,7 +542,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> MaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_window") ?? AsReference("maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window") ?? CreateReference("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -560,7 +560,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> MasterUserSecretKmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("master_user_secret_kms_key_id") ?? AsReference("master_user_secret_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("master_user_secret_kms_key_id") ?? CreateReference("master_user_secret_kms_key_id");
         set => SetArgument("master_user_secret_kms_key_id", value);
     }
 
@@ -587,7 +587,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> MonitoringRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("monitoring_role_arn") ?? AsReference("monitoring_role_arn");
+        get => GetArgument<TerraformValue<string>>("monitoring_role_arn") ?? CreateReference("monitoring_role_arn");
         set => SetArgument("monitoring_role_arn", value);
     }
 
@@ -596,7 +596,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool> MultiAz
     {
-        get => GetArgument<TerraformValue<bool>>("multi_az") ?? AsReference("multi_az");
+        get => GetArgument<TerraformValue<bool>>("multi_az") ?? CreateReference("multi_az");
         set => SetArgument("multi_az", value);
     }
 
@@ -605,7 +605,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> NcharCharacterSetName
     {
-        get => GetArgument<TerraformValue<string>>("nchar_character_set_name") ?? AsReference("nchar_character_set_name");
+        get => GetArgument<TerraformValue<string>>("nchar_character_set_name") ?? CreateReference("nchar_character_set_name");
         set => SetArgument("nchar_character_set_name", value);
     }
 
@@ -614,7 +614,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> NetworkType
     {
-        get => GetArgument<TerraformValue<string>>("network_type") ?? AsReference("network_type");
+        get => GetArgument<TerraformValue<string>>("network_type") ?? CreateReference("network_type");
         set => SetArgument("network_type", value);
     }
 
@@ -623,7 +623,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> OptionGroupName
     {
-        get => GetArgument<TerraformValue<string>>("option_group_name") ?? AsReference("option_group_name");
+        get => GetArgument<TerraformValue<string>>("option_group_name") ?? CreateReference("option_group_name");
         set => SetArgument("option_group_name", value);
     }
 
@@ -632,7 +632,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> ParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_group_name") ?? AsReference("parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("parameter_group_name") ?? CreateReference("parameter_group_name");
         set => SetArgument("parameter_group_name", value);
     }
 
@@ -677,7 +677,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> PerformanceInsightsKmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("performance_insights_kms_key_id") ?? AsReference("performance_insights_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("performance_insights_kms_key_id") ?? CreateReference("performance_insights_kms_key_id");
         set => SetArgument("performance_insights_kms_key_id", value);
     }
 
@@ -686,7 +686,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<double> PerformanceInsightsRetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("performance_insights_retention_period") ?? AsReference("performance_insights_retention_period");
+        get => GetArgument<TerraformValue<double>>("performance_insights_retention_period") ?? CreateReference("performance_insights_retention_period");
         set => SetArgument("performance_insights_retention_period", value);
     }
 
@@ -695,7 +695,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -713,7 +713,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -722,7 +722,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> ReplicaMode
     {
-        get => GetArgument<TerraformValue<string>>("replica_mode") ?? AsReference("replica_mode");
+        get => GetArgument<TerraformValue<string>>("replica_mode") ?? CreateReference("replica_mode");
         set => SetArgument("replica_mode", value);
     }
 
@@ -749,7 +749,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> SnapshotIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_identifier") ?? AsReference("snapshot_identifier");
+        get => GetArgument<TerraformValue<string>>("snapshot_identifier") ?? CreateReference("snapshot_identifier");
         set => SetArgument("snapshot_identifier", value);
     }
 
@@ -767,7 +767,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<double> StorageThroughput
     {
-        get => GetArgument<TerraformValue<double>>("storage_throughput") ?? AsReference("storage_throughput");
+        get => GetArgument<TerraformValue<double>>("storage_throughput") ?? CreateReference("storage_throughput");
         set => SetArgument("storage_throughput", value);
     }
 
@@ -776,7 +776,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> StorageType
     {
-        get => GetArgument<TerraformValue<string>>("storage_type") ?? AsReference("storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type") ?? CreateReference("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -794,7 +794,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -803,7 +803,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> Timezone
     {
-        get => GetArgument<TerraformValue<string>>("timezone") ?? AsReference("timezone");
+        get => GetArgument<TerraformValue<string>>("timezone") ?? CreateReference("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -821,7 +821,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? CreateReference("username");
         set => SetArgument("username", value);
     }
 
@@ -830,7 +830,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? CreateReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -838,67 +838,67 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// The address attribute.
     /// </summary>
     public TerraformValue<string> Address
-        => AsReference("address");
+        => CreateReference("address");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
     public TerraformValue<string> EngineVersionActual
-        => AsReference("engine_version_actual");
+        => CreateReference("engine_version_actual");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The latest_restorable_time attribute.
     /// </summary>
     public TerraformValue<string> LatestRestorableTime
-        => AsReference("latest_restorable_time");
+        => CreateReference("latest_restorable_time");
 
     /// <summary>
     /// The listener_endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ListenerEndpoint
-        => AsReference("listener_endpoint");
+        => CreateReference("listener_endpoint");
 
     /// <summary>
     /// The master_user_secret attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MasterUserSecret
-        => AsReference("master_user_secret");
+        => CreateReference("master_user_secret");
 
     /// <summary>
     /// The replicas attribute.
     /// </summary>
     public TerraformList<string> Replicas
-        => AsReference("replicas");
+        => CreateReference("replicas");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-        => AsReference("resource_id");
+        => CreateReference("resource_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// BlueGreenUpdate block (nesting mode: list).

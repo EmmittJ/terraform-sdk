@@ -63,7 +63,7 @@ public partial class AzurermDevTestLab(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,37 +110,37 @@ public partial class AzurermDevTestLab(string name) : TerraformResource("azurerm
     /// The artifacts_storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> ArtifactsStorageAccountId
-        => AsReference("artifacts_storage_account_id");
+        => CreateReference("artifacts_storage_account_id");
 
     /// <summary>
     /// The default_premium_storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultPremiumStorageAccountId
-        => AsReference("default_premium_storage_account_id");
+        => CreateReference("default_premium_storage_account_id");
 
     /// <summary>
     /// The default_storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultStorageAccountId
-        => AsReference("default_storage_account_id");
+        => CreateReference("default_storage_account_id");
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultId
-        => AsReference("key_vault_id");
+        => CreateReference("key_vault_id");
 
     /// <summary>
     /// The premium_data_disk_storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> PremiumDataDiskStorageAccountId
-        => AsReference("premium_data_disk_storage_account_id");
+        => CreateReference("premium_data_disk_storage_account_id");
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
     public TerraformValue<string> UniqueIdentifier
-        => AsReference("unique_identifier");
+        => CreateReference("unique_identifier");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

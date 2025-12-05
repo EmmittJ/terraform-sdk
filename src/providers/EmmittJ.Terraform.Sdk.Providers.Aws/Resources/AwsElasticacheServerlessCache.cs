@@ -49,7 +49,7 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockDataStorageBlock 
     /// </summary>
     public TerraformValue<double> Maximum
     {
-        get => GetArgument<TerraformValue<double>>("maximum") ?? AsReference("maximum");
+        get => GetArgument<TerraformValue<double>>("maximum") ?? CreateReference("maximum");
         set => SetArgument("maximum", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockDataStorageBlock 
     /// </summary>
     public TerraformValue<double> Minimum
     {
-        get => GetArgument<TerraformValue<double>>("minimum") ?? AsReference("minimum");
+        get => GetArgument<TerraformValue<double>>("minimum") ?? CreateReference("minimum");
         set => SetArgument("minimum", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockEcpuPerSecondBloc
     /// </summary>
     public TerraformValue<double> Maximum
     {
-        get => GetArgument<TerraformValue<double>>("maximum") ?? AsReference("maximum");
+        get => GetArgument<TerraformValue<double>>("maximum") ?? CreateReference("maximum");
         set => SetArgument("maximum", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockEcpuPerSecondBloc
     /// </summary>
     public TerraformValue<double> Minimum
     {
-        get => GetArgument<TerraformValue<double>>("minimum") ?? AsReference("minimum");
+        get => GetArgument<TerraformValue<double>>("minimum") ?? CreateReference("minimum");
         set => SetArgument("minimum", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> DailySnapshotTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_snapshot_time") ?? AsReference("daily_snapshot_time");
+        get => GetArgument<TerraformValue<string>>("daily_snapshot_time") ?? CreateReference("daily_snapshot_time");
         set => SetArgument("daily_snapshot_time", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> MajorEngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("major_engine_version") ?? AsReference("major_engine_version");
+        get => GetArgument<TerraformValue<string>>("major_engine_version") ?? CreateReference("major_engine_version");
         set => SetArgument("major_engine_version", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformValue<double> SnapshotRetentionLimit
     {
-        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit") ?? AsReference("snapshot_retention_limit");
+        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit") ?? CreateReference("snapshot_retention_limit");
         set => SetArgument("snapshot_retention_limit", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? CreateReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -276,49 +276,49 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The full_engine_version attribute.
     /// </summary>
     public TerraformValue<string> FullEngineVersion
-        => AsReference("full_engine_version");
+        => CreateReference("full_engine_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The reader_endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReaderEndpoint
-        => AsReference("reader_endpoint");
+        => CreateReference("reader_endpoint");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// CacheUsageLimits block (nesting mode: list).

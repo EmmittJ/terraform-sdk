@@ -27,7 +27,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> NatGatewayName
     {
-        get => GetArgument<TerraformValue<string>>("nat_gateway_name") ?? AsReference("nat_gateway_name");
+        get => GetArgument<TerraformValue<string>>("nat_gateway_name") ?? CreateReference("nat_gateway_name");
         set => SetArgument("nat_gateway_name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PublicIpName
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_name") ?? AsReference("public_ip_name");
+        get => GetArgument<TerraformValue<string>>("public_ip_name") ?? CreateReference("public_ip_name");
         set => SetArgument("public_ip_name", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StorageAccountName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_name") ?? AsReference("storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name") ?? CreateReference("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StorageAccountSkuName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_sku_name") ?? AsReference("storage_account_sku_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_sku_name") ?? CreateReference("storage_account_sku_name");
         set => SetArgument("storage_account_sku_name", value);
     }
 
@@ -117,7 +117,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VnetAddressPrefix
     {
-        get => GetArgument<TerraformValue<string>>("vnet_address_prefix") ?? AsReference("vnet_address_prefix");
+        get => GetArgument<TerraformValue<string>>("vnet_address_prefix") ?? CreateReference("vnet_address_prefix");
         set => SetArgument("vnet_address_prefix", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -326,7 +326,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> ManagedResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("managed_resource_group_name") ?? AsReference("managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name") ?? CreateReference("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -409,37 +409,37 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// The disk_encryption_set_id attribute.
     /// </summary>
     public TerraformValue<string> DiskEncryptionSetId
-        => AsReference("disk_encryption_set_id");
+        => CreateReference("disk_encryption_set_id");
 
     /// <summary>
     /// The managed_disk_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedDiskIdentity
-        => AsReference("managed_disk_identity");
+        => CreateReference("managed_disk_identity");
 
     /// <summary>
     /// The managed_resource_group_id attribute.
     /// </summary>
     public TerraformValue<string> ManagedResourceGroupId
-        => AsReference("managed_resource_group_id");
+        => CreateReference("managed_resource_group_id");
 
     /// <summary>
     /// The storage_account_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageAccountIdentity
-        => AsReference("storage_account_identity");
+        => CreateReference("storage_account_identity");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-        => AsReference("workspace_id");
+        => CreateReference("workspace_id");
 
     /// <summary>
     /// The workspace_url attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceUrl
-        => AsReference("workspace_url");
+        => CreateReference("workspace_url");
 
     /// <summary>
     /// CustomParameters block (nesting mode: list).

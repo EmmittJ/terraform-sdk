@@ -26,13 +26,13 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -166,7 +166,7 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Capacity
     {
-        get => GetArgument<TerraformValue<double>>("capacity") ?? AsReference("capacity");
+        get => GetArgument<TerraformValue<double>>("capacity") ?? CreateReference("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -334,7 +334,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -427,7 +427,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformList<string> TrustedExternalTenants
     {
-        get => GetArgument<TerraformList<string>>("trusted_external_tenants") ?? AsReference("trusted_external_tenants");
+        get => GetArgument<TerraformList<string>>("trusted_external_tenants") ?? CreateReference("trusted_external_tenants");
         set => SetArgument("trusted_external_tenants", value);
     }
 
@@ -444,13 +444,13 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// The data_ingestion_uri attribute.
     /// </summary>
     public TerraformValue<string> DataIngestionUri
-        => AsReference("data_ingestion_uri");
+        => CreateReference("data_ingestion_uri");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-        => AsReference("uri");
+        => CreateReference("uri");
 
     /// <summary>
     /// Identity block (nesting mode: list).

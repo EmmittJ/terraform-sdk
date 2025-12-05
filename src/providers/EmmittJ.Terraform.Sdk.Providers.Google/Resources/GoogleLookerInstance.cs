@@ -54,7 +54,7 @@ public class GoogleLookerInstanceCustomDomainBlock : TerraformBlock
     /// Status of the custom domain.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -271,13 +271,13 @@ public class GoogleLookerInstanceEncryptionConfigBlock : TerraformBlock
     /// Full name and version of the CMEK key currently in use to encrypt Looker data.
     /// </summary>
     public TerraformValue<string> KmsKeyNameVersion
-        => AsReference("kms_key_name_version");
+        => CreateReference("kms_key_name_version");
 
     /// <summary>
     /// Status of the customer managed encryption key (CMEK) in KMS.
     /// </summary>
     public TerraformValue<string> KmsKeyState
-        => AsReference("kms_key_state");
+        => CreateReference("kms_key_state");
 
 }
 
@@ -434,7 +434,7 @@ public class GoogleLookerInstancePscConfigBlock : TerraformBlock
     /// URI of the Looker service attachment.
     /// </summary>
     public TerraformValue<string> LookerServiceAttachmentUri
-        => AsReference("looker_service_attachment_uri");
+        => CreateReference("looker_service_attachment_uri");
 
     /// <summary>
     /// ServiceAttachments block (nesting mode: list).
@@ -462,7 +462,7 @@ public class GoogleLookerInstancePscConfigBlockServiceAttachmentsBlock : Terrafo
     /// Status of the service attachment connection.
     /// </summary>
     public TerraformValue<string> ConnectionStatus
-        => AsReference("connection_status");
+        => CreateReference("connection_status");
 
     /// <summary>
     /// Fully qualified domain name that will be used in the private DNS record created for the service attachment.
@@ -619,7 +619,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -667,7 +667,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -694,7 +694,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -713,44 +713,44 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// accurate to nanoseconds.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Public Egress IP (IPv4).
     /// </summary>
     public TerraformValue<string> EgressPublicIp
-        => AsReference("egress_public_ip");
+        => CreateReference("egress_public_ip");
 
     /// <summary>
     /// Private Ingress IP (IPv4).
     /// </summary>
     public TerraformValue<string> IngressPrivateIp
-        => AsReference("ingress_private_ip");
+        => CreateReference("ingress_private_ip");
 
     /// <summary>
     /// Public Ingress IP (IPv4).
     /// </summary>
     public TerraformValue<string> IngressPublicIp
-        => AsReference("ingress_public_ip");
+        => CreateReference("ingress_public_ip");
 
     /// <summary>
     /// Looker instance URI which can be used to access the Looker Instance UI.
     /// </summary>
     public TerraformValue<string> LookerUri
-        => AsReference("looker_uri");
+        => CreateReference("looker_uri");
 
     /// <summary>
     /// The Looker version that the instance is using.
     /// </summary>
     public TerraformValue<string> LookerVersion
-        => AsReference("looker_version");
+        => CreateReference("looker_version");
 
     /// <summary>
     /// The time the instance was updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// accurate to nanoseconds.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// AdminSettings block (nesting mode: list).

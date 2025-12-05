@@ -13,7 +13,7 @@ public partial class GoogleComputeLbIpRangesDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -21,12 +21,12 @@ public partial class GoogleComputeLbIpRangesDataSource(string name) : TerraformD
     /// The http_ssl_tcp_internal attribute.
     /// </summary>
     public TerraformList<string> HttpSslTcpInternal
-        => AsReference("http_ssl_tcp_internal");
+        => CreateReference("http_ssl_tcp_internal");
 
     /// <summary>
     /// The network attribute.
     /// </summary>
     public TerraformList<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
 }

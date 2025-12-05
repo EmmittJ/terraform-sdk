@@ -42,7 +42,7 @@ public partial class AwsOpensearchserverlessLifecyclePolicy(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,12 +60,12 @@ public partial class AwsOpensearchserverlessLifecyclePolicy(string name) : Terra
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Version of the policy.
     /// </summary>
     public TerraformValue<string> PolicyVersion
-        => AsReference("policy_version");
+        => CreateReference("policy_version");
 
 }

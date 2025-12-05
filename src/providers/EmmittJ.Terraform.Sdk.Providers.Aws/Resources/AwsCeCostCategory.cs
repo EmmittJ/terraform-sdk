@@ -2420,7 +2420,7 @@ public partial class AwsCeCostCategory(string name) : TerraformResource("aws_ce_
     /// </summary>
     public TerraformValue<string> EffectiveStart
     {
-        get => GetArgument<TerraformValue<string>>("effective_start") ?? AsReference("effective_start");
+        get => GetArgument<TerraformValue<string>>("effective_start") ?? CreateReference("effective_start");
         set => SetArgument("effective_start", value);
     }
 
@@ -2429,7 +2429,7 @@ public partial class AwsCeCostCategory(string name) : TerraformResource("aws_ce_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2467,7 +2467,7 @@ public partial class AwsCeCostCategory(string name) : TerraformResource("aws_ce_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -2475,13 +2475,13 @@ public partial class AwsCeCostCategory(string name) : TerraformResource("aws_ce_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The effective_end attribute.
     /// </summary>
     public TerraformValue<string> EffectiveEnd
-        => AsReference("effective_end");
+        => CreateReference("effective_end");
 
     /// <summary>
     /// Rule block (nesting mode: list).

@@ -79,7 +79,7 @@ public partial class AwsDirectoryServiceSharedDirectory(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsDirectoryServiceSharedDirectory(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsDirectoryServiceSharedDirectory(string name) : Terraform
     /// The shared_directory_id attribute.
     /// </summary>
     public TerraformValue<string> SharedDirectoryId
-        => AsReference("shared_directory_id");
+        => CreateReference("shared_directory_id");
 
     /// <summary>
     /// Target block (nesting mode: list).

@@ -84,7 +84,7 @@ public partial class GoogleApigeeApiDeployment(string name) : TerraformResource(
     /// The ID of the API deployment in the format &#39;organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_id}}/revisions/{{revision}}/deployments&#39;.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

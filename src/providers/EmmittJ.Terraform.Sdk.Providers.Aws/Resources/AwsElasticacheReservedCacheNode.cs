@@ -54,7 +54,7 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     /// </summary>
     public TerraformValue<double> CacheNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("cache_node_count") ?? AsReference("cache_node_count");
+        get => GetArgument<TerraformValue<double>>("cache_node_count") ?? CreateReference("cache_node_count");
         set => SetArgument("cache_node_count", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -99,67 +99,67 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
     public TerraformValue<string> CacheNodeType
-        => AsReference("cache_node_type");
+        => CreateReference("cache_node_type");
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
     public TerraformValue<string> Duration
-        => AsReference("duration");
+        => CreateReference("duration");
 
     /// <summary>
     /// The fixed_price attribute.
     /// </summary>
     public TerraformValue<double> FixedPrice
-        => AsReference("fixed_price");
+        => CreateReference("fixed_price");
 
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
     public TerraformValue<string> OfferingType
-        => AsReference("offering_type");
+        => CreateReference("offering_type");
 
     /// <summary>
     /// The product_description attribute.
     /// </summary>
     public TerraformValue<string> ProductDescription
-        => AsReference("product_description");
+        => CreateReference("product_description");
 
     /// <summary>
     /// The recurring_charges attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RecurringCharges
-        => AsReference("recurring_charges");
+        => CreateReference("recurring_charges");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-        => AsReference("start_time");
+        => CreateReference("start_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The usage_price attribute.
     /// </summary>
     public TerraformValue<double> UsagePrice
-        => AsReference("usage_price");
+        => CreateReference("usage_price");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

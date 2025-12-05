@@ -195,7 +195,7 @@ public partial class AwsCloudformationStackSet(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> ExecutionRoleName
     {
-        get => GetArgument<TerraformValue<string>>("execution_role_name") ?? AsReference("execution_role_name");
+        get => GetArgument<TerraformValue<string>>("execution_role_name") ?? CreateReference("execution_role_name");
         set => SetArgument("execution_role_name", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AwsCloudformationStackSet(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsCloudformationStackSet(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AwsCloudformationStackSet(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -268,7 +268,7 @@ public partial class AwsCloudformationStackSet(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> TemplateBody
     {
-        get => GetArgument<TerraformValue<string>>("template_body") ?? AsReference("template_body");
+        get => GetArgument<TerraformValue<string>>("template_body") ?? CreateReference("template_body");
         set => SetArgument("template_body", value);
     }
 
@@ -285,13 +285,13 @@ public partial class AwsCloudformationStackSet(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The stack_set_id attribute.
     /// </summary>
     public TerraformValue<string> StackSetId
-        => AsReference("stack_set_id");
+        => CreateReference("stack_set_id");
 
     /// <summary>
     /// AutoDeployment block (nesting mode: list).

@@ -46,7 +46,7 @@ public partial class AzurermAppConfigurationKeyDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,43 +73,43 @@ public partial class AzurermAppConfigurationKeyDataSource(string name) : Terrafo
     /// The content_type attribute.
     /// </summary>
     public TerraformValue<string> ContentType
-        => AsReference("content_type");
+        => CreateReference("content_type");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
     public TerraformValue<bool> Locked
-        => AsReference("locked");
+        => CreateReference("locked");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-        => AsReference("value");
+        => CreateReference("value");
 
     /// <summary>
     /// The vault_key_reference attribute.
     /// </summary>
     public TerraformValue<string> VaultKeyReference
-        => AsReference("vault_key_reference");
+        => CreateReference("vault_key_reference");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

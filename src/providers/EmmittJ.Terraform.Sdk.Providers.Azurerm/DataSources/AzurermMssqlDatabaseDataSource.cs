@@ -36,7 +36,7 @@ public partial class AzurermMssqlDatabaseDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,91 +64,91 @@ public partial class AzurermMssqlDatabaseDataSource(string name) : TerraformData
     /// The collation attribute.
     /// </summary>
     public TerraformValue<string> Collation
-        => AsReference("collation");
+        => CreateReference("collation");
 
     /// <summary>
     /// The elastic_pool_id attribute.
     /// </summary>
     public TerraformValue<string> ElasticPoolId
-        => AsReference("elastic_pool_id");
+        => CreateReference("elastic_pool_id");
 
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
     public TerraformValue<string> EnclaveType
-        => AsReference("enclave_type");
+        => CreateReference("enclave_type");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     public TerraformValue<string> LicenseType
-        => AsReference("license_type");
+        => CreateReference("license_type");
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
     public TerraformValue<double> MaxSizeGb
-        => AsReference("max_size_gb");
+        => CreateReference("max_size_gb");
 
     /// <summary>
     /// The read_replica_count attribute.
     /// </summary>
     public TerraformValue<double> ReadReplicaCount
-        => AsReference("read_replica_count");
+        => CreateReference("read_replica_count");
 
     /// <summary>
     /// The read_scale attribute.
     /// </summary>
     public TerraformValue<bool> ReadScale
-        => AsReference("read_scale");
+        => CreateReference("read_scale");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     public TerraformValue<string> StorageAccountType
-        => AsReference("storage_account_type");
+        => CreateReference("storage_account_type");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The transparent_data_encryption_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TransparentDataEncryptionEnabled
-        => AsReference("transparent_data_encryption_enabled");
+        => CreateReference("transparent_data_encryption_enabled");
 
     /// <summary>
     /// The transparent_data_encryption_key_automatic_rotation_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TransparentDataEncryptionKeyAutomaticRotationEnabled
-        => AsReference("transparent_data_encryption_key_automatic_rotation_enabled");
+        => CreateReference("transparent_data_encryption_key_automatic_rotation_enabled");
 
     /// <summary>
     /// The transparent_data_encryption_key_vault_key_id attribute.
     /// </summary>
     public TerraformValue<string> TransparentDataEncryptionKeyVaultKeyId
-        => AsReference("transparent_data_encryption_key_vault_key_id");
+        => CreateReference("transparent_data_encryption_key_vault_key_id");
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
     public TerraformValue<bool> ZoneRedundant
-        => AsReference("zone_redundant");
+        => CreateReference("zone_redundant");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

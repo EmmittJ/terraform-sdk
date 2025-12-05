@@ -105,7 +105,7 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// </summary>
     public TerraformValue<string> MeteredAccount
     {
-        get => GetArgument<TerraformValue<string>>("metered_account") ?? AsReference("metered_account");
+        get => GetArgument<TerraformValue<string>>("metered_account") ?? CreateReference("metered_account");
         set => SetArgument("metered_account", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -158,37 +158,37 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The default_resource_discovery_association_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultResourceDiscoveryAssociationId
-        => AsReference("default_resource_discovery_association_id");
+        => CreateReference("default_resource_discovery_association_id");
 
     /// <summary>
     /// The default_resource_discovery_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultResourceDiscoveryId
-        => AsReference("default_resource_discovery_id");
+        => CreateReference("default_resource_discovery_id");
 
     /// <summary>
     /// The private_default_scope_id attribute.
     /// </summary>
     public TerraformValue<string> PrivateDefaultScopeId
-        => AsReference("private_default_scope_id");
+        => CreateReference("private_default_scope_id");
 
     /// <summary>
     /// The public_default_scope_id attribute.
     /// </summary>
     public TerraformValue<string> PublicDefaultScopeId
-        => AsReference("public_default_scope_id");
+        => CreateReference("public_default_scope_id");
 
     /// <summary>
     /// The scope_count attribute.
     /// </summary>
     public TerraformValue<double> ScopeCount
-        => AsReference("scope_count");
+        => CreateReference("scope_count");
 
     /// <summary>
     /// OperatingRegions block (nesting mode: set).

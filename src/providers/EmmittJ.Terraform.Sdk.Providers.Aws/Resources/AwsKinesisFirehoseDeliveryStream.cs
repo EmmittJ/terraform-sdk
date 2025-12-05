@@ -468,7 +468,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockVpcC
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }
 
@@ -1104,7 +1104,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -1123,7 +1123,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1915,7 +1915,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockSecre
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1956,7 +1956,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformValue<bool> AppendOnly
     {
-        get => GetArgument<TerraformValue<bool>>("append_only") ?? AsReference("append_only");
+        get => GetArgument<TerraformValue<bool>>("append_only") ?? CreateReference("append_only");
         set => SetArgument("append_only", value);
     }
 
@@ -3007,7 +3007,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockVpcConf
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }
 
@@ -3452,7 +3452,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }
 
@@ -4033,7 +4033,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockSecretsMa
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4604,7 +4604,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockSecretsM
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5101,7 +5101,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockSecretsMana
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5178,7 +5178,7 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -5197,7 +5197,7 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> DestinationId
     {
-        get => GetArgument<TerraformValue<string>>("destination_id") ?? AsReference("destination_id");
+        get => GetArgument<TerraformValue<string>>("destination_id") ?? CreateReference("destination_id");
         set => SetArgument("destination_id", value);
     }
 
@@ -5206,7 +5206,7 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -5225,7 +5225,7 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -5243,7 +5243,7 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -5252,7 +5252,7 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> VersionId
     {
-        get => GetArgument<TerraformValue<string>>("version_id") ?? AsReference("version_id");
+        get => GetArgument<TerraformValue<string>>("version_id") ?? CreateReference("version_id");
         set => SetArgument("version_id", value);
     }
 

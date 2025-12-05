@@ -23,7 +23,7 @@ public partial class AwsEc2CapacityBlockOfferingDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> EndDateRange
     {
-        get => GetArgument<TerraformValue<string>>("end_date_range") ?? AsReference("end_date_range");
+        get => GetArgument<TerraformValue<string>>("end_date_range") ?? CreateReference("end_date_range");
         set => SetArgument("end_date_range", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsEc2CapacityBlockOfferingDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsEc2CapacityBlockOfferingDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> StartDateRange
     {
-        get => GetArgument<TerraformValue<string>>("start_date_range") ?? AsReference("start_date_range");
+        get => GetArgument<TerraformValue<string>>("start_date_range") ?? CreateReference("start_date_range");
         set => SetArgument("start_date_range", value);
     }
 
@@ -69,30 +69,30 @@ public partial class AwsEc2CapacityBlockOfferingDataSource(string name) : Terraf
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The capacity_block_offering_id attribute.
     /// </summary>
     public TerraformValue<string> CapacityBlockOfferingId
-        => AsReference("capacity_block_offering_id");
+        => CreateReference("capacity_block_offering_id");
 
     /// <summary>
     /// The currency_code attribute.
     /// </summary>
     public TerraformValue<string> CurrencyCode
-        => AsReference("currency_code");
+        => CreateReference("currency_code");
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
     public TerraformValue<string> Tenancy
-        => AsReference("tenancy");
+        => CreateReference("tenancy");
 
     /// <summary>
     /// The upfront_fee attribute.
     /// </summary>
     public TerraformValue<string> UpfrontFee
-        => AsReference("upfront_fee");
+        => CreateReference("upfront_fee");
 
 }

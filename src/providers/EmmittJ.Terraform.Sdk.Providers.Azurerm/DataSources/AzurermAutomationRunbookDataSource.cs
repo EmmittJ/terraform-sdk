@@ -46,7 +46,7 @@ public partial class AzurermAutomationRunbookDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,49 +74,49 @@ public partial class AzurermAutomationRunbookDataSource(string name) : Terraform
     /// The content attribute.
     /// </summary>
     public TerraformValue<string> Content
-        => AsReference("content");
+        => CreateReference("content");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The log_activity_trace_level attribute.
     /// </summary>
     public TerraformValue<double> LogActivityTraceLevel
-        => AsReference("log_activity_trace_level");
+        => CreateReference("log_activity_trace_level");
 
     /// <summary>
     /// The log_progress attribute.
     /// </summary>
     public TerraformValue<bool> LogProgress
-        => AsReference("log_progress");
+        => CreateReference("log_progress");
 
     /// <summary>
     /// The log_verbose attribute.
     /// </summary>
     public TerraformValue<bool> LogVerbose
-        => AsReference("log_verbose");
+        => CreateReference("log_verbose");
 
     /// <summary>
     /// The runbook_type attribute.
     /// </summary>
     public TerraformValue<string> RunbookType
-        => AsReference("runbook_type");
+        => CreateReference("runbook_type");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

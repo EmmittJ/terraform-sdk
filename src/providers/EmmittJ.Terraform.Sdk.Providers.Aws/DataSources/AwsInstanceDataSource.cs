@@ -88,7 +88,7 @@ public partial class AwsInstanceDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsInstanceDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformMap<string> InstanceTags
     {
-        get => GetArgument<TerraformMap<string>>("instance_tags") ?? AsReference("instance_tags");
+        get => GetArgument<TerraformMap<string>>("instance_tags") ?? CreateReference("instance_tags");
         set => SetArgument("instance_tags", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsInstanceDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsInstanceDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -132,253 +132,253 @@ public partial class AwsInstanceDataSource(string name) : TerraformDataSource("a
     /// The ami attribute.
     /// </summary>
     public TerraformValue<string> Ami
-        => AsReference("ami");
+        => CreateReference("ami");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The associate_public_ip_address attribute.
     /// </summary>
     public TerraformValue<bool> AssociatePublicIpAddress
-        => AsReference("associate_public_ip_address");
+        => CreateReference("associate_public_ip_address");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The credit_specification attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CreditSpecification
-        => AsReference("credit_specification");
+        => CreateReference("credit_specification");
 
     /// <summary>
     /// The disable_api_stop attribute.
     /// </summary>
     public TerraformValue<bool> DisableApiStop
-        => AsReference("disable_api_stop");
+        => CreateReference("disable_api_stop");
 
     /// <summary>
     /// The disable_api_termination attribute.
     /// </summary>
     public TerraformValue<bool> DisableApiTermination
-        => AsReference("disable_api_termination");
+        => CreateReference("disable_api_termination");
 
     /// <summary>
     /// The ebs_block_device attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> EbsBlockDevice
-        => AsReference("ebs_block_device");
+        => CreateReference("ebs_block_device");
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
     public TerraformValue<bool> EbsOptimized
-        => AsReference("ebs_optimized");
+        => CreateReference("ebs_optimized");
 
     /// <summary>
     /// The enclave_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EnclaveOptions
-        => AsReference("enclave_options");
+        => CreateReference("enclave_options");
 
     /// <summary>
     /// The ephemeral_block_device attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EphemeralBlockDevice
-        => AsReference("ephemeral_block_device");
+        => CreateReference("ephemeral_block_device");
 
     /// <summary>
     /// The host_id attribute.
     /// </summary>
     public TerraformValue<string> HostId
-        => AsReference("host_id");
+        => CreateReference("host_id");
 
     /// <summary>
     /// The host_resource_group_arn attribute.
     /// </summary>
     public TerraformValue<string> HostResourceGroupArn
-        => AsReference("host_resource_group_arn");
+        => CreateReference("host_resource_group_arn");
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
     public TerraformValue<string> IamInstanceProfile
-        => AsReference("iam_instance_profile");
+        => CreateReference("iam_instance_profile");
 
     /// <summary>
     /// The instance_state attribute.
     /// </summary>
     public TerraformValue<string> InstanceState
-        => AsReference("instance_state");
+        => CreateReference("instance_state");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-        => AsReference("instance_type");
+        => CreateReference("instance_type");
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
     public TerraformSet<string> Ipv6Addresses
-        => AsReference("ipv6_addresses");
+        => CreateReference("ipv6_addresses");
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
     public TerraformValue<string> KeyName
-        => AsReference("key_name");
+        => CreateReference("key_name");
 
     /// <summary>
     /// The launch_time attribute.
     /// </summary>
     public TerraformValue<string> LaunchTime
-        => AsReference("launch_time");
+        => CreateReference("launch_time");
 
     /// <summary>
     /// The maintenance_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceOptions
-        => AsReference("maintenance_options");
+        => CreateReference("maintenance_options");
 
     /// <summary>
     /// The metadata_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MetadataOptions
-        => AsReference("metadata_options");
+        => CreateReference("metadata_options");
 
     /// <summary>
     /// The monitoring attribute.
     /// </summary>
     public TerraformValue<bool> Monitoring
-        => AsReference("monitoring");
+        => CreateReference("monitoring");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
-        => AsReference("network_interface_id");
+        => CreateReference("network_interface_id");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-        => AsReference("outpost_arn");
+        => CreateReference("outpost_arn");
 
     /// <summary>
     /// The password_data attribute.
     /// </summary>
     public TerraformValue<string> PasswordData
-        => AsReference("password_data");
+        => CreateReference("password_data");
 
     /// <summary>
     /// The placement_group attribute.
     /// </summary>
     public TerraformValue<string> PlacementGroup
-        => AsReference("placement_group");
+        => CreateReference("placement_group");
 
     /// <summary>
     /// The placement_group_id attribute.
     /// </summary>
     public TerraformValue<string> PlacementGroupId
-        => AsReference("placement_group_id");
+        => CreateReference("placement_group_id");
 
     /// <summary>
     /// The placement_partition_number attribute.
     /// </summary>
     public TerraformValue<double> PlacementPartitionNumber
-        => AsReference("placement_partition_number");
+        => CreateReference("placement_partition_number");
 
     /// <summary>
     /// The private_dns attribute.
     /// </summary>
     public TerraformValue<string> PrivateDns
-        => AsReference("private_dns");
+        => CreateReference("private_dns");
 
     /// <summary>
     /// The private_dns_name_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateDnsNameOptions
-        => AsReference("private_dns_name_options");
+        => CreateReference("private_dns_name_options");
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
     public TerraformValue<string> PrivateIp
-        => AsReference("private_ip");
+        => CreateReference("private_ip");
 
     /// <summary>
     /// The public_dns attribute.
     /// </summary>
     public TerraformValue<string> PublicDns
-        => AsReference("public_dns");
+        => CreateReference("public_dns");
 
     /// <summary>
     /// The public_ip attribute.
     /// </summary>
     public TerraformValue<string> PublicIp
-        => AsReference("public_ip");
+        => CreateReference("public_ip");
 
     /// <summary>
     /// The root_block_device attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> RootBlockDevice
-        => AsReference("root_block_device");
+        => CreateReference("root_block_device");
 
     /// <summary>
     /// The secondary_private_ips attribute.
     /// </summary>
     public TerraformSet<string> SecondaryPrivateIps
-        => AsReference("secondary_private_ips");
+        => CreateReference("secondary_private_ips");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroups
-        => AsReference("security_groups");
+        => CreateReference("security_groups");
 
     /// <summary>
     /// The source_dest_check attribute.
     /// </summary>
     public TerraformValue<bool> SourceDestCheck
-        => AsReference("source_dest_check");
+        => CreateReference("source_dest_check");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-        => AsReference("subnet_id");
+        => CreateReference("subnet_id");
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
     public TerraformValue<string> Tenancy
-        => AsReference("tenancy");
+        => CreateReference("tenancy");
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
     public TerraformValue<string> UserData
-        => AsReference("user_data");
+        => CreateReference("user_data");
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
     public TerraformValue<string> UserDataBase64
-        => AsReference("user_data_base64");
+        => CreateReference("user_data_base64");
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
-        => AsReference("vpc_security_group_ids");
+        => CreateReference("vpc_security_group_ids");
 
     /// <summary>
     /// Filter block (nesting mode: set).

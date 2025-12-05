@@ -23,7 +23,7 @@ public partial class AwsLambdaFunctionUrlDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsLambdaFunctionUrlDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,48 +49,48 @@ public partial class AwsLambdaFunctionUrlDataSource(string name) : TerraformData
     /// The authorization_type attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationType
-        => AsReference("authorization_type");
+        => CreateReference("authorization_type");
 
     /// <summary>
     /// The cors attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Cors
-        => AsReference("cors");
+        => CreateReference("cors");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
     public TerraformValue<string> FunctionArn
-        => AsReference("function_arn");
+        => CreateReference("function_arn");
 
     /// <summary>
     /// The function_url attribute.
     /// </summary>
     public TerraformValue<string> FunctionUrl
-        => AsReference("function_url");
+        => CreateReference("function_url");
 
     /// <summary>
     /// The invoke_mode attribute.
     /// </summary>
     public TerraformValue<string> InvokeMode
-        => AsReference("invoke_mode");
+        => CreateReference("invoke_mode");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-        => AsReference("last_modified_time");
+        => CreateReference("last_modified_time");
 
     /// <summary>
     /// The url_id attribute.
     /// </summary>
     public TerraformValue<string> UrlId
-        => AsReference("url_id");
+        => CreateReference("url_id");
 
 }

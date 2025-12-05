@@ -228,7 +228,7 @@ public class AwsRdsClusterServerlessv2ScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> SecondsUntilAutoPause
     {
-        get => GetArgument<TerraformValue<double>>("seconds_until_auto_pause") ?? AsReference("seconds_until_auto_pause");
+        get => GetArgument<TerraformValue<double>>("seconds_until_auto_pause") ?? CreateReference("seconds_until_auto_pause");
         set => SetArgument("seconds_until_auto_pause", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<double> AllocatedStorage
     {
-        get => GetArgument<TerraformValue<double>>("allocated_storage") ?? AsReference("allocated_storage");
+        get => GetArgument<TerraformValue<double>>("allocated_storage") ?? CreateReference("allocated_storage");
         set => SetArgument("allocated_storage", value);
     }
 
@@ -305,7 +305,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<bool> ApplyImmediately
     {
-        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? AsReference("apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? CreateReference("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
@@ -314,7 +314,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformSet<string> AvailabilityZones
     {
-        get => GetArgument<TerraformSet<string>>("availability_zones") ?? AsReference("availability_zones");
+        get => GetArgument<TerraformSet<string>>("availability_zones") ?? CreateReference("availability_zones");
         set => SetArgument("availability_zones", value);
     }
 
@@ -332,7 +332,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<double> BackupRetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_period") ?? AsReference("backup_retention_period");
+        get => GetArgument<TerraformValue<double>>("backup_retention_period") ?? CreateReference("backup_retention_period");
         set => SetArgument("backup_retention_period", value);
     }
 
@@ -341,7 +341,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> CaCertificateIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("ca_certificate_identifier") ?? AsReference("ca_certificate_identifier");
+        get => GetArgument<TerraformValue<string>>("ca_certificate_identifier") ?? CreateReference("ca_certificate_identifier");
         set => SetArgument("ca_certificate_identifier", value);
     }
 
@@ -350,7 +350,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> ClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier") ?? AsReference("cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier") ?? CreateReference("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -359,7 +359,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> ClusterIdentifierPrefix
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier_prefix") ?? AsReference("cluster_identifier_prefix");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier_prefix") ?? CreateReference("cluster_identifier_prefix");
         set => SetArgument("cluster_identifier_prefix", value);
     }
 
@@ -368,7 +368,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformSet<string> ClusterMembers
     {
-        get => GetArgument<TerraformSet<string>>("cluster_members") ?? AsReference("cluster_members");
+        get => GetArgument<TerraformSet<string>>("cluster_members") ?? CreateReference("cluster_members");
         set => SetArgument("cluster_members", value);
     }
 
@@ -377,7 +377,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> ClusterScalabilityType
     {
-        get => GetArgument<TerraformValue<string>>("cluster_scalability_type") ?? AsReference("cluster_scalability_type");
+        get => GetArgument<TerraformValue<string>>("cluster_scalability_type") ?? CreateReference("cluster_scalability_type");
         set => SetArgument("cluster_scalability_type", value);
     }
 
@@ -395,7 +395,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> DatabaseInsightsMode
     {
-        get => GetArgument<TerraformValue<string>>("database_insights_mode") ?? AsReference("database_insights_mode");
+        get => GetArgument<TerraformValue<string>>("database_insights_mode") ?? CreateReference("database_insights_mode");
         set => SetArgument("database_insights_mode", value);
     }
 
@@ -404,7 +404,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name") ?? AsReference("database_name");
+        get => GetArgument<TerraformValue<string>>("database_name") ?? CreateReference("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -422,7 +422,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> DbClusterParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("db_cluster_parameter_group_name") ?? AsReference("db_cluster_parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("db_cluster_parameter_group_name") ?? CreateReference("db_cluster_parameter_group_name");
         set => SetArgument("db_cluster_parameter_group_name", value);
     }
 
@@ -440,7 +440,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> DbSubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("db_subnet_group_name") ?? AsReference("db_subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("db_subnet_group_name") ?? CreateReference("db_subnet_group_name");
         set => SetArgument("db_subnet_group_name", value);
     }
 
@@ -449,7 +449,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> DbSystemId
     {
-        get => GetArgument<TerraformValue<string>>("db_system_id") ?? AsReference("db_system_id");
+        get => GetArgument<TerraformValue<string>>("db_system_id") ?? CreateReference("db_system_id");
         set => SetArgument("db_system_id", value);
     }
 
@@ -540,7 +540,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> EngineLifecycleSupport
     {
-        get => GetArgument<TerraformValue<string>>("engine_lifecycle_support") ?? AsReference("engine_lifecycle_support");
+        get => GetArgument<TerraformValue<string>>("engine_lifecycle_support") ?? CreateReference("engine_lifecycle_support");
         set => SetArgument("engine_lifecycle_support", value);
     }
 
@@ -558,7 +558,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -594,7 +594,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformSet<string> IamRoles
     {
-        get => GetArgument<TerraformSet<string>>("iam_roles") ?? AsReference("iam_roles");
+        get => GetArgument<TerraformSet<string>>("iam_roles") ?? CreateReference("iam_roles");
         set => SetArgument("iam_roles", value);
     }
 
@@ -603,7 +603,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -621,7 +621,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -666,7 +666,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> MasterUserSecretKmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("master_user_secret_kms_key_id") ?? AsReference("master_user_secret_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("master_user_secret_kms_key_id") ?? CreateReference("master_user_secret_kms_key_id");
         set => SetArgument("master_user_secret_kms_key_id", value);
     }
 
@@ -675,7 +675,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> MasterUsername
     {
-        get => GetArgument<TerraformValue<string>>("master_username") ?? AsReference("master_username");
+        get => GetArgument<TerraformValue<string>>("master_username") ?? CreateReference("master_username");
         set => SetArgument("master_username", value);
     }
 
@@ -684,7 +684,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<double> MonitoringInterval
     {
-        get => GetArgument<TerraformValue<double>>("monitoring_interval") ?? AsReference("monitoring_interval");
+        get => GetArgument<TerraformValue<double>>("monitoring_interval") ?? CreateReference("monitoring_interval");
         set => SetArgument("monitoring_interval", value);
     }
 
@@ -693,7 +693,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> MonitoringRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("monitoring_role_arn") ?? AsReference("monitoring_role_arn");
+        get => GetArgument<TerraformValue<string>>("monitoring_role_arn") ?? CreateReference("monitoring_role_arn");
         set => SetArgument("monitoring_role_arn", value);
     }
 
@@ -702,7 +702,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> NetworkType
     {
-        get => GetArgument<TerraformValue<string>>("network_type") ?? AsReference("network_type");
+        get => GetArgument<TerraformValue<string>>("network_type") ?? CreateReference("network_type");
         set => SetArgument("network_type", value);
     }
 
@@ -720,7 +720,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> PerformanceInsightsKmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("performance_insights_kms_key_id") ?? AsReference("performance_insights_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("performance_insights_kms_key_id") ?? CreateReference("performance_insights_kms_key_id");
         set => SetArgument("performance_insights_kms_key_id", value);
     }
 
@@ -729,7 +729,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<double> PerformanceInsightsRetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("performance_insights_retention_period") ?? AsReference("performance_insights_retention_period");
+        get => GetArgument<TerraformValue<double>>("performance_insights_retention_period") ?? CreateReference("performance_insights_retention_period");
         set => SetArgument("performance_insights_retention_period", value);
     }
 
@@ -738,7 +738,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -747,7 +747,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> PreferredBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? AsReference("preferred_backup_window");
+        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? CreateReference("preferred_backup_window");
         set => SetArgument("preferred_backup_window", value);
     }
 
@@ -756,7 +756,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? CreateReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -765,7 +765,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -810,7 +810,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<bool> StorageEncrypted
     {
-        get => GetArgument<TerraformValue<bool>>("storage_encrypted") ?? AsReference("storage_encrypted");
+        get => GetArgument<TerraformValue<bool>>("storage_encrypted") ?? CreateReference("storage_encrypted");
         set => SetArgument("storage_encrypted", value);
     }
 
@@ -819,7 +819,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformValue<string> StorageType
     {
-        get => GetArgument<TerraformValue<string>>("storage_type") ?? AsReference("storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type") ?? CreateReference("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -837,7 +837,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -846,7 +846,7 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? CreateReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -854,49 +854,49 @@ public partial class AwsRdsCluster(string name) : TerraformResource("aws_rds_clu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The ca_certificate_valid_till attribute.
     /// </summary>
     public TerraformValue<string> CaCertificateValidTill
-        => AsReference("ca_certificate_valid_till");
+        => CreateReference("ca_certificate_valid_till");
 
     /// <summary>
     /// The cluster_resource_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterResourceId
-        => AsReference("cluster_resource_id");
+        => CreateReference("cluster_resource_id");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
     public TerraformValue<string> EngineVersionActual
-        => AsReference("engine_version_actual");
+        => CreateReference("engine_version_actual");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The master_user_secret attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MasterUserSecret
-        => AsReference("master_user_secret");
+        => CreateReference("master_user_secret");
 
     /// <summary>
     /// The reader_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ReaderEndpoint
-        => AsReference("reader_endpoint");
+        => CreateReference("reader_endpoint");
 
     /// <summary>
     /// RestoreToPointInTime block (nesting mode: list).

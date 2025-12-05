@@ -645,7 +645,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// A server generated id of custom module.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The state of enablement for the module at its level of the resource hierarchy. Possible values: [&amp;quot;ENABLEMENT_STATE_UNSPECIFIED&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
@@ -1022,7 +1022,7 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1071,37 +1071,37 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     /// Time the Posture was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Name of the posture.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the posture.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Revision_id of the posture.
     /// </summary>
     public TerraformValue<string> RevisionId
-        => AsReference("revision_id");
+        => CreateReference("revision_id");
 
     /// <summary>
     /// Time the Posture was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// PolicySets block (nesting mode: list).

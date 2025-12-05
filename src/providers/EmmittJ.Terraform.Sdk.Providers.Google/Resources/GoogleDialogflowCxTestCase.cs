@@ -281,7 +281,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockVirtualAgen
     /// The human-readable name of the page, unique within the flow.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The unique identifier of the page.
@@ -332,7 +332,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockVirtualAgen
     /// The human-readable name of the intent, unique within the agent.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The unique identifier of the intent.
@@ -454,7 +454,7 @@ public partial class GoogleDialogflowCxTestCase(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -491,20 +491,20 @@ public partial class GoogleDialogflowCxTestCase(string name) : TerraformResource
     /// When the test was created. A timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The latest test result.
     /// </summary>
     public TerraformList<TerraformMap<object>> LastTestResult
-        => AsReference("last_test_result");
+        => CreateReference("last_test_result");
 
     /// <summary>
     /// The unique identifier of the test case.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/testCases/&amp;lt;TestCase ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// TestCaseConversationTurns block (nesting mode: list).

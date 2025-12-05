@@ -13,7 +13,7 @@ public partial class AwsAthenaNamedQueryDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsAthenaNamedQueryDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,18 +49,18 @@ public partial class AwsAthenaNamedQueryDataSource(string name) : TerraformDataS
     /// The database attribute.
     /// </summary>
     public TerraformValue<string> Database
-        => AsReference("database");
+        => CreateReference("database");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The querystring attribute.
     /// </summary>
     public TerraformValue<string> Querystring
-        => AsReference("querystring");
+        => CreateReference("querystring");
 
 }

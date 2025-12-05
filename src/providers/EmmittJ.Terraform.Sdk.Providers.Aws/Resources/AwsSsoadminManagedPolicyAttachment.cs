@@ -45,7 +45,7 @@ public partial class AwsSsoadminManagedPolicyAttachment(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsSsoadminManagedPolicyAttachment(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsSsoadminManagedPolicyAttachment(string name) : Terraform
     /// The managed_policy_name attribute.
     /// </summary>
     public TerraformValue<string> ManagedPolicyName
-        => AsReference("managed_policy_name");
+        => CreateReference("managed_policy_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

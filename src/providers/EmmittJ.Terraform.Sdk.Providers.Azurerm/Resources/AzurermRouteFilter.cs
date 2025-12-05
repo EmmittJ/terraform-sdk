@@ -63,7 +63,7 @@ public partial class AzurermRouteFilter(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermRouteFilter(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformList<TerraformMap<object>> Rule
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("rule") ?? AsReference("rule");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("rule") ?? CreateReference("rule");
         set => SetArgument("rule", value);
     }
 

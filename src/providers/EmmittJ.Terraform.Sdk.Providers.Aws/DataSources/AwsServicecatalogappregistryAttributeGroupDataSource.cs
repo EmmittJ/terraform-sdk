@@ -13,7 +13,7 @@ public partial class AwsServicecatalogappregistryAttributeGroupDataSource(string
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsServicecatalogappregistryAttributeGroupDataSource(string
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsServicecatalogappregistryAttributeGroupDataSource(string
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsServicecatalogappregistryAttributeGroupDataSource(string
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -48,18 +48,18 @@ public partial class AwsServicecatalogappregistryAttributeGroupDataSource(string
     /// The attributes attribute.
     /// </summary>
     public TerraformValue<string> Attributes
-        => AsReference("attributes");
+        => CreateReference("attributes");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
 }

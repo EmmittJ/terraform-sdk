@@ -142,13 +142,13 @@ public class AzurermDataFactoryIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -307,7 +307,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> CustomerManagedKeyId
     {
-        get => GetArgument<TerraformValue<string>>("customer_managed_key_id") ?? AsReference("customer_managed_key_id");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key_id") ?? CreateReference("customer_managed_key_id");
         set => SetArgument("customer_managed_key_id", value);
     }
 
@@ -316,7 +316,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> CustomerManagedKeyIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("customer_managed_key_identity_id") ?? AsReference("customer_managed_key_identity_id");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key_identity_id") ?? CreateReference("customer_managed_key_identity_id");
         set => SetArgument("customer_managed_key_identity_id", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

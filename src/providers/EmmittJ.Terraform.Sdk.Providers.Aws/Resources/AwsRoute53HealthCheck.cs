@@ -58,7 +58,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool> EnableSni
     {
-        get => GetArgument<TerraformValue<bool>>("enable_sni") ?? AsReference("enable_sni");
+        get => GetArgument<TerraformValue<bool>>("enable_sni") ?? CreateReference("enable_sni");
         set => SetArgument("enable_sni", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double> FailureThreshold
     {
-        get => GetArgument<TerraformValue<double>>("failure_threshold") ?? AsReference("failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold") ?? CreateReference("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> Triggers
     {
-        get => GetArgument<TerraformMap<string>>("triggers") ?? AsReference("triggers");
+        get => GetArgument<TerraformMap<string>>("triggers") ?? CreateReference("triggers");
         set => SetArgument("triggers", value);
     }
 
@@ -229,6 +229,6 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
 }

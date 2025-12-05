@@ -38,7 +38,7 @@ public class GoogleDataCatalogEntryGcsFilesetSpecBlock : TerraformBlock
     /// Sample files contained in this fileset, not all files contained in this fileset are represented here.
     /// </summary>
     public TerraformList<TerraformMap<object>> SampleGcsFileSpecs
-        => AsReference("sample_gcs_file_specs");
+        => CreateReference("sample_gcs_file_specs");
 
 }
 
@@ -135,7 +135,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -149,7 +149,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> LinkedResource
     {
-        get => GetArgument<TerraformValue<string>>("linked_resource") ?? AsReference("linked_resource");
+        get => GetArgument<TerraformValue<string>>("linked_resource") ?? CreateReference("linked_resource");
         set => SetArgument("linked_resource", value);
     }
 
@@ -204,19 +204,19 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// Context: https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding.
     /// </summary>
     public TerraformList<TerraformMap<object>> BigqueryDateShardedSpec
-        => AsReference("bigquery_date_sharded_spec");
+        => CreateReference("bigquery_date_sharded_spec");
 
     /// <summary>
     /// Specification that applies to a BigQuery table. This is only valid on entries of type TABLE.
     /// </summary>
     public TerraformList<TerraformMap<object>> BigqueryTableSpec
-        => AsReference("bigquery_table_spec");
+        => CreateReference("bigquery_table_spec");
 
     /// <summary>
     /// This field indicates the entry&#39;s source system that Data Catalog integrates with, such as BigQuery or Pub/Sub.
     /// </summary>
     public TerraformValue<string> IntegratedSystem
-        => AsReference("integrated_system");
+        => CreateReference("integrated_system");
 
     /// <summary>
     /// The Data Catalog resource name of the entry in URL format.
@@ -224,7 +224,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// Note that this Entry and its child resources may not actually be stored in the location in this name.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// GcsFilesetSpec block (nesting mode: list).

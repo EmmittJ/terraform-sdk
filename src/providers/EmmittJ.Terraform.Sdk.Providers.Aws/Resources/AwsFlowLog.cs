@@ -81,7 +81,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string> LogDestination
     {
-        get => GetArgument<TerraformValue<string>>("log_destination") ?? AsReference("log_destination");
+        get => GetArgument<TerraformValue<string>>("log_destination") ?? CreateReference("log_destination");
         set => SetArgument("log_destination", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string> LogFormat
     {
-        get => GetArgument<TerraformValue<string>>("log_format") ?? AsReference("log_format");
+        get => GetArgument<TerraformValue<string>>("log_format") ?? CreateReference("log_format");
         set => SetArgument("log_format", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// DestinationOptions block (nesting mode: list).

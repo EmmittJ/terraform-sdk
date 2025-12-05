@@ -52,7 +52,7 @@ public partial class AwsDetectiveMember(string name) : TerraformResource("aws_de
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsDetectiveMember(string name) : TerraformResource("aws_de
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -78,36 +78,36 @@ public partial class AwsDetectiveMember(string name) : TerraformResource("aws_de
     /// The administrator_id attribute.
     /// </summary>
     public TerraformValue<string> AdministratorId
-        => AsReference("administrator_id");
+        => CreateReference("administrator_id");
 
     /// <summary>
     /// The disabled_reason attribute.
     /// </summary>
     public TerraformValue<string> DisabledReason
-        => AsReference("disabled_reason");
+        => CreateReference("disabled_reason");
 
     /// <summary>
     /// The invited_time attribute.
     /// </summary>
     public TerraformValue<string> InvitedTime
-        => AsReference("invited_time");
+        => CreateReference("invited_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The updated_time attribute.
     /// </summary>
     public TerraformValue<string> UpdatedTime
-        => AsReference("updated_time");
+        => CreateReference("updated_time");
 
     /// <summary>
     /// The volume_usage_in_bytes attribute.
     /// </summary>
     public TerraformValue<string> VolumeUsageInBytes
-        => AsReference("volume_usage_in_bytes");
+        => CreateReference("volume_usage_in_bytes");
 
 }

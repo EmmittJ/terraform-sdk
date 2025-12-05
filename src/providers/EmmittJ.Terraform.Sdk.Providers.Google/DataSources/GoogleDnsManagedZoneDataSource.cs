@@ -31,36 +31,36 @@ public partial class GoogleDnsManagedZoneDataSource(string name) : TerraformData
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The managed_zone_id attribute.
     /// </summary>
     public TerraformValue<double> ManagedZoneId
-        => AsReference("managed_zone_id");
+        => CreateReference("managed_zone_id");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformList<string> NameServers
-        => AsReference("name_servers");
+        => CreateReference("name_servers");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     public TerraformValue<string> Visibility
-        => AsReference("visibility");
+        => CreateReference("visibility");
 
 }

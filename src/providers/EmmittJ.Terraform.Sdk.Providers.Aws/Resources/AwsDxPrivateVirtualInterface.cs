@@ -64,7 +64,7 @@ public partial class AwsDxPrivateVirtualInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> AmazonAddress
     {
-        get => GetArgument<TerraformValue<string>>("amazon_address") ?? AsReference("amazon_address");
+        get => GetArgument<TerraformValue<string>>("amazon_address") ?? CreateReference("amazon_address");
         set => SetArgument("amazon_address", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsDxPrivateVirtualInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> BgpAuthKey
     {
-        get => GetArgument<TerraformValue<string>>("bgp_auth_key") ?? AsReference("bgp_auth_key");
+        get => GetArgument<TerraformValue<string>>("bgp_auth_key") ?? CreateReference("bgp_auth_key");
         set => SetArgument("bgp_auth_key", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsDxPrivateVirtualInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> CustomerAddress
     {
-        get => GetArgument<TerraformValue<string>>("customer_address") ?? AsReference("customer_address");
+        get => GetArgument<TerraformValue<string>>("customer_address") ?? CreateReference("customer_address");
         set => SetArgument("customer_address", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsDxPrivateVirtualInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsDxPrivateVirtualInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AwsDxPrivateVirtualInterface(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -202,25 +202,25 @@ public partial class AwsDxPrivateVirtualInterface(string name) : TerraformResour
     /// The amazon_side_asn attribute.
     /// </summary>
     public TerraformValue<string> AmazonSideAsn
-        => AsReference("amazon_side_asn");
+        => CreateReference("amazon_side_asn");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The aws_device attribute.
     /// </summary>
     public TerraformValue<string> AwsDevice
-        => AsReference("aws_device");
+        => CreateReference("aws_device");
 
     /// <summary>
     /// The jumbo_frame_capable attribute.
     /// </summary>
     public TerraformValue<bool> JumboFrameCapable
-        => AsReference("jumbo_frame_capable");
+        => CreateReference("jumbo_frame_capable");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

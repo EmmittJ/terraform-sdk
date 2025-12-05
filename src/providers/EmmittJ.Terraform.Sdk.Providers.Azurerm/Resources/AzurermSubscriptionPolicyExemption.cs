@@ -100,7 +100,7 @@ public partial class AzurermSubscriptionPolicyExemption(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermSubscriptionPolicyExemption(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformValue<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 

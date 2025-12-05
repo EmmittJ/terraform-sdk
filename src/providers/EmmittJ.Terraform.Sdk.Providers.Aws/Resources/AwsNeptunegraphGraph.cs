@@ -77,7 +77,7 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> DeletionProtection
     {
-        get => GetArgument<TerraformValue<bool>>("deletion_protection") ?? AsReference("deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection") ?? CreateReference("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> GraphName
     {
-        get => GetArgument<TerraformValue<string>>("graph_name") ?? AsReference("graph_name");
+        get => GetArgument<TerraformValue<string>>("graph_name") ?? CreateReference("graph_name");
         set => SetArgument("graph_name", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> KmsKeyIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_identifier") ?? AsReference("kms_key_identifier");
+        get => GetArgument<TerraformValue<string>>("kms_key_identifier") ?? CreateReference("kms_key_identifier");
         set => SetArgument("kms_key_identifier", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> PublicConnectivity
     {
-        get => GetArgument<TerraformValue<bool>>("public_connectivity") ?? AsReference("public_connectivity");
+        get => GetArgument<TerraformValue<bool>>("public_connectivity") ?? CreateReference("public_connectivity");
         set => SetArgument("public_connectivity", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double> ReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("replica_count") ?? AsReference("replica_count");
+        get => GetArgument<TerraformValue<double>>("replica_count") ?? CreateReference("replica_count");
         set => SetArgument("replica_count", value);
     }
 
@@ -167,25 +167,25 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

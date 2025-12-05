@@ -13,7 +13,7 @@ public partial class AwsBatchComputeEnvironmentDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsBatchComputeEnvironmentDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsBatchComputeEnvironmentDataSource(string name) : Terrafo
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,48 +49,48 @@ public partial class AwsBatchComputeEnvironmentDataSource(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The ecs_cluster_arn attribute.
     /// </summary>
     public TerraformValue<string> EcsClusterArn
-        => AsReference("ecs_cluster_arn");
+        => CreateReference("ecs_cluster_arn");
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
     public TerraformValue<string> ServiceRole
-        => AsReference("service_role");
+        => CreateReference("service_role");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The update_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UpdatePolicy
-        => AsReference("update_policy");
+        => CreateReference("update_policy");
 
 }

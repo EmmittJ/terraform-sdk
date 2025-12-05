@@ -45,7 +45,7 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     /// </summary>
     public TerraformValue<double> AllocatablePrefixLength
     {
-        get => GetArgument<TerraformValue<double>>("allocatable_prefix_length") ?? AsReference("allocatable_prefix_length");
+        get => GetArgument<TerraformValue<double>>("allocatable_prefix_length") ?? CreateReference("allocatable_prefix_length");
         set => SetArgument("allocatable_prefix_length", value);
     }
 
@@ -63,7 +63,7 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -126,7 +126,7 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -146,13 +146,13 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     /// used to create addresses or further allocations.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicDelegatedSubPrefixs
-        => AsReference("public_delegated_sub_prefixs");
+        => CreateReference("public_delegated_sub_prefixs");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

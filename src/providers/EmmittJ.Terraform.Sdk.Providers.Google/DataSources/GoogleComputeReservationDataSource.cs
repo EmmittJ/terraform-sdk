@@ -13,7 +13,7 @@ public partial class GoogleComputeReservationDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,56 +57,56 @@ public partial class GoogleComputeReservationDataSource(string name) : Terraform
     /// reservations that are tied to a commitment.
     /// </summary>
     public TerraformValue<string> Commitment
-        => AsReference("commitment");
+        => CreateReference("commitment");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Duration after which the reservation will be auto-deleted by Compute Engine. Cannot be used with delete_at_time.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeleteAfterDuration
-        => AsReference("delete_after_duration");
+        => CreateReference("delete_after_duration");
 
     /// <summary>
     /// Absolute time in future when the reservation will be auto-deleted by Compute Engine. Timestamp is represented in RFC3339 text format.
     /// Cannot be used with delete_after_duration.
     /// </summary>
     public TerraformValue<string> DeleteAtTime
-        => AsReference("delete_at_time");
+        => CreateReference("delete_at_time");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Sharing policy for reservations with Google Cloud managed services.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReservationSharingPolicy
-        => AsReference("reservation_sharing_policy");
+        => CreateReference("reservation_sharing_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The share setting for reservations.
     /// </summary>
     public TerraformList<TerraformMap<object>> ShareSettings
-        => AsReference("share_settings");
+        => CreateReference("share_settings");
 
     /// <summary>
     /// Reservation for instances with specific machine shapes.
     /// </summary>
     public TerraformList<TerraformMap<object>> SpecificReservation
-        => AsReference("specific_reservation");
+        => CreateReference("specific_reservation");
 
     /// <summary>
     /// When set to true, only VMs that target this reservation by name can
@@ -114,12 +114,12 @@ public partial class GoogleComputeReservationDataSource(string name) : Terraform
     /// affinity for any reservation. Defaults to false.
     /// </summary>
     public TerraformValue<bool> SpecificReservationRequired
-        => AsReference("specific_reservation_required");
+        => CreateReference("specific_reservation_required");
 
     /// <summary>
     /// The status of the reservation.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

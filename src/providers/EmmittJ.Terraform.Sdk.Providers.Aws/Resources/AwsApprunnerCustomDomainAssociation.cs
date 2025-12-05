@@ -32,7 +32,7 @@ public partial class AwsApprunnerCustomDomainAssociation(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsApprunnerCustomDomainAssociation(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,18 +59,18 @@ public partial class AwsApprunnerCustomDomainAssociation(string name) : Terrafor
     /// The certificate_validation_records attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> CertificateValidationRecords
-        => AsReference("certificate_validation_records");
+        => CreateReference("certificate_validation_records");
 
     /// <summary>
     /// The dns_target attribute.
     /// </summary>
     public TerraformValue<string> DnsTarget
-        => AsReference("dns_target");
+        => CreateReference("dns_target");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

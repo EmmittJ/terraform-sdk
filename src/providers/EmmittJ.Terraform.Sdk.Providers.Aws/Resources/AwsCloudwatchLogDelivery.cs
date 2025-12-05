@@ -33,7 +33,7 @@ public partial class AwsCloudwatchLogDelivery(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> FieldDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("field_delimiter") ?? AsReference("field_delimiter");
+        get => GetArgument<TerraformValue<string>>("field_delimiter") ?? CreateReference("field_delimiter");
         set => SetArgument("field_delimiter", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsCloudwatchLogDelivery(string name) : TerraformResource("
     /// </summary>
     public TerraformList<string> RecordFields
     {
-        get => GetArgument<TerraformList<string>>("record_fields") ?? AsReference("record_fields");
+        get => GetArgument<TerraformList<string>>("record_fields") ?? CreateReference("record_fields");
         set => SetArgument("record_fields", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCloudwatchLogDelivery(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsCloudwatchLogDelivery(string name) : TerraformResource("
     /// </summary>
     public TerraformList<TerraformMap<object>> S3DeliveryConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("s3_delivery_configuration") ?? AsReference("s3_delivery_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("s3_delivery_configuration") ?? CreateReference("s3_delivery_configuration");
         set => SetArgument("s3_delivery_configuration", value);
     }
 
@@ -77,18 +77,18 @@ public partial class AwsCloudwatchLogDelivery(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
 }

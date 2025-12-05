@@ -47,7 +47,7 @@ public partial class AwsVerifiedpermissionsSchema(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -55,13 +55,13 @@ public partial class AwsVerifiedpermissionsSchema(string name) : TerraformResour
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The namespaces attribute.
     /// </summary>
     public TerraformSet<string> Namespaces
-        => AsReference("namespaces");
+        => CreateReference("namespaces");
 
     /// <summary>
     /// Definition block (nesting mode: list).

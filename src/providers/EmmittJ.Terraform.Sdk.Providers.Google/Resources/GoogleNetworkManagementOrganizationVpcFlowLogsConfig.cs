@@ -55,7 +55,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformValue<string> AggregationInterval
     {
-        get => GetArgument<TerraformValue<string>>("aggregation_interval") ?? AsReference("aggregation_interval");
+        get => GetArgument<TerraformValue<string>>("aggregation_interval") ?? CreateReference("aggregation_interval");
         set => SetArgument("aggregation_interval", value);
     }
 
@@ -69,7 +69,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformValue<string> CrossProjectMetadata
     {
-        get => GetArgument<TerraformValue<string>>("cross_project_metadata") ?? AsReference("cross_project_metadata");
+        get => GetArgument<TerraformValue<string>>("cross_project_metadata") ?? CreateReference("cross_project_metadata");
         set => SetArgument("cross_project_metadata", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformValue<double> FlowSampling
     {
-        get => GetArgument<TerraformValue<double>>("flow_sampling") ?? AsReference("flow_sampling");
+        get => GetArgument<TerraformValue<double>>("flow_sampling") ?? CreateReference("flow_sampling");
         set => SetArgument("flow_sampling", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformValue<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -176,7 +176,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -194,32 +194,32 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// Output only. The time the config was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Identifier. Unique name of the configuration using the form:     &#39;organizations/{org_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. The time the config was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

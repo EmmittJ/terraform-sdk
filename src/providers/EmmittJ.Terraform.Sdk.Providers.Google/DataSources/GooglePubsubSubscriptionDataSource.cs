@@ -13,7 +13,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,7 +57,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// will eventually redeliver the message.
     /// </summary>
     public TerraformValue<double> AckDeadlineSeconds
-        => AsReference("ack_deadline_seconds");
+        => CreateReference("ack_deadline_seconds");
 
     /// <summary>
     /// If delivery to BigQuery is used with this subscription, this field is used to configure it.
@@ -65,7 +65,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// If all three are empty, then the subscriber will pull and ack messages using API methods.
     /// </summary>
     public TerraformList<TerraformMap<object>> BigqueryConfig
-        => AsReference("bigquery_config");
+        => CreateReference("bigquery_config");
 
     /// <summary>
     /// If delivery to Cloud Storage is used with this subscription, this field is used to configure it.
@@ -73,7 +73,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// If all three are empty, then the subscriber will pull and ack messages using API methods.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudStorageConfig
-        => AsReference("cloud_storage_config");
+        => CreateReference("cloud_storage_config");
 
     /// <summary>
     /// A policy that specifies the conditions for dead lettering messages in
@@ -86,13 +86,13 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// permission to Acknowledge() messages on this subscription.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeadLetterPolicy
-        => AsReference("dead_letter_policy");
+        => CreateReference("dead_letter_policy");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// If &#39;true&#39;, Pub/Sub provides the following guarantees for the delivery
@@ -106,7 +106,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// is true if the message was published multiple times by a publisher client. These copies are considered distinct by Pub/Sub and have distinct messageId values
     /// </summary>
     public TerraformValue<bool> EnableExactlyOnceDelivery
-        => AsReference("enable_exactly_once_delivery");
+        => CreateReference("enable_exactly_once_delivery");
 
     /// <summary>
     /// If &#39;true&#39;, messages published with the same orderingKey in PubsubMessage will be delivered to
@@ -114,7 +114,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// may be delivered in any order.
     /// </summary>
     public TerraformValue<bool> EnableMessageOrdering
-        => AsReference("enable_message_ordering");
+        => CreateReference("enable_message_ordering");
 
     /// <summary>
     /// A policy that specifies the conditions for this subscription&#39;s expiration.
@@ -126,7 +126,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// is 1 day.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExpirationPolicy
-        => AsReference("expiration_policy");
+        => CreateReference("expiration_policy");
 
     /// <summary>
     /// The subscription only delivers the messages that match the filter.
@@ -135,7 +135,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// you can&#39;t modify the filter.
     /// </summary>
     public TerraformValue<string> Filter
-        => AsReference("filter");
+        => CreateReference("filter");
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Subscription.
@@ -145,7 +145,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// How long to retain unacknowledged messages in the subscription&#39;s
@@ -159,14 +159,14 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// by &#39;s&#39;. Example: &#39;&amp;quot;600.5s&amp;quot;&#39;.
     /// </summary>
     public TerraformValue<string> MessageRetentionDuration
-        => AsReference("message_retention_duration");
+        => CreateReference("message_retention_duration");
 
     /// <summary>
     /// Transforms to be applied to messages published to the topic. Transforms are applied in the
     /// order specified.
     /// </summary>
     public TerraformList<TerraformMap<object>> MessageTransforms
-        => AsReference("message_transforms");
+        => CreateReference("message_transforms");
 
     /// <summary>
     /// If push delivery is used with this subscription, this field is used to
@@ -174,7 +174,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// pull and ack messages using API methods.
     /// </summary>
     public TerraformList<TerraformMap<object>> PushConfig
-        => AsReference("push_config");
+        => CreateReference("push_config");
 
     /// <summary>
     /// Indicates whether to retain acknowledged messages. If &#39;true&#39;, then
@@ -183,7 +183,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// messageRetentionDuration window.
     /// </summary>
     public TerraformValue<bool> RetainAckedMessages
-        => AsReference("retain_acked_messages");
+        => CreateReference("retain_acked_messages");
 
     /// <summary>
     /// A policy that specifies how Pub/Sub retries message delivery for this subscription.
@@ -192,7 +192,7 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// RetryPolicy will be triggered on NACKs or acknowledgement deadline exceeded events for a given message
     /// </summary>
     public TerraformList<TerraformMap<object>> RetryPolicy
-        => AsReference("retry_policy");
+        => CreateReference("retry_policy");
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the subscription. Tag
@@ -205,14 +205,14 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// resource.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// A reference to a Topic resource, of the form projects/{project}/topics/{{name}}
@@ -220,6 +220,6 @@ public partial class GooglePubsubSubscriptionDataSource(string name) : Terraform
     /// the topic is in the same project as the subscription.
     /// </summary>
     public TerraformValue<string> Topic
-        => AsReference("topic");
+        => CreateReference("topic");
 
 }

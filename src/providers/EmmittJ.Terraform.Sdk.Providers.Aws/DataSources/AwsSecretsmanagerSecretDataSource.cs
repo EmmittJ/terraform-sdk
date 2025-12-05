@@ -13,7 +13,7 @@ public partial class AwsSecretsmanagerSecretDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSecretsmanagerSecretDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsSecretsmanagerSecretDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsSecretsmanagerSecretDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsSecretsmanagerSecretDataSource(string name) : TerraformD
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,30 +57,30 @@ public partial class AwsSecretsmanagerSecretDataSource(string name) : TerraformD
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The last_changed_date attribute.
     /// </summary>
     public TerraformValue<string> LastChangedDate
-        => AsReference("last_changed_date");
+        => CreateReference("last_changed_date");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     public TerraformValue<string> Policy
-        => AsReference("policy");
+        => CreateReference("policy");
 
 }

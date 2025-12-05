@@ -405,7 +405,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     /// This is only populated if the endpoint is deployed with PrivateServiceConnect.
     /// </summary>
     public TerraformValue<string> ServiceAttachment
-        => AsReference("service_attachment");
+        => CreateReference("service_attachment");
 
     /// <summary>
     /// PscAutomationConfigs block (nesting mode: list).
@@ -434,19 +434,19 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     /// Output only. Error message if the PSC service automation failed.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-        => AsReference("error_message");
+        => CreateReference("error_message");
 
     /// <summary>
     /// Output only. Forwarding rule created by the PSC service automation.
     /// </summary>
     public TerraformValue<string> ForwardingRule
-        => AsReference("forwarding_rule");
+        => CreateReference("forwarding_rule");
 
     /// <summary>
     /// Output only. IP address rule created by the PSC service automation.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// Required. The full name of the Google Compute Engine network.
@@ -473,7 +473,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     /// Output only. The state of the PSC service automation.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -1853,7 +1853,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1872,7 +1872,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1893,7 +1893,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     /// This is not required to delete the resource but is used for debug logging.
     /// </summary>
     public TerraformValue<string> DeployedModelDisplayName
-        => AsReference("deployed_model_display_name");
+        => CreateReference("deployed_model_display_name");
 
     /// <summary>
     /// Output only. The unique numeric ID that Vertex AI assigns to the model at the time it is deployed to the endpoint.
@@ -1901,13 +1901,13 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     /// https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.endpoints/undeployModel.
     /// </summary>
     public TerraformValue<string> DeployedModelId
-        => AsReference("deployed_model_id");
+        => CreateReference("deployed_model_id");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;endpoint&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// DeployConfig block (nesting mode: list).

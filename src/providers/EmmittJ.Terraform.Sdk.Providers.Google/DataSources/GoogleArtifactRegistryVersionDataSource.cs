@@ -13,7 +13,7 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,36 +79,36 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     /// The annotations attribute.
     /// </summary>
     public TerraformMap<string> Annotations
-        => AsReference("annotations");
+        => CreateReference("annotations");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The related_tags attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RelatedTags
-        => AsReference("related_tags");
+        => CreateReference("related_tags");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

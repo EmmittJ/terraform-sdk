@@ -28,7 +28,7 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name") ?? AsReference("kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name") ?? CreateReference("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> NumNodes
     {
-        get => GetArgument<TerraformValue<double>>("num_nodes") ?? AsReference("num_nodes");
+        get => GetArgument<TerraformValue<double>>("num_nodes") ?? CreateReference("num_nodes");
         set => SetArgument("num_nodes", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     /// The state of the cluster
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The storage type to use. One of &amp;quot;SSD&amp;quot; or &amp;quot;HDD&amp;quot;. Defaults to &amp;quot;SSD&amp;quot;.
@@ -70,7 +70,7 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleBigtableInstanceClusterBlockAutoscalingConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<double> StorageTarget
     {
-        get => GetArgument<TerraformValue<double>>("storage_target") ?? AsReference("storage_target");
+        get => GetArgument<TerraformValue<double>>("storage_target") ?? CreateReference("storage_target");
         set => SetArgument("storage_target", value);
     }
 
@@ -200,7 +200,7 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -218,7 +218,7 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -259,7 +259,7 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -267,13 +267,13 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Cluster block (nesting mode: list).

@@ -64,7 +64,7 @@ public partial class AzurermRedisEnterpriseCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermRedisEnterpriseCluster(string name) : TerraformResou
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

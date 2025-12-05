@@ -22,7 +22,7 @@ public partial class AwsEc2NetworkInsightsAnalysis(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsEc2NetworkInsightsAnalysis(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsEc2NetworkInsightsAnalysis(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -76,60 +76,60 @@ public partial class AwsEc2NetworkInsightsAnalysis(string name) : TerraformResou
     /// The alternate_path_hints attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AlternatePathHints
-        => AsReference("alternate_path_hints");
+        => CreateReference("alternate_path_hints");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The explanations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Explanations
-        => AsReference("explanations");
+        => CreateReference("explanations");
 
     /// <summary>
     /// The forward_path_components attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ForwardPathComponents
-        => AsReference("forward_path_components");
+        => CreateReference("forward_path_components");
 
     /// <summary>
     /// The path_found attribute.
     /// </summary>
     public TerraformValue<bool> PathFound
-        => AsReference("path_found");
+        => CreateReference("path_found");
 
     /// <summary>
     /// The return_path_components attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReturnPathComponents
-        => AsReference("return_path_components");
+        => CreateReference("return_path_components");
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
     public TerraformValue<string> StartDate
-        => AsReference("start_date");
+        => CreateReference("start_date");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-        => AsReference("status_message");
+        => CreateReference("status_message");
 
     /// <summary>
     /// The warning_message attribute.
     /// </summary>
     public TerraformValue<string> WarningMessage
-        => AsReference("warning_message");
+        => CreateReference("warning_message");
 
 }

@@ -13,7 +13,7 @@ public partial class AwsIamPolicyDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsIamPolicyDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsIamPolicyDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsIamPolicyDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,30 +57,30 @@ public partial class AwsIamPolicyDataSource(string name) : TerraformDataSource("
     /// The attachment_count attribute.
     /// </summary>
     public TerraformValue<double> AttachmentCount
-        => AsReference("attachment_count");
+        => CreateReference("attachment_count");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-        => AsReference("path");
+        => CreateReference("path");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     public TerraformValue<string> Policy
-        => AsReference("policy");
+        => CreateReference("policy");
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
     public TerraformValue<string> PolicyId
-        => AsReference("policy_id");
+        => CreateReference("policy_id");
 
 }

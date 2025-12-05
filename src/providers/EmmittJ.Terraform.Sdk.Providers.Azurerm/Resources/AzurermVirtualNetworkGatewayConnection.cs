@@ -111,7 +111,7 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// </summary>
     public TerraformValue<double> SaDatasize
     {
-        get => GetArgument<TerraformValue<double>>("sa_datasize") ?? AsReference("sa_datasize");
+        get => GetArgument<TerraformValue<double>>("sa_datasize") ?? CreateReference("sa_datasize");
         set => SetArgument("sa_datasize", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// </summary>
     public TerraformValue<double> SaLifetime
     {
-        get => GetArgument<TerraformValue<double>>("sa_lifetime") ?? AsReference("sa_lifetime");
+        get => GetArgument<TerraformValue<double>>("sa_lifetime") ?? CreateReference("sa_lifetime");
         set => SetArgument("sa_lifetime", value);
     }
 
@@ -240,7 +240,7 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// </summary>
     public TerraformValue<string> ConnectionProtocol
     {
-        get => GetArgument<TerraformValue<string>>("connection_protocol") ?? AsReference("connection_protocol");
+        get => GetArgument<TerraformValue<string>>("connection_protocol") ?? CreateReference("connection_protocol");
         set => SetArgument("connection_protocol", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// </summary>
     public TerraformValue<bool> EnableBgp
     {
-        get => GetArgument<TerraformValue<bool>>("enable_bgp") ?? AsReference("enable_bgp");
+        get => GetArgument<TerraformValue<bool>>("enable_bgp") ?? CreateReference("enable_bgp");
         set => SetArgument("enable_bgp", value);
     }
 
@@ -285,7 +285,7 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// </summary>
     public TerraformValue<bool> ExpressRouteGatewayBypass
     {
-        get => GetArgument<TerraformValue<bool>>("express_route_gateway_bypass") ?? AsReference("express_route_gateway_bypass");
+        get => GetArgument<TerraformValue<bool>>("express_route_gateway_bypass") ?? CreateReference("express_route_gateway_bypass");
         set => SetArgument("express_route_gateway_bypass", value);
     }
 
@@ -294,7 +294,7 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -378,7 +378,7 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// </summary>
     public TerraformValue<double> RoutingWeight
     {
-        get => GetArgument<TerraformValue<double>>("routing_weight") ?? AsReference("routing_weight");
+        get => GetArgument<TerraformValue<double>>("routing_weight") ?? CreateReference("routing_weight");
         set => SetArgument("routing_weight", value);
     }
 
@@ -387,7 +387,7 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// </summary>
     public TerraformValue<string> SharedKey
     {
-        get => GetArgument<TerraformValue<string>>("shared_key") ?? AsReference("shared_key");
+        get => GetArgument<TerraformValue<string>>("shared_key") ?? CreateReference("shared_key");
         set => SetArgument("shared_key", value);
     }
 
@@ -415,7 +415,7 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// </summary>
     public TerraformValue<bool> UsePolicyBasedTrafficSelectors
     {
-        get => GetArgument<TerraformValue<bool>>("use_policy_based_traffic_selectors") ?? AsReference("use_policy_based_traffic_selectors");
+        get => GetArgument<TerraformValue<bool>>("use_policy_based_traffic_selectors") ?? CreateReference("use_policy_based_traffic_selectors");
         set => SetArgument("use_policy_based_traffic_selectors", value);
     }
 

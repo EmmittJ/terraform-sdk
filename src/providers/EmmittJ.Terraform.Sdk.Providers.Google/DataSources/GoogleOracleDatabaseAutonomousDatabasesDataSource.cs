@@ -13,7 +13,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabasesDataSource(string na
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,6 +40,6 @@ public partial class GoogleOracleDatabaseAutonomousDatabasesDataSource(string na
     /// The autonomous_databases attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutonomousDatabases
-        => AsReference("autonomous_databases");
+        => CreateReference("autonomous_databases");
 
 }

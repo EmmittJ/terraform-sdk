@@ -73,7 +73,7 @@ public partial class GoogleStorageAnywhereCache(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,31 +100,31 @@ public partial class GoogleStorageAnywhereCache(string name) : TerraformResource
     /// The ID of the Anywhere cache instance.
     /// </summary>
     public TerraformValue<string> AnywhereCacheId
-        => AsReference("anywhere_cache_id");
+        => CreateReference("anywhere_cache_id");
 
     /// <summary>
     /// The creation time of the cache instance in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// True if the cache instance has an active Update long-running operation.
     /// </summary>
     public TerraformValue<bool> PendingUpdate
-        => AsReference("pending_update");
+        => CreateReference("pending_update");
 
     /// <summary>
     /// The current state of the cache instance.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The modification time of the cache instance metadata in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

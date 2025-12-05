@@ -13,7 +13,7 @@ public partial class AwsBedrockInferenceProfilesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -30,6 +30,6 @@ public partial class AwsBedrockInferenceProfilesDataSource(string name) : Terraf
     /// The inference_profile_summaries attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InferenceProfileSummaries
-        => AsReference("inference_profile_summaries");
+        => CreateReference("inference_profile_summaries");
 
 }

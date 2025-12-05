@@ -85,7 +85,7 @@ public partial class AwsCognitoManagedLoginBranding(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsCognitoManagedLoginBranding(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool> UseCognitoProvidedValues
     {
-        get => GetArgument<TerraformValue<bool>>("use_cognito_provided_values") ?? AsReference("use_cognito_provided_values");
+        get => GetArgument<TerraformValue<bool>>("use_cognito_provided_values") ?? CreateReference("use_cognito_provided_values");
         set => SetArgument("use_cognito_provided_values", value);
     }
 
@@ -121,13 +121,13 @@ public partial class AwsCognitoManagedLoginBranding(string name) : TerraformReso
     /// The managed_login_branding_id attribute.
     /// </summary>
     public TerraformValue<string> ManagedLoginBrandingId
-        => AsReference("managed_login_branding_id");
+        => CreateReference("managed_login_branding_id");
 
     /// <summary>
     /// The settings_all attribute.
     /// </summary>
     public TerraformValue<string> SettingsAll
-        => AsReference("settings_all");
+        => CreateReference("settings_all");
 
     /// <summary>
     /// Asset block (nesting mode: set).

@@ -82,7 +82,7 @@ public class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TestingChallenge
     {
-        get => GetArgument<TerraformValue<string>>("testing_challenge") ?? AsReference("testing_challenge");
+        get => GetArgument<TerraformValue<string>>("testing_challenge") ?? CreateReference("testing_challenge");
         set => SetArgument("testing_challenge", value);
     }
 
@@ -216,7 +216,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ChallengeSecurityPreference
     {
-        get => GetArgument<TerraformValue<string>>("challenge_security_preference") ?? AsReference("challenge_security_preference");
+        get => GetArgument<TerraformValue<string>>("challenge_security_preference") ?? CreateReference("challenge_security_preference");
         set => SetArgument("challenge_security_preference", value);
     }
 
@@ -254,7 +254,7 @@ public partial class GoogleRecaptchaEnterpriseKey(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -275,7 +275,7 @@ public partial class GoogleRecaptchaEnterpriseKey(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -283,25 +283,25 @@ public partial class GoogleRecaptchaEnterpriseKey(string name) : TerraformResour
     /// The timestamp corresponding to the creation of this Key.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The resource id for the Key, which is the same as the Site Key itself.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// AndroidSettings block (nesting mode: list).

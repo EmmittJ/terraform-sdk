@@ -295,7 +295,7 @@ public partial class GoogleApphubWorkload(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -314,7 +314,7 @@ public partial class GoogleApphubWorkload(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -332,43 +332,43 @@ public partial class GoogleApphubWorkload(string name) : TerraformResource("goog
     /// Output only. Create time.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Identifier. The resource name of the Workload. Format:&amp;quot;projects/{host-project-id}/locations/{location}/applications/{application-id}/workloads/{workload-id}&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Workload state. Possible values:  STATE_UNSPECIFIED CREATING ACTIVE DELETING DETACHED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. A universally unique identifier (UUID) for the &#39;Workload&#39; in the UUID4 format.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. Update time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Properties of an underlying compute resource represented by the Workload.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadProperties
-        => AsReference("workload_properties");
+        => CreateReference("workload_properties");
 
     /// <summary>
     /// Reference of an underlying compute resource represented by the Workload.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadReference
-        => AsReference("workload_reference");
+        => CreateReference("workload_reference");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermNginxApiKeyDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,13 +64,13 @@ public partial class AzurermNginxApiKeyDataSource(string name) : TerraformDataSo
     /// The end_date_time attribute.
     /// </summary>
     public TerraformValue<string> EndDateTime
-        => AsReference("end_date_time");
+        => CreateReference("end_date_time");
 
     /// <summary>
     /// The hint attribute.
     /// </summary>
     public TerraformValue<string> Hint
-        => AsReference("hint");
+        => CreateReference("hint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

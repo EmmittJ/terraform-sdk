@@ -72,7 +72,7 @@ public partial class AzurermManagementGroupTemplateDeployment(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermManagementGroupTemplateDeployment(string name) : Ter
     /// </summary>
     public TerraformValue<string> ParametersContent
     {
-        get => GetArgument<TerraformValue<string>>("parameters_content") ?? AsReference("parameters_content");
+        get => GetArgument<TerraformValue<string>>("parameters_content") ?? CreateReference("parameters_content");
         set => SetArgument("parameters_content", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermManagementGroupTemplateDeployment(string name) : Ter
     /// </summary>
     public TerraformValue<string> TemplateContent
     {
-        get => GetArgument<TerraformValue<string>>("template_content") ?? AsReference("template_content");
+        get => GetArgument<TerraformValue<string>>("template_content") ?? CreateReference("template_content");
         set => SetArgument("template_content", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermManagementGroupTemplateDeployment(string name) : Ter
     /// The output_content attribute.
     /// </summary>
     public TerraformValue<string> OutputContent
-        => AsReference("output_content");
+        => CreateReference("output_content");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

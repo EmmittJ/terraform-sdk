@@ -18,7 +18,7 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> Channel
     {
-        get => GetArgument<TerraformValue<string>>("channel") ?? AsReference("channel");
+        get => GetArgument<TerraformValue<string>>("channel") ?? CreateReference("channel");
         set => SetArgument("channel", value);
     }
 
@@ -26,14 +26,14 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// The configured_by attribute.
     /// </summary>
     public TerraformValue<string> ConfiguredBy
-        => AsReference("configured_by");
+        => CreateReference("configured_by");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> EventAttribute
     {
-        get => GetArgument<TerraformValue<string>>("event") ?? AsReference("event");
+        get => GetArgument<TerraformValue<string>>("event") ?? CreateReference("event");
         set => SetArgument("event", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold") ?? AsReference("threshold");
+        get => GetArgument<TerraformValue<double>>("threshold") ?? CreateReference("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsRolesanywhereTrustAnchor(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsRolesanywhereTrustAnchor(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AwsRolesanywhereTrustAnchor(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsRolesanywhereTrustAnchor(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// NotificationSettings block (nesting mode: set).

@@ -172,7 +172,7 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Density
     {
-        get => GetArgument<TerraformValue<string>>("density") ?? AsReference("density");
+        get => GetArgument<TerraformValue<string>>("density") ?? CreateReference("density");
         set => SetArgument("density", value);
     }
 
@@ -181,7 +181,7 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -199,7 +199,7 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -217,7 +217,7 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool> Unique
     {
-        get => GetArgument<TerraformValue<bool>>("unique") ?? AsReference("unique");
+        get => GetArgument<TerraformValue<bool>>("unique") ?? CreateReference("unique");
         set => SetArgument("unique", value);
     }
 
@@ -226,7 +226,7 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// &#39;projects/{{project}}/databases/{{database}}/collectionGroups/{{collection}}/indexes/{{server_generated_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Fields block (nesting mode: list).

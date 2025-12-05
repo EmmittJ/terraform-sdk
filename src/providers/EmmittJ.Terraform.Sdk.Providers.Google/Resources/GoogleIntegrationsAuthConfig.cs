@@ -185,7 +185,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockJwtBlock : Terr
     /// The token calculated by the header, payload and signature.
     /// </summary>
     public TerraformValue<string> Jwt
-        => AsReference("jwt");
+        => CreateReference("jwt");
 
     /// <summary>
     /// Identifies which algorithm is used to generate the signature.
@@ -520,7 +520,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOidcTokenBlock 
     /// ID token obtained for the service account.
     /// </summary>
     public TerraformValue<string> Token
-        => AsReference("token");
+        => CreateReference("token");
 
     /// <summary>
     /// The approximate time until the token retrieved is valid.
@@ -528,7 +528,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOidcTokenBlock 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> TokenExpireTime
-        => AsReference("token_expire_time");
+        => CreateReference("token_expire_time");
 
 }
 
@@ -677,7 +677,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -707,7 +707,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -724,7 +724,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// Certificate id for client certificate.
     /// </summary>
     public TerraformValue<string> CertificateId
-        => AsReference("certificate_id");
+        => CreateReference("certificate_id");
 
     /// <summary>
     /// The timestamp when the auth config is created.
@@ -732,19 +732,19 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The creator&#39;s email address. Generated based on the End User Credentials/LOAS role of the user making the call.
     /// </summary>
     public TerraformValue<string> CreatorEmail
-        => AsReference("creator_email");
+        => CreateReference("creator_email");
 
     /// <summary>
     /// Credential type of the encrypted credential.
     /// </summary>
     public TerraformValue<string> CredentialType
-        => AsReference("credential_type");
+        => CreateReference("credential_type");
 
     /// <summary>
     /// Auth credential encrypted by Cloud KMS. Can be decrypted as Credential with proper KMS key.
@@ -752,31 +752,31 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// A base64-encoded string.
     /// </summary>
     public TerraformValue<string> EncryptedCredential
-        => AsReference("encrypted_credential");
+        => CreateReference("encrypted_credential");
 
     /// <summary>
     /// The last modifier&#39;s email address. Generated based on the End User Credentials/LOAS role of the user making the call.
     /// </summary>
     public TerraformValue<string> LastModifierEmail
-        => AsReference("last_modifier_email");
+        => CreateReference("last_modifier_email");
 
     /// <summary>
     /// Resource name of the auth config.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The reason / details of the current status.
     /// </summary>
     public TerraformValue<string> Reason
-        => AsReference("reason");
+        => CreateReference("reason");
 
     /// <summary>
     /// The status of the auth config.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The timestamp when the auth config is modified.
@@ -784,7 +784,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// The time until the auth config is valid. Empty or max value is considered the auth config won&#39;t expire.
@@ -792,7 +792,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ValidTime
-        => AsReference("valid_time");
+        => CreateReference("valid_time");
 
     /// <summary>
     /// ClientCertificate block (nesting mode: list).

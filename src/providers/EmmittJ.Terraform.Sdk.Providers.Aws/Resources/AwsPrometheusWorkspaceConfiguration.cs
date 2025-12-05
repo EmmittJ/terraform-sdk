@@ -101,7 +101,7 @@ public partial class AwsPrometheusWorkspaceConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsPrometheusWorkspaceConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformValue<double> RetentionPeriodInDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_period_in_days") ?? AsReference("retention_period_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_period_in_days") ?? CreateReference("retention_period_in_days");
         set => SetArgument("retention_period_in_days", value);
     }
 

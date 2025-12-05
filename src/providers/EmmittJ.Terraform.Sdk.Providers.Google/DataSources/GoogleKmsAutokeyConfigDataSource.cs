@@ -23,7 +23,7 @@ public partial class GoogleKmsAutokeyConfigDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleKmsAutokeyConfigDataSource(string name) : TerraformDa
     /// The etag of the AutokeyConfig for optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The target key project for a given folder where KMS Autokey will provision a
@@ -39,6 +39,6 @@ public partial class GoogleKmsAutokeyConfigDataSource(string name) : TerraformDa
     /// &#39;projects/&amp;lt;project_id_or_number&amp;gt;&#39;.
     /// </summary>
     public TerraformValue<string> KeyProject
-        => AsReference("key_project");
+        => CreateReference("key_project");
 
 }

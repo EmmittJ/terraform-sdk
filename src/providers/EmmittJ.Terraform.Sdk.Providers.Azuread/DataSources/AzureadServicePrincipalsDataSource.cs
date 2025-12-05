@@ -36,7 +36,7 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// </summary>
     public TerraformList<string> ClientIds
     {
-        get => GetArgument<TerraformList<string>>("client_ids") ?? AsReference("client_ids");
+        get => GetArgument<TerraformList<string>>("client_ids") ?? CreateReference("client_ids");
         set => SetArgument("client_ids", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// </summary>
     public TerraformList<string> DisplayNames
     {
-        get => GetArgument<TerraformList<string>>("display_names") ?? AsReference("display_names");
+        get => GetArgument<TerraformList<string>>("display_names") ?? CreateReference("display_names");
         set => SetArgument("display_names", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// </summary>
     public TerraformList<string> ObjectIds
     {
-        get => GetArgument<TerraformList<string>>("object_ids") ?? AsReference("object_ids");
+        get => GetArgument<TerraformList<string>>("object_ids") ?? CreateReference("object_ids");
         set => SetArgument("object_ids", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// A list of service_principals
     /// </summary>
     public TerraformList<TerraformMap<object>> ServicePrincipals
-        => AsReference("service_principals");
+        => CreateReference("service_principals");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

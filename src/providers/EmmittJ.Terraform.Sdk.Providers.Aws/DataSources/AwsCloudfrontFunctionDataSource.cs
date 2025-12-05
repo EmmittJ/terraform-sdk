@@ -13,7 +13,7 @@ public partial class AwsCloudfrontFunctionDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,48 +41,48 @@ public partial class AwsCloudfrontFunctionDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The code attribute.
     /// </summary>
     public TerraformValue<string> Code
-        => AsReference("code");
+        => CreateReference("code");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-        => AsReference("comment");
+        => CreateReference("comment");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The key_value_store_associations attribute.
     /// </summary>
     public TerraformSet<string> KeyValueStoreAssociations
-        => AsReference("key_value_store_associations");
+        => CreateReference("key_value_store_associations");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-        => AsReference("last_modified_time");
+        => CreateReference("last_modified_time");
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
     public TerraformValue<string> Runtime
-        => AsReference("runtime");
+        => CreateReference("runtime");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

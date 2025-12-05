@@ -36,7 +36,7 @@ public partial class AzurermLbOutboundRuleDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermLbOutboundRuleDataSource(string name) : TerraformDat
     /// The allocated_outbound_ports attribute.
     /// </summary>
     public TerraformValue<double> AllocatedOutboundPorts
-        => AsReference("allocated_outbound_ports");
+        => CreateReference("allocated_outbound_ports");
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
     public TerraformValue<string> BackendAddressPoolId
-        => AsReference("backend_address_pool_id");
+        => CreateReference("backend_address_pool_id");
 
     /// <summary>
     /// The enable_tcp_reset attribute.
     /// </summary>
     public TerraformValue<bool> EnableTcpReset
-        => AsReference("enable_tcp_reset");
+        => CreateReference("enable_tcp_reset");
 
     /// <summary>
     /// The frontend_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FrontendIpConfiguration
-        => AsReference("frontend_ip_configuration");
+        => CreateReference("frontend_ip_configuration");
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> IdleTimeoutInMinutes
-        => AsReference("idle_timeout_in_minutes");
+        => CreateReference("idle_timeout_in_minutes");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-        => AsReference("protocol");
+        => CreateReference("protocol");
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TcpResetEnabled
-        => AsReference("tcp_reset_enabled");
+        => CreateReference("tcp_reset_enabled");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

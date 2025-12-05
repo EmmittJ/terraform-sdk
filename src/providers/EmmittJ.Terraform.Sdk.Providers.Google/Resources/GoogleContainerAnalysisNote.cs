@@ -147,7 +147,7 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -201,19 +201,19 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     /// The time this note was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The type of analysis this note describes
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The time this note was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// AttestationAuthority block (nesting mode: list).

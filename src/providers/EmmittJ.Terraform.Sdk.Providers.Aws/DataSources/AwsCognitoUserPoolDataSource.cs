@@ -13,7 +13,7 @@ public partial class AwsCognitoUserPoolDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,145 +31,145 @@ public partial class AwsCognitoUserPoolDataSource(string name) : TerraformDataSo
     /// The account_recovery_setting attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AccountRecoverySetting
-        => AsReference("account_recovery_setting");
+        => CreateReference("account_recovery_setting");
 
     /// <summary>
     /// The admin_create_user_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AdminCreateUserConfig
-        => AsReference("admin_create_user_config");
+        => CreateReference("admin_create_user_config");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auto_verified_attributes attribute.
     /// </summary>
     public TerraformList<string> AutoVerifiedAttributes
-        => AsReference("auto_verified_attributes");
+        => CreateReference("auto_verified_attributes");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The custom_domain attribute.
     /// </summary>
     public TerraformValue<string> CustomDomain
-        => AsReference("custom_domain");
+        => CreateReference("custom_domain");
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
     public TerraformValue<string> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// The device_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeviceConfiguration
-        => AsReference("device_configuration");
+        => CreateReference("device_configuration");
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     public TerraformValue<string> Domain
-        => AsReference("domain");
+        => CreateReference("domain");
 
     /// <summary>
     /// The email_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EmailConfiguration
-        => AsReference("email_configuration");
+        => CreateReference("email_configuration");
 
     /// <summary>
     /// The estimated_number_of_users attribute.
     /// </summary>
     public TerraformValue<double> EstimatedNumberOfUsers
-        => AsReference("estimated_number_of_users");
+        => CreateReference("estimated_number_of_users");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The lambda_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LambdaConfig
-        => AsReference("lambda_config");
+        => CreateReference("lambda_config");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-        => AsReference("last_modified_date");
+        => CreateReference("last_modified_date");
 
     /// <summary>
     /// The mfa_configuration attribute.
     /// </summary>
     public TerraformValue<string> MfaConfiguration
-        => AsReference("mfa_configuration");
+        => CreateReference("mfa_configuration");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The schema_attributes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SchemaAttributes
-        => AsReference("schema_attributes");
+        => CreateReference("schema_attributes");
 
     /// <summary>
     /// The sms_authentication_message attribute.
     /// </summary>
     public TerraformValue<string> SmsAuthenticationMessage
-        => AsReference("sms_authentication_message");
+        => CreateReference("sms_authentication_message");
 
     /// <summary>
     /// The sms_configuration_failure attribute.
     /// </summary>
     public TerraformValue<string> SmsConfigurationFailure
-        => AsReference("sms_configuration_failure");
+        => CreateReference("sms_configuration_failure");
 
     /// <summary>
     /// The sms_verification_message attribute.
     /// </summary>
     public TerraformValue<string> SmsVerificationMessage
-        => AsReference("sms_verification_message");
+        => CreateReference("sms_verification_message");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The user_pool_add_ons attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserPoolAddOns
-        => AsReference("user_pool_add_ons");
+        => CreateReference("user_pool_add_ons");
 
     /// <summary>
     /// The user_pool_tags attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformMap<string> UserPoolTags
-        => AsReference("user_pool_tags");
+        => CreateReference("user_pool_tags");
 
     /// <summary>
     /// The username_attributes attribute.
     /// </summary>
     public TerraformList<string> UsernameAttributes
-        => AsReference("username_attributes");
+        => CreateReference("username_attributes");
 
 }

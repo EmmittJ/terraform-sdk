@@ -42,7 +42,7 @@ public partial class AwsAuditmanagerAssessmentReport(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,18 +50,18 @@ public partial class AwsAuditmanagerAssessmentReport(string name) : TerraformRes
     /// The author attribute.
     /// </summary>
     public TerraformValue<string> Author
-        => AsReference("author");
+        => CreateReference("author");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

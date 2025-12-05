@@ -41,7 +41,7 @@ public partial class AwsDbProxyTarget(string name) : TerraformResource("aws_db_p
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsDbProxyTarget(string name) : TerraformResource("aws_db_p
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -68,36 +68,36 @@ public partial class AwsDbProxyTarget(string name) : TerraformResource("aws_db_p
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The rds_resource_id attribute.
     /// </summary>
     public TerraformValue<string> RdsResourceId
-        => AsReference("rds_resource_id");
+        => CreateReference("rds_resource_id");
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
     public TerraformValue<string> TargetArn
-        => AsReference("target_arn");
+        => CreateReference("target_arn");
 
     /// <summary>
     /// The tracked_cluster_id attribute.
     /// </summary>
     public TerraformValue<string> TrackedClusterId
-        => AsReference("tracked_cluster_id");
+        => CreateReference("tracked_cluster_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

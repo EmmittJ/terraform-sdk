@@ -50,7 +50,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock : Terra
     /// &#39;projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/documentProcessingConfig&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// ChunkingConfig block (nesting mode: list).
@@ -534,7 +534,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -578,7 +578,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -610,13 +610,13 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// Timestamp when the DataStore was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The id of the default Schema associated with this data store.
     /// </summary>
     public TerraformValue<string> DefaultSchemaId
-        => AsReference("default_schema_id");
+        => CreateReference("default_schema_id");
 
     /// <summary>
     /// The unique full resource name of the data store. Values are of the format
@@ -625,7 +625,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// AdvancedSiteSearchConfig block (nesting mode: list).

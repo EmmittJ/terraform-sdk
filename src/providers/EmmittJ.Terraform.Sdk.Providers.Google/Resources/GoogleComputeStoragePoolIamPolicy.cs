@@ -13,7 +13,7 @@ public partial class GoogleComputeStoragePoolIamPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleComputeStoragePoolIamPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleComputeStoragePoolIamPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -59,6 +59,6 @@ public partial class GoogleComputeStoragePoolIamPolicy(string name) : TerraformR
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
 }

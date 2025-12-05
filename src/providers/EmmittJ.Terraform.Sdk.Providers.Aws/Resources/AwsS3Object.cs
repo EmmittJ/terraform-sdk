@@ -59,7 +59,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformValue<string> Acl
     {
-        get => GetArgument<TerraformValue<string>>("acl") ?? AsReference("acl");
+        get => GetArgument<TerraformValue<string>>("acl") ?? CreateReference("acl");
         set => SetArgument("acl", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformValue<bool> BucketKeyEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("bucket_key_enabled") ?? AsReference("bucket_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("bucket_key_enabled") ?? CreateReference("bucket_key_enabled");
         set => SetArgument("bucket_key_enabled", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type") ?? AsReference("content_type");
+        get => GetArgument<TerraformValue<string>>("content_type") ?? CreateReference("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? CreateReference("etag");
         set => SetArgument("etag", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformValue<string> ServerSideEncryption
     {
-        get => GetArgument<TerraformValue<string>>("server_side_encryption") ?? AsReference("server_side_encryption");
+        get => GetArgument<TerraformValue<string>>("server_side_encryption") ?? CreateReference("server_side_encryption");
         set => SetArgument("server_side_encryption", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformValue<string> StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("storage_class") ?? AsReference("storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class") ?? CreateReference("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -295,7 +295,7 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -312,43 +312,43 @@ public partial class AwsS3Object(string name) : TerraformResource("aws_s3_object
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The checksum_crc32 attribute.
     /// </summary>
     public TerraformValue<string> ChecksumCrc32
-        => AsReference("checksum_crc32");
+        => CreateReference("checksum_crc32");
 
     /// <summary>
     /// The checksum_crc32c attribute.
     /// </summary>
     public TerraformValue<string> ChecksumCrc32c
-        => AsReference("checksum_crc32c");
+        => CreateReference("checksum_crc32c");
 
     /// <summary>
     /// The checksum_crc64nvme attribute.
     /// </summary>
     public TerraformValue<string> ChecksumCrc64nvme
-        => AsReference("checksum_crc64nvme");
+        => CreateReference("checksum_crc64nvme");
 
     /// <summary>
     /// The checksum_sha1 attribute.
     /// </summary>
     public TerraformValue<string> ChecksumSha1
-        => AsReference("checksum_sha1");
+        => CreateReference("checksum_sha1");
 
     /// <summary>
     /// The checksum_sha256 attribute.
     /// </summary>
     public TerraformValue<string> ChecksumSha256
-        => AsReference("checksum_sha256");
+        => CreateReference("checksum_sha256");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     public TerraformValue<string> VersionId
-        => AsReference("version_id");
+        => CreateReference("version_id");
 
     /// <summary>
     /// OverrideProvider block (nesting mode: list).

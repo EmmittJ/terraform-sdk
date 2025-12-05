@@ -18,7 +18,7 @@ public class AwsS3BucketVersioningVersioningConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MfaDelete
     {
-        get => GetArgument<TerraformValue<string>>("mfa_delete") ?? AsReference("mfa_delete");
+        get => GetArgument<TerraformValue<string>>("mfa_delete") ?? CreateReference("mfa_delete");
         set => SetArgument("mfa_delete", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsS3BucketVersioning(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsS3BucketVersioning(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

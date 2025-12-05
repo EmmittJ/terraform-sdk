@@ -7952,7 +7952,7 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -7978,7 +7978,7 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     /// </summary>
     public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? CreateReference("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -7986,19 +7986,19 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     /// The creation timestamp of an deidentifyTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The resource name of the template. Set by the server.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The last update timestamp of an deidentifyTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// DeidentifyConfig block (nesting mode: list).

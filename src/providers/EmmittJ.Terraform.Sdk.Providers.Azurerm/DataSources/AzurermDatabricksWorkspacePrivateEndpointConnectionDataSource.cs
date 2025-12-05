@@ -36,7 +36,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     /// The connections attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Connections
-        => AsReference("connections");
+        => CreateReference("connections");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

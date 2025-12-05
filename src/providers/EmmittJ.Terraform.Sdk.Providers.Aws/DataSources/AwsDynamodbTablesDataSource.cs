@@ -13,7 +13,7 @@ public partial class AwsDynamodbTablesDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,6 +21,6 @@ public partial class AwsDynamodbTablesDataSource(string name) : TerraformDataSou
     /// The names attribute.
     /// </summary>
     public TerraformList<string> Names
-        => AsReference("names");
+        => CreateReference("names");
 
 }

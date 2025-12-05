@@ -41,7 +41,7 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     /// </summary>
     public TerraformValue<string> ProviderName
     {
-        get => GetArgument<TerraformValue<string>>("provider_name") ?? AsReference("provider_name");
+        get => GetArgument<TerraformValue<string>>("provider_name") ?? CreateReference("provider_name");
         set => SetArgument("provider_name", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -105,24 +105,24 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The has_logical_redundancy attribute.
     /// </summary>
     public TerraformValue<string> HasLogicalRedundancy
-        => AsReference("has_logical_redundancy");
+        => CreateReference("has_logical_redundancy");
 
     /// <summary>
     /// The jumbo_frame_capable attribute.
     /// </summary>
     public TerraformValue<bool> JumboFrameCapable
-        => AsReference("jumbo_frame_capable");
+        => CreateReference("jumbo_frame_capable");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
 }

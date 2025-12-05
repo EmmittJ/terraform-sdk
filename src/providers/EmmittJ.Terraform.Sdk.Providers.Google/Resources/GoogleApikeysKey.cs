@@ -285,7 +285,7 @@ public partial class GoogleApikeysKey(string name) : TerraformResource("google_a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -304,7 +304,7 @@ public partial class GoogleApikeysKey(string name) : TerraformResource("google_a
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -321,13 +321,13 @@ public partial class GoogleApikeysKey(string name) : TerraformResource("google_a
     /// Output only. An encrypted and signed value held by this key. This field can be accessed only through the `GetKeyString` method.
     /// </summary>
     public TerraformValue<string> KeyString
-        => AsReference("key_string");
+        => CreateReference("key_string");
 
     /// <summary>
     /// Output only. Unique id in UUID4 format.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Restrictions block (nesting mode: list).

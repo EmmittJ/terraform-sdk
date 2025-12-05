@@ -69,18 +69,18 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The ID of the created notification.
     /// </summary>
     public TerraformValue<string> NotificationId
-        => AsReference("notification_id");
+        => CreateReference("notification_id");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
 }

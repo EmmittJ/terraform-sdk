@@ -26,7 +26,7 @@ public class AwsBcmdataexportsExportExportBlock : TerraformBlock
     /// The export_arn attribute.
     /// </summary>
     public TerraformValue<string> ExportArn
-        => AsReference("export_arn");
+        => CreateReference("export_arn");
 
     /// <summary>
     /// The name attribute.
@@ -301,20 +301,20 @@ public partial class AwsBcmdataexportsExport(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Export block (nesting mode: list).

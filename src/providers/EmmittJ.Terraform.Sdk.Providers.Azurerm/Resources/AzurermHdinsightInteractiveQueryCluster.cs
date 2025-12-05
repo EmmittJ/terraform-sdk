@@ -1355,7 +1355,7 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1421,13 +1421,13 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// The https_endpoint attribute.
     /// </summary>
     public TerraformValue<string> HttpsEndpoint
-        => AsReference("https_endpoint");
+        => CreateReference("https_endpoint");
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SshEndpoint
-        => AsReference("ssh_endpoint");
+        => CreateReference("ssh_endpoint");
 
     /// <summary>
     /// ComponentVersion block (nesting mode: list).

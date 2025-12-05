@@ -142,7 +142,7 @@ public partial class AwsAppconfigExtension(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsAppconfigExtension(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsAppconfigExtension(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AwsAppconfigExtension(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -196,13 +196,13 @@ public partial class AwsAppconfigExtension(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// ActionPoint block (nesting mode: set).

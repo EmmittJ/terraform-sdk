@@ -173,7 +173,7 @@ public partial class GoogleColabNotebookExecution(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleColabNotebookExecution(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> NotebookExecutionJobId
     {
-        get => GetArgument<TerraformValue<string>>("notebook_execution_job_id") ?? AsReference("notebook_execution_job_id");
+        get => GetArgument<TerraformValue<string>>("notebook_execution_job_id") ?? CreateReference("notebook_execution_job_id");
         set => SetArgument("notebook_execution_job_id", value);
     }
 
@@ -210,7 +210,7 @@ public partial class GoogleColabNotebookExecution(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 

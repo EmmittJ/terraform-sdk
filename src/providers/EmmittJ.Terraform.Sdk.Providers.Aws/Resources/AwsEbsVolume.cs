@@ -64,7 +64,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? CreateReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? CreateReference("size");
         set => SetArgument("size", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformValue<string> SnapshotId
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_id") ?? AsReference("snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id") ?? CreateReference("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -198,13 +198,13 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

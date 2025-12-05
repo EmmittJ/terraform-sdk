@@ -36,7 +36,7 @@ public partial class AzurermHealthcareFhirServiceDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,49 +73,49 @@ public partial class AzurermHealthcareFhirServiceDataSource(string name) : Terra
     /// The access_policy_object_ids attribute.
     /// </summary>
     public TerraformList<string> AccessPolicyObjectIds
-        => AsReference("access_policy_object_ids");
+        => CreateReference("access_policy_object_ids");
 
     /// <summary>
     /// The authentication attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Authentication
-        => AsReference("authentication");
+        => CreateReference("authentication");
 
     /// <summary>
     /// The configuration_export_storage_account_name attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationExportStorageAccountName
-        => AsReference("configuration_export_storage_account_name");
+        => CreateReference("configuration_export_storage_account_name");
 
     /// <summary>
     /// The container_registry_login_server_url attribute.
     /// </summary>
     public TerraformList<string> ContainerRegistryLoginServerUrl
-        => AsReference("container_registry_login_server_url");
+        => CreateReference("container_registry_login_server_url");
 
     /// <summary>
     /// The cors attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Cors
-        => AsReference("cors");
+        => CreateReference("cors");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

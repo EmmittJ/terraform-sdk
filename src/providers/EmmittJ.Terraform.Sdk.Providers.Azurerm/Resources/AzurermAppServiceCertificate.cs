@@ -72,7 +72,7 @@ public partial class AzurermAppServiceCertificate(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -155,49 +155,49 @@ public partial class AzurermAppServiceCertificate(string name) : TerraformResour
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-        => AsReference("expiration_date");
+        => CreateReference("expiration_date");
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
     public TerraformValue<string> FriendlyName
-        => AsReference("friendly_name");
+        => CreateReference("friendly_name");
 
     /// <summary>
     /// The host_names attribute.
     /// </summary>
     public TerraformList<string> HostNames
-        => AsReference("host_names");
+        => CreateReference("host_names");
 
     /// <summary>
     /// The hosting_environment_profile_id attribute.
     /// </summary>
     public TerraformValue<string> HostingEnvironmentProfileId
-        => AsReference("hosting_environment_profile_id");
+        => CreateReference("hosting_environment_profile_id");
 
     /// <summary>
     /// The issue_date attribute.
     /// </summary>
     public TerraformValue<string> IssueDate
-        => AsReference("issue_date");
+        => CreateReference("issue_date");
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     public TerraformValue<string> Issuer
-        => AsReference("issuer");
+        => CreateReference("issuer");
 
     /// <summary>
     /// The subject_name attribute.
     /// </summary>
     public TerraformValue<string> SubjectName
-        => AsReference("subject_name");
+        => CreateReference("subject_name");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzurermManagementGroupDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermManagementGroupDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermManagementGroupDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -62,37 +62,37 @@ public partial class AzurermManagementGroupDataSource(string name) : TerraformDa
     /// The all_management_group_ids attribute.
     /// </summary>
     public TerraformList<string> AllManagementGroupIds
-        => AsReference("all_management_group_ids");
+        => CreateReference("all_management_group_ids");
 
     /// <summary>
     /// The all_subscription_ids attribute.
     /// </summary>
     public TerraformList<string> AllSubscriptionIds
-        => AsReference("all_subscription_ids");
+        => CreateReference("all_subscription_ids");
 
     /// <summary>
     /// The management_group_ids attribute.
     /// </summary>
     public TerraformList<string> ManagementGroupIds
-        => AsReference("management_group_ids");
+        => CreateReference("management_group_ids");
 
     /// <summary>
     /// The parent_management_group_id attribute.
     /// </summary>
     public TerraformValue<string> ParentManagementGroupId
-        => AsReference("parent_management_group_id");
+        => CreateReference("parent_management_group_id");
 
     /// <summary>
     /// The subscription_ids attribute.
     /// </summary>
     public TerraformList<string> SubscriptionIds
-        => AsReference("subscription_ids");
+        => CreateReference("subscription_ids");
 
     /// <summary>
     /// The tenant_scoped_id attribute.
     /// </summary>
     public TerraformValue<string> TenantScopedId
-        => AsReference("tenant_scoped_id");
+        => CreateReference("tenant_scoped_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

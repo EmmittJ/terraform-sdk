@@ -13,7 +13,7 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> AwsRegion
     {
-        get => GetArgument<TerraformValue<string>>("aws_region") ?? AsReference("aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region") ?? CreateReference("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -61,30 +61,30 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     /// The global_quota attribute.
     /// </summary>
     public TerraformValue<bool> GlobalQuota
-        => AsReference("global_quota");
+        => CreateReference("global_quota");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The quota_name attribute.
     /// </summary>
     public TerraformValue<string> QuotaName
-        => AsReference("quota_name");
+        => CreateReference("quota_name");
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceName
-        => AsReference("service_name");
+        => CreateReference("service_name");
 
     /// <summary>
     /// The unit attribute.
     /// </summary>
     public TerraformValue<string> Unit
-        => AsReference("unit");
+        => CreateReference("unit");
 
 }

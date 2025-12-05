@@ -45,7 +45,7 @@ public partial class AwsEmrReleaseLabelsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsEmrReleaseLabelsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AwsEmrReleaseLabelsDataSource(string name) : TerraformDataS
     /// The release_labels attribute.
     /// </summary>
     public TerraformList<string> ReleaseLabels
-        => AsReference("release_labels");
+        => CreateReference("release_labels");
 
     /// <summary>
     /// Filters block (nesting mode: list).

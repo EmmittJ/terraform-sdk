@@ -33,7 +33,7 @@ public partial class AwsOutpostsAssetDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsOutpostsAssetDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,24 +50,24 @@ public partial class AwsOutpostsAssetDataSource(string name) : TerraformDataSour
     /// The asset_type attribute.
     /// </summary>
     public TerraformValue<string> AssetType
-        => AsReference("asset_type");
+        => CreateReference("asset_type");
 
     /// <summary>
     /// The host_id attribute.
     /// </summary>
     public TerraformValue<string> HostId
-        => AsReference("host_id");
+        => CreateReference("host_id");
 
     /// <summary>
     /// The rack_elevation attribute.
     /// </summary>
     public TerraformValue<double> RackElevation
-        => AsReference("rack_elevation");
+        => CreateReference("rack_elevation");
 
     /// <summary>
     /// The rack_id attribute.
     /// </summary>
     public TerraformValue<string> RackId
-        => AsReference("rack_id");
+        => CreateReference("rack_id");
 
 }

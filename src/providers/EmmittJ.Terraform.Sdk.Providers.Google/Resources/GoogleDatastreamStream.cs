@@ -318,7 +318,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
@@ -472,43 +472,43 @@ public class GoogleDatastreamStreamBackfillAllBlockOracleExcludedObjectsBlockOra
     /// Column encoding.
     /// </summary>
     public TerraformValue<string> Encoding
-        => AsReference("encoding");
+        => CreateReference("encoding");
 
     /// <summary>
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-        => AsReference("nullable");
+        => CreateReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-        => AsReference("ordinal_position");
+        => CreateReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-        => AsReference("precision");
+        => CreateReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-        => AsReference("scale");
+        => CreateReference("scale");
 
 }
 
@@ -635,7 +635,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
@@ -659,7 +659,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-        => AsReference("precision");
+        => CreateReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
@@ -674,7 +674,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-        => AsReference("scale");
+        => CreateReference("scale");
 
 }
 
@@ -879,37 +879,37 @@ public class GoogleDatastreamStreamBackfillAllBlockSqlServerExcludedObjectsBlock
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-        => AsReference("nullable");
+        => CreateReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-        => AsReference("ordinal_position");
+        => CreateReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-        => AsReference("precision");
+        => CreateReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-        => AsReference("scale");
+        => CreateReference("scale");
 
 }
 
@@ -1256,7 +1256,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockGcsDestinationConfigBlo
     /// </summary>
     public TerraformValue<string> FileRotationInterval
     {
-        get => GetArgument<TerraformValue<string>>("file_rotation_interval") ?? AsReference("file_rotation_interval");
+        get => GetArgument<TerraformValue<string>>("file_rotation_interval") ?? CreateReference("file_rotation_interval");
         set => SetArgument("file_rotation_interval", value);
     }
 
@@ -1265,7 +1265,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockGcsDestinationConfigBlo
     /// </summary>
     public TerraformValue<double> FileRotationMb
     {
-        get => GetArgument<TerraformValue<double>>("file_rotation_mb") ?? AsReference("file_rotation_mb");
+        get => GetArgument<TerraformValue<double>>("file_rotation_mb") ?? CreateReference("file_rotation_mb");
         set => SetArgument("file_rotation_mb", value);
     }
 
@@ -1701,7 +1701,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlock : Ter
     /// </summary>
     public TerraformValue<double> MaxConcurrentBackfillTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? AsReference("max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? CreateReference("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -1711,7 +1711,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlock : Ter
     /// </summary>
     public TerraformValue<double> MaxConcurrentCdcTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks") ?? AsReference("max_concurrent_cdc_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks") ?? CreateReference("max_concurrent_cdc_tasks");
         set => SetArgument("max_concurrent_cdc_tasks", value);
     }
 
@@ -1902,7 +1902,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
@@ -2078,7 +2078,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
@@ -2126,7 +2126,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlock : Te
     /// </summary>
     public TerraformValue<double> MaxConcurrentBackfillTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? AsReference("max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? CreateReference("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -2136,7 +2136,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlock : Te
     /// </summary>
     public TerraformValue<double> MaxConcurrentCdcTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks") ?? AsReference("max_concurrent_cdc_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks") ?? CreateReference("max_concurrent_cdc_tasks");
         set => SetArgument("max_concurrent_cdc_tasks", value);
     }
 
@@ -2318,43 +2318,43 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockExclu
     /// Column encoding.
     /// </summary>
     public TerraformValue<string> Encoding
-        => AsReference("encoding");
+        => CreateReference("encoding");
 
     /// <summary>
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-        => AsReference("nullable");
+        => CreateReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-        => AsReference("ordinal_position");
+        => CreateReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-        => AsReference("precision");
+        => CreateReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-        => AsReference("scale");
+        => CreateReference("scale");
 
 }
 
@@ -2481,43 +2481,43 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockInclu
     /// Column encoding.
     /// </summary>
     public TerraformValue<string> Encoding
-        => AsReference("encoding");
+        => CreateReference("encoding");
 
     /// <summary>
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-        => AsReference("nullable");
+        => CreateReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-        => AsReference("ordinal_position");
+        => CreateReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-        => AsReference("precision");
+        => CreateReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-        => AsReference("scale");
+        => CreateReference("scale");
 
 }
 
@@ -2551,7 +2551,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlock 
     /// </summary>
     public TerraformValue<double> MaxConcurrentBackfillTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? AsReference("max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? CreateReference("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -2722,7 +2722,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
@@ -2746,7 +2746,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-        => AsReference("precision");
+        => CreateReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
@@ -2761,7 +2761,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-        => AsReference("scale");
+        => CreateReference("scale");
 
 }
 
@@ -2888,7 +2888,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
@@ -2912,7 +2912,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-        => AsReference("precision");
+        => CreateReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
@@ -2927,7 +2927,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-        => AsReference("scale");
+        => CreateReference("scale");
 
 }
 
@@ -3146,7 +3146,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlock :
     /// </summary>
     public TerraformValue<double> MaxConcurrentBackfillTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? AsReference("max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? CreateReference("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -3155,7 +3155,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlock :
     /// </summary>
     public TerraformValue<double> MaxConcurrentCdcTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks") ?? AsReference("max_concurrent_cdc_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks") ?? CreateReference("max_concurrent_cdc_tasks");
         set => SetArgument("max_concurrent_cdc_tasks", value);
     }
 
@@ -3337,37 +3337,37 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockEx
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-        => AsReference("nullable");
+        => CreateReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-        => AsReference("ordinal_position");
+        => CreateReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-        => AsReference("precision");
+        => CreateReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-        => AsReference("scale");
+        => CreateReference("scale");
 
 }
 
@@ -3494,37 +3494,37 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockIn
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-        => AsReference("length");
+        => CreateReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-        => AsReference("nullable");
+        => CreateReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-        => AsReference("ordinal_position");
+        => CreateReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-        => AsReference("precision");
+        => CreateReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-        => AsReference("scale");
+        => CreateReference("scale");
 
 }
 
@@ -3635,7 +3635,7 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -3666,7 +3666,7 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -3684,26 +3684,26 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The stream&#39;s name.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The state of the stream.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// BackfillAll block (nesting mode: list).

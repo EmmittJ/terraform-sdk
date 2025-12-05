@@ -31,7 +31,7 @@ public partial class AwsBatchJobDefinitionDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -57,60 +57,60 @@ public partial class AwsBatchJobDefinitionDataSource(string name) : TerraformDat
     /// The arn_prefix attribute.
     /// </summary>
     public TerraformValue<string> ArnPrefix
-        => AsReference("arn_prefix");
+        => CreateReference("arn_prefix");
 
     /// <summary>
     /// The container_orchestration_type attribute.
     /// </summary>
     public TerraformValue<string> ContainerOrchestrationType
-        => AsReference("container_orchestration_type");
+        => CreateReference("container_orchestration_type");
 
     /// <summary>
     /// The eks_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EksProperties
-        => AsReference("eks_properties");
+        => CreateReference("eks_properties");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The node_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodeProperties
-        => AsReference("node_properties");
+        => CreateReference("node_properties");
 
     /// <summary>
     /// The retry_strategy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RetryStrategy
-        => AsReference("retry_strategy");
+        => CreateReference("retry_strategy");
 
     /// <summary>
     /// The scheduling_priority attribute.
     /// </summary>
     public TerraformValue<double> SchedulingPriority
-        => AsReference("scheduling_priority");
+        => CreateReference("scheduling_priority");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Timeout
-        => AsReference("timeout");
+        => CreateReference("timeout");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

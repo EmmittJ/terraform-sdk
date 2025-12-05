@@ -36,7 +36,7 @@ public partial class AzurermServicePlanDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,67 +64,67 @@ public partial class AzurermServicePlanDataSource(string name) : TerraformDataSo
     /// The app_service_environment_id attribute.
     /// </summary>
     public TerraformValue<string> AppServiceEnvironmentId
-        => AsReference("app_service_environment_id");
+        => CreateReference("app_service_environment_id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The maximum_elastic_worker_count attribute.
     /// </summary>
     public TerraformValue<double> MaximumElasticWorkerCount
-        => AsReference("maximum_elastic_worker_count");
+        => CreateReference("maximum_elastic_worker_count");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
     public TerraformValue<string> OsType
-        => AsReference("os_type");
+        => CreateReference("os_type");
 
     /// <summary>
     /// The per_site_scaling_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PerSiteScalingEnabled
-        => AsReference("per_site_scaling_enabled");
+        => CreateReference("per_site_scaling_enabled");
 
     /// <summary>
     /// The reserved attribute.
     /// </summary>
     public TerraformValue<bool> Reserved
-        => AsReference("reserved");
+        => CreateReference("reserved");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The worker_count attribute.
     /// </summary>
     public TerraformValue<double> WorkerCount
-        => AsReference("worker_count");
+        => CreateReference("worker_count");
 
     /// <summary>
     /// The zone_balancing_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ZoneBalancingEnabled
-        => AsReference("zone_balancing_enabled");
+        => CreateReference("zone_balancing_enabled");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzurermNetappAccountEncryptionDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,31 +54,31 @@ public partial class AzurermNetappAccountEncryptionDataSource(string name) : Ter
     /// The cross_tenant_key_vault_resource_id attribute.
     /// </summary>
     public TerraformValue<string> CrossTenantKeyVaultResourceId
-        => AsReference("cross_tenant_key_vault_resource_id");
+        => CreateReference("cross_tenant_key_vault_resource_id");
 
     /// <summary>
     /// The encryption_key attribute.
     /// </summary>
     public TerraformValue<string> EncryptionKey
-        => AsReference("encryption_key");
+        => CreateReference("encryption_key");
 
     /// <summary>
     /// The federated_client_id attribute.
     /// </summary>
     public TerraformValue<string> FederatedClientId
-        => AsReference("federated_client_id");
+        => CreateReference("federated_client_id");
 
     /// <summary>
     /// The system_assigned_identity_principal_id attribute.
     /// </summary>
     public TerraformValue<string> SystemAssignedIdentityPrincipalId
-        => AsReference("system_assigned_identity_principal_id");
+        => CreateReference("system_assigned_identity_principal_id");
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
     public TerraformValue<string> UserAssignedIdentityId
-        => AsReference("user_assigned_identity_id");
+        => CreateReference("user_assigned_identity_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

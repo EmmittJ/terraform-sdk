@@ -55,7 +55,7 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -101,14 +101,14 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     /// Output only. The resource name of the assignment.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Assignment will remain in PENDING state if no active capacity commitment is present. It will become ACTIVE when some capacity commitment becomes active.
     /// Possible values: STATE_UNSPECIFIED, PENDING, ACTIVE
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

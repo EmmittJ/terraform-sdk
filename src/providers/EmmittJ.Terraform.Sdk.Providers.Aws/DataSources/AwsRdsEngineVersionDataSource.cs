@@ -84,7 +84,7 @@ public partial class AwsRdsEngineVersionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsRdsEngineVersionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> ParameterGroupFamily
     {
-        get => GetArgument<TerraformValue<string>>("parameter_group_family") ?? AsReference("parameter_group_family");
+        get => GetArgument<TerraformValue<string>>("parameter_group_family") ?? CreateReference("parameter_group_family");
         set => SetArgument("parameter_group_family", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AwsRdsEngineVersionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsRdsEngineVersionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -164,127 +164,127 @@ public partial class AwsRdsEngineVersionDataSource(string name) : TerraformDataS
     /// The default_character_set attribute.
     /// </summary>
     public TerraformValue<string> DefaultCharacterSet
-        => AsReference("default_character_set");
+        => CreateReference("default_character_set");
 
     /// <summary>
     /// The engine_description attribute.
     /// </summary>
     public TerraformValue<string> EngineDescription
-        => AsReference("engine_description");
+        => CreateReference("engine_description");
 
     /// <summary>
     /// The exportable_log_types attribute.
     /// </summary>
     public TerraformSet<string> ExportableLogTypes
-        => AsReference("exportable_log_types");
+        => CreateReference("exportable_log_types");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The supported_character_sets attribute.
     /// </summary>
     public TerraformSet<string> SupportedCharacterSets
-        => AsReference("supported_character_sets");
+        => CreateReference("supported_character_sets");
 
     /// <summary>
     /// The supported_feature_names attribute.
     /// </summary>
     public TerraformSet<string> SupportedFeatureNames
-        => AsReference("supported_feature_names");
+        => CreateReference("supported_feature_names");
 
     /// <summary>
     /// The supported_modes attribute.
     /// </summary>
     public TerraformSet<string> SupportedModes
-        => AsReference("supported_modes");
+        => CreateReference("supported_modes");
 
     /// <summary>
     /// The supported_timezones attribute.
     /// </summary>
     public TerraformSet<string> SupportedTimezones
-        => AsReference("supported_timezones");
+        => CreateReference("supported_timezones");
 
     /// <summary>
     /// The supports_certificate_rotation_without_restart attribute.
     /// </summary>
     public TerraformValue<bool> SupportsCertificateRotationWithoutRestart
-        => AsReference("supports_certificate_rotation_without_restart");
+        => CreateReference("supports_certificate_rotation_without_restart");
 
     /// <summary>
     /// The supports_global_databases attribute.
     /// </summary>
     public TerraformValue<bool> SupportsGlobalDatabases
-        => AsReference("supports_global_databases");
+        => CreateReference("supports_global_databases");
 
     /// <summary>
     /// The supports_integrations attribute.
     /// </summary>
     public TerraformValue<bool> SupportsIntegrations
-        => AsReference("supports_integrations");
+        => CreateReference("supports_integrations");
 
     /// <summary>
     /// The supports_limitless_database attribute.
     /// </summary>
     public TerraformValue<bool> SupportsLimitlessDatabase
-        => AsReference("supports_limitless_database");
+        => CreateReference("supports_limitless_database");
 
     /// <summary>
     /// The supports_local_write_forwarding attribute.
     /// </summary>
     public TerraformValue<bool> SupportsLocalWriteForwarding
-        => AsReference("supports_local_write_forwarding");
+        => CreateReference("supports_local_write_forwarding");
 
     /// <summary>
     /// The supports_log_exports_to_cloudwatch attribute.
     /// </summary>
     public TerraformValue<bool> SupportsLogExportsToCloudwatch
-        => AsReference("supports_log_exports_to_cloudwatch");
+        => CreateReference("supports_log_exports_to_cloudwatch");
 
     /// <summary>
     /// The supports_parallel_query attribute.
     /// </summary>
     public TerraformValue<bool> SupportsParallelQuery
-        => AsReference("supports_parallel_query");
+        => CreateReference("supports_parallel_query");
 
     /// <summary>
     /// The supports_read_replica attribute.
     /// </summary>
     public TerraformValue<bool> SupportsReadReplica
-        => AsReference("supports_read_replica");
+        => CreateReference("supports_read_replica");
 
     /// <summary>
     /// The valid_major_targets attribute.
     /// </summary>
     public TerraformSet<string> ValidMajorTargets
-        => AsReference("valid_major_targets");
+        => CreateReference("valid_major_targets");
 
     /// <summary>
     /// The valid_minor_targets attribute.
     /// </summary>
     public TerraformSet<string> ValidMinorTargets
-        => AsReference("valid_minor_targets");
+        => CreateReference("valid_minor_targets");
 
     /// <summary>
     /// The valid_upgrade_targets attribute.
     /// </summary>
     public TerraformSet<string> ValidUpgradeTargets
-        => AsReference("valid_upgrade_targets");
+        => CreateReference("valid_upgrade_targets");
 
     /// <summary>
     /// The version_actual attribute.
     /// </summary>
     public TerraformValue<string> VersionActual
-        => AsReference("version_actual");
+        => CreateReference("version_actual");
 
     /// <summary>
     /// The version_description attribute.
     /// </summary>
     public TerraformValue<string> VersionDescription
-        => AsReference("version_description");
+        => CreateReference("version_description");
 
     /// <summary>
     /// Filter block (nesting mode: set).

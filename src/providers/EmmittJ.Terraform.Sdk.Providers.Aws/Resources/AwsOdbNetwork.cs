@@ -54,7 +54,7 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     /// </summary>
     public TerraformValue<bool> DeleteAssociatedResources
     {
-        get => GetArgument<TerraformValue<bool>>("delete_associated_resources") ?? AsReference("delete_associated_resources");
+        get => GetArgument<TerraformValue<bool>>("delete_associated_resources") ?? CreateReference("delete_associated_resources");
         set => SetArgument("delete_associated_resources", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -194,91 +194,91 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The date and time when the ODB network was created.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The managed services configuration for the ODB network.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedServices
-        => AsReference("managed_services");
+        => CreateReference("managed_services");
 
     /// <summary>
     /// The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
     /// </summary>
     public TerraformList<TerraformMap<object>> OciDnsForwardingConfigs
-        => AsReference("oci_dns_forwarding_configs");
+        => CreateReference("oci_dns_forwarding_configs");
 
     /// <summary>
     /// The unique identifier of the OCI network anchor for the ODB network.
     /// </summary>
     public TerraformValue<string> OciNetworkAnchorId
-        => AsReference("oci_network_anchor_id");
+        => CreateReference("oci_network_anchor_id");
 
     /// <summary>
     /// The URL of the OCI network anchor for the ODB network.
     /// </summary>
     public TerraformValue<string> OciNetworkAnchorUrl
-        => AsReference("oci_network_anchor_url");
+        => CreateReference("oci_network_anchor_url");
 
     /// <summary>
     /// The name of the OCI resource anchor for the ODB network.
     /// </summary>
     public TerraformValue<string> OciResourceAnchorName
-        => AsReference("oci_resource_anchor_name");
+        => CreateReference("oci_resource_anchor_name");
 
     /// <summary>
     /// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
     /// </summary>
     public TerraformValue<string> OciVcnId
-        => AsReference("oci_vcn_id");
+        => CreateReference("oci_vcn_id");
 
     /// <summary>
     /// The URL of the OCI VCN for the ODB network.
     /// </summary>
     public TerraformValue<string> OciVcnUrl
-        => AsReference("oci_vcn_url");
+        => CreateReference("oci_vcn_url");
 
     /// <summary>
     /// The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
     /// </summary>
     public TerraformSet<string> PeeredCidrs
-        => AsReference("peered_cidrs");
+        => CreateReference("peered_cidrs");
 
     /// <summary>
     /// The amount of progress made on the current operation on the ODB network, expressed as a percentage.
     /// </summary>
     public TerraformValue<double> PercentProgress
-        => AsReference("percent_progress");
+        => CreateReference("percent_progress");
 
     /// <summary>
     /// The status of the network resource.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Additional information about the current status of the ODB network.
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

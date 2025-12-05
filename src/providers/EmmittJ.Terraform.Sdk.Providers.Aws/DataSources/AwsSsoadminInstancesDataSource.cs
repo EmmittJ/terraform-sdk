@@ -13,7 +13,7 @@ public partial class AwsSsoadminInstancesDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSsoadminInstancesDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -30,12 +30,12 @@ public partial class AwsSsoadminInstancesDataSource(string name) : TerraformData
     /// The arns attribute.
     /// </summary>
     public TerraformList<string> Arns
-        => AsReference("arns");
+        => CreateReference("arns");
 
     /// <summary>
     /// The identity_store_ids attribute.
     /// </summary>
     public TerraformList<string> IdentityStoreIds
-        => AsReference("identity_store_ids");
+        => CreateReference("identity_store_ids");
 
 }

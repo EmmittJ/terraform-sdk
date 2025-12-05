@@ -98,13 +98,13 @@ public partial class AwsRoute53domainsDelegationSignerRecord(string name) : Terr
     /// The dnssec_key_id attribute.
     /// </summary>
     public TerraformValue<string> DnssecKeyId
-        => AsReference("dnssec_key_id");
+        => CreateReference("dnssec_key_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// SigningAttributes block (nesting mode: list).

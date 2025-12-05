@@ -58,7 +58,7 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Charset
     {
-        get => GetArgument<TerraformValue<string>>("charset") ?? AsReference("charset");
+        get => GetArgument<TerraformValue<string>>("charset") ?? CreateReference("charset");
         set => SetArgument("charset", value);
     }
 
@@ -71,7 +71,7 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Collation
     {
-        get => GetArgument<TerraformValue<string>>("collation") ?? AsReference("collation");
+        get => GetArgument<TerraformValue<string>>("collation") ?? CreateReference("collation");
         set => SetArgument("collation", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -131,7 +131,7 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

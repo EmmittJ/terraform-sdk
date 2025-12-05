@@ -18,7 +18,7 @@ public class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AuditLogDestination
     {
-        get => GetArgument<TerraformValue<string>>("audit_log_destination") ?? AsReference("audit_log_destination");
+        get => GetArgument<TerraformValue<string>>("audit_log_destination") ?? CreateReference("audit_log_destination");
         set => SetArgument("audit_log_destination", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsFsxWindowsFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> DailyAutomaticBackupStartTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? AsReference("daily_automatic_backup_start_time");
+        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? CreateReference("daily_automatic_backup_start_time");
         set => SetArgument("daily_automatic_backup_start_time", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> PreferredSubnetId
     {
-        get => GetArgument<TerraformValue<string>>("preferred_subnet_id") ?? AsReference("preferred_subnet_id");
+        get => GetArgument<TerraformValue<string>>("preferred_subnet_id") ?? CreateReference("preferred_subnet_id");
         set => SetArgument("preferred_subnet_id", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double> StorageCapacity
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity") ?? AsReference("storage_capacity");
+        get => GetArgument<TerraformValue<double>>("storage_capacity") ?? CreateReference("storage_capacity");
         set => SetArgument("storage_capacity", value);
     }
 
@@ -362,7 +362,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -381,7 +381,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> WeeklyMaintenanceStartTime
     {
-        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? AsReference("weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? CreateReference("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 
@@ -389,43 +389,43 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformSet<string> NetworkInterfaceIds
-        => AsReference("network_interface_ids");
+        => CreateReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The preferred_file_server_ip attribute.
     /// </summary>
     public TerraformValue<string> PreferredFileServerIp
-        => AsReference("preferred_file_server_ip");
+        => CreateReference("preferred_file_server_ip");
 
     /// <summary>
     /// The remote_administration_endpoint attribute.
     /// </summary>
     public TerraformValue<string> RemoteAdministrationEndpoint
-        => AsReference("remote_administration_endpoint");
+        => CreateReference("remote_administration_endpoint");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// AuditLogConfiguration block (nesting mode: list).

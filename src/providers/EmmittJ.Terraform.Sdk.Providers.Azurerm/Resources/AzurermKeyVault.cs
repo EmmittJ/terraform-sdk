@@ -158,7 +158,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformList<TerraformMap<object>> AccessPolicy
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("access_policy") ?? AsReference("access_policy");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("access_policy") ?? CreateReference("access_policy");
         set => SetArgument("access_policy", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableRbacAuthorization
     {
-        get => GetArgument<TerraformValue<bool>>("enable_rbac_authorization") ?? AsReference("enable_rbac_authorization");
+        get => GetArgument<TerraformValue<bool>>("enable_rbac_authorization") ?? CreateReference("enable_rbac_authorization");
         set => SetArgument("enable_rbac_authorization", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformValue<bool> RbacAuthorizationEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("rbac_authorization_enabled") ?? AsReference("rbac_authorization_enabled");
+        get => GetArgument<TerraformValue<bool>>("rbac_authorization_enabled") ?? CreateReference("rbac_authorization_enabled");
         set => SetArgument("rbac_authorization_enabled", value);
     }
 
@@ -307,7 +307,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// The vault_uri attribute.
     /// </summary>
     public TerraformValue<string> VaultUri
-        => AsReference("vault_uri");
+        => CreateReference("vault_uri");
 
     /// <summary>
     /// Contact block (nesting mode: set).

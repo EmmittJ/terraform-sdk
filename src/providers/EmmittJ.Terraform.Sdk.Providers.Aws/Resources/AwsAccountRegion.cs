@@ -64,7 +64,7 @@ public partial class AwsAccountRegion(string name) : TerraformResource("aws_acco
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsAccountRegion(string name) : TerraformResource("aws_acco
     /// The opt_status attribute.
     /// </summary>
     public TerraformValue<string> OptStatus
-        => AsReference("opt_status");
+        => CreateReference("opt_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

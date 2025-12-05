@@ -20,7 +20,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : T
     /// </summary>
     public TerraformValue<double> MaxReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("max_replica_count") ?? AsReference("max_replica_count");
+        get => GetArgument<TerraformValue<double>>("max_replica_count") ?? CreateReference("max_replica_count");
         set => SetArgument("max_replica_count", value);
     }
 
@@ -31,7 +31,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : T
     /// </summary>
     public TerraformValue<double> MinReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("min_replica_count") ?? AsReference("min_replica_count");
+        get => GetArgument<TerraformValue<double>>("min_replica_count") ?? CreateReference("min_replica_count");
         set => SetArgument("min_replica_count", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : T
     /// </summary>
     public TerraformValue<double> MaxReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("max_replica_count") ?? AsReference("max_replica_count");
+        get => GetArgument<TerraformValue<double>>("max_replica_count") ?? CreateReference("max_replica_count");
         set => SetArgument("max_replica_count", value);
     }
 
@@ -258,7 +258,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -310,7 +310,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The DeployedIndex may depend on various data on its original Index. Additionally when certain changes to the original Index are being done (e.g. when what the Index contains is being changed) the DeployedIndex may be asynchronously updated in the background to reflect these changes. If this timestamp&#39;s value is at least the [Index.update_time](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.indexes#Index.FIELDS.update_time) of the original Index, it means that this DeployedIndex and the original Index are in sync. If this timestamp is older, then to see which updates this DeployedIndex already contains (and which it does not), one must [list](https://cloud.google.com/vertex-ai/docs/reference/rest/v1beta1/projects.locations.operations/list#google.longrunning.Operations.ListOperations) the operations that are running on the original Index. Only the successfully completed Operations with updateTime equal or before this sync time are contained in this DeployedIndex.
@@ -318,19 +318,19 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples:&#160;&amp;quot;2014-10-02T15:01:23Z&amp;quot;&#160;and&#160;&amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> IndexSyncTime
-        => AsReference("index_sync_time");
+        => CreateReference("index_sync_time");
 
     /// <summary>
     /// The name of the DeployedIndex resource.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Provides paths for users to send requests directly to the deployed index services running on Cloud via private services access. This field is populated if [network](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.network) is configured.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateEndpoints
-        => AsReference("private_endpoints");
+        => CreateReference("private_endpoints");
 
     /// <summary>
     /// AutomaticResources block (nesting mode: list).

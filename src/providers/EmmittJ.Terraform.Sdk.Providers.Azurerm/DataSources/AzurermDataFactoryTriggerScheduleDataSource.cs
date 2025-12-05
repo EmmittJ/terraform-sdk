@@ -46,7 +46,7 @@ public partial class AzurermDataFactoryTriggerScheduleDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,61 +64,61 @@ public partial class AzurermDataFactoryTriggerScheduleDataSource(string name) : 
     /// The activated attribute.
     /// </summary>
     public TerraformValue<bool> Activated
-        => AsReference("activated");
+        => CreateReference("activated");
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     public TerraformList<string> Annotations
-        => AsReference("annotations");
+        => CreateReference("annotations");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
     public TerraformValue<string> EndTime
-        => AsReference("end_time");
+        => CreateReference("end_time");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     public TerraformValue<string> Frequency
-        => AsReference("frequency");
+        => CreateReference("frequency");
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     public TerraformValue<double> Interval
-        => AsReference("interval");
+        => CreateReference("interval");
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
     public TerraformValue<string> PipelineName
-        => AsReference("pipeline_name");
+        => CreateReference("pipeline_name");
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Schedule
-        => AsReference("schedule");
+        => CreateReference("schedule");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-        => AsReference("start_time");
+        => CreateReference("start_time");
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     public TerraformValue<string> TimeZone
-        => AsReference("time_zone");
+        => CreateReference("time_zone");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

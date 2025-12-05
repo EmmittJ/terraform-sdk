@@ -99,7 +99,7 @@ public class GoogleBigqueryJobCopyBlockDestinationEncryptionConfigurationBlock :
     /// Describes the Cloud KMS encryption key version used to protect destination BigQuery table.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-        => AsReference("kms_key_version");
+        => CreateReference("kms_key_version");
 
 }
 
@@ -119,7 +119,7 @@ public class GoogleBigqueryJobCopyBlockDestinationTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? CreateReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleBigqueryJobCopyBlockDestinationTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleBigqueryJobCopyBlockSourceTablesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? CreateReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleBigqueryJobCopyBlockSourceTablesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -216,7 +216,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DestinationFormat
     {
-        get => GetArgument<TerraformValue<string>>("destination_format") ?? AsReference("destination_format");
+        get => GetArgument<TerraformValue<string>>("destination_format") ?? CreateReference("destination_format");
         set => SetArgument("destination_format", value);
     }
 
@@ -236,7 +236,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> FieldDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("field_delimiter") ?? AsReference("field_delimiter");
+        get => GetArgument<TerraformValue<string>>("field_delimiter") ?? CreateReference("field_delimiter");
         set => SetArgument("field_delimiter", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleBigqueryJobExtractBlockSourceTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? CreateReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -348,7 +348,7 @@ public class GoogleBigqueryJobExtractBlockSourceTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -439,7 +439,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> FieldDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("field_delimiter") ?? AsReference("field_delimiter");
+        get => GetArgument<TerraformValue<string>>("field_delimiter") ?? CreateReference("field_delimiter");
         set => SetArgument("field_delimiter", value);
     }
 
@@ -509,7 +509,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Quote
     {
-        get => GetArgument<TerraformValue<string>>("quote") ?? AsReference("quote");
+        get => GetArgument<TerraformValue<string>>("quote") ?? CreateReference("quote");
         set => SetArgument("quote", value);
     }
 
@@ -655,7 +655,7 @@ public class GoogleBigqueryJobLoadBlockDestinationEncryptionConfigurationBlock :
     /// Describes the Cloud KMS encryption key version used to protect destination BigQuery table.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-        => AsReference("kms_key_version");
+        => CreateReference("kms_key_version");
 
 }
 
@@ -675,7 +675,7 @@ public class GoogleBigqueryJobLoadBlockDestinationTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? CreateReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -684,7 +684,7 @@ public class GoogleBigqueryJobLoadBlockDestinationTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1046,7 +1046,7 @@ public class GoogleBigqueryJobQueryBlockDefaultDatasetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1078,7 +1078,7 @@ public class GoogleBigqueryJobQueryBlockDestinationEncryptionConfigurationBlock 
     /// Describes the Cloud KMS encryption key version used to protect destination BigQuery table.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-        => AsReference("kms_key_version");
+        => CreateReference("kms_key_version");
 
 }
 
@@ -1098,7 +1098,7 @@ public class GoogleBigqueryJobQueryBlockDestinationTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? CreateReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -1107,7 +1107,7 @@ public class GoogleBigqueryJobQueryBlockDestinationTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1250,7 +1250,7 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1300,7 +1300,7 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1308,32 +1308,32 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The type of the job.
     /// </summary>
     public TerraformValue<string> JobType
-        => AsReference("job_type");
+        => CreateReference("job_type");
 
     /// <summary>
     /// The status of this job. Examine this value when polling an asynchronous job to see if the job is complete.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Email address of the user who ran the job.
     /// </summary>
     public TerraformValue<string> UserEmail
-        => AsReference("user_email");
+        => CreateReference("user_email");
 
     /// <summary>
     /// Copy block (nesting mode: list).

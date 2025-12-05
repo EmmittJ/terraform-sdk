@@ -104,7 +104,7 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     /// The cross_tenant_scopes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CrossTenantScopes
-        => AsReference("cross_tenant_scopes");
+        => CreateReference("cross_tenant_scopes");
 
     /// <summary>
     /// Scope block (nesting mode: list).

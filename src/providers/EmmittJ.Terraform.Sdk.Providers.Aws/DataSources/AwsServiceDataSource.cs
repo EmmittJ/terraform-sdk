@@ -13,7 +13,7 @@ public partial class AwsServiceDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> DnsName
     {
-        get => GetArgument<TerraformValue<string>>("dns_name") ?? AsReference("dns_name");
+        get => GetArgument<TerraformValue<string>>("dns_name") ?? CreateReference("dns_name");
         set => SetArgument("dns_name", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsServiceDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsServiceDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsServiceDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> ReverseDnsName
     {
-        get => GetArgument<TerraformValue<string>>("reverse_dns_name") ?? AsReference("reverse_dns_name");
+        get => GetArgument<TerraformValue<string>>("reverse_dns_name") ?? CreateReference("reverse_dns_name");
         set => SetArgument("reverse_dns_name", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsServiceDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> ReverseDnsPrefix
     {
-        get => GetArgument<TerraformValue<string>>("reverse_dns_prefix") ?? AsReference("reverse_dns_prefix");
+        get => GetArgument<TerraformValue<string>>("reverse_dns_prefix") ?? CreateReference("reverse_dns_prefix");
         set => SetArgument("reverse_dns_prefix", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsServiceDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> ServiceId
     {
-        get => GetArgument<TerraformValue<string>>("service_id") ?? AsReference("service_id");
+        get => GetArgument<TerraformValue<string>>("service_id") ?? CreateReference("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -66,12 +66,12 @@ public partial class AwsServiceDataSource(string name) : TerraformDataSource("aw
     /// The partition attribute.
     /// </summary>
     public TerraformValue<string> Partition
-        => AsReference("partition");
+        => CreateReference("partition");
 
     /// <summary>
     /// The supported attribute.
     /// </summary>
     public TerraformValue<bool> Supported
-        => AsReference("supported");
+        => CreateReference("supported");
 
 }

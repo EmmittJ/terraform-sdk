@@ -75,7 +75,7 @@ public partial class GoogleGkeBackupRestoreChannel(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class GoogleGkeBackupRestoreChannel(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -128,13 +128,13 @@ public partial class GoogleGkeBackupRestoreChannel(string name) : TerraformResou
     /// Example Project ID: &amp;quot;my-project-id&amp;quot;.
     /// </summary>
     public TerraformValue<string> DestinationProjectId
-        => AsReference("destination_project_id");
+        => CreateReference("destination_project_id");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// etag is used for optimistic concurrency control as a way to help prevent simultaneous
@@ -145,20 +145,20 @@ public partial class GoogleGkeBackupRestoreChannel(string name) : TerraformResou
     /// restoreChannels.delete to ensure that their change will be applied to the same version of the resource.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Server generated, unique identifier of UUID format.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

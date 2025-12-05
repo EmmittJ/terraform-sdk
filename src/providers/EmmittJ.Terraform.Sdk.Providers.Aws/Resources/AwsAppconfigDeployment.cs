@@ -72,7 +72,7 @@ public partial class AwsAppconfigDeployment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsAppconfigDeployment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsAppconfigDeployment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -116,24 +116,24 @@ public partial class AwsAppconfigDeployment(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The deployment_number attribute.
     /// </summary>
     public TerraformValue<double> DeploymentNumber
-        => AsReference("deployment_number");
+        => CreateReference("deployment_number");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyArn
-        => AsReference("kms_key_arn");
+        => CreateReference("kms_key_arn");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }

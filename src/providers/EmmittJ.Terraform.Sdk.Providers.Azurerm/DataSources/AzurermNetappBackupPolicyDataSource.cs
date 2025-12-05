@@ -46,7 +46,7 @@ public partial class AzurermNetappBackupPolicyDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,37 +74,37 @@ public partial class AzurermNetappBackupPolicyDataSource(string name) : Terrafor
     /// The daily_backups_to_keep attribute.
     /// </summary>
     public TerraformValue<double> DailyBackupsToKeep
-        => AsReference("daily_backups_to_keep");
+        => CreateReference("daily_backups_to_keep");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The monthly_backups_to_keep attribute.
     /// </summary>
     public TerraformValue<double> MonthlyBackupsToKeep
-        => AsReference("monthly_backups_to_keep");
+        => CreateReference("monthly_backups_to_keep");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The weekly_backups_to_keep attribute.
     /// </summary>
     public TerraformValue<double> WeeklyBackupsToKeep
-        => AsReference("weekly_backups_to_keep");
+        => CreateReference("weekly_backups_to_keep");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

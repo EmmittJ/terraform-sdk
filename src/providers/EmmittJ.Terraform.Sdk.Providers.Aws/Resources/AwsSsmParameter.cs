@@ -22,7 +22,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// </summary>
     public TerraformValue<string> DataType
     {
-        get => GetArgument<TerraformValue<string>>("data_type") ?? AsReference("data_type");
+        get => GetArgument<TerraformValue<string>>("data_type") ?? CreateReference("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// </summary>
     public TerraformValue<string> InsecureValue
     {
-        get => GetArgument<TerraformValue<string>>("insecure_value") ?? AsReference("insecure_value");
+        get => GetArgument<TerraformValue<string>>("insecure_value") ?? CreateReference("insecure_value");
         set => SetArgument("insecure_value", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// </summary>
     public TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id") ?? AsReference("key_id");
+        get => GetArgument<TerraformValue<string>>("key_id") ?? CreateReference("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// </summary>
     public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? CreateReference("tier");
         set => SetArgument("tier", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// </summary>
     public TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value") ?? AsReference("value");
+        get => GetArgument<TerraformValue<string>>("value") ?? CreateReference("value");
         set => SetArgument("value", value);
     }
 
@@ -167,12 +167,12 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// The has_value_wo attribute.
     /// </summary>
     public TerraformValue<bool> HasValueWo
-        => AsReference("has_value_wo");
+        => CreateReference("has_value_wo");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

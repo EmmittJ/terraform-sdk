@@ -22,7 +22,7 @@ public partial class GoogleOrganizationIamCustomRole(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,12 +79,12 @@ public partial class GoogleOrganizationIamCustomRole(string name) : TerraformRes
     /// The current deleted state of the role.
     /// </summary>
     public TerraformValue<bool> Deleted
-        => AsReference("deleted");
+        => CreateReference("deleted");
 
     /// <summary>
     /// The name of the role in the format organizations/{{org_id}}/roles/{{role_id}}. Like id, this field can be used as a reference in other resources such as IAM role bindings.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
 }

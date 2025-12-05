@@ -69,7 +69,7 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -117,19 +117,19 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     /// Site search indexing failure reasons.
     /// </summary>
     public TerraformList<TerraformMap<object>> FailureReason
-        => AsReference("failure_reason");
+        => CreateReference("failure_reason");
 
     /// <summary>
     /// This is system-generated based on the &#39;provided_uri_pattern&#39;.
     /// </summary>
     public TerraformValue<string> GeneratedUriPattern
-        => AsReference("generated_uri_pattern");
+        => CreateReference("generated_uri_pattern");
 
     /// <summary>
     /// The indexing status.
     /// </summary>
     public TerraformValue<string> IndexingStatus
-        => AsReference("indexing_status");
+        => CreateReference("indexing_status");
 
     /// <summary>
     /// The unique full resource name of the target site. Values are of the format
@@ -138,31 +138,31 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Root domain of the &#39;provided_uri_pattern&#39;.
     /// </summary>
     public TerraformValue<string> RootDomainUri
-        => AsReference("root_domain_uri");
+        => CreateReference("root_domain_uri");
 
     /// <summary>
     /// Site ownership and validity verification status.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteVerificationInfo
-        => AsReference("site_verification_info");
+        => CreateReference("site_verification_info");
 
     /// <summary>
     /// The unique id of the target site.
     /// </summary>
     public TerraformValue<string> TargetSiteId
-        => AsReference("target_site_id");
+        => CreateReference("target_site_id");
 
     /// <summary>
     /// The target site&#39;s last updated time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

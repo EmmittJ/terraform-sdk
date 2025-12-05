@@ -82,7 +82,7 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     /// The size attribute.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

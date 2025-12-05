@@ -153,7 +153,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -226,25 +226,25 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionArn
-        => AsReference("execution_arn");
+        => CreateReference("execution_arn");
 
     /// <summary>
     /// The invoke_url attribute.
     /// </summary>
     public TerraformValue<string> InvokeUrl
-        => AsReference("invoke_url");
+        => CreateReference("invoke_url");
 
     /// <summary>
     /// The web_acl_arn attribute.
     /// </summary>
     public TerraformValue<string> WebAclArn
-        => AsReference("web_acl_arn");
+        => CreateReference("web_acl_arn");
 
     /// <summary>
     /// AccessLogSettings block (nesting mode: list).

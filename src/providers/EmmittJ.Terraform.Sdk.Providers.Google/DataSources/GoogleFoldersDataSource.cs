@@ -13,7 +13,7 @@ public partial class GoogleFoldersDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,6 +31,6 @@ public partial class GoogleFoldersDataSource(string name) : TerraformDataSource(
     /// The folders attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Folders
-        => AsReference("folders");
+        => CreateReference("folders");
 
 }

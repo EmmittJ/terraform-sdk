@@ -148,7 +148,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockEx
     /// </summary>
     public TerraformValue<string> Comparator
     {
-        get => GetArgument<TerraformValue<string>>("comparator") ?? AsReference("comparator");
+        get => GetArgument<TerraformValue<string>>("comparator") ?? CreateReference("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockEx
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockEx
     /// </summary>
     public TerraformList<string> ValuesAttribute
     {
-        get => GetArgument<TerraformList<string>>("values") ?? AsReference("values");
+        get => GetArgument<TerraformList<string>>("values") ?? CreateReference("values");
         set => SetArgument("values", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockEx
     /// </summary>
     public TerraformValue<string> Comparator
     {
-        get => GetArgument<TerraformValue<string>>("comparator") ?? AsReference("comparator");
+        get => GetArgument<TerraformValue<string>>("comparator") ?? CreateReference("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockEx
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -228,7 +228,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockEx
     /// </summary>
     public TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value") ?? AsReference("value");
+        get => GetArgument<TerraformValue<string>>("value") ?? CreateReference("value");
         set => SetArgument("value", value);
     }
 
@@ -305,7 +305,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockIn
     /// </summary>
     public TerraformValue<string> Comparator
     {
-        get => GetArgument<TerraformValue<string>>("comparator") ?? AsReference("comparator");
+        get => GetArgument<TerraformValue<string>>("comparator") ?? CreateReference("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -314,7 +314,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockIn
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -323,7 +323,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockIn
     /// </summary>
     public TerraformList<string> ValuesAttribute
     {
-        get => GetArgument<TerraformList<string>>("values") ?? AsReference("values");
+        get => GetArgument<TerraformList<string>>("values") ?? CreateReference("values");
         set => SetArgument("values", value);
     }
 
@@ -345,7 +345,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockIn
     /// </summary>
     public TerraformValue<string> Comparator
     {
-        get => GetArgument<TerraformValue<string>>("comparator") ?? AsReference("comparator");
+        get => GetArgument<TerraformValue<string>>("comparator") ?? CreateReference("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -376,7 +376,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockIn
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -385,7 +385,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockIn
     /// </summary>
     public TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value") ?? AsReference("value");
+        get => GetArgument<TerraformValue<string>>("value") ?? CreateReference("value");
         set => SetArgument("value", value);
     }
 
@@ -528,7 +528,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// </summary>
     public TerraformValue<string> Comparator
     {
-        get => GetArgument<TerraformValue<string>>("comparator") ?? AsReference("comparator");
+        get => GetArgument<TerraformValue<string>>("comparator") ?? CreateReference("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -537,7 +537,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -546,7 +546,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// </summary>
     public TerraformList<string> ValuesAttribute
     {
-        get => GetArgument<TerraformList<string>>("values") ?? AsReference("values");
+        get => GetArgument<TerraformList<string>>("values") ?? CreateReference("values");
         set => SetArgument("values", value);
     }
 
@@ -568,7 +568,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// </summary>
     public TerraformValue<string> Comparator
     {
-        get => GetArgument<TerraformValue<string>>("comparator") ?? AsReference("comparator");
+        get => GetArgument<TerraformValue<string>>("comparator") ?? CreateReference("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -577,7 +577,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -586,7 +586,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// </summary>
     public TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target") ?? AsReference("target");
+        get => GetArgument<TerraformValue<string>>("target") ?? CreateReference("target");
         set => SetArgument("target", value);
     }
 
@@ -617,7 +617,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -626,7 +626,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// </summary>
     public TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value") ?? AsReference("value");
+        get => GetArgument<TerraformValue<string>>("value") ?? CreateReference("value");
         set => SetArgument("value", value);
     }
 
@@ -703,7 +703,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// </summary>
     public TerraformValue<string> Comparator
     {
-        get => GetArgument<TerraformValue<string>>("comparator") ?? AsReference("comparator");
+        get => GetArgument<TerraformValue<string>>("comparator") ?? CreateReference("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -712,7 +712,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -721,7 +721,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// </summary>
     public TerraformList<string> ValuesAttribute
     {
-        get => GetArgument<TerraformList<string>>("values") ?? AsReference("values");
+        get => GetArgument<TerraformList<string>>("values") ?? CreateReference("values");
         set => SetArgument("values", value);
     }
 
@@ -743,7 +743,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// </summary>
     public TerraformValue<string> Comparator
     {
-        get => GetArgument<TerraformValue<string>>("comparator") ?? AsReference("comparator");
+        get => GetArgument<TerraformValue<string>>("comparator") ?? CreateReference("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -752,7 +752,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -761,7 +761,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// </summary>
     public TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target") ?? AsReference("target");
+        get => GetArgument<TerraformValue<string>>("target") ?? CreateReference("target");
         set => SetArgument("target", value);
     }
 
@@ -792,7 +792,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -801,7 +801,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// </summary>
     public TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value") ?? AsReference("value");
+        get => GetArgument<TerraformValue<string>>("value") ?? CreateReference("value");
         set => SetArgument("value", value);
     }
 
@@ -833,7 +833,7 @@ public class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MonthlySchedule
     {
-        get => GetArgument<TerraformValue<double>>("monthly_schedule") ?? AsReference("monthly_schedule");
+        get => GetArgument<TerraformValue<double>>("monthly_schedule") ?? CreateReference("monthly_schedule");
         set => SetArgument("monthly_schedule", value);
     }
 
@@ -842,7 +842,7 @@ public class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> WeeklySchedule
     {
-        get => GetArgument<TerraformValue<string>>("weekly_schedule") ?? AsReference("weekly_schedule");
+        get => GetArgument<TerraformValue<string>>("weekly_schedule") ?? CreateReference("weekly_schedule");
         set => SetArgument("weekly_schedule", value);
     }
 
@@ -892,7 +892,7 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformList<string> CustomDataIdentifierIds
     {
-        get => GetArgument<TerraformList<string>>("custom_data_identifier_ids") ?? AsReference("custom_data_identifier_ids");
+        get => GetArgument<TerraformList<string>>("custom_data_identifier_ids") ?? CreateReference("custom_data_identifier_ids");
         set => SetArgument("custom_data_identifier_ids", value);
     }
 
@@ -901,7 +901,7 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -910,7 +910,7 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -928,7 +928,7 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> JobStatus
     {
-        get => GetArgument<TerraformValue<string>>("job_status") ?? AsReference("job_status");
+        get => GetArgument<TerraformValue<string>>("job_status") ?? CreateReference("job_status");
         set => SetArgument("job_status", value);
     }
 
@@ -947,7 +947,7 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -956,7 +956,7 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -965,7 +965,7 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -974,7 +974,7 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double> SamplingPercentage
     {
-        get => GetArgument<TerraformValue<double>>("sampling_percentage") ?? AsReference("sampling_percentage");
+        get => GetArgument<TerraformValue<double>>("sampling_percentage") ?? CreateReference("sampling_percentage");
         set => SetArgument("sampling_percentage", value);
     }
 
@@ -992,7 +992,7 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1000,25 +1000,25 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The job_arn attribute.
     /// </summary>
     public TerraformValue<string> JobArn
-        => AsReference("job_arn");
+        => CreateReference("job_arn");
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
     public TerraformValue<string> JobId
-        => AsReference("job_id");
+        => CreateReference("job_id");
 
     /// <summary>
     /// The user_paused_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserPausedDetails
-        => AsReference("user_paused_details");
+        => CreateReference("user_paused_details");
 
     /// <summary>
     /// S3JobDefinition block (nesting mode: list).

@@ -33,7 +33,7 @@ public partial class AwsRedshiftSnapshotCopy(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double> ManualSnapshotRetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("manual_snapshot_retention_period") ?? AsReference("manual_snapshot_retention_period");
+        get => GetArgument<TerraformValue<double>>("manual_snapshot_retention_period") ?? CreateReference("manual_snapshot_retention_period");
         set => SetArgument("manual_snapshot_retention_period", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsRedshiftSnapshotCopy(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsRedshiftSnapshotCopy(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double> RetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("retention_period") ?? AsReference("retention_period");
+        get => GetArgument<TerraformValue<double>>("retention_period") ?? CreateReference("retention_period");
         set => SetArgument("retention_period", value);
     }
 
@@ -68,6 +68,6 @@ public partial class AwsRedshiftSnapshotCopy(string name) : TerraformResource("a
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

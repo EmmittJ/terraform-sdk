@@ -33,7 +33,7 @@ public partial class AwsAcmpcaCertificateDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsAcmpcaCertificateDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,12 +50,12 @@ public partial class AwsAcmpcaCertificateDataSource(string name) : TerraformData
     /// The certificate attribute.
     /// </summary>
     public TerraformValue<string> Certificate
-        => AsReference("certificate");
+        => CreateReference("certificate");
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
     public TerraformValue<string> CertificateChain
-        => AsReference("certificate_chain");
+        => CreateReference("certificate_chain");
 
 }

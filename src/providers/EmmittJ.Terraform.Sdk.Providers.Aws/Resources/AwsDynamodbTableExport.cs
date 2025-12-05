@@ -18,7 +18,7 @@ public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : Terrafo
     /// </summary>
     public TerraformValue<string> ExportFromTime
     {
-        get => GetArgument<TerraformValue<string>>("export_from_time") ?? AsReference("export_from_time");
+        get => GetArgument<TerraformValue<string>>("export_from_time") ?? CreateReference("export_from_time");
         set => SetArgument("export_from_time", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : Terrafo
     /// </summary>
     public TerraformValue<string> ExportToTime
     {
-        get => GetArgument<TerraformValue<string>>("export_to_time") ?? AsReference("export_to_time");
+        get => GetArgument<TerraformValue<string>>("export_to_time") ?? CreateReference("export_to_time");
         set => SetArgument("export_to_time", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : Terrafo
     /// </summary>
     public TerraformValue<string> ExportViewType
     {
-        get => GetArgument<TerraformValue<string>>("export_view_type") ?? AsReference("export_view_type");
+        get => GetArgument<TerraformValue<string>>("export_view_type") ?? CreateReference("export_view_type");
         set => SetArgument("export_view_type", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> ExportTime
     {
-        get => GetArgument<TerraformValue<string>>("export_time") ?? AsReference("export_time");
+        get => GetArgument<TerraformValue<string>>("export_time") ?? CreateReference("export_time");
         set => SetArgument("export_time", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> ExportType
     {
-        get => GetArgument<TerraformValue<string>>("export_type") ?? AsReference("export_type");
+        get => GetArgument<TerraformValue<string>>("export_type") ?? CreateReference("export_type");
         set => SetArgument("export_type", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> S3BucketOwner
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket_owner") ?? AsReference("s3_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_owner") ?? CreateReference("s3_bucket_owner");
         set => SetArgument("s3_bucket_owner", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> S3Prefix
     {
-        get => GetArgument<TerraformValue<string>>("s3_prefix") ?? AsReference("s3_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_prefix") ?? CreateReference("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> S3SseAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("s3_sse_algorithm") ?? AsReference("s3_sse_algorithm");
+        get => GetArgument<TerraformValue<string>>("s3_sse_algorithm") ?? CreateReference("s3_sse_algorithm");
         set => SetArgument("s3_sse_algorithm", value);
     }
 
@@ -186,43 +186,43 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The billed_size_in_bytes attribute.
     /// </summary>
     public TerraformValue<double> BilledSizeInBytes
-        => AsReference("billed_size_in_bytes");
+        => CreateReference("billed_size_in_bytes");
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
     public TerraformValue<string> EndTime
-        => AsReference("end_time");
+        => CreateReference("end_time");
 
     /// <summary>
     /// The export_status attribute.
     /// </summary>
     public TerraformValue<string> ExportStatus
-        => AsReference("export_status");
+        => CreateReference("export_status");
 
     /// <summary>
     /// The item_count attribute.
     /// </summary>
     public TerraformValue<double> ItemCount
-        => AsReference("item_count");
+        => CreateReference("item_count");
 
     /// <summary>
     /// The manifest_files_s3_key attribute.
     /// </summary>
     public TerraformValue<string> ManifestFilesS3Key
-        => AsReference("manifest_files_s3_key");
+        => CreateReference("manifest_files_s3_key");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-        => AsReference("start_time");
+        => CreateReference("start_time");
 
     /// <summary>
     /// IncrementalExportSpecification block (nesting mode: list).

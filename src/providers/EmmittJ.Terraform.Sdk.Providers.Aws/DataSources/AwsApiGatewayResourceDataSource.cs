@@ -13,7 +13,7 @@ public partial class AwsApiGatewayResourceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsApiGatewayResourceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,12 +50,12 @@ public partial class AwsApiGatewayResourceDataSource(string name) : TerraformDat
     /// The parent_id attribute.
     /// </summary>
     public TerraformValue<string> ParentId
-        => AsReference("parent_id");
+        => CreateReference("parent_id");
 
     /// <summary>
     /// The path_part attribute.
     /// </summary>
     public TerraformValue<string> PathPart
-        => AsReference("path_part");
+        => CreateReference("path_part");
 
 }

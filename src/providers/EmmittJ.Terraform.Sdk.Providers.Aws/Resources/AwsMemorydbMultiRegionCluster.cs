@@ -63,7 +63,7 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine") ?? AsReference("engine");
+        get => GetArgument<TerraformValue<string>>("engine") ?? CreateReference("engine");
         set => SetArgument("engine", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> MultiRegionParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("multi_region_parameter_group_name") ?? AsReference("multi_region_parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("multi_region_parameter_group_name") ?? CreateReference("multi_region_parameter_group_name");
         set => SetArgument("multi_region_parameter_group_name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<double> NumShards
     {
-        get => GetArgument<TerraformValue<double>>("num_shards") ?? AsReference("num_shards");
+        get => GetArgument<TerraformValue<double>>("num_shards") ?? CreateReference("num_shards");
         set => SetArgument("num_shards", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool> TlsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("tls_enabled") ?? AsReference("tls_enabled");
+        get => GetArgument<TerraformValue<bool>>("tls_enabled") ?? CreateReference("tls_enabled");
         set => SetArgument("tls_enabled", value);
     }
 
@@ -154,25 +154,25 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The multi_region_cluster_name attribute.
     /// </summary>
     public TerraformValue<string> MultiRegionClusterName
-        => AsReference("multi_region_cluster_name");
+        => CreateReference("multi_region_cluster_name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

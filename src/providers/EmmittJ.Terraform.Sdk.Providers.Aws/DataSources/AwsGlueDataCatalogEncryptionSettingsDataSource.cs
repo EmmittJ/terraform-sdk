@@ -23,7 +23,7 @@ public partial class AwsGlueDataCatalogEncryptionSettingsDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsGlueDataCatalogEncryptionSettingsDataSource(string name)
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,6 +40,6 @@ public partial class AwsGlueDataCatalogEncryptionSettingsDataSource(string name)
     /// The data_catalog_encryption_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataCatalogEncryptionSettings
-        => AsReference("data_catalog_encryption_settings");
+        => CreateReference("data_catalog_encryption_settings");
 
 }

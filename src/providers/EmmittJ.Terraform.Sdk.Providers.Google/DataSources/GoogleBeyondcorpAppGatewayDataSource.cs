@@ -13,7 +13,7 @@ public partial class GoogleBeyondcorpAppGatewayDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,25 +49,25 @@ public partial class GoogleBeyondcorpAppGatewayDataSource(string name) : Terrafo
     /// A list of connections allocated for the Gateway.
     /// </summary>
     public TerraformList<TerraformMap<object>> AllocatedConnections
-        => AsReference("allocated_connections");
+        => CreateReference("allocated_connections");
 
     /// <summary>
     /// An arbitrary user-provided name for the AppGateway.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The type of hosting used by the AppGateway. Default value: &amp;quot;HOST_TYPE_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;HOST_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;GCP_REGIONAL_MIG&amp;quot;]
     /// </summary>
     public TerraformValue<string> HostType
-        => AsReference("host_type");
+        => CreateReference("host_type");
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -77,31 +77,31 @@ public partial class GoogleBeyondcorpAppGatewayDataSource(string name) : Terrafo
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Represents the different states of a AppGateway.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The type of network connectivity used by the AppGateway. Default value: &amp;quot;TYPE_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;TYPE_UNSPECIFIED&amp;quot;, &amp;quot;TCP_PROXY&amp;quot;]
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Server-defined URI for this resource.
     /// </summary>
     public TerraformValue<string> Uri
-        => AsReference("uri");
+        => CreateReference("uri");
 
 }

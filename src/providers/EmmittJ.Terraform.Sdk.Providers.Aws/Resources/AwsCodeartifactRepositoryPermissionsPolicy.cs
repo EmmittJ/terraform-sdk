@@ -23,7 +23,7 @@ public partial class AwsCodeartifactRepositoryPermissionsPolicy(string name) : T
     /// </summary>
     public TerraformValue<string> DomainOwner
     {
-        get => GetArgument<TerraformValue<string>>("domain_owner") ?? AsReference("domain_owner");
+        get => GetArgument<TerraformValue<string>>("domain_owner") ?? CreateReference("domain_owner");
         set => SetArgument("domain_owner", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCodeartifactRepositoryPermissionsPolicy(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCodeartifactRepositoryPermissionsPolicy(string name) : T
     /// </summary>
     public TerraformValue<string> PolicyRevision
     {
-        get => GetArgument<TerraformValue<string>>("policy_revision") ?? AsReference("policy_revision");
+        get => GetArgument<TerraformValue<string>>("policy_revision") ?? CreateReference("policy_revision");
         set => SetArgument("policy_revision", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsCodeartifactRepositoryPermissionsPolicy(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -78,6 +78,6 @@ public partial class AwsCodeartifactRepositoryPermissionsPolicy(string name) : T
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-        => AsReference("resource_arn");
+        => CreateReference("resource_arn");
 
 }

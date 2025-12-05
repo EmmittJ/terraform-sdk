@@ -44,19 +44,19 @@ public class AzurermBotChannelDirectlineSiteBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     public TerraformValue<string> Key
-        => AsReference("key");
+        => CreateReference("key");
 
     /// <summary>
     /// The key2 attribute.
     /// </summary>
     public TerraformValue<string> Key2
-        => AsReference("key2");
+        => CreateReference("key2");
 
     /// <summary>
     /// The name attribute.
@@ -187,7 +187,7 @@ public partial class AzurermBotChannelDirectline(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

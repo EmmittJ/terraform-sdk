@@ -36,7 +36,7 @@ public partial class AzurermSubscriptionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermSubscriptionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? CreateReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -53,43 +53,43 @@ public partial class AzurermSubscriptionDataSource(string name) : TerraformDataS
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The location_placement_id attribute.
     /// </summary>
     public TerraformValue<string> LocationPlacementId
-        => AsReference("location_placement_id");
+        => CreateReference("location_placement_id");
 
     /// <summary>
     /// The quota_id attribute.
     /// </summary>
     public TerraformValue<string> QuotaId
-        => AsReference("quota_id");
+        => CreateReference("quota_id");
 
     /// <summary>
     /// The spending_limit attribute.
     /// </summary>
     public TerraformValue<string> SpendingLimit
-        => AsReference("spending_limit");
+        => CreateReference("spending_limit");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

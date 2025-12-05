@@ -98,7 +98,7 @@ public class GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock : TerraformBl
     /// The runtime version which was used during latest function deployment.
     /// </summary>
     public TerraformValue<string> RuntimeVersion
-        => AsReference("runtime_version");
+        => CreateReference("runtime_version");
 
 }
 
@@ -129,7 +129,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -256,7 +256,7 @@ public class GoogleCloudfunctionsFunctionSourceRepositoryBlock : TerraformBlock
     /// The URL pointing to the hosted repository where the function was defined at the time of deployment.
     /// </summary>
     public TerraformValue<string> DeployedUrl
-        => AsReference("deployed_url");
+        => CreateReference("deployed_url");
 
     /// <summary>
     /// The URL pointing to the hosted repository where the function is defined.
@@ -350,7 +350,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> BuildServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("build_service_account") ?? AsReference("build_service_account");
+        get => GetArgument<TerraformValue<string>>("build_service_account") ?? CreateReference("build_service_account");
         set => SetArgument("build_service_account", value);
     }
 
@@ -377,7 +377,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> DockerRegistry
     {
-        get => GetArgument<TerraformValue<string>>("docker_registry") ?? AsReference("docker_registry");
+        get => GetArgument<TerraformValue<string>>("docker_registry") ?? CreateReference("docker_registry");
         set => SetArgument("docker_registry", value);
     }
 
@@ -413,7 +413,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> HttpsTriggerSecurityLevel
     {
-        get => GetArgument<TerraformValue<string>>("https_trigger_security_level") ?? AsReference("https_trigger_security_level");
+        get => GetArgument<TerraformValue<string>>("https_trigger_security_level") ?? CreateReference("https_trigger_security_level");
         set => SetArgument("https_trigger_security_level", value);
     }
 
@@ -422,7 +422,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> HttpsTriggerUrl
     {
-        get => GetArgument<TerraformValue<string>>("https_trigger_url") ?? AsReference("https_trigger_url");
+        get => GetArgument<TerraformValue<string>>("https_trigger_url") ?? CreateReference("https_trigger_url");
         set => SetArgument("https_trigger_url", value);
     }
 
@@ -431,7 +431,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -470,7 +470,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double> MaxInstances
     {
-        get => GetArgument<TerraformValue<double>>("max_instances") ?? AsReference("max_instances");
+        get => GetArgument<TerraformValue<double>>("max_instances") ?? CreateReference("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -498,7 +498,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -507,7 +507,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -526,7 +526,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email") ?? AsReference("service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email") ?? CreateReference("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -580,7 +580,7 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> VpcConnectorEgressSettings
     {
-        get => GetArgument<TerraformValue<string>>("vpc_connector_egress_settings") ?? AsReference("vpc_connector_egress_settings");
+        get => GetArgument<TerraformValue<string>>("vpc_connector_egress_settings") ?? CreateReference("vpc_connector_egress_settings");
         set => SetArgument("vpc_connector_egress_settings", value);
     }
 
@@ -588,25 +588,25 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Describes the current stage of a deployment.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The version identifier of the Cloud Function. Each deployment attempt results in a new version of a function being created.
     /// </summary>
     public TerraformValue<string> VersionId
-        => AsReference("version_id");
+        => CreateReference("version_id");
 
     /// <summary>
     /// AutomaticUpdatePolicy block (nesting mode: list).

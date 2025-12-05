@@ -32,7 +32,7 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     /// </summary>
     public TerraformValue<string> CertificatePem
     {
-        get => GetArgument<TerraformValue<string>>("certificate_pem") ?? AsReference("certificate_pem");
+        get => GetArgument<TerraformValue<string>>("certificate_pem") ?? CreateReference("certificate_pem");
         set => SetArgument("certificate_pem", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -67,24 +67,24 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The ca_certificate_id attribute.
     /// </summary>
     public TerraformValue<string> CaCertificateId
-        => AsReference("ca_certificate_id");
+        => CreateReference("ca_certificate_id");
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
     public TerraformValue<string> PrivateKey
-        => AsReference("private_key");
+        => CreateReference("private_key");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
 }

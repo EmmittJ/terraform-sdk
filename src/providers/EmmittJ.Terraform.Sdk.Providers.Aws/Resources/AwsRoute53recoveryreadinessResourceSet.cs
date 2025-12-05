@@ -17,7 +17,7 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlock : TerraformBlo
     /// The component_id attribute.
     /// </summary>
     public TerraformValue<string> ComponentId
-        => AsReference("component_id");
+        => CreateReference("component_id");
 
     /// <summary>
     /// The readiness_scopes attribute.
@@ -230,7 +230,7 @@ public partial class AwsRoute53recoveryreadinessResourceSet(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -268,7 +268,7 @@ public partial class AwsRoute53recoveryreadinessResourceSet(string name) : Terra
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -276,7 +276,7 @@ public partial class AwsRoute53recoveryreadinessResourceSet(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Resources block (nesting mode: list).

@@ -83,7 +83,7 @@ public partial class AzurermAutomationDscNodeconfiguration(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermAutomationDscNodeconfiguration(string name) : Terraf
     /// The configuration_name attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationName
-        => AsReference("configuration_name");
+        => CreateReference("configuration_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

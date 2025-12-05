@@ -211,7 +211,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersion(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersion(string name) 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -238,19 +238,19 @@ public partial class AwsLightsailContainerServiceDeploymentVersion(string name) 
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// Container block (nesting mode: set).

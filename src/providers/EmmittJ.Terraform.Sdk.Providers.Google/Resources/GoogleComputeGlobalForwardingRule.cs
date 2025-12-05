@@ -96,7 +96,7 @@ public class GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrationsBlock
     /// </summary>
     public TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace") ?? AsReference("namespace");
+        get => GetArgument<TerraformValue<string>>("namespace") ?? CreateReference("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -213,7 +213,7 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -259,7 +259,7 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address") ?? AsReference("ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address") ?? CreateReference("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -277,7 +277,7 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> IpProtocol
     {
-        get => GetArgument<TerraformValue<string>>("ip_protocol") ?? AsReference("ip_protocol");
+        get => GetArgument<TerraformValue<string>>("ip_protocol") ?? CreateReference("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -351,7 +351,7 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -370,7 +370,7 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> NetworkTier
     {
-        get => GetArgument<TerraformValue<string>>("network_tier") ?? AsReference("network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier") ?? CreateReference("network_tier");
         set => SetArgument("network_tier", value);
     }
 
@@ -416,7 +416,7 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -440,7 +440,7 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? CreateReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -469,51 +469,51 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// [Output Only] The URL for the corresponding base Forwarding Rule. By base Forwarding Rule, we mean the Forwarding Rule that has the same IP address, protocol, and port settings with the current Forwarding Rule, but without sourceIPRanges specified. Always empty if the current Forwarding Rule does not have sourceIPRanges specified.
     /// </summary>
     public TerraformValue<string> BaseForwardingRule
-        => AsReference("base_forwarding_rule");
+        => CreateReference("base_forwarding_rule");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> ForwardingRuleId
-        => AsReference("forwarding_rule_id");
+        => CreateReference("forwarding_rule_id");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// The PSC connection id of the PSC Forwarding Rule.
     /// </summary>
     public TerraformValue<string> PscConnectionId
-        => AsReference("psc_connection_id");
+        => CreateReference("psc_connection_id");
 
     /// <summary>
     /// The PSC connection status of the PSC Forwarding Rule. Possible values: &#39;STATUS_UNSPECIFIED&#39;, &#39;PENDING&#39;, &#39;ACCEPTED&#39;, &#39;REJECTED&#39;, &#39;CLOSED&#39;
     /// </summary>
     public TerraformValue<string> PscConnectionStatus
-        => AsReference("psc_connection_status");
+        => CreateReference("psc_connection_status");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// MetadataFilters block (nesting mode: list).

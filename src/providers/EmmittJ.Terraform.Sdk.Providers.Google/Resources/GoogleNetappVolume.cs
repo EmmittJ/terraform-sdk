@@ -63,7 +63,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> HostGroups
     {
-        get => GetArgument<TerraformList<string>>("host_groups") ?? AsReference("host_groups");
+        get => GetArgument<TerraformList<string>>("host_groups") ?? CreateReference("host_groups");
         set => SetArgument("host_groups", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// for ISCSI volumes
     /// </summary>
     public TerraformValue<string> Identifier
-        => AsReference("identifier");
+        => CreateReference("identifier");
 
     /// <summary>
     /// User-defined name for the block device, unique within the Volume. In case
@@ -85,7 +85,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// the parent Volume&#39;s &#39;capacity_gib&#39;.
     /// </summary>
     public TerraformValue<double> SizeGib
-        => AsReference("size_gib");
+        => CreateReference("size_gib");
 
 }
 
@@ -180,7 +180,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> HasRootAccess
     {
-        get => GetArgument<TerraformValue<string>>("has_root_access") ?? AsReference("has_root_access");
+        get => GetArgument<TerraformValue<string>>("has_root_access") ?? CreateReference("has_root_access");
         set => SetArgument("has_root_access", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SquashMode
     {
-        get => GetArgument<TerraformValue<string>>("squash_mode") ?? AsReference("squash_mode");
+        get => GetArgument<TerraformValue<string>>("squash_mode") ?? CreateReference("squash_mode");
         set => SetArgument("squash_mode", value);
     }
 
@@ -781,7 +781,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -851,7 +851,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -880,7 +880,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> SecurityStyle
     {
-        get => GetArgument<TerraformValue<string>>("security_style") ?? AsReference("security_style");
+        get => GetArgument<TerraformValue<string>>("security_style") ?? CreateReference("security_style");
         set => SetArgument("security_style", value);
     }
 
@@ -898,7 +898,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformList<string> SmbSettings
     {
-        get => GetArgument<TerraformList<string>>("smb_settings") ?? AsReference("smb_settings");
+        get => GetArgument<TerraformList<string>>("smb_settings") ?? CreateReference("smb_settings");
         set => SetArgument("smb_settings", value);
     }
 
@@ -926,7 +926,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<double> ThroughputMibps
     {
-        get => GetArgument<TerraformValue<double>>("throughput_mibps") ?? AsReference("throughput_mibps");
+        get => GetArgument<TerraformValue<double>>("throughput_mibps") ?? CreateReference("throughput_mibps");
         set => SetArgument("throughput_mibps", value);
     }
 
@@ -935,7 +935,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> UnixPermissions
     {
-        get => GetArgument<TerraformValue<string>>("unix_permissions") ?? AsReference("unix_permissions");
+        get => GetArgument<TerraformValue<string>>("unix_permissions") ?? CreateReference("unix_permissions");
         set => SetArgument("unix_permissions", value);
     }
 
@@ -943,116 +943,116 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// Reports the resource name of the Active Directory policy being used. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> ActiveDirectory
-        => AsReference("active_directory");
+        => CreateReference("active_directory");
 
     /// <summary>
     /// Output only. Size of the volume cold tier data in GiB.
     /// </summary>
     public TerraformValue<string> ColdTierSizeGib
-        => AsReference("cold_tier_size_gib");
+        => CreateReference("cold_tier_size_gib");
 
     /// <summary>
     /// Create time of the volume. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Reports the data-at-rest encryption type of the volume. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> EncryptionType
-        => AsReference("encryption_type");
+        => CreateReference("encryption_type");
 
     /// <summary>
     /// Indicates whether the volume is part of a volume replication relationship.
     /// </summary>
     public TerraformValue<bool> HasReplication
-        => AsReference("has_replication");
+        => CreateReference("has_replication");
 
     /// <summary>
     /// Total hot tier data rounded down to the nearest GiB used by the volume. This field is only used for flex Service Level
     /// </summary>
     public TerraformValue<string> HotTierSizeUsedGib
-        => AsReference("hot_tier_size_used_gib");
+        => CreateReference("hot_tier_size_used_gib");
 
     /// <summary>
     /// Reports the CMEK policy resurce name being used for volume encryption. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> KmsConfig
-        => AsReference("kms_config");
+        => CreateReference("kms_config");
 
     /// <summary>
     /// Flag indicating if the volume is NFS LDAP enabled or not. Inherited from storage pool.
     /// </summary>
     public TerraformValue<bool> LdapEnabled
-        => AsReference("ldap_enabled");
+        => CreateReference("ldap_enabled");
 
     /// <summary>
     /// Reports mount instructions for this volume.
     /// </summary>
     public TerraformList<TerraformMap<object>> MountOptions
-        => AsReference("mount_options");
+        => CreateReference("mount_options");
 
     /// <summary>
     /// VPC network name with format: &#39;projects/{{project}}/global/networks/{{network}}&#39;. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
     /// <summary>
     /// Name of the Private Service Access allocated range. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> PsaRange
-        => AsReference("psa_range");
+        => CreateReference("psa_range");
 
     /// <summary>
     /// Specifies the replica zone for regional volume.
     /// </summary>
     public TerraformValue<string> ReplicaZone
-        => AsReference("replica_zone");
+        => CreateReference("replica_zone");
 
     /// <summary>
     /// Service level of the volume. Inherited from storage pool. Supported values are : PREMIUM, EXTREME, STANDARD, FLEX.
     /// </summary>
     public TerraformValue<string> ServiceLevel
-        => AsReference("service_level");
+        => CreateReference("service_level");
 
     /// <summary>
     /// State of the volume.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// State details of the volume.
     /// </summary>
     public TerraformValue<string> StateDetails
-        => AsReference("state_details");
+        => CreateReference("state_details");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Used capacity of the volume (in GiB). This is computed periodically and it does not represent the realtime usage.
     /// </summary>
     public TerraformValue<string> UsedGib
-        => AsReference("used_gib");
+        => CreateReference("used_gib");
 
     /// <summary>
     /// Specifies the active zone for regional volume.
     /// </summary>
     public TerraformValue<string> Zone
-        => AsReference("zone");
+        => CreateReference("zone");
 
     /// <summary>
     /// BackupConfig block (nesting mode: list).

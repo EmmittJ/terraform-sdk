@@ -13,7 +13,7 @@ public partial class AwsCognitoUserGroupsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,12 +31,12 @@ public partial class AwsCognitoUserGroupsDataSource(string name) : TerraformData
     /// The groups attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Groups
-        => AsReference("groups");
+        => CreateReference("groups");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

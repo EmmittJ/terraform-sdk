@@ -102,7 +102,7 @@ public partial class AzureadApplicationFederatedIdentityCredential(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzureadApplicationFederatedIdentityCredential(string name) 
     /// A UUID used to uniquely identify this federated identity credential
     /// </summary>
     public TerraformValue<string> CredentialId
-        => AsReference("credential_id");
+        => CreateReference("credential_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

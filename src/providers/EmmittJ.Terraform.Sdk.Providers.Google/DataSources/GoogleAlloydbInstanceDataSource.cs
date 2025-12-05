@@ -23,7 +23,7 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Possible values are: &#39;ACTIVATION_POLICY_UNSPECIFIED&#39;, &#39;ALWAYS&#39;, &#39;NEVER&#39;.&#39; Possible values: [&amp;quot;ACTIVATION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;ALWAYS&amp;quot;, &amp;quot;NEVER&amp;quot;]
     /// </summary>
     public TerraformValue<string> ActivationPolicy
-        => AsReference("activation_policy");
+        => CreateReference("activation_policy");
 
     /// <summary>
     /// Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels.
@@ -75,7 +75,7 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
     public TerraformMap<string> Annotations
-        => AsReference("annotations");
+        => CreateReference("annotations");
 
     /// <summary>
     /// &#39;Availability type of an Instance. Defaults to REGIONAL for both primary and read instances.
@@ -86,56 +86,56 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Possible values are: &#39;AVAILABILITY_TYPE_UNSPECIFIED&#39;, &#39;ZONAL&#39;, &#39;REGIONAL&#39;.&#39; Possible values: [&amp;quot;AVAILABILITY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;ZONAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
     public TerraformValue<string> AvailabilityType
-        => AsReference("availability_type");
+        => CreateReference("availability_type");
 
     /// <summary>
     /// Client connection specific configurations.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientConnectionConfig
-        => AsReference("client_connection_config");
+        => CreateReference("client_connection_config");
 
     /// <summary>
     /// Identifies the alloydb cluster. Must be in the format
     /// &#39;projects/{project}/locations/{location}/clusters/{cluster_id}&#39;
     /// </summary>
     public TerraformValue<string> Cluster
-        => AsReference("cluster");
+        => CreateReference("cluster");
 
     /// <summary>
     /// Time the Instance was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
     public TerraformMap<string> DatabaseFlags
-        => AsReference("database_flags");
+        => CreateReference("database_flags");
 
     /// <summary>
     /// User-settable and human-readable display name for the Instance.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
     /// </summary>
     public TerraformValue<string> GceZone
-        => AsReference("gce_zone");
+        => CreateReference("gce_zone");
 
     /// <summary>
     /// The type of the instance.
@@ -147,13 +147,13 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Users can undo the delete secondary instance action by importing the deleted secondary instance by calling terraform import. Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;READ_POOL&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
     public TerraformValue<string> InstanceType
-        => AsReference("instance_type");
+        => CreateReference("instance_type");
 
     /// <summary>
     /// The IP address for the Instance. This is the connection endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// User-defined labels for the alloydb instance.
@@ -162,25 +162,25 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Configurations for the machines that host the underlying database engine.
     /// </summary>
     public TerraformList<TerraformMap<object>> MachineConfig
-        => AsReference("machine_config");
+        => CreateReference("machine_config");
 
     /// <summary>
     /// The name of the instance resource.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Instance level network configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkConfig
-        => AsReference("network_config");
+        => CreateReference("network_config");
 
     /// <summary>
     /// The outbound public IP addresses for the instance. This is available ONLY when
@@ -188,13 +188,13 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// for outbound connections.
     /// </summary>
     public TerraformList<string> OutboundPublicIpAddresses
-        => AsReference("outbound_public_ip_addresses");
+        => CreateReference("outbound_public_ip_addresses");
 
     /// <summary>
     /// Configuration for Private Service Connect (PSC) for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscInstanceConfig
-        => AsReference("psc_instance_config");
+        => CreateReference("psc_instance_config");
 
     /// <summary>
     /// The public IP addresses for the Instance. This is available ONLY when
@@ -202,49 +202,49 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-        => AsReference("public_ip_address");
+        => CreateReference("public_ip_address");
 
     /// <summary>
     /// Configuration for query insights.
     /// </summary>
     public TerraformList<TerraformMap<object>> QueryInsightsConfig
-        => AsReference("query_insights_config");
+        => CreateReference("query_insights_config");
 
     /// <summary>
     /// Read pool specific config. If the instance type is READ_POOL, this configuration must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReadPoolConfig
-        => AsReference("read_pool_config");
+        => CreateReference("read_pool_config");
 
     /// <summary>
     /// Set to true if the current state of Instance does not match the user&#39;s intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The current state of the alloydb instance.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

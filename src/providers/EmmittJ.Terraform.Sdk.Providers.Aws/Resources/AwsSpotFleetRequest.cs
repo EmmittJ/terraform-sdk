@@ -37,7 +37,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KeyName
     {
-        get => GetArgument<TerraformValue<string>>("key_name") ?? AsReference("key_name");
+        get => GetArgument<TerraformValue<string>>("key_name") ?? CreateReference("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PlacementGroup
     {
-        get => GetArgument<TerraformValue<string>>("placement_group") ?? AsReference("placement_group");
+        get => GetArgument<TerraformValue<string>>("placement_group") ?? CreateReference("placement_group");
         set => SetArgument("placement_group", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? CreateReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? CreateReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEbsBlockDeviceBlock : Te
     /// </summary>
     public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? CreateReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
@@ -241,7 +241,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEbsBlockDeviceBlock : Te
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEbsBlockDeviceBlock : Te
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEbsBlockDeviceBlock : Te
     /// </summary>
     public TerraformValue<string> SnapshotId
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_id") ?? AsReference("snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id") ?? CreateReference("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEbsBlockDeviceBlock : Te
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -277,7 +277,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEbsBlockDeviceBlock : Te
     /// </summary>
     public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? CreateReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
@@ -286,7 +286,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEbsBlockDeviceBlock : Te
     /// </summary>
     public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? CreateReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -350,7 +350,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockRootBlockDeviceBlock : T
     /// </summary>
     public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? CreateReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
@@ -359,7 +359,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockRootBlockDeviceBlock : T
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -368,7 +368,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockRootBlockDeviceBlock : T
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -377,7 +377,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockRootBlockDeviceBlock : T
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -386,7 +386,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockRootBlockDeviceBlock : T
     /// </summary>
     public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? CreateReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
@@ -395,7 +395,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockRootBlockDeviceBlock : T
     /// </summary>
     public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? CreateReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -511,7 +511,7 @@ public class AwsSpotFleetRequestLaunchTemplateConfigBlockOverridesBlock : Terraf
     /// </summary>
     public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? CreateReference("priority");
         set => SetArgument("priority", value);
     }
 
@@ -520,7 +520,7 @@ public class AwsSpotFleetRequestLaunchTemplateConfigBlockOverridesBlock : Terraf
     /// </summary>
     public TerraformValue<string> SpotPrice
     {
-        get => GetArgument<TerraformValue<string>>("spot_price") ?? AsReference("spot_price");
+        get => GetArgument<TerraformValue<string>>("spot_price") ?? CreateReference("spot_price");
         set => SetArgument("spot_price", value);
     }
 
@@ -529,7 +529,7 @@ public class AwsSpotFleetRequestLaunchTemplateConfigBlockOverridesBlock : Terraf
     /// </summary>
     public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? CreateReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -538,7 +538,7 @@ public class AwsSpotFleetRequestLaunchTemplateConfigBlockOverridesBlock : Terraf
     /// </summary>
     public TerraformValue<double> WeightedCapacity
     {
-        get => GetArgument<TerraformValue<double>>("weighted_capacity") ?? AsReference("weighted_capacity");
+        get => GetArgument<TerraformValue<double>>("weighted_capacity") ?? CreateReference("weighted_capacity");
         set => SetArgument("weighted_capacity", value);
     }
 
@@ -1207,7 +1207,7 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1234,7 +1234,7 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformSet<string> LoadBalancers
     {
-        get => GetArgument<TerraformSet<string>>("load_balancers") ?? AsReference("load_balancers");
+        get => GetArgument<TerraformSet<string>>("load_balancers") ?? CreateReference("load_balancers");
         set => SetArgument("load_balancers", value);
     }
 
@@ -1270,7 +1270,7 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1306,7 +1306,7 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1334,7 +1334,7 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformSet<string> TargetGroupArns
     {
-        get => GetArgument<TerraformSet<string>>("target_group_arns") ?? AsReference("target_group_arns");
+        get => GetArgument<TerraformSet<string>>("target_group_arns") ?? CreateReference("target_group_arns");
         set => SetArgument("target_group_arns", value);
     }
 
@@ -1387,13 +1387,13 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// The client_token attribute.
     /// </summary>
     public TerraformValue<string> ClientToken
-        => AsReference("client_token");
+        => CreateReference("client_token");
 
     /// <summary>
     /// The spot_request_state attribute.
     /// </summary>
     public TerraformValue<string> SpotRequestState
-        => AsReference("spot_request_state");
+        => CreateReference("spot_request_state");
 
     /// <summary>
     /// LaunchSpecification block (nesting mode: set).

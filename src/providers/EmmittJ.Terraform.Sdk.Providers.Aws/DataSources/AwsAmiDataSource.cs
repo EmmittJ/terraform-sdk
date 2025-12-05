@@ -88,7 +88,7 @@ public partial class AwsAmiDataSource(string name) : TerraformDataSource("aws_am
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsAmiDataSource(string name) : TerraformDataSource("aws_am
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsAmiDataSource(string name) : TerraformDataSource("aws_am
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -159,193 +159,193 @@ public partial class AwsAmiDataSource(string name) : TerraformDataSource("aws_am
     /// The architecture attribute.
     /// </summary>
     public TerraformValue<string> Architecture
-        => AsReference("architecture");
+        => CreateReference("architecture");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The block_device_mappings attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> BlockDeviceMappings
-        => AsReference("block_device_mappings");
+        => CreateReference("block_device_mappings");
 
     /// <summary>
     /// The boot_mode attribute.
     /// </summary>
     public TerraformValue<string> BootMode
-        => AsReference("boot_mode");
+        => CreateReference("boot_mode");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The deprecation_time attribute.
     /// </summary>
     public TerraformValue<string> DeprecationTime
-        => AsReference("deprecation_time");
+        => CreateReference("deprecation_time");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The ena_support attribute.
     /// </summary>
     public TerraformValue<bool> EnaSupport
-        => AsReference("ena_support");
+        => CreateReference("ena_support");
 
     /// <summary>
     /// The hypervisor attribute.
     /// </summary>
     public TerraformValue<string> Hypervisor
-        => AsReference("hypervisor");
+        => CreateReference("hypervisor");
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
     public TerraformValue<string> ImageId
-        => AsReference("image_id");
+        => CreateReference("image_id");
 
     /// <summary>
     /// The image_location attribute.
     /// </summary>
     public TerraformValue<string> ImageLocation
-        => AsReference("image_location");
+        => CreateReference("image_location");
 
     /// <summary>
     /// The image_owner_alias attribute.
     /// </summary>
     public TerraformValue<string> ImageOwnerAlias
-        => AsReference("image_owner_alias");
+        => CreateReference("image_owner_alias");
 
     /// <summary>
     /// The image_type attribute.
     /// </summary>
     public TerraformValue<string> ImageType
-        => AsReference("image_type");
+        => CreateReference("image_type");
 
     /// <summary>
     /// The imds_support attribute.
     /// </summary>
     public TerraformValue<string> ImdsSupport
-        => AsReference("imds_support");
+        => CreateReference("imds_support");
 
     /// <summary>
     /// The kernel_id attribute.
     /// </summary>
     public TerraformValue<string> KernelId
-        => AsReference("kernel_id");
+        => CreateReference("kernel_id");
 
     /// <summary>
     /// The last_launched_time attribute.
     /// </summary>
     public TerraformValue<string> LastLaunchedTime
-        => AsReference("last_launched_time");
+        => CreateReference("last_launched_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-        => AsReference("platform");
+        => CreateReference("platform");
 
     /// <summary>
     /// The platform_details attribute.
     /// </summary>
     public TerraformValue<string> PlatformDetails
-        => AsReference("platform_details");
+        => CreateReference("platform_details");
 
     /// <summary>
     /// The product_codes attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ProductCodes
-        => AsReference("product_codes");
+        => CreateReference("product_codes");
 
     /// <summary>
     /// The public attribute.
     /// </summary>
     public TerraformValue<bool> PublicAttribute
-        => AsReference("public");
+        => CreateReference("public");
 
     /// <summary>
     /// The ramdisk_id attribute.
     /// </summary>
     public TerraformValue<string> RamdiskId
-        => AsReference("ramdisk_id");
+        => CreateReference("ramdisk_id");
 
     /// <summary>
     /// The root_device_name attribute.
     /// </summary>
     public TerraformValue<string> RootDeviceName
-        => AsReference("root_device_name");
+        => CreateReference("root_device_name");
 
     /// <summary>
     /// The root_device_type attribute.
     /// </summary>
     public TerraformValue<string> RootDeviceType
-        => AsReference("root_device_type");
+        => CreateReference("root_device_type");
 
     /// <summary>
     /// The root_snapshot_id attribute.
     /// </summary>
     public TerraformValue<string> RootSnapshotId
-        => AsReference("root_snapshot_id");
+        => CreateReference("root_snapshot_id");
 
     /// <summary>
     /// The sriov_net_support attribute.
     /// </summary>
     public TerraformValue<string> SriovNetSupport
-        => AsReference("sriov_net_support");
+        => CreateReference("sriov_net_support");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The state_reason attribute.
     /// </summary>
     public TerraformMap<string> StateReason
-        => AsReference("state_reason");
+        => CreateReference("state_reason");
 
     /// <summary>
     /// The tpm_support attribute.
     /// </summary>
     public TerraformValue<string> TpmSupport
-        => AsReference("tpm_support");
+        => CreateReference("tpm_support");
 
     /// <summary>
     /// The usage_operation attribute.
     /// </summary>
     public TerraformValue<string> UsageOperation
-        => AsReference("usage_operation");
+        => CreateReference("usage_operation");
 
     /// <summary>
     /// The virtualization_type attribute.
     /// </summary>
     public TerraformValue<string> VirtualizationType
-        => AsReference("virtualization_type");
+        => CreateReference("virtualization_type");
 
     /// <summary>
     /// Filter block (nesting mode: set).

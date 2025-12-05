@@ -94,7 +94,7 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool> BgpAlwaysCompareMed
     {
-        get => GetArgument<TerraformValue<bool>>("bgp_always_compare_med") ?? AsReference("bgp_always_compare_med");
+        get => GetArgument<TerraformValue<bool>>("bgp_always_compare_med") ?? CreateReference("bgp_always_compare_med");
         set => SetArgument("bgp_always_compare_med", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> BgpBestPathSelectionMode
     {
-        get => GetArgument<TerraformValue<string>>("bgp_best_path_selection_mode") ?? AsReference("bgp_best_path_selection_mode");
+        get => GetArgument<TerraformValue<string>>("bgp_best_path_selection_mode") ?? CreateReference("bgp_best_path_selection_mode");
         set => SetArgument("bgp_best_path_selection_mode", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> BgpInterRegionCost
     {
-        get => GetArgument<TerraformValue<string>>("bgp_inter_region_cost") ?? AsReference("bgp_inter_region_cost");
+        get => GetArgument<TerraformValue<string>>("bgp_inter_region_cost") ?? CreateReference("bgp_inter_region_cost");
         set => SetArgument("bgp_inter_region_cost", value);
     }
 
@@ -151,7 +151,7 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> InternalIpv6Range
     {
-        get => GetArgument<TerraformValue<string>>("internal_ipv6_range") ?? AsReference("internal_ipv6_range");
+        get => GetArgument<TerraformValue<string>>("internal_ipv6_range") ?? CreateReference("internal_ipv6_range");
         set => SetArgument("internal_ipv6_range", value);
     }
 
@@ -177,7 +177,7 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<double> Mtu
     {
-        get => GetArgument<TerraformValue<double>>("mtu") ?? AsReference("mtu");
+        get => GetArgument<TerraformValue<double>>("mtu") ?? CreateReference("mtu");
         set => SetArgument("mtu", value);
     }
 
@@ -224,7 +224,7 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -237,7 +237,7 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> RoutingMode
     {
-        get => GetArgument<TerraformValue<string>>("routing_mode") ?? AsReference("routing_mode");
+        get => GetArgument<TerraformValue<string>>("routing_mode") ?? CreateReference("routing_mode");
         set => SetArgument("routing_mode", value);
     }
 
@@ -246,26 +246,26 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// is selected by GCP.
     /// </summary>
     public TerraformValue<string> GatewayIpv4
-        => AsReference("gateway_ipv4");
+        => CreateReference("gateway_ipv4");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> NetworkId
-        => AsReference("network_id");
+        => CreateReference("network_id");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> NumericId
-        => AsReference("numeric_id");
+        => CreateReference("numeric_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// ParamsAttribute block (nesting mode: list).

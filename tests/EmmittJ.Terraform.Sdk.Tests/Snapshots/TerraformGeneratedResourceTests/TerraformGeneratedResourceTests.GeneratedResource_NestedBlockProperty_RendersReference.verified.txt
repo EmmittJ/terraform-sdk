@@ -1,0 +1,3 @@
+﻿resource "test_other" "other" {
+  port = test_container_app.app.ingress[0].target_port
+}

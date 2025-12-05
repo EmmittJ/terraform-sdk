@@ -73,7 +73,7 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? CreateReference("etag");
         set => SetArgument("etag", value);
     }
 
@@ -82,7 +82,7 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> RuleId
     {
-        get => GetArgument<TerraformValue<string>>("rule_id") ?? AsReference("rule_id");
+        get => GetArgument<TerraformValue<string>>("rule_id") ?? CreateReference("rule_id");
         set => SetArgument("rule_id", value);
     }
 
@@ -154,14 +154,14 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// Populated in BASIC view and FULL view.
     /// </summary>
     public TerraformList<string> AllowedRunFrequencies
-        => AsReference("allowed_run_frequencies");
+        => CreateReference("allowed_run_frequencies");
 
     /// <summary>
     /// Output only. The author of the rule. Extracted from the meta section of text.
     /// Populated in BASIC view and FULL view.
     /// </summary>
     public TerraformValue<string> Author
-        => AsReference("author");
+        => CreateReference("author");
 
     /// <summary>
     /// Output only. A list of a rule&#39;s corresponding compilation diagnostic messages
@@ -169,7 +169,7 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// Populated in FULL view.
     /// </summary>
     public TerraformList<TerraformMap<object>> CompilationDiagnostics
-        => AsReference("compilation_diagnostics");
+        => CreateReference("compilation_diagnostics");
 
     /// <summary>
     /// Output only. The current compilation state of the rule.
@@ -180,34 +180,34 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// FAILED
     /// </summary>
     public TerraformValue<string> CompilationState
-        => AsReference("compilation_state");
+        => CreateReference("compilation_state");
 
     /// <summary>
     /// Output only. The timestamp of when the rule was created.
     /// Populated in FULL view.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. Resource names of the data tables used in this rule.
     /// </summary>
     public TerraformList<string> DataTables
-        => AsReference("data_tables");
+        => CreateReference("data_tables");
 
     /// <summary>
     /// Output only. Display name of the rule.
     /// Populated in BASIC view and FULL view.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Output only. Additional metadata specified in the meta section of text.
     /// Populated in FULL view.
     /// </summary>
     public TerraformMap<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// Full resource name for the rule. This unique identifier is generated using values provided for the URL parameters.
@@ -215,7 +215,7 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// projects/{project}/locations/{location}/instances/{instance}/rules/{rule}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Indicate the rule can run in near real time live rule.
@@ -223,21 +223,21 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// frequency is set to LIVE.
     /// </summary>
     public TerraformValue<bool> NearRealTimeLiveRuleEligible
-        => AsReference("near_real_time_live_rule_eligible");
+        => CreateReference("near_real_time_live_rule_eligible");
 
     /// <summary>
     /// Output only. Resource names of the reference lists used in this rule.
     /// Populated in FULL view.
     /// </summary>
     public TerraformList<string> ReferenceLists
-        => AsReference("reference_lists");
+        => CreateReference("reference_lists");
 
     /// <summary>
     /// Output only. The timestamp of when the rule revision was created.
     /// Populated in FULL, REVISION_METADATA_ONLY views.
     /// </summary>
     public TerraformValue<string> RevisionCreateTime
-        => AsReference("revision_create_time");
+        => CreateReference("revision_create_time");
 
     /// <summary>
     /// Output only. The revision ID of the rule.
@@ -246,13 +246,13 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// Populated in REVISION_METADATA_ONLY view and FULL view.
     /// </summary>
     public TerraformValue<string> RevisionId
-        => AsReference("revision_id");
+        => CreateReference("revision_id");
 
     /// <summary>
     /// Severity represents the severity level of the rule.
     /// </summary>
     public TerraformList<TerraformMap<object>> Severity
-        => AsReference("severity");
+        => CreateReference("severity");
 
     /// <summary>
     /// Possible values:
@@ -261,7 +261,7 @@ public partial class GoogleChronicleRule(string name) : TerraformResource("googl
     /// MULTI_EVENT
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

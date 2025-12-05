@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultCertificatesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,13 +63,13 @@ public partial class AzurermKeyVaultCertificatesDataSource(string name) : Terraf
     /// The certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certificates
-        => AsReference("certificates");
+        => CreateReference("certificates");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     public TerraformList<string> Names
-        => AsReference("names");
+        => CreateReference("names");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

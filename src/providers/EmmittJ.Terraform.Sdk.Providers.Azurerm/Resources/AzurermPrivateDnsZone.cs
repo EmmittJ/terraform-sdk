@@ -36,13 +36,13 @@ public class AzurermPrivateDnsZoneSoaRecordBlock : TerraformBlock
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     public TerraformValue<string> HostName
-        => AsReference("host_name");
+        => CreateReference("host_name");
 
     /// <summary>
     /// The minimum_ttl attribute.
@@ -75,7 +75,7 @@ public class AzurermPrivateDnsZoneSoaRecordBlock : TerraformBlock
     /// The serial_number attribute.
     /// </summary>
     public TerraformValue<double> SerialNumber
-        => AsReference("serial_number");
+        => CreateReference("serial_number");
 
     /// <summary>
     /// The tags attribute.
@@ -159,7 +159,7 @@ public partial class AzurermPrivateDnsZone(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -196,25 +196,25 @@ public partial class AzurermPrivateDnsZone(string name) : TerraformResource("azu
     /// The max_number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfRecordSets
-        => AsReference("max_number_of_record_sets");
+        => CreateReference("max_number_of_record_sets");
 
     /// <summary>
     /// The max_number_of_virtual_network_links attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfVirtualNetworkLinks
-        => AsReference("max_number_of_virtual_network_links");
+        => CreateReference("max_number_of_virtual_network_links");
 
     /// <summary>
     /// The max_number_of_virtual_network_links_with_registration attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfVirtualNetworkLinksWithRegistration
-        => AsReference("max_number_of_virtual_network_links_with_registration");
+        => CreateReference("max_number_of_virtual_network_links_with_registration");
 
     /// <summary>
     /// The number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> NumberOfRecordSets
-        => AsReference("number_of_record_sets");
+        => CreateReference("number_of_record_sets");
 
     /// <summary>
     /// SoaRecord block (nesting mode: list).

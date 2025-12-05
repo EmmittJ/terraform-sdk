@@ -120,7 +120,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Headers
     {
-        get => GetArgument<TerraformMap<string>>("headers") ?? AsReference("headers");
+        get => GetArgument<TerraformMap<string>>("headers") ?? CreateReference("headers");
         set => SetArgument("headers", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -571,7 +571,7 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> CheckerType
     {
-        get => GetArgument<TerraformValue<string>>("checker_type") ?? AsReference("checker_type");
+        get => GetArgument<TerraformValue<string>>("checker_type") ?? CreateReference("checker_type");
         set => SetArgument("checker_type", value);
     }
 
@@ -590,7 +590,7 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -617,7 +617,7 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -653,13 +653,13 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// A unique resource name for this UptimeCheckConfig. The format is &#39;projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID]&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The id of the uptime check
     /// </summary>
     public TerraformValue<string> UptimeCheckId
-        => AsReference("uptime_check_id");
+        => CreateReference("uptime_check_id");
 
     /// <summary>
     /// ContentMatchers block (nesting mode: list).

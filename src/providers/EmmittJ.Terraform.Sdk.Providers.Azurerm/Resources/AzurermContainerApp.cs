@@ -68,13 +68,13 @@ public class AzurermContainerAppIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -122,7 +122,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// The custom_domain attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomDomain
-        => AsReference("custom_domain");
+        => CreateReference("custom_domain");
 
     /// <summary>
     /// The exposed port on the container for the Ingress traffic.
@@ -146,7 +146,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// The FQDN of the ingress.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The target port on the container for the Ingress traffic.
@@ -507,7 +507,7 @@ public class AzurermContainerAppTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> RevisionSuffix
     {
-        get => GetArgument<TerraformValue<string>>("revision_suffix") ?? AsReference("revision_suffix");
+        get => GetArgument<TerraformValue<string>>("revision_suffix") ?? CreateReference("revision_suffix");
         set => SetArgument("revision_suffix", value);
     }
 
@@ -719,7 +719,7 @@ public class AzurermContainerAppTemplateBlockContainerBlock : TerraformBlock
     /// The amount of ephemeral storage available to the Container App.
     /// </summary>
     public TerraformValue<string> EphemeralStorage
-        => AsReference("ephemeral_storage");
+        => CreateReference("ephemeral_storage");
 
     /// <summary>
     /// The image to use to create the container.
@@ -891,7 +891,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlock : 
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -909,7 +909,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlock : 
     /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
     /// </summary>
     public TerraformValue<double> TerminationGracePeriodSeconds
-        => AsReference("termination_grace_period_seconds");
+        => CreateReference("termination_grace_period_seconds");
 
     /// <summary>
     /// Time in seconds after which the probe times out. Possible values are between `1` an `240`. Defaults to `1`.
@@ -1026,7 +1026,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlock :
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -1164,7 +1164,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlock : T
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -1182,7 +1182,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlock : T
     /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
     /// </summary>
     public TerraformValue<double> TerminationGracePeriodSeconds
-        => AsReference("termination_grace_period_seconds");
+        => CreateReference("termination_grace_period_seconds");
 
     /// <summary>
     /// Time in seconds after which the probe times out. Possible values are between `1` an `240`. Defaults to `1`.
@@ -1490,7 +1490,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlock : TerraformBlock
     /// The amount of ephemeral storage available to the Container App.
     /// </summary>
     public TerraformValue<string> EphemeralStorage
-        => AsReference("ephemeral_storage");
+        => CreateReference("ephemeral_storage");
 
     /// <summary>
     /// The image to use to create the container.
@@ -1820,7 +1820,7 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1885,31 +1885,31 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     /// The ID of the Custom Domain Verification for this Container App.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-        => AsReference("custom_domain_verification_id");
+        => CreateReference("custom_domain_verification_id");
 
     /// <summary>
     /// The FQDN of the Latest Revision of the Container App.
     /// </summary>
     public TerraformValue<string> LatestRevisionFqdn
-        => AsReference("latest_revision_fqdn");
+        => CreateReference("latest_revision_fqdn");
 
     /// <summary>
     /// The name of the latest Container Revision.
     /// </summary>
     public TerraformValue<string> LatestRevisionName
-        => AsReference("latest_revision_name");
+        => CreateReference("latest_revision_name");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> OutboundIpAddresses
-        => AsReference("outbound_ip_addresses");
+        => CreateReference("outbound_ip_addresses");
 
     /// <summary>
     /// Dapr block (nesting mode: list).

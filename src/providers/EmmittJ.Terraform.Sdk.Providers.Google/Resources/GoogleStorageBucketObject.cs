@@ -140,7 +140,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content") ?? AsReference("content");
+        get => GetArgument<TerraformValue<string>>("content") ?? CreateReference("content");
         set => SetArgument("content", value);
     }
 
@@ -176,7 +176,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type") ?? AsReference("content_type");
+        get => GetArgument<TerraformValue<string>>("content_type") ?? CreateReference("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -221,7 +221,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -230,7 +230,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name") ?? AsReference("kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name") ?? CreateReference("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -276,7 +276,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("storage_class") ?? AsReference("storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class") ?? CreateReference("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -293,43 +293,43 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// Base 64 CRC32 hash of the uploaded data.
     /// </summary>
     public TerraformValue<string> Crc32c
-        => AsReference("crc32c");
+        => CreateReference("crc32c");
 
     /// <summary>
     /// The content generation of this object. Used for object versioning and soft delete.
     /// </summary>
     public TerraformValue<double> Generation
-        => AsReference("generation");
+        => CreateReference("generation");
 
     /// <summary>
     /// Base 64 MD5 hash of the uploaded data.
     /// </summary>
     public TerraformValue<string> Md5hash
-        => AsReference("md5hash");
+        => CreateReference("md5hash");
 
     /// <summary>
     /// Hex value of md5hash
     /// </summary>
     public TerraformValue<string> Md5hexhash
-        => AsReference("md5hexhash");
+        => CreateReference("md5hexhash");
 
     /// <summary>
     /// A url reference to download this object.
     /// </summary>
     public TerraformValue<string> MediaLink
-        => AsReference("media_link");
+        => CreateReference("media_link");
 
     /// <summary>
     /// The name of the object. Use this field in interpolations with google_storage_object_acl to recreate google_storage_object_acl resources when your google_storage_bucket_object is recreated.
     /// </summary>
     public TerraformValue<string> OutputName
-        => AsReference("output_name");
+        => CreateReference("output_name");
 
     /// <summary>
     /// A url reference to this object.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// CustomerEncryption block (nesting mode: list).

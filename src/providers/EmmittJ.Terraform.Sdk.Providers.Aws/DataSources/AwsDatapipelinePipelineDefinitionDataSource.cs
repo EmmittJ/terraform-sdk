@@ -17,13 +17,13 @@ public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : Te
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The string_value attribute.
     /// </summary>
     public TerraformValue<string> StringValue
-        => AsReference("string_value");
+        => CreateReference("string_value");
 
 }
 
@@ -39,7 +39,7 @@ public partial class AwsDatapipelinePipelineDefinitionDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsDatapipelinePipelineDefinitionDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -66,13 +66,13 @@ public partial class AwsDatapipelinePipelineDefinitionDataSource(string name) : 
     /// The parameter_object attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ParameterObject
-        => AsReference("parameter_object");
+        => CreateReference("parameter_object");
 
     /// <summary>
     /// The pipeline_object attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PipelineObject
-        => AsReference("pipeline_object");
+        => CreateReference("pipeline_object");
 
     /// <summary>
     /// ParameterValue block (nesting mode: set).

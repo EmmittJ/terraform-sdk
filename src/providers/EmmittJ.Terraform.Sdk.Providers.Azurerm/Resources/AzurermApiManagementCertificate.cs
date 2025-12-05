@@ -82,7 +82,7 @@ public partial class AzurermApiManagementCertificate(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -137,19 +137,19 @@ public partial class AzurermApiManagementCertificate(string name) : TerraformRes
     /// The expiration attribute.
     /// </summary>
     public TerraformValue<string> Expiration
-        => AsReference("expiration");
+        => CreateReference("expiration");
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-        => AsReference("subject");
+        => CreateReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -59,7 +59,7 @@ public class AwsEfsFileSystemProtectionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ReplicationOverwrite
     {
-        get => GetArgument<TerraformValue<string>>("replication_overwrite") ?? AsReference("replication_overwrite");
+        get => GetArgument<TerraformValue<string>>("replication_overwrite") ?? CreateReference("replication_overwrite");
         set => SetArgument("replication_overwrite", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformValue<string> AvailabilityZoneName
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_name") ?? AsReference("availability_zone_name");
+        get => GetArgument<TerraformValue<string>>("availability_zone_name") ?? CreateReference("availability_zone_name");
         set => SetArgument("availability_zone_name", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformValue<string> CreationToken
     {
-        get => GetArgument<TerraformValue<string>>("creation_token") ?? AsReference("creation_token");
+        get => GetArgument<TerraformValue<string>>("creation_token") ?? CreateReference("creation_token");
         set => SetArgument("creation_token", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? CreateReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformValue<string> PerformanceMode
     {
-        get => GetArgument<TerraformValue<string>>("performance_mode") ?? AsReference("performance_mode");
+        get => GetArgument<TerraformValue<string>>("performance_mode") ?? CreateReference("performance_mode");
         set => SetArgument("performance_mode", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -175,43 +175,43 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneId
-        => AsReference("availability_zone_id");
+        => CreateReference("availability_zone_id");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The number_of_mount_targets attribute.
     /// </summary>
     public TerraformValue<double> NumberOfMountTargets
-        => AsReference("number_of_mount_targets");
+        => CreateReference("number_of_mount_targets");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SizeInBytes
-        => AsReference("size_in_bytes");
+        => CreateReference("size_in_bytes");
 
     /// <summary>
     /// LifecyclePolicy block (nesting mode: list).

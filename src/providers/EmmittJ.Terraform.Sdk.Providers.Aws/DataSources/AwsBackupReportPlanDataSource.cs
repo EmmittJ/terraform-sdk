@@ -13,7 +13,7 @@ public partial class AwsBackupReportPlanDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsBackupReportPlanDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsBackupReportPlanDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,36 +49,36 @@ public partial class AwsBackupReportPlanDataSource(string name) : TerraformDataS
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The deployment_status attribute.
     /// </summary>
     public TerraformValue<string> DeploymentStatus
-        => AsReference("deployment_status");
+        => CreateReference("deployment_status");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The report_delivery_channel attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReportDeliveryChannel
-        => AsReference("report_delivery_channel");
+        => CreateReference("report_delivery_channel");
 
     /// <summary>
     /// The report_setting attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReportSetting
-        => AsReference("report_setting");
+        => CreateReference("report_setting");
 
 }

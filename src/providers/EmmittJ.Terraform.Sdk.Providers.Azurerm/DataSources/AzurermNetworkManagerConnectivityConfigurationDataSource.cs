@@ -36,7 +36,7 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource(st
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource(st
     /// The applies_to_group attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AppliesToGroup
-        => AsReference("applies_to_group");
+        => CreateReference("applies_to_group");
 
     /// <summary>
     /// The connectivity_topology attribute.
     /// </summary>
     public TerraformValue<string> ConnectivityTopology
-        => AsReference("connectivity_topology");
+        => CreateReference("connectivity_topology");
 
     /// <summary>
     /// The delete_existing_peering_enabled attribute.
     /// </summary>
     public TerraformValue<bool> DeleteExistingPeeringEnabled
-        => AsReference("delete_existing_peering_enabled");
+        => CreateReference("delete_existing_peering_enabled");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
     public TerraformValue<bool> GlobalMeshEnabled
-        => AsReference("global_mesh_enabled");
+        => CreateReference("global_mesh_enabled");
 
     /// <summary>
     /// The hub attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Hub
-        => AsReference("hub");
+        => CreateReference("hub");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

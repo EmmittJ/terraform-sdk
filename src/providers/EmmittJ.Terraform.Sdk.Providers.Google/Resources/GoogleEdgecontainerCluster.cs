@@ -113,7 +113,7 @@ public class GoogleEdgecontainerClusterControlPlaneBlockLocalBlock : TerraformBl
     /// </summary>
     public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? CreateReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleEdgecontainerClusterControlPlaneBlockLocalBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> NodeLocation
     {
-        get => GetArgument<TerraformValue<string>>("node_location") ?? AsReference("node_location");
+        get => GetArgument<TerraformValue<string>>("node_location") ?? CreateReference("node_location");
         set => SetArgument("node_location", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleEdgecontainerClusterControlPlaneBlockLocalBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> SharedDeploymentPolicy
     {
-        get => GetArgument<TerraformValue<string>>("shared_deployment_policy") ?? AsReference("shared_deployment_policy");
+        get => GetArgument<TerraformValue<string>>("shared_deployment_policy") ?? CreateReference("shared_deployment_policy");
         set => SetArgument("shared_deployment_policy", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleEdgecontainerClusterControlPlaneBlockRemoteBlock : TerraformB
     /// </summary>
     public TerraformValue<string> NodeLocation
     {
-        get => GetArgument<TerraformValue<string>>("node_location") ?? AsReference("node_location");
+        get => GetArgument<TerraformValue<string>>("node_location") ?? CreateReference("node_location");
         set => SetArgument("node_location", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key") ?? AsReference("kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key") ?? CreateReference("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -190,7 +190,7 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBl
     /// plane disks. Only applicable if kms_key is set.
     /// </summary>
     public TerraformValue<string> KmsKeyActiveVersion
-        => AsReference("kms_key_active_version");
+        => CreateReference("kms_key_active_version");
 
     /// <summary>
     /// Availability of the Cloud KMS CryptoKey. If not &#39;KEY_AVAILABLE&#39;, then
@@ -199,7 +199,7 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBl
     /// or deleted.
     /// </summary>
     public TerraformValue<string> KmsKeyState
-        => AsReference("kms_key_state");
+        => CreateReference("kms_key_state");
 
     /// <summary>
     /// Error status returned by Cloud KMS when using this key. This field may be
@@ -207,7 +207,7 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBl
     /// If populated, this field contains the error status reported by Cloud KMS.
     /// </summary>
     public TerraformList<TerraformMap<object>> KmsStatus
-        => AsReference("kms_status");
+        => CreateReference("kms_status");
 
 }
 
@@ -229,7 +229,7 @@ public class GoogleEdgecontainerClusterFleetBlock : TerraformBlock
     /// &#39;projects/&amp;lt;project-number&amp;gt;/locations/global/membership/&amp;lt;cluster-id&amp;gt;&#39;.
     /// </summary>
     public TerraformValue<string> Membership
-        => AsReference("membership");
+        => CreateReference("membership");
 
     /// <summary>
     /// The name of the Fleet host project where this cluster will be registered.
@@ -297,7 +297,7 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockMaintenanceExclusio
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -330,7 +330,7 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockMaintenanceExclusio
     /// </summary>
     public TerraformValue<string> EndTime
     {
-        get => GetArgument<TerraformValue<string>>("end_time") ?? AsReference("end_time");
+        get => GetArgument<TerraformValue<string>>("end_time") ?? CreateReference("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockMaintenanceExclusio
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -389,7 +389,7 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockWindowBlockRecurrin
     /// </summary>
     public TerraformValue<string> Recurrence
     {
-        get => GetArgument<TerraformValue<string>>("recurrence") ?? AsReference("recurrence");
+        get => GetArgument<TerraformValue<string>>("recurrence") ?? CreateReference("recurrence");
         set => SetArgument("recurrence", value);
     }
 
@@ -422,7 +422,7 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockWindowBlockRecurrin
     /// </summary>
     public TerraformValue<string> EndTime
     {
-        get => GetArgument<TerraformValue<string>>("end_time") ?? AsReference("end_time");
+        get => GetArgument<TerraformValue<string>>("end_time") ?? CreateReference("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -431,7 +431,7 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockWindowBlockRecurrin
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -477,7 +477,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlock
     /// IP addressing type of this cluster i.e. SINGLESTACK_V4 vs DUALSTACK_V4_V6.
     /// </summary>
     public TerraformValue<string> NetworkType
-        => AsReference("network_type");
+        => CreateReference("network_type");
 
     /// <summary>
     /// All services in the cluster are assigned an RFC1918 IPv4 address from these
@@ -545,7 +545,7 @@ public class GoogleEdgecontainerClusterSystemAddonsConfigBlockIngressBlock : Ter
     /// </summary>
     public TerraformValue<bool> Disabled
     {
-        get => GetArgument<TerraformValue<bool>>("disabled") ?? AsReference("disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled") ?? CreateReference("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -554,7 +554,7 @@ public class GoogleEdgecontainerClusterSystemAddonsConfigBlockIngressBlock : Ter
     /// </summary>
     public TerraformValue<string> Ipv4Vip
     {
-        get => GetArgument<TerraformValue<string>>("ipv4_vip") ?? AsReference("ipv4_vip");
+        get => GetArgument<TerraformValue<string>>("ipv4_vip") ?? CreateReference("ipv4_vip");
         set => SetArgument("ipv4_vip", value);
     }
 
@@ -615,7 +615,7 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double> DefaultMaxPodsPerNode
     {
-        get => GetArgument<TerraformValue<double>>("default_max_pods_per_node") ?? AsReference("default_max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("default_max_pods_per_node") ?? CreateReference("default_max_pods_per_node");
         set => SetArgument("default_max_pods_per_node", value);
     }
 
@@ -624,7 +624,7 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     /// </summary>
     public TerraformList<string> ExternalLoadBalancerIpv4AddressPools
     {
-        get => GetArgument<TerraformList<string>>("external_load_balancer_ipv4_address_pools") ?? AsReference("external_load_balancer_ipv4_address_pools");
+        get => GetArgument<TerraformList<string>>("external_load_balancer_ipv4_address_pools") ?? CreateReference("external_load_balancer_ipv4_address_pools");
         set => SetArgument("external_load_balancer_ipv4_address_pools", value);
     }
 
@@ -633,7 +633,7 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -674,7 +674,7 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -683,7 +683,7 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> ReleaseChannel
     {
-        get => GetArgument<TerraformValue<string>>("release_channel") ?? AsReference("release_channel");
+        get => GetArgument<TerraformValue<string>>("release_channel") ?? CreateReference("release_channel");
         set => SetArgument("release_channel", value);
     }
 
@@ -692,7 +692,7 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> TargetVersion
     {
-        get => GetArgument<TerraformValue<string>>("target_version") ?? AsReference("target_version");
+        get => GetArgument<TerraformValue<string>>("target_version") ?? CreateReference("target_version");
         set => SetArgument("target_version", value);
     }
 
@@ -700,70 +700,70 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     /// The PEM-encoded public certificate of the cluster&#39;s CA.
     /// </summary>
     public TerraformValue<string> ClusterCaCertificate
-        => AsReference("cluster_ca_certificate");
+        => CreateReference("cluster_ca_certificate");
 
     /// <summary>
     /// The control plane release version.
     /// </summary>
     public TerraformValue<string> ControlPlaneVersion
-        => AsReference("control_plane_version");
+        => CreateReference("control_plane_version");
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The IP address of the Kubernetes API server.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// All the maintenance events scheduled for the cluster, including the ones
     /// ongoing, planned for the future and done in the past (up to 90 days).
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceEvents
-        => AsReference("maintenance_events");
+        => CreateReference("maintenance_events");
 
     /// <summary>
     /// The lowest release version among all worker nodes. This field can be empty
     /// if the cluster does not have any worker nodes.
     /// </summary>
     public TerraformValue<string> NodeVersion
-        => AsReference("node_version");
+        => CreateReference("node_version");
 
     /// <summary>
     /// The port number of the Kubernetes API server.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// Indicates the status of the cluster.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Authorization block (nesting mode: list).

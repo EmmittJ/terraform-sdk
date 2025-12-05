@@ -23,7 +23,7 @@ public partial class AwsSesv2EmailIdentityDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSesv2EmailIdentityDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSesv2EmailIdentityDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,36 +49,36 @@ public partial class AwsSesv2EmailIdentityDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The configuration_set_name attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationSetName
-        => AsReference("configuration_set_name");
+        => CreateReference("configuration_set_name");
 
     /// <summary>
     /// The dkim_signing_attributes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DkimSigningAttributes
-        => AsReference("dkim_signing_attributes");
+        => CreateReference("dkim_signing_attributes");
 
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
     public TerraformValue<string> IdentityType
-        => AsReference("identity_type");
+        => CreateReference("identity_type");
 
     /// <summary>
     /// The verification_status attribute.
     /// </summary>
     public TerraformValue<string> VerificationStatus
-        => AsReference("verification_status");
+        => CreateReference("verification_status");
 
     /// <summary>
     /// The verified_for_sending_status attribute.
     /// </summary>
     public TerraformValue<bool> VerifiedForSendingStatus
-        => AsReference("verified_for_sending_status");
+        => CreateReference("verified_for_sending_status");
 
 }

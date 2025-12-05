@@ -13,7 +13,7 @@ public partial class GoogleAlloydbLocationsDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -30,6 +30,6 @@ public partial class GoogleAlloydbLocationsDataSource(string name) : TerraformDa
     /// The locations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Locations
-        => AsReference("locations");
+        => CreateReference("locations");
 
 }

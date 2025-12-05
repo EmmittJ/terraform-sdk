@@ -13,7 +13,7 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     /// </summary>
     public TerraformValue<string> AggregationDuration
     {
-        get => GetArgument<TerraformValue<string>>("aggregation_duration") ?? AsReference("aggregation_duration");
+        get => GetArgument<TerraformValue<string>>("aggregation_duration") ?? CreateReference("aggregation_duration");
         set => SetArgument("aggregation_duration", value);
     }
 
@@ -50,12 +50,12 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
 }

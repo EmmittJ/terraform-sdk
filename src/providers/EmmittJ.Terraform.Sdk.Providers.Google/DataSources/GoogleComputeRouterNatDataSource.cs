@@ -13,7 +13,7 @@ public partial class GoogleComputeRouterNatDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -62,14 +62,14 @@ public partial class GoogleComputeRouterNatDataSource(string name) : TerraformDa
     /// project-level default tier is used. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
     public TerraformValue<string> AutoNetworkTier
-        => AsReference("auto_network_tier");
+        => CreateReference("auto_network_tier");
 
     /// <summary>
     /// A list of URLs of the IP resources to be drained. These IPs must be
     /// valid static external IPs that have been assigned to the NAT.
     /// </summary>
     public TerraformSet<string> DrainNatIps
-        => AsReference("drain_nat_ips");
+        => CreateReference("drain_nat_ips");
 
     /// <summary>
     /// Enable Dynamic Port Allocation.
@@ -81,14 +81,14 @@ public partial class GoogleComputeRouterNatDataSource(string name) : TerraformDa
     /// Mutually exclusive with enableEndpointIndependentMapping.
     /// </summary>
     public TerraformValue<bool> EnableDynamicPortAllocation
-        => AsReference("enable_dynamic_port_allocation");
+        => CreateReference("enable_dynamic_port_allocation");
 
     /// <summary>
     /// Enable endpoint independent mapping.
     /// For more information see the [official documentation](https://cloud.google.com/nat/docs/overview#specs-rfcs).
     /// </summary>
     public TerraformValue<bool> EnableEndpointIndependentMapping
-        => AsReference("enable_endpoint_independent_mapping");
+        => CreateReference("enable_endpoint_independent_mapping");
 
     /// <summary>
     /// Specifies the endpoint Types supported by the NAT Gateway.
@@ -97,46 +97,46 @@ public partial class GoogleComputeRouterNatDataSource(string name) : TerraformDa
     ///       &#39;ENDPOINT_TYPE_MANAGED_PROXY_LB&#39;.
     /// </summary>
     public TerraformList<string> EndpointTypes
-        => AsReference("endpoint_types");
+        => CreateReference("endpoint_types");
 
     /// <summary>
     /// Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
     /// </summary>
     public TerraformValue<double> IcmpIdleTimeoutSec
-        => AsReference("icmp_idle_timeout_sec");
+        => CreateReference("icmp_idle_timeout_sec");
 
     /// <summary>
     /// Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.
     /// Conflicts with natIps and drainNatIps. Only valid if natIpAllocateOption is set to MANUAL_ONLY.
     /// </summary>
     public TerraformSet<string> InitialNatIps
-        => AsReference("initial_nat_ips");
+        => CreateReference("initial_nat_ips");
 
     /// <summary>
     /// Configuration for logging on NAT
     /// </summary>
     public TerraformList<TerraformMap<object>> LogConfig
-        => AsReference("log_config");
+        => CreateReference("log_config");
 
     /// <summary>
     /// Maximum number of ports allocated to a VM from this NAT.
     /// This field can only be set when enableDynamicPortAllocation is enabled.
     /// </summary>
     public TerraformValue<double> MaxPortsPerVm
-        => AsReference("max_ports_per_vm");
+        => CreateReference("max_ports_per_vm");
 
     /// <summary>
     /// Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.
     /// </summary>
     public TerraformValue<double> MinPortsPerVm
-        => AsReference("min_ports_per_vm");
+        => CreateReference("min_ports_per_vm");
 
     /// <summary>
     /// One or more subnetwork NAT configurations whose traffic should be translated by NAT64 Gateway.
     /// Only used if &#39;source_subnetwork_ip_ranges_to_nat64&#39; is set to &#39;LIST_OF_IPV6_SUBNETWORKS&#39;
     /// </summary>
     public TerraformSet<TerraformMap<object>> Nat64Subnetwork
-        => AsReference("nat64_subnetwork");
+        => CreateReference("nat64_subnetwork");
 
     /// <summary>
     /// How external IPs should be allocated for this NAT. Valid values are
@@ -144,7 +144,7 @@ public partial class GoogleComputeRouterNatDataSource(string name) : TerraformDa
     /// Platform, or &#39;MANUAL_ONLY&#39; for only user-allocated NAT IP addresses. Possible values: [&amp;quot;MANUAL_ONLY&amp;quot;, &amp;quot;AUTO_ONLY&amp;quot;]
     /// </summary>
     public TerraformValue<string> NatIpAllocateOption
-        => AsReference("nat_ip_allocate_option");
+        => CreateReference("nat_ip_allocate_option");
 
     /// <summary>
     /// Self-links of NAT IPs. Only valid if natIpAllocateOption
@@ -154,13 +154,13 @@ public partial class GoogleComputeRouterNatDataSource(string name) : TerraformDa
     /// the number of resources can be increased/decreased without triggering the &#39;resourceInUseByAnotherResource&#39; error.
     /// </summary>
     public TerraformSet<string> NatIps
-        => AsReference("nat_ips");
+        => CreateReference("nat_ips");
 
     /// <summary>
     /// A list of rules associated with this NAT.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Rules
-        => AsReference("rules");
+        => CreateReference("rules");
 
     /// <summary>
     /// How NAT should be configured per Subnetwork.
@@ -175,7 +175,7 @@ public partial class GoogleComputeRouterNatDataSource(string name) : TerraformDa
     /// other RouterNat section in any Router for this network in this region. Possible values: [&amp;quot;ALL_SUBNETWORKS_ALL_IP_RANGES&amp;quot;, &amp;quot;ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES&amp;quot;, &amp;quot;LIST_OF_SUBNETWORKS&amp;quot;]
     /// </summary>
     public TerraformValue<string> SourceSubnetworkIpRangesToNat
-        => AsReference("source_subnetwork_ip_ranges_to_nat");
+        => CreateReference("source_subnetwork_ip_ranges_to_nat");
 
     /// <summary>
     /// Specify the Nat option for NAT64, which can take one of the following values:
@@ -185,35 +185,35 @@ public partial class GoogleComputeRouterNatDataSource(string name) : TerraformDa
     /// Other Router.Nat sections can still be present to enable NAT44 only. Possible values: [&amp;quot;ALL_IPV6_SUBNETWORKS&amp;quot;, &amp;quot;LIST_OF_IPV6_SUBNETWORKS&amp;quot;]
     /// </summary>
     public TerraformValue<string> SourceSubnetworkIpRangesToNat64
-        => AsReference("source_subnetwork_ip_ranges_to_nat64");
+        => CreateReference("source_subnetwork_ip_ranges_to_nat64");
 
     /// <summary>
     /// One or more subnetwork NAT configurations. Only used if
     /// &#39;source_subnetwork_ip_ranges_to_nat&#39; is set to &#39;LIST_OF_SUBNETWORKS&#39;
     /// </summary>
     public TerraformSet<TerraformMap<object>> Subnetwork
-        => AsReference("subnetwork");
+        => CreateReference("subnetwork");
 
     /// <summary>
     /// Timeout (in seconds) for TCP established connections.
     /// Defaults to 1200s if not set.
     /// </summary>
     public TerraformValue<double> TcpEstablishedIdleTimeoutSec
-        => AsReference("tcp_established_idle_timeout_sec");
+        => CreateReference("tcp_established_idle_timeout_sec");
 
     /// <summary>
     /// Timeout (in seconds) for TCP connections that are in TIME_WAIT state.
     /// Defaults to 120s if not set.
     /// </summary>
     public TerraformValue<double> TcpTimeWaitTimeoutSec
-        => AsReference("tcp_time_wait_timeout_sec");
+        => CreateReference("tcp_time_wait_timeout_sec");
 
     /// <summary>
     /// Timeout (in seconds) for TCP transitory connections.
     /// Defaults to 30s if not set.
     /// </summary>
     public TerraformValue<double> TcpTransitoryIdleTimeoutSec
-        => AsReference("tcp_transitory_idle_timeout_sec");
+        => CreateReference("tcp_transitory_idle_timeout_sec");
 
     /// <summary>
     /// Indicates whether this NAT is used for public or private IP translation.
@@ -222,12 +222,12 @@ public partial class GoogleComputeRouterNatDataSource(string name) : TerraformDa
     /// If &#39;PRIVATE&#39; NAT used for private IP translation. Default value: &amp;quot;PUBLIC&amp;quot; Possible values: [&amp;quot;PUBLIC&amp;quot;, &amp;quot;PRIVATE&amp;quot;]
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
     /// </summary>
     public TerraformValue<double> UdpIdleTimeoutSec
-        => AsReference("udp_idle_timeout_sec");
+        => CreateReference("udp_idle_timeout_sec");
 
 }

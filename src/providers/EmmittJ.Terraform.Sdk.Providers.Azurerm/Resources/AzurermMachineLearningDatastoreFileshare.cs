@@ -81,7 +81,7 @@ public partial class AzurermMachineLearningDatastoreFileshare(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermMachineLearningDatastoreFileshare(string name) : Ter
     /// The is_default attribute.
     /// </summary>
     public TerraformValue<bool> IsDefault
-        => AsReference("is_default");
+        => CreateReference("is_default");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

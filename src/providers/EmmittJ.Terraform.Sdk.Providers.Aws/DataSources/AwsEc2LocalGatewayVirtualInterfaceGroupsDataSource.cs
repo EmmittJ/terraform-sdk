@@ -70,7 +70,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupsDataSource(string n
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupsDataSource(string n
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -96,13 +96,13 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupsDataSource(string n
     /// The ids attribute.
     /// </summary>
     public TerraformList<string> Ids
-        => AsReference("ids");
+        => CreateReference("ids");
 
     /// <summary>
     /// The local_gateway_virtual_interface_ids attribute.
     /// </summary>
     public TerraformList<string> LocalGatewayVirtualInterfaceIds
-        => AsReference("local_gateway_virtual_interface_ids");
+        => CreateReference("local_gateway_virtual_interface_ids");
 
     /// <summary>
     /// Filter block (nesting mode: set).

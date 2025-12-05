@@ -120,7 +120,7 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     /// </summary>
     public TerraformList<string> EventSystemProperties
     {
-        get => GetArgument<TerraformList<string>>("event_system_properties") ?? AsReference("event_system_properties");
+        get => GetArgument<TerraformList<string>>("event_system_properties") ?? CreateReference("event_system_properties");
         set => SetArgument("event_system_properties", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

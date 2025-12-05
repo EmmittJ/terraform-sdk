@@ -13,7 +13,7 @@ public partial class AwsLaunchConfigurationDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLaunchConfigurationDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,96 +40,96 @@ public partial class AwsLaunchConfigurationDataSource(string name) : TerraformDa
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The associate_public_ip_address attribute.
     /// </summary>
     public TerraformValue<bool> AssociatePublicIpAddress
-        => AsReference("associate_public_ip_address");
+        => CreateReference("associate_public_ip_address");
 
     /// <summary>
     /// The ebs_block_device attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> EbsBlockDevice
-        => AsReference("ebs_block_device");
+        => CreateReference("ebs_block_device");
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
     public TerraformValue<bool> EbsOptimized
-        => AsReference("ebs_optimized");
+        => CreateReference("ebs_optimized");
 
     /// <summary>
     /// The enable_monitoring attribute.
     /// </summary>
     public TerraformValue<bool> EnableMonitoring
-        => AsReference("enable_monitoring");
+        => CreateReference("enable_monitoring");
 
     /// <summary>
     /// The ephemeral_block_device attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> EphemeralBlockDevice
-        => AsReference("ephemeral_block_device");
+        => CreateReference("ephemeral_block_device");
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
     public TerraformValue<string> IamInstanceProfile
-        => AsReference("iam_instance_profile");
+        => CreateReference("iam_instance_profile");
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
     public TerraformValue<string> ImageId
-        => AsReference("image_id");
+        => CreateReference("image_id");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-        => AsReference("instance_type");
+        => CreateReference("instance_type");
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
     public TerraformValue<string> KeyName
-        => AsReference("key_name");
+        => CreateReference("key_name");
 
     /// <summary>
     /// The metadata_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MetadataOptions
-        => AsReference("metadata_options");
+        => CreateReference("metadata_options");
 
     /// <summary>
     /// The placement_tenancy attribute.
     /// </summary>
     public TerraformValue<string> PlacementTenancy
-        => AsReference("placement_tenancy");
+        => CreateReference("placement_tenancy");
 
     /// <summary>
     /// The root_block_device attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RootBlockDevice
-        => AsReference("root_block_device");
+        => CreateReference("root_block_device");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroups
-        => AsReference("security_groups");
+        => CreateReference("security_groups");
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
     public TerraformValue<string> SpotPrice
-        => AsReference("spot_price");
+        => CreateReference("spot_price");
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
     public TerraformValue<string> UserData
-        => AsReference("user_data");
+        => CreateReference("user_data");
 
 }

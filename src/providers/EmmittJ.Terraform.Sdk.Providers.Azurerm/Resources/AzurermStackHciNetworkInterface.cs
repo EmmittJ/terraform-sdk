@@ -17,13 +17,13 @@ public class AzurermStackHciNetworkInterfaceIpConfigurationBlock : TerraformBloc
     /// The gateway attribute.
     /// </summary>
     public TerraformValue<string> Gateway
-        => AsReference("gateway");
+        => CreateReference("gateway");
 
     /// <summary>
     /// The prefix_length attribute.
     /// </summary>
     public TerraformValue<string> PrefixLength
-        => AsReference("prefix_length");
+        => CreateReference("prefix_length");
 
     /// <summary>
     /// The private_ip_address attribute.
@@ -127,7 +127,7 @@ public partial class AzurermStackHciNetworkInterface(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

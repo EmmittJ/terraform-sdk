@@ -18,7 +18,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MemberName
     {
-        get => GetArgument<TerraformValue<string>>("member_name") ?? AsReference("member_name");
+        get => GetArgument<TerraformValue<string>>("member_name") ?? CreateReference("member_name");
         set => SetArgument("member_name", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -147,7 +147,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The request_message attribute.
@@ -240,7 +240,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -297,19 +297,19 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     /// The custom_dns_configs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomDnsConfigs
-        => AsReference("custom_dns_configs");
+        => CreateReference("custom_dns_configs");
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkInterface
-        => AsReference("network_interface");
+        => CreateReference("network_interface");
 
     /// <summary>
     /// The private_dns_zone_configs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateDnsZoneConfigs
-        => AsReference("private_dns_zone_configs");
+        => CreateReference("private_dns_zone_configs");
 
     /// <summary>
     /// IpConfiguration block (nesting mode: list).

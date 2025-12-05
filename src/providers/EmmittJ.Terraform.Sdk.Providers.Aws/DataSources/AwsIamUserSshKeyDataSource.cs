@@ -23,7 +23,7 @@ public partial class AwsIamUserSshKeyDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,18 +51,18 @@ public partial class AwsIamUserSshKeyDataSource(string name) : TerraformDataSour
     /// The fingerprint attribute.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

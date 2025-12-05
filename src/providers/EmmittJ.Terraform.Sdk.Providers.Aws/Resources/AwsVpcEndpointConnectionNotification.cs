@@ -33,7 +33,7 @@ public partial class AwsVpcEndpointConnectionNotification(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsVpcEndpointConnectionNotification(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -68,12 +68,12 @@ public partial class AwsVpcEndpointConnectionNotification(string name) : Terrafo
     /// The notification_type attribute.
     /// </summary>
     public TerraformValue<string> NotificationType
-        => AsReference("notification_type");
+        => CreateReference("notification_type");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }

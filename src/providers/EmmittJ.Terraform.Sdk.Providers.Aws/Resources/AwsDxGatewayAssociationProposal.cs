@@ -13,7 +13,7 @@ public partial class AwsDxGatewayAssociationProposal(string name) : TerraformRes
     /// </summary>
     public TerraformSet<string> AllowedPrefixes
     {
-        get => GetArgument<TerraformSet<string>>("allowed_prefixes") ?? AsReference("allowed_prefixes");
+        get => GetArgument<TerraformSet<string>>("allowed_prefixes") ?? CreateReference("allowed_prefixes");
         set => SetArgument("allowed_prefixes", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsDxGatewayAssociationProposal(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsDxGatewayAssociationProposal(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -69,12 +69,12 @@ public partial class AwsDxGatewayAssociationProposal(string name) : TerraformRes
     /// The associated_gateway_owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> AssociatedGatewayOwnerAccountId
-        => AsReference("associated_gateway_owner_account_id");
+        => CreateReference("associated_gateway_owner_account_id");
 
     /// <summary>
     /// The associated_gateway_type attribute.
     /// </summary>
     public TerraformValue<string> AssociatedGatewayType
-        => AsReference("associated_gateway_type");
+        => CreateReference("associated_gateway_type");
 
 }

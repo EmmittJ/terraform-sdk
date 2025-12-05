@@ -43,6 +43,6 @@ public partial class AwsRoute53CidrLocation(string name) : TerraformResource("aw
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

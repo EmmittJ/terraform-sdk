@@ -17,7 +17,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlock
     /// An opaque tag indicating the current version of the policy, used for concurrency control. This field is ignored if used in a &#39;CreatePolicy&#39; request. When the policy&#39; is returned from either a &#39;GetPolicy&#39; or a &#39;ListPolicies&#39; request, this &#39;etag&#39; indicates the version of the current policy to use when executing a read-modify-write loop. When the policy is returned from a &#39;GetEffectivePolicy&#39; request, the &#39;etag&#39; will be unset.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Determines the inheritance behavior for this policy. If &#39;inherit_from_parent&#39; is true, policy rules set higher up in the hierarchy (up to the closest root) are inherited and present in the effective policy. If it is false, then no rules are inherited, and this policy becomes the new root for evaluation. This field can be set only for policies which configure list constraints.
@@ -41,7 +41,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlock
     /// Output only. The time stamp this was previously updated. This represents the last time a call to &#39;CreatePolicy&#39; or &#39;UpdatePolicy&#39; was made for that policy.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Rules block (nesting mode: list).
@@ -219,7 +219,7 @@ public class GoogleOrgPolicyPolicySpecBlock : TerraformBlock
     /// An opaque tag indicating the current version of the &#39;Policy&#39;, used for concurrency control. This field is ignored if used in a &#39;CreatePolicy&#39; request. When the &#39;Policy&#39; is returned from either a &#39;GetPolicy&#39; or a &#39;ListPolicies&#39; request, this &#39;etag&#39; indicates the version of the current &#39;Policy&#39; to use when executing a read-modify-write loop. When the &#39;Policy&#39; is returned from a &#39;GetEffectivePolicy&#39; request, the &#39;etag&#39; will be unset.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Determines the inheritance behavior for this &#39;Policy&#39;. If &#39;inherit_from_parent&#39; is true, PolicyRules set higher up in the hierarchy (up to the closest root) are inherited and present in the effective policy. If it is false, then no rules are inherited, and this Policy becomes the new root for evaluation. This field can be set only for Policies which configure list constraints.
@@ -243,7 +243,7 @@ public class GoogleOrgPolicyPolicySpecBlock : TerraformBlock
     /// Output only. The time stamp this was previously updated. This represents the last time a call to &#39;CreatePolicy&#39; or &#39;UpdatePolicy&#39; was made for that &#39;Policy&#39;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Rules block (nesting mode: list).
@@ -458,7 +458,7 @@ public partial class GoogleOrgPolicyPolicy(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -486,7 +486,7 @@ public partial class GoogleOrgPolicyPolicy(string name) : TerraformResource("goo
     /// Optional. An opaque tag indicating the current state of the policy, used for concurrency control. This &#39;etag&#39; is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// DryRunSpec block (nesting mode: list).

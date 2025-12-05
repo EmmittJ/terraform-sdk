@@ -149,7 +149,7 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> ConfigureAtLaunch
     {
-        get => GetArgument<TerraformValue<bool>>("configure_at_launch") ?? AsReference("configure_at_launch");
+        get => GetArgument<TerraformValue<bool>>("configure_at_launch") ?? CreateReference("configure_at_launch");
         set => SetArgument("configure_at_launch", value);
     }
 
@@ -229,7 +229,7 @@ public class AwsEcsTaskDefinitionVolumeBlockDockerVolumeConfigurationBlock : Ter
     /// </summary>
     public TerraformValue<string> Driver
     {
-        get => GetArgument<TerraformValue<string>>("driver") ?? AsReference("driver");
+        get => GetArgument<TerraformValue<string>>("driver") ?? CreateReference("driver");
         set => SetArgument("driver", value);
     }
 
@@ -256,7 +256,7 @@ public class AwsEcsTaskDefinitionVolumeBlockDockerVolumeConfigurationBlock : Ter
     /// </summary>
     public TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope") ?? AsReference("scope");
+        get => GetArgument<TerraformValue<string>>("scope") ?? CreateReference("scope");
         set => SetArgument("scope", value);
     }
 
@@ -463,7 +463,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> EnableFaultInjection
     {
-        get => GetArgument<TerraformValue<bool>>("enable_fault_injection") ?? AsReference("enable_fault_injection");
+        get => GetArgument<TerraformValue<bool>>("enable_fault_injection") ?? CreateReference("enable_fault_injection");
         set => SetArgument("enable_fault_injection", value);
     }
 
@@ -491,7 +491,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -518,7 +518,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> NetworkMode
     {
-        get => GetArgument<TerraformValue<string>>("network_mode") ?? AsReference("network_mode");
+        get => GetArgument<TerraformValue<string>>("network_mode") ?? CreateReference("network_mode");
         set => SetArgument("network_mode", value);
     }
 
@@ -536,7 +536,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -572,7 +572,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -598,19 +598,19 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The arn_without_revision attribute.
     /// </summary>
     public TerraformValue<string> ArnWithoutRevision
-        => AsReference("arn_without_revision");
+        => CreateReference("arn_without_revision");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     public TerraformValue<double> Revision
-        => AsReference("revision");
+        => CreateReference("revision");
 
     /// <summary>
     /// EphemeralStorage block (nesting mode: list).

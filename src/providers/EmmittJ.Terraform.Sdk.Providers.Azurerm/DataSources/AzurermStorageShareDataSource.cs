@@ -17,13 +17,13 @@ public class AzurermStorageShareDataSourceAclBlock : TerraformBlock
     /// The access_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AccessPolicy
-        => AsReference("access_policy");
+        => CreateReference("access_policy");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }
 
@@ -62,7 +62,7 @@ public partial class AzurermStorageShareDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AzurermStorageShareDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -107,14 +107,14 @@ public partial class AzurermStorageShareDataSource(string name) : TerraformDataS
     /// The quota attribute.
     /// </summary>
     public TerraformValue<double> Quota
-        => AsReference("quota");
+        => CreateReference("quota");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// Acl block (nesting mode: list).

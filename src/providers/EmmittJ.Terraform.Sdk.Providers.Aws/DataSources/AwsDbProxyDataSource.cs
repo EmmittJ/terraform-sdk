@@ -13,7 +13,7 @@ public partial class AwsDbProxyDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsDbProxyDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,72 +40,72 @@ public partial class AwsDbProxyDataSource(string name) : TerraformDataSource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auth attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Auth
-        => AsReference("auth");
+        => CreateReference("auth");
 
     /// <summary>
     /// The debug_logging attribute.
     /// </summary>
     public TerraformValue<bool> DebugLogging
-        => AsReference("debug_logging");
+        => CreateReference("debug_logging");
 
     /// <summary>
     /// The default_auth_scheme attribute.
     /// </summary>
     public TerraformValue<string> DefaultAuthScheme
-        => AsReference("default_auth_scheme");
+        => CreateReference("default_auth_scheme");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The engine_family attribute.
     /// </summary>
     public TerraformValue<string> EngineFamily
-        => AsReference("engine_family");
+        => CreateReference("engine_family");
 
     /// <summary>
     /// The idle_client_timeout attribute.
     /// </summary>
     public TerraformValue<double> IdleClientTimeout
-        => AsReference("idle_client_timeout");
+        => CreateReference("idle_client_timeout");
 
     /// <summary>
     /// The require_tls attribute.
     /// </summary>
     public TerraformValue<bool> RequireTls
-        => AsReference("require_tls");
+        => CreateReference("require_tls");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-        => AsReference("role_arn");
+        => CreateReference("role_arn");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
-        => AsReference("vpc_security_group_ids");
+        => CreateReference("vpc_security_group_ids");
 
     /// <summary>
     /// The vpc_subnet_ids attribute.
     /// </summary>
     public TerraformSet<string> VpcSubnetIds
-        => AsReference("vpc_subnet_ids");
+        => CreateReference("vpc_subnet_ids");
 
 }

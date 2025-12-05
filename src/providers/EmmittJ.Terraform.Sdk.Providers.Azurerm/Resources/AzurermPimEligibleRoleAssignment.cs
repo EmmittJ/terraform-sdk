@@ -18,7 +18,7 @@ public class AzurermPimEligibleRoleAssignmentScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StartDateTime
     {
-        get => GetArgument<TerraformValue<string>>("start_date_time") ?? AsReference("start_date_time");
+        get => GetArgument<TerraformValue<string>>("start_date_time") ?? CreateReference("start_date_time");
         set => SetArgument("start_date_time", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermPimEligibleRoleAssignmentScheduleBlockExpirationBlock : Terr
     /// </summary>
     public TerraformValue<double> DurationDays
     {
-        get => GetArgument<TerraformValue<double>>("duration_days") ?? AsReference("duration_days");
+        get => GetArgument<TerraformValue<double>>("duration_days") ?? CreateReference("duration_days");
         set => SetArgument("duration_days", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermPimEligibleRoleAssignmentScheduleBlockExpirationBlock : Terr
     /// </summary>
     public TerraformValue<double> DurationHours
     {
-        get => GetArgument<TerraformValue<double>>("duration_hours") ?? AsReference("duration_hours");
+        get => GetArgument<TerraformValue<double>>("duration_hours") ?? CreateReference("duration_hours");
         set => SetArgument("duration_hours", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermPimEligibleRoleAssignmentScheduleBlockExpirationBlock : Terr
     /// </summary>
     public TerraformValue<string> EndDateTime
     {
-        get => GetArgument<TerraformValue<string>>("end_date_time") ?? AsReference("end_date_time");
+        get => GetArgument<TerraformValue<string>>("end_date_time") ?? CreateReference("end_date_time");
         set => SetArgument("end_date_time", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermPimEligibleRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AzurermPimEligibleRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Justification
     {
-        get => GetArgument<TerraformValue<string>>("justification") ?? AsReference("justification");
+        get => GetArgument<TerraformValue<string>>("justification") ?? CreateReference("justification");
         set => SetArgument("justification", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermPimEligibleRoleAssignment(string name) : TerraformRe
     /// Type of principal to which the role will be assigned
     /// </summary>
     public TerraformValue<string> PrincipalType
-        => AsReference("principal_type");
+        => CreateReference("principal_type");
 
     /// <summary>
     /// Schedule block (nesting mode: list).

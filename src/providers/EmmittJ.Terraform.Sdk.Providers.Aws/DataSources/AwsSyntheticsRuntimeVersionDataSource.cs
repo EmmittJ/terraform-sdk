@@ -32,7 +32,7 @@ public partial class AwsSyntheticsRuntimeVersionDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,30 +49,30 @@ public partial class AwsSyntheticsRuntimeVersionDataSource(string name) : Terraf
     /// The deprecation_date attribute.
     /// </summary>
     public TerraformValue<string> DeprecationDate
-        => AsReference("deprecation_date");
+        => CreateReference("deprecation_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The release_date attribute.
     /// </summary>
     public TerraformValue<string> ReleaseDate
-        => AsReference("release_date");
+        => CreateReference("release_date");
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
     public TerraformValue<string> VersionName
-        => AsReference("version_name");
+        => CreateReference("version_name");
 
 }

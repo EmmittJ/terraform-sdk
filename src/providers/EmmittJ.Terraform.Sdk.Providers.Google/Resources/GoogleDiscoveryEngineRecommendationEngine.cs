@@ -300,7 +300,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -329,7 +329,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -337,7 +337,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     /// Timestamp the Engine was created at.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The unique full resource name of the recommendation engine. Values are of the format
@@ -345,13 +345,13 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     /// This field must be a UTF-8 encoded string with a length limit of 1024 characters.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timestamp the Engine was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// CommonConfig block (nesting mode: list).

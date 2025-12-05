@@ -293,7 +293,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatefulRuleGrou
     /// </summary>
     public TerraformValue<string> DeepThreatInspection
     {
-        get => GetArgument<TerraformValue<string>>("deep_threat_inspection") ?? AsReference("deep_threat_inspection");
+        get => GetArgument<TerraformValue<string>>("deep_threat_inspection") ?? CreateReference("deep_threat_inspection");
         set => SetArgument("deep_threat_inspection", value);
     }
 
@@ -514,7 +514,7 @@ public partial class AwsNetworkfirewallFirewallPolicy(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -533,7 +533,7 @@ public partial class AwsNetworkfirewallFirewallPolicy(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -551,7 +551,7 @@ public partial class AwsNetworkfirewallFirewallPolicy(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -559,13 +559,13 @@ public partial class AwsNetworkfirewallFirewallPolicy(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
     public TerraformValue<string> UpdateToken
-        => AsReference("update_token");
+        => CreateReference("update_token");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).

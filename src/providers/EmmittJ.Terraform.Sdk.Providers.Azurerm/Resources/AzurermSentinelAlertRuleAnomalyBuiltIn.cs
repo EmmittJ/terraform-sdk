@@ -63,7 +63,7 @@ public partial class AzurermSentinelAlertRuleAnomalyBuiltIn(string name) : Terra
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSentinelAlertRuleAnomalyBuiltIn(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermSentinelAlertRuleAnomalyBuiltIn(string name) : Terra
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -119,73 +119,73 @@ public partial class AzurermSentinelAlertRuleAnomalyBuiltIn(string name) : Terra
     /// The anomaly_settings_version attribute.
     /// </summary>
     public TerraformValue<double> AnomalySettingsVersion
-        => AsReference("anomaly_settings_version");
+        => CreateReference("anomaly_settings_version");
 
     /// <summary>
     /// The anomaly_version attribute.
     /// </summary>
     public TerraformValue<string> AnomalyVersion
-        => AsReference("anomaly_version");
+        => CreateReference("anomaly_version");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     public TerraformValue<string> Frequency
-        => AsReference("frequency");
+        => CreateReference("frequency");
 
     /// <summary>
     /// The multi_select_observation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MultiSelectObservation
-        => AsReference("multi_select_observation");
+        => CreateReference("multi_select_observation");
 
     /// <summary>
     /// The prioritized_exclude_observation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrioritizedExcludeObservation
-        => AsReference("prioritized_exclude_observation");
+        => CreateReference("prioritized_exclude_observation");
 
     /// <summary>
     /// The required_data_connector attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequiredDataConnector
-        => AsReference("required_data_connector");
+        => CreateReference("required_data_connector");
 
     /// <summary>
     /// The settings_definition_id attribute.
     /// </summary>
     public TerraformValue<string> SettingsDefinitionId
-        => AsReference("settings_definition_id");
+        => CreateReference("settings_definition_id");
 
     /// <summary>
     /// The single_select_observation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SingleSelectObservation
-        => AsReference("single_select_observation");
+        => CreateReference("single_select_observation");
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
     public TerraformList<string> Tactics
-        => AsReference("tactics");
+        => CreateReference("tactics");
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
     public TerraformList<string> Techniques
-        => AsReference("techniques");
+        => CreateReference("techniques");
 
     /// <summary>
     /// The threshold_observation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ThresholdObservation
-        => AsReference("threshold_observation");
+        => CreateReference("threshold_observation");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

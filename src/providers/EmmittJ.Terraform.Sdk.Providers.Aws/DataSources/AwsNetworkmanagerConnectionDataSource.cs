@@ -33,7 +33,7 @@ public partial class AwsNetworkmanagerConnectionDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsNetworkmanagerConnectionDataSource(string name) : Terraf
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -50,36 +50,36 @@ public partial class AwsNetworkmanagerConnectionDataSource(string name) : Terraf
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The connected_device_id attribute.
     /// </summary>
     public TerraformValue<string> ConnectedDeviceId
-        => AsReference("connected_device_id");
+        => CreateReference("connected_device_id");
 
     /// <summary>
     /// The connected_link_id attribute.
     /// </summary>
     public TerraformValue<string> ConnectedLinkId
-        => AsReference("connected_link_id");
+        => CreateReference("connected_link_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The device_id attribute.
     /// </summary>
     public TerraformValue<string> DeviceId
-        => AsReference("device_id");
+        => CreateReference("device_id");
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
     public TerraformValue<string> LinkId
-        => AsReference("link_id");
+        => CreateReference("link_id");
 
 }

@@ -13,7 +13,7 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -58,30 +58,30 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The base_32_string_seed attribute.
     /// </summary>
     public TerraformValue<string> Base32StringSeed
-        => AsReference("base_32_string_seed");
+        => CreateReference("base_32_string_seed");
 
     /// <summary>
     /// The enable_date attribute.
     /// </summary>
     public TerraformValue<string> EnableDate
-        => AsReference("enable_date");
+        => CreateReference("enable_date");
 
     /// <summary>
     /// The qr_code_png attribute.
     /// </summary>
     public TerraformValue<string> QrCodePng
-        => AsReference("qr_code_png");
+        => CreateReference("qr_code_png");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     public TerraformValue<string> UserName
-        => AsReference("user_name");
+        => CreateReference("user_name");
 
 }

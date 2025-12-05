@@ -36,7 +36,7 @@ public partial class AzurermNetworkManagerDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermNetworkManagerDataSource(string name) : TerraformDat
     /// The cross_tenant_scopes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CrossTenantScopes
-        => AsReference("cross_tenant_scopes");
+        => CreateReference("cross_tenant_scopes");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Scope
-        => AsReference("scope");
+        => CreateReference("scope");
 
     /// <summary>
     /// The scope_accesses attribute.
     /// </summary>
     public TerraformList<string> ScopeAccesses
-        => AsReference("scope_accesses");
+        => CreateReference("scope_accesses");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

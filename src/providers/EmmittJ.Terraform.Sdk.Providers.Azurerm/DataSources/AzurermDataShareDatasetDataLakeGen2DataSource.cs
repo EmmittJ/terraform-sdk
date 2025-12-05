@@ -36,7 +36,7 @@ public partial class AzurermDataShareDatasetDataLakeGen2DataSource(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermDataShareDatasetDataLakeGen2DataSource(string name) 
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
     public TerraformValue<string> FilePath
-        => AsReference("file_path");
+        => CreateReference("file_path");
 
     /// <summary>
     /// The file_system_name attribute.
     /// </summary>
     public TerraformValue<string> FileSystemName
-        => AsReference("file_system_name");
+        => CreateReference("file_system_name");
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
     public TerraformValue<string> FolderPath
-        => AsReference("folder_path");
+        => CreateReference("folder_path");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> StorageAccountId
-        => AsReference("storage_account_id");
+        => CreateReference("storage_account_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

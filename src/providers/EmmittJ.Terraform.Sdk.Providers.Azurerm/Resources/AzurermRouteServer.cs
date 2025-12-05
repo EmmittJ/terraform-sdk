@@ -81,7 +81,7 @@ public partial class AzurermRouteServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -158,19 +158,19 @@ public partial class AzurermRouteServer(string name) : TerraformResource("azurer
     /// The routing_state attribute.
     /// </summary>
     public TerraformValue<string> RoutingState
-        => AsReference("routing_state");
+        => CreateReference("routing_state");
 
     /// <summary>
     /// The virtual_router_asn attribute.
     /// </summary>
     public TerraformValue<double> VirtualRouterAsn
-        => AsReference("virtual_router_asn");
+        => CreateReference("virtual_router_asn");
 
     /// <summary>
     /// The virtual_router_ips attribute.
     /// </summary>
     public TerraformSet<string> VirtualRouterIps
-        => AsReference("virtual_router_ips");
+        => CreateReference("virtual_router_ips");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -64,7 +64,7 @@ public partial class AwsOpensearchserverlessVpcEndpoint(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsOpensearchserverlessVpcEndpoint(string name) : Terraform
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsOpensearchserverlessVpcEndpoint(string name) : Terraform
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

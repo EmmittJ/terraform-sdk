@@ -419,7 +419,7 @@ public partial class AzurermVpnServerConfiguration(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -477,7 +477,7 @@ public partial class AzurermVpnServerConfiguration(string name) : TerraformResou
     /// </summary>
     public TerraformSet<string> VpnProtocols
     {
-        get => GetArgument<TerraformSet<string>>("vpn_protocols") ?? AsReference("vpn_protocols");
+        get => GetArgument<TerraformSet<string>>("vpn_protocols") ?? CreateReference("vpn_protocols");
         set => SetArgument("vpn_protocols", value);
     }
 

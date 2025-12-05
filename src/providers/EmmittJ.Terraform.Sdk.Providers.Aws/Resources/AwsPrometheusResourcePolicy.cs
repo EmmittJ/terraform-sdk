@@ -64,7 +64,7 @@ public partial class AwsPrometheusResourcePolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsPrometheusResourcePolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> RevisionId
     {
-        get => GetArgument<TerraformValue<string>>("revision_id") ?? AsReference("revision_id");
+        get => GetArgument<TerraformValue<string>>("revision_id") ?? CreateReference("revision_id");
         set => SetArgument("revision_id", value);
     }
 

@@ -27,14 +27,14 @@ public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : TerraformBloc
     /// The Cloud KMS CryptoKeyVersion currently in use for protecting node local disks. Only applicable if kmsKey is set.
     /// </summary>
     public TerraformValue<string> KmsKeyActiveVersion
-        => AsReference("kms_key_active_version");
+        => CreateReference("kms_key_active_version");
 
     /// <summary>
     /// Availability of the Cloud KMS CryptoKey. If not KEY_AVAILABLE, then nodes may go offline as they cannot access their local data.
     /// This can be caused by a lack of permissions to use the key, or if the key is disabled or deleted.
     /// </summary>
     public TerraformValue<string> KmsKeyState
-        => AsReference("kms_key_state");
+        => CreateReference("kms_key_state");
 
 }
 
@@ -55,7 +55,7 @@ public class GoogleEdgecontainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> MachineFilter
     {
-        get => GetArgument<TerraformValue<string>>("machine_filter") ?? AsReference("machine_filter");
+        get => GetArgument<TerraformValue<string>>("machine_filter") ?? CreateReference("machine_filter");
         set => SetArgument("machine_filter", value);
     }
 
@@ -196,7 +196,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -204,32 +204,32 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     /// The time when the node pool was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The lowest release version among all worker nodes.
     /// </summary>
     public TerraformValue<string> NodeVersion
-        => AsReference("node_version");
+        => CreateReference("node_version");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The time when the node pool was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// LocalDiskEncryption block (nesting mode: list).

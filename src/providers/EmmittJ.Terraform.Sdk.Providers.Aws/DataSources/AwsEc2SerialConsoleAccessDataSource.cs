@@ -36,7 +36,7 @@ public partial class AwsEc2SerialConsoleAccessDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsEc2SerialConsoleAccessDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsEc2SerialConsoleAccessDataSource(string name) : Terrafor
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

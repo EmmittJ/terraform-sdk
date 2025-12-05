@@ -28,7 +28,7 @@ public class AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock : Terraform
     /// </summary>
     public TerraformValue<string> EndpointTenantId
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_tenant_id") ?? AsReference("endpoint_tenant_id");
+        get => GetArgument<TerraformValue<string>>("endpoint_tenant_id") ?? CreateReference("endpoint_tenant_id");
         set => SetArgument("endpoint_tenant_id", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AzurermStorageAccountNetworkRules(string name) : TerraformR
     /// </summary>
     public TerraformSet<string> Bypass
     {
-        get => GetArgument<TerraformSet<string>>("bypass") ?? AsReference("bypass");
+        get => GetArgument<TerraformSet<string>>("bypass") ?? CreateReference("bypass");
         set => SetArgument("bypass", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermStorageAccountNetworkRules(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

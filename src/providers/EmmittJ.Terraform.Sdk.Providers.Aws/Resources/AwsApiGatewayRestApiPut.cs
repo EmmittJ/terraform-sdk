@@ -46,7 +46,7 @@ public partial class AwsApiGatewayRestApiPut(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> FailOnWarnings
     {
-        get => GetArgument<TerraformValue<bool>>("fail_on_warnings") ?? AsReference("fail_on_warnings");
+        get => GetArgument<TerraformValue<bool>>("fail_on_warnings") ?? CreateReference("fail_on_warnings");
         set => SetArgument("fail_on_warnings", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsApiGatewayRestApiPut(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

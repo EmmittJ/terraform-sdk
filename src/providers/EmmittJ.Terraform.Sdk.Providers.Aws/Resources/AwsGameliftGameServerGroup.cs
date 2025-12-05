@@ -18,7 +18,7 @@ public class AwsGameliftGameServerGroupAutoScalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> EstimatedInstanceWarmup
     {
-        get => GetArgument<TerraformValue<double>>("estimated_instance_warmup") ?? AsReference("estimated_instance_warmup");
+        get => GetArgument<TerraformValue<double>>("estimated_instance_warmup") ?? CreateReference("estimated_instance_warmup");
         set => SetArgument("estimated_instance_warmup", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> BalancingStrategy
     {
-        get => GetArgument<TerraformValue<string>>("balancing_strategy") ?? AsReference("balancing_strategy");
+        get => GetArgument<TerraformValue<string>>("balancing_strategy") ?? CreateReference("balancing_strategy");
         set => SetArgument("balancing_strategy", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> GameServerProtectionPolicy
     {
-        get => GetArgument<TerraformValue<string>>("game_server_protection_policy") ?? AsReference("game_server_protection_policy");
+        get => GetArgument<TerraformValue<string>>("game_server_protection_policy") ?? CreateReference("game_server_protection_policy");
         set => SetArgument("game_server_protection_policy", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -280,13 +280,13 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auto_scaling_group_arn attribute.
     /// </summary>
     public TerraformValue<string> AutoScalingGroupArn
-        => AsReference("auto_scaling_group_arn");
+        => CreateReference("auto_scaling_group_arn");
 
     /// <summary>
     /// AutoScalingPolicy block (nesting mode: list).

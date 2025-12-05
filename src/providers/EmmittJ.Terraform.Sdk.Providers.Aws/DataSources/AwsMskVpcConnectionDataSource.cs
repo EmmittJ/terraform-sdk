@@ -23,7 +23,7 @@ public partial class AwsMskVpcConnectionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsMskVpcConnectionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsMskVpcConnectionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,30 +49,30 @@ public partial class AwsMskVpcConnectionDataSource(string name) : TerraformDataS
     /// The authentication attribute.
     /// </summary>
     public TerraformValue<string> Authentication
-        => AsReference("authentication");
+        => CreateReference("authentication");
 
     /// <summary>
     /// The client_subnets attribute.
     /// </summary>
     public TerraformSet<string> ClientSubnets
-        => AsReference("client_subnets");
+        => CreateReference("client_subnets");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroups
-        => AsReference("security_groups");
+        => CreateReference("security_groups");
 
     /// <summary>
     /// The target_cluster_arn attribute.
     /// </summary>
     public TerraformValue<string> TargetClusterArn
-        => AsReference("target_cluster_arn");
+        => CreateReference("target_cluster_arn");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }

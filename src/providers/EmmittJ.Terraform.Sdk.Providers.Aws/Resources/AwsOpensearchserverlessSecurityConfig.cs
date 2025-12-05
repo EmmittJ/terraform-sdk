@@ -37,7 +37,7 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<double> SessionTimeout
     {
-        get => GetArgument<TerraformValue<double>>("session_timeout") ?? AsReference("session_timeout");
+        get => GetArgument<TerraformValue<double>>("session_timeout") ?? CreateReference("session_timeout");
         set => SetArgument("session_timeout", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsOpensearchserverlessSecurityConfig(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -101,13 +101,13 @@ public partial class AwsOpensearchserverlessSecurityConfig(string name) : Terraf
     /// Version of the configuration.
     /// </summary>
     public TerraformValue<string> ConfigVersion
-        => AsReference("config_version");
+        => CreateReference("config_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// SamlOptions block (nesting mode: list).

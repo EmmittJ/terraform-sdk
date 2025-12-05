@@ -65,7 +65,7 @@ public partial class AwsNatGatewayEipAssociation(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsNatGatewayEipAssociation(string name) : TerraformResourc
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

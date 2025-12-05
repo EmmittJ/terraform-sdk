@@ -36,7 +36,7 @@ public partial class AzurermNetworkManagerIpamPoolDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermNetworkManagerIpamPoolDataSource(string name) : Terr
     /// The address_prefixes attribute.
     /// </summary>
     public TerraformList<string> AddressPrefixes
-        => AsReference("address_prefixes");
+        => CreateReference("address_prefixes");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The parent_pool_name attribute.
     /// </summary>
     public TerraformValue<string> ParentPoolName
-        => AsReference("parent_pool_name");
+        => CreateReference("parent_pool_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

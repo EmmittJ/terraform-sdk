@@ -22,7 +22,7 @@ public partial class GoogleComputeImagesDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -39,6 +39,6 @@ public partial class GoogleComputeImagesDataSource(string name) : TerraformDataS
     /// The images attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Images
-        => AsReference("images");
+        => CreateReference("images");
 
 }

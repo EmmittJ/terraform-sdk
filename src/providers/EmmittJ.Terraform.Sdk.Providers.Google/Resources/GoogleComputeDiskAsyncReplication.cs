@@ -27,7 +27,7 @@ public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBloc
     /// Output-only. Status of replication on the secondary disk.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -75,7 +75,7 @@ public partial class GoogleComputeDiskAsyncReplication(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

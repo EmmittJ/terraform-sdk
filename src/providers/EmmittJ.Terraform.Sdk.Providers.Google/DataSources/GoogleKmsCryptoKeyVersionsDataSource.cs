@@ -40,7 +40,7 @@ public partial class GoogleKmsCryptoKeyVersionsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -48,12 +48,12 @@ public partial class GoogleKmsCryptoKeyVersionsDataSource(string name) : Terrafo
     /// The public_key attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
     /// <summary>
     /// A list of all the retrieved cryptoKeyVersions from the provided crypto key
     /// </summary>
     public TerraformList<TerraformMap<object>> Versions
-        => AsReference("versions");
+        => CreateReference("versions");
 
 }

@@ -54,7 +54,7 @@ public partial class AzurermMssqlServerDnsAlias(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermMssqlServerDnsAlias(string name) : TerraformResource
     /// The dns_record attribute.
     /// </summary>
     public TerraformValue<string> DnsRecord
-        => AsReference("dns_record");
+        => CreateReference("dns_record");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

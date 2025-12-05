@@ -46,7 +46,7 @@ public partial class AzurermDataFactoryTriggerSchedulesDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermDataFactoryTriggerSchedulesDataSource(string name) :
     /// The items attribute.
     /// </summary>
     public TerraformList<string> Items
-        => AsReference("items");
+        => CreateReference("items");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

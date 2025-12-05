@@ -90,7 +90,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// The principal_type attribute.
     /// </summary>
     public TerraformValue<string> PrincipalType
-        => AsReference("principal_type");
+        => CreateReference("principal_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

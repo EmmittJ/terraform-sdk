@@ -98,7 +98,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. The deletion time of the database. Only set after the
@@ -138,7 +138,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// Output only. The time when this database is considered expired. Only set
@@ -147,7 +147,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// Output only. The last modification time of the database. A timestamp in
@@ -156,7 +156,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// HiveOptions block (nesting mode: list).

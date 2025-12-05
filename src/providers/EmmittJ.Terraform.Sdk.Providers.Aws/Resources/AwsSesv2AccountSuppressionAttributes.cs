@@ -13,7 +13,7 @@ public partial class AwsSesv2AccountSuppressionAttributes(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,6 +31,6 @@ public partial class AwsSesv2AccountSuppressionAttributes(string name) : Terrafo
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

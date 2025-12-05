@@ -124,7 +124,7 @@ public partial class AwsLambdaFunctionUrl(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsLambdaFunctionUrl(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -159,19 +159,19 @@ public partial class AwsLambdaFunctionUrl(string name) : TerraformResource("aws_
     /// The function_arn attribute.
     /// </summary>
     public TerraformValue<string> FunctionArn
-        => AsReference("function_arn");
+        => CreateReference("function_arn");
 
     /// <summary>
     /// The function_url attribute.
     /// </summary>
     public TerraformValue<string> FunctionUrl
-        => AsReference("function_url");
+        => CreateReference("function_url");
 
     /// <summary>
     /// The url_id attribute.
     /// </summary>
     public TerraformValue<string> UrlId
-        => AsReference("url_id");
+        => CreateReference("url_id");
 
     /// <summary>
     /// Cors block (nesting mode: list).

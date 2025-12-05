@@ -116,7 +116,7 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> ExpiryTime
     {
-        get => GetArgument<TerraformValue<string>>("expiry_time") ?? AsReference("expiry_time");
+        get => GetArgument<TerraformValue<string>>("expiry_time") ?? CreateReference("expiry_time");
         set => SetArgument("expiry_time", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval") ?? AsReference("interval");
+        get => GetArgument<TerraformValue<double>>("interval") ?? CreateReference("interval");
         set => SetArgument("interval", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 

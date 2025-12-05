@@ -36,7 +36,7 @@ public partial class AzureadApplicationPublishedAppIdsDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -44,7 +44,7 @@ public partial class AzureadApplicationPublishedAppIdsDataSource(string name) : 
     /// A mapping of application names and application IDs
     /// </summary>
     public TerraformMap<string> Result
-        => AsReference("result");
+        => CreateReference("result");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

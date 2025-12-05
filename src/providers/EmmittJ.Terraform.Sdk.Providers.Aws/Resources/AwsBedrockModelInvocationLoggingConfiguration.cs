@@ -18,7 +18,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// </summary>
     public TerraformValue<bool> EmbeddingDataDeliveryEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("embedding_data_delivery_enabled") ?? AsReference("embedding_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("embedding_data_delivery_enabled") ?? CreateReference("embedding_data_delivery_enabled");
         set => SetArgument("embedding_data_delivery_enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// </summary>
     public TerraformValue<bool> ImageDataDeliveryEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("image_data_delivery_enabled") ?? AsReference("image_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("image_data_delivery_enabled") ?? CreateReference("image_data_delivery_enabled");
         set => SetArgument("image_data_delivery_enabled", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// </summary>
     public TerraformValue<bool> TextDataDeliveryEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("text_data_delivery_enabled") ?? AsReference("text_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("text_data_delivery_enabled") ?? CreateReference("text_data_delivery_enabled");
         set => SetArgument("text_data_delivery_enabled", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// </summary>
     public TerraformValue<bool> VideoDataDeliveryEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("video_data_delivery_enabled") ?? AsReference("video_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("video_data_delivery_enabled") ?? CreateReference("video_data_delivery_enabled");
         set => SetArgument("video_data_delivery_enabled", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AwsBedrockModelInvocationLoggingConfiguration(string name) 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AwsBedrockModelInvocationLoggingConfiguration(string name) 
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// LoggingConfig block (nesting mode: list).

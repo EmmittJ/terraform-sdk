@@ -624,7 +624,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource(string
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -641,7 +641,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource(string
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-        => AsReference("json");
+        => CreateReference("json");
 
     /// <summary>
     /// AttachmentPolicies block (nesting mode: list).

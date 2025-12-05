@@ -36,7 +36,7 @@ public partial class AzurermBlueprintDefinitionDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermBlueprintDefinitionDataSource(string name) : Terrafo
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The target_scope attribute.
     /// </summary>
     public TerraformValue<string> TargetScope
-        => AsReference("target_scope");
+        => CreateReference("target_scope");
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
     public TerraformValue<string> TimeCreated
-        => AsReference("time_created");
+        => CreateReference("time_created");
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
     public TerraformList<string> Versions
-        => AsReference("versions");
+        => CreateReference("versions");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

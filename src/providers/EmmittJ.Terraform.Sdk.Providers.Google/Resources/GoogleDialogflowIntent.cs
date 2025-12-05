@@ -55,7 +55,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action") ?? AsReference("action");
+        get => GetArgument<TerraformValue<string>>("action") ?? CreateReference("action");
         set => SetArgument("action", value);
     }
 
@@ -95,7 +95,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool> IsFallback
     {
-        get => GetArgument<TerraformValue<bool>>("is_fallback") ?? AsReference("is_fallback");
+        get => GetArgument<TerraformValue<bool>>("is_fallback") ?? CreateReference("is_fallback");
         set => SetArgument("is_fallback", value);
     }
 
@@ -125,7 +125,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool> MlDisabled
     {
-        get => GetArgument<TerraformValue<bool>>("ml_disabled") ?? AsReference("ml_disabled");
+        get => GetArgument<TerraformValue<bool>>("ml_disabled") ?? CreateReference("ml_disabled");
         set => SetArgument("ml_disabled", value);
     }
 
@@ -135,7 +135,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> ParentFollowupIntentName
     {
-        get => GetArgument<TerraformValue<string>>("parent_followup_intent_name") ?? AsReference("parent_followup_intent_name");
+        get => GetArgument<TerraformValue<string>>("parent_followup_intent_name") ?? CreateReference("parent_followup_intent_name");
         set => SetArgument("parent_followup_intent_name", value);
     }
 
@@ -147,7 +147,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? CreateReference("priority");
         set => SetArgument("priority", value);
     }
 
@@ -156,7 +156,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool> ResetContexts
     {
-        get => GetArgument<TerraformValue<bool>>("reset_contexts") ?? AsReference("reset_contexts");
+        get => GetArgument<TerraformValue<bool>>("reset_contexts") ?? CreateReference("reset_contexts");
         set => SetArgument("reset_contexts", value);
     }
 
@@ -177,7 +177,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> WebhookState
     {
-        get => GetArgument<TerraformValue<string>>("webhook_state") ?? AsReference("webhook_state");
+        get => GetArgument<TerraformValue<string>>("webhook_state") ?? CreateReference("webhook_state");
         set => SetArgument("webhook_state", value);
     }
 
@@ -186,14 +186,14 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// only in the output.
     /// </summary>
     public TerraformList<TerraformMap<object>> FollowupIntentInfo
-        => AsReference("followup_intent_info");
+        => CreateReference("followup_intent_info");
 
     /// <summary>
     /// The unique identifier of this intent.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/agent/intents/&amp;lt;Intent ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The unique identifier of the root intent in the chain of followup intents. It identifies the correct followup
@@ -201,7 +201,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// Format: projects/&amp;lt;Project ID&amp;gt;/agent/intents/&amp;lt;Intent ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> RootFollowupIntentName
-        => AsReference("root_followup_intent_name");
+        => CreateReference("root_followup_intent_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

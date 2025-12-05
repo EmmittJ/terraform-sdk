@@ -171,7 +171,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockUserPoolCo
     /// </summary>
     public TerraformValue<string> AwsRegion
     {
-        get => GetArgument<TerraformValue<string>>("aws_region") ?? AsReference("aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region") ?? CreateReference("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AwsRegion
     {
-        get => GetArgument<TerraformValue<string>>("aws_region") ?? AsReference("aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region") ?? CreateReference("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -450,7 +450,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -496,7 +496,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -532,7 +532,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -558,13 +558,13 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The uris attribute.
     /// </summary>
     public TerraformMap<string> Uris
-        => AsReference("uris");
+        => CreateReference("uris");
 
     /// <summary>
     /// AdditionalAuthenticationProvider block (nesting mode: list).

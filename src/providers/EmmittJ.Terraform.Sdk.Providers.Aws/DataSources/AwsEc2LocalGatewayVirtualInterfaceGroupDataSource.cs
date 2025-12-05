@@ -70,7 +70,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSource(string na
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSource(string na
     /// </summary>
     public TerraformValue<string> LocalGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("local_gateway_id") ?? AsReference("local_gateway_id");
+        get => GetArgument<TerraformValue<string>>("local_gateway_id") ?? CreateReference("local_gateway_id");
         set => SetArgument("local_gateway_id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSource(string na
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSource(string na
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSource(string na
     /// The local_gateway_virtual_interface_ids attribute.
     /// </summary>
     public TerraformSet<string> LocalGatewayVirtualInterfaceIds
-        => AsReference("local_gateway_virtual_interface_ids");
+        => CreateReference("local_gateway_virtual_interface_ids");
 
     /// <summary>
     /// Filter block (nesting mode: set).

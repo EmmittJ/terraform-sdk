@@ -131,7 +131,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// </summary>
     public TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id") ?? AsReference("cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id") ?? CreateReference("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ClusterResourceId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_resource_id") ?? AsReference("cluster_resource_id");
+        get => GetArgument<TerraformValue<string>>("cluster_resource_id") ?? CreateReference("cluster_resource_id");
         set => SetArgument("cluster_resource_id", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// The attached_database_names attribute.
     /// </summary>
     public TerraformList<string> AttachedDatabaseNames
-        => AsReference("attached_database_names");
+        => CreateReference("attached_database_names");
 
     /// <summary>
     /// Sharing block (nesting mode: list).

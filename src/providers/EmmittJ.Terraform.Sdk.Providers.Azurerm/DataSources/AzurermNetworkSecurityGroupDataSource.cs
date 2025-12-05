@@ -36,7 +36,7 @@ public partial class AzurermNetworkSecurityGroupDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,19 +64,19 @@ public partial class AzurermNetworkSecurityGroupDataSource(string name) : Terraf
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The security_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecurityRule
-        => AsReference("security_rule");
+        => CreateReference("security_rule");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

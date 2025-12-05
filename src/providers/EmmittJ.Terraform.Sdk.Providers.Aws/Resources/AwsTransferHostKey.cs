@@ -40,7 +40,7 @@ public partial class AwsTransferHostKey(string name) : TerraformResource("aws_tr
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -67,24 +67,24 @@ public partial class AwsTransferHostKey(string name) : TerraformResource("aws_tr
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The host_key_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> HostKeyFingerprint
-        => AsReference("host_key_fingerprint");
+        => CreateReference("host_key_fingerprint");
 
     /// <summary>
     /// The host_key_id attribute.
     /// </summary>
     public TerraformValue<string> HostKeyId
-        => AsReference("host_key_id");
+        => CreateReference("host_key_id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
 }

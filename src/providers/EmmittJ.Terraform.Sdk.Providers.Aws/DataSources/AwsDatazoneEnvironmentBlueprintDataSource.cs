@@ -43,7 +43,7 @@ public partial class AwsDatazoneEnvironmentBlueprintDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,18 +51,18 @@ public partial class AwsDatazoneEnvironmentBlueprintDataSource(string name) : Te
     /// The blueprint_provider attribute.
     /// </summary>
     public TerraformValue<string> BlueprintProvider
-        => AsReference("blueprint_provider");
+        => CreateReference("blueprint_provider");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

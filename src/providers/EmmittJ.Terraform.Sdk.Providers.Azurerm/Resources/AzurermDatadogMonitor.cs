@@ -46,7 +46,7 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The linking_auth_code attribute.
@@ -70,7 +70,7 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The redirect_uri attribute.
@@ -99,13 +99,13 @@ public class AzurermDatadogMonitorIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -224,7 +224,7 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -290,7 +290,7 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     /// The marketplace_subscription_status attribute.
     /// </summary>
     public TerraformValue<string> MarketplaceSubscriptionStatus
-        => AsReference("marketplace_subscription_status");
+        => CreateReference("marketplace_subscription_status");
 
     /// <summary>
     /// DatadogOrganization block (nesting mode: list).

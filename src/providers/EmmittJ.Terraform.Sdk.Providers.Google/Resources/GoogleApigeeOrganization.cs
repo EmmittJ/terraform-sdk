@@ -148,7 +148,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> BillingType
     {
-        get => GetArgument<TerraformValue<string>>("billing_type") ?? AsReference("billing_type");
+        get => GetArgument<TerraformValue<string>>("billing_type") ?? CreateReference("billing_type");
         set => SetArgument("billing_type", value);
     }
 
@@ -198,7 +198,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -249,27 +249,27 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// Output only. Project ID of the Apigee Tenant Project.
     /// </summary>
     public TerraformValue<string> ApigeeProjectId
-        => AsReference("apigee_project_id");
+        => CreateReference("apigee_project_id");
 
     /// <summary>
     /// Output only. Base64-encoded public certificate for the root CA of the Apigee organization.
     /// Valid only when &#39;RuntimeType&#39; is CLOUD. A base64-encoded string.
     /// </summary>
     public TerraformValue<string> CaCertificate
-        => AsReference("ca_certificate");
+        => CreateReference("ca_certificate");
 
     /// <summary>
     /// Output only. Name of the Apigee organization.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Subscription type of the Apigee organization.
     /// Valid values include trial (free, limited, and for evaluation purposes only) or paid (full subscription has been purchased).
     /// </summary>
     public TerraformValue<string> SubscriptionType
-        => AsReference("subscription_type");
+        => CreateReference("subscription_type");
 
     /// <summary>
     /// Properties block (nesting mode: list).

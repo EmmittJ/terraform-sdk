@@ -323,7 +323,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string> CloudwatchLogGroupName
     {
-        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_name") ?? AsReference("cloudwatch_log_group_name");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_name") ?? CreateReference("cloudwatch_log_group_name");
         set => SetArgument("cloudwatch_log_group_name", value);
     }
 
@@ -472,7 +472,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -481,7 +481,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> MaxConcurrency
     {
-        get => GetArgument<TerraformValue<string>>("max_concurrency") ?? AsReference("max_concurrency");
+        get => GetArgument<TerraformValue<string>>("max_concurrency") ?? CreateReference("max_concurrency");
         set => SetArgument("max_concurrency", value);
     }
 
@@ -490,7 +490,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> MaxErrors
     {
-        get => GetArgument<TerraformValue<string>>("max_errors") ?? AsReference("max_errors");
+        get => GetArgument<TerraformValue<string>>("max_errors") ?? CreateReference("max_errors");
         set => SetArgument("max_errors", value);
     }
 
@@ -517,7 +517,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -526,7 +526,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> ServiceRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("service_role_arn") ?? AsReference("service_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_role_arn") ?? CreateReference("service_role_arn");
         set => SetArgument("service_role_arn", value);
     }
 
@@ -564,13 +564,13 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The window_task_id attribute.
     /// </summary>
     public TerraformValue<string> WindowTaskId
-        => AsReference("window_task_id");
+        => CreateReference("window_task_id");
 
     /// <summary>
     /// Targets block (nesting mode: list).

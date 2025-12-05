@@ -661,7 +661,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -755,13 +755,13 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// Response only. Creation time of this environment as milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// Response only. Modified time of this environment as milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> LastModifiedAt
-        => AsReference("last_modified_at");
+        => CreateReference("last_modified_at");
 
     /// <summary>
     /// Attributes block (nesting mode: set).

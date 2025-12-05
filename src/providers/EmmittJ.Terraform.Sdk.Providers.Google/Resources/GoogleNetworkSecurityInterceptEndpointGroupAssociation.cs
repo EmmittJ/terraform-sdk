@@ -54,7 +54,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -129,20 +129,20 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The list of locations where the association is configured. This information
     /// is retrieved from the linked endpoint group.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Locations
-        => AsReference("locations");
+        => CreateReference("locations");
 
     /// <summary>
     /// The list of locations where the association is present. This information
@@ -151,7 +151,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformList<TerraformMap<object>> LocationsDetails
-        => AsReference("locations_details");
+        => CreateReference("locations_details");
 
     /// <summary>
     /// The resource name of this endpoint group association, for example:
@@ -159,7 +159,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// See https://google.aip.dev/122 for more details.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The current state of the resource does not match the user&#39;s intended state,
@@ -168,7 +168,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// See https://google.aip.dev/128.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Current state of the endpoint group association.
@@ -182,21 +182,21 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// DELETE_FAILED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

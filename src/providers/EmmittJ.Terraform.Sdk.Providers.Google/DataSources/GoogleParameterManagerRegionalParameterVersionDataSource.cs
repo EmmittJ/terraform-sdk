@@ -13,7 +13,7 @@ public partial class GoogleParameterManagerRegionalParameterVersionDataSource(st
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleParameterManagerRegionalParameterVersionDataSource(st
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleParameterManagerRegionalParameterVersionDataSource(st
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -59,36 +59,36 @@ public partial class GoogleParameterManagerRegionalParameterVersionDataSource(st
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
     public TerraformValue<bool> Disabled
-        => AsReference("disabled");
+        => CreateReference("disabled");
 
     /// <summary>
     /// The kms_key_version attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-        => AsReference("kms_key_version");
+        => CreateReference("kms_key_version");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The parameter_data attribute.
     /// </summary>
     public TerraformValue<string> ParameterData
-        => AsReference("parameter_data");
+        => CreateReference("parameter_data");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

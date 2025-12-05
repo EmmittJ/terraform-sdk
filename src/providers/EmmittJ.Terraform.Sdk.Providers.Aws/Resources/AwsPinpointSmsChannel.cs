@@ -32,7 +32,7 @@ public partial class AwsPinpointSmsChannel(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsPinpointSmsChannel(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -67,12 +67,12 @@ public partial class AwsPinpointSmsChannel(string name) : TerraformResource("aws
     /// The promotional_messages_per_second attribute.
     /// </summary>
     public TerraformValue<double> PromotionalMessagesPerSecond
-        => AsReference("promotional_messages_per_second");
+        => CreateReference("promotional_messages_per_second");
 
     /// <summary>
     /// The transactional_messages_per_second attribute.
     /// </summary>
     public TerraformValue<double> TransactionalMessagesPerSecond
-        => AsReference("transactional_messages_per_second");
+        => CreateReference("transactional_messages_per_second");
 
 }

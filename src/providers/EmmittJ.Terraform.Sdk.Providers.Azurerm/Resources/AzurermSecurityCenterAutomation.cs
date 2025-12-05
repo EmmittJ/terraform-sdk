@@ -46,7 +46,7 @@ public class AzurermSecurityCenterAutomationActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

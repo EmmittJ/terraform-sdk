@@ -18,7 +18,7 @@ public class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> Aggregates
     {
-        get => GetArgument<TerraformList<string>>("aggregates") ?? AsReference("aggregates");
+        get => GetArgument<TerraformList<string>>("aggregates") ?? CreateReference("aggregates");
         set => SetArgument("aggregates", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ConstituentsPerAggregate
     {
-        get => GetArgument<TerraformValue<double>>("constituents_per_aggregate") ?? AsReference("constituents_per_aggregate");
+        get => GetArgument<TerraformValue<double>>("constituents_per_aggregate") ?? CreateReference("constituents_per_aggregate");
         set => SetArgument("constituents_per_aggregate", value);
     }
 
@@ -35,7 +35,7 @@ public class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlock
     /// The total_constituents attribute.
     /// </summary>
     public TerraformValue<double> TotalConstituents
-        => AsReference("total_constituents");
+        => CreateReference("total_constituents");
 
 }
 
@@ -126,7 +126,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlockAutocommitPeriodBlock : 
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlockRetentionPeriodBlockDefa
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlockRetentionPeriodBlockMaxi
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlockRetentionPeriodBlockMini
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -294,7 +294,7 @@ public class AwsFsxOntapVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> CoolingPeriod
     {
-        get => GetArgument<TerraformValue<double>>("cooling_period") ?? AsReference("cooling_period");
+        get => GetArgument<TerraformValue<double>>("cooling_period") ?? CreateReference("cooling_period");
         set => SetArgument("cooling_period", value);
     }
 
@@ -303,7 +303,7 @@ public class AwsFsxOntapVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -389,7 +389,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -417,7 +417,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// </summary>
     public TerraformValue<string> OntapVolumeType
     {
-        get => GetArgument<TerraformValue<string>>("ontap_volume_type") ?? AsReference("ontap_volume_type");
+        get => GetArgument<TerraformValue<string>>("ontap_volume_type") ?? CreateReference("ontap_volume_type");
         set => SetArgument("ontap_volume_type", value);
     }
 
@@ -426,7 +426,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -435,7 +435,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// </summary>
     public TerraformValue<string> SecurityStyle
     {
-        get => GetArgument<TerraformValue<string>>("security_style") ?? AsReference("security_style");
+        get => GetArgument<TerraformValue<string>>("security_style") ?? CreateReference("security_style");
         set => SetArgument("security_style", value);
     }
 
@@ -444,7 +444,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// </summary>
     public TerraformValue<string> SizeInBytes
     {
-        get => GetArgument<TerraformValue<string>>("size_in_bytes") ?? AsReference("size_in_bytes");
+        get => GetArgument<TerraformValue<string>>("size_in_bytes") ?? CreateReference("size_in_bytes");
         set => SetArgument("size_in_bytes", value);
     }
 
@@ -453,7 +453,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// </summary>
     public TerraformValue<double> SizeInMegabytes
     {
-        get => GetArgument<TerraformValue<double>>("size_in_megabytes") ?? AsReference("size_in_megabytes");
+        get => GetArgument<TerraformValue<double>>("size_in_megabytes") ?? CreateReference("size_in_megabytes");
         set => SetArgument("size_in_megabytes", value);
     }
 
@@ -471,7 +471,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// </summary>
     public TerraformValue<string> SnapshotPolicy
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_policy") ?? AsReference("snapshot_policy");
+        get => GetArgument<TerraformValue<string>>("snapshot_policy") ?? CreateReference("snapshot_policy");
         set => SetArgument("snapshot_policy", value);
     }
 
@@ -508,7 +508,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -517,7 +517,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// </summary>
     public TerraformValue<string> VolumeStyle
     {
-        get => GetArgument<TerraformValue<string>>("volume_style") ?? AsReference("volume_style");
+        get => GetArgument<TerraformValue<string>>("volume_style") ?? CreateReference("volume_style");
         set => SetArgument("volume_style", value);
     }
 
@@ -534,25 +534,25 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
     public TerraformValue<string> FileSystemId
-        => AsReference("file_system_id");
+        => CreateReference("file_system_id");
 
     /// <summary>
     /// The flexcache_endpoint_type attribute.
     /// </summary>
     public TerraformValue<string> FlexcacheEndpointType
-        => AsReference("flexcache_endpoint_type");
+        => CreateReference("flexcache_endpoint_type");
 
     /// <summary>
     /// The uuid attribute.
     /// </summary>
     public TerraformValue<string> Uuid
-        => AsReference("uuid");
+        => CreateReference("uuid");
 
     /// <summary>
     /// AggregateConfiguration block (nesting mode: list).

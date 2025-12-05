@@ -104,7 +104,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock : Terraf
     /// The IDP&#39;s certificate data to verify the signature in the SAMLResponse issued by the IDP.
     /// </summary>
     public TerraformList<TerraformMap<object>> SpCertificates
-        => AsReference("sp_certificates");
+        => CreateReference("sp_certificates");
 
     /// <summary>
     /// Unique identifier for all SAML entities.
@@ -190,7 +190,7 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfig(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -211,7 +211,7 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfig(string name) 
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 

@@ -163,7 +163,7 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> ServiceArn
     {
-        get => GetArgument<TerraformValue<string>>("service_arn") ?? AsReference("service_arn");
+        get => GetArgument<TerraformValue<string>>("service_arn") ?? CreateReference("service_arn");
         set => SetArgument("service_arn", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> ServiceIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("service_identifier") ?? AsReference("service_identifier");
+        get => GetArgument<TerraformValue<string>>("service_identifier") ?? CreateReference("service_identifier");
         set => SetArgument("service_identifier", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -245,25 +245,25 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedAt
-        => AsReference("last_updated_at");
+        => CreateReference("last_updated_at");
 
     /// <summary>
     /// The listener_id attribute.
     /// </summary>
     public TerraformValue<string> ListenerId
-        => AsReference("listener_id");
+        => CreateReference("listener_id");
 
     /// <summary>
     /// DefaultAction block (nesting mode: list).

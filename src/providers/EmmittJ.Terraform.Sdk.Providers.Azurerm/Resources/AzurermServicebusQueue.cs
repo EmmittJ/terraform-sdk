@@ -63,7 +63,7 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> AutoDeleteOnIdle
     {
-        get => GetArgument<TerraformValue<string>>("auto_delete_on_idle") ?? AsReference("auto_delete_on_idle");
+        get => GetArgument<TerraformValue<string>>("auto_delete_on_idle") ?? CreateReference("auto_delete_on_idle");
         set => SetArgument("auto_delete_on_idle", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> DefaultMessageTtl
     {
-        get => GetArgument<TerraformValue<string>>("default_message_ttl") ?? AsReference("default_message_ttl");
+        get => GetArgument<TerraformValue<string>>("default_message_ttl") ?? CreateReference("default_message_ttl");
         set => SetArgument("default_message_ttl", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<double> MaxMessageSizeInKilobytes
     {
-        get => GetArgument<TerraformValue<double>>("max_message_size_in_kilobytes") ?? AsReference("max_message_size_in_kilobytes");
+        get => GetArgument<TerraformValue<double>>("max_message_size_in_kilobytes") ?? CreateReference("max_message_size_in_kilobytes");
         set => SetArgument("max_message_size_in_kilobytes", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<double> MaxSizeInMegabytes
     {
-        get => GetArgument<TerraformValue<double>>("max_size_in_megabytes") ?? AsReference("max_size_in_megabytes");
+        get => GetArgument<TerraformValue<double>>("max_size_in_megabytes") ?? CreateReference("max_size_in_megabytes");
         set => SetArgument("max_size_in_megabytes", value);
     }
 

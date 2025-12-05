@@ -13,7 +13,7 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,18 +50,18 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The service_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceProperties
-        => AsReference("service_properties");
+        => CreateReference("service_properties");
 
     /// <summary>
     /// The service_reference attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceReference
-        => AsReference("service_reference");
+        => CreateReference("service_reference");
 
 }

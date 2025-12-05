@@ -63,7 +63,7 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> MergedApiArn
     {
-        get => GetArgument<TerraformValue<string>>("merged_api_arn") ?? AsReference("merged_api_arn");
+        get => GetArgument<TerraformValue<string>>("merged_api_arn") ?? CreateReference("merged_api_arn");
         set => SetArgument("merged_api_arn", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> MergedApiId
     {
-        get => GetArgument<TerraformValue<string>>("merged_api_id") ?? AsReference("merged_api_id");
+        get => GetArgument<TerraformValue<string>>("merged_api_id") ?? CreateReference("merged_api_id");
         set => SetArgument("merged_api_id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> SourceApiArn
     {
-        get => GetArgument<TerraformValue<string>>("source_api_arn") ?? AsReference("source_api_arn");
+        get => GetArgument<TerraformValue<string>>("source_api_arn") ?? CreateReference("source_api_arn");
         set => SetArgument("source_api_arn", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceApiAssociationConfig
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("source_api_association_config") ?? AsReference("source_api_association_config");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("source_api_association_config") ?? CreateReference("source_api_association_config");
         set => SetArgument("source_api_association_config", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> SourceApiId
     {
-        get => GetArgument<TerraformValue<string>>("source_api_id") ?? AsReference("source_api_id");
+        get => GetArgument<TerraformValue<string>>("source_api_id") ?? CreateReference("source_api_id");
         set => SetArgument("source_api_id", value);
     }
 
@@ -116,19 +116,19 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

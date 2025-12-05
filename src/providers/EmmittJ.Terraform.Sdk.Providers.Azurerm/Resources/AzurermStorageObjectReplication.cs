@@ -45,7 +45,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The source_container_name attribute.
@@ -131,7 +131,7 @@ public partial class AzurermStorageObjectReplication(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -149,13 +149,13 @@ public partial class AzurermStorageObjectReplication(string name) : TerraformRes
     /// The destination_object_replication_id attribute.
     /// </summary>
     public TerraformValue<string> DestinationObjectReplicationId
-        => AsReference("destination_object_replication_id");
+        => CreateReference("destination_object_replication_id");
 
     /// <summary>
     /// The source_object_replication_id attribute.
     /// </summary>
     public TerraformValue<string> SourceObjectReplicationId
-        => AsReference("source_object_replication_id");
+        => CreateReference("source_object_replication_id");
 
     /// <summary>
     /// Rules block (nesting mode: set).

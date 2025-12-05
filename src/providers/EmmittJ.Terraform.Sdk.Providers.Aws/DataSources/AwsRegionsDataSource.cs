@@ -56,7 +56,7 @@ public partial class AwsRegionsDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsRegionsDataSource(string name) : TerraformDataSource("aw
     /// The names attribute.
     /// </summary>
     public TerraformSet<string> Names
-        => AsReference("names");
+        => CreateReference("names");
 
     /// <summary>
     /// Filter block (nesting mode: set).

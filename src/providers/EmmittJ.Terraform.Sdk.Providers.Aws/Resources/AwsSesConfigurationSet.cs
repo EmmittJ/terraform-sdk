@@ -59,7 +59,7 @@ public partial class AwsSesConfigurationSet(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsSesConfigurationSet(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -104,13 +104,13 @@ public partial class AwsSesConfigurationSet(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The last_fresh_start attribute.
     /// </summary>
     public TerraformValue<string> LastFreshStart
-        => AsReference("last_fresh_start");
+        => CreateReference("last_fresh_start");
 
     /// <summary>
     /// DeliveryOptions block (nesting mode: list).

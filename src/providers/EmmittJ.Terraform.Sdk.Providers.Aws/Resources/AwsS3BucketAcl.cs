@@ -86,7 +86,7 @@ public class AwsS3BucketAclAccessControlPolicyBlockGrantBlockGranteeBlock : Terr
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The email_address attribute.
@@ -144,7 +144,7 @@ public class AwsS3BucketAclAccessControlPolicyBlockOwnerBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsS3BucketAcl(string name) : TerraformResource("aws_s3_buc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AwsS3BucketAcl(string name) : TerraformResource("aws_s3_buc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

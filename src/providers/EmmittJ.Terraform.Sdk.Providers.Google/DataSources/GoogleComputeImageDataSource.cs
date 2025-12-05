@@ -13,7 +13,7 @@ public partial class GoogleComputeImageDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Family
     {
-        get => GetArgument<TerraformValue<string>>("family") ?? AsReference("family");
+        get => GetArgument<TerraformValue<string>>("family") ?? CreateReference("family");
         set => SetArgument("family", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleComputeImageDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleComputeImageDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -58,7 +58,7 @@ public partial class GoogleComputeImageDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -66,90 +66,90 @@ public partial class GoogleComputeImageDataSource(string name) : TerraformDataSo
     /// The archive_size_bytes attribute.
     /// </summary>
     public TerraformValue<double> ArchiveSizeBytes
-        => AsReference("archive_size_bytes");
+        => CreateReference("archive_size_bytes");
 
     /// <summary>
     /// The creation_timestamp attribute.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
     public TerraformValue<double> DiskSizeGb
-        => AsReference("disk_size_gb");
+        => CreateReference("disk_size_gb");
 
     /// <summary>
     /// The image_encryption_key_sha256 attribute.
     /// </summary>
     public TerraformValue<string> ImageEncryptionKeySha256
-        => AsReference("image_encryption_key_sha256");
+        => CreateReference("image_encryption_key_sha256");
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
     public TerraformValue<string> ImageId
-        => AsReference("image_id");
+        => CreateReference("image_id");
 
     /// <summary>
     /// The label_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The licenses attribute.
     /// </summary>
     public TerraformList<string> Licenses
-        => AsReference("licenses");
+        => CreateReference("licenses");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The source_disk attribute.
     /// </summary>
     public TerraformValue<string> SourceDisk
-        => AsReference("source_disk");
+        => CreateReference("source_disk");
 
     /// <summary>
     /// The source_disk_encryption_key_sha256 attribute.
     /// </summary>
     public TerraformValue<string> SourceDiskEncryptionKeySha256
-        => AsReference("source_disk_encryption_key_sha256");
+        => CreateReference("source_disk_encryption_key_sha256");
 
     /// <summary>
     /// The source_disk_id attribute.
     /// </summary>
     public TerraformValue<string> SourceDiskId
-        => AsReference("source_disk_id");
+        => CreateReference("source_disk_id");
 
     /// <summary>
     /// The source_image_id attribute.
     /// </summary>
     public TerraformValue<string> SourceImageId
-        => AsReference("source_image_id");
+        => CreateReference("source_image_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

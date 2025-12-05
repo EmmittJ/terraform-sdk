@@ -214,7 +214,7 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string> AvailableSecurityUpdatesComplianceStatus
     {
-        get => GetArgument<TerraformValue<string>>("available_security_updates_compliance_status") ?? AsReference("available_security_updates_compliance_status");
+        get => GetArgument<TerraformValue<string>>("available_security_updates_compliance_status") ?? CreateReference("available_security_updates_compliance_status");
         set => SetArgument("available_security_updates_compliance_status", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string> RejectedPatchesAction
     {
-        get => GetArgument<TerraformValue<string>>("rejected_patches_action") ?? AsReference("rejected_patches_action");
+        get => GetArgument<TerraformValue<string>>("rejected_patches_action") ?? CreateReference("rejected_patches_action");
         set => SetArgument("rejected_patches_action", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -304,13 +304,13 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-        => AsReference("json");
+        => CreateReference("json");
 
     /// <summary>
     /// ApprovalRule block (nesting mode: list).

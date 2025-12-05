@@ -112,7 +112,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EncryptionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("encryption_enabled") ?? AsReference("encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("encryption_enabled") ?? CreateReference("encryption_enabled");
         set => SetArgument("encryption_enabled", value);
     }
 
@@ -736,7 +736,7 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

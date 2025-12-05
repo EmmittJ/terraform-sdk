@@ -232,7 +232,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// </summary>
     public TerraformValue<double> MessageRetention
     {
-        get => GetArgument<TerraformValue<double>>("message_retention") ?? AsReference("message_retention");
+        get => GetArgument<TerraformValue<double>>("message_retention") ?? CreateReference("message_retention");
         set => SetArgument("message_retention", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// </summary>
     public TerraformValue<string> NamespaceId
     {
-        get => GetArgument<TerraformValue<string>>("namespace_id") ?? AsReference("namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id") ?? CreateReference("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> NamespaceName
     {
-        get => GetArgument<TerraformValue<string>>("namespace_name") ?? AsReference("namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name") ?? CreateReference("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -290,7 +290,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? AsReference("resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? CreateReference("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -307,7 +307,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// The partition_ids attribute.
     /// </summary>
     public TerraformSet<string> PartitionIds
-        => AsReference("partition_ids");
+        => CreateReference("partition_ids");
 
     /// <summary>
     /// CaptureDescription block (nesting mode: list).

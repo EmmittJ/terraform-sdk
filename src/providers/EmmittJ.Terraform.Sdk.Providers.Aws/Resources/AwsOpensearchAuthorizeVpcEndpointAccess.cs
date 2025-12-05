@@ -33,7 +33,7 @@ public partial class AwsOpensearchAuthorizeVpcEndpointAccess(string name) : Terr
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,6 +41,6 @@ public partial class AwsOpensearchAuthorizeVpcEndpointAccess(string name) : Terr
     /// The authorized_principal attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AuthorizedPrincipal
-        => AsReference("authorized_principal");
+        => CreateReference("authorized_principal");
 
 }

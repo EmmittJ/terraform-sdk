@@ -36,7 +36,7 @@ public partial class AzurermApplicationInsightsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermApplicationInsightsDataSource(string name) : Terrafo
     /// The app_id attribute.
     /// </summary>
     public TerraformValue<string> AppId
-        => AsReference("app_id");
+        => CreateReference("app_id");
 
     /// <summary>
     /// The application_type attribute.
     /// </summary>
     public TerraformValue<string> ApplicationType
-        => AsReference("application_type");
+        => CreateReference("application_type");
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     public TerraformValue<string> ConnectionString
-        => AsReference("connection_string");
+        => CreateReference("connection_string");
 
     /// <summary>
     /// The instrumentation_key attribute.
     /// </summary>
     public TerraformValue<string> InstrumentationKey
-        => AsReference("instrumentation_key");
+        => CreateReference("instrumentation_key");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     public TerraformValue<double> RetentionInDays
-        => AsReference("retention_in_days");
+        => CreateReference("retention_in_days");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-        => AsReference("workspace_id");
+        => CreateReference("workspace_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

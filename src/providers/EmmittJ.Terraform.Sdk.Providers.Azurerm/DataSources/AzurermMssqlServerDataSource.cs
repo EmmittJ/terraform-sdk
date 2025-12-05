@@ -36,7 +36,7 @@ public partial class AzurermMssqlServerDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermMssqlServerDataSource(string name) : TerraformDataSo
     /// The administrator_login attribute.
     /// </summary>
     public TerraformValue<string> AdministratorLogin
-        => AsReference("administrator_login");
+        => CreateReference("administrator_login");
 
     /// <summary>
     /// The express_vulnerability_assessment_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ExpressVulnerabilityAssessmentEnabled
-        => AsReference("express_vulnerability_assessment_enabled");
+        => CreateReference("express_vulnerability_assessment_enabled");
 
     /// <summary>
     /// The fully_qualified_domain_name attribute.
     /// </summary>
     public TerraformValue<string> FullyQualifiedDomainName
-        => AsReference("fully_qualified_domain_name");
+        => CreateReference("fully_qualified_domain_name");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The restorable_dropped_database_ids attribute.
     /// </summary>
     public TerraformList<string> RestorableDroppedDatabaseIds
-        => AsReference("restorable_dropped_database_ids");
+        => CreateReference("restorable_dropped_database_ids");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The transparent_data_encryption_key_vault_key_id attribute.
     /// </summary>
     public TerraformValue<string> TransparentDataEncryptionKeyVaultKeyId
-        => AsReference("transparent_data_encryption_key_vault_key_id");
+        => CreateReference("transparent_data_encryption_key_vault_key_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

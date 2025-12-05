@@ -23,7 +23,7 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl(string name) 
     /// </summary>
     public TerraformValue<string> ControlPanelArn
     {
-        get => GetArgument<TerraformValue<string>>("control_panel_arn") ?? AsReference("control_panel_arn");
+        get => GetArgument<TerraformValue<string>>("control_panel_arn") ?? CreateReference("control_panel_arn");
         set => SetArgument("control_panel_arn", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,12 +50,12 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl(string name) 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

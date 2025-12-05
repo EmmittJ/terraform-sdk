@@ -36,7 +36,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicyDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermCdnFrontdoorFirewallPolicyDataSource(string name) : 
     /// The captcha_cookie_expiration_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> CaptchaCookieExpirationInMinutes
-        => AsReference("captcha_cookie_expiration_in_minutes");
+        => CreateReference("captcha_cookie_expiration_in_minutes");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The frontend_endpoint_ids attribute.
     /// </summary>
     public TerraformList<string> FrontendEndpointIds
-        => AsReference("frontend_endpoint_ids");
+        => CreateReference("frontend_endpoint_ids");
 
     /// <summary>
     /// The js_challenge_cookie_expiration_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> JsChallengeCookieExpirationInMinutes
-        => AsReference("js_challenge_cookie_expiration_in_minutes");
+        => CreateReference("js_challenge_cookie_expiration_in_minutes");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     public TerraformValue<string> Mode
-        => AsReference("mode");
+        => CreateReference("mode");
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
     public TerraformValue<string> RedirectUrl
-        => AsReference("redirect_url");
+        => CreateReference("redirect_url");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

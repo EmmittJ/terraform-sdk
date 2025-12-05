@@ -13,7 +13,7 @@ public partial class AwsRegionDataSource(string name) : TerraformDataSource("aws
     /// </summary>
     public TerraformValue<string> Endpoint
     {
-        get => GetArgument<TerraformValue<string>>("endpoint") ?? AsReference("endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint") ?? CreateReference("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsRegionDataSource(string name) : TerraformDataSource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRegionDataSource(string name) : TerraformDataSource("aws
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsRegionDataSource(string name) : TerraformDataSource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,6 +49,6 @@ public partial class AwsRegionDataSource(string name) : TerraformDataSource("aws
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
 }

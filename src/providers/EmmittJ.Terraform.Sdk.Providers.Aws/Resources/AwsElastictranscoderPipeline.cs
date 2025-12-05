@@ -18,7 +18,7 @@ public class AwsElastictranscoderPipelineContentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket") ?? AsReference("bucket");
+        get => GetArgument<TerraformValue<string>>("bucket") ?? CreateReference("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket") ?? AsReference("bucket");
+        get => GetArgument<TerraformValue<string>>("bucket") ?? CreateReference("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> OutputBucket
     {
-        get => GetArgument<TerraformValue<string>>("output_bucket") ?? AsReference("output_bucket");
+        get => GetArgument<TerraformValue<string>>("output_bucket") ?? CreateReference("output_bucket");
         set => SetArgument("output_bucket", value);
     }
 
@@ -256,7 +256,7 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// ContentConfig block (nesting mode: list).

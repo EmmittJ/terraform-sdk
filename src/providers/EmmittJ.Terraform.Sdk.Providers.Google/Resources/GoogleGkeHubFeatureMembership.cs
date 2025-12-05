@@ -18,7 +18,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Management
     {
-        get => GetArgument<TerraformValue<string>>("management") ?? AsReference("management");
+        get => GetArgument<TerraformValue<string>>("management") ?? CreateReference("management");
         set => SetArgument("management", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlock :
     /// </summary>
     public TerraformValue<bool> PreventDrift
     {
-        get => GetArgument<TerraformValue<bool>>("prevent_drift") ?? AsReference("prevent_drift");
+        get => GetArgument<TerraformValue<bool>>("prevent_drift") ?? CreateReference("prevent_drift");
         set => SetArgument("prevent_drift", value);
     }
 
@@ -533,7 +533,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// </summary>
     public TerraformList<string> Backends
     {
-        get => GetArgument<TerraformList<string>>("backends") ?? AsReference("backends");
+        get => GetArgument<TerraformList<string>>("backends") ?? CreateReference("backends");
         set => SetArgument("backends", value);
     }
 
@@ -589,7 +589,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -933,7 +933,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformList<string> Backends
     {
-        get => GetArgument<TerraformList<string>>("backends") ?? AsReference("backends");
+        get => GetArgument<TerraformList<string>>("backends") ?? CreateReference("backends");
         set => SetArgument("backends", value);
     }
 
@@ -1088,7 +1088,7 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1126,7 +1126,7 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 

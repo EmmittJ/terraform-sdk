@@ -13,7 +13,7 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> AdminPasswordSecretKmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("admin_password_secret_kms_key_id") ?? AsReference("admin_password_secret_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("admin_password_secret_kms_key_id") ?? CreateReference("admin_password_secret_kms_key_id");
         set => SetArgument("admin_password_secret_kms_key_id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> AdminUsername
     {
-        get => GetArgument<TerraformValue<string>>("admin_username") ?? AsReference("admin_username");
+        get => GetArgument<TerraformValue<string>>("admin_username") ?? CreateReference("admin_username");
         set => SetArgument("admin_username", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> DbName
     {
-        get => GetArgument<TerraformValue<string>>("db_name") ?? AsReference("db_name");
+        get => GetArgument<TerraformValue<string>>("db_name") ?? CreateReference("db_name");
         set => SetArgument("db_name", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string> IamRoles
     {
-        get => GetArgument<TerraformSet<string>>("iam_roles") ?? AsReference("iam_roles");
+        get => GetArgument<TerraformSet<string>>("iam_roles") ?? CreateReference("iam_roles");
         set => SetArgument("iam_roles", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -157,18 +157,18 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// The admin_password_secret_arn attribute.
     /// </summary>
     public TerraformValue<string> AdminPasswordSecretArn
-        => AsReference("admin_password_secret_arn");
+        => CreateReference("admin_password_secret_arn");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
     public TerraformValue<string> NamespaceId
-        => AsReference("namespace_id");
+        => CreateReference("namespace_id");
 
 }

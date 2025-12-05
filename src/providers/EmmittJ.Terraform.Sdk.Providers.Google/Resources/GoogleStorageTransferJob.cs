@@ -677,7 +677,7 @@ public class GoogleStorageTransferJobTransferSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SinkAgentPoolName
     {
-        get => GetArgument<TerraformValue<string>>("sink_agent_pool_name") ?? AsReference("sink_agent_pool_name");
+        get => GetArgument<TerraformValue<string>>("sink_agent_pool_name") ?? CreateReference("sink_agent_pool_name");
         set => SetArgument("sink_agent_pool_name", value);
     }
 
@@ -686,7 +686,7 @@ public class GoogleStorageTransferJobTransferSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SourceAgentPoolName
     {
-        get => GetArgument<TerraformValue<string>>("source_agent_pool_name") ?? AsReference("source_agent_pool_name");
+        get => GetArgument<TerraformValue<string>>("source_agent_pool_name") ?? CreateReference("source_agent_pool_name");
         set => SetArgument("source_agent_pool_name", value);
     }
 
@@ -1068,7 +1068,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -1581,7 +1581,7 @@ public partial class GoogleStorageTransferJob(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1590,7 +1590,7 @@ public partial class GoogleStorageTransferJob(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -1599,7 +1599,7 @@ public partial class GoogleStorageTransferJob(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1625,19 +1625,19 @@ public partial class GoogleStorageTransferJob(string name) : TerraformResource("
     /// When the Transfer Job was created.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// When the Transfer Job was deleted.
     /// </summary>
     public TerraformValue<string> DeletionTime
-        => AsReference("deletion_time");
+        => CreateReference("deletion_time");
 
     /// <summary>
     /// When the Transfer Job was last modified.
     /// </summary>
     public TerraformValue<string> LastModificationTime
-        => AsReference("last_modification_time");
+        => CreateReference("last_modification_time");
 
     /// <summary>
     /// EventStream block (nesting mode: list).

@@ -13,7 +13,7 @@ public partial class AwsLexIntentDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLexIntentDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,36 +49,36 @@ public partial class AwsLexIntentDataSource(string name) : TerraformDataSource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The checksum attribute.
     /// </summary>
     public TerraformValue<string> Checksum
-        => AsReference("checksum");
+        => CreateReference("checksum");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDate
-        => AsReference("last_updated_date");
+        => CreateReference("last_updated_date");
 
     /// <summary>
     /// The parent_intent_signature attribute.
     /// </summary>
     public TerraformValue<string> ParentIntentSignature
-        => AsReference("parent_intent_signature");
+        => CreateReference("parent_intent_signature");
 
 }

@@ -100,7 +100,7 @@ public partial class AwsVpcPeeringConnectionAccepter(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsVpcPeeringConnectionAccepter(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsVpcPeeringConnectionAccepter(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -145,31 +145,31 @@ public partial class AwsVpcPeeringConnectionAccepter(string name) : TerraformRes
     /// The accept_status attribute.
     /// </summary>
     public TerraformValue<string> AcceptStatus
-        => AsReference("accept_status");
+        => CreateReference("accept_status");
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
     public TerraformValue<string> PeerOwnerId
-        => AsReference("peer_owner_id");
+        => CreateReference("peer_owner_id");
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
     public TerraformValue<string> PeerRegion
-        => AsReference("peer_region");
+        => CreateReference("peer_region");
 
     /// <summary>
     /// The peer_vpc_id attribute.
     /// </summary>
     public TerraformValue<string> PeerVpcId
-        => AsReference("peer_vpc_id");
+        => CreateReference("peer_vpc_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// Accepter block (nesting mode: list).

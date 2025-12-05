@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionD
     /// The assignable_scopes attribute.
     /// </summary>
     public TerraformList<string> AssignableScopes
-        => AsReference("assignable_scopes");
+        => CreateReference("assignable_scopes");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The permission attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Permission
-        => AsReference("permission");
+        => CreateReference("permission");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     public TerraformValue<string> RoleName
-        => AsReference("role_name");
+        => CreateReference("role_name");
 
     /// <summary>
     /// The role_type attribute.
     /// </summary>
     public TerraformValue<string> RoleType
-        => AsReference("role_type");
+        => CreateReference("role_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -276,7 +276,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> CreateTime
     {
-        get => GetArgument<TerraformValue<string>>("create_time") ?? AsReference("create_time");
+        get => GetArgument<TerraformValue<string>>("create_time") ?? CreateReference("create_time");
         set => SetArgument("create_time", value);
     }
 
@@ -325,7 +325,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> DiskEncryption
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption") ?? AsReference("disk_encryption");
+        get => GetArgument<TerraformValue<string>>("disk_encryption") ?? CreateReference("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
@@ -334,7 +334,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -432,7 +432,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -488,7 +488,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -501,7 +501,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -513,7 +513,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string> ServiceAccountScopes
     {
-        get => GetArgument<TerraformList<string>>("service_account_scopes") ?? AsReference("service_account_scopes");
+        get => GetArgument<TerraformList<string>>("service_account_scopes") ?? CreateReference("service_account_scopes");
         set => SetArgument("service_account_scopes", value);
     }
 
@@ -523,7 +523,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Subnet
     {
-        get => GetArgument<TerraformValue<string>>("subnet") ?? AsReference("subnet");
+        get => GetArgument<TerraformValue<string>>("subnet") ?? CreateReference("subnet");
         set => SetArgument("subnet", value);
     }
 
@@ -532,7 +532,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string> Tags
     {
-        get => GetArgument<TerraformList<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformList<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -541,7 +541,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> UpdateTime
     {
-        get => GetArgument<TerraformValue<string>>("update_time") ?? AsReference("update_time");
+        get => GetArgument<TerraformValue<string>>("update_time") ?? CreateReference("update_time");
         set => SetArgument("update_time", value);
     }
 
@@ -549,7 +549,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The proxy endpoint that is used to access the Jupyter notebook.
@@ -558,20 +558,20 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// the population of this value.
     /// </summary>
     public TerraformValue<string> ProxyUri
-        => AsReference("proxy_uri");
+        => CreateReference("proxy_uri");
 
     /// <summary>
     /// The state of this instance.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// AcceleratorConfig block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermPrivateDnsMxRecordDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,25 +73,25 @@ public partial class AzurermPrivateDnsMxRecordDataSource(string name) : Terrafor
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The record attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Record
-        => AsReference("record");
+        => CreateReference("record");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     public TerraformValue<double> Ttl
-        => AsReference("ttl");
+        => CreateReference("ttl");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

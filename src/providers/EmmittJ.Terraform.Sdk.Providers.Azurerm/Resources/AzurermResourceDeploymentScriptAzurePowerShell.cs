@@ -223,7 +223,7 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -326,7 +326,7 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     /// The outputs attribute.
     /// </summary>
     public TerraformValue<string> Outputs
-        => AsReference("outputs");
+        => CreateReference("outputs");
 
     /// <summary>
     /// Container block (nesting mode: list).

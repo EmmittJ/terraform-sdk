@@ -55,7 +55,7 @@ public partial class GoogleContainerAzureClient(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleContainerAzureClient(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -102,19 +102,19 @@ public partial class GoogleContainerAzureClient(string name) : TerraformResource
     /// Output only. The PEM encoded x509 certificate.
     /// </summary>
     public TerraformValue<string> Certificate
-        => AsReference("certificate");
+        => CreateReference("certificate");
 
     /// <summary>
     /// Output only. The time at which this resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. A globally unique identifier for the client.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

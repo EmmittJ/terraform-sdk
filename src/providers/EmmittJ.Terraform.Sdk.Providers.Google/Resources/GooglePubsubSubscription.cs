@@ -171,7 +171,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// An output-only field that indicates whether or not the subscription can receive messages.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// AvroConfig block (nesting mode: list).
@@ -551,7 +551,7 @@ public class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MaximumBackoff
     {
-        get => GetArgument<TerraformValue<string>>("maximum_backoff") ?? AsReference("maximum_backoff");
+        get => GetArgument<TerraformValue<string>>("maximum_backoff") ?? CreateReference("maximum_backoff");
         set => SetArgument("maximum_backoff", value);
     }
 
@@ -561,7 +561,7 @@ public class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MinimumBackoff
     {
-        get => GetArgument<TerraformValue<string>>("minimum_backoff") ?? AsReference("minimum_backoff");
+        get => GetArgument<TerraformValue<string>>("minimum_backoff") ?? CreateReference("minimum_backoff");
         set => SetArgument("minimum_backoff", value);
     }
 
@@ -637,7 +637,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> AckDeadlineSeconds
     {
-        get => GetArgument<TerraformValue<double>>("ack_deadline_seconds") ?? AsReference("ack_deadline_seconds");
+        get => GetArgument<TerraformValue<double>>("ack_deadline_seconds") ?? CreateReference("ack_deadline_seconds");
         set => SetArgument("ack_deadline_seconds", value);
     }
 
@@ -686,7 +686,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -735,7 +735,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -783,14 +783,14 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// BigqueryConfig block (nesting mode: list).

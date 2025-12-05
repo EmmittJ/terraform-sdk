@@ -73,7 +73,7 @@ public partial class AzurermApiManagementPolicy(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermApiManagementPolicy(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> XmlContent
     {
-        get => GetArgument<TerraformValue<string>>("xml_content") ?? AsReference("xml_content");
+        get => GetArgument<TerraformValue<string>>("xml_content") ?? CreateReference("xml_content");
         set => SetArgument("xml_content", value);
     }
 

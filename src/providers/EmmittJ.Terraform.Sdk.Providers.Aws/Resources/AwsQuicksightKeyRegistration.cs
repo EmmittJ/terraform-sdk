@@ -18,7 +18,7 @@ public class AwsQuicksightKeyRegistrationKeyRegistrationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> DefaultKey
     {
-        get => GetArgument<TerraformValue<bool>>("default_key") ?? AsReference("default_key");
+        get => GetArgument<TerraformValue<bool>>("default_key") ?? CreateReference("default_key");
         set => SetArgument("default_key", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsQuicksightKeyRegistration(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? CreateReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsQuicksightKeyRegistration(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

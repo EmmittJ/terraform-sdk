@@ -26,7 +26,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlock : Terr
     /// Denotes this action uses a Linux base image.
     /// </summary>
     public TerraformValue<bool> LinuxAction
-        => AsReference("linux_action");
+        => CreateReference("linux_action");
 
     /// <summary>
     /// CodeConfiguration block (nesting mode: list).
@@ -197,7 +197,7 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Branch
     {
-        get => GetArgument<TerraformValue<string>>("branch") ?? AsReference("branch");
+        get => GetArgument<TerraformValue<string>>("branch") ?? CreateReference("branch");
         set => SetArgument("branch", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> RepoUrl
     {
-        get => GetArgument<TerraformValue<string>>("repo_url") ?? AsReference("repo_url");
+        get => GetArgument<TerraformValue<string>>("repo_url") ?? CreateReference("repo_url");
         set => SetArgument("repo_url", value);
     }
 
@@ -259,13 +259,13 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// The SCM Type in use. This value is decoded by the service from the repository information supplied.
     /// </summary>
     public TerraformValue<string> ScmType
-        => AsReference("scm_type");
+        => CreateReference("scm_type");
 
     /// <summary>
     /// Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
     /// </summary>
     public TerraformValue<bool> UsesGithubAction
-        => AsReference("uses_github_action");
+        => CreateReference("uses_github_action");
 
     /// <summary>
     /// GithubActionConfiguration block (nesting mode: list).

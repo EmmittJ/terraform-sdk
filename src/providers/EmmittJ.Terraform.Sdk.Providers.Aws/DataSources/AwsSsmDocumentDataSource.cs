@@ -31,7 +31,7 @@ public partial class AwsSsmDocumentDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsSsmDocumentDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,18 +58,18 @@ public partial class AwsSsmDocumentDataSource(string name) : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The content attribute.
     /// </summary>
     public TerraformValue<string> Content
-        => AsReference("content");
+        => CreateReference("content");
 
     /// <summary>
     /// The document_type attribute.
     /// </summary>
     public TerraformValue<string> DocumentType
-        => AsReference("document_type");
+        => CreateReference("document_type");
 
 }

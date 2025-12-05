@@ -72,7 +72,7 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> DefaultEncryptionScope
     {
-        get => GetArgument<TerraformValue<string>>("default_encryption_scope") ?? AsReference("default_encryption_scope");
+        get => GetArgument<TerraformValue<string>>("default_encryption_scope") ?? CreateReference("default_encryption_scope");
         set => SetArgument("default_encryption_scope", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -136,20 +136,20 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// The has_immutability_policy attribute.
     /// </summary>
     public TerraformValue<bool> HasImmutabilityPolicy
-        => AsReference("has_immutability_policy");
+        => CreateReference("has_immutability_policy");
 
     /// <summary>
     /// The has_legal_hold attribute.
     /// </summary>
     public TerraformValue<bool> HasLegalHold
-        => AsReference("has_legal_hold");
+        => CreateReference("has_legal_hold");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

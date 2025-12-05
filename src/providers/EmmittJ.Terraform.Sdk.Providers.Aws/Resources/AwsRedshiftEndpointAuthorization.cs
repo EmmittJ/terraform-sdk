@@ -42,7 +42,7 @@ public partial class AwsRedshiftEndpointAuthorization(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsRedshiftEndpointAuthorization(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -68,24 +68,24 @@ public partial class AwsRedshiftEndpointAuthorization(string name) : TerraformRe
     /// The allowed_all_vpcs attribute.
     /// </summary>
     public TerraformValue<bool> AllowedAllVpcs
-        => AsReference("allowed_all_vpcs");
+        => CreateReference("allowed_all_vpcs");
 
     /// <summary>
     /// The endpoint_count attribute.
     /// </summary>
     public TerraformValue<double> EndpointCount
-        => AsReference("endpoint_count");
+        => CreateReference("endpoint_count");
 
     /// <summary>
     /// The grantee attribute.
     /// </summary>
     public TerraformValue<string> Grantee
-        => AsReference("grantee");
+        => CreateReference("grantee");
 
     /// <summary>
     /// The grantor attribute.
     /// </summary>
     public TerraformValue<string> Grantor
-        => AsReference("grantor");
+        => CreateReference("grantor");
 
 }

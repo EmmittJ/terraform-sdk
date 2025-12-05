@@ -93,7 +93,7 @@ public partial class AzurermCostAnomalyAlert(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermCostAnomalyAlert(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> NotificationEmail
     {
-        get => GetArgument<TerraformValue<string>>("notification_email") ?? AsReference("notification_email");
+        get => GetArgument<TerraformValue<string>>("notification_email") ?? CreateReference("notification_email");
         set => SetArgument("notification_email", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermCostAnomalyAlert(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? CreateReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 

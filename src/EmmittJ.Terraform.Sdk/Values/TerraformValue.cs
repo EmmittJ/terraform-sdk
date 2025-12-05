@@ -21,6 +21,20 @@ public class TerraformValue<T> : ITerraformValue
     /// </summary>
     internal ITerraformResolvable? Resolvable => _resolvable;
 
+    /// <summary>
+    /// Gets or sets the lineage of this value, tracking its origin path.
+    /// When set, this value resolves to a reference expression instead of a literal.
+    /// </summary>
+    /// <remarks>
+    /// Lineage is automatically set when:
+    /// <list type="bullet">
+    /// <item>A block is added to a stack (initial lineage)</item>
+    /// <item>A computed property is accessed (extended lineage)</item>
+    /// <item>A list element is accessed by index (extended lineage)</item>
+    /// </list>
+    /// </remarks>
+    public virtual TerraformLineage? Lineage { get; set; }
+
     protected TerraformValue()
     {
         _resolvable = null;
@@ -32,14 +46,31 @@ public class TerraformValue<T> : ITerraformValue
     }
 
     /// <summary>
+    /// Creates a new TerraformValue that wraps another value's resolvable.
+    /// Used by WithLineage to create a copy with different lineage.
+    /// </summary>
+    internal TerraformValue(TerraformValue<T> other)
+    {
+        _resolvable = other._resolvable ?? other;
+    }
+
+    /// <summary>
     /// Resolve this value to syntax nodes.
-    /// Values typically resolve to a single expression node.
+    /// Values with lineage resolve to reference expressions.
+    /// Values without lineage resolve via their underlying resolvable.
     /// </summary>
     /// <param name="context">The resolution context.</param>
     /// <returns>The resolved syntax nodes.</returns>
     public virtual IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        if (_resolvable == null)
+        // If this value has lineage, emit as a reference
+        if (Lineage is not null)
+        {
+            yield return Lineage.BuildExpression();
+            yield break;
+        }
+
+        if (_resolvable is null)
         {
             throw new InvalidOperationException(
                 $"Cannot resolve {GetType().Name} - no resolvable value was provided. " +
@@ -47,7 +78,10 @@ public class TerraformValue<T> : ITerraformValue
                 $"without initializing the underlying resolvable. " +
                 $"Ensure values are created using implicit conversions or factory methods.");
         }
-        return _resolvable.ResolveNodes(context);
+        foreach (var node in _resolvable.ResolveNodes(context))
+        {
+            yield return node;
+        }
     }
 
     /// <summary>
@@ -107,22 +141,56 @@ public class TerraformValue<T> : ITerraformValue
     /// <summary>
     /// Direct conversion from TerraformExpression (which implements ITerraformResolvable).
     /// </summary>
+    /// <remarks>
+    /// This operator explicitly casts to ITerraformResolvable to force constructor selection.
+    /// Without the cast, when T=object, C# prefers implicit conversion over interface-based
+    /// constructor overload, causing infinite recursion.
+    /// </remarks>
     public static implicit operator TerraformValue<T>(TerraformExpression expression)
-        => ConvertFrom(expression);
+    {
+        ArgumentNullException.ThrowIfNull(expression);
+        // Cast to ITerraformResolvable to force constructor selection over implicit operator
+        // Without this cast, when T=object, the compiler prefers this implicit operator
+        // over the constructor that takes ITerraformResolvable, causing infinite recursion
+        return new TerraformValue<T>((ITerraformResolvable)expression);
+    }
 
     /// <summary>
     /// Creates a TerraformValue from a TerraformExpression.
     /// </summary>
     public static TerraformValue<T> ConvertFrom(TerraformExpression expression)
-        => new TerraformValue<T>(expression);
+        => new TerraformValue<T>((ITerraformResolvable)expression);
 
     /// <summary>
     /// Converts this TerraformValue to a lazy TerraformValue of a different type.
     /// This is useful when the underlying value is known to be of a different type
     /// but needs to be treated as such in certain contexts (e.g., casting from string to a more specific type).
-    /// /// </summary>
+    /// </summary>
     public TerraformValue<TLazy> AsLazy<TLazy>()
         => TerraformValue<TLazy>.Lazy(this);
+
+    /// <summary>
+    /// Creates a new TerraformValue with the specified lineage.
+    /// The returned value will resolve to a reference expression based on the lineage path.
+    /// Always returns a copy to avoid mutating the original value.
+    /// </summary>
+    /// <param name="lineage">The lineage to set on the new value, or null to strip lineage.</param>
+    /// <returns>A new TerraformValue with the lineage set (or cleared).</returns>
+    public virtual TerraformValue<T> WithLineage(TerraformLineage? lineage)
+    {
+        // Always create a copy to avoid mutating the original value.
+        // This ensures the source block renders with its original literal values,
+        // while the copy used in other blocks renders as a reference.
+        var result = new TerraformValue<T>(this);
+        result.Lineage = lineage;
+        return result;
+    }
+
+    /// <summary>
+    /// Explicit interface implementation for ITerraformValue.WithLineage.
+    /// </summary>
+    ITerraformValue ITerraformValue.WithLineage(TerraformLineage? lineage)
+        => WithLineage(lineage);
 }
 
 /// <summary>
@@ -152,8 +220,37 @@ internal class TerraformLazyValue<T> : TerraformValue<T>
         Original = original ?? throw new ArgumentNullException(nameof(original));
     }
 
+    /// <summary>
+    /// Copy constructor for creating a new lazy value with the same producer but different lineage.
+    /// </summary>
+    private TerraformLazyValue(TerraformLazyValue<T> other) : base()
+    {
+        _producer = other._producer;
+        Original = other.Original;
+    }
+
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        return _producer(context);
+        // If this value has lineage, emit as a reference (same check as base class)
+        if (Lineage is not null)
+        {
+            yield return Lineage.BuildExpression();
+            yield break;
+        }
+
+        foreach (var node in _producer(context))
+        {
+            yield return node;
+        }
+    }
+
+    /// <summary>
+    /// Creates a copy of this lazy value with the specified lineage.
+    /// </summary>
+    public override TerraformValue<T> WithLineage(TerraformLineage? lineage)
+    {
+        var result = new TerraformLazyValue<T>(this);
+        result.Lineage = lineage;
+        return result;
     }
 }

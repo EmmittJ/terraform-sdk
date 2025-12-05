@@ -37,7 +37,7 @@ public partial class AwsCodeguruprofilerProfilingGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> ComputePlatform
     {
-        get => GetArgument<TerraformValue<string>>("compute_platform") ?? AsReference("compute_platform");
+        get => GetArgument<TerraformValue<string>>("compute_platform") ?? CreateReference("compute_platform");
         set => SetArgument("compute_platform", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsCodeguruprofilerProfilingGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -73,19 +73,19 @@ public partial class AwsCodeguruprofilerProfilingGroup(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// AgentOrchestrationConfig block (nesting mode: list).

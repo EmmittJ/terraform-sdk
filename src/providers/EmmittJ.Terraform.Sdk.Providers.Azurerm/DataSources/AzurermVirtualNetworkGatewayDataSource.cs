@@ -36,7 +36,7 @@ public partial class AzurermVirtualNetworkGatewayDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,85 +64,85 @@ public partial class AzurermVirtualNetworkGatewayDataSource(string name) : Terra
     /// The active_active attribute.
     /// </summary>
     public TerraformValue<bool> ActiveActive
-        => AsReference("active_active");
+        => CreateReference("active_active");
 
     /// <summary>
     /// The bgp_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BgpSettings
-        => AsReference("bgp_settings");
+        => CreateReference("bgp_settings");
 
     /// <summary>
     /// The custom_route attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomRoute
-        => AsReference("custom_route");
+        => CreateReference("custom_route");
 
     /// <summary>
     /// The default_local_network_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultLocalNetworkGatewayId
-        => AsReference("default_local_network_gateway_id");
+        => CreateReference("default_local_network_gateway_id");
 
     /// <summary>
     /// The enable_bgp attribute.
     /// </summary>
     public TerraformValue<bool> EnableBgp
-        => AsReference("enable_bgp");
+        => CreateReference("enable_bgp");
 
     /// <summary>
     /// The generation attribute.
     /// </summary>
     public TerraformValue<string> Generation
-        => AsReference("generation");
+        => CreateReference("generation");
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-        => AsReference("ip_configuration");
+        => CreateReference("ip_configuration");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The private_ip_address_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PrivateIpAddressEnabled
-        => AsReference("private_ip_address_enabled");
+        => CreateReference("private_ip_address_enabled");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The vpn_client_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpnClientConfiguration
-        => AsReference("vpn_client_configuration");
+        => CreateReference("vpn_client_configuration");
 
     /// <summary>
     /// The vpn_type attribute.
     /// </summary>
     public TerraformValue<string> VpnType
-        => AsReference("vpn_type");
+        => CreateReference("vpn_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

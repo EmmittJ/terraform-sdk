@@ -36,7 +36,7 @@ public partial class AzurermCosmosdbAccountDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,175 +64,175 @@ public partial class AzurermCosmosdbAccountDataSource(string name) : TerraformDa
     /// The automatic_failover_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AutomaticFailoverEnabled
-        => AsReference("automatic_failover_enabled");
+        => CreateReference("automatic_failover_enabled");
 
     /// <summary>
     /// The capabilities attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Capabilities
-        => AsReference("capabilities");
+        => CreateReference("capabilities");
 
     /// <summary>
     /// The consistency_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConsistencyPolicy
-        => AsReference("consistency_policy");
+        => CreateReference("consistency_policy");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The free_tier_enabled attribute.
     /// </summary>
     public TerraformValue<bool> FreeTierEnabled
-        => AsReference("free_tier_enabled");
+        => CreateReference("free_tier_enabled");
 
     /// <summary>
     /// The geo_location attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GeoLocation
-        => AsReference("geo_location");
+        => CreateReference("geo_location");
 
     /// <summary>
     /// The ip_range_filter attribute.
     /// </summary>
     public TerraformValue<string> IpRangeFilter
-        => AsReference("ip_range_filter");
+        => CreateReference("ip_range_filter");
 
     /// <summary>
     /// The is_virtual_network_filter_enabled attribute.
     /// </summary>
     public TerraformValue<bool> IsVirtualNetworkFilterEnabled
-        => AsReference("is_virtual_network_filter_enabled");
+        => CreateReference("is_virtual_network_filter_enabled");
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultKeyId
-        => AsReference("key_vault_key_id");
+        => CreateReference("key_vault_key_id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The multiple_write_locations_enabled attribute.
     /// </summary>
     public TerraformValue<bool> MultipleWriteLocationsEnabled
-        => AsReference("multiple_write_locations_enabled");
+        => CreateReference("multiple_write_locations_enabled");
 
     /// <summary>
     /// The offer_type attribute.
     /// </summary>
     public TerraformValue<string> OfferType
-        => AsReference("offer_type");
+        => CreateReference("offer_type");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The primary_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryMongodbConnectionString
-        => AsReference("primary_mongodb_connection_string");
+        => CreateReference("primary_mongodb_connection_string");
 
     /// <summary>
     /// The primary_readonly_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryReadonlyKey
-        => AsReference("primary_readonly_key");
+        => CreateReference("primary_readonly_key");
 
     /// <summary>
     /// The primary_readonly_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryReadonlyMongodbConnectionString
-        => AsReference("primary_readonly_mongodb_connection_string");
+        => CreateReference("primary_readonly_mongodb_connection_string");
 
     /// <summary>
     /// The primary_readonly_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryReadonlySqlConnectionString
-        => AsReference("primary_readonly_sql_connection_string");
+        => CreateReference("primary_readonly_sql_connection_string");
 
     /// <summary>
     /// The primary_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimarySqlConnectionString
-        => AsReference("primary_sql_connection_string");
+        => CreateReference("primary_sql_connection_string");
 
     /// <summary>
     /// The read_endpoints attribute.
     /// </summary>
     public TerraformList<string> ReadEndpoints
-        => AsReference("read_endpoints");
+        => CreateReference("read_endpoints");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-        => AsReference("secondary_key");
+        => CreateReference("secondary_key");
 
     /// <summary>
     /// The secondary_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryMongodbConnectionString
-        => AsReference("secondary_mongodb_connection_string");
+        => CreateReference("secondary_mongodb_connection_string");
 
     /// <summary>
     /// The secondary_readonly_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryReadonlyKey
-        => AsReference("secondary_readonly_key");
+        => CreateReference("secondary_readonly_key");
 
     /// <summary>
     /// The secondary_readonly_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryReadonlyMongodbConnectionString
-        => AsReference("secondary_readonly_mongodb_connection_string");
+        => CreateReference("secondary_readonly_mongodb_connection_string");
 
     /// <summary>
     /// The secondary_readonly_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryReadonlySqlConnectionString
-        => AsReference("secondary_readonly_sql_connection_string");
+        => CreateReference("secondary_readonly_sql_connection_string");
 
     /// <summary>
     /// The secondary_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondarySqlConnectionString
-        => AsReference("secondary_sql_connection_string");
+        => CreateReference("secondary_sql_connection_string");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The virtual_network_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VirtualNetworkRule
-        => AsReference("virtual_network_rule");
+        => CreateReference("virtual_network_rule");
 
     /// <summary>
     /// The write_endpoints attribute.
     /// </summary>
     public TerraformList<string> WriteEndpoints
-        => AsReference("write_endpoints");
+        => CreateReference("write_endpoints");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

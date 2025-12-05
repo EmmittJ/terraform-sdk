@@ -13,7 +13,7 @@ public partial class AwsOutpostsOutpostsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsOutpostsOutpostsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> AvailabilityZoneId
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_id") ?? AsReference("availability_zone_id");
+        get => GetArgument<TerraformValue<string>>("availability_zone_id") ?? CreateReference("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsOutpostsOutpostsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsOutpostsOutpostsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> OwnerId
     {
-        get => GetArgument<TerraformValue<string>>("owner_id") ?? AsReference("owner_id");
+        get => GetArgument<TerraformValue<string>>("owner_id") ?? CreateReference("owner_id");
         set => SetArgument("owner_id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsOutpostsOutpostsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsOutpostsOutpostsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> SiteId
     {
-        get => GetArgument<TerraformValue<string>>("site_id") ?? AsReference("site_id");
+        get => GetArgument<TerraformValue<string>>("site_id") ?? CreateReference("site_id");
         set => SetArgument("site_id", value);
     }
 
@@ -66,12 +66,12 @@ public partial class AwsOutpostsOutpostsDataSource(string name) : TerraformDataS
     /// The arns attribute.
     /// </summary>
     public TerraformSet<string> Arns
-        => AsReference("arns");
+        => CreateReference("arns");
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
     public TerraformSet<string> Ids
-        => AsReference("ids");
+        => CreateReference("ids");
 
 }

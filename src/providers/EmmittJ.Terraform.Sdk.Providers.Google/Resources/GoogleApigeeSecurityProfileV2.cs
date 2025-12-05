@@ -97,7 +97,7 @@ public partial class GoogleApigeeSecurityProfileV2(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -126,20 +126,20 @@ public partial class GoogleApigeeSecurityProfileV2(string name) : TerraformResou
     /// The timestamp at which this profile was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Name of the security profile v2 resource,
     /// in the format &#39;organizations/{{org_name}}/securityProfilesV2/{{profile_id}}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The timestamp at which this profile was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// ProfileAssessmentConfigs block (nesting mode: set).

@@ -23,7 +23,7 @@ public partial class AwsDirectoryServiceDirectoryDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsDirectoryServiceDirectoryDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsDirectoryServiceDirectoryDataSource(string name) : Terra
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,84 +49,84 @@ public partial class AwsDirectoryServiceDirectoryDataSource(string name) : Terra
     /// The access_url attribute.
     /// </summary>
     public TerraformValue<string> AccessUrl
-        => AsReference("access_url");
+        => CreateReference("access_url");
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-        => AsReference("alias");
+        => CreateReference("alias");
 
     /// <summary>
     /// The connect_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectSettings
-        => AsReference("connect_settings");
+        => CreateReference("connect_settings");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The dns_ip_addresses attribute.
     /// </summary>
     public TerraformSet<string> DnsIpAddresses
-        => AsReference("dns_ip_addresses");
+        => CreateReference("dns_ip_addresses");
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
     public TerraformValue<string> Edition
-        => AsReference("edition");
+        => CreateReference("edition");
 
     /// <summary>
     /// The enable_sso attribute.
     /// </summary>
     public TerraformValue<bool> EnableSso
-        => AsReference("enable_sso");
+        => CreateReference("enable_sso");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The radius_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RadiusSettings
-        => AsReference("radius_settings");
+        => CreateReference("radius_settings");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupId
-        => AsReference("security_group_id");
+        => CreateReference("security_group_id");
 
     /// <summary>
     /// The short_name attribute.
     /// </summary>
     public TerraformValue<string> ShortName
-        => AsReference("short_name");
+        => CreateReference("short_name");
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     public TerraformValue<string> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The vpc_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpcSettings
-        => AsReference("vpc_settings");
+        => CreateReference("vpc_settings");
 
 }

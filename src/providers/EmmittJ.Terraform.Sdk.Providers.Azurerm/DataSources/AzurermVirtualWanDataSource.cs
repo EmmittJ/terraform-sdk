@@ -36,7 +36,7 @@ public partial class AzurermVirtualWanDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermVirtualWanDataSource(string name) : TerraformDataSou
     /// The allow_branch_to_branch_traffic attribute.
     /// </summary>
     public TerraformValue<bool> AllowBranchToBranchTraffic
-        => AsReference("allow_branch_to_branch_traffic");
+        => CreateReference("allow_branch_to_branch_traffic");
 
     /// <summary>
     /// The disable_vpn_encryption attribute.
     /// </summary>
     public TerraformValue<bool> DisableVpnEncryption
-        => AsReference("disable_vpn_encryption");
+        => CreateReference("disable_vpn_encryption");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The office365_local_breakout_category attribute.
     /// </summary>
     public TerraformValue<string> Office365LocalBreakoutCategory
-        => AsReference("office365_local_breakout_category");
+        => CreateReference("office365_local_breakout_category");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The virtual_hub_ids attribute.
     /// </summary>
     public TerraformList<string> VirtualHubIds
-        => AsReference("virtual_hub_ids");
+        => CreateReference("virtual_hub_ids");
 
     /// <summary>
     /// The vpn_site_ids attribute.
     /// </summary>
     public TerraformList<string> VpnSiteIds
-        => AsReference("vpn_site_ids");
+        => CreateReference("vpn_site_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

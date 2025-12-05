@@ -326,7 +326,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MaxBackoffDuration
     {
-        get => GetArgument<TerraformValue<string>>("max_backoff_duration") ?? AsReference("max_backoff_duration");
+        get => GetArgument<TerraformValue<string>>("max_backoff_duration") ?? CreateReference("max_backoff_duration");
         set => SetArgument("max_backoff_duration", value);
     }
 
@@ -338,7 +338,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxDoublings
     {
-        get => GetArgument<TerraformValue<double>>("max_doublings") ?? AsReference("max_doublings");
+        get => GetArgument<TerraformValue<double>>("max_doublings") ?? CreateReference("max_doublings");
         set => SetArgument("max_doublings", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MaxRetryDuration
     {
-        get => GetArgument<TerraformValue<string>>("max_retry_duration") ?? AsReference("max_retry_duration");
+        get => GetArgument<TerraformValue<string>>("max_retry_duration") ?? CreateReference("max_retry_duration");
         set => SetArgument("max_retry_duration", value);
     }
 
@@ -359,7 +359,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MinBackoffDuration
     {
-        get => GetArgument<TerraformValue<string>>("min_backoff_duration") ?? AsReference("min_backoff_duration");
+        get => GetArgument<TerraformValue<string>>("min_backoff_duration") ?? CreateReference("min_backoff_duration");
         set => SetArgument("min_backoff_duration", value);
     }
 
@@ -370,7 +370,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> RetryCount
     {
-        get => GetArgument<TerraformValue<double>>("retry_count") ?? AsReference("retry_count");
+        get => GetArgument<TerraformValue<double>>("retry_count") ?? CreateReference("retry_count");
         set => SetArgument("retry_count", value);
     }
 
@@ -455,7 +455,7 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -474,7 +474,7 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool> Paused
     {
-        get => GetArgument<TerraformValue<bool>>("paused") ?? AsReference("paused");
+        get => GetArgument<TerraformValue<bool>>("paused") ?? CreateReference("paused");
         set => SetArgument("paused", value);
     }
 
@@ -483,7 +483,7 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -492,7 +492,7 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -519,7 +519,7 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// State of the job.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// AppEngineHttpTarget block (nesting mode: list).

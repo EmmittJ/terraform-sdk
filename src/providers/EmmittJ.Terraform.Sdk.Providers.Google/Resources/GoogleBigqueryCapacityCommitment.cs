@@ -84,7 +84,7 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -140,25 +140,25 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// The start of the current commitment period. It is applicable only for ACTIVE capacity commitments.
     /// </summary>
     public TerraformValue<string> CommitmentEndTime
-        => AsReference("commitment_end_time");
+        => CreateReference("commitment_end_time");
 
     /// <summary>
     /// The start of the current commitment period. It is applicable only for ACTIVE capacity commitments.
     /// </summary>
     public TerraformValue<string> CommitmentStartTime
-        => AsReference("commitment_start_time");
+        => CreateReference("commitment_start_time");
 
     /// <summary>
     /// The resource name of the capacity commitment, e.g., projects/myproject/locations/US/capacityCommitments/123
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// State of the commitment
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

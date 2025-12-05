@@ -36,7 +36,7 @@ public partial class AzurermMonitorDataCollectionRuleDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,67 +64,67 @@ public partial class AzurermMonitorDataCollectionRuleDataSource(string name) : T
     /// The data_collection_endpoint_id attribute.
     /// </summary>
     public TerraformValue<string> DataCollectionEndpointId
-        => AsReference("data_collection_endpoint_id");
+        => CreateReference("data_collection_endpoint_id");
 
     /// <summary>
     /// The data_flow attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataFlow
-        => AsReference("data_flow");
+        => CreateReference("data_flow");
 
     /// <summary>
     /// The data_sources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataSources
-        => AsReference("data_sources");
+        => CreateReference("data_sources");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The destinations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Destinations
-        => AsReference("destinations");
+        => CreateReference("destinations");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The immutable_id attribute.
     /// </summary>
     public TerraformValue<string> ImmutableId
-        => AsReference("immutable_id");
+        => CreateReference("immutable_id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The stream_declaration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StreamDeclaration
-        => AsReference("stream_declaration");
+        => CreateReference("stream_declaration");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

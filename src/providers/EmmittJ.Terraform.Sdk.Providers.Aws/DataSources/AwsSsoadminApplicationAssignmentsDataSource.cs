@@ -23,7 +23,7 @@ public partial class AwsSsoadminApplicationAssignmentsDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,12 +31,12 @@ public partial class AwsSsoadminApplicationAssignmentsDataSource(string name) : 
     /// The application_assignments attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApplicationAssignments
-        => AsReference("application_assignments");
+        => CreateReference("application_assignments");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

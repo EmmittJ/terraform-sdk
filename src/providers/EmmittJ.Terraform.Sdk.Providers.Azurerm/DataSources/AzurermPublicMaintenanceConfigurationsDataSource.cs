@@ -36,7 +36,7 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSource(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSource(string nam
     /// The configs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Configs
-        => AsReference("configs");
+        => CreateReference("configs");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

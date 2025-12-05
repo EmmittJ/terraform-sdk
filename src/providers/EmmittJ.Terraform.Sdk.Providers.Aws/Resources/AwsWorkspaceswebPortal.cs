@@ -63,7 +63,7 @@ public partial class AwsWorkspaceswebPortal(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> AuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("authentication_type") ?? AsReference("authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type") ?? CreateReference("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsWorkspaceswebPortal(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> BrowserSettingsArn
     {
-        get => GetArgument<TerraformValue<string>>("browser_settings_arn") ?? AsReference("browser_settings_arn");
+        get => GetArgument<TerraformValue<string>>("browser_settings_arn") ?? CreateReference("browser_settings_arn");
         set => SetArgument("browser_settings_arn", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsWorkspaceswebPortal(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsWorkspaceswebPortal(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? CreateReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsWorkspaceswebPortal(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double> MaxConcurrentSessions
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_sessions") ?? AsReference("max_concurrent_sessions");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_sessions") ?? CreateReference("max_concurrent_sessions");
         set => SetArgument("max_concurrent_sessions", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsWorkspaceswebPortal(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -134,91 +134,91 @@ public partial class AwsWorkspaceswebPortal(string name) : TerraformResource("aw
     /// The browser_type attribute.
     /// </summary>
     public TerraformValue<string> BrowserType
-        => AsReference("browser_type");
+        => CreateReference("browser_type");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The data_protection_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> DataProtectionSettingsArn
-        => AsReference("data_protection_settings_arn");
+        => CreateReference("data_protection_settings_arn");
 
     /// <summary>
     /// The ip_access_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> IpAccessSettingsArn
-        => AsReference("ip_access_settings_arn");
+        => CreateReference("ip_access_settings_arn");
 
     /// <summary>
     /// The network_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> NetworkSettingsArn
-        => AsReference("network_settings_arn");
+        => CreateReference("network_settings_arn");
 
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
     public TerraformValue<string> PortalArn
-        => AsReference("portal_arn");
+        => CreateReference("portal_arn");
 
     /// <summary>
     /// The portal_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PortalEndpoint
-        => AsReference("portal_endpoint");
+        => CreateReference("portal_endpoint");
 
     /// <summary>
     /// The portal_status attribute.
     /// </summary>
     public TerraformValue<string> PortalStatus
-        => AsReference("portal_status");
+        => CreateReference("portal_status");
 
     /// <summary>
     /// The renderer_type attribute.
     /// </summary>
     public TerraformValue<string> RendererType
-        => AsReference("renderer_type");
+        => CreateReference("renderer_type");
 
     /// <summary>
     /// The session_logger_arn attribute.
     /// </summary>
     public TerraformValue<string> SessionLoggerArn
-        => AsReference("session_logger_arn");
+        => CreateReference("session_logger_arn");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
     public TerraformValue<string> TrustStoreArn
-        => AsReference("trust_store_arn");
+        => CreateReference("trust_store_arn");
 
     /// <summary>
     /// The user_access_logging_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> UserAccessLoggingSettingsArn
-        => AsReference("user_access_logging_settings_arn");
+        => CreateReference("user_access_logging_settings_arn");
 
     /// <summary>
     /// The user_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> UserSettingsArn
-        => AsReference("user_settings_arn");
+        => CreateReference("user_settings_arn");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

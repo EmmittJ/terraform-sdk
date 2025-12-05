@@ -1,0 +1,8 @@
+﻿resource "test_resource_group" "rg" {
+  location = "westus2"
+  name     = "my-resource-group"
+  tags = {
+    Environment = "Development"
+    ManagedBy   = "Terraform"
+  }
+}

@@ -54,7 +54,7 @@ public partial class AzureadDirectoryRoleAssignment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> AppScopeId
     {
-        get => GetArgument<TerraformValue<string>>("app_scope_id") ?? AsReference("app_scope_id");
+        get => GetArgument<TerraformValue<string>>("app_scope_id") ?? CreateReference("app_scope_id");
         set => SetArgument("app_scope_id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzureadDirectoryRoleAssignment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> DirectoryScopeId
     {
-        get => GetArgument<TerraformValue<string>>("directory_scope_id") ?? AsReference("directory_scope_id");
+        get => GetArgument<TerraformValue<string>>("directory_scope_id") ?? CreateReference("directory_scope_id");
         set => SetArgument("directory_scope_id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzureadDirectoryRoleAssignment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

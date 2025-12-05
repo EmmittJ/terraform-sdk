@@ -13,7 +13,7 @@ public partial class AwsDefaultVpcDhcpOptions(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDefaultVpcDhcpOptions(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> OwnerId
     {
-        get => GetArgument<TerraformValue<string>>("owner_id") ?? AsReference("owner_id");
+        get => GetArgument<TerraformValue<string>>("owner_id") ?? CreateReference("owner_id");
         set => SetArgument("owner_id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsDefaultVpcDhcpOptions(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsDefaultVpcDhcpOptions(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -57,42 +57,42 @@ public partial class AwsDefaultVpcDhcpOptions(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-        => AsReference("domain_name");
+        => CreateReference("domain_name");
 
     /// <summary>
     /// The domain_name_servers attribute.
     /// </summary>
     public TerraformValue<string> DomainNameServers
-        => AsReference("domain_name_servers");
+        => CreateReference("domain_name_servers");
 
     /// <summary>
     /// The ipv6_address_preferred_lease_time attribute.
     /// </summary>
     public TerraformValue<string> Ipv6AddressPreferredLeaseTime
-        => AsReference("ipv6_address_preferred_lease_time");
+        => CreateReference("ipv6_address_preferred_lease_time");
 
     /// <summary>
     /// The netbios_name_servers attribute.
     /// </summary>
     public TerraformValue<string> NetbiosNameServers
-        => AsReference("netbios_name_servers");
+        => CreateReference("netbios_name_servers");
 
     /// <summary>
     /// The netbios_node_type attribute.
     /// </summary>
     public TerraformValue<string> NetbiosNodeType
-        => AsReference("netbios_node_type");
+        => CreateReference("netbios_node_type");
 
     /// <summary>
     /// The ntp_servers attribute.
     /// </summary>
     public TerraformValue<string> NtpServers
-        => AsReference("ntp_servers");
+        => CreateReference("ntp_servers");
 
 }

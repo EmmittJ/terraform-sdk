@@ -268,7 +268,7 @@ public class GoogleSqlDatabaseInstanceReplicationClusterBlock : TerraformBlock
     /// Read-only field that indicates whether the replica is a DR replica.
     /// </summary>
     public TerraformValue<bool> DrReplica
-        => AsReference("dr_replica");
+        => CreateReference("dr_replica");
 
     /// <summary>
     /// If the instance is a primary instance, then this field identifies the disaster recovery (DR) replica. The standard format of this field is &amp;quot;your-project:your-instance&amp;quot;. You can also set this field to &amp;quot;your-instance&amp;quot;, but cloud SQL backend will convert it to the aforementioned standard format.
@@ -383,7 +383,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ConnectorEnforcement
     {
-        get => GetArgument<TerraformValue<string>>("connector_enforcement") ?? AsReference("connector_enforcement");
+        get => GetArgument<TerraformValue<string>>("connector_enforcement") ?? CreateReference("connector_enforcement");
         set => SetArgument("connector_enforcement", value);
     }
 
@@ -419,7 +419,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DiskSize
     {
-        get => GetArgument<TerraformValue<double>>("disk_size") ?? AsReference("disk_size");
+        get => GetArgument<TerraformValue<double>>("disk_size") ?? CreateReference("disk_size");
         set => SetArgument("disk_size", value);
     }
 
@@ -428,7 +428,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type") ?? AsReference("disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type") ?? CreateReference("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -437,7 +437,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Edition
     {
-        get => GetArgument<TerraformValue<string>>("edition") ?? AsReference("edition");
+        get => GetArgument<TerraformValue<string>>("edition") ?? CreateReference("edition");
         set => SetArgument("edition", value);
     }
 
@@ -447,7 +447,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// API (for read pools, effective_availability_type may differ from availability_type).
     /// </summary>
     public TerraformValue<string> EffectiveAvailabilityType
-        => AsReference("effective_availability_type");
+        => CreateReference("effective_availability_type");
 
     /// <summary>
     /// Enables Dataplex Integration.
@@ -509,7 +509,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> UserLabels
     {
-        get => GetArgument<TerraformMap<string>>("user_labels") ?? AsReference("user_labels");
+        get => GetArgument<TerraformMap<string>>("user_labels") ?? CreateReference("user_labels");
         set => SetArgument("user_labels", value);
     }
 
@@ -517,7 +517,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// Used to make sure changes to the settings block are atomic.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// ActiveDirectoryConfig block (nesting mode: list).
@@ -766,7 +766,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlock : Te
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -775,7 +775,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlock : Te
     /// </summary>
     public TerraformValue<double> TransactionLogRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("transaction_log_retention_days") ?? AsReference("transaction_log_retention_days");
+        get => GetArgument<TerraformValue<double>>("transaction_log_retention_days") ?? CreateReference("transaction_log_retention_days");
         set => SetArgument("transaction_log_retention_days", value);
     }
 
@@ -1041,7 +1041,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockInsightsConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<double> QueryPlansPerMinute
     {
-        get => GetArgument<TerraformValue<double>>("query_plans_per_minute") ?? AsReference("query_plans_per_minute");
+        get => GetArgument<TerraformValue<double>>("query_plans_per_minute") ?? CreateReference("query_plans_per_minute");
         set => SetArgument("query_plans_per_minute", value);
     }
 
@@ -1135,7 +1135,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string> ServerCaMode
     {
-        get => GetArgument<TerraformValue<string>>("server_ca_mode") ?? AsReference("server_ca_mode");
+        get => GetArgument<TerraformValue<string>>("server_ca_mode") ?? CreateReference("server_ca_mode");
         set => SetArgument("server_ca_mode", value);
     }
 
@@ -1153,7 +1153,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string> SslMode
     {
-        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? AsReference("ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? CreateReference("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -1292,7 +1292,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockPscConfig
     /// The connection policy status of the consumer network.
     /// </summary>
     public TerraformValue<string> ConsumerNetworkStatus
-        => AsReference("consumer_network_status");
+        => CreateReference("consumer_network_status");
 
     /// <summary>
     /// The project ID of consumer service project of this consumer endpoint.
@@ -1307,13 +1307,13 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockPscConfig
     /// The IP address of the consumer endpoint.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The connection status of the consumer endpoint.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }
 
@@ -1693,7 +1693,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> EncryptionKeyName
     {
-        get => GetArgument<TerraformValue<string>>("encryption_key_name") ?? AsReference("encryption_key_name");
+        get => GetArgument<TerraformValue<string>>("encryption_key_name") ?? CreateReference("encryption_key_name");
         set => SetArgument("encryption_key_name", value);
     }
 
@@ -1711,7 +1711,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1720,7 +1720,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? CreateReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -1729,7 +1729,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> MaintenanceVersion
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_version") ?? AsReference("maintenance_version");
+        get => GetArgument<TerraformValue<string>>("maintenance_version") ?? CreateReference("maintenance_version");
         set => SetArgument("maintenance_version", value);
     }
 
@@ -1738,7 +1738,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> MasterInstanceName
     {
-        get => GetArgument<TerraformValue<string>>("master_instance_name") ?? AsReference("master_instance_name");
+        get => GetArgument<TerraformValue<string>>("master_instance_name") ?? CreateReference("master_instance_name");
         set => SetArgument("master_instance_name", value);
     }
 
@@ -1747,7 +1747,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -1756,7 +1756,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? CreateReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -1765,7 +1765,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1774,7 +1774,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1783,7 +1783,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformList<string> ReplicaNames
     {
-        get => GetArgument<TerraformList<string>>("replica_names") ?? AsReference("replica_names");
+        get => GetArgument<TerraformList<string>>("replica_names") ?? CreateReference("replica_names");
         set => SetArgument("replica_names", value);
     }
 
@@ -1800,73 +1800,73 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// Available Maintenance versions.
     /// </summary>
     public TerraformList<string> AvailableMaintenanceVersions
-        => AsReference("available_maintenance_versions");
+        => CreateReference("available_maintenance_versions");
 
     /// <summary>
     /// The connection name of the instance to be used in connection strings. For example, when connecting with Cloud SQL Proxy.
     /// </summary>
     public TerraformValue<string> ConnectionName
-        => AsReference("connection_name");
+        => CreateReference("connection_name");
 
     /// <summary>
     /// The instance-level dns name of the instance for PSC instances or public IP CAS instances.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The list of DNS names used by this instance. Different connection types for an instance may have different DNS names. DNS names can apply to an individual instance or a cluster of instances.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsNames
-        => AsReference("dns_names");
+        => CreateReference("dns_names");
 
     /// <summary>
     /// The first IPv4 address of any type assigned. This is to support accessing the first address in the list in a terraform output when the resource is configured with a count.
     /// </summary>
     public TerraformValue<string> FirstIpAddress
-        => AsReference("first_ip_address");
+        => CreateReference("first_ip_address");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// IPv4 address assigned. This is a workaround for an issue fixed in Terraform 0.12 but also provides a convenient way to access an IP of a specific type without performing filtering in a Terraform config.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The link to service attachment of PSC instance.
     /// </summary>
     public TerraformValue<string> PscServiceAttachmentLink
-        => AsReference("psc_service_attachment_link");
+        => CreateReference("psc_service_attachment_link");
 
     /// <summary>
     /// IPv4 address assigned. This is a workaround for an issue fixed in Terraform 0.12 but also provides a convenient way to access an IP of a specific type without performing filtering in a Terraform config.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-        => AsReference("public_ip_address");
+        => CreateReference("public_ip_address");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The server_ca_cert attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServerCaCert
-        => AsReference("server_ca_cert");
+        => CreateReference("server_ca_cert");
 
     /// <summary>
     /// The service account email address assigned to the instance.
     /// </summary>
     public TerraformValue<string> ServiceAccountEmailAddress
-        => AsReference("service_account_email_address");
+        => CreateReference("service_account_email_address");
 
     /// <summary>
     /// Clone block (nesting mode: list).

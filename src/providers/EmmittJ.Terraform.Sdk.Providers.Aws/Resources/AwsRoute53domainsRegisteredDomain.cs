@@ -18,7 +18,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AddressLine1
     {
-        get => GetArgument<TerraformValue<string>>("address_line_1") ?? AsReference("address_line_1");
+        get => GetArgument<TerraformValue<string>>("address_line_1") ?? CreateReference("address_line_1");
         set => SetArgument("address_line_1", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AddressLine2
     {
-        get => GetArgument<TerraformValue<string>>("address_line_2") ?? AsReference("address_line_2");
+        get => GetArgument<TerraformValue<string>>("address_line_2") ?? CreateReference("address_line_2");
         set => SetArgument("address_line_2", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> City
     {
-        get => GetArgument<TerraformValue<string>>("city") ?? AsReference("city");
+        get => GetArgument<TerraformValue<string>>("city") ?? CreateReference("city");
         set => SetArgument("city", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ContactType
     {
-        get => GetArgument<TerraformValue<string>>("contact_type") ?? AsReference("contact_type");
+        get => GetArgument<TerraformValue<string>>("contact_type") ?? CreateReference("contact_type");
         set => SetArgument("contact_type", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? CreateReference("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? CreateReference("email");
         set => SetArgument("email", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> ExtraParams
     {
-        get => GetArgument<TerraformMap<string>>("extra_params") ?? AsReference("extra_params");
+        get => GetArgument<TerraformMap<string>>("extra_params") ?? CreateReference("extra_params");
         set => SetArgument("extra_params", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Fax
     {
-        get => GetArgument<TerraformValue<string>>("fax") ?? AsReference("fax");
+        get => GetArgument<TerraformValue<string>>("fax") ?? CreateReference("fax");
         set => SetArgument("fax", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> FirstName
     {
-        get => GetArgument<TerraformValue<string>>("first_name") ?? AsReference("first_name");
+        get => GetArgument<TerraformValue<string>>("first_name") ?? CreateReference("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LastName
     {
-        get => GetArgument<TerraformValue<string>>("last_name") ?? AsReference("last_name");
+        get => GetArgument<TerraformValue<string>>("last_name") ?? CreateReference("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OrganizationName
     {
-        get => GetArgument<TerraformValue<string>>("organization_name") ?? AsReference("organization_name");
+        get => GetArgument<TerraformValue<string>>("organization_name") ?? CreateReference("organization_name");
         set => SetArgument("organization_name", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number") ?? AsReference("phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number") ?? CreateReference("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ZipCode
     {
-        get => GetArgument<TerraformValue<string>>("zip_code") ?? AsReference("zip_code");
+        get => GetArgument<TerraformValue<string>>("zip_code") ?? CreateReference("zip_code");
         set => SetArgument("zip_code", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> AddressLine1
     {
-        get => GetArgument<TerraformValue<string>>("address_line_1") ?? AsReference("address_line_1");
+        get => GetArgument<TerraformValue<string>>("address_line_1") ?? CreateReference("address_line_1");
         set => SetArgument("address_line_1", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> AddressLine2
     {
-        get => GetArgument<TerraformValue<string>>("address_line_2") ?? AsReference("address_line_2");
+        get => GetArgument<TerraformValue<string>>("address_line_2") ?? CreateReference("address_line_2");
         set => SetArgument("address_line_2", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> City
     {
-        get => GetArgument<TerraformValue<string>>("city") ?? AsReference("city");
+        get => GetArgument<TerraformValue<string>>("city") ?? CreateReference("city");
         set => SetArgument("city", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> ContactType
     {
-        get => GetArgument<TerraformValue<string>>("contact_type") ?? AsReference("contact_type");
+        get => GetArgument<TerraformValue<string>>("contact_type") ?? CreateReference("contact_type");
         set => SetArgument("contact_type", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? CreateReference("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? CreateReference("email");
         set => SetArgument("email", value);
     }
 
@@ -212,7 +212,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformMap<string> ExtraParams
     {
-        get => GetArgument<TerraformMap<string>>("extra_params") ?? AsReference("extra_params");
+        get => GetArgument<TerraformMap<string>>("extra_params") ?? CreateReference("extra_params");
         set => SetArgument("extra_params", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> Fax
     {
-        get => GetArgument<TerraformValue<string>>("fax") ?? AsReference("fax");
+        get => GetArgument<TerraformValue<string>>("fax") ?? CreateReference("fax");
         set => SetArgument("fax", value);
     }
 
@@ -230,7 +230,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> FirstName
     {
-        get => GetArgument<TerraformValue<string>>("first_name") ?? AsReference("first_name");
+        get => GetArgument<TerraformValue<string>>("first_name") ?? CreateReference("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -239,7 +239,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> LastName
     {
-        get => GetArgument<TerraformValue<string>>("last_name") ?? AsReference("last_name");
+        get => GetArgument<TerraformValue<string>>("last_name") ?? CreateReference("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -248,7 +248,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> OrganizationName
     {
-        get => GetArgument<TerraformValue<string>>("organization_name") ?? AsReference("organization_name");
+        get => GetArgument<TerraformValue<string>>("organization_name") ?? CreateReference("organization_name");
         set => SetArgument("organization_name", value);
     }
 
@@ -257,7 +257,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number") ?? AsReference("phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number") ?? CreateReference("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -266,7 +266,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -275,7 +275,7 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> ZipCode
     {
-        get => GetArgument<TerraformValue<string>>("zip_code") ?? AsReference("zip_code");
+        get => GetArgument<TerraformValue<string>>("zip_code") ?? CreateReference("zip_code");
         set => SetArgument("zip_code", value);
     }
 
@@ -331,7 +331,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> AddressLine1
     {
-        get => GetArgument<TerraformValue<string>>("address_line_1") ?? AsReference("address_line_1");
+        get => GetArgument<TerraformValue<string>>("address_line_1") ?? CreateReference("address_line_1");
         set => SetArgument("address_line_1", value);
     }
 
@@ -340,7 +340,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> AddressLine2
     {
-        get => GetArgument<TerraformValue<string>>("address_line_2") ?? AsReference("address_line_2");
+        get => GetArgument<TerraformValue<string>>("address_line_2") ?? CreateReference("address_line_2");
         set => SetArgument("address_line_2", value);
     }
 
@@ -349,7 +349,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> City
     {
-        get => GetArgument<TerraformValue<string>>("city") ?? AsReference("city");
+        get => GetArgument<TerraformValue<string>>("city") ?? CreateReference("city");
         set => SetArgument("city", value);
     }
 
@@ -358,7 +358,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> ContactType
     {
-        get => GetArgument<TerraformValue<string>>("contact_type") ?? AsReference("contact_type");
+        get => GetArgument<TerraformValue<string>>("contact_type") ?? CreateReference("contact_type");
         set => SetArgument("contact_type", value);
     }
 
@@ -367,7 +367,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? CreateReference("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -376,7 +376,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? CreateReference("email");
         set => SetArgument("email", value);
     }
 
@@ -385,7 +385,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformMap<string> ExtraParams
     {
-        get => GetArgument<TerraformMap<string>>("extra_params") ?? AsReference("extra_params");
+        get => GetArgument<TerraformMap<string>>("extra_params") ?? CreateReference("extra_params");
         set => SetArgument("extra_params", value);
     }
 
@@ -394,7 +394,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> Fax
     {
-        get => GetArgument<TerraformValue<string>>("fax") ?? AsReference("fax");
+        get => GetArgument<TerraformValue<string>>("fax") ?? CreateReference("fax");
         set => SetArgument("fax", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> FirstName
     {
-        get => GetArgument<TerraformValue<string>>("first_name") ?? AsReference("first_name");
+        get => GetArgument<TerraformValue<string>>("first_name") ?? CreateReference("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -412,7 +412,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> LastName
     {
-        get => GetArgument<TerraformValue<string>>("last_name") ?? AsReference("last_name");
+        get => GetArgument<TerraformValue<string>>("last_name") ?? CreateReference("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -421,7 +421,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> OrganizationName
     {
-        get => GetArgument<TerraformValue<string>>("organization_name") ?? AsReference("organization_name");
+        get => GetArgument<TerraformValue<string>>("organization_name") ?? CreateReference("organization_name");
         set => SetArgument("organization_name", value);
     }
 
@@ -430,7 +430,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number") ?? AsReference("phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number") ?? CreateReference("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -439,7 +439,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -448,7 +448,7 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// </summary>
     public TerraformValue<string> ZipCode
     {
-        get => GetArgument<TerraformValue<string>>("zip_code") ?? AsReference("zip_code");
+        get => GetArgument<TerraformValue<string>>("zip_code") ?? CreateReference("zip_code");
         set => SetArgument("zip_code", value);
     }
 
@@ -471,7 +471,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AddressLine1
     {
-        get => GetArgument<TerraformValue<string>>("address_line_1") ?? AsReference("address_line_1");
+        get => GetArgument<TerraformValue<string>>("address_line_1") ?? CreateReference("address_line_1");
         set => SetArgument("address_line_1", value);
     }
 
@@ -480,7 +480,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AddressLine2
     {
-        get => GetArgument<TerraformValue<string>>("address_line_2") ?? AsReference("address_line_2");
+        get => GetArgument<TerraformValue<string>>("address_line_2") ?? CreateReference("address_line_2");
         set => SetArgument("address_line_2", value);
     }
 
@@ -489,7 +489,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> City
     {
-        get => GetArgument<TerraformValue<string>>("city") ?? AsReference("city");
+        get => GetArgument<TerraformValue<string>>("city") ?? CreateReference("city");
         set => SetArgument("city", value);
     }
 
@@ -498,7 +498,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ContactType
     {
-        get => GetArgument<TerraformValue<string>>("contact_type") ?? AsReference("contact_type");
+        get => GetArgument<TerraformValue<string>>("contact_type") ?? CreateReference("contact_type");
         set => SetArgument("contact_type", value);
     }
 
@@ -507,7 +507,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? CreateReference("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -516,7 +516,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? CreateReference("email");
         set => SetArgument("email", value);
     }
 
@@ -525,7 +525,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> ExtraParams
     {
-        get => GetArgument<TerraformMap<string>>("extra_params") ?? AsReference("extra_params");
+        get => GetArgument<TerraformMap<string>>("extra_params") ?? CreateReference("extra_params");
         set => SetArgument("extra_params", value);
     }
 
@@ -534,7 +534,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Fax
     {
-        get => GetArgument<TerraformValue<string>>("fax") ?? AsReference("fax");
+        get => GetArgument<TerraformValue<string>>("fax") ?? CreateReference("fax");
         set => SetArgument("fax", value);
     }
 
@@ -543,7 +543,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> FirstName
     {
-        get => GetArgument<TerraformValue<string>>("first_name") ?? AsReference("first_name");
+        get => GetArgument<TerraformValue<string>>("first_name") ?? CreateReference("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -552,7 +552,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LastName
     {
-        get => GetArgument<TerraformValue<string>>("last_name") ?? AsReference("last_name");
+        get => GetArgument<TerraformValue<string>>("last_name") ?? CreateReference("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -561,7 +561,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OrganizationName
     {
-        get => GetArgument<TerraformValue<string>>("organization_name") ?? AsReference("organization_name");
+        get => GetArgument<TerraformValue<string>>("organization_name") ?? CreateReference("organization_name");
         set => SetArgument("organization_name", value);
     }
 
@@ -570,7 +570,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number") ?? AsReference("phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number") ?? CreateReference("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -579,7 +579,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -588,7 +588,7 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ZipCode
     {
-        get => GetArgument<TerraformValue<string>>("zip_code") ?? AsReference("zip_code");
+        get => GetArgument<TerraformValue<string>>("zip_code") ?? CreateReference("zip_code");
         set => SetArgument("zip_code", value);
     }
 
@@ -675,7 +675,7 @@ public partial class AwsRoute53domainsRegisteredDomain(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -702,7 +702,7 @@ public partial class AwsRoute53domainsRegisteredDomain(string name) : TerraformR
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -728,61 +728,61 @@ public partial class AwsRoute53domainsRegisteredDomain(string name) : TerraformR
     /// The abuse_contact_email attribute.
     /// </summary>
     public TerraformValue<string> AbuseContactEmail
-        => AsReference("abuse_contact_email");
+        => CreateReference("abuse_contact_email");
 
     /// <summary>
     /// The abuse_contact_phone attribute.
     /// </summary>
     public TerraformValue<string> AbuseContactPhone
-        => AsReference("abuse_contact_phone");
+        => CreateReference("abuse_contact_phone");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-        => AsReference("expiration_date");
+        => CreateReference("expiration_date");
 
     /// <summary>
     /// The registrar_name attribute.
     /// </summary>
     public TerraformValue<string> RegistrarName
-        => AsReference("registrar_name");
+        => CreateReference("registrar_name");
 
     /// <summary>
     /// The registrar_url attribute.
     /// </summary>
     public TerraformValue<string> RegistrarUrl
-        => AsReference("registrar_url");
+        => CreateReference("registrar_url");
 
     /// <summary>
     /// The reseller attribute.
     /// </summary>
     public TerraformValue<string> Reseller
-        => AsReference("reseller");
+        => CreateReference("reseller");
 
     /// <summary>
     /// The status_list attribute.
     /// </summary>
     public TerraformList<string> StatusList
-        => AsReference("status_list");
+        => CreateReference("status_list");
 
     /// <summary>
     /// The updated_date attribute.
     /// </summary>
     public TerraformValue<string> UpdatedDate
-        => AsReference("updated_date");
+        => CreateReference("updated_date");
 
     /// <summary>
     /// The whois_server attribute.
     /// </summary>
     public TerraformValue<string> WhoisServer
-        => AsReference("whois_server");
+        => CreateReference("whois_server");
 
     /// <summary>
     /// AdminContact block (nesting mode: list).

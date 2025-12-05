@@ -23,7 +23,7 @@ public partial class AwsOrganizationsPoliciesForTargetDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,6 +41,6 @@ public partial class AwsOrganizationsPoliciesForTargetDataSource(string name) : 
     /// The ids attribute.
     /// </summary>
     public TerraformList<string> Ids
-        => AsReference("ids");
+        => CreateReference("ids");
 
 }

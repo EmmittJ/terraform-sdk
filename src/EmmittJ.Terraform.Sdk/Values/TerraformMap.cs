@@ -55,6 +55,31 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     }
 
     /// <summary>
+    /// Copy constructor for creating a copy of an existing map.
+    /// Used by <see cref="WithLineage"/> to create copies with lineage attached.
+    /// </summary>
+    /// <param name="other">The map to copy.</param>
+    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
+    protected TerraformMap(TerraformMap<T> other, bool isCopy)
+        : base()
+    {
+        _ = isCopy; // Marker parameter for disambiguation
+        _elements = new Dictionary<string, TerraformValue<T>>(other._elements);
+    }
+
+    /// <summary>
+    /// Creates a copy of this map with the specified lineage attached.
+    /// </summary>
+    /// <param name="lineage">The lineage to attach to the copy.</param>
+    /// <returns>A new <see cref="TerraformMap{T}"/> with the specified lineage.</returns>
+    public override TerraformValue<IDictionary<string, T>> WithLineage(TerraformLineage? lineage)
+    {
+        var copy = new TerraformMap<T>(this, isCopy: true);
+        copy.Lineage = lineage;
+        return copy;
+    }
+
+    /// <summary>
     /// Override resolution to handle nested TerraformValue&lt;T&gt; values.
     /// Maps resolve to a single MapExpression node.
     /// </summary>
@@ -80,14 +105,27 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     // Indexer for collection initializer syntax { ["key"] = value }
     public TerraformValue<T> this[string key]
     {
-        get => _elements.TryGetValue(key, out var value) ? value : throw new KeyNotFoundException($"Key '{key}' not found in map");
+        get
+        {
+            if (!_elements.TryGetValue(key, out var value))
+            {
+                throw new KeyNotFoundException($"Key '{key}' not found in map");
+            }
+
+            // If this map has lineage, extend it and attach to the value
+            if (Lineage is not null)
+            {
+                return value.WithLineage(Lineage.WithMember(key));
+            }
+
+            return value;
+        }
         set => SetArgument(key, value);
     }
 
     /// <summary>
     /// Sets an argument value with proper handling of ITerraformValue types to avoid double-wrapping.
     /// Used by indexer and derived classes like TerraformBlock.
-    /// Automatically sets Parent on nested blocks that implement ITerraformHasParent.
     /// </summary>
     /// <param name="key">The key name.</param>
     /// <param name="value">The value to store (TerraformValue&lt;T&gt;, TerraformExpression, TerraformList&lt;T&gt;, etc.).</param>
@@ -99,25 +137,18 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
             return;
         }
 
-        // Auto-set parent for nested blocks/lists that support parent tracking
-        // Skip TerraformReference as it's immutable and already has its parent set at construction
-        if (value is ITerraformHasParent { ParentBlock: null } childBlock && this is ITerraformReferenceable referenceableParent)
-        {
-            childBlock.ParentBlock = referenceableParent;
-            childBlock.ParentAttributeName = key;
-        }
-
         _elements[key] = TerraformValue<T>.ConvertFrom(value);
     }
 
     /// <summary>
     /// Called by source-generated property getters to retrieve stored values.
     /// Returns null if the property was never set.
-    /// Uses the base TerraformMap&lt;object&gt; indexer to retrieve values from the _elements dictionary.
+    /// Returns a copy with lineage attached if this map has lineage.
+    /// For blocks, sets lineage directly (blocks resolve their own content, lineage is for references).
     /// </summary>
     /// <typeparam name="TValue">The property type.</typeparam>
     /// <param name="terraformName">The Terraform property name.</param>
-    /// <returns>The stored value or null.</returns>
+    /// <returns>A copy of the stored value with lineage attached, or null.</returns>
     public TValue? GetArgument<TValue>(string terraformName)
     {
         if (!_elements.TryGetValue(terraformName, out var value))
@@ -126,12 +157,33 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
         }
 
         // Check if this is a lazy value with preserved identity
+        TValue? result;
         if (value is TerraformLazyValue<T> lazy && lazy.Original is TValue unwrapped)
         {
-            return unwrapped;
+            result = unwrapped;
+        }
+        else
+        {
+            result = value is TValue directValue ? directValue : default;
         }
 
-        return value is TValue directValue ? directValue : default;
+        // Attach lineage if this map has lineage
+        if (result is ITerraformValue terraformValue && Lineage is not null)
+        {
+            var lineageForMember = Lineage.WithMember(terraformName);
+
+            // For blocks, set lineage directly (blocks resolve their own content, lineage is for reference building)
+            // For other values, return a COPY with lineage to preserve original for source rendering
+            if (result is TerraformBlock block)
+            {
+                block.Lineage = lineageForMember;
+                return result;
+            }
+
+            return (TValue)terraformValue.WithLineage(lineageForMember);
+        }
+
+        return result;
     }
 
     /// <summary>
@@ -215,8 +267,36 @@ internal sealed class TerraformLazyMap<T> : TerraformMap<T>
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
+    /// <summary>
+    /// Copy constructor for creating a copy with lineage.
+    /// </summary>
+    /// <param name="other">The map to copy.</param>
+    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
+    private TerraformLazyMap(TerraformLazyMap<T> other, bool isCopy)
+        : base()
+    {
+        _ = isCopy; // Marker parameter for disambiguation
+        _producer = other._producer;
+    }
+
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
+        // Check lineage first - if present, resolve to reference
+        if (Lineage is not null)
+        {
+            return [Lineage.BuildExpression()];
+        }
+
         return _producer(context);
+    }
+
+    /// <summary>
+    /// Creates a copy of this lazy map with the specified lineage attached.
+    /// </summary>
+    public override TerraformValue<IDictionary<string, T>> WithLineage(TerraformLineage? lineage)
+    {
+        var copy = new TerraformLazyMap<T>(this, isCopy: true);
+        copy.Lineage = lineage;
+        return copy;
     }
 }

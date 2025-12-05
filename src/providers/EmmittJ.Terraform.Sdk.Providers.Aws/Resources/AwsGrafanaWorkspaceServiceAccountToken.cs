@@ -23,7 +23,7 @@ public partial class AwsGrafanaWorkspaceServiceAccountToken(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -61,30 +61,30 @@ public partial class AwsGrafanaWorkspaceServiceAccountToken(string name) : Terra
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The expires_at attribute.
     /// </summary>
     public TerraformValue<string> ExpiresAt
-        => AsReference("expires_at");
+        => CreateReference("expires_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     public TerraformValue<string> Key
-        => AsReference("key");
+        => CreateReference("key");
 
     /// <summary>
     /// The service_account_token_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceAccountTokenId
-        => AsReference("service_account_token_id");
+        => CreateReference("service_account_token_id");
 
 }

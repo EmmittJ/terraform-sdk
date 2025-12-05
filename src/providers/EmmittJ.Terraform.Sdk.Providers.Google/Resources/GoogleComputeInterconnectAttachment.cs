@@ -68,7 +68,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Bandwidth
     {
-        get => GetArgument<TerraformValue<string>>("bandwidth") ?? AsReference("bandwidth");
+        get => GetArgument<TerraformValue<string>>("bandwidth") ?? CreateReference("bandwidth");
         set => SetArgument("bandwidth", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> EdgeAvailabilityDomain
     {
-        get => GetArgument<TerraformValue<string>>("edge_availability_domain") ?? AsReference("edge_availability_domain");
+        get => GetArgument<TerraformValue<string>>("edge_availability_domain") ?? CreateReference("edge_availability_domain");
         set => SetArgument("edge_availability_domain", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Mtu
     {
-        get => GetArgument<TerraformValue<string>>("mtu") ?? AsReference("mtu");
+        get => GetArgument<TerraformValue<string>>("mtu") ?? CreateReference("mtu");
         set => SetArgument("mtu", value);
     }
 
@@ -216,7 +216,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -225,7 +225,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -250,7 +250,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> StackType
     {
-        get => GetArgument<TerraformValue<string>>("stack_type") ?? AsReference("stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type") ?? CreateReference("stack_type");
         set => SetArgument("stack_type", value);
     }
 
@@ -274,7 +274,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -284,7 +284,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<double> VlanTag8021q
     {
-        get => GetArgument<TerraformValue<double>>("vlan_tag8021q") ?? AsReference("vlan_tag8021q");
+        get => GetArgument<TerraformValue<double>>("vlan_tag8021q") ?? CreateReference("vlan_tag8021q");
         set => SetArgument("vlan_tag8021q", value);
     }
 
@@ -292,54 +292,54 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// URL of the AttachmentGroup that includes this Attachment.
     /// </summary>
     public TerraformValue<string> AttachmentGroup
-        => AsReference("attachment_group");
+        => CreateReference("attachment_group");
 
     /// <summary>
     /// IPv4 address + prefix length to be configured on Cloud Router
     /// Interface for this interconnect attachment.
     /// </summary>
     public TerraformValue<string> CloudRouterIpAddress
-        => AsReference("cloud_router_ip_address");
+        => CreateReference("cloud_router_ip_address");
 
     /// <summary>
     /// IPv6 address + prefix length to be configured on Cloud Router
     /// Interface for this interconnect attachment.
     /// </summary>
     public TerraformValue<string> CloudRouterIpv6Address
-        => AsReference("cloud_router_ipv6_address");
+        => CreateReference("cloud_router_ipv6_address");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// IPv4 address + prefix length to be configured on the customer
     /// router subinterface for this interconnect attachment.
     /// </summary>
     public TerraformValue<string> CustomerRouterIpAddress
-        => AsReference("customer_router_ip_address");
+        => CreateReference("customer_router_ip_address");
 
     /// <summary>
     /// IPv6 address + prefix length to be configured on the customer
     /// router subinterface for this interconnect attachment.
     /// </summary>
     public TerraformValue<string> CustomerRouterIpv6Address
-        => AsReference("customer_router_ipv6_address");
+        => CreateReference("customer_router_ipv6_address");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Google reference ID, to be used when raising support tickets with
     /// Google or otherwise to debug backend connectivity issues.
     /// </summary>
     public TerraformValue<string> GoogleReferenceId
-        => AsReference("google_reference_id");
+        => CreateReference("google_reference_id");
 
     /// <summary>
     /// A fingerprint for the labels being applied to this Interconnect, which is essentially a hash
@@ -349,7 +349,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// otherwise the request will fail with error 412 conditionNotMet.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// [Output only for type PARTNER. Not present for DEDICATED]. The opaque
@@ -357,7 +357,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// a selected partner. Of the form &amp;quot;XXXXX/region/domain&amp;quot;
     /// </summary>
     public TerraformValue<string> PairingKey
-        => AsReference("pairing_key");
+        => CreateReference("pairing_key");
 
     /// <summary>
     /// [Output only for type PARTNER. Not present for DEDICATED]. Optional
@@ -365,33 +365,33 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// they configured BGP on behalf of the customer.
     /// </summary>
     public TerraformValue<string> PartnerAsn
-        => AsReference("partner_asn");
+        => CreateReference("partner_asn");
 
     /// <summary>
     /// Information specific to an InterconnectAttachment. This property
     /// is populated if the interconnect that this is attached to is of type DEDICATED.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateInterconnectInfo
-        => AsReference("private_interconnect_info");
+        => CreateReference("private_interconnect_info");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// [Output Only] The current state of this attachment&#39;s functionality.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -181,7 +181,7 @@ public class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock : Terr
     /// If true, restrict direct table access(read api/tabledata.list) on linked table.
     /// </summary>
     public TerraformValue<bool> RestrictDirectTableAccess
-        => AsReference("restrict_direct_table_access");
+        => CreateReference("restrict_direct_table_access");
 
     /// <summary>
     /// If true, restrict export of query result derived from restricted linked dataset table.
@@ -293,7 +293,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> DiscoveryType
     {
-        get => GetArgument<TerraformValue<string>>("discovery_type") ?? AsReference("discovery_type");
+        get => GetArgument<TerraformValue<string>>("discovery_type") ?? CreateReference("discovery_type");
         set => SetArgument("discovery_type", value);
     }
 
@@ -330,7 +330,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -377,7 +377,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -394,19 +394,19 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// Commercial info contains the information about the commercial data products associated with the listing.
     /// </summary>
     public TerraformList<TerraformMap<object>> CommercialInfo
-        => AsReference("commercial_info");
+        => CreateReference("commercial_info");
 
     /// <summary>
     /// The resource name of the listing. e.g. &amp;quot;projects/myproject/locations/US/dataExchanges/123/listings/456&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Current state of the listing.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// BigqueryDataset block (nesting mode: list).

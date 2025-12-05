@@ -13,7 +13,7 @@ public partial class AwsGlobalacceleratorCustomRoutingAcceleratorDataSource(stri
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsGlobalacceleratorCustomRoutingAcceleratorDataSource(stri
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsGlobalacceleratorCustomRoutingAcceleratorDataSource(stri
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsGlobalacceleratorCustomRoutingAcceleratorDataSource(stri
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -48,36 +48,36 @@ public partial class AwsGlobalacceleratorCustomRoutingAcceleratorDataSource(stri
     /// The attributes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attributes
-        => AsReference("attributes");
+        => CreateReference("attributes");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
     public TerraformValue<string> IpAddressType
-        => AsReference("ip_address_type");
+        => CreateReference("ip_address_type");
 
     /// <summary>
     /// The ip_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpSets
-        => AsReference("ip_sets");
+        => CreateReference("ip_sets");
 
 }

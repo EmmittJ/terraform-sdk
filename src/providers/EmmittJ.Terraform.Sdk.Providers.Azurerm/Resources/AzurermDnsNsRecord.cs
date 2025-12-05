@@ -63,7 +63,7 @@ public partial class AzurermDnsNsRecord(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermDnsNsRecord(string name) : TerraformResource("azurer
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -124,7 +124,7 @@ public partial class AzurermVirtualHub(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -198,19 +198,19 @@ public partial class AzurermVirtualHub(string name) : TerraformResource("azurerm
     /// The default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultRouteTableId
-        => AsReference("default_route_table_id");
+        => CreateReference("default_route_table_id");
 
     /// <summary>
     /// The virtual_router_asn attribute.
     /// </summary>
     public TerraformValue<double> VirtualRouterAsn
-        => AsReference("virtual_router_asn");
+        => CreateReference("virtual_router_asn");
 
     /// <summary>
     /// The virtual_router_ips attribute.
     /// </summary>
     public TerraformList<string> VirtualRouterIps
-        => AsReference("virtual_router_ips");
+        => CreateReference("virtual_router_ips");
 
     /// <summary>
     /// Route block (nesting mode: set).

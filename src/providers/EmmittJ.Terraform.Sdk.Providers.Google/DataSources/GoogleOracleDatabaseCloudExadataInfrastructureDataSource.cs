@@ -26,7 +26,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource(st
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -53,38 +53,38 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource(st
     /// The date and time that the Exadata Infrastructure was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Entitlement ID of the private offer against which this infrastructure
     /// resource is provisioned.
     /// </summary>
     public TerraformValue<string> EntitlementId
-        => AsReference("entitlement_id");
+        => CreateReference("entitlement_id");
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted.
     /// </summary>
     public TerraformValue<string> GcpOracleZone
-        => AsReference("gcp_oracle_zone");
+        => CreateReference("gcp_oracle_zone");
 
     /// <summary>
     /// Labels or tags associated with the resource. 
@@ -93,26 +93,26 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource(st
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Identifier. The name of the Exadata Infrastructure resource with the following format:
     /// projects/{project}/locations/{region}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Various properties of Exadata Infrastructure.
     /// </summary>
     public TerraformList<TerraformMap<object>> Properties
-        => AsReference("properties");
+        => CreateReference("properties");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
 }

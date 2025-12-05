@@ -22,7 +22,7 @@ public partial class AwsWorkspacesBundleDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsWorkspacesBundleDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -57,24 +57,24 @@ public partial class AwsWorkspacesBundleDataSource(string name) : TerraformDataS
     /// The compute_type attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ComputeType
-        => AsReference("compute_type");
+        => CreateReference("compute_type");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The root_storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RootStorage
-        => AsReference("root_storage");
+        => CreateReference("root_storage");
 
     /// <summary>
     /// The user_storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserStorage
-        => AsReference("user_storage");
+        => CreateReference("user_storage");
 
 }

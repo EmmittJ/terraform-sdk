@@ -63,7 +63,7 @@ public partial class AzurermTrustedSigningAccount(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermTrustedSigningAccount(string name) : TerraformResour
     /// The account_uri attribute.
     /// </summary>
     public TerraformValue<string> AccountUri
-        => AsReference("account_uri");
+        => CreateReference("account_uri");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

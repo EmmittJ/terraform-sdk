@@ -23,7 +23,7 @@ public partial class GoogleDataplexDataQualityRulesDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,6 +49,6 @@ public partial class GoogleDataplexDataQualityRulesDataSource(string name) : Ter
     /// The rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Rules
-        => AsReference("rules");
+        => CreateReference("rules");
 
 }

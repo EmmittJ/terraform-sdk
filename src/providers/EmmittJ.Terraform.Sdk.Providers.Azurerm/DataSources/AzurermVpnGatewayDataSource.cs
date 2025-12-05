@@ -36,7 +36,7 @@ public partial class AzurermVpnGatewayDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermVpnGatewayDataSource(string name) : TerraformDataSou
     /// The bgp_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BgpSettings
-        => AsReference("bgp_settings");
+        => CreateReference("bgp_settings");
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-        => AsReference("ip_configuration");
+        => CreateReference("ip_configuration");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The scale_unit attribute.
     /// </summary>
     public TerraformValue<double> ScaleUnit
-        => AsReference("scale_unit");
+        => CreateReference("scale_unit");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualHubId
-        => AsReference("virtual_hub_id");
+        => CreateReference("virtual_hub_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

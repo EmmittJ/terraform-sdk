@@ -126,7 +126,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     /// </summary>
     public TerraformValue<bool> AutoReplicateNewDisks
     {
-        get => GetArgument<TerraformValue<bool>>("auto_replicate_new_disks") ?? AsReference("auto_replicate_new_disks");
+        get => GetArgument<TerraformValue<bool>>("auto_replicate_new_disks") ?? CreateReference("auto_replicate_new_disks");
         set => SetArgument("auto_replicate_new_disks", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -261,19 +261,19 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// PitPolicy block (nesting mode: list).

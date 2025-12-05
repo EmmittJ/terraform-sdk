@@ -36,7 +36,7 @@ public partial class AzurermHealthcareMedtechServiceDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermHealthcareMedtechServiceDataSource(string name) : Te
     /// The device_mapping_json attribute.
     /// </summary>
     public TerraformValue<string> DeviceMappingJson
-        => AsReference("device_mapping_json");
+        => CreateReference("device_mapping_json");
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
     public TerraformValue<string> EventhubConsumerGroupName
-        => AsReference("eventhub_consumer_group_name");
+        => CreateReference("eventhub_consumer_group_name");
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     public TerraformValue<string> EventhubName
-        => AsReference("eventhub_name");
+        => CreateReference("eventhub_name");
 
     /// <summary>
     /// The eventhub_namespace_name attribute.
     /// </summary>
     public TerraformValue<string> EventhubNamespaceName
-        => AsReference("eventhub_namespace_name");
+        => CreateReference("eventhub_namespace_name");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

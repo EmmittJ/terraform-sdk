@@ -79,7 +79,7 @@ public partial class AwsS3controlMultiRegionAccessPointPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsS3controlMultiRegionAccessPointPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsS3controlMultiRegionAccessPointPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,13 +105,13 @@ public partial class AwsS3controlMultiRegionAccessPointPolicy(string name) : Ter
     /// The established attribute.
     /// </summary>
     public TerraformValue<string> Established
-        => AsReference("established");
+        => CreateReference("established");
 
     /// <summary>
     /// The proposed attribute.
     /// </summary>
     public TerraformValue<string> Proposed
-        => AsReference("proposed");
+        => CreateReference("proposed");
 
     /// <summary>
     /// Details block (nesting mode: list).

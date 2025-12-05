@@ -36,7 +36,7 @@ public partial class AwsLbTargetGroupDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsLbTargetGroupDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsLbTargetGroupDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> LoadBalancingAnomalyMitigation
     {
-        get => GetArgument<TerraformValue<string>>("load_balancing_anomaly_mitigation") ?? AsReference("load_balancing_anomaly_mitigation");
+        get => GetArgument<TerraformValue<string>>("load_balancing_anomaly_mitigation") ?? CreateReference("load_balancing_anomaly_mitigation");
         set => SetArgument("load_balancing_anomaly_mitigation", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsLbTargetGroupDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsLbTargetGroupDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsLbTargetGroupDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -89,103 +89,103 @@ public partial class AwsLbTargetGroupDataSource(string name) : TerraformDataSour
     /// The arn_suffix attribute.
     /// </summary>
     public TerraformValue<string> ArnSuffix
-        => AsReference("arn_suffix");
+        => CreateReference("arn_suffix");
 
     /// <summary>
     /// The connection_termination attribute.
     /// </summary>
     public TerraformValue<bool> ConnectionTermination
-        => AsReference("connection_termination");
+        => CreateReference("connection_termination");
 
     /// <summary>
     /// The deregistration_delay attribute.
     /// </summary>
     public TerraformValue<string> DeregistrationDelay
-        => AsReference("deregistration_delay");
+        => CreateReference("deregistration_delay");
 
     /// <summary>
     /// The health_check attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HealthCheck
-        => AsReference("health_check");
+        => CreateReference("health_check");
 
     /// <summary>
     /// The lambda_multi_value_headers_enabled attribute.
     /// </summary>
     public TerraformValue<bool> LambdaMultiValueHeadersEnabled
-        => AsReference("lambda_multi_value_headers_enabled");
+        => CreateReference("lambda_multi_value_headers_enabled");
 
     /// <summary>
     /// The load_balancer_arns attribute.
     /// </summary>
     public TerraformSet<string> LoadBalancerArns
-        => AsReference("load_balancer_arns");
+        => CreateReference("load_balancer_arns");
 
     /// <summary>
     /// The load_balancing_algorithm_type attribute.
     /// </summary>
     public TerraformValue<string> LoadBalancingAlgorithmType
-        => AsReference("load_balancing_algorithm_type");
+        => CreateReference("load_balancing_algorithm_type");
 
     /// <summary>
     /// The load_balancing_cross_zone_enabled attribute.
     /// </summary>
     public TerraformValue<string> LoadBalancingCrossZoneEnabled
-        => AsReference("load_balancing_cross_zone_enabled");
+        => CreateReference("load_balancing_cross_zone_enabled");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The preserve_client_ip attribute.
     /// </summary>
     public TerraformValue<string> PreserveClientIp
-        => AsReference("preserve_client_ip");
+        => CreateReference("preserve_client_ip");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-        => AsReference("protocol");
+        => CreateReference("protocol");
 
     /// <summary>
     /// The protocol_version attribute.
     /// </summary>
     public TerraformValue<string> ProtocolVersion
-        => AsReference("protocol_version");
+        => CreateReference("protocol_version");
 
     /// <summary>
     /// The proxy_protocol_v2 attribute.
     /// </summary>
     public TerraformValue<bool> ProxyProtocolV2
-        => AsReference("proxy_protocol_v2");
+        => CreateReference("proxy_protocol_v2");
 
     /// <summary>
     /// The slow_start attribute.
     /// </summary>
     public TerraformValue<double> SlowStart
-        => AsReference("slow_start");
+        => CreateReference("slow_start");
 
     /// <summary>
     /// The stickiness attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Stickiness
-        => AsReference("stickiness");
+        => CreateReference("stickiness");
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
     public TerraformValue<string> TargetType
-        => AsReference("target_type");
+        => CreateReference("target_type");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

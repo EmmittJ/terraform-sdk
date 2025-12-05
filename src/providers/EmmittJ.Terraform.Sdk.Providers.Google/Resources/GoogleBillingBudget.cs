@@ -127,7 +127,7 @@ public class GoogleBillingBudgetAmountBlockSpecifiedAmountBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CurrencyCode
     {
-        get => GetArgument<TerraformValue<string>>("currency_code") ?? AsReference("currency_code");
+        get => GetArgument<TerraformValue<string>>("currency_code") ?? CreateReference("currency_code");
         set => SetArgument("currency_code", value);
     }
 
@@ -210,7 +210,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -249,7 +249,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> Services
     {
-        get => GetArgument<TerraformList<string>>("services") ?? AsReference("services");
+        get => GetArgument<TerraformList<string>>("services") ?? CreateReference("services");
         set => SetArgument("services", value);
     }
 
@@ -508,7 +508,7 @@ public partial class GoogleBillingBudget(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -528,7 +528,7 @@ public partial class GoogleBillingBudget(string name) : TerraformResource("googl
     /// billingAccounts/{billingAccountId}/budgets/{budgetId}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// AllUpdatesRule block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> InstanceIds
     {
-        get => GetArgument<TerraformList<string>>("instance_ids") ?? AsReference("instance_ids");
+        get => GetArgument<TerraformList<string>>("instance_ids") ?? CreateReference("instance_ids");
         set => SetArgument("instance_ids", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? CreateReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LifecycleAttribute
     {
-        get => GetArgument<TerraformValue<string>>("lifecycle") ?? AsReference("lifecycle");
+        get => GetArgument<TerraformValue<string>>("lifecycle") ?? CreateReference("lifecycle");
         set => SetArgument("lifecycle", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Platform
     {
-        get => GetArgument<TerraformValue<string>>("platform") ?? AsReference("platform");
+        get => GetArgument<TerraformValue<string>>("platform") ?? CreateReference("platform");
         set => SetArgument("platform", value);
     }
 
@@ -1092,7 +1092,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<string> FleetState
     {
-        get => GetArgument<TerraformValue<string>>("fleet_state") ?? AsReference("fleet_state");
+        get => GetArgument<TerraformValue<string>>("fleet_state") ?? CreateReference("fleet_state");
         set => SetArgument("fleet_state", value);
     }
 
@@ -1101,7 +1101,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<double> FulfilledCapacity
     {
-        get => GetArgument<TerraformValue<double>>("fulfilled_capacity") ?? AsReference("fulfilled_capacity");
+        get => GetArgument<TerraformValue<double>>("fulfilled_capacity") ?? CreateReference("fulfilled_capacity");
         set => SetArgument("fulfilled_capacity", value);
     }
 
@@ -1110,7 +1110,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<double> FulfilledOnDemandCapacity
     {
-        get => GetArgument<TerraformValue<double>>("fulfilled_on_demand_capacity") ?? AsReference("fulfilled_on_demand_capacity");
+        get => GetArgument<TerraformValue<double>>("fulfilled_on_demand_capacity") ?? CreateReference("fulfilled_on_demand_capacity");
         set => SetArgument("fulfilled_on_demand_capacity", value);
     }
 
@@ -1119,7 +1119,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1128,7 +1128,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1155,7 +1155,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1208,7 +1208,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// FleetInstanceSet block (nesting mode: list).

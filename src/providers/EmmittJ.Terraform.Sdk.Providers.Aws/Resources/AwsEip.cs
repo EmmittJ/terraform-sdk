@@ -81,7 +81,7 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// </summary>
     public TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain") ?? AsReference("domain");
+        get => GetArgument<TerraformValue<string>>("domain") ?? CreateReference("domain");
         set => SetArgument("domain", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// </summary>
     public TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance") ?? AsReference("instance");
+        get => GetArgument<TerraformValue<string>>("instance") ?? CreateReference("instance");
         set => SetArgument("instance", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// </summary>
     public TerraformValue<string> IpamPoolId
     {
-        get => GetArgument<TerraformValue<string>>("ipam_pool_id") ?? AsReference("ipam_pool_id");
+        get => GetArgument<TerraformValue<string>>("ipam_pool_id") ?? CreateReference("ipam_pool_id");
         set => SetArgument("ipam_pool_id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// </summary>
     public TerraformValue<string> NetworkBorderGroup
     {
-        get => GetArgument<TerraformValue<string>>("network_border_group") ?? AsReference("network_border_group");
+        get => GetArgument<TerraformValue<string>>("network_border_group") ?? CreateReference("network_border_group");
         set => SetArgument("network_border_group", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// </summary>
     public TerraformValue<string> NetworkInterface
     {
-        get => GetArgument<TerraformValue<string>>("network_interface") ?? AsReference("network_interface");
+        get => GetArgument<TerraformValue<string>>("network_interface") ?? CreateReference("network_interface");
         set => SetArgument("network_interface", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// </summary>
     public TerraformValue<string> PublicIpv4Pool
     {
-        get => GetArgument<TerraformValue<string>>("public_ipv4_pool") ?? AsReference("public_ipv4_pool");
+        get => GetArgument<TerraformValue<string>>("public_ipv4_pool") ?? CreateReference("public_ipv4_pool");
         set => SetArgument("public_ipv4_pool", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -170,61 +170,61 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// The allocation_id attribute.
     /// </summary>
     public TerraformValue<string> AllocationId
-        => AsReference("allocation_id");
+        => CreateReference("allocation_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// The carrier_ip attribute.
     /// </summary>
     public TerraformValue<string> CarrierIp
-        => AsReference("carrier_ip");
+        => CreateReference("carrier_ip");
 
     /// <summary>
     /// The customer_owned_ip attribute.
     /// </summary>
     public TerraformValue<string> CustomerOwnedIp
-        => AsReference("customer_owned_ip");
+        => CreateReference("customer_owned_ip");
 
     /// <summary>
     /// The private_dns attribute.
     /// </summary>
     public TerraformValue<string> PrivateDns
-        => AsReference("private_dns");
+        => CreateReference("private_dns");
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
     public TerraformValue<string> PrivateIp
-        => AsReference("private_ip");
+        => CreateReference("private_ip");
 
     /// <summary>
     /// The ptr_record attribute.
     /// </summary>
     public TerraformValue<string> PtrRecord
-        => AsReference("ptr_record");
+        => CreateReference("ptr_record");
 
     /// <summary>
     /// The public_dns attribute.
     /// </summary>
     public TerraformValue<string> PublicDns
-        => AsReference("public_dns");
+        => CreateReference("public_dns");
 
     /// <summary>
     /// The public_ip attribute.
     /// </summary>
     public TerraformValue<string> PublicIp
-        => AsReference("public_ip");
+        => CreateReference("public_ip");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

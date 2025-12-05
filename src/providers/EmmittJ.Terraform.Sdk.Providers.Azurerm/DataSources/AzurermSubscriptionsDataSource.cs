@@ -54,7 +54,7 @@ public partial class AzurermSubscriptionsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AzurermSubscriptionsDataSource(string name) : TerraformData
     /// The subscriptions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Subscriptions
-        => AsReference("subscriptions");
+        => CreateReference("subscriptions");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -37,7 +37,7 @@ public partial class AzurermSpatialAnchorsAccountDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,25 +65,25 @@ public partial class AzurermSpatialAnchorsAccountDataSource(string name) : Terra
     /// The account_domain attribute.
     /// </summary>
     public TerraformValue<string> AccountDomain
-        => AsReference("account_domain");
+        => CreateReference("account_domain");
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     public TerraformValue<string> AccountId
-        => AsReference("account_id");
+        => CreateReference("account_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -70,7 +70,7 @@ public partial class AwsEc2HostDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> HostId
     {
-        get => GetArgument<TerraformValue<string>>("host_id") ?? AsReference("host_id");
+        get => GetArgument<TerraformValue<string>>("host_id") ?? CreateReference("host_id");
         set => SetArgument("host_id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEc2HostDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsEc2HostDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsEc2HostDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -105,73 +105,73 @@ public partial class AwsEc2HostDataSource(string name) : TerraformDataSource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The asset_id attribute.
     /// </summary>
     public TerraformValue<string> AssetId
-        => AsReference("asset_id");
+        => CreateReference("asset_id");
 
     /// <summary>
     /// The auto_placement attribute.
     /// </summary>
     public TerraformValue<string> AutoPlacement
-        => AsReference("auto_placement");
+        => CreateReference("auto_placement");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The cores attribute.
     /// </summary>
     public TerraformValue<double> Cores
-        => AsReference("cores");
+        => CreateReference("cores");
 
     /// <summary>
     /// The host_recovery attribute.
     /// </summary>
     public TerraformValue<string> HostRecovery
-        => AsReference("host_recovery");
+        => CreateReference("host_recovery");
 
     /// <summary>
     /// The instance_family attribute.
     /// </summary>
     public TerraformValue<string> InstanceFamily
-        => AsReference("instance_family");
+        => CreateReference("instance_family");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-        => AsReference("instance_type");
+        => CreateReference("instance_type");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-        => AsReference("outpost_arn");
+        => CreateReference("outpost_arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The sockets attribute.
     /// </summary>
     public TerraformValue<double> Sockets
-        => AsReference("sockets");
+        => CreateReference("sockets");
 
     /// <summary>
     /// The total_vcpus attribute.
     /// </summary>
     public TerraformValue<double> TotalVcpus
-        => AsReference("total_vcpus");
+        => CreateReference("total_vcpus");
 
     /// <summary>
     /// Filter block (nesting mode: set).

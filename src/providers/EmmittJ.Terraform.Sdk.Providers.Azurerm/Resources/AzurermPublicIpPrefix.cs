@@ -72,7 +72,7 @@ public partial class AzurermPublicIpPrefix(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermPublicIpPrefix(string name) : TerraformResource("azu
     /// The ip_prefix attribute.
     /// </summary>
     public TerraformValue<string> IpPrefix
-        => AsReference("ip_prefix");
+        => CreateReference("ip_prefix");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

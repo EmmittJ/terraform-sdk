@@ -55,7 +55,7 @@ public partial class AwsLexv2modelsBotVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> BotVersion
     {
-        get => GetArgument<TerraformValue<string>>("bot_version") ?? AsReference("bot_version");
+        get => GetArgument<TerraformValue<string>>("bot_version") ?? CreateReference("bot_version");
         set => SetArgument("bot_version", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsLexv2modelsBotVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsLexv2modelsBotVersion(string name) : TerraformResource("
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

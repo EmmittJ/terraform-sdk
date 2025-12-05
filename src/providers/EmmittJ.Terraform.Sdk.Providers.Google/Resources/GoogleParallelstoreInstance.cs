@@ -118,7 +118,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -195,7 +195,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -216,25 +216,25 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// Contains a list of IPv4 addresses used for client side configuration.
     /// </summary>
     public TerraformList<string> AccessPoints
-        => AsReference("access_points");
+        => CreateReference("access_points");
 
     /// <summary>
     /// The time when the instance was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The version of DAOS software running in the instance.
     /// </summary>
     public TerraformValue<string> DaosVersion
-        => AsReference("daos_version");
+        => CreateReference("daos_version");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Immutable. Contains the id of the allocated IP address
@@ -243,14 +243,14 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// and contains the value currently used by the service.
     /// </summary>
     public TerraformValue<string> EffectiveReservedIpRange
-        => AsReference("effective_reserved_ip_range");
+        => CreateReference("effective_reserved_ip_range");
 
     /// <summary>
     /// Identifier. The resource name of the instance, in the format
     /// &#39;projects/{project}/locations/{location}/instances/{instance_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The instance state.
@@ -263,20 +263,20 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     ///   UPGRADING
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

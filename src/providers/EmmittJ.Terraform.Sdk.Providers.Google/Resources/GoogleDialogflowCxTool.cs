@@ -587,7 +587,7 @@ public partial class GoogleDialogflowCxTool(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -606,13 +606,13 @@ public partial class GoogleDialogflowCxTool(string name) : TerraformResource("go
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/tools/&amp;lt;Tool ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The tool type.
     /// </summary>
     public TerraformValue<string> ToolType
-        => AsReference("tool_type");
+        => CreateReference("tool_type");
 
     /// <summary>
     /// DataStoreSpec block (nesting mode: list).

@@ -96,7 +96,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double> AuthorizerResultTtlInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds") ?? AsReference("authorizer_result_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds") ?? CreateReference("authorizer_result_ttl_in_seconds");
         set => SetArgument("authorizer_result_ttl_in_seconds", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

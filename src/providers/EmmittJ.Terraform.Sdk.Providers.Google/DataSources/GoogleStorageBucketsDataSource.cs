@@ -13,7 +13,7 @@ public partial class GoogleStorageBucketsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -39,6 +39,6 @@ public partial class GoogleStorageBucketsDataSource(string name) : TerraformData
     /// The buckets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Buckets
-        => AsReference("buckets");
+        => CreateReference("buckets");
 
 }

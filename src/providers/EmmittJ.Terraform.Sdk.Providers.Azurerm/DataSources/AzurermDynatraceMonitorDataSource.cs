@@ -36,7 +36,7 @@ public partial class AzurermDynatraceMonitorDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermDynatraceMonitorDataSource(string name) : TerraformD
     /// The environment_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EnvironmentProperties
-        => AsReference("environment_properties");
+        => CreateReference("environment_properties");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The marketplace_subscription attribute.
     /// </summary>
     public TerraformValue<string> MarketplaceSubscription
-        => AsReference("marketplace_subscription");
+        => CreateReference("marketplace_subscription");
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
     public TerraformValue<bool> MonitoringEnabled
-        => AsReference("monitoring_enabled");
+        => CreateReference("monitoring_enabled");
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Plan
-        => AsReference("plan");
+        => CreateReference("plan");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> User
-        => AsReference("user");
+        => CreateReference("user");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

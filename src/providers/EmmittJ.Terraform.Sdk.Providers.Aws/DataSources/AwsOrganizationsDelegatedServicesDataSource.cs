@@ -23,7 +23,7 @@ public partial class AwsOrganizationsDelegatedServicesDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,6 +31,6 @@ public partial class AwsOrganizationsDelegatedServicesDataSource(string name) : 
     /// The delegated_services attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> DelegatedServices
-        => AsReference("delegated_services");
+        => CreateReference("delegated_services");
 
 }

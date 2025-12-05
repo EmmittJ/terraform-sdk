@@ -1229,7 +1229,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<double> AutoRetryLimit
     {
-        get => GetArgument<TerraformValue<double>>("auto_retry_limit") ?? AsReference("auto_retry_limit");
+        get => GetArgument<TerraformValue<double>>("auto_retry_limit") ?? CreateReference("auto_retry_limit");
         set => SetArgument("auto_retry_limit", value);
     }
 
@@ -1265,7 +1265,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -1274,7 +1274,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string> EncryptionKey
     {
-        get => GetArgument<TerraformValue<string>>("encryption_key") ?? AsReference("encryption_key");
+        get => GetArgument<TerraformValue<string>>("encryption_key") ?? CreateReference("encryption_key");
         set => SetArgument("encryption_key", value);
     }
 
@@ -1283,7 +1283,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1320,7 +1320,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1366,7 +1366,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1374,19 +1374,19 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The badge_url attribute.
     /// </summary>
     public TerraformValue<string> BadgeUrl
-        => AsReference("badge_url");
+        => CreateReference("badge_url");
 
     /// <summary>
     /// The public_project_alias attribute.
     /// </summary>
     public TerraformValue<string> PublicProjectAlias
-        => AsReference("public_project_alias");
+        => CreateReference("public_project_alias");
 
     /// <summary>
     /// Artifacts block (nesting mode: list).

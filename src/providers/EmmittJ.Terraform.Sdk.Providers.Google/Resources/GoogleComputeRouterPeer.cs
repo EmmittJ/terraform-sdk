@@ -277,7 +277,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool> EnableIpv4
     {
-        get => GetArgument<TerraformValue<bool>>("enable_ipv4") ?? AsReference("enable_ipv4");
+        get => GetArgument<TerraformValue<bool>>("enable_ipv4") ?? CreateReference("enable_ipv4");
         set => SetArgument("enable_ipv4", value);
     }
 
@@ -305,7 +305,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -335,7 +335,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address") ?? AsReference("ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address") ?? CreateReference("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -344,7 +344,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Ipv4NexthopAddress
     {
-        get => GetArgument<TerraformValue<string>>("ipv4_nexthop_address") ?? AsReference("ipv4_nexthop_address");
+        get => GetArgument<TerraformValue<string>>("ipv4_nexthop_address") ?? CreateReference("ipv4_nexthop_address");
         set => SetArgument("ipv4_nexthop_address", value);
     }
 
@@ -356,7 +356,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Ipv6NexthopAddress
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_nexthop_address") ?? AsReference("ipv6_nexthop_address");
+        get => GetArgument<TerraformValue<string>>("ipv6_nexthop_address") ?? CreateReference("ipv6_nexthop_address");
         set => SetArgument("ipv6_nexthop_address", value);
     }
 
@@ -392,7 +392,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> PeerIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("peer_ip_address") ?? AsReference("peer_ip_address");
+        get => GetArgument<TerraformValue<string>>("peer_ip_address") ?? CreateReference("peer_ip_address");
         set => SetArgument("peer_ip_address", value);
     }
 
@@ -401,7 +401,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> PeerIpv4NexthopAddress
     {
-        get => GetArgument<TerraformValue<string>>("peer_ipv4_nexthop_address") ?? AsReference("peer_ipv4_nexthop_address");
+        get => GetArgument<TerraformValue<string>>("peer_ipv4_nexthop_address") ?? CreateReference("peer_ipv4_nexthop_address");
         set => SetArgument("peer_ipv4_nexthop_address", value);
     }
 
@@ -413,7 +413,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> PeerIpv6NexthopAddress
     {
-        get => GetArgument<TerraformValue<string>>("peer_ipv6_nexthop_address") ?? AsReference("peer_ipv6_nexthop_address");
+        get => GetArgument<TerraformValue<string>>("peer_ipv6_nexthop_address") ?? CreateReference("peer_ipv6_nexthop_address");
         set => SetArgument("peer_ipv6_nexthop_address", value);
     }
 
@@ -422,7 +422,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -432,7 +432,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -480,13 +480,13 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// An internal boolean field for provider use for zero_advertised_route_priority.
     /// </summary>
     public TerraformValue<bool> IsAdvertisedRoutePrioritySet
-        => AsReference("is_advertised_route_priority_set");
+        => CreateReference("is_advertised_route_priority_set");
 
     /// <summary>
     /// An internal boolean field for provider use.
     /// </summary>
     public TerraformValue<bool> IsCustomLearnedPrioritySet
-        => AsReference("is_custom_learned_priority_set");
+        => CreateReference("is_custom_learned_priority_set");
 
     /// <summary>
     /// The resource that configures and manages this BGP peer.
@@ -501,7 +501,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// or deleted.
     /// </summary>
     public TerraformValue<string> ManagementType
-        => AsReference("management_type");
+        => CreateReference("management_type");
 
     /// <summary>
     /// AdvertisedIpRanges block (nesting mode: set).

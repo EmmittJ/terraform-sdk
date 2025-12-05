@@ -64,7 +64,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> SourceSecurityGroupId
     {
-        get => GetArgument<TerraformValue<string>>("source_security_group_id") ?? AsReference("source_security_group_id");
+        get => GetArgument<TerraformValue<string>>("source_security_group_id") ?? CreateReference("source_security_group_id");
         set => SetArgument("source_security_group_id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// The security_group_rule_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupRuleId
-        => AsReference("security_group_rule_id");
+        => CreateReference("security_group_rule_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

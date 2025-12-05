@@ -13,7 +13,7 @@ public partial class AwsSignerSigningProfileDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSignerSigningProfileDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSignerSigningProfileDataSource(string name) : TerraformD
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,60 +49,60 @@ public partial class AwsSignerSigningProfileDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The platform_display_name attribute.
     /// </summary>
     public TerraformValue<string> PlatformDisplayName
-        => AsReference("platform_display_name");
+        => CreateReference("platform_display_name");
 
     /// <summary>
     /// The platform_id attribute.
     /// </summary>
     public TerraformValue<string> PlatformId
-        => AsReference("platform_id");
+        => CreateReference("platform_id");
 
     /// <summary>
     /// The revocation_record attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RevocationRecord
-        => AsReference("revocation_record");
+        => CreateReference("revocation_record");
 
     /// <summary>
     /// The signature_validity_period attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SignatureValidityPeriod
-        => AsReference("signature_validity_period");
+        => CreateReference("signature_validity_period");
 
     /// <summary>
     /// The signing_material attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SigningMaterial
-        => AsReference("signing_material");
+        => CreateReference("signing_material");
 
     /// <summary>
     /// The signing_parameters attribute.
     /// </summary>
     public TerraformMap<string> SigningParameters
-        => AsReference("signing_parameters");
+        => CreateReference("signing_parameters");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The version_arn attribute.
     /// </summary>
     public TerraformValue<string> VersionArn
-        => AsReference("version_arn");
+        => CreateReference("version_arn");
 
 }

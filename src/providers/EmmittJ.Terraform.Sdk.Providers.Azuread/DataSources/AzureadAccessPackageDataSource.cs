@@ -45,7 +45,7 @@ public partial class AzureadAccessPackageDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzureadAccessPackageDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzureadAccessPackageDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? CreateReference("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -71,13 +71,13 @@ public partial class AzureadAccessPackageDataSource(string name) : TerraformData
     /// The description of the access package
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Whether the access package is hidden from the requestor
     /// </summary>
     public TerraformValue<bool> Hidden
-        => AsReference("hidden");
+        => CreateReference("hidden");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

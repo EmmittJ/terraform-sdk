@@ -19,7 +19,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Optional. Description of what this policy is for.
@@ -38,7 +38,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// WeeklyMaintenanceWindow block (nesting mode: list).
@@ -177,7 +177,7 @@ public class GoogleMemcacheInstanceMemcacheParametersBlock : TerraformBlock
     /// This is a unique ID associated with this set of parameters.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// User-defined set of parameters to use in the memcache process.
@@ -278,7 +278,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> AuthorizedNetwork
     {
-        get => GetArgument<TerraformValue<string>>("authorized_network") ?? AsReference("authorized_network");
+        get => GetArgument<TerraformValue<string>>("authorized_network") ?? CreateReference("authorized_network");
         set => SetArgument("authorized_network", value);
     }
 
@@ -301,7 +301,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -310,7 +310,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -363,7 +363,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -372,7 +372,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -393,7 +393,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformSet<string> Zones
     {
-        get => GetArgument<TerraformSet<string>>("zones") ?? AsReference("zones");
+        get => GetArgument<TerraformSet<string>>("zones") ?? CreateReference("zones");
         set => SetArgument("zones", value);
     }
 
@@ -401,44 +401,44 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Endpoint for Discovery API
     /// </summary>
     public TerraformValue<string> DiscoveryEndpoint
-        => AsReference("discovery_endpoint");
+        => CreateReference("discovery_endpoint");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Output only. Published maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-        => AsReference("maintenance_schedule");
+        => CreateReference("maintenance_schedule");
 
     /// <summary>
     /// The full version of memcached server running on this instance.
     /// </summary>
     public TerraformValue<string> MemcacheFullVersion
-        => AsReference("memcache_full_version");
+        => CreateReference("memcache_full_version");
 
     /// <summary>
     /// Additional information about the instance state, if available.
     /// </summary>
     public TerraformList<TerraformMap<object>> MemcacheNodes
-        => AsReference("memcache_nodes");
+        => CreateReference("memcache_nodes");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// MaintenancePolicy block (nesting mode: list).

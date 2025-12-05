@@ -36,7 +36,7 @@ public partial class AzurermManagedDiskDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,103 +64,103 @@ public partial class AzurermManagedDiskDataSource(string name) : TerraformDataSo
     /// The create_option attribute.
     /// </summary>
     public TerraformValue<string> CreateOption
-        => AsReference("create_option");
+        => CreateReference("create_option");
 
     /// <summary>
     /// The disk_access_id attribute.
     /// </summary>
     public TerraformValue<string> DiskAccessId
-        => AsReference("disk_access_id");
+        => CreateReference("disk_access_id");
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
     public TerraformValue<string> DiskEncryptionSetId
-        => AsReference("disk_encryption_set_id");
+        => CreateReference("disk_encryption_set_id");
 
     /// <summary>
     /// The disk_iops_read_write attribute.
     /// </summary>
     public TerraformValue<double> DiskIopsReadWrite
-        => AsReference("disk_iops_read_write");
+        => CreateReference("disk_iops_read_write");
 
     /// <summary>
     /// The disk_mbps_read_write attribute.
     /// </summary>
     public TerraformValue<double> DiskMbpsReadWrite
-        => AsReference("disk_mbps_read_write");
+        => CreateReference("disk_mbps_read_write");
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
     public TerraformValue<double> DiskSizeGb
-        => AsReference("disk_size_gb");
+        => CreateReference("disk_size_gb");
 
     /// <summary>
     /// The encryption_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionSettings
-        => AsReference("encryption_settings");
+        => CreateReference("encryption_settings");
 
     /// <summary>
     /// The image_reference_id attribute.
     /// </summary>
     public TerraformValue<string> ImageReferenceId
-        => AsReference("image_reference_id");
+        => CreateReference("image_reference_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The network_access_policy attribute.
     /// </summary>
     public TerraformValue<string> NetworkAccessPolicy
-        => AsReference("network_access_policy");
+        => CreateReference("network_access_policy");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
     public TerraformValue<string> OsType
-        => AsReference("os_type");
+        => CreateReference("os_type");
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
     public TerraformValue<string> SourceResourceId
-        => AsReference("source_resource_id");
+        => CreateReference("source_resource_id");
 
     /// <summary>
     /// The source_uri attribute.
     /// </summary>
     public TerraformValue<string> SourceUri
-        => AsReference("source_uri");
+        => CreateReference("source_uri");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> StorageAccountId
-        => AsReference("storage_account_id");
+        => CreateReference("storage_account_id");
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     public TerraformValue<string> StorageAccountType
-        => AsReference("storage_account_type");
+        => CreateReference("storage_account_type");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

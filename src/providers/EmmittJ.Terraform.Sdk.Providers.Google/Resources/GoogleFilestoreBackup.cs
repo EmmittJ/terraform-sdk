@@ -63,7 +63,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -152,56 +152,56 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     /// The amount of bytes needed to allocate a full copy of the snapshot content.
     /// </summary>
     public TerraformValue<string> CapacityGb
-        => AsReference("capacity_gb");
+        => CreateReference("capacity_gb");
 
     /// <summary>
     /// The time when the snapshot was created in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Amount of bytes that will be downloaded if the backup is restored.
     /// </summary>
     public TerraformValue<string> DownloadBytes
-        => AsReference("download_bytes");
+        => CreateReference("download_bytes");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
     public TerraformValue<string> KmsKeyName
-        => AsReference("kms_key_name");
+        => CreateReference("kms_key_name");
 
     /// <summary>
     /// The service tier of the source Cloud Filestore instance that this backup is created from.
     /// </summary>
     public TerraformValue<string> SourceInstanceTier
-        => AsReference("source_instance_tier");
+        => CreateReference("source_instance_tier");
 
     /// <summary>
     /// The backup state.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The size of the storage used by the backup. As backups share storage, this number is expected to change with backup creation/deletion.
     /// </summary>
     public TerraformValue<string> StorageBytes
-        => AsReference("storage_bytes");
+        => CreateReference("storage_bytes");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

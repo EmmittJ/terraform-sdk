@@ -36,7 +36,7 @@ public partial class AzurermMssqlElasticpoolDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,61 +74,61 @@ public partial class AzurermMssqlElasticpoolDataSource(string name) : TerraformD
     /// The enclave_type attribute.
     /// </summary>
     public TerraformValue<string> EnclaveType
-        => AsReference("enclave_type");
+        => CreateReference("enclave_type");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     public TerraformValue<string> LicenseType
-        => AsReference("license_type");
+        => CreateReference("license_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The max_size_bytes attribute.
     /// </summary>
     public TerraformValue<double> MaxSizeBytes
-        => AsReference("max_size_bytes");
+        => CreateReference("max_size_bytes");
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
     public TerraformValue<double> MaxSizeGb
-        => AsReference("max_size_gb");
+        => CreateReference("max_size_gb");
 
     /// <summary>
     /// The per_db_max_capacity attribute.
     /// </summary>
     public TerraformValue<double> PerDbMaxCapacity
-        => AsReference("per_db_max_capacity");
+        => CreateReference("per_db_max_capacity");
 
     /// <summary>
     /// The per_db_min_capacity attribute.
     /// </summary>
     public TerraformValue<double> PerDbMinCapacity
-        => AsReference("per_db_min_capacity");
+        => CreateReference("per_db_min_capacity");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
     public TerraformValue<bool> ZoneRedundant
-        => AsReference("zone_redundant");
+        => CreateReference("zone_redundant");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

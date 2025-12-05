@@ -407,7 +407,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -416,7 +416,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -449,7 +449,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider(string name) : Terraf
     /// &#39;projects/{project_number}/locations/global/workloadIdentityPools/{workload_identity_pool_id}/providers/{workload_identity_pool_provider_id}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The state of the provider.
@@ -461,7 +461,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider(string name) : Terraf
     ///   until it is permanently deleted.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Aws block (nesting mode: list).

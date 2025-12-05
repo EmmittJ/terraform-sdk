@@ -23,7 +23,7 @@ public partial class AwsCodeartifactAuthorizationTokenDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> DomainOwner
     {
-        get => GetArgument<TerraformValue<string>>("domain_owner") ?? AsReference("domain_owner");
+        get => GetArgument<TerraformValue<string>>("domain_owner") ?? CreateReference("domain_owner");
         set => SetArgument("domain_owner", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCodeartifactAuthorizationTokenDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsCodeartifactAuthorizationTokenDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,12 +58,12 @@ public partial class AwsCodeartifactAuthorizationTokenDataSource(string name) : 
     /// The authorization_token attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationToken
-        => AsReference("authorization_token");
+        => CreateReference("authorization_token");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
     public TerraformValue<string> Expiration
-        => AsReference("expiration");
+        => CreateReference("expiration");
 
 }

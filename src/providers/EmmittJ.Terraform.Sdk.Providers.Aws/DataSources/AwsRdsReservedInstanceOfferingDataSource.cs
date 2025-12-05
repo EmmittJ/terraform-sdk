@@ -33,7 +33,7 @@ public partial class AwsRdsReservedInstanceOfferingDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsRdsReservedInstanceOfferingDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -80,18 +80,18 @@ public partial class AwsRdsReservedInstanceOfferingDataSource(string name) : Ter
     /// The currency_code attribute.
     /// </summary>
     public TerraformValue<string> CurrencyCode
-        => AsReference("currency_code");
+        => CreateReference("currency_code");
 
     /// <summary>
     /// The fixed_price attribute.
     /// </summary>
     public TerraformValue<double> FixedPrice
-        => AsReference("fixed_price");
+        => CreateReference("fixed_price");
 
     /// <summary>
     /// The offering_id attribute.
     /// </summary>
     public TerraformValue<string> OfferingId
-        => AsReference("offering_id");
+        => CreateReference("offering_id");
 
 }

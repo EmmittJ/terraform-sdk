@@ -78,7 +78,7 @@ public partial class GoogleDataCatalogPolicyTag(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -107,14 +107,14 @@ public partial class GoogleDataCatalogPolicyTag(string name) : TerraformResource
     /// Resource names of child policy tags of this policy tag.
     /// </summary>
     public TerraformList<string> ChildPolicyTags
-        => AsReference("child_policy_tags");
+        => CreateReference("child_policy_tags");
 
     /// <summary>
     /// Resource name of this policy tag, whose format is:
     /// &amp;quot;projects/{project}/locations/{region}/taxonomies/{taxonomy}/policyTags/{policytag}&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -72,7 +72,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Csr
     {
-        get => GetArgument<TerraformValue<string>>("csr") ?? AsReference("csr");
+        get => GetArgument<TerraformValue<string>>("csr") ?? CreateReference("csr");
         set => SetArgument("csr", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> DistinguishedName
     {
-        get => GetArgument<TerraformValue<string>>("distinguished_name") ?? AsReference("distinguished_name");
+        get => GetArgument<TerraformValue<string>>("distinguished_name") ?? CreateReference("distinguished_name");
         set => SetArgument("distinguished_name", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,55 +164,55 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// The app_service_certificate_not_renewable_reasons attribute.
     /// </summary>
     public TerraformList<string> AppServiceCertificateNotRenewableReasons
-        => AsReference("app_service_certificate_not_renewable_reasons");
+        => CreateReference("app_service_certificate_not_renewable_reasons");
 
     /// <summary>
     /// The certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certificates
-        => AsReference("certificates");
+        => CreateReference("certificates");
 
     /// <summary>
     /// The domain_verification_token attribute.
     /// </summary>
     public TerraformValue<string> DomainVerificationToken
-        => AsReference("domain_verification_token");
+        => CreateReference("domain_verification_token");
 
     /// <summary>
     /// The expiration_time attribute.
     /// </summary>
     public TerraformValue<string> ExpirationTime
-        => AsReference("expiration_time");
+        => CreateReference("expiration_time");
 
     /// <summary>
     /// The intermediate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> IntermediateThumbprint
-        => AsReference("intermediate_thumbprint");
+        => CreateReference("intermediate_thumbprint");
 
     /// <summary>
     /// The is_private_key_external attribute.
     /// </summary>
     public TerraformValue<bool> IsPrivateKeyExternal
-        => AsReference("is_private_key_external");
+        => CreateReference("is_private_key_external");
 
     /// <summary>
     /// The root_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> RootThumbprint
-        => AsReference("root_thumbprint");
+        => CreateReference("root_thumbprint");
 
     /// <summary>
     /// The signed_certificate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> SignedCertificateThumbprint
-        => AsReference("signed_certificate_thumbprint");
+        => CreateReference("signed_certificate_thumbprint");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

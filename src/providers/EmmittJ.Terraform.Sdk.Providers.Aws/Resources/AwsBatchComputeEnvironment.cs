@@ -36,7 +36,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DesiredVcpus
     {
-        get => GetArgument<TerraformValue<double>>("desired_vcpus") ?? AsReference("desired_vcpus");
+        get => GetArgument<TerraformValue<double>>("desired_vcpus") ?? CreateReference("desired_vcpus");
         set => SetArgument("desired_vcpus", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlockEc2ConfigurationBloc
     /// </summary>
     public TerraformValue<string> ImageIdOverride
     {
-        get => GetArgument<TerraformValue<string>>("image_id_override") ?? AsReference("image_id_override");
+        get => GetArgument<TerraformValue<string>>("image_id_override") ?? CreateReference("image_id_override");
         set => SetArgument("image_id_override", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlockLaunchTemplateBlock 
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -304,7 +304,7 @@ public class AwsBatchComputeEnvironmentUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> JobExecutionTimeoutMinutes
     {
-        get => GetArgument<TerraformValue<double>>("job_execution_timeout_minutes") ?? AsReference("job_execution_timeout_minutes");
+        get => GetArgument<TerraformValue<double>>("job_execution_timeout_minutes") ?? CreateReference("job_execution_timeout_minutes");
         set => SetArgument("job_execution_timeout_minutes", value);
     }
 
@@ -313,7 +313,7 @@ public class AwsBatchComputeEnvironmentUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> TerminateJobsOnUpdate
     {
-        get => GetArgument<TerraformValue<bool>>("terminate_jobs_on_update") ?? AsReference("terminate_jobs_on_update");
+        get => GetArgument<TerraformValue<bool>>("terminate_jobs_on_update") ?? CreateReference("terminate_jobs_on_update");
         set => SetArgument("terminate_jobs_on_update", value);
     }
 
@@ -331,7 +331,7 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -340,7 +340,7 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -349,7 +349,7 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -358,7 +358,7 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -367,7 +367,7 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> ServiceRole
     {
-        get => GetArgument<TerraformValue<string>>("service_role") ?? AsReference("service_role");
+        get => GetArgument<TerraformValue<string>>("service_role") ?? CreateReference("service_role");
         set => SetArgument("service_role", value);
     }
 
@@ -394,7 +394,7 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -412,25 +412,25 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The ecs_cluster_arn attribute.
     /// </summary>
     public TerraformValue<string> EcsClusterArn
-        => AsReference("ecs_cluster_arn");
+        => CreateReference("ecs_cluster_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
     /// <summary>
     /// ComputeResources block (nesting mode: list).

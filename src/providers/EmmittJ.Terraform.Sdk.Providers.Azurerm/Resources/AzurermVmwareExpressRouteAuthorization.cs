@@ -54,7 +54,7 @@ public partial class AzurermVmwareExpressRouteAuthorization(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,13 +82,13 @@ public partial class AzurermVmwareExpressRouteAuthorization(string name) : Terra
     /// The express_route_authorization_id attribute.
     /// </summary>
     public TerraformValue<string> ExpressRouteAuthorizationId
-        => AsReference("express_route_authorization_id");
+        => CreateReference("express_route_authorization_id");
 
     /// <summary>
     /// The express_route_authorization_key attribute.
     /// </summary>
     public TerraformValue<string> ExpressRouteAuthorizationKey
-        => AsReference("express_route_authorization_key");
+        => CreateReference("express_route_authorization_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

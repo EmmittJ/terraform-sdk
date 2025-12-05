@@ -13,7 +13,7 @@ public partial class GoogleProjectIamCustomRolesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -48,6 +48,6 @@ public partial class GoogleProjectIamCustomRolesDataSource(string name) : Terraf
     /// The roles attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Roles
-        => AsReference("roles");
+        => CreateReference("roles");
 
 }

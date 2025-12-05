@@ -83,7 +83,7 @@ public class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> ApproverRoles
     {
-        get => GetArgument<TerraformSet<string>>("approver_roles") ?? AsReference("approver_roles");
+        get => GetArgument<TerraformSet<string>>("approver_roles") ?? CreateReference("approver_roles");
         set => SetArgument("approver_roles", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -208,19 +208,19 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     /// The payload_url attribute.
     /// </summary>
     public TerraformValue<string> PayloadUrl
-        => AsReference("payload_url");
+        => CreateReference("payload_url");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     public TerraformValue<string> Secret
-        => AsReference("secret");
+        => CreateReference("secret");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// FilterGroup block (nesting mode: set).

@@ -36,7 +36,7 @@ public partial class AzurermMaintenanceConfigurationDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermMaintenanceConfigurationDataSource(string name) : Te
     /// The in_guest_user_patch_mode attribute.
     /// </summary>
     public TerraformValue<string> InGuestUserPatchMode
-        => AsReference("in_guest_user_patch_mode");
+        => CreateReference("in_guest_user_patch_mode");
 
     /// <summary>
     /// The install_patches attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstallPatches
-        => AsReference("install_patches");
+        => CreateReference("install_patches");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
     public TerraformMap<string> Properties
-        => AsReference("properties");
+        => CreateReference("properties");
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     public TerraformValue<string> Scope
-        => AsReference("scope");
+        => CreateReference("scope");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     public TerraformValue<string> Visibility
-        => AsReference("visibility");
+        => CreateReference("visibility");
 
     /// <summary>
     /// The window attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Window
-        => AsReference("window");
+        => CreateReference("window");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

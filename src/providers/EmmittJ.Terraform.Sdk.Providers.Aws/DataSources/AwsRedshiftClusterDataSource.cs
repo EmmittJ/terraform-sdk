@@ -23,7 +23,7 @@ public partial class AwsRedshiftClusterDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRedshiftClusterDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsRedshiftClusterDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,228 +49,228 @@ public partial class AwsRedshiftClusterDataSource(string name) : TerraformDataSo
     /// The allow_version_upgrade attribute.
     /// </summary>
     public TerraformValue<bool> AllowVersionUpgrade
-        => AsReference("allow_version_upgrade");
+        => CreateReference("allow_version_upgrade");
 
     /// <summary>
     /// The aqua_configuration_status attribute.
     /// </summary>
     public TerraformValue<string> AquaConfigurationStatus
-        => AsReference("aqua_configuration_status");
+        => CreateReference("aqua_configuration_status");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The automated_snapshot_retention_period attribute.
     /// </summary>
     public TerraformValue<double> AutomatedSnapshotRetentionPeriod
-        => AsReference("automated_snapshot_retention_period");
+        => CreateReference("automated_snapshot_retention_period");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The availability_zone_relocation_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AvailabilityZoneRelocationEnabled
-        => AsReference("availability_zone_relocation_enabled");
+        => CreateReference("availability_zone_relocation_enabled");
 
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
     public TerraformValue<string> BucketName
-        => AsReference("bucket_name");
+        => CreateReference("bucket_name");
 
     /// <summary>
     /// The cluster_namespace_arn attribute.
     /// </summary>
     public TerraformValue<string> ClusterNamespaceArn
-        => AsReference("cluster_namespace_arn");
+        => CreateReference("cluster_namespace_arn");
 
     /// <summary>
     /// The cluster_nodes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClusterNodes
-        => AsReference("cluster_nodes");
+        => CreateReference("cluster_nodes");
 
     /// <summary>
     /// The cluster_parameter_group_name attribute.
     /// </summary>
     public TerraformValue<string> ClusterParameterGroupName
-        => AsReference("cluster_parameter_group_name");
+        => CreateReference("cluster_parameter_group_name");
 
     /// <summary>
     /// The cluster_public_key attribute.
     /// </summary>
     public TerraformValue<string> ClusterPublicKey
-        => AsReference("cluster_public_key");
+        => CreateReference("cluster_public_key");
 
     /// <summary>
     /// The cluster_revision_number attribute.
     /// </summary>
     public TerraformValue<string> ClusterRevisionNumber
-        => AsReference("cluster_revision_number");
+        => CreateReference("cluster_revision_number");
 
     /// <summary>
     /// The cluster_subnet_group_name attribute.
     /// </summary>
     public TerraformValue<string> ClusterSubnetGroupName
-        => AsReference("cluster_subnet_group_name");
+        => CreateReference("cluster_subnet_group_name");
 
     /// <summary>
     /// The cluster_type attribute.
     /// </summary>
     public TerraformValue<string> ClusterType
-        => AsReference("cluster_type");
+        => CreateReference("cluster_type");
 
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
     public TerraformValue<string> ClusterVersion
-        => AsReference("cluster_version");
+        => CreateReference("cluster_version");
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     public TerraformValue<string> DatabaseName
-        => AsReference("database_name");
+        => CreateReference("database_name");
 
     /// <summary>
     /// The default_iam_role_arn attribute.
     /// </summary>
     public TerraformValue<string> DefaultIamRoleArn
-        => AsReference("default_iam_role_arn");
+        => CreateReference("default_iam_role_arn");
 
     /// <summary>
     /// The elastic_ip attribute.
     /// </summary>
     public TerraformValue<string> ElasticIp
-        => AsReference("elastic_ip");
+        => CreateReference("elastic_ip");
 
     /// <summary>
     /// The enable_logging attribute.
     /// </summary>
     public TerraformValue<bool> EnableLogging
-        => AsReference("enable_logging");
+        => CreateReference("enable_logging");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-        => AsReference("encrypted");
+        => CreateReference("encrypted");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The enhanced_vpc_routing attribute.
     /// </summary>
     public TerraformValue<bool> EnhancedVpcRouting
-        => AsReference("enhanced_vpc_routing");
+        => CreateReference("enhanced_vpc_routing");
 
     /// <summary>
     /// The iam_roles attribute.
     /// </summary>
     public TerraformList<string> IamRoles
-        => AsReference("iam_roles");
+        => CreateReference("iam_roles");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The log_destination_type attribute.
     /// </summary>
     public TerraformValue<string> LogDestinationType
-        => AsReference("log_destination_type");
+        => CreateReference("log_destination_type");
 
     /// <summary>
     /// The log_exports attribute.
     /// </summary>
     public TerraformSet<string> LogExports
-        => AsReference("log_exports");
+        => CreateReference("log_exports");
 
     /// <summary>
     /// The maintenance_track_name attribute.
     /// </summary>
     public TerraformValue<string> MaintenanceTrackName
-        => AsReference("maintenance_track_name");
+        => CreateReference("maintenance_track_name");
 
     /// <summary>
     /// The manual_snapshot_retention_period attribute.
     /// </summary>
     public TerraformValue<double> ManualSnapshotRetentionPeriod
-        => AsReference("manual_snapshot_retention_period");
+        => CreateReference("manual_snapshot_retention_period");
 
     /// <summary>
     /// The master_username attribute.
     /// </summary>
     public TerraformValue<string> MasterUsername
-        => AsReference("master_username");
+        => CreateReference("master_username");
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
     public TerraformValue<bool> MultiAz
-        => AsReference("multi_az");
+        => CreateReference("multi_az");
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
     public TerraformValue<string> NodeType
-        => AsReference("node_type");
+        => CreateReference("node_type");
 
     /// <summary>
     /// The number_of_nodes attribute.
     /// </summary>
     public TerraformValue<double> NumberOfNodes
-        => AsReference("number_of_nodes");
+        => CreateReference("number_of_nodes");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
     public TerraformValue<string> PreferredMaintenanceWindow
-        => AsReference("preferred_maintenance_window");
+        => CreateReference("preferred_maintenance_window");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
     public TerraformValue<bool> PubliclyAccessible
-        => AsReference("publicly_accessible");
+        => CreateReference("publicly_accessible");
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
     public TerraformValue<string> S3KeyPrefix
-        => AsReference("s3_key_prefix");
+        => CreateReference("s3_key_prefix");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
     public TerraformList<string> VpcSecurityGroupIds
-        => AsReference("vpc_security_group_ids");
+        => CreateReference("vpc_security_group_ids");
 
 }

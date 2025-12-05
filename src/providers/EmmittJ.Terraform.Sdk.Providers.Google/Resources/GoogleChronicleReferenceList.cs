@@ -136,7 +136,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -201,7 +201,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     /// Output only. The unique display name of the reference list.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Output only. The resource name of the reference list.
@@ -209,19 +209,19 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     /// projects/{project}/locations/{location}/instances/{instance}/referenceLists/{reference_list}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The timestamp when the reference list was last updated.
     /// </summary>
     public TerraformValue<string> RevisionCreateTime
-        => AsReference("revision_create_time");
+        => CreateReference("revision_create_time");
 
     /// <summary>
     /// Output only. The count of self-authored rules using the reference list.
     /// </summary>
     public TerraformValue<double> RuleAssociationsCount
-        => AsReference("rule_associations_count");
+        => CreateReference("rule_associations_count");
 
     /// <summary>
     /// Output only. The resource names for the associated self-authored Rules that use this
@@ -229,7 +229,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     /// This is returned only when the view is REFERENCE_LIST_VIEW_FULL.
     /// </summary>
     public TerraformList<string> Rules
-        => AsReference("rules");
+        => CreateReference("rules");
 
     /// <summary>
     /// Entries block (nesting mode: list).

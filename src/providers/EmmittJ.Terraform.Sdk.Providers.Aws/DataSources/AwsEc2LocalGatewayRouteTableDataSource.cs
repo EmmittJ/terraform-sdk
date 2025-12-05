@@ -70,7 +70,7 @@ public partial class AwsEc2LocalGatewayRouteTableDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEc2LocalGatewayRouteTableDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> LocalGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("local_gateway_id") ?? AsReference("local_gateway_id");
+        get => GetArgument<TerraformValue<string>>("local_gateway_id") ?? CreateReference("local_gateway_id");
         set => SetArgument("local_gateway_id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsEc2LocalGatewayRouteTableDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> LocalGatewayRouteTableId
     {
-        get => GetArgument<TerraformValue<string>>("local_gateway_route_table_id") ?? AsReference("local_gateway_route_table_id");
+        get => GetArgument<TerraformValue<string>>("local_gateway_route_table_id") ?? CreateReference("local_gateway_route_table_id");
         set => SetArgument("local_gateway_route_table_id", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsEc2LocalGatewayRouteTableDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> OutpostArn
     {
-        get => GetArgument<TerraformValue<string>>("outpost_arn") ?? AsReference("outpost_arn");
+        get => GetArgument<TerraformValue<string>>("outpost_arn") ?? CreateReference("outpost_arn");
         set => SetArgument("outpost_arn", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsEc2LocalGatewayRouteTableDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsEc2LocalGatewayRouteTableDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsEc2LocalGatewayRouteTableDataSource(string name) : Terra
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxThroughput
     {
-        get => GetArgument<TerraformValue<double>>("max_throughput") ?? AsReference("max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput") ?? CreateReference("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -254,7 +254,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockSpatialIndexBlock : T
     /// The types attribute.
     /// </summary>
     public TerraformSet<string> Types
-        => AsReference("types");
+        => CreateReference("types");
 
 }
 
@@ -382,7 +382,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -439,7 +439,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 

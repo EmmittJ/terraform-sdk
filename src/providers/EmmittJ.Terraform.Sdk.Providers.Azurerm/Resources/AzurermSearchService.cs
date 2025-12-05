@@ -26,13 +26,13 @@ public class AzurermSearchServiceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -144,7 +144,7 @@ public partial class AzurermSearchService(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -255,25 +255,25 @@ public partial class AzurermSearchService(string name) : TerraformResource("azur
     /// The customer_managed_key_encryption_compliance_status attribute.
     /// </summary>
     public TerraformValue<string> CustomerManagedKeyEncryptionComplianceStatus
-        => AsReference("customer_managed_key_encryption_compliance_status");
+        => CreateReference("customer_managed_key_encryption_compliance_status");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The query_keys attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QueryKeys
-        => AsReference("query_keys");
+        => CreateReference("query_keys");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-        => AsReference("secondary_key");
+        => CreateReference("secondary_key");
 
     /// <summary>
     /// Identity block (nesting mode: list).

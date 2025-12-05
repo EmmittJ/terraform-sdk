@@ -36,7 +36,7 @@ public partial class AzurermMonitorScheduledQueryRulesLogDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermMonitorScheduledQueryRulesLogDataSource(string name)
     /// The authorized_resource_ids attribute.
     /// </summary>
     public TerraformSet<string> AuthorizedResourceIds
-        => AsReference("authorized_resource_ids");
+        => CreateReference("authorized_resource_ids");
 
     /// <summary>
     /// The criteria attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Criteria
-        => AsReference("criteria");
+        => CreateReference("criteria");
 
     /// <summary>
     /// The data_source_id attribute.
     /// </summary>
     public TerraformValue<string> DataSourceId
-        => AsReference("data_source_id");
+        => CreateReference("data_source_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -46,7 +46,7 @@ public partial class AzurermNetappSnapshotPolicyDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,43 +74,43 @@ public partial class AzurermNetappSnapshotPolicyDataSource(string name) : Terraf
     /// The daily_schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DailySchedule
-        => AsReference("daily_schedule");
+        => CreateReference("daily_schedule");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The hourly_schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HourlySchedule
-        => AsReference("hourly_schedule");
+        => CreateReference("hourly_schedule");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The monthly_schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MonthlySchedule
-        => AsReference("monthly_schedule");
+        => CreateReference("monthly_schedule");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The weekly_schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WeeklySchedule
-        => AsReference("weekly_schedule");
+        => CreateReference("weekly_schedule");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

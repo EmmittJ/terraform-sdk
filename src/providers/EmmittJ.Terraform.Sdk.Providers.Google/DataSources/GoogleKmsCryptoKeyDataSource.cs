@@ -13,7 +13,7 @@ public partial class GoogleKmsCryptoKeyDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -43,26 +43,26 @@ public partial class GoogleKmsCryptoKeyDataSource(string name) : TerraformDataSo
     /// The resource name is in the format &amp;quot;projects/*/locations/*/ekmConnections/*&amp;quot; and only applies to &amp;quot;EXTERNAL_VPC&amp;quot; keys.
     /// </summary>
     public TerraformValue<string> CryptoKeyBackend
-        => AsReference("crypto_key_backend");
+        => CreateReference("crypto_key_backend");
 
     /// <summary>
     /// The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.
     /// If not specified at creation time, the default duration is 30 days.
     /// </summary>
     public TerraformValue<string> DestroyScheduledDuration
-        => AsReference("destroy_scheduled_duration");
+        => CreateReference("destroy_scheduled_duration");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Whether this key may contain imported versions only.
     /// </summary>
     public TerraformValue<bool> ImportOnly
-        => AsReference("import_only");
+        => CreateReference("import_only");
 
     /// <summary>
     /// Labels with user-defined metadata to apply to this resource.
@@ -72,14 +72,14 @@ public partial class GoogleKmsCryptoKeyDataSource(string name) : TerraformDataSo
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// A copy of the primary CryptoKeyVersion that will be used by cryptoKeys.encrypt when this CryptoKey is given in EncryptRequest.name.
     /// Keys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will be unset.
     /// </summary>
     public TerraformList<TerraformMap<object>> Primary
-        => AsReference("primary");
+        => CreateReference("primary");
 
     /// <summary>
     /// The immutable purpose of this CryptoKey. See the
@@ -88,7 +88,7 @@ public partial class GoogleKmsCryptoKeyDataSource(string name) : TerraformDataSo
     /// Default value is &amp;quot;ENCRYPT_DECRYPT&amp;quot;.
     /// </summary>
     public TerraformValue<string> Purpose
-        => AsReference("purpose");
+        => CreateReference("purpose");
 
     /// <summary>
     /// Every time this period passes, generate a new CryptoKeyVersion and set it as the primary.
@@ -97,7 +97,7 @@ public partial class GoogleKmsCryptoKeyDataSource(string name) : TerraformDataSo
     /// letter &#39;s&#39; (seconds). It must be greater than a day (ie, 86400).
     /// </summary>
     public TerraformValue<string> RotationPeriod
-        => AsReference("rotation_period");
+        => CreateReference("rotation_period");
 
     /// <summary>
     /// If set to true, the request will create a CryptoKey without any CryptoKeyVersions.
@@ -106,19 +106,19 @@ public partial class GoogleKmsCryptoKeyDataSource(string name) : TerraformDataSo
     /// This field is only applicable during initial CryptoKey creation.
     /// </summary>
     public TerraformValue<bool> SkipInitialVersionCreation
-        => AsReference("skip_initial_version_creation");
+        => CreateReference("skip_initial_version_creation");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// A template describing settings for new crypto key versions.
     /// </summary>
     public TerraformList<TerraformMap<object>> VersionTemplate
-        => AsReference("version_template");
+        => CreateReference("version_template");
 
 }

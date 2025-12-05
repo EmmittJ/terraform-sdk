@@ -36,7 +36,7 @@ public partial class AzurermNginxCertificateDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermNginxCertificateDataSource(string name) : TerraformD
     /// The certificate_virtual_path attribute.
     /// </summary>
     public TerraformValue<string> CertificateVirtualPath
-        => AsReference("certificate_virtual_path");
+        => CreateReference("certificate_virtual_path");
 
     /// <summary>
     /// The error_code attribute.
     /// </summary>
     public TerraformValue<string> ErrorCode
-        => AsReference("error_code");
+        => CreateReference("error_code");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-        => AsReference("error_message");
+        => CreateReference("error_message");
 
     /// <summary>
     /// The key_vault_secret_creation_date attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultSecretCreationDate
-        => AsReference("key_vault_secret_creation_date");
+        => CreateReference("key_vault_secret_creation_date");
 
     /// <summary>
     /// The key_vault_secret_id attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultSecretId
-        => AsReference("key_vault_secret_id");
+        => CreateReference("key_vault_secret_id");
 
     /// <summary>
     /// The key_vault_secret_version attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultSecretVersion
-        => AsReference("key_vault_secret_version");
+        => CreateReference("key_vault_secret_version");
 
     /// <summary>
     /// The key_virtual_path attribute.
     /// </summary>
     public TerraformValue<string> KeyVirtualPath
-        => AsReference("key_virtual_path");
+        => CreateReference("key_virtual_path");
 
     /// <summary>
     /// The sha1_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Sha1Thumbprint
-        => AsReference("sha1_thumbprint");
+        => CreateReference("sha1_thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

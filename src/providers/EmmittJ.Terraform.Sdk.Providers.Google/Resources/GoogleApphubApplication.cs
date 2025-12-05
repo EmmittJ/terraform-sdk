@@ -312,7 +312,7 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -331,7 +331,7 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -339,14 +339,14 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     /// Output only. Create time.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Identifier. The resource name of an Application. Format:
     /// &amp;quot;projects/{host-project-id}/locations/{location}/applications/{application-id}&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Application state. 
@@ -357,19 +357,19 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     /// DELETING
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. A universally unique identifier (in UUID4 format) for the &#39;Application&#39;.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. Update time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

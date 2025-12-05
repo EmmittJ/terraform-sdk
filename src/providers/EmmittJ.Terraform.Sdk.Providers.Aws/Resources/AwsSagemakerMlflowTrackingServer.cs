@@ -32,7 +32,7 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> MlflowVersion
     {
-        get => GetArgument<TerraformValue<string>>("mlflow_version") ?? AsReference("mlflow_version");
+        get => GetArgument<TerraformValue<string>>("mlflow_version") ?? CreateReference("mlflow_version");
         set => SetArgument("mlflow_version", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> WeeklyMaintenanceWindowStart
     {
-        get => GetArgument<TerraformValue<string>>("weekly_maintenance_window_start") ?? AsReference("weekly_maintenance_window_start");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_window_start") ?? CreateReference("weekly_maintenance_window_start");
         set => SetArgument("weekly_maintenance_window_start", value);
     }
 
@@ -114,12 +114,12 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The tracking_server_url attribute.
     /// </summary>
     public TerraformValue<string> TrackingServerUrl
-        => AsReference("tracking_server_url");
+        => CreateReference("tracking_server_url");
 
 }

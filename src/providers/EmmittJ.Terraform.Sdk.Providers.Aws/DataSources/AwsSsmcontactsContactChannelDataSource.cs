@@ -23,7 +23,7 @@ public partial class AwsSsmcontactsContactChannelDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSsmcontactsContactChannelDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,30 +40,30 @@ public partial class AwsSsmcontactsContactChannelDataSource(string name) : Terra
     /// The activation_status attribute.
     /// </summary>
     public TerraformValue<string> ActivationStatus
-        => AsReference("activation_status");
+        => CreateReference("activation_status");
 
     /// <summary>
     /// The contact_id attribute.
     /// </summary>
     public TerraformValue<string> ContactId
-        => AsReference("contact_id");
+        => CreateReference("contact_id");
 
     /// <summary>
     /// The delivery_address attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeliveryAddress
-        => AsReference("delivery_address");
+        => CreateReference("delivery_address");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

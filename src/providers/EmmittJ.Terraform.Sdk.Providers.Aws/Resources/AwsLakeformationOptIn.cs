@@ -17,7 +17,7 @@ public class AwsLakeformationOptInConditionBlock : TerraformBlock
     /// The expression attribute.
     /// </summary>
     public TerraformValue<string> Expression
-        => AsReference("expression");
+        => CreateReference("expression");
 
 }
 
@@ -227,7 +227,7 @@ public class AwsLakeformationOptInResourceDataBlockDataLocationBlock : Terraform
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -291,7 +291,7 @@ public class AwsLakeformationOptInResourceDataBlockLfTagBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -365,7 +365,7 @@ public class AwsLakeformationOptInResourceDataBlockLfTagPolicyBlock : TerraformB
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -543,7 +543,7 @@ public partial class AwsLakeformationOptIn(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -551,13 +551,13 @@ public partial class AwsLakeformationOptIn(string name) : TerraformResource("aws
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The last_updated_by attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedBy
-        => AsReference("last_updated_by");
+        => CreateReference("last_updated_by");
 
     /// <summary>
     /// Condition block (nesting mode: list).

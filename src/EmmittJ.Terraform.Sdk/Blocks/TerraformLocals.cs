@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/locals"/></para>
 /// </remarks>
-public class TerraformLocals : TerraformBlock, ITerraformNamedReferenceable
+public class TerraformLocals : TerraformBlock
 {
     /// <summary>
     /// Gets the block type keyword for locals.
@@ -21,15 +21,12 @@ public class TerraformLocals : TerraformBlock, ITerraformNamedReferenceable
     public override string[] BlockLabels => [];
 
     /// <summary>
+    /// Gets the Terraform reference identifier for locals ("local").
+    /// </summary>
+    public override string ReferenceIdentifier => "local";
+
+    /// <summary>
     /// Initializes a new instance of TerraformLocals.
     /// </summary>
     public TerraformLocals() { }
-
-    /// <inheritdoc/>
-    public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier("local");
-
-    /// <inheritdoc/>
-    public override TerraformExpression AsReference(string name)
-        => TerraformExpression.Identifier($"local.{name}");
 }

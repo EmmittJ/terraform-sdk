@@ -27,7 +27,7 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> BitRate
     {
-        get => GetArgument<TerraformValue<string>>("bit_rate") ?? AsReference("bit_rate");
+        get => GetArgument<TerraformValue<string>>("bit_rate") ?? CreateReference("bit_rate");
         set => SetArgument("bit_rate", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> BitDepth
     {
-        get => GetArgument<TerraformValue<string>>("bit_depth") ?? AsReference("bit_depth");
+        get => GetArgument<TerraformValue<string>>("bit_depth") ?? CreateReference("bit_depth");
         set => SetArgument("bit_depth", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> BitOrder
     {
-        get => GetArgument<TerraformValue<string>>("bit_order") ?? AsReference("bit_order");
+        get => GetArgument<TerraformValue<string>>("bit_order") ?? CreateReference("bit_order");
         set => SetArgument("bit_order", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile") ?? AsReference("profile");
+        get => GetArgument<TerraformValue<string>>("profile") ?? CreateReference("profile");
         set => SetArgument("profile", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Signed
     {
-        get => GetArgument<TerraformValue<string>>("signed") ?? AsReference("signed");
+        get => GetArgument<TerraformValue<string>>("signed") ?? CreateReference("signed");
         set => SetArgument("signed", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> BitRate
     {
-        get => GetArgument<TerraformValue<string>>("bit_rate") ?? AsReference("bit_rate");
+        get => GetArgument<TerraformValue<string>>("bit_rate") ?? CreateReference("bit_rate");
         set => SetArgument("bit_rate", value);
     }
 
@@ -276,7 +276,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MaxFrameRate
     {
-        get => GetArgument<TerraformValue<string>>("max_frame_rate") ?? AsReference("max_frame_rate");
+        get => GetArgument<TerraformValue<string>>("max_frame_rate") ?? CreateReference("max_frame_rate");
         set => SetArgument("max_frame_rate", value);
     }
 
@@ -463,7 +463,7 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -472,7 +472,7 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -481,7 +481,7 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -490,7 +490,7 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -507,7 +507,7 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Audio block (nesting mode: list).

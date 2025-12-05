@@ -1363,7 +1363,7 @@ public class GoogleIntegrationConnectorsConnectionLogConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> Level
     {
-        get => GetArgument<TerraformValue<string>>("level") ?? AsReference("level");
+        get => GetArgument<TerraformValue<string>>("level") ?? CreateReference("level");
         set => SetArgument("level", value);
     }
 
@@ -1386,7 +1386,7 @@ public class GoogleIntegrationConnectorsConnectionNodeConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double> MaxNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("max_node_count") ?? AsReference("max_node_count");
+        get => GetArgument<TerraformValue<double>>("max_node_count") ?? CreateReference("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -1395,7 +1395,7 @@ public class GoogleIntegrationConnectorsConnectionNodeConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double> MinNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("min_node_count") ?? AsReference("min_node_count");
+        get => GetArgument<TerraformValue<double>>("min_node_count") ?? CreateReference("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -1809,7 +1809,7 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1851,7 +1851,7 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1860,7 +1860,7 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -1877,69 +1877,69 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     /// Connection revision. This field is only updated when the connection is created or updated by User.
     /// </summary>
     public TerraformValue<string> ConnectionRevision
-        => AsReference("connection_revision");
+        => CreateReference("connection_revision");
 
     /// <summary>
     /// This configuration provides infra configs like rate limit threshold which need to be configurable for every connector version.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectorVersionInfraConfig
-        => AsReference("connector_version_infra_config");
+        => CreateReference("connector_version_infra_config");
 
     /// <summary>
     /// Flag to mark the version indicating the launch stage.
     /// </summary>
     public TerraformValue<string> ConnectorVersionLaunchStage
-        => AsReference("connector_version_launch_stage");
+        => CreateReference("connector_version_launch_stage");
 
     /// <summary>
     /// Time the Namespace was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Eventing Runtime Data.
     /// </summary>
     public TerraformList<TerraformMap<object>> EventingRuntimeData
-        => AsReference("eventing_runtime_data");
+        => CreateReference("eventing_runtime_data");
 
     /// <summary>
     /// The name of the Service Directory service name. Used for Private Harpoon to resolve the ILB address.
     /// e.g. &amp;quot;projects/cloud-connectors-e2e-testing/locations/us-central1/namespaces/istio-system/services/istio-ingressgateway-connectors&amp;quot;
     /// </summary>
     public TerraformValue<string> ServiceDirectory
-        => AsReference("service_directory");
+        => CreateReference("service_directory");
 
     /// <summary>
     /// Status of the Integration Connector.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// This subscription type enum states the subscription type of the project.
     /// </summary>
     public TerraformValue<string> SubscriptionType
-        => AsReference("subscription_type");
+        => CreateReference("subscription_type");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Time the Namespace was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// AuthConfig block (nesting mode: list).

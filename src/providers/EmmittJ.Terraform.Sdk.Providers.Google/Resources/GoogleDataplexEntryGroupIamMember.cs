@@ -66,7 +66,7 @@ public partial class GoogleDataplexEntryGroupIamMember(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleDataplexEntryGroupIamMember(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleDataplexEntryGroupIamMember(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleDataplexEntryGroupIamMember(string name) : TerraformR
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Condition block (nesting mode: list).

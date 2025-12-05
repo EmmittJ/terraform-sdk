@@ -13,7 +13,7 @@ public partial class AwsCognitoUserPoolClientsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCognitoUserPoolClientsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,12 +40,12 @@ public partial class AwsCognitoUserPoolClientsDataSource(string name) : Terrafor
     /// The client_ids attribute.
     /// </summary>
     public TerraformList<string> ClientIds
-        => AsReference("client_ids");
+        => CreateReference("client_ids");
 
     /// <summary>
     /// The client_names attribute.
     /// </summary>
     public TerraformList<string> ClientNames
-        => AsReference("client_names");
+        => CreateReference("client_names");
 
 }

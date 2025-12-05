@@ -26,7 +26,7 @@ public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : Terraf
     /// The is_client_scoped_subscription_durable attribute.
     /// </summary>
     public TerraformValue<bool> IsClientScopedSubscriptionDurable
-        => AsReference("is_client_scoped_subscription_durable");
+        => CreateReference("is_client_scoped_subscription_durable");
 
     /// <summary>
     /// The is_client_scoped_subscription_shareable attribute.
@@ -173,7 +173,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

@@ -13,7 +13,7 @@ public partial class AwsCloudfrontRealtimeLogConfigDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,24 +31,24 @@ public partial class AwsCloudfrontRealtimeLogConfigDataSource(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The fields attribute.
     /// </summary>
     public TerraformSet<string> Fields
-        => AsReference("fields");
+        => CreateReference("fields");
 
     /// <summary>
     /// The sampling_rate attribute.
     /// </summary>
     public TerraformValue<double> SamplingRate
-        => AsReference("sampling_rate");
+        => CreateReference("sampling_rate");
 
 }

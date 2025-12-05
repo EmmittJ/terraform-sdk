@@ -13,7 +13,7 @@ public partial class AwsLightsailStaticIpAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLightsailStaticIpAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,6 +50,6 @@ public partial class AwsLightsailStaticIpAttachment(string name) : TerraformReso
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
 }

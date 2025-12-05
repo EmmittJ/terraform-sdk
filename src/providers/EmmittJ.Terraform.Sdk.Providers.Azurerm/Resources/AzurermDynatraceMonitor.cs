@@ -66,13 +66,13 @@ public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -111,7 +111,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     /// The effective_date attribute.
     /// </summary>
     public TerraformValue<string> EffectiveDate
-        => AsReference("effective_date");
+        => CreateReference("effective_date");
 
     /// <summary>
     /// The plan attribute.
@@ -260,7 +260,7 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

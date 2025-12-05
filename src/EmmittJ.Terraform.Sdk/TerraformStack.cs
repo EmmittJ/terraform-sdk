@@ -28,12 +28,37 @@ public class TerraformStack
 
     /// <summary>
     /// Adds a block (variable, resource, data source, etc.) to this configuration.
+    /// Sets the block's lineage for reference tracking.
     /// </summary>
     public void Add(TerraformBlock block)
     {
-        if (block == null)
+        AddInternal(block);
+    }
+
+    /// <summary>
+    /// Adds a block to this configuration and returns it for fluent usage.
+    /// Sets the block's lineage for reference tracking.
+    /// </summary>
+    /// <typeparam name="T">The block type.</typeparam>
+    /// <param name="block">The block to add.</param>
+    /// <returns>The added block for fluent chaining.</returns>
+    public T Add<T>(T block) where T : TerraformBlock
+    {
+        AddInternal(block);
+        return block;
+    }
+
+    private void AddInternal(TerraformBlock block)
+    {
+        if (block is null)
         {
             throw new ArgumentNullException(nameof(block));
+        }
+
+        // Set lineage for blocks that can be referenced
+        if (block.ReferenceIdentifier is not null)
+        {
+            block.Lineage = new TerraformLineage(block.ReferenceIdentifier);
         }
 
         _blocks.Add(block);

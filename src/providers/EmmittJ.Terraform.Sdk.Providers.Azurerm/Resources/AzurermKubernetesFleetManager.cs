@@ -28,13 +28,13 @@ public class AzurermKubernetesFleetManagerHubProfileBlock : TerraformBlock
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
     public TerraformValue<string> KubernetesVersion
-        => AsReference("kubernetes_version");
+        => CreateReference("kubernetes_version");
 
 }
 
@@ -100,7 +100,7 @@ public partial class AzurermKubernetesFleetManager(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

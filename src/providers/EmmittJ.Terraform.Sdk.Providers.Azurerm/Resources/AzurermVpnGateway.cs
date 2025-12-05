@@ -27,7 +27,7 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
     /// The bgp_peering_address attribute.
     /// </summary>
     public TerraformValue<string> BgpPeeringAddress
-        => AsReference("bgp_peering_address");
+        => CreateReference("bgp_peering_address");
 
     /// <summary>
     /// The peer_weight attribute.
@@ -86,19 +86,19 @@ public class AzurermVpnGatewayBgpSettingsBlockInstance0BgpPeeringAddressBlock : 
     /// The default_ips attribute.
     /// </summary>
     public TerraformSet<string> DefaultIps
-        => AsReference("default_ips");
+        => CreateReference("default_ips");
 
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> IpConfigurationId
-        => AsReference("ip_configuration_id");
+        => CreateReference("ip_configuration_id");
 
     /// <summary>
     /// The tunnel_ips attribute.
     /// </summary>
     public TerraformSet<string> TunnelIps
-        => AsReference("tunnel_ips");
+        => CreateReference("tunnel_ips");
 
 }
 
@@ -127,19 +127,19 @@ public class AzurermVpnGatewayBgpSettingsBlockInstance1BgpPeeringAddressBlock : 
     /// The default_ips attribute.
     /// </summary>
     public TerraformSet<string> DefaultIps
-        => AsReference("default_ips");
+        => CreateReference("default_ips");
 
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> IpConfigurationId
-        => AsReference("ip_configuration_id");
+        => CreateReference("ip_configuration_id");
 
     /// <summary>
     /// The tunnel_ips attribute.
     /// </summary>
     public TerraformSet<string> TunnelIps
-        => AsReference("tunnel_ips");
+        => CreateReference("tunnel_ips");
 
 }
 
@@ -214,7 +214,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-        => AsReference("ip_configuration");
+        => CreateReference("ip_configuration");
 
     /// <summary>
     /// BgpSettings block (nesting mode: list).

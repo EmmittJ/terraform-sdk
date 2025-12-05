@@ -89,7 +89,7 @@ public partial class AwsAppstreamDirectoryConfig(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsAppstreamDirectoryConfig(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsAppstreamDirectoryConfig(string name) : TerraformResourc
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// CertificateBasedAuthProperties block (nesting mode: list).

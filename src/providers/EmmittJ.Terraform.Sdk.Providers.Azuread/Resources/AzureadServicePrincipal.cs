@@ -233,7 +233,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string> Tags
     {
-        get => GetArgument<TerraformSet<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformSet<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -304,85 +304,85 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// Mapping of app role names to UUIDs
     /// </summary>
     public TerraformMap<string> AppRoleIds
-        => AsReference("app_role_ids");
+        => CreateReference("app_role_ids");
 
     /// <summary>
     /// The app_roles attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AppRoles
-        => AsReference("app_roles");
+        => CreateReference("app_roles");
 
     /// <summary>
     /// The tenant ID where the associated application is registered
     /// </summary>
     public TerraformValue<string> ApplicationTenantId
-        => AsReference("application_tenant_id");
+        => CreateReference("application_tenant_id");
 
     /// <summary>
     /// The display name of the application associated with this service principal
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Home page or landing page of the application
     /// </summary>
     public TerraformValue<string> HomepageUrl
-        => AsReference("homepage_url");
+        => CreateReference("homepage_url");
 
     /// <summary>
     /// The URL that will be used by Microsoft&#39;s authorization service to sign out a user using front-channel, back-channel or SAML logout protocols
     /// </summary>
     public TerraformValue<string> LogoutUrl
-        => AsReference("logout_url");
+        => CreateReference("logout_url");
 
     /// <summary>
     /// Mapping of OAuth2.0 permission scope names to UUIDs
     /// </summary>
     public TerraformMap<string> Oauth2PermissionScopeIds
-        => AsReference("oauth2_permission_scope_ids");
+        => CreateReference("oauth2_permission_scope_ids");
 
     /// <summary>
     /// The oauth2_permission_scopes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Oauth2PermissionScopes
-        => AsReference("oauth2_permission_scopes");
+        => CreateReference("oauth2_permission_scopes");
 
     /// <summary>
     /// The object ID of the service principal
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// The URLs where user tokens are sent for sign-in with the associated application, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent for the associated application
     /// </summary>
     public TerraformList<string> RedirectUris
-        => AsReference("redirect_uris");
+        => CreateReference("redirect_uris");
 
     /// <summary>
     /// The URL where the service exposes SAML metadata for federation
     /// </summary>
     public TerraformValue<string> SamlMetadataUrl
-        => AsReference("saml_metadata_url");
+        => CreateReference("saml_metadata_url");
 
     /// <summary>
     /// A list of identifier URI(s), copied over from the associated application
     /// </summary>
     public TerraformList<string> ServicePrincipalNames
-        => AsReference("service_principal_names");
+        => CreateReference("service_principal_names");
 
     /// <summary>
     /// The Microsoft account types that are supported for the associated application
     /// </summary>
     public TerraformValue<string> SignInAudience
-        => AsReference("sign_in_audience");
+        => CreateReference("sign_in_audience");
 
     /// <summary>
     /// Identifies whether the service principal represents an application or a managed identity
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// FeatureTags block (nesting mode: list).

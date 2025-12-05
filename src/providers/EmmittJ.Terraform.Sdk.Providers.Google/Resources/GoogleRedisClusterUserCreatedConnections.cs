@@ -76,7 +76,7 @@ public class GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlockConnec
     ///  CONNECTION_TYPE_READER
     /// </summary>
     public TerraformValue<string> ConnectionType
-        => AsReference("connection_type");
+        => CreateReference("connection_type");
 
     /// <summary>
     /// The URI of the consumer side forwarding rule.
@@ -106,7 +106,7 @@ public class GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlockConnec
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlockConnec
     ///  NOT_FOUND
     /// </summary>
     public TerraformValue<string> PscConnectionStatus
-        => AsReference("psc_connection_status");
+        => CreateReference("psc_connection_status");
 
     /// <summary>
     /// The service attachment which is the target of the PSC connection, in the form of projects/{project-id}/regions/{region}/serviceAttachments/{service-attachment-id}.
@@ -195,7 +195,7 @@ public partial class GoogleRedisClusterUserCreatedConnections(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -214,7 +214,7 @@ public partial class GoogleRedisClusterUserCreatedConnections(string name) : Ter
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 

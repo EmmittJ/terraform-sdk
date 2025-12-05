@@ -28,7 +28,7 @@ public class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlock
     /// The proxy endpoint that is used to access the runtime.
     /// </summary>
     public TerraformValue<string> ProxyUri
-        => AsReference("proxy_uri");
+        => CreateReference("proxy_uri");
 
     /// <summary>
     /// The owner of this runtime after creation. Format: &#39;alias@example.com&#39;.
@@ -136,7 +136,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// Bool indicating whether an newer image is available in an image family.
     /// </summary>
     public TerraformValue<bool> Upgradeable
-        => AsReference("upgradeable");
+        => CreateReference("upgradeable");
 
     /// <summary>
     /// Kernels block (nesting mode: list).
@@ -239,13 +239,13 @@ public class GoogleNotebooksRuntimeVirtualMachineBlock : TerraformBlock
     /// The unique identifier of the Managed Compute Engine instance.
     /// </summary>
     public TerraformValue<string> InstanceId
-        => AsReference("instance_id");
+        => CreateReference("instance_id");
 
     /// <summary>
     /// The user-friendly name of the Managed Compute Engine instance.
     /// </summary>
     public TerraformValue<string> InstanceName
-        => AsReference("instance_name");
+        => CreateReference("instance_name");
 
     /// <summary>
     /// VirtualMachineConfig block (nesting mode: list).
@@ -276,7 +276,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// storing-retrieving-metadata#guest_attributes)).
     /// </summary>
     public TerraformMap<string> GuestAttributes
-        => AsReference("guest_attributes");
+        => CreateReference("guest_attributes");
 
     /// <summary>
     /// If true, runtime will only have internal IP addresses. By default,
@@ -302,7 +302,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -324,7 +324,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -391,7 +391,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// </summary>
     public TerraformList<string> Tags
     {
-        get => GetArgument<TerraformList<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformList<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -399,7 +399,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// The zone where the virtual machine is located.
     /// </summary>
     public TerraformValue<string> Zone
-        => AsReference("zone");
+        => CreateReference("zone");
 
     /// <summary>
     /// AcceleratorConfig block (nesting mode: list).
@@ -538,7 +538,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// detached from the instance).
     /// </summary>
     public TerraformValue<bool> AutoDelete
-        => AsReference("auto_delete");
+        => CreateReference("auto_delete");
 
     /// <summary>
     /// Optional. Indicates that this is a boot disk. The virtual
@@ -546,7 +546,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// root filesystem.
     /// </summary>
     public TerraformValue<bool> Boot
-        => AsReference("boot");
+        => CreateReference("boot");
 
     /// <summary>
     /// Optional. Specifies a unique device name of your choice
@@ -560,7 +560,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// is only applicable for persistent disks.
     /// </summary>
     public TerraformValue<string> DeviceName
-        => AsReference("device_name");
+        => CreateReference("device_name");
 
     /// <summary>
     /// Indicates a list of features to enable on the guest operating
@@ -570,7 +570,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// options. &#39;&#39;
     /// </summary>
     public TerraformList<string> GuestOsFeatures
-        => AsReference("guest_os_features");
+        => CreateReference("guest_os_features");
 
     /// <summary>
     /// Output only. A zero-based index to this disk, where 0 is
@@ -578,7 +578,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// to an instance, each disk would have a unique index number.
     /// </summary>
     public TerraformValue<double> Index
-        => AsReference("index");
+        => CreateReference("index");
 
     /// <summary>
     /// &amp;quot;Specifies the disk interface to use for attaching this disk,
@@ -599,13 +599,13 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// disks.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// Output only. Any valid publicly visible licenses.
     /// </summary>
     public TerraformList<string> Licenses
-        => AsReference("licenses");
+        => CreateReference("licenses");
 
     /// <summary>
     /// The mode in which to attach this disk, either READ_WRITE
@@ -713,7 +713,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -808,7 +808,7 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -855,7 +855,7 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -863,7 +863,7 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The health state of this runtime. For a list of possible output
@@ -871,27 +871,27 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     /// reference/rest/v1/projects.locations.runtimes#healthstate&#39;.
     /// </summary>
     public TerraformValue<string> HealthState
-        => AsReference("health_state");
+        => CreateReference("health_state");
 
     /// <summary>
     /// Contains Runtime daemon metrics such as Service status and JupyterLab
     /// status
     /// </summary>
     public TerraformList<TerraformMap<object>> Metrics
-        => AsReference("metrics");
+        => CreateReference("metrics");
 
     /// <summary>
     /// The state of this runtime.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// AccessConfig block (nesting mode: list).

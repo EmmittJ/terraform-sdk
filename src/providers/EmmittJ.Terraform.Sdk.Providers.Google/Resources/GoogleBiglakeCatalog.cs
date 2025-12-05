@@ -45,7 +45,7 @@ public partial class GoogleBiglakeCatalog(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleBiglakeCatalog(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -85,7 +85,7 @@ public partial class GoogleBiglakeCatalog(string name) : TerraformResource("goog
     /// digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. The deletion time of the catalog. Only set after the catalog
@@ -93,7 +93,7 @@ public partial class GoogleBiglakeCatalog(string name) : TerraformResource("goog
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// Output only. The time when this catalog is considered expired. Only set
@@ -102,7 +102,7 @@ public partial class GoogleBiglakeCatalog(string name) : TerraformResource("goog
     /// up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// Output only. The last modification time of the catalog. A timestamp in
@@ -110,7 +110,7 @@ public partial class GoogleBiglakeCatalog(string name) : TerraformResource("goog
     /// fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -89,7 +89,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> CryptoKeyBackend
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_backend") ?? AsReference("crypto_key_backend");
+        get => GetArgument<TerraformValue<string>>("crypto_key_backend") ?? CreateReference("crypto_key_backend");
         set => SetArgument("crypto_key_backend", value);
     }
 
@@ -99,7 +99,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> DestroyScheduledDuration
     {
-        get => GetArgument<TerraformValue<string>>("destroy_scheduled_duration") ?? AsReference("destroy_scheduled_duration");
+        get => GetArgument<TerraformValue<string>>("destroy_scheduled_duration") ?? CreateReference("destroy_scheduled_duration");
         set => SetArgument("destroy_scheduled_duration", value);
     }
 
@@ -108,7 +108,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<bool> ImportOnly
     {
-        get => GetArgument<TerraformValue<bool>>("import_only") ?? AsReference("import_only");
+        get => GetArgument<TerraformValue<bool>>("import_only") ?? CreateReference("import_only");
         set => SetArgument("import_only", value);
     }
 
@@ -195,21 +195,21 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// A copy of the primary CryptoKeyVersion that will be used by cryptoKeys.encrypt when this CryptoKey is given in EncryptRequest.name.
     /// Keys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will be unset.
     /// </summary>
     public TerraformList<TerraformMap<object>> Primary
-        => AsReference("primary");
+        => CreateReference("primary");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

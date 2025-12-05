@@ -112,7 +112,7 @@ public class AwsMskReplicatorReplicationInfoListBlock : TerraformBlock
     /// The source_kafka_cluster_alias attribute.
     /// </summary>
     public TerraformValue<string> SourceKafkaClusterAlias
-        => AsReference("source_kafka_cluster_alias");
+        => CreateReference("source_kafka_cluster_alias");
 
     /// <summary>
     /// The source_kafka_cluster_arn attribute.
@@ -138,7 +138,7 @@ public class AwsMskReplicatorReplicationInfoListBlock : TerraformBlock
     /// The target_kafka_cluster_alias attribute.
     /// </summary>
     public TerraformValue<string> TargetKafkaClusterAlias
-        => AsReference("target_kafka_cluster_alias");
+        => CreateReference("target_kafka_cluster_alias");
 
     /// <summary>
     /// The target_kafka_cluster_arn attribute.
@@ -411,7 +411,7 @@ public partial class AwsMskReplicator(string name) : TerraformResource("aws_msk_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -420,7 +420,7 @@ public partial class AwsMskReplicator(string name) : TerraformResource("aws_msk_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -458,7 +458,7 @@ public partial class AwsMskReplicator(string name) : TerraformResource("aws_msk_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -466,13 +466,13 @@ public partial class AwsMskReplicator(string name) : TerraformResource("aws_msk_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The current_version attribute.
     /// </summary>
     public TerraformValue<string> CurrentVersion
-        => AsReference("current_version");
+        => CreateReference("current_version");
 
     /// <summary>
     /// KafkaCluster block (nesting mode: list).

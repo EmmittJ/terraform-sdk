@@ -168,7 +168,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockLambdaAuthorizerConfi
     /// </summary>
     public TerraformValue<double> AuthorizerResultTtlInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds") ?? AsReference("authorizer_result_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds") ?? CreateReference("authorizer_result_ttl_in_seconds");
         set => SetArgument("authorizer_result_ttl_in_seconds", value);
     }
 
@@ -209,7 +209,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockOpenidConnectConfigBl
     /// </summary>
     public TerraformValue<double> AuthTtl
     {
-        get => GetArgument<TerraformValue<double>>("auth_ttl") ?? AsReference("auth_ttl");
+        get => GetArgument<TerraformValue<double>>("auth_ttl") ?? CreateReference("auth_ttl");
         set => SetArgument("auth_ttl", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockOpenidConnectConfigBl
     /// </summary>
     public TerraformValue<double> IatTtl
     {
-        get => GetArgument<TerraformValue<double>>("iat_ttl") ?? AsReference("iat_ttl");
+        get => GetArgument<TerraformValue<double>>("iat_ttl") ?? CreateReference("iat_ttl");
         set => SetArgument("iat_ttl", value);
     }
 
@@ -376,7 +376,7 @@ public partial class AwsAppsyncApi(string name) : TerraformResource("aws_appsync
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -393,37 +393,37 @@ public partial class AwsAppsyncApi(string name) : TerraformResource("aws_appsync
     /// The api_arn attribute.
     /// </summary>
     public TerraformValue<string> ApiArn
-        => AsReference("api_arn");
+        => CreateReference("api_arn");
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     public TerraformValue<string> ApiId
-        => AsReference("api_id");
+        => CreateReference("api_id");
 
     /// <summary>
     /// The dns attribute.
     /// </summary>
     public TerraformMap<string> Dns
-        => AsReference("dns");
+        => CreateReference("dns");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The waf_web_acl_arn attribute.
     /// </summary>
     public TerraformValue<string> WafWebAclArn
-        => AsReference("waf_web_acl_arn");
+        => CreateReference("waf_web_acl_arn");
 
     /// <summary>
     /// The xray_enabled attribute.
     /// </summary>
     public TerraformValue<bool> XrayEnabled
-        => AsReference("xray_enabled");
+        => CreateReference("xray_enabled");
 
     /// <summary>
     /// EventConfig block (nesting mode: list).

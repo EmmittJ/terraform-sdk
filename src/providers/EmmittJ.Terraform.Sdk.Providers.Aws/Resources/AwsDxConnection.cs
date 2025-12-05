@@ -23,7 +23,7 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     /// </summary>
     public TerraformValue<string> EncryptionMode
     {
-        get => GetArgument<TerraformValue<string>>("encryption_mode") ?? AsReference("encryption_mode");
+        get => GetArgument<TerraformValue<string>>("encryption_mode") ?? CreateReference("encryption_mode");
         set => SetArgument("encryption_mode", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     /// </summary>
     public TerraformValue<string> ProviderName
     {
-        get => GetArgument<TerraformValue<string>>("provider_name") ?? AsReference("provider_name");
+        get => GetArgument<TerraformValue<string>>("provider_name") ?? CreateReference("provider_name");
         set => SetArgument("provider_name", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -114,54 +114,54 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The aws_device attribute.
     /// </summary>
     public TerraformValue<string> AwsDevice
-        => AsReference("aws_device");
+        => CreateReference("aws_device");
 
     /// <summary>
     /// The has_logical_redundancy attribute.
     /// </summary>
     public TerraformValue<string> HasLogicalRedundancy
-        => AsReference("has_logical_redundancy");
+        => CreateReference("has_logical_redundancy");
 
     /// <summary>
     /// The jumbo_frame_capable attribute.
     /// </summary>
     public TerraformValue<bool> JumboFrameCapable
-        => AsReference("jumbo_frame_capable");
+        => CreateReference("jumbo_frame_capable");
 
     /// <summary>
     /// The macsec_capable attribute.
     /// </summary>
     public TerraformValue<bool> MacsecCapable
-        => AsReference("macsec_capable");
+        => CreateReference("macsec_capable");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// The partner_name attribute.
     /// </summary>
     public TerraformValue<string> PartnerName
-        => AsReference("partner_name");
+        => CreateReference("partner_name");
 
     /// <summary>
     /// The port_encryption_status attribute.
     /// </summary>
     public TerraformValue<string> PortEncryptionStatus
-        => AsReference("port_encryption_status");
+        => CreateReference("port_encryption_status");
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
     public TerraformValue<double> VlanId
-        => AsReference("vlan_id");
+        => CreateReference("vlan_id");
 
 }

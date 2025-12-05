@@ -532,13 +532,13 @@ public class AzurermAppServiceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -858,7 +858,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> FtpsState
     {
-        get => GetArgument<TerraformValue<string>>("ftps_state") ?? AsReference("ftps_state");
+        get => GetArgument<TerraformValue<string>>("ftps_state") ?? CreateReference("ftps_state");
         set => SetArgument("ftps_state", value);
     }
 
@@ -885,7 +885,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<TerraformMap<object>> IpRestriction
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("ip_restriction") ?? AsReference("ip_restriction");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("ip_restriction") ?? CreateReference("ip_restriction");
         set => SetArgument("ip_restriction", value);
     }
 
@@ -921,7 +921,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LinuxFxVersion
     {
-        get => GetArgument<TerraformValue<string>>("linux_fx_version") ?? AsReference("linux_fx_version");
+        get => GetArgument<TerraformValue<string>>("linux_fx_version") ?? CreateReference("linux_fx_version");
         set => SetArgument("linux_fx_version", value);
     }
 
@@ -930,7 +930,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> LocalMysqlEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("local_mysql_enabled") ?? AsReference("local_mysql_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_mysql_enabled") ?? CreateReference("local_mysql_enabled");
         set => SetArgument("local_mysql_enabled", value);
     }
 
@@ -939,7 +939,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ManagedPipelineMode
     {
-        get => GetArgument<TerraformValue<string>>("managed_pipeline_mode") ?? AsReference("managed_pipeline_mode");
+        get => GetArgument<TerraformValue<string>>("managed_pipeline_mode") ?? CreateReference("managed_pipeline_mode");
         set => SetArgument("managed_pipeline_mode", value);
     }
 
@@ -948,7 +948,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MinTlsVersion
     {
-        get => GetArgument<TerraformValue<string>>("min_tls_version") ?? AsReference("min_tls_version");
+        get => GetArgument<TerraformValue<string>>("min_tls_version") ?? CreateReference("min_tls_version");
         set => SetArgument("min_tls_version", value);
     }
 
@@ -957,7 +957,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> NumberOfWorkers
     {
-        get => GetArgument<TerraformValue<double>>("number_of_workers") ?? AsReference("number_of_workers");
+        get => GetArgument<TerraformValue<double>>("number_of_workers") ?? CreateReference("number_of_workers");
         set => SetArgument("number_of_workers", value);
     }
 
@@ -993,7 +993,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> RemoteDebuggingVersion
     {
-        get => GetArgument<TerraformValue<string>>("remote_debugging_version") ?? AsReference("remote_debugging_version");
+        get => GetArgument<TerraformValue<string>>("remote_debugging_version") ?? CreateReference("remote_debugging_version");
         set => SetArgument("remote_debugging_version", value);
     }
 
@@ -1002,7 +1002,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<TerraformMap<object>> ScmIpRestriction
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("scm_ip_restriction") ?? AsReference("scm_ip_restriction");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("scm_ip_restriction") ?? CreateReference("scm_ip_restriction");
         set => SetArgument("scm_ip_restriction", value);
     }
 
@@ -1011,7 +1011,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScmType
     {
-        get => GetArgument<TerraformValue<string>>("scm_type") ?? AsReference("scm_type");
+        get => GetArgument<TerraformValue<string>>("scm_type") ?? CreateReference("scm_type");
         set => SetArgument("scm_type", value);
     }
 
@@ -1038,7 +1038,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> VnetRouteAllEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("vnet_route_all_enabled") ?? AsReference("vnet_route_all_enabled");
+        get => GetArgument<TerraformValue<bool>>("vnet_route_all_enabled") ?? CreateReference("vnet_route_all_enabled");
         set => SetArgument("vnet_route_all_enabled", value);
     }
 
@@ -1047,7 +1047,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> WebsocketsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("websockets_enabled") ?? AsReference("websockets_enabled");
+        get => GetArgument<TerraformValue<bool>>("websockets_enabled") ?? CreateReference("websockets_enabled");
         set => SetArgument("websockets_enabled", value);
     }
 
@@ -1056,7 +1056,7 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> WindowsFxVersion
     {
-        get => GetArgument<TerraformValue<string>>("windows_fx_version") ?? AsReference("windows_fx_version");
+        get => GetArgument<TerraformValue<string>>("windows_fx_version") ?? CreateReference("windows_fx_version");
         set => SetArgument("windows_fx_version", value);
     }
 
@@ -1121,7 +1121,7 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Branch
     {
-        get => GetArgument<TerraformValue<string>>("branch") ?? AsReference("branch");
+        get => GetArgument<TerraformValue<string>>("branch") ?? CreateReference("branch");
         set => SetArgument("branch", value);
     }
 
@@ -1130,7 +1130,7 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> ManualIntegration
     {
-        get => GetArgument<TerraformValue<bool>>("manual_integration") ?? AsReference("manual_integration");
+        get => GetArgument<TerraformValue<bool>>("manual_integration") ?? CreateReference("manual_integration");
         set => SetArgument("manual_integration", value);
     }
 
@@ -1139,7 +1139,7 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> RepoUrl
     {
-        get => GetArgument<TerraformValue<string>>("repo_url") ?? AsReference("repo_url");
+        get => GetArgument<TerraformValue<string>>("repo_url") ?? CreateReference("repo_url");
         set => SetArgument("repo_url", value);
     }
 
@@ -1148,7 +1148,7 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> RollbackEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("rollback_enabled") ?? AsReference("rollback_enabled");
+        get => GetArgument<TerraformValue<bool>>("rollback_enabled") ?? CreateReference("rollback_enabled");
         set => SetArgument("rollback_enabled", value);
     }
 
@@ -1157,7 +1157,7 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> UseMercurial
     {
-        get => GetArgument<TerraformValue<bool>>("use_mercurial") ?? AsReference("use_mercurial");
+        get => GetArgument<TerraformValue<bool>>("use_mercurial") ?? CreateReference("use_mercurial");
         set => SetArgument("use_mercurial", value);
     }
 
@@ -1309,7 +1309,7 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformMap<string> AppSettings
     {
-        get => GetArgument<TerraformMap<string>>("app_settings") ?? AsReference("app_settings");
+        get => GetArgument<TerraformMap<string>>("app_settings") ?? CreateReference("app_settings");
         set => SetArgument("app_settings", value);
     }
 
@@ -1336,7 +1336,7 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> ClientCertMode
     {
-        get => GetArgument<TerraformValue<string>>("client_cert_mode") ?? AsReference("client_cert_mode");
+        get => GetArgument<TerraformValue<string>>("client_cert_mode") ?? CreateReference("client_cert_mode");
         set => SetArgument("client_cert_mode", value);
     }
 
@@ -1363,7 +1363,7 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1372,7 +1372,7 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> KeyVaultReferenceIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_reference_identity_id") ?? AsReference("key_vault_reference_identity_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_reference_identity_id") ?? CreateReference("key_vault_reference_identity_id");
         set => SetArgument("key_vault_reference_identity_id", value);
     }
 
@@ -1419,43 +1419,43 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// The custom_domain_verification_id attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-        => AsReference("custom_domain_verification_id");
+        => CreateReference("custom_domain_verification_id");
 
     /// <summary>
     /// The default_site_hostname attribute.
     /// </summary>
     public TerraformValue<string> DefaultSiteHostname
-        => AsReference("default_site_hostname");
+        => CreateReference("default_site_hostname");
 
     /// <summary>
     /// The outbound_ip_address_list attribute.
     /// </summary>
     public TerraformList<string> OutboundIpAddressList
-        => AsReference("outbound_ip_address_list");
+        => CreateReference("outbound_ip_address_list");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> OutboundIpAddresses
-        => AsReference("outbound_ip_addresses");
+        => CreateReference("outbound_ip_addresses");
 
     /// <summary>
     /// The possible_outbound_ip_address_list attribute.
     /// </summary>
     public TerraformList<string> PossibleOutboundIpAddressList
-        => AsReference("possible_outbound_ip_address_list");
+        => CreateReference("possible_outbound_ip_address_list");
 
     /// <summary>
     /// The possible_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> PossibleOutboundIpAddresses
-        => AsReference("possible_outbound_ip_addresses");
+        => CreateReference("possible_outbound_ip_addresses");
 
     /// <summary>
     /// The site_credential attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteCredential
-        => AsReference("site_credential");
+        => CreateReference("site_credential");
 
     /// <summary>
     /// AuthSettings block (nesting mode: list).

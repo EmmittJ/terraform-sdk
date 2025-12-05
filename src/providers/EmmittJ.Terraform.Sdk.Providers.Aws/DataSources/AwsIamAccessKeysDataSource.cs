@@ -13,7 +13,7 @@ public partial class AwsIamAccessKeysDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,6 +31,6 @@ public partial class AwsIamAccessKeysDataSource(string name) : TerraformDataSour
     /// The access_keys attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> AccessKeys
-        => AsReference("access_keys");
+        => CreateReference("access_keys");
 
 }

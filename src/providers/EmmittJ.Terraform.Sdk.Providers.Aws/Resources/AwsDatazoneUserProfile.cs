@@ -55,7 +55,7 @@ public partial class AwsDatazoneUserProfile(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsDatazoneUserProfile(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? CreateReference("status");
         set => SetArgument("status", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsDatazoneUserProfile(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> UserType
     {
-        get => GetArgument<TerraformValue<string>>("user_type") ?? AsReference("user_type");
+        get => GetArgument<TerraformValue<string>>("user_type") ?? CreateReference("user_type");
         set => SetArgument("user_type", value);
     }
 
@@ -91,19 +91,19 @@ public partial class AwsDatazoneUserProfile(string name) : TerraformResource("aw
     /// The details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Details
-        => AsReference("details");
+        => CreateReference("details");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

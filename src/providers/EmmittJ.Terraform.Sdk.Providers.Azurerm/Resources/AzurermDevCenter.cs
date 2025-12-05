@@ -26,13 +26,13 @@ public class AzurermDevCenterIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -108,7 +108,7 @@ public partial class AzurermDevCenter(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermDevCenter(string name) : TerraformResource("azurerm_
     /// The dev_center_uri attribute.
     /// </summary>
     public TerraformValue<string> DevCenterUri
-        => AsReference("dev_center_uri");
+        => CreateReference("dev_center_uri");
 
     /// <summary>
     /// Identity block (nesting mode: list).

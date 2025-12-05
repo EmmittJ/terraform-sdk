@@ -22,7 +22,7 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,6 +49,6 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource(string name) :
     /// The results attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Results
-        => AsReference("results");
+        => CreateReference("results");
 
 }

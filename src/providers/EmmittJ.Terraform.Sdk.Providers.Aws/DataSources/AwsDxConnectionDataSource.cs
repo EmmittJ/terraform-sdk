@@ -13,7 +13,7 @@ public partial class AwsDxConnectionDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsDxConnectionDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsDxConnectionDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,54 +49,54 @@ public partial class AwsDxConnectionDataSource(string name) : TerraformDataSourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The aws_device attribute.
     /// </summary>
     public TerraformValue<string> AwsDevice
-        => AsReference("aws_device");
+        => CreateReference("aws_device");
 
     /// <summary>
     /// The bandwidth attribute.
     /// </summary>
     public TerraformValue<string> Bandwidth
-        => AsReference("bandwidth");
+        => CreateReference("bandwidth");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// The partner_name attribute.
     /// </summary>
     public TerraformValue<string> PartnerName
-        => AsReference("partner_name");
+        => CreateReference("partner_name");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     public TerraformValue<string> ProviderName
-        => AsReference("provider_name");
+        => CreateReference("provider_name");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
     public TerraformValue<double> VlanId
-        => AsReference("vlan_id");
+        => CreateReference("vlan_id");
 
 }

@@ -36,7 +36,7 @@ public partial class AzurermDnsARecordDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,31 +74,31 @@ public partial class AzurermDnsARecordDataSource(string name) : TerraformDataSou
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The records attribute.
     /// </summary>
     public TerraformSet<string> Records
-        => AsReference("records");
+        => CreateReference("records");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
     public TerraformValue<string> TargetResourceId
-        => AsReference("target_resource_id");
+        => CreateReference("target_resource_id");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     public TerraformValue<double> Ttl
-        => AsReference("ttl");
+        => CreateReference("ttl");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

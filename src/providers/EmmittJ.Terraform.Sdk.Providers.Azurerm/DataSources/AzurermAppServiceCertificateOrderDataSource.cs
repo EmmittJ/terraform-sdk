@@ -36,7 +36,7 @@ public partial class AzurermAppServiceCertificateOrderDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,103 +64,103 @@ public partial class AzurermAppServiceCertificateOrderDataSource(string name) : 
     /// The app_service_certificate_not_renewable_reasons attribute.
     /// </summary>
     public TerraformList<string> AppServiceCertificateNotRenewableReasons
-        => AsReference("app_service_certificate_not_renewable_reasons");
+        => CreateReference("app_service_certificate_not_renewable_reasons");
 
     /// <summary>
     /// The auto_renew attribute.
     /// </summary>
     public TerraformValue<bool> AutoRenew
-        => AsReference("auto_renew");
+        => CreateReference("auto_renew");
 
     /// <summary>
     /// The certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certificates
-        => AsReference("certificates");
+        => CreateReference("certificates");
 
     /// <summary>
     /// The csr attribute.
     /// </summary>
     public TerraformValue<string> Csr
-        => AsReference("csr");
+        => CreateReference("csr");
 
     /// <summary>
     /// The distinguished_name attribute.
     /// </summary>
     public TerraformValue<string> DistinguishedName
-        => AsReference("distinguished_name");
+        => CreateReference("distinguished_name");
 
     /// <summary>
     /// The domain_verification_token attribute.
     /// </summary>
     public TerraformValue<string> DomainVerificationToken
-        => AsReference("domain_verification_token");
+        => CreateReference("domain_verification_token");
 
     /// <summary>
     /// The expiration_time attribute.
     /// </summary>
     public TerraformValue<string> ExpirationTime
-        => AsReference("expiration_time");
+        => CreateReference("expiration_time");
 
     /// <summary>
     /// The intermediate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> IntermediateThumbprint
-        => AsReference("intermediate_thumbprint");
+        => CreateReference("intermediate_thumbprint");
 
     /// <summary>
     /// The is_private_key_external attribute.
     /// </summary>
     public TerraformValue<bool> IsPrivateKeyExternal
-        => AsReference("is_private_key_external");
+        => CreateReference("is_private_key_external");
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
     public TerraformValue<double> KeySize
-        => AsReference("key_size");
+        => CreateReference("key_size");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The product_type attribute.
     /// </summary>
     public TerraformValue<string> ProductType
-        => AsReference("product_type");
+        => CreateReference("product_type");
 
     /// <summary>
     /// The root_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> RootThumbprint
-        => AsReference("root_thumbprint");
+        => CreateReference("root_thumbprint");
 
     /// <summary>
     /// The signed_certificate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> SignedCertificateThumbprint
-        => AsReference("signed_certificate_thumbprint");
+        => CreateReference("signed_certificate_thumbprint");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The validity_in_years attribute.
     /// </summary>
     public TerraformValue<double> ValidityInYears
-        => AsReference("validity_in_years");
+        => CreateReference("validity_in_years");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

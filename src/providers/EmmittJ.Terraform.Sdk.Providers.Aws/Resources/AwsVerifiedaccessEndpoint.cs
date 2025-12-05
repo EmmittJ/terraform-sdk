@@ -481,7 +481,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -499,7 +499,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -526,7 +526,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -544,19 +544,19 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// The device_validation_domain attribute.
     /// </summary>
     public TerraformValue<string> DeviceValidationDomain
-        => AsReference("device_validation_domain");
+        => CreateReference("device_validation_domain");
 
     /// <summary>
     /// The endpoint_domain attribute.
     /// </summary>
     public TerraformValue<string> EndpointDomain
-        => AsReference("endpoint_domain");
+        => CreateReference("endpoint_domain");
 
     /// <summary>
     /// The verified_access_instance_id attribute.
     /// </summary>
     public TerraformValue<string> VerifiedAccessInstanceId
-        => AsReference("verified_access_instance_id");
+        => CreateReference("verified_access_instance_id");
 
     /// <summary>
     /// CidrOptions block (nesting mode: list).

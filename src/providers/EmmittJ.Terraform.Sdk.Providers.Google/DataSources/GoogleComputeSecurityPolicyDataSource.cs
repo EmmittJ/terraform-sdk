@@ -13,7 +13,7 @@ public partial class GoogleComputeSecurityPolicyDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -48,37 +48,37 @@ public partial class GoogleComputeSecurityPolicyDataSource(string name) : Terraf
     /// Adaptive Protection Config of this security policy.
     /// </summary>
     public TerraformList<TerraformMap<object>> AdaptiveProtectionConfig
-        => AsReference("adaptive_protection_config");
+        => CreateReference("adaptive_protection_config");
 
     /// <summary>
     /// Advanced Options Config of this security policy.
     /// </summary>
     public TerraformList<TerraformMap<object>> AdvancedOptionsConfig
-        => AsReference("advanced_options_config");
+        => CreateReference("advanced_options_config");
 
     /// <summary>
     /// An optional description of this security policy. Max size is 2048.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Fingerprint of this resource.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The unique fingerprint of the labels.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// Labels to apply to this address.  A list of key-&amp;gt;value pairs.
@@ -88,30 +88,30 @@ public partial class GoogleComputeSecurityPolicyDataSource(string name) : Terraf
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// reCAPTCHA configuration options to be applied for the security policy.
     /// </summary>
     public TerraformList<TerraformMap<object>> RecaptchaOptionsConfig
-        => AsReference("recaptcha_options_config");
+        => CreateReference("recaptcha_options_config");
 
     /// <summary>
     /// The set of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match &amp;quot;*&amp;quot;). If no rules are provided when creating a security policy, a default rule with action &amp;quot;allow&amp;quot; will be added.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Rule
-        => AsReference("rule");
+        => CreateReference("rule");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The type indicates the intended use of the security policy. CLOUD_ARMOR - Cloud Armor backend security policies can be configured to filter incoming HTTP requests targeting backend services. They filter requests before they hit the origin servers. CLOUD_ARMOR_EDGE - Cloud Armor edge security policies can be configured to filter incoming HTTP requests targeting backend services (including Cloud CDN-enabled) as well as backend buckets (Cloud Storage). They filter requests before the request is served from Google&#39;s cache.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

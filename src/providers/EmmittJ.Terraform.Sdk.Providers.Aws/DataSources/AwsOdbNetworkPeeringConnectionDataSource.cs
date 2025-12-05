@@ -23,7 +23,7 @@ public partial class AwsOdbNetworkPeeringConnectionDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,60 +31,60 @@ public partial class AwsOdbNetworkPeeringConnectionDataSource(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Created time of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// Display name of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// ARN of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> OdbNetworkArn
-        => AsReference("odb_network_arn");
+        => CreateReference("odb_network_arn");
 
     /// <summary>
     /// Type of the odb peering connection.
     /// </summary>
     public TerraformValue<string> OdbPeeringConnectionType
-        => AsReference("odb_peering_connection_type");
+        => CreateReference("odb_peering_connection_type");
 
     /// <summary>
     /// ARN of the peer network peering connection.
     /// </summary>
     public TerraformValue<string> PeerNetworkArn
-        => AsReference("peer_network_arn");
+        => CreateReference("peer_network_arn");
 
     /// <summary>
     /// Progress of the odb network peering connection.
     /// </summary>
     public TerraformValue<double> PercentProgress
-        => AsReference("percent_progress");
+        => CreateReference("percent_progress");
 
     /// <summary>
     /// Status of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Status of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
 }

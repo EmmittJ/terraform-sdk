@@ -274,7 +274,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// Indicates whether the clientKey field is set.
     /// </summary>
     public TerraformValue<bool> CaCertificateSet
-        => AsReference("ca_certificate_set");
+        => CreateReference("ca_certificate_set");
 
     /// <summary>
     /// PEM-encoded certificate that will be used by the replica to
@@ -292,7 +292,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// Indicates whether the clientCertificate field is set.
     /// </summary>
     public TerraformValue<bool> ClientCertificateSet
-        => AsReference("client_certificate_set");
+        => CreateReference("client_certificate_set");
 
     /// <summary>
     /// PEM-encoded private key associated with the Client Certificate.
@@ -309,7 +309,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// Indicates whether the clientKey field is set.
     /// </summary>
     public TerraformValue<bool> ClientKeySet
-        => AsReference("client_key_set");
+        => CreateReference("client_key_set");
 
     /// <summary>
     /// A reference to a Secret Manager resource name storing the
@@ -442,7 +442,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlockSslConfigBlock : 
     /// Indicates whether the clientKey field is set.
     /// </summary>
     public TerraformValue<bool> CaCertificateSet
-        => AsReference("ca_certificate_set");
+        => CreateReference("ca_certificate_set");
 
     /// <summary>
     /// PEM-encoded certificate that will be used by the replica to
@@ -460,7 +460,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlockSslConfigBlock : 
     /// Indicates whether the clientCertificate field is set.
     /// </summary>
     public TerraformValue<bool> ClientCertificateSet
-        => AsReference("client_certificate_set");
+        => CreateReference("client_certificate_set");
 
     /// <summary>
     /// PEM-encoded private key associated with the Client Certificate.
@@ -477,7 +477,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlockSslConfigBlock : 
     /// Indicates whether the clientKey field is set.
     /// </summary>
     public TerraformValue<bool> ClientKeySet
-        => AsReference("client_key_set");
+        => CreateReference("client_key_set");
 
 }
 
@@ -809,7 +809,7 @@ public partial class GoogleDatastreamConnectionProfile(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -840,7 +840,7 @@ public partial class GoogleDatastreamConnectionProfile(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -848,20 +848,20 @@ public partial class GoogleDatastreamConnectionProfile(string name) : TerraformR
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The resource&#39;s name.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// BigqueryProfile block (nesting mode: list).

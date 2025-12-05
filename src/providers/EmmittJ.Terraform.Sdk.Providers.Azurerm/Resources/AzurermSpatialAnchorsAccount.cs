@@ -64,7 +64,7 @@ public partial class AzurermSpatialAnchorsAccount(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,13 +111,13 @@ public partial class AzurermSpatialAnchorsAccount(string name) : TerraformResour
     /// The account_domain attribute.
     /// </summary>
     public TerraformValue<string> AccountDomain
-        => AsReference("account_domain");
+        => CreateReference("account_domain");
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     public TerraformValue<string> AccountId
-        => AsReference("account_id");
+        => CreateReference("account_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class GoogleComputeResourcePolicyDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,42 +55,42 @@ public partial class GoogleComputeResourcePolicyDataSource(string name) : Terraf
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Replication consistency group for asynchronous disk replication.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiskConsistencyGroupPolicy
-        => AsReference("disk_consistency_group_policy");
+        => CreateReference("disk_consistency_group_policy");
 
     /// <summary>
     /// Resource policy for instances used for placement configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> GroupPlacementPolicy
-        => AsReference("group_placement_policy");
+        => CreateReference("group_placement_policy");
 
     /// <summary>
     /// Resource policy for scheduling instance operations.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceSchedulePolicy
-        => AsReference("instance_schedule_policy");
+        => CreateReference("instance_schedule_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Policy for creating snapshots of persistent disks.
     /// </summary>
     public TerraformList<TerraformMap<object>> SnapshotSchedulePolicy
-        => AsReference("snapshot_schedule_policy");
+        => CreateReference("snapshot_schedule_policy");
 
     /// <summary>
     /// Represents the workload policy.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadPolicy
-        => AsReference("workload_policy");
+        => CreateReference("workload_policy");
 
 }

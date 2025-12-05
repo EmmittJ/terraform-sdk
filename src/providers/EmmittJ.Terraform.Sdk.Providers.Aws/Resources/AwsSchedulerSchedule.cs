@@ -637,7 +637,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> ActionAfterCompletion
     {
-        get => GetArgument<TerraformValue<string>>("action_after_completion") ?? AsReference("action_after_completion");
+        get => GetArgument<TerraformValue<string>>("action_after_completion") ?? CreateReference("action_after_completion");
         set => SetArgument("action_after_completion", value);
     }
 
@@ -664,7 +664,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> GroupName
     {
-        get => GetArgument<TerraformValue<string>>("group_name") ?? AsReference("group_name");
+        get => GetArgument<TerraformValue<string>>("group_name") ?? CreateReference("group_name");
         set => SetArgument("group_name", value);
     }
 
@@ -673,7 +673,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -691,7 +691,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -700,7 +700,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -709,7 +709,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -754,7 +754,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// FlexibleTimeWindow block (nesting mode: list).

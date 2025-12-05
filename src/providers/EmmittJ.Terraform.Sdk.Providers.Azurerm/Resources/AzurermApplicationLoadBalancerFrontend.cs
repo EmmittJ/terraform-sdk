@@ -73,7 +73,7 @@ public partial class AzurermApplicationLoadBalancerFrontend(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermApplicationLoadBalancerFrontend(string name) : Terra
     /// The fully_qualified_domain_name attribute.
     /// </summary>
     public TerraformValue<string> FullyQualifiedDomainName
-        => AsReference("fully_qualified_domain_name");
+        => CreateReference("fully_qualified_domain_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -108,7 +108,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<double> MaxMessageSizeInKilobytes
     {
-        get => GetArgument<TerraformValue<double>>("max_message_size_in_kilobytes") ?? AsReference("max_message_size_in_kilobytes");
+        get => GetArgument<TerraformValue<double>>("max_message_size_in_kilobytes") ?? CreateReference("max_message_size_in_kilobytes");
         set => SetArgument("max_message_size_in_kilobytes", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<double> MaxSizeInMegabytes
     {
-        get => GetArgument<TerraformValue<double>>("max_size_in_megabytes") ?? AsReference("max_size_in_megabytes");
+        get => GetArgument<TerraformValue<double>>("max_size_in_megabytes") ?? CreateReference("max_size_in_megabytes");
         set => SetArgument("max_size_in_megabytes", value);
     }
 

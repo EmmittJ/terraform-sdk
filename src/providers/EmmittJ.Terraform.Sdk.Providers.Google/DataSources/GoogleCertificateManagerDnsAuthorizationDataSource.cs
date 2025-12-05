@@ -25,7 +25,7 @@ public partial class GoogleCertificateManagerDnsAuthorizationDataSource(string n
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class GoogleCertificateManagerDnsAuthorizationDataSource(string n
     /// A human-readable description of the resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The structure describing the DNS Resource Record that needs to be added
@@ -71,13 +71,13 @@ public partial class GoogleCertificateManagerDnsAuthorizationDataSource(string n
     /// certificate.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsResourceRecord
-        => AsReference("dns_resource_record");
+        => CreateReference("dns_resource_record");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Set of label tags associated with the DNS Authorization resource.
@@ -86,14 +86,14 @@ public partial class GoogleCertificateManagerDnsAuthorizationDataSource(string n
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// type of DNS authorization. If unset during the resource creation, FIXED_RECORD will
@@ -106,6 +106,6 @@ public partial class GoogleCertificateManagerDnsAuthorizationDataSource(string n
     /// projects. Possible values: [&amp;quot;FIXED_RECORD&amp;quot;, &amp;quot;PER_PROJECT_RECORD&amp;quot;]
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

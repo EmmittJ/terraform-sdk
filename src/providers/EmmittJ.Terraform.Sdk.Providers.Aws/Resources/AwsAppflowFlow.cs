@@ -681,7 +681,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string> BucketPrefix
     {
-        get => GetArgument<TerraformValue<string>>("bucket_prefix") ?? AsReference("bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix") ?? CreateReference("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -722,7 +722,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool> PreserveSourceDataTyping
     {
-        get => GetArgument<TerraformValue<bool>>("preserve_source_data_typing") ?? AsReference("preserve_source_data_typing");
+        get => GetArgument<TerraformValue<bool>>("preserve_source_data_typing") ?? CreateReference("preserve_source_data_typing");
         set => SetArgument("preserve_source_data_typing", value);
     }
 
@@ -764,7 +764,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string> AggregationType
     {
-        get => GetArgument<TerraformValue<string>>("aggregation_type") ?? AsReference("aggregation_type");
+        get => GetArgument<TerraformValue<string>>("aggregation_type") ?? CreateReference("aggregation_type");
         set => SetArgument("aggregation_type", value);
     }
 
@@ -773,7 +773,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<double> TargetFileSize
     {
-        get => GetArgument<TerraformValue<double>>("target_file_size") ?? AsReference("target_file_size");
+        get => GetArgument<TerraformValue<double>>("target_file_size") ?? CreateReference("target_file_size");
         set => SetArgument("target_file_size", value);
     }
 
@@ -804,7 +804,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformList<string> PrefixHierarchy
     {
-        get => GetArgument<TerraformList<string>>("prefix_hierarchy") ?? AsReference("prefix_hierarchy");
+        get => GetArgument<TerraformList<string>>("prefix_hierarchy") ?? CreateReference("prefix_hierarchy");
         set => SetArgument("prefix_hierarchy", value);
     }
 
@@ -1280,7 +1280,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformList<string> PrefixHierarchy
     {
-        get => GetArgument<TerraformList<string>>("prefix_hierarchy") ?? AsReference("prefix_hierarchy");
+        get => GetArgument<TerraformList<string>>("prefix_hierarchy") ?? CreateReference("prefix_hierarchy");
         set => SetArgument("prefix_hierarchy", value);
     }
 
@@ -2288,7 +2288,7 @@ public class AwsAppflowFlowTaskBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> SourceFields
     {
-        get => GetArgument<TerraformList<string>>("source_fields") ?? AsReference("source_fields");
+        get => GetArgument<TerraformList<string>>("source_fields") ?? CreateReference("source_fields");
         set => SetArgument("source_fields", value);
     }
 
@@ -2634,7 +2634,7 @@ public partial class AwsAppflowFlow(string name) : TerraformResource("aws_appflo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2643,7 +2643,7 @@ public partial class AwsAppflowFlow(string name) : TerraformResource("aws_appflo
     /// </summary>
     public TerraformValue<string> KmsArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_arn") ?? AsReference("kms_arn");
+        get => GetArgument<TerraformValue<string>>("kms_arn") ?? CreateReference("kms_arn");
         set => SetArgument("kms_arn", value);
     }
 
@@ -2662,7 +2662,7 @@ public partial class AwsAppflowFlow(string name) : TerraformResource("aws_appflo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -2680,7 +2680,7 @@ public partial class AwsAppflowFlow(string name) : TerraformResource("aws_appflo
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -2688,13 +2688,13 @@ public partial class AwsAppflowFlow(string name) : TerraformResource("aws_appflo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The flow_status attribute.
     /// </summary>
     public TerraformValue<string> FlowStatus
-        => AsReference("flow_status");
+        => CreateReference("flow_status");
 
     /// <summary>
     /// DestinationFlowConfig block (nesting mode: list).

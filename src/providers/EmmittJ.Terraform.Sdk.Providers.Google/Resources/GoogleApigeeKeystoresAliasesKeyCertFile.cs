@@ -130,19 +130,19 @@ public partial class GoogleApigeeKeystoresAliasesKeyCertFile(string name) : Terr
     /// Chain of certificates under this alias.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertsInfo
-        => AsReference("certs_info");
+        => CreateReference("certs_info");
 
     /// <summary>
     /// Project identifier
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Optional. Type of Alias.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

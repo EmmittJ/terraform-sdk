@@ -173,7 +173,7 @@ public class AwsEmrserverlessApplicationInitialCapacityBlockInitialCapacityConfi
     /// </summary>
     public TerraformValue<string> Disk
     {
-        get => GetArgument<TerraformValue<string>>("disk") ?? AsReference("disk");
+        get => GetArgument<TerraformValue<string>>("disk") ?? CreateReference("disk");
         set => SetArgument("disk", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsEmrserverlessApplicationInteractiveConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<bool> LivyEndpointEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("livy_endpoint_enabled") ?? AsReference("livy_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("livy_endpoint_enabled") ?? CreateReference("livy_endpoint_enabled");
         set => SetArgument("livy_endpoint_enabled", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsEmrserverlessApplicationInteractiveConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<bool> StudioEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("studio_enabled") ?? AsReference("studio_enabled");
+        get => GetArgument<TerraformValue<bool>>("studio_enabled") ?? CreateReference("studio_enabled");
         set => SetArgument("studio_enabled", value);
     }
 
@@ -248,7 +248,7 @@ public class AwsEmrserverlessApplicationMaximumCapacityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Disk
     {
-        get => GetArgument<TerraformValue<string>>("disk") ?? AsReference("disk");
+        get => GetArgument<TerraformValue<string>>("disk") ?? CreateReference("disk");
         set => SetArgument("disk", value);
     }
 
@@ -576,7 +576,7 @@ public class AwsEmrserverlessApplicationSchedulerConfigurationBlock : TerraformB
     /// </summary>
     public TerraformValue<double> MaxConcurrentRuns
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_runs") ?? AsReference("max_concurrent_runs");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_runs") ?? CreateReference("max_concurrent_runs");
         set => SetArgument("max_concurrent_runs", value);
     }
 
@@ -585,7 +585,7 @@ public class AwsEmrserverlessApplicationSchedulerConfigurationBlock : TerraformB
     /// </summary>
     public TerraformValue<double> QueueTimeoutMinutes
     {
-        get => GetArgument<TerraformValue<double>>("queue_timeout_minutes") ?? AsReference("queue_timeout_minutes");
+        get => GetArgument<TerraformValue<double>>("queue_timeout_minutes") ?? CreateReference("queue_timeout_minutes");
         set => SetArgument("queue_timeout_minutes", value);
     }
 
@@ -612,7 +612,7 @@ public partial class AwsEmrserverlessApplication(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -631,7 +631,7 @@ public partial class AwsEmrserverlessApplication(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -659,7 +659,7 @@ public partial class AwsEmrserverlessApplication(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -677,7 +677,7 @@ public partial class AwsEmrserverlessApplication(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// AutoStartConfiguration block (nesting mode: list).

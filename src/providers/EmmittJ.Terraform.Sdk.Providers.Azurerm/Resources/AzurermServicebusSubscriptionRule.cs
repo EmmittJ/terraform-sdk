@@ -177,7 +177,7 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     /// The sql_filter_compatibility_level attribute.
     /// </summary>
     public TerraformValue<double> SqlFilterCompatibilityLevel
-        => AsReference("sql_filter_compatibility_level");
+        => CreateReference("sql_filter_compatibility_level");
 
     /// <summary>
     /// CorrelationFilter block (nesting mode: list).

@@ -13,7 +13,7 @@ public partial class GoogleContainerAttachedVersionsDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,6 +41,6 @@ public partial class GoogleContainerAttachedVersionsDataSource(string name) : Te
     /// The valid_versions attribute.
     /// </summary>
     public TerraformList<string> ValidVersions
-        => AsReference("valid_versions");
+        => CreateReference("valid_versions");
 
 }

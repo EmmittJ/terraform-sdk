@@ -84,7 +84,7 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -101,61 +101,61 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Created time of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// ARN of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> OdbNetworkArn
-        => AsReference("odb_network_arn");
+        => CreateReference("odb_network_arn");
 
     /// <summary>
     /// Type of the odb peering connection.
     /// </summary>
     public TerraformValue<string> OdbPeeringConnectionType
-        => AsReference("odb_peering_connection_type");
+        => CreateReference("odb_peering_connection_type");
 
     /// <summary>
     /// ARN of the peer network peering connection.
     /// </summary>
     public TerraformValue<string> PeerNetworkArn
-        => AsReference("peer_network_arn");
+        => CreateReference("peer_network_arn");
 
     /// <summary>
     /// Progress of the odb network peering connection.
     /// </summary>
     public TerraformValue<double> PercentProgress
-        => AsReference("percent_progress");
+        => CreateReference("percent_progress");
 
     /// <summary>
     /// Status of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The reason for the current status of the ODB peering connection..
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

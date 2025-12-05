@@ -63,7 +63,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// </summary>
     public TerraformSet<string> Categories
     {
-        get => GetArgument<TerraformSet<string>>("categories") ?? AsReference("categories");
+        get => GetArgument<TerraformSet<string>>("categories") ?? CreateReference("categories");
         set => SetArgument("categories", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -83,7 +83,7 @@ public partial class AzurermLbNatRule(string name) : TerraformResource("azurerm_
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableFloatingIp
     {
-        get => GetArgument<TerraformValue<bool>>("enable_floating_ip") ?? AsReference("enable_floating_ip");
+        get => GetArgument<TerraformValue<bool>>("enable_floating_ip") ?? CreateReference("enable_floating_ip");
         set => SetArgument("enable_floating_ip", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermLbNatRule(string name) : TerraformResource("azurerm_
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableTcpReset
     {
-        get => GetArgument<TerraformValue<bool>>("enable_tcp_reset") ?? AsReference("enable_tcp_reset");
+        get => GetArgument<TerraformValue<bool>>("enable_tcp_reset") ?? CreateReference("enable_tcp_reset");
         set => SetArgument("enable_tcp_reset", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermLbNatRule(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<bool> FloatingIpEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("floating_ip_enabled") ?? AsReference("floating_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("floating_ip_enabled") ?? CreateReference("floating_ip_enabled");
         set => SetArgument("floating_ip_enabled", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermLbNatRule(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermLbNatRule(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<bool> TcpResetEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("tcp_reset_enabled") ?? AsReference("tcp_reset_enabled");
+        get => GetArgument<TerraformValue<bool>>("tcp_reset_enabled") ?? CreateReference("tcp_reset_enabled");
         set => SetArgument("tcp_reset_enabled", value);
     }
 
@@ -214,13 +214,13 @@ public partial class AzurermLbNatRule(string name) : TerraformResource("azurerm_
     /// The backend_ip_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> BackendIpConfigurationId
-        => AsReference("backend_ip_configuration_id");
+        => CreateReference("backend_ip_configuration_id");
 
     /// <summary>
     /// The frontend_ip_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> FrontendIpConfigurationId
-        => AsReference("frontend_ip_configuration_id");
+        => CreateReference("frontend_ip_configuration_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

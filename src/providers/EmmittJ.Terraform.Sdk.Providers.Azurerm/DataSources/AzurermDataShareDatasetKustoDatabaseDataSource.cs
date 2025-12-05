@@ -36,7 +36,7 @@ public partial class AzurermDataShareDatasetKustoDatabaseDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,19 +64,19 @@ public partial class AzurermDataShareDatasetKustoDatabaseDataSource(string name)
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The kusto_cluster_location attribute.
     /// </summary>
     public TerraformValue<string> KustoClusterLocation
-        => AsReference("kusto_cluster_location");
+        => CreateReference("kusto_cluster_location");
 
     /// <summary>
     /// The kusto_database_id attribute.
     /// </summary>
     public TerraformValue<string> KustoDatabaseId
-        => AsReference("kusto_database_id");
+        => CreateReference("kusto_database_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

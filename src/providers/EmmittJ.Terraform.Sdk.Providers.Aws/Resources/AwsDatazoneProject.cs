@@ -83,7 +83,7 @@ public partial class AwsDatazoneProject(string name) : TerraformResource("aws_da
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -100,37 +100,37 @@ public partial class AwsDatazoneProject(string name) : TerraformResource("aws_da
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-        => AsReference("created_by");
+        => CreateReference("created_by");
 
     /// <summary>
     /// The failure_reasons attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FailureReasons
-        => AsReference("failure_reasons");
+        => CreateReference("failure_reasons");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedAt
-        => AsReference("last_updated_at");
+        => CreateReference("last_updated_at");
 
     /// <summary>
     /// The project_status attribute.
     /// </summary>
     public TerraformValue<string> ProjectStatus
-        => AsReference("project_status");
+        => CreateReference("project_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

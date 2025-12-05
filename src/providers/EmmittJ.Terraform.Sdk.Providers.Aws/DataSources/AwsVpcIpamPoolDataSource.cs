@@ -70,7 +70,7 @@ public partial class AwsVpcIpamPoolDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformMap<string> AllocationResourceTags
     {
-        get => GetArgument<TerraformMap<string>>("allocation_resource_tags") ?? AsReference("allocation_resource_tags");
+        get => GetArgument<TerraformMap<string>>("allocation_resource_tags") ?? CreateReference("allocation_resource_tags");
         set => SetArgument("allocation_resource_tags", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsVpcIpamPoolDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsVpcIpamPoolDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -114,91 +114,91 @@ public partial class AwsVpcIpamPoolDataSource(string name) : TerraformDataSource
     /// The address_family attribute.
     /// </summary>
     public TerraformValue<string> AddressFamily
-        => AsReference("address_family");
+        => CreateReference("address_family");
 
     /// <summary>
     /// The allocation_default_netmask_length attribute.
     /// </summary>
     public TerraformValue<double> AllocationDefaultNetmaskLength
-        => AsReference("allocation_default_netmask_length");
+        => CreateReference("allocation_default_netmask_length");
 
     /// <summary>
     /// The allocation_max_netmask_length attribute.
     /// </summary>
     public TerraformValue<double> AllocationMaxNetmaskLength
-        => AsReference("allocation_max_netmask_length");
+        => CreateReference("allocation_max_netmask_length");
 
     /// <summary>
     /// The allocation_min_netmask_length attribute.
     /// </summary>
     public TerraformValue<double> AllocationMinNetmaskLength
-        => AsReference("allocation_min_netmask_length");
+        => CreateReference("allocation_min_netmask_length");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auto_import attribute.
     /// </summary>
     public TerraformValue<bool> AutoImport
-        => AsReference("auto_import");
+        => CreateReference("auto_import");
 
     /// <summary>
     /// The aws_service attribute.
     /// </summary>
     public TerraformValue<string> AwsService
-        => AsReference("aws_service");
+        => CreateReference("aws_service");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The ipam_scope_id attribute.
     /// </summary>
     public TerraformValue<string> IpamScopeId
-        => AsReference("ipam_scope_id");
+        => CreateReference("ipam_scope_id");
 
     /// <summary>
     /// The ipam_scope_type attribute.
     /// </summary>
     public TerraformValue<string> IpamScopeType
-        => AsReference("ipam_scope_type");
+        => CreateReference("ipam_scope_type");
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
     public TerraformValue<string> Locale
-        => AsReference("locale");
+        => CreateReference("locale");
 
     /// <summary>
     /// The pool_depth attribute.
     /// </summary>
     public TerraformValue<double> PoolDepth
-        => AsReference("pool_depth");
+        => CreateReference("pool_depth");
 
     /// <summary>
     /// The publicly_advertisable attribute.
     /// </summary>
     public TerraformValue<bool> PubliclyAdvertisable
-        => AsReference("publicly_advertisable");
+        => CreateReference("publicly_advertisable");
 
     /// <summary>
     /// The source_ipam_pool_id attribute.
     /// </summary>
     public TerraformValue<string> SourceIpamPoolId
-        => AsReference("source_ipam_pool_id");
+        => CreateReference("source_ipam_pool_id");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Filter block (nesting mode: set).

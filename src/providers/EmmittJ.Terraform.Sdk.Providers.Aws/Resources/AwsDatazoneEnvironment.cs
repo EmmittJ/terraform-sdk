@@ -86,7 +86,7 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> AccountIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("account_identifier") ?? AsReference("account_identifier");
+        get => GetArgument<TerraformValue<string>>("account_identifier") ?? CreateReference("account_identifier");
         set => SetArgument("account_identifier", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> AccountRegion
     {
-        get => GetArgument<TerraformValue<string>>("account_region") ?? AsReference("account_region");
+        get => GetArgument<TerraformValue<string>>("account_region") ?? CreateReference("account_region");
         set => SetArgument("account_region", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> BlueprintIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("blueprint_identifier") ?? AsReference("blueprint_identifier");
+        get => GetArgument<TerraformValue<string>>("blueprint_identifier") ?? CreateReference("blueprint_identifier");
         set => SetArgument("blueprint_identifier", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -179,37 +179,37 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-        => AsReference("created_by");
+        => CreateReference("created_by");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The last_deployment attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LastDeployment
-        => AsReference("last_deployment");
+        => CreateReference("last_deployment");
 
     /// <summary>
     /// The provider_environment attribute.
     /// </summary>
     public TerraformValue<string> ProviderEnvironment
-        => AsReference("provider_environment");
+        => CreateReference("provider_environment");
 
     /// <summary>
     /// The provisioned_resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProvisionedResources
-        => AsReference("provisioned_resources");
+        => CreateReference("provisioned_resources");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

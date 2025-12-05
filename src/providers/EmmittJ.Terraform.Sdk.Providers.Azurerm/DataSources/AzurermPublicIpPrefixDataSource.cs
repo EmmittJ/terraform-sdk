@@ -36,7 +36,7 @@ public partial class AzurermPublicIpPrefixDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermPublicIpPrefixDataSource(string name) : TerraformDat
     /// The ip_prefix attribute.
     /// </summary>
     public TerraformValue<string> IpPrefix
-        => AsReference("ip_prefix");
+        => CreateReference("ip_prefix");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The prefix_length attribute.
     /// </summary>
     public TerraformValue<double> PrefixLength
-        => AsReference("prefix_length");
+        => CreateReference("prefix_length");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
     public TerraformValue<string> SkuTier
-        => AsReference("sku_tier");
+        => CreateReference("sku_tier");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

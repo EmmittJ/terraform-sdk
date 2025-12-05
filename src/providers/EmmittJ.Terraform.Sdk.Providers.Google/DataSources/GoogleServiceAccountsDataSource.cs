@@ -13,7 +13,7 @@ public partial class GoogleServiceAccountsDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -48,6 +48,6 @@ public partial class GoogleServiceAccountsDataSource(string name) : TerraformDat
     /// The accounts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Accounts
-        => AsReference("accounts");
+        => CreateReference("accounts");
 
 }

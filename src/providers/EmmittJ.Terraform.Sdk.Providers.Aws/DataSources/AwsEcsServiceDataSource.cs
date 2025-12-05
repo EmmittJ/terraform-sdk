@@ -23,7 +23,7 @@ public partial class AwsEcsServiceDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsEcsServiceDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsEcsServiceDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -59,42 +59,42 @@ public partial class AwsEcsServiceDataSource(string name) : TerraformDataSource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zone_rebalancing attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneRebalancing
-        => AsReference("availability_zone_rebalancing");
+        => CreateReference("availability_zone_rebalancing");
 
     /// <summary>
     /// The desired_count attribute.
     /// </summary>
     public TerraformValue<double> DesiredCount
-        => AsReference("desired_count");
+        => CreateReference("desired_count");
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
     public TerraformValue<string> LaunchType
-        => AsReference("launch_type");
+        => CreateReference("launch_type");
 
     /// <summary>
     /// The load_balancer attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LoadBalancer
-        => AsReference("load_balancer");
+        => CreateReference("load_balancer");
 
     /// <summary>
     /// The scheduling_strategy attribute.
     /// </summary>
     public TerraformValue<string> SchedulingStrategy
-        => AsReference("scheduling_strategy");
+        => CreateReference("scheduling_strategy");
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
     public TerraformValue<string> TaskDefinition
-        => AsReference("task_definition");
+        => CreateReference("task_definition");
 
 }

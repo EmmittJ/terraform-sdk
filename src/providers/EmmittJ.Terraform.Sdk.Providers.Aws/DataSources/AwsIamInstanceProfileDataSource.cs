@@ -13,7 +13,7 @@ public partial class AwsIamInstanceProfileDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,36 +31,36 @@ public partial class AwsIamInstanceProfileDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-        => AsReference("create_date");
+        => CreateReference("create_date");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-        => AsReference("path");
+        => CreateReference("path");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-        => AsReference("role_arn");
+        => CreateReference("role_arn");
 
     /// <summary>
     /// The role_id attribute.
     /// </summary>
     public TerraformValue<string> RoleId
-        => AsReference("role_id");
+        => CreateReference("role_id");
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     public TerraformValue<string> RoleName
-        => AsReference("role_name");
+        => CreateReference("role_name");
 
 }

@@ -22,7 +22,7 @@ public partial class AwsSfnAliasDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSfnAliasDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,18 +59,18 @@ public partial class AwsSfnAliasDataSource(string name) : TerraformDataSource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The routing_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RoutingConfiguration
-        => AsReference("routing_configuration");
+        => CreateReference("routing_configuration");
 
 }

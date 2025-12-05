@@ -46,7 +46,7 @@ public partial class AzurermBatchCertificateDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AzurermBatchCertificateDataSource(string name) : TerraformD
     /// The format attribute.
     /// </summary>
     public TerraformValue<string> Format
-        => AsReference("format");
+        => CreateReference("format");
 
     /// <summary>
     /// The public_data attribute.
     /// </summary>
     public TerraformValue<string> PublicData
-        => AsReference("public_data");
+        => CreateReference("public_data");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
     /// <summary>
     /// The thumbprint_algorithm attribute.
     /// </summary>
     public TerraformValue<string> ThumbprintAlgorithm
-        => AsReference("thumbprint_algorithm");
+        => CreateReference("thumbprint_algorithm");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

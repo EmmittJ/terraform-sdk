@@ -13,7 +13,7 @@ public partial class AwsVpclatticeServiceDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsVpclatticeServiceDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsVpclatticeServiceDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsVpclatticeServiceDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> ServiceIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("service_identifier") ?? AsReference("service_identifier");
+        get => GetArgument<TerraformValue<string>>("service_identifier") ?? CreateReference("service_identifier");
         set => SetArgument("service_identifier", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsVpclatticeServiceDataSource(string name) : TerraformData
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,36 +57,36 @@ public partial class AwsVpclatticeServiceDataSource(string name) : TerraformData
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
     public TerraformValue<string> AuthType
-        => AsReference("auth_type");
+        => CreateReference("auth_type");
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
     public TerraformValue<string> CertificateArn
-        => AsReference("certificate_arn");
+        => CreateReference("certificate_arn");
 
     /// <summary>
     /// The custom_domain_name attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainName
-        => AsReference("custom_domain_name");
+        => CreateReference("custom_domain_name");
 
     /// <summary>
     /// The dns_entry attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsEntry
-        => AsReference("dns_entry");
+        => CreateReference("dns_entry");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

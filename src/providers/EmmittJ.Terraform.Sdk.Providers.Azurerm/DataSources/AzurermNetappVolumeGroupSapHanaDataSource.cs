@@ -46,7 +46,7 @@ public partial class AzurermNetappVolumeGroupSapHanaDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AzurermNetappVolumeGroupSapHanaDataSource(string name) : Te
     /// The application_identifier attribute.
     /// </summary>
     public TerraformValue<string> ApplicationIdentifier
-        => AsReference("application_identifier");
+        => CreateReference("application_identifier");
 
     /// <summary>
     /// The group_description attribute.
     /// </summary>
     public TerraformValue<string> GroupDescription
-        => AsReference("group_description");
+        => CreateReference("group_description");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The volume attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Volume
-        => AsReference("volume");
+        => CreateReference("volume");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

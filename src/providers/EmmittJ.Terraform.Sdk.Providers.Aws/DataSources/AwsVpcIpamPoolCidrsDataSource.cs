@@ -70,7 +70,7 @@ public partial class AwsVpcIpamPoolCidrsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsVpcIpamPoolCidrsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsVpcIpamPoolCidrsDataSource(string name) : TerraformDataS
     /// The ipam_pool_cidrs attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> IpamPoolCidrs
-        => AsReference("ipam_pool_cidrs");
+        => CreateReference("ipam_pool_cidrs");
 
     /// <summary>
     /// Filter block (nesting mode: set).

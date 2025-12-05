@@ -13,7 +13,7 @@ public partial class AwsServicePrincipalDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,18 +31,18 @@ public partial class AwsServicePrincipalDataSource(string name) : TerraformDataS
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The suffix attribute.
     /// </summary>
     public TerraformValue<string> Suffix
-        => AsReference("suffix");
+        => CreateReference("suffix");
 
 }

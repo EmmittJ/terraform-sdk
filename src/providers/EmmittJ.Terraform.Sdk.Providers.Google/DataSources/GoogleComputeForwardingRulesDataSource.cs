@@ -13,7 +13,7 @@ public partial class GoogleComputeForwardingRulesDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -39,6 +39,6 @@ public partial class GoogleComputeForwardingRulesDataSource(string name) : Terra
     /// The rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Rules
-        => AsReference("rules");
+        => CreateReference("rules");
 
 }

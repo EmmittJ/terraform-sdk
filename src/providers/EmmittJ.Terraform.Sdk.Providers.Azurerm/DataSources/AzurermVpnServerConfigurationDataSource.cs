@@ -36,7 +36,7 @@ public partial class AzurermVpnServerConfigurationDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermVpnServerConfigurationDataSource(string name) : Terr
     /// The azure_active_directory_authentication attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AzureActiveDirectoryAuthentication
-        => AsReference("azure_active_directory_authentication");
+        => CreateReference("azure_active_directory_authentication");
 
     /// <summary>
     /// The client_revoked_certificate attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ClientRevokedCertificate
-        => AsReference("client_revoked_certificate");
+        => CreateReference("client_revoked_certificate");
 
     /// <summary>
     /// The client_root_certificate attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ClientRootCertificate
-        => AsReference("client_root_certificate");
+        => CreateReference("client_root_certificate");
 
     /// <summary>
     /// The ipsec_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpsecPolicy
-        => AsReference("ipsec_policy");
+        => CreateReference("ipsec_policy");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The radius attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Radius
-        => AsReference("radius");
+        => CreateReference("radius");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The vpn_authentication_types attribute.
     /// </summary>
     public TerraformList<string> VpnAuthenticationTypes
-        => AsReference("vpn_authentication_types");
+        => CreateReference("vpn_authentication_types");
 
     /// <summary>
     /// The vpn_protocols attribute.
     /// </summary>
     public TerraformSet<string> VpnProtocols
-        => AsReference("vpn_protocols");
+        => CreateReference("vpn_protocols");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -197,7 +197,7 @@ public class GoogleCesAppDataStoreSettingsBlock : TerraformBlock
     /// The engines for the app.
     /// </summary>
     public TerraformList<TerraformMap<object>> Engines
-        => AsReference("engines");
+        => CreateReference("engines");
 
 }
 
@@ -1156,7 +1156,7 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1185,7 +1185,7 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1203,13 +1203,13 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// Timestamp when the app was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Number of deployments in the app.
     /// </summary>
     public TerraformValue<double> DeploymentCount
-        => AsReference("deployment_count");
+        => CreateReference("deployment_count");
 
     /// <summary>
     /// Etag used to ensure the object hasn&#39;t changed during a read-modify-write
@@ -1217,20 +1217,20 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// changes.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Identifier. The unique identifier of the app.
     /// Format: &#39;projects/{project}/locations/{location}/apps/{app}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timestamp when the app was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// AudioProcessingConfig block (nesting mode: list).

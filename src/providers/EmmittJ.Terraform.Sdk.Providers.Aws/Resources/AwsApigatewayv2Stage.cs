@@ -70,7 +70,7 @@ public class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LoggingLevel
     {
-        get => GetArgument<TerraformValue<string>>("logging_level") ?? AsReference("logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level") ?? CreateReference("logging_level");
         set => SetArgument("logging_level", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LoggingLevel
     {
-        get => GetArgument<TerraformValue<string>>("logging_level") ?? AsReference("logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level") ?? CreateReference("logging_level");
         set => SetArgument("logging_level", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> DeploymentId
     {
-        get => GetArgument<TerraformValue<string>>("deployment_id") ?? AsReference("deployment_id");
+        get => GetArgument<TerraformValue<string>>("deployment_id") ?? CreateReference("deployment_id");
         set => SetArgument("deployment_id", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -240,7 +240,7 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -275,19 +275,19 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionArn
-        => AsReference("execution_arn");
+        => CreateReference("execution_arn");
 
     /// <summary>
     /// The invoke_url attribute.
     /// </summary>
     public TerraformValue<string> InvokeUrl
-        => AsReference("invoke_url");
+        => CreateReference("invoke_url");
 
     /// <summary>
     /// AccessLogSettings block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> DailyAutomaticBackupStartTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? AsReference("daily_automatic_backup_start_time");
+        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? CreateReference("daily_automatic_backup_start_time");
         set => SetArgument("daily_automatic_backup_start_time", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> EndpointIpAddressRange
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_range") ?? AsReference("endpoint_ip_address_range");
+        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_range") ?? CreateReference("endpoint_ip_address_range");
         set => SetArgument("endpoint_ip_address_range", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double> HaPairs
     {
-        get => GetArgument<TerraformValue<double>>("ha_pairs") ?? AsReference("ha_pairs");
+        get => GetArgument<TerraformValue<double>>("ha_pairs") ?? CreateReference("ha_pairs");
         set => SetArgument("ha_pairs", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string> RouteTableIds
     {
-        get => GetArgument<TerraformSet<string>>("route_table_ids") ?? AsReference("route_table_ids");
+        get => GetArgument<TerraformSet<string>>("route_table_ids") ?? CreateReference("route_table_ids");
         set => SetArgument("route_table_ids", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double> ThroughputCapacity
     {
-        get => GetArgument<TerraformValue<double>>("throughput_capacity") ?? AsReference("throughput_capacity");
+        get => GetArgument<TerraformValue<double>>("throughput_capacity") ?? CreateReference("throughput_capacity");
         set => SetArgument("throughput_capacity", value);
     }
 
@@ -252,7 +252,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double> ThroughputCapacityPerHaPair
     {
-        get => GetArgument<TerraformValue<double>>("throughput_capacity_per_ha_pair") ?? AsReference("throughput_capacity_per_ha_pair");
+        get => GetArgument<TerraformValue<double>>("throughput_capacity_per_ha_pair") ?? CreateReference("throughput_capacity_per_ha_pair");
         set => SetArgument("throughput_capacity_per_ha_pair", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> WeeklyMaintenanceStartTime
     {
-        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? AsReference("weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? CreateReference("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 
@@ -269,37 +269,37 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoints
-        => AsReference("endpoints");
+        => CreateReference("endpoints");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformList<string> NetworkInterfaceIds
-        => AsReference("network_interface_ids");
+        => CreateReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// DiskIopsConfiguration block (nesting mode: list).

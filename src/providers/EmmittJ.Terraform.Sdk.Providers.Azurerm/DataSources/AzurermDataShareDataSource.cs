@@ -46,7 +46,7 @@ public partial class AzurermDataShareDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,25 +64,25 @@ public partial class AzurermDataShareDataSource(string name) : TerraformDataSour
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The snapshot_schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SnapshotSchedule
-        => AsReference("snapshot_schedule");
+        => CreateReference("snapshot_schedule");
 
     /// <summary>
     /// The terms attribute.
     /// </summary>
     public TerraformValue<string> Terms
-        => AsReference("terms");
+        => CreateReference("terms");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -56,7 +56,7 @@ public partial class AzurermApiManagementGatewayHostNameConfigurationDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,37 +74,37 @@ public partial class AzurermApiManagementGatewayHostNameConfigurationDataSource(
     /// The certificate_id attribute.
     /// </summary>
     public TerraformValue<string> CertificateId
-        => AsReference("certificate_id");
+        => CreateReference("certificate_id");
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     public TerraformValue<string> HostName
-        => AsReference("host_name");
+        => CreateReference("host_name");
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
     public TerraformValue<bool> Http2Enabled
-        => AsReference("http2_enabled");
+        => CreateReference("http2_enabled");
 
     /// <summary>
     /// The request_client_certificate_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RequestClientCertificateEnabled
-        => AsReference("request_client_certificate_enabled");
+        => CreateReference("request_client_certificate_enabled");
 
     /// <summary>
     /// The tls10_enabled attribute.
     /// </summary>
     public TerraformValue<bool> Tls10Enabled
-        => AsReference("tls10_enabled");
+        => CreateReference("tls10_enabled");
 
     /// <summary>
     /// The tls11_enabled attribute.
     /// </summary>
     public TerraformValue<bool> Tls11Enabled
-        => AsReference("tls11_enabled");
+        => CreateReference("tls11_enabled");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

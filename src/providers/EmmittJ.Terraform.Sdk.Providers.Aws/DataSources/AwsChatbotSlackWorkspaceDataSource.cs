@@ -13,7 +13,7 @@ public partial class AwsChatbotSlackWorkspaceDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,6 +31,6 @@ public partial class AwsChatbotSlackWorkspaceDataSource(string name) : Terraform
     /// The slack_team_id attribute.
     /// </summary>
     public TerraformValue<string> SlackTeamId
-        => AsReference("slack_team_id");
+        => CreateReference("slack_team_id");
 
 }

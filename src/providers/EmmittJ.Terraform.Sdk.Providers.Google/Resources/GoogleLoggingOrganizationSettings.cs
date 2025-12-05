@@ -54,7 +54,7 @@ public partial class GoogleLoggingOrganizationSettings(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> DisableDefaultSink
     {
-        get => GetArgument<TerraformValue<bool>>("disable_default_sink") ?? AsReference("disable_default_sink");
+        get => GetArgument<TerraformValue<bool>>("disable_default_sink") ?? CreateReference("disable_default_sink");
         set => SetArgument("disable_default_sink", value);
     }
 
@@ -63,7 +63,7 @@ public partial class GoogleLoggingOrganizationSettings(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class GoogleLoggingOrganizationSettings(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name") ?? AsReference("kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name") ?? CreateReference("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -91,7 +91,7 @@ public partial class GoogleLoggingOrganizationSettings(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> StorageLocation
     {
-        get => GetArgument<TerraformValue<string>>("storage_location") ?? AsReference("storage_location");
+        get => GetArgument<TerraformValue<string>>("storage_location") ?? CreateReference("storage_location");
         set => SetArgument("storage_location", value);
     }
 
@@ -99,19 +99,19 @@ public partial class GoogleLoggingOrganizationSettings(string name) : TerraformR
     /// The service account that will be used by the Log Router to access your Cloud KMS key.
     /// </summary>
     public TerraformValue<string> KmsServiceAccountId
-        => AsReference("kms_service_account_id");
+        => CreateReference("kms_service_account_id");
 
     /// <summary>
     /// The service account for the given container. Sinks use this service account as their writerIdentity if no custom service account is provided.
     /// </summary>
     public TerraformValue<string> LoggingServiceAccountId
-        => AsReference("logging_service_account_id");
+        => CreateReference("logging_service_account_id");
 
     /// <summary>
     /// The resource name of the settings.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -23,7 +23,7 @@ public partial class AwsIamSessionContextDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,24 +31,24 @@ public partial class AwsIamSessionContextDataSource(string name) : TerraformData
     /// The issuer_arn attribute.
     /// </summary>
     public TerraformValue<string> IssuerArn
-        => AsReference("issuer_arn");
+        => CreateReference("issuer_arn");
 
     /// <summary>
     /// The issuer_id attribute.
     /// </summary>
     public TerraformValue<string> IssuerId
-        => AsReference("issuer_id");
+        => CreateReference("issuer_id");
 
     /// <summary>
     /// The issuer_name attribute.
     /// </summary>
     public TerraformValue<string> IssuerName
-        => AsReference("issuer_name");
+        => CreateReference("issuer_name");
 
     /// <summary>
     /// The session_name attribute.
     /// </summary>
     public TerraformValue<string> SessionName
-        => AsReference("session_name");
+        => CreateReference("session_name");
 
 }

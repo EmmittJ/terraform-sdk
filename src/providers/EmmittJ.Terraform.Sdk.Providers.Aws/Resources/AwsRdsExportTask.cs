@@ -84,7 +84,7 @@ public partial class AwsRdsExportTask(string name) : TerraformResource("aws_rds_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsRdsExportTask(string name) : TerraformResource("aws_rds_
     /// </summary>
     public TerraformValue<string> S3Prefix
     {
-        get => GetArgument<TerraformValue<string>>("s3_prefix") ?? AsReference("s3_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_prefix") ?? CreateReference("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
@@ -121,55 +121,55 @@ public partial class AwsRdsExportTask(string name) : TerraformResource("aws_rds_
     /// The failure_cause attribute.
     /// </summary>
     public TerraformValue<string> FailureCause
-        => AsReference("failure_cause");
+        => CreateReference("failure_cause");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The percent_progress attribute.
     /// </summary>
     public TerraformValue<double> PercentProgress
-        => AsReference("percent_progress");
+        => CreateReference("percent_progress");
 
     /// <summary>
     /// The snapshot_time attribute.
     /// </summary>
     public TerraformValue<string> SnapshotTime
-        => AsReference("snapshot_time");
+        => CreateReference("snapshot_time");
 
     /// <summary>
     /// The source_type attribute.
     /// </summary>
     public TerraformValue<string> SourceType
-        => AsReference("source_type");
+        => CreateReference("source_type");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The task_end_time attribute.
     /// </summary>
     public TerraformValue<string> TaskEndTime
-        => AsReference("task_end_time");
+        => CreateReference("task_end_time");
 
     /// <summary>
     /// The task_start_time attribute.
     /// </summary>
     public TerraformValue<string> TaskStartTime
-        => AsReference("task_start_time");
+        => CreateReference("task_start_time");
 
     /// <summary>
     /// The warning_message attribute.
     /// </summary>
     public TerraformValue<string> WarningMessage
-        => AsReference("warning_message");
+        => CreateReference("warning_message");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

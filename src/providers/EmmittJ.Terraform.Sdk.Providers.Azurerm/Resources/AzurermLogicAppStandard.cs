@@ -70,13 +70,13 @@ public class AzurermLogicAppStandardIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -116,7 +116,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> AppScaleLimit
     {
-        get => GetArgument<TerraformValue<double>>("app_scale_limit") ?? AsReference("app_scale_limit");
+        get => GetArgument<TerraformValue<double>>("app_scale_limit") ?? CreateReference("app_scale_limit");
         set => SetArgument("app_scale_limit", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// The auto_swap_slot_name attribute.
     /// </summary>
     public TerraformValue<string> AutoSwapSlotName
-        => AsReference("auto_swap_slot_name");
+        => CreateReference("auto_swap_slot_name");
 
     /// <summary>
     /// The dotnet_framework_version attribute.
@@ -140,7 +140,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ElasticInstanceMinimum
     {
-        get => GetArgument<TerraformValue<double>>("elastic_instance_minimum") ?? AsReference("elastic_instance_minimum");
+        get => GetArgument<TerraformValue<double>>("elastic_instance_minimum") ?? CreateReference("elastic_instance_minimum");
         set => SetArgument("elastic_instance_minimum", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> FtpsState
     {
-        get => GetArgument<TerraformValue<string>>("ftps_state") ?? AsReference("ftps_state");
+        get => GetArgument<TerraformValue<string>>("ftps_state") ?? CreateReference("ftps_state");
         set => SetArgument("ftps_state", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LinuxFxVersion
     {
-        get => GetArgument<TerraformValue<string>>("linux_fx_version") ?? AsReference("linux_fx_version");
+        get => GetArgument<TerraformValue<string>>("linux_fx_version") ?? CreateReference("linux_fx_version");
         set => SetArgument("linux_fx_version", value);
     }
 
@@ -185,7 +185,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MinTlsVersion
     {
-        get => GetArgument<TerraformValue<string>>("min_tls_version") ?? AsReference("min_tls_version");
+        get => GetArgument<TerraformValue<string>>("min_tls_version") ?? CreateReference("min_tls_version");
         set => SetArgument("min_tls_version", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> PreWarmedInstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("pre_warmed_instance_count") ?? AsReference("pre_warmed_instance_count");
+        get => GetArgument<TerraformValue<double>>("pre_warmed_instance_count") ?? CreateReference("pre_warmed_instance_count");
         set => SetArgument("pre_warmed_instance_count", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> PublicNetworkAccessEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled") ?? AsReference("public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled") ?? CreateReference("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -222,7 +222,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScmMinTlsVersion
     {
-        get => GetArgument<TerraformValue<string>>("scm_min_tls_version") ?? AsReference("scm_min_tls_version");
+        get => GetArgument<TerraformValue<string>>("scm_min_tls_version") ?? CreateReference("scm_min_tls_version");
         set => SetArgument("scm_min_tls_version", value);
     }
 
@@ -231,7 +231,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScmType
     {
-        get => GetArgument<TerraformValue<string>>("scm_type") ?? AsReference("scm_type");
+        get => GetArgument<TerraformValue<string>>("scm_type") ?? CreateReference("scm_type");
         set => SetArgument("scm_type", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> VnetRouteAllEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("vnet_route_all_enabled") ?? AsReference("vnet_route_all_enabled");
+        get => GetArgument<TerraformValue<bool>>("vnet_route_all_enabled") ?? CreateReference("vnet_route_all_enabled");
         set => SetArgument("vnet_route_all_enabled", value);
     }
 
@@ -384,7 +384,7 @@ public class AzurermLogicAppStandardSiteConfigBlockIpRestrictionBlock : Terrafor
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -469,7 +469,7 @@ public class AzurermLogicAppStandardSiteConfigBlockScmIpRestrictionBlock : Terra
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -574,7 +574,7 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> AppSettings
     {
-        get => GetArgument<TerraformMap<string>>("app_settings") ?? AsReference("app_settings");
+        get => GetArgument<TerraformMap<string>>("app_settings") ?? CreateReference("app_settings");
         set => SetArgument("app_settings", value);
     }
 
@@ -592,7 +592,7 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> ClientAffinityEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("client_affinity_enabled") ?? AsReference("client_affinity_enabled");
+        get => GetArgument<TerraformValue<bool>>("client_affinity_enabled") ?? CreateReference("client_affinity_enabled");
         set => SetArgument("client_affinity_enabled", value);
     }
 
@@ -637,7 +637,7 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -666,7 +666,7 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> PublicNetworkAccess
     {
-        get => GetArgument<TerraformValue<string>>("public_network_access") ?? AsReference("public_network_access");
+        get => GetArgument<TerraformValue<string>>("public_network_access") ?? CreateReference("public_network_access");
         set => SetArgument("public_network_access", value);
     }
 
@@ -714,7 +714,7 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> StorageAccountShareName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_share_name") ?? AsReference("storage_account_share_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_share_name") ?? CreateReference("storage_account_share_name");
         set => SetArgument("storage_account_share_name", value);
     }
 
@@ -767,37 +767,37 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// The custom_domain_verification_id attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-        => AsReference("custom_domain_verification_id");
+        => CreateReference("custom_domain_verification_id");
 
     /// <summary>
     /// The default_hostname attribute.
     /// </summary>
     public TerraformValue<string> DefaultHostname
-        => AsReference("default_hostname");
+        => CreateReference("default_hostname");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> OutboundIpAddresses
-        => AsReference("outbound_ip_addresses");
+        => CreateReference("outbound_ip_addresses");
 
     /// <summary>
     /// The possible_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> PossibleOutboundIpAddresses
-        => AsReference("possible_outbound_ip_addresses");
+        => CreateReference("possible_outbound_ip_addresses");
 
     /// <summary>
     /// The site_credential attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteCredential
-        => AsReference("site_credential");
+        => CreateReference("site_credential");
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).

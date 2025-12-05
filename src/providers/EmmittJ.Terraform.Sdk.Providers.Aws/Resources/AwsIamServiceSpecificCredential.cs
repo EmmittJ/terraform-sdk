@@ -22,7 +22,7 @@ public partial class AwsIamServiceSpecificCredential(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -59,42 +59,42 @@ public partial class AwsIamServiceSpecificCredential(string name) : TerraformRes
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-        => AsReference("create_date");
+        => CreateReference("create_date");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-        => AsReference("expiration_date");
+        => CreateReference("expiration_date");
 
     /// <summary>
     /// The service_credential_alias attribute.
     /// </summary>
     public TerraformValue<string> ServiceCredentialAlias
-        => AsReference("service_credential_alias");
+        => CreateReference("service_credential_alias");
 
     /// <summary>
     /// The service_credential_secret attribute.
     /// </summary>
     public TerraformValue<string> ServiceCredentialSecret
-        => AsReference("service_credential_secret");
+        => CreateReference("service_credential_secret");
 
     /// <summary>
     /// The service_password attribute.
     /// </summary>
     public TerraformValue<string> ServicePassword
-        => AsReference("service_password");
+        => CreateReference("service_password");
 
     /// <summary>
     /// The service_specific_credential_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceSpecificCredentialId
-        => AsReference("service_specific_credential_id");
+        => CreateReference("service_specific_credential_id");
 
     /// <summary>
     /// The service_user_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceUserName
-        => AsReference("service_user_name");
+        => CreateReference("service_user_name");
 
 }

@@ -22,7 +22,7 @@ public partial class AwsKmsPublicKeyDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsKmsPublicKeyDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,42 +49,42 @@ public partial class AwsKmsPublicKeyDataSource(string name) : TerraformDataSourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The customer_master_key_spec attribute.
     /// </summary>
     public TerraformValue<string> CustomerMasterKeySpec
-        => AsReference("customer_master_key_spec");
+        => CreateReference("customer_master_key_spec");
 
     /// <summary>
     /// The encryption_algorithms attribute.
     /// </summary>
     public TerraformList<string> EncryptionAlgorithms
-        => AsReference("encryption_algorithms");
+        => CreateReference("encryption_algorithms");
 
     /// <summary>
     /// The key_usage attribute.
     /// </summary>
     public TerraformValue<string> KeyUsage
-        => AsReference("key_usage");
+        => CreateReference("key_usage");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
     /// <summary>
     /// The public_key_pem attribute.
     /// </summary>
     public TerraformValue<string> PublicKeyPem
-        => AsReference("public_key_pem");
+        => CreateReference("public_key_pem");
 
     /// <summary>
     /// The signing_algorithms attribute.
     /// </summary>
     public TerraformList<string> SigningAlgorithms
-        => AsReference("signing_algorithms");
+        => CreateReference("signing_algorithms");
 
 }

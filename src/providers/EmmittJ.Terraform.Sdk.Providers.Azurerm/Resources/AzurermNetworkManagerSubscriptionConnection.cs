@@ -72,7 +72,7 @@ public partial class AzurermNetworkManagerSubscriptionConnection(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermNetworkManagerSubscriptionConnection(string name) : 
     /// The connection_state attribute.
     /// </summary>
     public TerraformValue<string> ConnectionState
-        => AsReference("connection_state");
+        => CreateReference("connection_state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

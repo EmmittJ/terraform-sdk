@@ -45,7 +45,7 @@ public partial class GoogleMonitoringMonitoredProject(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleMonitoringMonitoredProject(string name) : TerraformRe
     /// Output only. The time when this &#39;MonitoredProject&#39; was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

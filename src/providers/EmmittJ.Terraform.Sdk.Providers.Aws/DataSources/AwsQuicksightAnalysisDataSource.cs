@@ -23,7 +23,7 @@ public partial class AwsQuicksightAnalysisDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? CreateReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsQuicksightAnalysisDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsQuicksightAnalysisDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsQuicksightAnalysisDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,54 +58,54 @@ public partial class AwsQuicksightAnalysisDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The definition attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Definition
-        => AsReference("definition");
+        => CreateReference("definition");
 
     /// <summary>
     /// The last_published_time attribute.
     /// </summary>
     public TerraformValue<string> LastPublishedTime
-        => AsReference("last_published_time");
+        => CreateReference("last_published_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-        => AsReference("last_updated_time");
+        => CreateReference("last_updated_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Permissions
-        => AsReference("permissions");
+        => CreateReference("permissions");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The theme_arn attribute.
     /// </summary>
     public TerraformValue<string> ThemeArn
-        => AsReference("theme_arn");
+        => CreateReference("theme_arn");
 
 }

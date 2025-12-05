@@ -59,7 +59,7 @@ public partial class AwsDevopsguruEventSourcesConfig(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsDevopsguruEventSourcesConfig(string name) : TerraformRes
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// EventSources block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlo
     /// </summary>
     public TerraformSet<string> Permissions
     {
-        get => GetArgument<TerraformSet<string>>("permissions") ?? AsReference("permissions");
+        get => GetArgument<TerraformSet<string>>("permissions") ?? CreateReference("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlo
     /// </summary>
     public TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal") ?? AsReference("principal");
+        get => GetArgument<TerraformValue<string>>("principal") ?? CreateReference("principal");
         set => SetArgument("principal", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock 
     /// </summary>
     public TerraformSet<string> Permissions
     {
-        get => GetArgument<TerraformSet<string>>("permissions") ?? AsReference("permissions");
+        get => GetArgument<TerraformSet<string>>("permissions") ?? CreateReference("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock 
     /// </summary>
     public TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal") ?? AsReference("principal");
+        get => GetArgument<TerraformValue<string>>("principal") ?? CreateReference("principal");
         set => SetArgument("principal", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformSet<string> Admins
     {
-        get => GetArgument<TerraformSet<string>>("admins") ?? AsReference("admins");
+        get => GetArgument<TerraformSet<string>>("admins") ?? CreateReference("admins");
         set => SetArgument("admins", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformList<string> AuthorizedSessionTagValueList
     {
-        get => GetArgument<TerraformList<string>>("authorized_session_tag_value_list") ?? AsReference("authorized_session_tag_value_list");
+        get => GetArgument<TerraformList<string>>("authorized_session_tag_value_list") ?? CreateReference("authorized_session_tag_value_list");
         set => SetArgument("authorized_session_tag_value_list", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformSet<string> ExternalDataFilteringAllowList
     {
-        get => GetArgument<TerraformSet<string>>("external_data_filtering_allow_list") ?? AsReference("external_data_filtering_allow_list");
+        get => GetArgument<TerraformSet<string>>("external_data_filtering_allow_list") ?? CreateReference("external_data_filtering_allow_list");
         set => SetArgument("external_data_filtering_allow_list", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string> Parameters
     {
-        get => GetArgument<TerraformMap<string>>("parameters") ?? AsReference("parameters");
+        get => GetArgument<TerraformMap<string>>("parameters") ?? CreateReference("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformSet<string> ReadOnlyAdmins
     {
-        get => GetArgument<TerraformSet<string>>("read_only_admins") ?? AsReference("read_only_admins");
+        get => GetArgument<TerraformSet<string>>("read_only_admins") ?? CreateReference("read_only_admins");
         set => SetArgument("read_only_admins", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformList<string> TrustedResourceOwners
     {
-        get => GetArgument<TerraformList<string>>("trusted_resource_owners") ?? AsReference("trusted_resource_owners");
+        get => GetArgument<TerraformList<string>>("trusted_resource_owners") ?? CreateReference("trusted_resource_owners");
         set => SetArgument("trusted_resource_owners", value);
     }
 

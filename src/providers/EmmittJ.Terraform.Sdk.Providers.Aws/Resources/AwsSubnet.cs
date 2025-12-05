@@ -54,7 +54,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<string> AvailabilityZoneId
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_id") ?? AsReference("availability_zone_id");
+        get => GetArgument<TerraformValue<string>>("availability_zone_id") ?? CreateReference("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<string> PrivateDnsHostnameTypeOnLaunch
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_hostname_type_on_launch") ?? AsReference("private_dns_hostname_type_on_launch");
+        get => GetArgument<TerraformValue<string>>("private_dns_hostname_type_on_launch") ?? CreateReference("private_dns_hostname_type_on_launch");
         set => SetArgument("private_dns_hostname_type_on_launch", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -207,7 +207,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -225,19 +225,19 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The ipv6_cidr_block_association_id attribute.
     /// </summary>
     public TerraformValue<string> Ipv6CidrBlockAssociationId
-        => AsReference("ipv6_cidr_block_association_id");
+        => CreateReference("ipv6_cidr_block_association_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

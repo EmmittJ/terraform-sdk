@@ -135,7 +135,7 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool> AutoRenew
     {
-        get => GetArgument<TerraformValue<bool>>("auto_renew") ?? AsReference("auto_renew");
+        get => GetArgument<TerraformValue<bool>>("auto_renew") ?? CreateReference("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 
@@ -147,7 +147,7 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category") ?? AsReference("category");
+        get => GetArgument<TerraformValue<string>>("category") ?? CreateReference("category");
         set => SetArgument("category", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> ExistingReservations
     {
-        get => GetArgument<TerraformValue<string>>("existing_reservations") ?? AsReference("existing_reservations");
+        get => GetArgument<TerraformValue<string>>("existing_reservations") ?? CreateReference("existing_reservations");
         set => SetArgument("existing_reservations", value);
     }
 
@@ -174,7 +174,7 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -208,7 +208,7 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -217,7 +217,7 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -230,7 +230,7 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -238,44 +238,44 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// Unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> CommitmentId
-        => AsReference("commitment_id");
+        => CreateReference("commitment_id");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Commitment end time in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> EndTimestamp
-        => AsReference("end_timestamp");
+        => CreateReference("end_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Commitment start time in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> StartTimestamp
-        => AsReference("start_timestamp");
+        => CreateReference("start_timestamp");
 
     /// <summary>
     /// Status of the commitment with regards to eventual expiration
     /// (each commitment has an end date defined).
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// A human-readable explanation of the status.
     /// </summary>
     public TerraformValue<string> StatusMessage
-        => AsReference("status_message");
+        => CreateReference("status_message");
 
     /// <summary>
     /// LicenseResource block (nesting mode: list).

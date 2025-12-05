@@ -23,7 +23,7 @@ public partial class AwsCeCostCategoryDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCeCostCategoryDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -40,42 +40,42 @@ public partial class AwsCeCostCategoryDataSource(string name) : TerraformDataSou
     /// The default_value attribute.
     /// </summary>
     public TerraformValue<string> DefaultValue
-        => AsReference("default_value");
+        => CreateReference("default_value");
 
     /// <summary>
     /// The effective_end attribute.
     /// </summary>
     public TerraformValue<string> EffectiveEnd
-        => AsReference("effective_end");
+        => CreateReference("effective_end");
 
     /// <summary>
     /// The effective_start attribute.
     /// </summary>
     public TerraformValue<string> EffectiveStart
-        => AsReference("effective_start");
+        => CreateReference("effective_start");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The rule attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Rule
-        => AsReference("rule");
+        => CreateReference("rule");
 
     /// <summary>
     /// The rule_version attribute.
     /// </summary>
     public TerraformValue<string> RuleVersion
-        => AsReference("rule_version");
+        => CreateReference("rule_version");
 
     /// <summary>
     /// The split_charge_rule attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> SplitChargeRule
-        => AsReference("split_charge_rule");
+        => CreateReference("split_charge_rule");
 
 }

@@ -38,7 +38,7 @@ builder.AddTerraformEnvironment("demo")
         var configFile = new TerraformResource("local_file", "config")
         {
             ["filename"] = "${path.module}/output/config.txt",
-            ["content"] = Tf.Interpolate($"\"environment\": \"{environmentVar.AsReference()}\"\n\"project\": \"{projectNameVar.AsReference()}\"")
+            ["content"] = Tf.Interpolate($"\"environment\": \"{environmentVar.ToReference()}\"\n\"project\": \"{projectNameVar.ToReference()}\"")
         };
         infra.Add(configFile);
 
@@ -46,13 +46,13 @@ builder.AddTerraformEnvironment("demo")
         infra.Add(new TerraformOutput("config_path")
         {
             Description = "Path to the generated config file",
-            Value = configFile.AsReference("filename")
+            Value = configFile["filename"]
         });
 
         infra.Add(new TerraformOutput("environment")
         {
             Description = "The deployment environment",
-            Value = environmentVar.AsReference()
+            Value = environmentVar.ToReference()
         });
     });
 

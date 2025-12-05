@@ -64,7 +64,7 @@ public partial class AzurermActiveDirectoryDomainServiceReplicaSet(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,19 +92,19 @@ public partial class AzurermActiveDirectoryDomainServiceReplicaSet(string name) 
     /// The domain_controller_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> DomainControllerIpAddresses
-        => AsReference("domain_controller_ip_addresses");
+        => CreateReference("domain_controller_ip_addresses");
 
     /// <summary>
     /// The external_access_ip_address attribute.
     /// </summary>
     public TerraformValue<string> ExternalAccessIpAddress
-        => AsReference("external_access_ip_address");
+        => CreateReference("external_access_ip_address");
 
     /// <summary>
     /// The service_status attribute.
     /// </summary>
     public TerraformValue<string> ServiceStatus
-        => AsReference("service_status");
+        => CreateReference("service_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

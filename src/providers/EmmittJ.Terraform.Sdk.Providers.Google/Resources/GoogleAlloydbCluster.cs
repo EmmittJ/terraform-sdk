@@ -22,7 +22,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> BackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("backup_window") ?? AsReference("backup_window");
+        get => GetArgument<TerraformValue<string>>("backup_window") ?? CreateReference("backup_window");
         set => SetArgument("backup_window", value);
     }
 
@@ -31,7 +31,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleAlloydbClusterContinuousBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> RecoveryWindowDays
     {
-        get => GetArgument<TerraformValue<double>>("recovery_window_days") ?? AsReference("recovery_window_days");
+        get => GetArgument<TerraformValue<double>>("recovery_window_days") ?? CreateReference("recovery_window_days");
         set => SetArgument("recovery_window_days", value);
     }
 
@@ -536,7 +536,7 @@ public class GoogleAlloydbClusterPscConfigBlock : TerraformBlock
     /// In case the network attachment is configured to ACCEPT_AUTOMATIC, this project number does not need to be allowlisted explicitly.
     /// </summary>
     public TerraformValue<double> ServiceOwnedProjectNumber
-        => AsReference("service_owned_project_number");
+        => CreateReference("service_owned_project_number");
 
 }
 
@@ -710,7 +710,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> DatabaseVersion
     {
-        get => GetArgument<TerraformValue<string>>("database_version") ?? AsReference("database_version");
+        get => GetArgument<TerraformValue<string>>("database_version") ?? CreateReference("database_version");
         set => SetArgument("database_version", value);
     }
 
@@ -761,7 +761,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -792,7 +792,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -812,7 +812,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> SubscriptionType
     {
-        get => GetArgument<TerraformValue<string>>("subscription_type") ?? AsReference("subscription_type");
+        get => GetArgument<TerraformValue<string>>("subscription_type") ?? CreateReference("subscription_type");
         set => SetArgument("subscription_type", value);
     }
 
@@ -820,43 +820,43 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// Cluster created from backup.
     /// </summary>
     public TerraformList<TerraformMap<object>> BackupSource
-        => AsReference("backup_source");
+        => CreateReference("backup_source");
 
     /// <summary>
     /// ContinuousBackupInfo describes the continuous backup properties of a cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> ContinuousBackupInfo
-        => AsReference("continuous_backup_info");
+        => CreateReference("continuous_backup_info");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// EncryptionInfo describes the encryption information of a cluster or a backup.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionInfo
-        => AsReference("encryption_info");
+        => CreateReference("encryption_info");
 
     /// <summary>
     /// Cluster created via DMS migration.
     /// </summary>
     public TerraformList<TerraformMap<object>> MigrationSource
-        => AsReference("migration_source");
+        => CreateReference("migration_source");
 
     /// <summary>
     /// The name of the cluster resource.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Reconciling (https://google.aip.dev/128#reconciliation).
@@ -864,32 +864,32 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Output only. The current serving state of the cluster.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Contains information and all metadata related to TRIAL clusters.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrialMetadata
-        => AsReference("trial_metadata");
+        => CreateReference("trial_metadata");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// AutomatedBackupPolicy block (nesting mode: list).

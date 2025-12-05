@@ -125,7 +125,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -192,19 +192,19 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     /// The sim_state attribute.
     /// </summary>
     public TerraformValue<string> SimState
-        => AsReference("sim_state");
+        => CreateReference("sim_state");
 
     /// <summary>
     /// The vendor_key_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> VendorKeyFingerprint
-        => AsReference("vendor_key_fingerprint");
+        => CreateReference("vendor_key_fingerprint");
 
     /// <summary>
     /// The vendor_name attribute.
     /// </summary>
     public TerraformValue<string> VendorName
-        => AsReference("vendor_name");
+        => CreateReference("vendor_name");
 
     /// <summary>
     /// StaticIpConfiguration block (nesting mode: list).

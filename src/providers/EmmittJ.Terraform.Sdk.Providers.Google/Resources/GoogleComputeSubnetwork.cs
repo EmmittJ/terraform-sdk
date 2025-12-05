@@ -121,7 +121,7 @@ public class GoogleComputeSubnetworkSecondaryIpRangeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> IpCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_cidr_range") ?? AsReference("ip_cidr_range");
+        get => GetArgument<TerraformValue<string>>("ip_cidr_range") ?? CreateReference("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -214,7 +214,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> ExternalIpv6Prefix
     {
-        get => GetArgument<TerraformValue<string>>("external_ipv6_prefix") ?? AsReference("external_ipv6_prefix");
+        get => GetArgument<TerraformValue<string>>("external_ipv6_prefix") ?? CreateReference("external_ipv6_prefix");
         set => SetArgument("external_ipv6_prefix", value);
     }
 
@@ -223,7 +223,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -236,7 +236,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> IpCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_cidr_range") ?? AsReference("ip_cidr_range");
+        get => GetArgument<TerraformValue<string>>("ip_cidr_range") ?? CreateReference("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -301,7 +301,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool> PrivateIpGoogleAccess
     {
-        get => GetArgument<TerraformValue<bool>>("private_ip_google_access") ?? AsReference("private_ip_google_access");
+        get => GetArgument<TerraformValue<bool>>("private_ip_google_access") ?? CreateReference("private_ip_google_access");
         set => SetArgument("private_ip_google_access", value);
     }
 
@@ -310,7 +310,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> PrivateIpv6GoogleAccess
     {
-        get => GetArgument<TerraformValue<string>>("private_ipv6_google_access") ?? AsReference("private_ipv6_google_access");
+        get => GetArgument<TerraformValue<string>>("private_ipv6_google_access") ?? CreateReference("private_ipv6_google_access");
         set => SetArgument("private_ipv6_google_access", value);
     }
 
@@ -319,7 +319,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -335,7 +335,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Purpose
     {
-        get => GetArgument<TerraformValue<string>>("purpose") ?? AsReference("purpose");
+        get => GetArgument<TerraformValue<string>>("purpose") ?? CreateReference("purpose");
         set => SetArgument("purpose", value);
     }
 
@@ -344,7 +344,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -391,7 +391,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> StackType
     {
-        get => GetArgument<TerraformValue<string>>("stack_type") ?? AsReference("stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type") ?? CreateReference("stack_type");
         set => SetArgument("stack_type", value);
     }
 
@@ -399,33 +399,33 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during updates of this resource.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The gateway address for default routes to reach destination addresses
     /// outside this subnetwork.
     /// </summary>
     public TerraformValue<string> GatewayAddress
-        => AsReference("gateway_address");
+        => CreateReference("gateway_address");
 
     /// <summary>
     /// The internal IPv6 address range that is assigned to this subnetwork.
     /// </summary>
     public TerraformValue<string> InternalIpv6Prefix
-        => AsReference("internal_ipv6_prefix");
+        => CreateReference("internal_ipv6_prefix");
 
     /// <summary>
     /// The range of internal IPv6 addresses that are owned by this subnetwork.
     /// </summary>
     public TerraformValue<string> Ipv6CidrRange
-        => AsReference("ipv6_cidr_range");
+        => CreateReference("ipv6_cidr_range");
 
     /// <summary>
     /// Possible endpoints of this subnetwork. It can be one of the following:
@@ -435,13 +435,13 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     ///   IPv6 addresses with both VM and FR endpoint types. Such a subnetwork gets its IPv6 range from Google IP Pool directly.
     /// </summary>
     public TerraformValue<string> Ipv6GceEndpoint
-        => AsReference("ipv6_gce_endpoint");
+        => CreateReference("ipv6_gce_endpoint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// &#39;The state of the subnetwork, which can be one of the following values:
@@ -450,13 +450,13 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     ///  A subnetwork that is draining cannot be used or modified until it reaches a status of READY&#39;
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> SubnetworkId
-        => AsReference("subnetwork_id");
+        => CreateReference("subnetwork_id");
 
     /// <summary>
     /// LogConfig block (nesting mode: list).

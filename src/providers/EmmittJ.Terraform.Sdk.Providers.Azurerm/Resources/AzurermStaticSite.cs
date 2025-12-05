@@ -26,13 +26,13 @@ public class AzurermStaticSiteIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -118,7 +118,7 @@ public partial class AzurermStaticSite(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -183,13 +183,13 @@ public partial class AzurermStaticSite(string name) : TerraformResource("azurerm
     /// The api_key attribute.
     /// </summary>
     public TerraformValue<string> ApiKey
-        => AsReference("api_key");
+        => CreateReference("api_key");
 
     /// <summary>
     /// The default_host_name attribute.
     /// </summary>
     public TerraformValue<string> DefaultHostName
-        => AsReference("default_host_name");
+        => CreateReference("default_host_name");
 
     /// <summary>
     /// Identity block (nesting mode: list).

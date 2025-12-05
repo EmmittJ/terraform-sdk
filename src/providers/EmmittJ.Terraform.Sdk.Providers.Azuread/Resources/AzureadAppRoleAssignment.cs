@@ -64,7 +64,7 @@ public partial class AzureadAppRoleAssignment(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,19 +92,19 @@ public partial class AzureadAppRoleAssignment(string name) : TerraformResource("
     /// The display name of the principal to which the app role is assigned
     /// </summary>
     public TerraformValue<string> PrincipalDisplayName
-        => AsReference("principal_display_name");
+        => CreateReference("principal_display_name");
 
     /// <summary>
     /// The object type of the principal to which the app role is assigned
     /// </summary>
     public TerraformValue<string> PrincipalType
-        => AsReference("principal_type");
+        => CreateReference("principal_type");
 
     /// <summary>
     /// The display name of the application representing the resource
     /// </summary>
     public TerraformValue<string> ResourceDisplayName
-        => AsReference("resource_display_name");
+        => CreateReference("resource_display_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

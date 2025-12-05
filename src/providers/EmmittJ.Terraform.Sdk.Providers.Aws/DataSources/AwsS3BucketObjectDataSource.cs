@@ -25,7 +25,7 @@ public partial class AwsS3BucketObjectDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsS3BucketObjectDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AwsS3BucketObjectDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AwsS3BucketObjectDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> VersionId
     {
-        get => GetArgument<TerraformValue<string>>("version_id") ?? AsReference("version_id");
+        get => GetArgument<TerraformValue<string>>("version_id") ?? CreateReference("version_id");
         set => SetArgument("version_id", value);
     }
 
@@ -79,126 +79,126 @@ public partial class AwsS3BucketObjectDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The body attribute.
     /// </summary>
     public TerraformValue<string> Body
-        => AsReference("body");
+        => CreateReference("body");
 
     /// <summary>
     /// The bucket_key_enabled attribute.
     /// </summary>
     public TerraformValue<bool> BucketKeyEnabled
-        => AsReference("bucket_key_enabled");
+        => CreateReference("bucket_key_enabled");
 
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
     public TerraformValue<string> CacheControl
-        => AsReference("cache_control");
+        => CreateReference("cache_control");
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
     public TerraformValue<string> ContentDisposition
-        => AsReference("content_disposition");
+        => CreateReference("content_disposition");
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
     public TerraformValue<string> ContentEncoding
-        => AsReference("content_encoding");
+        => CreateReference("content_encoding");
 
     /// <summary>
     /// The content_language attribute.
     /// </summary>
     public TerraformValue<string> ContentLanguage
-        => AsReference("content_language");
+        => CreateReference("content_language");
 
     /// <summary>
     /// The content_length attribute.
     /// </summary>
     public TerraformValue<double> ContentLength
-        => AsReference("content_length");
+        => CreateReference("content_length");
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     public TerraformValue<string> ContentType
-        => AsReference("content_type");
+        => CreateReference("content_type");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
     public TerraformValue<string> Expiration
-        => AsReference("expiration");
+        => CreateReference("expiration");
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
     public TerraformValue<string> Expires
-        => AsReference("expires");
+        => CreateReference("expires");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformMap<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// The object_lock_legal_hold_status attribute.
     /// </summary>
     public TerraformValue<string> ObjectLockLegalHoldStatus
-        => AsReference("object_lock_legal_hold_status");
+        => CreateReference("object_lock_legal_hold_status");
 
     /// <summary>
     /// The object_lock_mode attribute.
     /// </summary>
     public TerraformValue<string> ObjectLockMode
-        => AsReference("object_lock_mode");
+        => CreateReference("object_lock_mode");
 
     /// <summary>
     /// The object_lock_retain_until_date attribute.
     /// </summary>
     public TerraformValue<string> ObjectLockRetainUntilDate
-        => AsReference("object_lock_retain_until_date");
+        => CreateReference("object_lock_retain_until_date");
 
     /// <summary>
     /// The server_side_encryption attribute.
     /// </summary>
     public TerraformValue<string> ServerSideEncryption
-        => AsReference("server_side_encryption");
+        => CreateReference("server_side_encryption");
 
     /// <summary>
     /// The sse_kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> SseKmsKeyId
-        => AsReference("sse_kms_key_id");
+        => CreateReference("sse_kms_key_id");
 
     /// <summary>
     /// The storage_class attribute.
     /// </summary>
     public TerraformValue<string> StorageClass
-        => AsReference("storage_class");
+        => CreateReference("storage_class");
 
     /// <summary>
     /// The website_redirect_location attribute.
     /// </summary>
     public TerraformValue<string> WebsiteRedirectLocation
-        => AsReference("website_redirect_location");
+        => CreateReference("website_redirect_location");
 
 }

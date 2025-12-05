@@ -23,7 +23,7 @@ public partial class GoogleBackupDrDataSourceReferenceDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleBackupDrDataSourceReferenceDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -50,48 +50,48 @@ public partial class GoogleBackupDrDataSourceReferenceDataSource(string name) : 
     /// The state of the backup config for the data source.
     /// </summary>
     public TerraformValue<string> BackupConfigState
-        => AsReference("backup_config_state");
+        => CreateReference("backup_config_state");
 
     /// <summary>
     /// The number of backups for the data source.
     /// </summary>
     public TerraformValue<double> BackupCount
-        => AsReference("backup_count");
+        => CreateReference("backup_count");
 
     /// <summary>
     /// The underlying data source resource.
     /// </summary>
     public TerraformValue<string> DataSource
-        => AsReference("data_source");
+        => CreateReference("data_source");
 
     /// <summary>
     /// The GCP resource name for the data source.
     /// </summary>
     public TerraformValue<string> GcpResourceName
-        => AsReference("gcp_resource_name");
+        => CreateReference("gcp_resource_name");
 
     /// <summary>
     /// The state of the last backup.
     /// </summary>
     public TerraformValue<string> LastBackupState
-        => AsReference("last_backup_state");
+        => CreateReference("last_backup_state");
 
     /// <summary>
     /// The last time a successful backup was made.
     /// </summary>
     public TerraformValue<string> LastSuccessfulBackupTime
-        => AsReference("last_successful_backup_time");
+        => CreateReference("last_successful_backup_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-        => AsReference("resource_type");
+        => CreateReference("resource_type");
 
 }

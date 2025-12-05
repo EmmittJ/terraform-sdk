@@ -121,7 +121,7 @@ public partial class GoogleSccV2OrganizationNotificationConfig(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -161,14 +161,14 @@ public partial class GoogleSccV2OrganizationNotificationConfig(string name) : Te
     /// &#39;organizations/{{organization}}/notificationConfigs/{{config_id}}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The service account that needs &amp;quot;pubsub.topics.publish&amp;quot; permission to
     /// publish to the Pub/Sub topic.
     /// </summary>
     public TerraformValue<string> ServiceAccount
-        => AsReference("service_account");
+        => CreateReference("service_account");
 
     /// <summary>
     /// StreamingConfig block (nesting mode: list).

@@ -95,7 +95,7 @@ public class AwsWorkspaceswebSessionLoggerLogConfigurationBlockS3Block : Terrafo
     /// </summary>
     public TerraformValue<string> BucketOwner
     {
-        get => GetArgument<TerraformValue<string>>("bucket_owner") ?? AsReference("bucket_owner");
+        get => GetArgument<TerraformValue<string>>("bucket_owner") ?? CreateReference("bucket_owner");
         set => SetArgument("bucket_owner", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AwsWorkspaceswebSessionLogger(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -186,19 +186,19 @@ public partial class AwsWorkspaceswebSessionLogger(string name) : TerraformResou
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-        => AsReference("associated_portal_arns");
+        => CreateReference("associated_portal_arns");
 
     /// <summary>
     /// The session_logger_arn attribute.
     /// </summary>
     public TerraformValue<string> SessionLoggerArn
-        => AsReference("session_logger_arn");
+        => CreateReference("session_logger_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// EventFilter block (nesting mode: list).

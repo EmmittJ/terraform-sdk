@@ -36,7 +36,7 @@ public partial class AwsAlbListenerDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsAlbListenerDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsAlbListenerDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> LoadBalancerArn
     {
-        get => GetArgument<TerraformValue<string>>("load_balancer_arn") ?? AsReference("load_balancer_arn");
+        get => GetArgument<TerraformValue<string>>("load_balancer_arn") ?? CreateReference("load_balancer_arn");
         set => SetArgument("load_balancer_arn", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsAlbListenerDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsAlbListenerDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsAlbListenerDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -89,37 +89,37 @@ public partial class AwsAlbListenerDataSource(string name) : TerraformDataSource
     /// The alpn_policy attribute.
     /// </summary>
     public TerraformValue<string> AlpnPolicy
-        => AsReference("alpn_policy");
+        => CreateReference("alpn_policy");
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
     public TerraformValue<string> CertificateArn
-        => AsReference("certificate_arn");
+        => CreateReference("certificate_arn");
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DefaultAction
-        => AsReference("default_action");
+        => CreateReference("default_action");
 
     /// <summary>
     /// The mutual_authentication attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MutualAuthentication
-        => AsReference("mutual_authentication");
+        => CreateReference("mutual_authentication");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-        => AsReference("protocol");
+        => CreateReference("protocol");
 
     /// <summary>
     /// The ssl_policy attribute.
     /// </summary>
     public TerraformValue<string> SslPolicy
-        => AsReference("ssl_policy");
+        => CreateReference("ssl_policy");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

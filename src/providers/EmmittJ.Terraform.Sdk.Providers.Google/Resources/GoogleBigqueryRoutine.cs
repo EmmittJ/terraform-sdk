@@ -110,7 +110,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> UserDefinedContext
     {
-        get => GetArgument<TerraformMap<string>>("user_defined_context") ?? AsReference("user_defined_context");
+        get => GetArgument<TerraformMap<string>>("user_defined_context") ?? CreateReference("user_defined_context");
         set => SetArgument("user_defined_context", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> ArchiveUris
     {
-        get => GetArgument<TerraformList<string>>("archive_uris") ?? AsReference("archive_uris");
+        get => GetArgument<TerraformList<string>>("archive_uris") ?? CreateReference("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> FileUris
     {
-        get => GetArgument<TerraformList<string>>("file_uris") ?? AsReference("file_uris");
+        get => GetArgument<TerraformList<string>>("file_uris") ?? CreateReference("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> JarUris
     {
-        get => GetArgument<TerraformList<string>>("jar_uris") ?? AsReference("jar_uris");
+        get => GetArgument<TerraformList<string>>("jar_uris") ?? CreateReference("jar_uris");
         set => SetArgument("jar_uris", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Properties
     {
-        get => GetArgument<TerraformMap<string>>("properties") ?? AsReference("properties");
+        get => GetArgument<TerraformMap<string>>("properties") ?? CreateReference("properties");
         set => SetArgument("properties", value);
     }
 
@@ -211,7 +211,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> PyFileUris
     {
-        get => GetArgument<TerraformList<string>>("py_file_uris") ?? AsReference("py_file_uris");
+        get => GetArgument<TerraformList<string>>("py_file_uris") ?? CreateReference("py_file_uris");
         set => SetArgument("py_file_uris", value);
     }
 
@@ -327,7 +327,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -355,7 +355,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -423,14 +423,14 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// epoch.
     /// </summary>
     public TerraformValue<double> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The time when this routine was modified, in milliseconds since the
     /// epoch.
     /// </summary>
     public TerraformValue<double> LastModifiedTime
-        => AsReference("last_modified_time");
+        => CreateReference("last_modified_time");
 
     /// <summary>
     /// Arguments block (nesting mode: list).

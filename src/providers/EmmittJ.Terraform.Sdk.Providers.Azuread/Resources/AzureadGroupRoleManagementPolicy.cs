@@ -18,7 +18,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> MaximumDuration
     {
-        get => GetArgument<TerraformValue<string>>("maximum_duration") ?? AsReference("maximum_duration");
+        get => GetArgument<TerraformValue<string>>("maximum_duration") ?? CreateReference("maximum_duration");
         set => SetArgument("maximum_duration", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool> RequireApproval
     {
-        get => GetArgument<TerraformValue<bool>>("require_approval") ?? AsReference("require_approval");
+        get => GetArgument<TerraformValue<bool>>("require_approval") ?? CreateReference("require_approval");
         set => SetArgument("require_approval", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool> RequireJustification
     {
-        get => GetArgument<TerraformValue<bool>>("require_justification") ?? AsReference("require_justification");
+        get => GetArgument<TerraformValue<bool>>("require_justification") ?? CreateReference("require_justification");
         set => SetArgument("require_justification", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool> RequireMultifactorAuthentication
     {
-        get => GetArgument<TerraformValue<bool>>("require_multifactor_authentication") ?? AsReference("require_multifactor_authentication");
+        get => GetArgument<TerraformValue<bool>>("require_multifactor_authentication") ?? CreateReference("require_multifactor_authentication");
         set => SetArgument("require_multifactor_authentication", value);
     }
 
@@ -54,7 +54,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool> RequireTicketInfo
     {
-        get => GetArgument<TerraformValue<bool>>("require_ticket_info") ?? AsReference("require_ticket_info");
+        get => GetArgument<TerraformValue<bool>>("require_ticket_info") ?? CreateReference("require_ticket_info");
         set => SetArgument("require_ticket_info", value);
     }
 
@@ -63,7 +63,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> RequiredConditionalAccessAuthenticationContext
     {
-        get => GetArgument<TerraformValue<string>>("required_conditional_access_authentication_context") ?? AsReference("required_conditional_access_authentication_context");
+        get => GetArgument<TerraformValue<string>>("required_conditional_access_authentication_context") ?? CreateReference("required_conditional_access_authentication_context");
         set => SetArgument("required_conditional_access_authentication_context", value);
     }
 
@@ -153,7 +153,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformValue<bool> ExpirationRequired
     {
-        get => GetArgument<TerraformValue<bool>>("expiration_required") ?? AsReference("expiration_required");
+        get => GetArgument<TerraformValue<bool>>("expiration_required") ?? CreateReference("expiration_required");
         set => SetArgument("expiration_required", value);
     }
 
@@ -162,7 +162,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformValue<string> ExpireAfter
     {
-        get => GetArgument<TerraformValue<string>>("expire_after") ?? AsReference("expire_after");
+        get => GetArgument<TerraformValue<string>>("expire_after") ?? CreateReference("expire_after");
         set => SetArgument("expire_after", value);
     }
 
@@ -171,7 +171,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformValue<bool> RequireJustification
     {
-        get => GetArgument<TerraformValue<bool>>("require_justification") ?? AsReference("require_justification");
+        get => GetArgument<TerraformValue<bool>>("require_justification") ?? CreateReference("require_justification");
         set => SetArgument("require_justification", value);
     }
 
@@ -180,7 +180,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformValue<bool> RequireMultifactorAuthentication
     {
-        get => GetArgument<TerraformValue<bool>>("require_multifactor_authentication") ?? AsReference("require_multifactor_authentication");
+        get => GetArgument<TerraformValue<bool>>("require_multifactor_authentication") ?? CreateReference("require_multifactor_authentication");
         set => SetArgument("require_multifactor_authentication", value);
     }
 
@@ -189,7 +189,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformValue<bool> RequireTicketInfo
     {
-        get => GetArgument<TerraformValue<bool>>("require_ticket_info") ?? AsReference("require_ticket_info");
+        get => GetArgument<TerraformValue<bool>>("require_ticket_info") ?? CreateReference("require_ticket_info");
         set => SetArgument("require_ticket_info", value);
     }
 
@@ -212,7 +212,7 @@ public class AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock : Terr
     /// </summary>
     public TerraformValue<bool> ExpirationRequired
     {
-        get => GetArgument<TerraformValue<bool>>("expiration_required") ?? AsReference("expiration_required");
+        get => GetArgument<TerraformValue<bool>>("expiration_required") ?? CreateReference("expiration_required");
         set => SetArgument("expiration_required", value);
     }
 
@@ -221,7 +221,7 @@ public class AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock : Terr
     /// </summary>
     public TerraformValue<string> ExpireAfter
     {
-        get => GetArgument<TerraformValue<string>>("expire_after") ?? AsReference("expire_after");
+        get => GetArgument<TerraformValue<string>>("expire_after") ?? CreateReference("expire_after");
         set => SetArgument("expire_after", value);
     }
 
@@ -330,7 +330,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     /// </summary>
     public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? CreateReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -372,7 +372,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     /// </summary>
     public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? CreateReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -414,7 +414,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     /// </summary>
     public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? CreateReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -499,7 +499,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     /// </summary>
     public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? CreateReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -541,7 +541,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     /// </summary>
     public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? CreateReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -583,7 +583,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     /// </summary>
     public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? CreateReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -668,7 +668,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     /// </summary>
     public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? CreateReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -710,7 +710,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     /// </summary>
     public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? CreateReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -752,7 +752,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     /// </summary>
     public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? CreateReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -850,7 +850,7 @@ public partial class AzureadGroupRoleManagementPolicy(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -868,13 +868,13 @@ public partial class AzureadGroupRoleManagementPolicy(string name) : TerraformRe
     /// Description of the policy
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The display name of the policy
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// ActivationRules block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermStorageContainersDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermStorageContainersDataSource(string name) : Terraform
     /// The containers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Containers
-        => AsReference("containers");
+        => CreateReference("containers");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

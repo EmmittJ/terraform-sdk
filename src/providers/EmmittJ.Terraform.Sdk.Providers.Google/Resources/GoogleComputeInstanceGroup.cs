@@ -97,7 +97,7 @@ public partial class GoogleComputeInstanceGroup(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleComputeInstanceGroup(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string> Instances
     {
-        get => GetArgument<TerraformSet<string>>("instances") ?? AsReference("instances");
+        get => GetArgument<TerraformSet<string>>("instances") ?? CreateReference("instances");
         set => SetArgument("instances", value);
     }
 
@@ -125,7 +125,7 @@ public partial class GoogleComputeInstanceGroup(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleComputeInstanceGroup(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleComputeInstanceGroup(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -151,13 +151,13 @@ public partial class GoogleComputeInstanceGroup(string name) : TerraformResource
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The number of instances in the group.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// NamedPort block (nesting mode: list).

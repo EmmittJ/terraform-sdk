@@ -23,7 +23,7 @@ public partial class AwsElasticacheClusterDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsElasticacheClusterDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsElasticacheClusterDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,132 +49,132 @@ public partial class AwsElasticacheClusterDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The cache_nodes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CacheNodes
-        => AsReference("cache_nodes");
+        => CreateReference("cache_nodes");
 
     /// <summary>
     /// The cluster_address attribute.
     /// </summary>
     public TerraformValue<string> ClusterAddress
-        => AsReference("cluster_address");
+        => CreateReference("cluster_address");
 
     /// <summary>
     /// The configuration_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationEndpoint
-        => AsReference("configuration_endpoint");
+        => CreateReference("configuration_endpoint");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-        => AsReference("engine");
+        => CreateReference("engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-        => AsReference("engine_version");
+        => CreateReference("engine_version");
 
     /// <summary>
     /// The ip_discovery attribute.
     /// </summary>
     public TerraformValue<string> IpDiscovery
-        => AsReference("ip_discovery");
+        => CreateReference("ip_discovery");
 
     /// <summary>
     /// The log_delivery_configuration attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LogDeliveryConfiguration
-        => AsReference("log_delivery_configuration");
+        => CreateReference("log_delivery_configuration");
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
     public TerraformValue<string> MaintenanceWindow
-        => AsReference("maintenance_window");
+        => CreateReference("maintenance_window");
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
     public TerraformValue<string> NetworkType
-        => AsReference("network_type");
+        => CreateReference("network_type");
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
     public TerraformValue<string> NodeType
-        => AsReference("node_type");
+        => CreateReference("node_type");
 
     /// <summary>
     /// The notification_topic_arn attribute.
     /// </summary>
     public TerraformValue<string> NotificationTopicArn
-        => AsReference("notification_topic_arn");
+        => CreateReference("notification_topic_arn");
 
     /// <summary>
     /// The num_cache_nodes attribute.
     /// </summary>
     public TerraformValue<double> NumCacheNodes
-        => AsReference("num_cache_nodes");
+        => CreateReference("num_cache_nodes");
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
     public TerraformValue<string> ParameterGroupName
-        => AsReference("parameter_group_name");
+        => CreateReference("parameter_group_name");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The preferred_outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> PreferredOutpostArn
-        => AsReference("preferred_outpost_arn");
+        => CreateReference("preferred_outpost_arn");
 
     /// <summary>
     /// The replication_group_id attribute.
     /// </summary>
     public TerraformValue<string> ReplicationGroupId
-        => AsReference("replication_group_id");
+        => CreateReference("replication_group_id");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
-        => AsReference("security_group_ids");
+        => CreateReference("security_group_ids");
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
     public TerraformValue<double> SnapshotRetentionLimit
-        => AsReference("snapshot_retention_limit");
+        => CreateReference("snapshot_retention_limit");
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
     public TerraformValue<string> SnapshotWindow
-        => AsReference("snapshot_window");
+        => CreateReference("snapshot_window");
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
     public TerraformValue<string> SubnetGroupName
-        => AsReference("subnet_group_name");
+        => CreateReference("subnet_group_name");
 
 }

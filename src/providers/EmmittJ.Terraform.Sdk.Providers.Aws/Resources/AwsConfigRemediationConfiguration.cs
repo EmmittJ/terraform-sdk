@@ -101,7 +101,7 @@ public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> StaticValues
     {
-        get => GetArgument<TerraformList<string>>("static_values") ?? AsReference("static_values");
+        get => GetArgument<TerraformList<string>>("static_values") ?? CreateReference("static_values");
         set => SetArgument("static_values", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// ExecutionControls block (nesting mode: list).

@@ -304,7 +304,7 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     /// </summary>
     public TerraformList<TerraformMap<object>> LifecycleConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("lifecycle_configuration") ?? AsReference("lifecycle_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("lifecycle_configuration") ?? CreateReference("lifecycle_configuration");
         set => SetArgument("lifecycle_configuration", value);
     }
 
@@ -313,7 +313,7 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -340,31 +340,31 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     /// The agent_runtime_arn attribute.
     /// </summary>
     public TerraformValue<string> AgentRuntimeArn
-        => AsReference("agent_runtime_arn");
+        => CreateReference("agent_runtime_arn");
 
     /// <summary>
     /// The agent_runtime_id attribute.
     /// </summary>
     public TerraformValue<string> AgentRuntimeId
-        => AsReference("agent_runtime_id");
+        => CreateReference("agent_runtime_id");
 
     /// <summary>
     /// The agent_runtime_version attribute.
     /// </summary>
     public TerraformValue<string> AgentRuntimeVersion
-        => AsReference("agent_runtime_version");
+        => CreateReference("agent_runtime_version");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The workload_identity_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadIdentityDetails
-        => AsReference("workload_identity_details");
+        => CreateReference("workload_identity_details");
 
     /// <summary>
     /// AgentRuntimeArtifact block (nesting mode: list).

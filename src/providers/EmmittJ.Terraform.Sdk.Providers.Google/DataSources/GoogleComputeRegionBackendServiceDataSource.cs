@@ -13,7 +13,7 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,19 +61,19 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// When the load balancing scheme is INTERNAL, this field is not used.
     /// </summary>
     public TerraformValue<double> AffinityCookieTtlSec
-        => AsReference("affinity_cookie_ttl_sec");
+        => CreateReference("affinity_cookie_ttl_sec");
 
     /// <summary>
     /// The set of backends that serve this RegionBackendService.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Backend
-        => AsReference("backend");
+        => CreateReference("backend");
 
     /// <summary>
     /// Cloud CDN configuration for this BackendService.
     /// </summary>
     public TerraformList<TerraformMap<object>> CdnPolicy
-        => AsReference("cdn_policy");
+        => CreateReference("cdn_policy");
 
     /// <summary>
     /// Settings controlling the volume of connections to a backend service. This field
@@ -81,14 +81,14 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// and the &#39;protocol&#39; is set to HTTP, HTTPS, HTTP2 or H2C.
     /// </summary>
     public TerraformList<TerraformMap<object>> CircuitBreakers
-        => AsReference("circuit_breakers");
+        => CreateReference("circuit_breakers");
 
     /// <summary>
     /// Time for which instance will be drained (not accept new
     /// connections, but still work to finish started).
     /// </summary>
     public TerraformValue<double> ConnectionDrainingTimeoutSec
-        => AsReference("connection_draining_timeout_sec");
+        => CreateReference("connection_draining_timeout_sec");
 
     /// <summary>
     /// Consistent Hash-based load balancing can be used to provide soft session
@@ -103,50 +103,50 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     ///   * &#39;locality_lb_policy&#39; is set to MAGLEV or RING_HASH
     /// </summary>
     public TerraformList<TerraformMap<object>> ConsistentHash
-        => AsReference("consistent_hash");
+        => CreateReference("consistent_hash");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// List of custom metrics that are used for the WEIGHTED_ROUND_ROBIN locality_lb_policy.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomMetrics
-        => AsReference("custom_metrics");
+        => CreateReference("custom_metrics");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// If true, enable Cloud CDN for this RegionBackendService.
     /// </summary>
     public TerraformValue<bool> EnableCdn
-        => AsReference("enable_cdn");
+        => CreateReference("enable_cdn");
 
     /// <summary>
     /// Policy for failovers.
     /// </summary>
     public TerraformList<TerraformMap<object>> FailoverPolicy
-        => AsReference("failover_policy");
+        => CreateReference("failover_policy");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
     /// object. This field is used in optimistic locking.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> GeneratedId
-        => AsReference("generated_id");
+        => CreateReference("generated_id");
 
     /// <summary>
     /// Configures self-managed High Availability (HA) for External and Internal Protocol Forwarding.
@@ -159,7 +159,7 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// Passthrough Network Load Balancers.
     /// </summary>
     public TerraformList<TerraformMap<object>> HaPolicy
-        => AsReference("ha_policy");
+        => CreateReference("ha_policy");
 
     /// <summary>
     /// The set of URLs to HealthCheck resources for health checking
@@ -170,20 +170,20 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// or serverless NEG as a backend.
     /// </summary>
     public TerraformSet<string> HealthChecks
-        => AsReference("health_checks");
+        => CreateReference("health_checks");
 
     /// <summary>
     /// Settings for enabling Cloud Identity Aware Proxy.
     /// If OAuth client is not set, Google-managed OAuth client is used.
     /// </summary>
     public TerraformList<TerraformMap<object>> Iap
-        => AsReference("iap");
+        => CreateReference("iap");
 
     /// <summary>
     /// Specifies preference of traffic to the backend (from the proxy and from the client for proxyless gRPC). Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;PREFER_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
     public TerraformValue<string> IpAddressSelectionPolicy
-        => AsReference("ip_address_selection_policy");
+        => CreateReference("ip_address_selection_policy");
 
     /// <summary>
     /// Indicates what kind of load balancing this regional backend service
@@ -192,7 +192,7 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// [Choosing a load balancer](https://cloud.google.com/load-balancing/docs/backend-service). Default value: &amp;quot;INTERNAL&amp;quot; Possible values: [&amp;quot;EXTERNAL&amp;quot;, &amp;quot;EXTERNAL_MANAGED&amp;quot;, &amp;quot;INTERNAL&amp;quot;, &amp;quot;INTERNAL_MANAGED&amp;quot;]
     /// </summary>
     public TerraformValue<string> LoadBalancingScheme
-        => AsReference("load_balancing_scheme");
+        => CreateReference("load_balancing_scheme");
 
     /// <summary>
     /// The load balancing algorithm used within the scope of the locality.
@@ -260,14 +260,14 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// field set to true. Possible values: [&amp;quot;ROUND_ROBIN&amp;quot;, &amp;quot;LEAST_REQUEST&amp;quot;, &amp;quot;RING_HASH&amp;quot;, &amp;quot;RANDOM&amp;quot;, &amp;quot;ORIGINAL_DESTINATION&amp;quot;, &amp;quot;MAGLEV&amp;quot;, &amp;quot;WEIGHTED_MAGLEV&amp;quot;, &amp;quot;WEIGHTED_ROUND_ROBIN&amp;quot;]
     /// </summary>
     public TerraformValue<string> LocalityLbPolicy
-        => AsReference("locality_lb_policy");
+        => CreateReference("locality_lb_policy");
 
     /// <summary>
     /// This field denotes the logging options for the load balancer traffic served by this backend service.
     /// If logging is enabled, logs will be exported to Stackdriver.
     /// </summary>
     public TerraformList<TerraformMap<object>> LogConfig
-        => AsReference("log_config");
+        => CreateReference("log_config");
 
     /// <summary>
     /// The URL of the network to which this backend service belongs.
@@ -276,7 +276,7 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// Changes to this field force recreation of the resource.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
     /// <summary>
     /// Settings controlling eviction of unhealthy hosts from the load balancing pool.
@@ -284,13 +284,13 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// to INTERNAL_MANAGED and the &#39;protocol&#39; is set to HTTP, HTTPS, HTTP2 or H2C.
     /// </summary>
     public TerraformList<TerraformMap<object>> OutlierDetection
-        => AsReference("outlier_detection");
+        => CreateReference("outlier_detection");
 
     /// <summary>
     /// Additional params passed with the request, but not persisted as part of resource payload
     /// </summary>
     public TerraformList<TerraformMap<object>> ParamsAttribute
-        => AsReference("params");
+        => CreateReference("params");
 
     /// <summary>
     /// A named port on a backend instance group representing the port for
@@ -302,7 +302,7 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// Must be omitted when the loadBalancingScheme is INTERNAL (Internal TCP/UDP Load Balancing).
     /// </summary>
     public TerraformValue<string> PortName
-        => AsReference("port_name");
+        => CreateReference("port_name");
 
     /// <summary>
     /// The protocol this BackendService uses to communicate with backends.
@@ -311,32 +311,32 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// for more information. Possible values: [&amp;quot;HTTP&amp;quot;, &amp;quot;HTTPS&amp;quot;, &amp;quot;HTTP2&amp;quot;, &amp;quot;TCP&amp;quot;, &amp;quot;SSL&amp;quot;, &amp;quot;UDP&amp;quot;, &amp;quot;GRPC&amp;quot;, &amp;quot;UNSPECIFIED&amp;quot;, &amp;quot;H2C&amp;quot;]
     /// </summary>
     public TerraformValue<string> Protocol
-        => AsReference("protocol");
+        => CreateReference("protocol");
 
     /// <summary>
     /// The security policy associated with this backend service.
     /// </summary>
     public TerraformValue<string> SecurityPolicy
-        => AsReference("security_policy");
+        => CreateReference("security_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Type of session affinity to use. The default is NONE. Session affinity is
     /// not applicable if the protocol is UDP. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;CLIENT_IP&amp;quot;, &amp;quot;CLIENT_IP_PORT_PROTO&amp;quot;, &amp;quot;CLIENT_IP_PROTO&amp;quot;, &amp;quot;GENERATED_COOKIE&amp;quot;, &amp;quot;HEADER_FIELD&amp;quot;, &amp;quot;HTTP_COOKIE&amp;quot;, &amp;quot;CLIENT_IP_NO_DESTINATION&amp;quot;, &amp;quot;STRONG_COOKIE_AFFINITY&amp;quot;]
     /// </summary>
     public TerraformValue<string> SessionAffinity
-        => AsReference("session_affinity");
+        => CreateReference("session_affinity");
 
     /// <summary>
     /// Describes the HTTP cookie used for stateful session affinity. This field is applicable and required if the sessionAffinity is set to STRONG_COOKIE_AFFINITY.
     /// </summary>
     public TerraformList<TerraformMap<object>> StrongSessionAffinityCookie
-        => AsReference("strong_session_affinity_cookie");
+        => CreateReference("strong_session_affinity_cookie");
 
     /// <summary>
     /// The backend service timeout has a different meaning depending on the type of load balancer.
@@ -345,6 +345,6 @@ public partial class GoogleComputeRegionBackendServiceDataSource(string name) : 
     /// The full range of timeout values allowed goes from 1 through 2,147,483,647 seconds.
     /// </summary>
     public TerraformValue<double> TimeoutSec
-        => AsReference("timeout_sec");
+        => CreateReference("timeout_sec");
 
 }

@@ -26,13 +26,13 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -169,7 +169,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> LogsDestination
     {
-        get => GetArgument<TerraformValue<string>>("logs_destination") ?? AsReference("logs_destination");
+        get => GetArgument<TerraformValue<string>>("logs_destination") ?? CreateReference("logs_destination");
         set => SetArgument("logs_destination", value);
     }
 
@@ -252,7 +252,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> PublicNetworkAccess
     {
-        get => GetArgument<TerraformValue<string>>("public_network_access") ?? AsReference("public_network_access");
+        get => GetArgument<TerraformValue<string>>("public_network_access") ?? CreateReference("public_network_access");
         set => SetArgument("public_network_access", value);
     }
 
@@ -288,37 +288,37 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// The ID of the Custom Domain Verification for this Container App Environment.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-        => AsReference("custom_domain_verification_id");
+        => CreateReference("custom_domain_verification_id");
 
     /// <summary>
     /// The default publicly resolvable name of this Container App Environment
     /// </summary>
     public TerraformValue<string> DefaultDomain
-        => AsReference("default_domain");
+        => CreateReference("default_domain");
 
     /// <summary>
     /// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
     /// </summary>
     public TerraformValue<string> DockerBridgeCidr
-        => AsReference("docker_bridge_cidr");
+        => CreateReference("docker_bridge_cidr");
 
     /// <summary>
     /// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
     /// </summary>
     public TerraformValue<string> PlatformReservedCidr
-        => AsReference("platform_reserved_cidr");
+        => CreateReference("platform_reserved_cidr");
 
     /// <summary>
     /// The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
     /// </summary>
     public TerraformValue<string> PlatformReservedDnsIpAddress
-        => AsReference("platform_reserved_dns_ip_address");
+        => CreateReference("platform_reserved_dns_ip_address");
 
     /// <summary>
     /// The Static IP Address of the Environment.
     /// </summary>
     public TerraformValue<string> StaticIpAddress
-        => AsReference("static_ip_address");
+        => CreateReference("static_ip_address");
 
     /// <summary>
     /// Identity block (nesting mode: list).

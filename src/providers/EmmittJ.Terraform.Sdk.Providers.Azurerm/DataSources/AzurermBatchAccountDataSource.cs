@@ -36,7 +36,7 @@ public partial class AzurermBatchAccountDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermBatchAccountDataSource(string name) : TerraformDataS
     /// The account_endpoint attribute.
     /// </summary>
     public TerraformValue<string> AccountEndpoint
-        => AsReference("account_endpoint");
+        => CreateReference("account_endpoint");
 
     /// <summary>
     /// The encryption attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Encryption
-        => AsReference("encryption");
+        => CreateReference("encryption");
 
     /// <summary>
     /// The key_vault_reference attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> KeyVaultReference
-        => AsReference("key_vault_reference");
+        => CreateReference("key_vault_reference");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The pool_allocation_mode attribute.
     /// </summary>
     public TerraformValue<string> PoolAllocationMode
-        => AsReference("pool_allocation_mode");
+        => CreateReference("pool_allocation_mode");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-        => AsReference("primary_access_key");
+        => CreateReference("primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-        => AsReference("secondary_access_key");
+        => CreateReference("secondary_access_key");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> StorageAccountId
-        => AsReference("storage_account_id");
+        => CreateReference("storage_account_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

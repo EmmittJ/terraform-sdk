@@ -13,7 +13,7 @@ public partial class AwsVpclatticeServiceNetworkDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsVpclatticeServiceNetworkDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsVpclatticeServiceNetworkDataSource(string name) : Terraf
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,42 +49,42 @@ public partial class AwsVpclatticeServiceNetworkDataSource(string name) : Terraf
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
     public TerraformValue<string> AuthType
-        => AsReference("auth_type");
+        => CreateReference("auth_type");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedAt
-        => AsReference("last_updated_at");
+        => CreateReference("last_updated_at");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The number_of_associated_services attribute.
     /// </summary>
     public TerraformValue<double> NumberOfAssociatedServices
-        => AsReference("number_of_associated_services");
+        => CreateReference("number_of_associated_services");
 
     /// <summary>
     /// The number_of_associated_vpcs attribute.
     /// </summary>
     public TerraformValue<double> NumberOfAssociatedVpcs
-        => AsReference("number_of_associated_vpcs");
+        => CreateReference("number_of_associated_vpcs");
 
 }

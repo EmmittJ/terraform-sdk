@@ -18,7 +18,7 @@ public class AwsAlbListenerRuleActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order") ?? AsReference("order");
+        get => GetArgument<TerraformValue<double>>("order") ?? CreateReference("order");
         set => SetArgument("order", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateCognitoBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> OnUnauthenticatedRequest
     {
-        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request") ?? AsReference("on_unauthenticated_request");
+        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request") ?? CreateReference("on_unauthenticated_request");
         set => SetArgument("on_unauthenticated_request", value);
     }
 
@@ -246,7 +246,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OnUnauthenticatedRequest
     {
-        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request") ?? AsReference("on_unauthenticated_request");
+        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request") ?? CreateReference("on_unauthenticated_request");
         set => SetArgument("on_unauthenticated_request", value);
     }
 
@@ -334,7 +334,7 @@ public class AwsAlbListenerRuleActionBlockFixedResponseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StatusCode
     {
-        get => GetArgument<TerraformValue<string>>("status_code") ?? AsReference("status_code");
+        get => GetArgument<TerraformValue<string>>("status_code") ?? CreateReference("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -930,7 +930,7 @@ public partial class AwsAlbListenerRule(string name) : TerraformResource("aws_al
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -949,7 +949,7 @@ public partial class AwsAlbListenerRule(string name) : TerraformResource("aws_al
     /// </summary>
     public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? CreateReference("priority");
         set => SetArgument("priority", value);
     }
 
@@ -958,7 +958,7 @@ public partial class AwsAlbListenerRule(string name) : TerraformResource("aws_al
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -976,7 +976,7 @@ public partial class AwsAlbListenerRule(string name) : TerraformResource("aws_al
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -984,7 +984,7 @@ public partial class AwsAlbListenerRule(string name) : TerraformResource("aws_al
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Action block (nesting mode: list).

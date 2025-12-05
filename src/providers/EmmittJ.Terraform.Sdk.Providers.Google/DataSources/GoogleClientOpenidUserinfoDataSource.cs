@@ -15,12 +15,12 @@ public partial class GoogleClientOpenidUserinfoDataSource(string name) : Terrafo
     /// The email of the account used by the provider to authenticate with GCP.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The ID of this data source in Terraform state. Its value is the same as the `email` attribute. Do not use this field, use the `email` attribute instead.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

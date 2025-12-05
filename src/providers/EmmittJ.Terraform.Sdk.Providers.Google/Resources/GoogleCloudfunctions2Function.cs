@@ -18,14 +18,14 @@ public class GoogleCloudfunctions2FunctionBuildConfigBlock : TerraformBlock
     /// deployment of the function.
     /// </summary>
     public TerraformValue<string> Build
-        => AsReference("build");
+        => CreateReference("build");
 
     /// <summary>
     /// User managed repository created in Artifact Registry optionally with a customer managed encryption key.
     /// </summary>
     public TerraformValue<string> DockerRepository
     {
-        get => GetArgument<TerraformValue<string>>("docker_repository") ?? AsReference("docker_repository");
+        get => GetArgument<TerraformValue<string>>("docker_repository") ?? CreateReference("docker_repository");
         set => SetArgument("docker_repository", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleCloudfunctions2FunctionBuildConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> EnvironmentVariables
     {
-        get => GetArgument<TerraformMap<string>>("environment_variables") ?? AsReference("environment_variables");
+        get => GetArgument<TerraformMap<string>>("environment_variables") ?? CreateReference("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleCloudfunctions2FunctionBuildConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleCloudfunctions2FunctionBuildConfigBlockOnDeployUpdatePolicyBl
     /// The runtime version which was used during latest function deployment.
     /// </summary>
     public TerraformValue<string> RuntimeVersion
-        => AsReference("runtime_version");
+        => CreateReference("runtime_version");
 
 }
 
@@ -280,7 +280,7 @@ public class GoogleCloudfunctions2FunctionBuildConfigBlockSourceBlockStorageSour
     /// </summary>
     public TerraformValue<double> Generation
     {
-        get => GetArgument<TerraformValue<double>>("generation") ?? AsReference("generation");
+        get => GetArgument<TerraformValue<double>>("generation") ?? CreateReference("generation");
         set => SetArgument("generation", value);
     }
 
@@ -323,7 +323,7 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PubsubTopic
     {
-        get => GetArgument<TerraformValue<string>>("pubsub_topic") ?? AsReference("pubsub_topic");
+        get => GetArgument<TerraformValue<string>>("pubsub_topic") ?? CreateReference("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -344,7 +344,7 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email") ?? AsReference("service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email") ?? CreateReference("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -352,7 +352,7 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformBlock
     /// Output only. The resource name of the Eventarc trigger.
     /// </summary>
     public TerraformValue<string> Trigger
-        => AsReference("trigger");
+        => CreateReference("trigger");
 
     /// <summary>
     /// The region that the trigger will be in. The trigger will only receive
@@ -362,7 +362,7 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TriggerRegion
     {
-        get => GetArgument<TerraformValue<string>>("trigger_region") ?? AsReference("trigger_region");
+        get => GetArgument<TerraformValue<string>>("trigger_region") ?? CreateReference("trigger_region");
         set => SetArgument("trigger_region", value);
     }
 
@@ -452,7 +452,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AvailableCpu
     {
-        get => GetArgument<TerraformValue<string>>("available_cpu") ?? AsReference("available_cpu");
+        get => GetArgument<TerraformValue<string>>("available_cpu") ?? CreateReference("available_cpu");
         set => SetArgument("available_cpu", value);
     }
 
@@ -463,7 +463,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AvailableMemory
     {
-        get => GetArgument<TerraformValue<string>>("available_memory") ?? AsReference("available_memory");
+        get => GetArgument<TerraformValue<string>>("available_memory") ?? CreateReference("available_memory");
         set => SetArgument("available_memory", value);
     }
 
@@ -481,7 +481,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> EnvironmentVariables
     {
-        get => GetArgument<TerraformMap<string>>("environment_variables") ?? AsReference("environment_variables");
+        get => GetArgument<TerraformMap<string>>("environment_variables") ?? CreateReference("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
@@ -489,7 +489,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// URIs of the Service deployed
     /// </summary>
     public TerraformValue<string> GcfUri
-        => AsReference("gcf_uri");
+        => CreateReference("gcf_uri");
 
     /// <summary>
     /// Available ingress settings. Defaults to &amp;quot;ALLOW_ALL&amp;quot; if unspecified. Default value: &amp;quot;ALLOW_ALL&amp;quot; Possible values: [&amp;quot;ALLOW_ALL&amp;quot;, &amp;quot;ALLOW_INTERNAL_ONLY&amp;quot;, &amp;quot;ALLOW_INTERNAL_AND_GCLB&amp;quot;]
@@ -506,7 +506,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxInstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("max_instance_count") ?? AsReference("max_instance_count");
+        get => GetArgument<TerraformValue<double>>("max_instance_count") ?? CreateReference("max_instance_count");
         set => SetArgument("max_instance_count", value);
     }
 
@@ -515,7 +515,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxInstanceRequestConcurrency
     {
-        get => GetArgument<TerraformValue<double>>("max_instance_request_concurrency") ?? AsReference("max_instance_request_concurrency");
+        get => GetArgument<TerraformValue<double>>("max_instance_request_concurrency") ?? CreateReference("max_instance_request_concurrency");
         set => SetArgument("max_instance_request_concurrency", value);
     }
 
@@ -533,14 +533,14 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// Name of the service associated with a Function.
     /// </summary>
     public TerraformValue<string> Service
-        => AsReference("service");
+        => CreateReference("service");
 
     /// <summary>
     /// The email of the service account for this function.
     /// </summary>
     public TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email") ?? AsReference("service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email") ?? CreateReference("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -551,7 +551,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> TimeoutSeconds
     {
-        get => GetArgument<TerraformValue<double>>("timeout_seconds") ?? AsReference("timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds") ?? CreateReference("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -559,7 +559,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// URI of the Service deployed.
     /// </summary>
     public TerraformValue<string> Uri
-        => AsReference("uri");
+        => CreateReference("uri");
 
     /// <summary>
     /// The Serverless VPC Access connector that this cloud function can connect to.
@@ -799,7 +799,7 @@ public partial class GoogleCloudfunctions2Function(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -852,7 +852,7 @@ public partial class GoogleCloudfunctions2Function(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -860,38 +860,38 @@ public partial class GoogleCloudfunctions2Function(string name) : TerraformResou
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The environment the function is hosted on.
     /// </summary>
     public TerraformValue<string> Environment
-        => AsReference("environment");
+        => CreateReference("environment");
 
     /// <summary>
     /// Describes the current state of the function.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The last update timestamp of a Cloud Function.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Output only. The deployed url for the function.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// BuildConfig block (nesting mode: list).

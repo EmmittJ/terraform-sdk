@@ -22,42 +22,42 @@ public partial class AwsCloudfrontOriginAccessIdentityDataSource(string name) : 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-        => AsReference("caller_reference");
+        => CreateReference("caller_reference");
 
     /// <summary>
     /// The cloudfront_access_identity_path attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontAccessIdentityPath
-        => AsReference("cloudfront_access_identity_path");
+        => CreateReference("cloudfront_access_identity_path");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-        => AsReference("comment");
+        => CreateReference("comment");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The iam_arn attribute.
     /// </summary>
     public TerraformValue<string> IamArn
-        => AsReference("iam_arn");
+        => CreateReference("iam_arn");
 
     /// <summary>
     /// The s3_canonical_user_id attribute.
     /// </summary>
     public TerraformValue<string> S3CanonicalUserId
-        => AsReference("s3_canonical_user_id");
+        => CreateReference("s3_canonical_user_id");
 
 }

@@ -83,7 +83,7 @@ public partial class AwsWorkspaceswebIpAccessSettings(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -100,19 +100,19 @@ public partial class AwsWorkspaceswebIpAccessSettings(string name) : TerraformRe
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-        => AsReference("associated_portal_arns");
+        => CreateReference("associated_portal_arns");
 
     /// <summary>
     /// The ip_access_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> IpAccessSettingsArn
-        => AsReference("ip_access_settings_arn");
+        => CreateReference("ip_access_settings_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// IpRule block (nesting mode: list).

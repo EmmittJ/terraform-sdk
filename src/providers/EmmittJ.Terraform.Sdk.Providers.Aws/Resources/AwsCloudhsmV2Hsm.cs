@@ -45,7 +45,7 @@ public partial class AwsCloudhsmV2Hsm(string name) : TerraformResource("aws_clou
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsCloudhsmV2Hsm(string name) : TerraformResource("aws_clou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsCloudhsmV2Hsm(string name) : TerraformResource("aws_clou
     /// </summary>
     public TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address") ?? AsReference("ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address") ?? CreateReference("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsCloudhsmV2Hsm(string name) : TerraformResource("aws_clou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsCloudhsmV2Hsm(string name) : TerraformResource("aws_clou
     /// </summary>
     public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? CreateReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -99,19 +99,19 @@ public partial class AwsCloudhsmV2Hsm(string name) : TerraformResource("aws_clou
     /// The hsm_eni_id attribute.
     /// </summary>
     public TerraformValue<string> HsmEniId
-        => AsReference("hsm_eni_id");
+        => CreateReference("hsm_eni_id");
 
     /// <summary>
     /// The hsm_id attribute.
     /// </summary>
     public TerraformValue<string> HsmId
-        => AsReference("hsm_id");
+        => CreateReference("hsm_id");
 
     /// <summary>
     /// The hsm_state attribute.
     /// </summary>
     public TerraformValue<string> HsmState
-        => AsReference("hsm_state");
+        => CreateReference("hsm_state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

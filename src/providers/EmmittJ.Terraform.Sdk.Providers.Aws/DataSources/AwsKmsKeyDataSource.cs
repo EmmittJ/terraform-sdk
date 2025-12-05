@@ -22,7 +22,7 @@ public partial class AwsKmsKeyDataSource(string name) : TerraformDataSource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsKmsKeyDataSource(string name) : TerraformDataSource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,120 +49,120 @@ public partial class AwsKmsKeyDataSource(string name) : TerraformDataSource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
     public TerraformValue<string> AwsAccountId
-        => AsReference("aws_account_id");
+        => CreateReference("aws_account_id");
 
     /// <summary>
     /// The cloud_hsm_cluster_id attribute.
     /// </summary>
     public TerraformValue<string> CloudHsmClusterId
-        => AsReference("cloud_hsm_cluster_id");
+        => CreateReference("cloud_hsm_cluster_id");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The custom_key_store_id attribute.
     /// </summary>
     public TerraformValue<string> CustomKeyStoreId
-        => AsReference("custom_key_store_id");
+        => CreateReference("custom_key_store_id");
 
     /// <summary>
     /// The customer_master_key_spec attribute.
     /// </summary>
     public TerraformValue<string> CustomerMasterKeySpec
-        => AsReference("customer_master_key_spec");
+        => CreateReference("customer_master_key_spec");
 
     /// <summary>
     /// The deletion_date attribute.
     /// </summary>
     public TerraformValue<string> DeletionDate
-        => AsReference("deletion_date");
+        => CreateReference("deletion_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The expiration_model attribute.
     /// </summary>
     public TerraformValue<string> ExpirationModel
-        => AsReference("expiration_model");
+        => CreateReference("expiration_model");
 
     /// <summary>
     /// The key_manager attribute.
     /// </summary>
     public TerraformValue<string> KeyManager
-        => AsReference("key_manager");
+        => CreateReference("key_manager");
 
     /// <summary>
     /// The key_spec attribute.
     /// </summary>
     public TerraformValue<string> KeySpec
-        => AsReference("key_spec");
+        => CreateReference("key_spec");
 
     /// <summary>
     /// The key_state attribute.
     /// </summary>
     public TerraformValue<string> KeyState
-        => AsReference("key_state");
+        => CreateReference("key_state");
 
     /// <summary>
     /// The key_usage attribute.
     /// </summary>
     public TerraformValue<string> KeyUsage
-        => AsReference("key_usage");
+        => CreateReference("key_usage");
 
     /// <summary>
     /// The multi_region attribute.
     /// </summary>
     public TerraformValue<bool> MultiRegion
-        => AsReference("multi_region");
+        => CreateReference("multi_region");
 
     /// <summary>
     /// The multi_region_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MultiRegionConfiguration
-        => AsReference("multi_region_configuration");
+        => CreateReference("multi_region_configuration");
 
     /// <summary>
     /// The origin attribute.
     /// </summary>
     public TerraformValue<string> Origin
-        => AsReference("origin");
+        => CreateReference("origin");
 
     /// <summary>
     /// The pending_deletion_window_in_days attribute.
     /// </summary>
     public TerraformValue<double> PendingDeletionWindowInDays
-        => AsReference("pending_deletion_window_in_days");
+        => CreateReference("pending_deletion_window_in_days");
 
     /// <summary>
     /// The valid_to attribute.
     /// </summary>
     public TerraformValue<string> ValidTo
-        => AsReference("valid_to");
+        => CreateReference("valid_to");
 
     /// <summary>
     /// The xks_key_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> XksKeyConfiguration
-        => AsReference("xks_key_configuration");
+        => CreateReference("xks_key_configuration");
 
 }

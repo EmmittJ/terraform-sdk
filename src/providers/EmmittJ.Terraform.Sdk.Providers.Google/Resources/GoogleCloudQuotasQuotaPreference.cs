@@ -28,7 +28,7 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     /// Granted quota value.
     /// </summary>
     public TerraformValue<string> GrantedValue
-        => AsReference("granted_value");
+        => CreateReference("granted_value");
 
     /// <summary>
     /// The preferred value. Must be greater than or equal to -1. If set to -1, it means the value is &amp;quot;unlimited&amp;quot;.
@@ -44,19 +44,19 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     /// The origin of the quota preference request.
     /// </summary>
     public TerraformValue<string> RequestOrigin
-        => AsReference("request_origin");
+        => CreateReference("request_origin");
 
     /// <summary>
     /// Optional details about the state of this quota preference.
     /// </summary>
     public TerraformValue<string> StateDetail
-        => AsReference("state_detail");
+        => CreateReference("state_detail");
 
     /// <summary>
     /// The trace id that the Google Cloud uses to provision the requested quota. This trace id may be used by the client to contact Cloud support to track the state of a quota preference request. The trace id is only produced for increase requests and is unique for each request. The quota decrease requests do not have a trace id.
     /// </summary>
     public TerraformValue<string> TraceId
-        => AsReference("trace_id");
+        => CreateReference("trace_id");
 
 }
 
@@ -128,7 +128,7 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string> Dimensions
     {
-        get => GetArgument<TerraformMap<string>>("dimensions") ?? AsReference("dimensions");
+        get => GetArgument<TerraformMap<string>>("dimensions") ?? CreateReference("dimensions");
         set => SetArgument("dimensions", value);
     }
 
@@ -137,7 +137,7 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -173,7 +173,7 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent") ?? AsReference("parent");
+        get => GetArgument<TerraformValue<string>>("parent") ?? CreateReference("parent");
         set => SetArgument("parent", value);
     }
 
@@ -183,7 +183,7 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> QuotaId
     {
-        get => GetArgument<TerraformValue<string>>("quota_id") ?? AsReference("quota_id");
+        get => GetArgument<TerraformValue<string>>("quota_id") ?? CreateReference("quota_id");
         set => SetArgument("quota_id", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service") ?? AsReference("service");
+        get => GetArgument<TerraformValue<string>>("service") ?? CreateReference("service");
         set => SetArgument("service", value);
     }
 
@@ -201,26 +201,26 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &#39;2014-10-02T15:01:23Z&#39; and &#39;2014-10-02T15:01:23.045123456Z&#39;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The current etag of the quota preference. If an etag is provided on update and does not match the current server&#39;s etag of the quota preference, the request will be blocked and an ABORTED error will be returned. See https://google.aip.dev/134#etags for more details on etags.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Is the quota preference pending Google Cloud approval and fulfillment.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Update time stamp.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &#39;2014-10-02T15:01:23Z&#39; and &#39;2014-10-02T15:01:23.045123456Z&#39;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// QuotaConfig block (nesting mode: list).

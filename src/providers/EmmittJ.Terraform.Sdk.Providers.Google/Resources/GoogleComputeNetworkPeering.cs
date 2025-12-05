@@ -72,7 +72,7 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,13 +146,13 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     /// State for the peering, either ACTIVE or INACTIVE. The peering is ACTIVE when there&#39;s a matching configuration in the peer network.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Details about the current state of the peering.
     /// </summary>
     public TerraformValue<string> StateDetails
-        => AsReference("state_details");
+        => CreateReference("state_details");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -46,7 +46,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment(string name) :
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

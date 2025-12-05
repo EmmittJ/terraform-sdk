@@ -23,7 +23,7 @@ public partial class AwsLakeformationResourceDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLakeformationResourceDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,30 +40,30 @@ public partial class AwsLakeformationResourceDataSource(string name) : Terraform
     /// The hybrid_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> HybridAccessEnabled
-        => AsReference("hybrid_access_enabled");
+        => CreateReference("hybrid_access_enabled");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-        => AsReference("role_arn");
+        => CreateReference("role_arn");
 
     /// <summary>
     /// The with_federation attribute.
     /// </summary>
     public TerraformValue<bool> WithFederation
-        => AsReference("with_federation");
+        => CreateReference("with_federation");
 
     /// <summary>
     /// The with_privileged_access attribute.
     /// </summary>
     public TerraformValue<bool> WithPrivilegedAccess
-        => AsReference("with_privileged_access");
+        => CreateReference("with_privileged_access");
 
 }

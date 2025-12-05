@@ -166,7 +166,7 @@ public partial class AzurermTrafficManagerAzureEndpoint(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermTrafficManagerAzureEndpoint(string name) : Terraform
     /// </summary>
     public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? CreateReference("priority");
         set => SetArgument("priority", value);
     }
 

@@ -13,7 +13,7 @@ public partial class AwsSsmincidentsReplicationSetDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSsmincidentsReplicationSetDataSource(string name) : Terr
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -30,43 +30,43 @@ public partial class AwsSsmincidentsReplicationSetDataSource(string name) : Terr
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-        => AsReference("created_by");
+        => CreateReference("created_by");
 
     /// <summary>
     /// The deletion_protected attribute.
     /// </summary>
     public TerraformValue<bool> DeletionProtected
-        => AsReference("deletion_protected");
+        => CreateReference("deletion_protected");
 
     /// <summary>
     /// The last_modified_by attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedBy
-        => AsReference("last_modified_by");
+        => CreateReference("last_modified_by");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformSet<TerraformMap<object>> Region
-        => AsReference("region");
+        => CreateReference("region");
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Regions
-        => AsReference("regions");
+        => CreateReference("regions");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

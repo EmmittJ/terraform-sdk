@@ -26,13 +26,13 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -144,7 +144,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> LocalAuthenticationDisabled
     {
-        get => GetArgument<TerraformValue<bool>>("local_authentication_disabled") ?? AsReference("local_authentication_disabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_disabled") ?? CreateReference("local_authentication_disabled");
         set => SetArgument("local_authentication_disabled", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool> LocalAuthenticationEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("local_authentication_enabled") ?? AsReference("local_authentication_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_enabled") ?? CreateReference("local_authentication_enabled");
         set => SetArgument("local_authentication_enabled", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double> RetentionInDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_in_days") ?? AsReference("retention_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_in_days") ?? CreateReference("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku") ?? AsReference("sku");
+        get => GetArgument<TerraformValue<string>>("sku") ?? CreateReference("sku");
         set => SetArgument("sku", value);
     }
 
@@ -264,19 +264,19 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// The primary_shared_key attribute.
     /// </summary>
     public TerraformValue<string> PrimarySharedKey
-        => AsReference("primary_shared_key");
+        => CreateReference("primary_shared_key");
 
     /// <summary>
     /// The secondary_shared_key attribute.
     /// </summary>
     public TerraformValue<string> SecondarySharedKey
-        => AsReference("secondary_shared_key");
+        => CreateReference("secondary_shared_key");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-        => AsReference("workspace_id");
+        => CreateReference("workspace_id");
 
     /// <summary>
     /// Identity block (nesting mode: list).

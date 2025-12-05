@@ -33,7 +33,7 @@ public partial class AwsRedshiftserverlessCustomDomainAssociation(string name) :
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,12 +51,12 @@ public partial class AwsRedshiftserverlessCustomDomainAssociation(string name) :
     /// The custom_domain_certificate_expiry_time attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainCertificateExpiryTime
-        => AsReference("custom_domain_certificate_expiry_time");
+        => CreateReference("custom_domain_certificate_expiry_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

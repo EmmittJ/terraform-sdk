@@ -13,7 +13,7 @@ public partial class AwsConnectInstanceDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsConnectInstanceDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> InstanceAlias
     {
-        get => GetArgument<TerraformValue<string>>("instance_alias") ?? AsReference("instance_alias");
+        get => GetArgument<TerraformValue<string>>("instance_alias") ?? CreateReference("instance_alias");
         set => SetArgument("instance_alias", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsConnectInstanceDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id") ?? AsReference("instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id") ?? CreateReference("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsConnectInstanceDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsConnectInstanceDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,72 +57,72 @@ public partial class AwsConnectInstanceDataSource(string name) : TerraformDataSo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auto_resolve_best_voices_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AutoResolveBestVoicesEnabled
-        => AsReference("auto_resolve_best_voices_enabled");
+        => CreateReference("auto_resolve_best_voices_enabled");
 
     /// <summary>
     /// The contact_flow_logs_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ContactFlowLogsEnabled
-        => AsReference("contact_flow_logs_enabled");
+        => CreateReference("contact_flow_logs_enabled");
 
     /// <summary>
     /// The contact_lens_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ContactLensEnabled
-        => AsReference("contact_lens_enabled");
+        => CreateReference("contact_lens_enabled");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The early_media_enabled attribute.
     /// </summary>
     public TerraformValue<bool> EarlyMediaEnabled
-        => AsReference("early_media_enabled");
+        => CreateReference("early_media_enabled");
 
     /// <summary>
     /// The identity_management_type attribute.
     /// </summary>
     public TerraformValue<string> IdentityManagementType
-        => AsReference("identity_management_type");
+        => CreateReference("identity_management_type");
 
     /// <summary>
     /// The inbound_calls_enabled attribute.
     /// </summary>
     public TerraformValue<bool> InboundCallsEnabled
-        => AsReference("inbound_calls_enabled");
+        => CreateReference("inbound_calls_enabled");
 
     /// <summary>
     /// The multi_party_conference_enabled attribute.
     /// </summary>
     public TerraformValue<bool> MultiPartyConferenceEnabled
-        => AsReference("multi_party_conference_enabled");
+        => CreateReference("multi_party_conference_enabled");
 
     /// <summary>
     /// The outbound_calls_enabled attribute.
     /// </summary>
     public TerraformValue<bool> OutboundCallsEnabled
-        => AsReference("outbound_calls_enabled");
+        => CreateReference("outbound_calls_enabled");
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
     public TerraformValue<string> ServiceRole
-        => AsReference("service_role");
+        => CreateReference("service_role");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

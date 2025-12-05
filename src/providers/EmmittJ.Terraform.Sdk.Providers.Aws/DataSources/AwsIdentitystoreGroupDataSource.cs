@@ -113,7 +113,7 @@ public partial class AwsIdentitystoreGroupDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> GroupId
     {
-        get => GetArgument<TerraformValue<string>>("group_id") ?? AsReference("group_id");
+        get => GetArgument<TerraformValue<string>>("group_id") ?? CreateReference("group_id");
         set => SetArgument("group_id", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsIdentitystoreGroupDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsIdentitystoreGroupDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -149,19 +149,19 @@ public partial class AwsIdentitystoreGroupDataSource(string name) : TerraformDat
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The external_ids attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalIds
-        => AsReference("external_ids");
+        => CreateReference("external_ids");
 
     /// <summary>
     /// AlternateIdentifier block (nesting mode: list).

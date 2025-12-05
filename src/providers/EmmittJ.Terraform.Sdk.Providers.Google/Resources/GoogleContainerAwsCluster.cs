@@ -99,7 +99,7 @@ public class GoogleContainerAwsClusterBinaryAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EvaluationMode
     {
-        get => GetArgument<TerraformValue<string>>("evaluation_mode") ?? AsReference("evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("evaluation_mode") ?? CreateReference("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? CreateReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -281,7 +281,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockAwsServicesAuthentication
     /// </summary>
     public TerraformValue<string> RoleSessionName
     {
-        get => GetArgument<TerraformValue<string>>("role_session_name") ?? AsReference("role_session_name");
+        get => GetArgument<TerraformValue<string>>("role_session_name") ?? CreateReference("role_session_name");
         set => SetArgument("role_session_name", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockMainVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -367,7 +367,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockMainVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? CreateReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
@@ -376,7 +376,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockMainVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -385,7 +385,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockMainVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? CreateReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -440,7 +440,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockRootVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -458,7 +458,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockRootVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? CreateReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
@@ -467,7 +467,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockRootVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -476,7 +476,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockRootVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? CreateReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -521,14 +521,14 @@ public class GoogleContainerAwsClusterFleetBlock : TerraformBlock
     /// The name of the managed Hub Membership resource associated to this cluster. Membership names are formatted as projects/&amp;lt;project-number&amp;gt;/locations/global/membership/&amp;lt;cluster-id&amp;gt;.
     /// </summary>
     public TerraformValue<string> Membership
-        => AsReference("membership");
+        => CreateReference("membership");
 
     /// <summary>
     /// The number of the Fleet host project where this cluster will be registered.
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -671,7 +671,7 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -700,7 +700,7 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -708,55 +708,55 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     /// Output only. The time at which this cluster was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// Output only. The endpoint of the cluster&#39;s API server.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Output only. If set, there are currently changes in flight to the cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Output only. The current state of the cluster. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. A globally unique identifier for the cluster.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time at which this cluster was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Output only. Workload Identity settings.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadIdentityConfig
-        => AsReference("workload_identity_config");
+        => CreateReference("workload_identity_config");
 
     /// <summary>
     /// Authorization block (nesting mode: list).

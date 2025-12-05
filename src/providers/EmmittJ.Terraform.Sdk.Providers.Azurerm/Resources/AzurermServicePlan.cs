@@ -72,7 +72,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double> MaximumElasticWorkerCount
     {
-        get => GetArgument<TerraformValue<double>>("maximum_elastic_worker_count") ?? AsReference("maximum_elastic_worker_count");
+        get => GetArgument<TerraformValue<double>>("maximum_elastic_worker_count") ?? CreateReference("maximum_elastic_worker_count");
         set => SetArgument("maximum_elastic_worker_count", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double> WorkerCount
     {
-        get => GetArgument<TerraformValue<double>>("worker_count") ?? AsReference("worker_count");
+        get => GetArgument<TerraformValue<double>>("worker_count") ?? CreateReference("worker_count");
         set => SetArgument("worker_count", value);
     }
 
@@ -184,13 +184,13 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The reserved attribute.
     /// </summary>
     public TerraformValue<bool> Reserved
-        => AsReference("reserved");
+        => CreateReference("reserved");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

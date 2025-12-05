@@ -28,7 +28,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformSet<TerraformMap<object>> DaysOfWeek
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("days_of_week") ?? AsReference("days_of_week");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("days_of_week") ?? CreateReference("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformSet<double> HoursOfDay
     {
-        get => GetArgument<TerraformSet<double>>("hours_of_day") ?? AsReference("hours_of_day");
+        get => GetArgument<TerraformSet<double>>("hours_of_day") ?? CreateReference("hours_of_day");
         set => SetArgument("hours_of_day", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformValue<double> LeadTimeInWeeks
     {
-        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks") ?? AsReference("lead_time_in_weeks");
+        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks") ?? CreateReference("lead_time_in_weeks");
         set => SetArgument("lead_time_in_weeks", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformSet<TerraformMap<object>> Months
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("months") ?? AsReference("months");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("months") ?? CreateReference("months");
         set => SetArgument("months", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformSet<double> WeeksOfMonth
     {
-        get => GetArgument<TerraformSet<double>>("weeks_of_month") ?? AsReference("weeks_of_month");
+        get => GetArgument<TerraformSet<double>>("weeks_of_month") ?? CreateReference("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double> ComputeCount
     {
-        get => GetArgument<TerraformValue<double>>("compute_count") ?? AsReference("compute_count");
+        get => GetArgument<TerraformValue<double>>("compute_count") ?? CreateReference("compute_count");
         set => SetArgument("compute_count", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double> StorageCount
     {
-        get => GetArgument<TerraformValue<double>>("storage_count") ?? AsReference("storage_count");
+        get => GetArgument<TerraformValue<double>>("storage_count") ?? CreateReference("storage_count");
         set => SetArgument("storage_count", value);
     }
 
@@ -254,25 +254,25 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     /// The number of storage servers requested for the Exadata infrastructure
     /// </summary>
     public TerraformValue<double> ActivatedStorageCount
-        => AsReference("activated_storage_count");
+        => CreateReference("activated_storage_count");
 
     /// <summary>
     ///  The number of storage servers requested for the Exadata infrastructure
     /// </summary>
     public TerraformValue<double> AdditionalStorageCount
-        => AsReference("additional_storage_count");
+        => CreateReference("additional_storage_count");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The amount of available storage, in gigabytes (GB), for the Exadata infrastructure
     /// </summary>
     public TerraformValue<double> AvailableStorageSizeInGbs
-        => AsReference("available_storage_size_in_gbs");
+        => CreateReference("available_storage_size_in_gbs");
 
     /// <summary>
     /// The OCI model compute model used when you create or clone an
@@ -284,151 +284,151 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     ///   hyper-threading enabled.
     /// </summary>
     public TerraformValue<string> ComputeModel
-        => AsReference("compute_model");
+        => CreateReference("compute_model");
 
     /// <summary>
     /// The total number of CPU cores that are allocated to the Exadata infrastructure
     /// </summary>
     public TerraformValue<double> CpuCount
-        => AsReference("cpu_count");
+        => CreateReference("cpu_count");
 
     /// <summary>
     /// The time when the Exadata infrastructure was created.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB)
     /// </summary>
     public TerraformValue<double> DataStorageSizeInTbs
-        => AsReference("data_storage_size_in_tbs");
+        => CreateReference("data_storage_size_in_tbs");
 
     /// <summary>
     /// The size of the Exadata infrastructure&#39;s local node storage, in gigabytes (GB)
     /// </summary>
     public TerraformValue<double> DbNodeStorageSizeInGbs
-        => AsReference("db_node_storage_size_in_gbs");
+        => CreateReference("db_node_storage_size_in_gbs");
 
     /// <summary>
     /// The software version of the database servers (dom0) in the Exadata infrastructure
     /// </summary>
     public TerraformValue<string> DbServerVersion
-        => AsReference("db_server_version");
+        => CreateReference("db_server_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure
     /// </summary>
     public TerraformValue<string> LastMaintenanceRunId
-        => AsReference("last_maintenance_run_id");
+        => CreateReference("last_maintenance_run_id");
 
     /// <summary>
     /// The total number of CPU cores available on the Exadata infrastructure
     /// </summary>
     public TerraformValue<double> MaxCpuCount
-        => AsReference("max_cpu_count");
+        => CreateReference("max_cpu_count");
 
     /// <summary>
     /// The total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure
     /// </summary>
     public TerraformValue<double> MaxDataStorageInTbs
-        => AsReference("max_data_storage_in_tbs");
+        => CreateReference("max_data_storage_in_tbs");
 
     /// <summary>
     /// The total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure
     /// </summary>
     public TerraformValue<double> MaxDbNodeStorageSizeInGbs
-        => AsReference("max_db_node_storage_size_in_gbs");
+        => CreateReference("max_db_node_storage_size_in_gbs");
 
     /// <summary>
     /// The total amount of memory in gigabytes (GB) available on the Exadata infrastructure
     /// </summary>
     public TerraformValue<double> MaxMemoryInGbs
-        => AsReference("max_memory_in_gbs");
+        => CreateReference("max_memory_in_gbs");
 
     /// <summary>
     /// The amount of memory, in gigabytes (GB), that&#39;s allocated on the Exadata infrastructure
     /// </summary>
     public TerraformValue<double> MemorySizeInGbs
-        => AsReference("memory_size_in_gbs");
+        => CreateReference("memory_size_in_gbs");
 
     /// <summary>
     /// The monthly software version of the database servers in the Exadata infrastructure
     /// </summary>
     public TerraformValue<string> MonthlyDbServerVersion
-        => AsReference("monthly_db_server_version");
+        => CreateReference("monthly_db_server_version");
 
     /// <summary>
     /// The monthly software version of the storage servers installed on the Exadata infrastructure
     /// </summary>
     public TerraformValue<string> MonthlyStorageServerVersion
-        => AsReference("monthly_storage_server_version");
+        => CreateReference("monthly_storage_server_version");
 
     /// <summary>
     /// The OCID of the next maintenance run for the Exadata infrastructure
     /// </summary>
     public TerraformValue<string> NextMaintenanceRunId
-        => AsReference("next_maintenance_run_id");
+        => CreateReference("next_maintenance_run_id");
 
     /// <summary>
     /// The name of the OCI resource anchor for the Exadata infrastructure
     /// </summary>
     public TerraformValue<string> OciResourceAnchorName
-        => AsReference("oci_resource_anchor_name");
+        => CreateReference("oci_resource_anchor_name");
 
     /// <summary>
     /// The HTTPS link to the Exadata infrastructure in OCI
     /// </summary>
     public TerraformValue<string> OciUrl
-        => AsReference("oci_url");
+        => CreateReference("oci_url");
 
     /// <summary>
     /// The OCID of the Exadata infrastructure
     /// </summary>
     public TerraformValue<string> Ocid
-        => AsReference("ocid");
+        => CreateReference("ocid");
 
     /// <summary>
     /// The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage
     /// </summary>
     public TerraformValue<double> PercentProgress
-        => AsReference("percent_progress");
+        => CreateReference("percent_progress");
 
     /// <summary>
     /// The current status of the Exadata infrastructure
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Additional information about the status of the Exadata infrastructure
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
     /// <summary>
     /// The software version of the storage servers on the Exadata infrastructure.
     /// </summary>
     public TerraformValue<string> StorageServerVersion
-        => AsReference("storage_server_version");
+        => CreateReference("storage_server_version");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
     /// </summary>
     public TerraformValue<double> TotalStorageSizeInGbs
-        => AsReference("total_storage_size_in_gbs");
+        => CreateReference("total_storage_size_in_gbs");
 
     /// <summary>
     /// MaintenanceWindow block (nesting mode: list).

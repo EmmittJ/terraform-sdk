@@ -63,7 +63,7 @@ public partial class AzurermOracleResourceAnchor(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,13 +100,13 @@ public partial class AzurermOracleResourceAnchor(string name) : TerraformResourc
     /// The linked_compartment_id attribute.
     /// </summary>
     public TerraformValue<string> LinkedCompartmentId
-        => AsReference("linked_compartment_id");
+        => CreateReference("linked_compartment_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class GoogleAppEngineDefaultServiceAccountDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleAppEngineDefaultServiceAccountDataSource(string name)
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -30,30 +30,30 @@ public partial class GoogleAppEngineDefaultServiceAccountDataSource(string name)
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The member attribute.
     /// </summary>
     public TerraformValue<string> Member
-        => AsReference("member");
+        => CreateReference("member");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
     public TerraformValue<string> UniqueId
-        => AsReference("unique_id");
+        => CreateReference("unique_id");
 
 }

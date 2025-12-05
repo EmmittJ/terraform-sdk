@@ -63,7 +63,7 @@ public partial class AzurermNetworkSecurityGroup(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermNetworkSecurityGroup(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<TerraformMap<object>> SecurityRule
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("security_rule") ?? AsReference("security_rule");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("security_rule") ?? CreateReference("security_rule");
         set => SetArgument("security_rule", value);
     }
 

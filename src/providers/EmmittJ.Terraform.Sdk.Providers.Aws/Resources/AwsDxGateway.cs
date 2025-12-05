@@ -55,7 +55,7 @@ public partial class AwsDxGateway(string name) : TerraformResource("aws_dx_gatew
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,13 +73,13 @@ public partial class AwsDxGateway(string name) : TerraformResource("aws_dx_gatew
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

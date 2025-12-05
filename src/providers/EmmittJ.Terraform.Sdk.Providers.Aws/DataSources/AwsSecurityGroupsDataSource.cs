@@ -70,7 +70,7 @@ public partial class AwsSecurityGroupsDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsSecurityGroupsDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsSecurityGroupsDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -96,19 +96,19 @@ public partial class AwsSecurityGroupsDataSource(string name) : TerraformDataSou
     /// The arns attribute.
     /// </summary>
     public TerraformList<string> Arns
-        => AsReference("arns");
+        => CreateReference("arns");
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
     public TerraformList<string> Ids
-        => AsReference("ids");
+        => CreateReference("ids");
 
     /// <summary>
     /// The vpc_ids attribute.
     /// </summary>
     public TerraformList<string> VpcIds
-        => AsReference("vpc_ids");
+        => CreateReference("vpc_ids");
 
     /// <summary>
     /// Filter block (nesting mode: set).

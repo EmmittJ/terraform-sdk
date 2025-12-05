@@ -82,7 +82,7 @@ public partial class AzureadPrivilegedAccessGroupEligibilitySchedule(string name
     /// </summary>
     public TerraformValue<string> ExpirationDate
     {
-        get => GetArgument<TerraformValue<string>>("expiration_date") ?? AsReference("expiration_date");
+        get => GetArgument<TerraformValue<string>>("expiration_date") ?? CreateReference("expiration_date");
         set => SetArgument("expiration_date", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzureadPrivilegedAccessGroupEligibilitySchedule(string name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzureadPrivilegedAccessGroupEligibilitySchedule(string name
     /// </summary>
     public TerraformValue<bool> PermanentAssignment
     {
-        get => GetArgument<TerraformValue<bool>>("permanent_assignment") ?? AsReference("permanent_assignment");
+        get => GetArgument<TerraformValue<bool>>("permanent_assignment") ?? CreateReference("permanent_assignment");
         set => SetArgument("permanent_assignment", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzureadPrivilegedAccessGroupEligibilitySchedule(string name
     /// </summary>
     public TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date") ?? AsReference("start_date");
+        get => GetArgument<TerraformValue<string>>("start_date") ?? CreateReference("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzureadPrivilegedAccessGroupEligibilitySchedule(string name
     /// The status of the schedule
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

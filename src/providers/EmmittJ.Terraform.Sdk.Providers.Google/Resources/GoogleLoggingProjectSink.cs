@@ -135,7 +135,7 @@ public partial class GoogleLoggingProjectSink(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -154,7 +154,7 @@ public partial class GoogleLoggingProjectSink(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -171,7 +171,7 @@ public partial class GoogleLoggingProjectSink(string name) : TerraformResource("
     /// The identity associated with this sink. This identity must be granted write access to the configured destination.
     /// </summary>
     public TerraformValue<string> WriterIdentity
-        => AsReference("writer_identity");
+        => CreateReference("writer_identity");
 
     /// <summary>
     /// BigqueryOptions block (nesting mode: list).

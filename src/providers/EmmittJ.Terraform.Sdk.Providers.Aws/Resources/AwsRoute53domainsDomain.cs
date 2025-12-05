@@ -573,7 +573,7 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> AdminPrivacy
     {
-        get => GetArgument<TerraformValue<bool>>("admin_privacy") ?? AsReference("admin_privacy");
+        get => GetArgument<TerraformValue<bool>>("admin_privacy") ?? CreateReference("admin_privacy");
         set => SetArgument("admin_privacy", value);
     }
 
@@ -582,7 +582,7 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> AutoRenew
     {
-        get => GetArgument<TerraformValue<bool>>("auto_renew") ?? AsReference("auto_renew");
+        get => GetArgument<TerraformValue<bool>>("auto_renew") ?? CreateReference("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 
@@ -591,7 +591,7 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<TerraformMap<object>> BillingContact
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("billing_contact") ?? AsReference("billing_contact");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("billing_contact") ?? CreateReference("billing_contact");
         set => SetArgument("billing_contact", value);
     }
 
@@ -600,7 +600,7 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> BillingPrivacy
     {
-        get => GetArgument<TerraformValue<bool>>("billing_privacy") ?? AsReference("billing_privacy");
+        get => GetArgument<TerraformValue<bool>>("billing_privacy") ?? CreateReference("billing_privacy");
         set => SetArgument("billing_privacy", value);
     }
 
@@ -619,7 +619,7 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double> DurationInYears
     {
-        get => GetArgument<TerraformValue<double>>("duration_in_years") ?? AsReference("duration_in_years");
+        get => GetArgument<TerraformValue<double>>("duration_in_years") ?? CreateReference("duration_in_years");
         set => SetArgument("duration_in_years", value);
     }
 
@@ -628,7 +628,7 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<TerraformMap<object>> NameServer
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("name_server") ?? AsReference("name_server");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("name_server") ?? CreateReference("name_server");
         set => SetArgument("name_server", value);
     }
 
@@ -637,7 +637,7 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> RegistrantPrivacy
     {
-        get => GetArgument<TerraformValue<bool>>("registrant_privacy") ?? AsReference("registrant_privacy");
+        get => GetArgument<TerraformValue<bool>>("registrant_privacy") ?? CreateReference("registrant_privacy");
         set => SetArgument("registrant_privacy", value);
     }
 
@@ -655,7 +655,7 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> TechPrivacy
     {
-        get => GetArgument<TerraformValue<bool>>("tech_privacy") ?? AsReference("tech_privacy");
+        get => GetArgument<TerraformValue<bool>>("tech_privacy") ?? CreateReference("tech_privacy");
         set => SetArgument("tech_privacy", value);
     }
 
@@ -664,7 +664,7 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> TransferLock
     {
-        get => GetArgument<TerraformValue<bool>>("transfer_lock") ?? AsReference("transfer_lock");
+        get => GetArgument<TerraformValue<bool>>("transfer_lock") ?? CreateReference("transfer_lock");
         set => SetArgument("transfer_lock", value);
     }
 
@@ -672,67 +672,67 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// The abuse_contact_email attribute.
     /// </summary>
     public TerraformValue<string> AbuseContactEmail
-        => AsReference("abuse_contact_email");
+        => CreateReference("abuse_contact_email");
 
     /// <summary>
     /// The abuse_contact_phone attribute.
     /// </summary>
     public TerraformValue<string> AbuseContactPhone
-        => AsReference("abuse_contact_phone");
+        => CreateReference("abuse_contact_phone");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-        => AsReference("expiration_date");
+        => CreateReference("expiration_date");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The registrar_name attribute.
     /// </summary>
     public TerraformValue<string> RegistrarName
-        => AsReference("registrar_name");
+        => CreateReference("registrar_name");
 
     /// <summary>
     /// The registrar_url attribute.
     /// </summary>
     public TerraformValue<string> RegistrarUrl
-        => AsReference("registrar_url");
+        => CreateReference("registrar_url");
 
     /// <summary>
     /// The status_list attribute.
     /// </summary>
     public TerraformList<string> StatusList
-        => AsReference("status_list");
+        => CreateReference("status_list");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The updated_date attribute.
     /// </summary>
     public TerraformValue<string> UpdatedDate
-        => AsReference("updated_date");
+        => CreateReference("updated_date");
 
     /// <summary>
     /// The whois_server attribute.
     /// </summary>
     public TerraformValue<string> WhoisServer
-        => AsReference("whois_server");
+        => CreateReference("whois_server");
 
     /// <summary>
     /// AdminContact block (nesting mode: list).

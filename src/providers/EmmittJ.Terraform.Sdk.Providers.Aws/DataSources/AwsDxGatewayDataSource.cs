@@ -13,7 +13,7 @@ public partial class AwsDxGatewayDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,18 +31,18 @@ public partial class AwsDxGatewayDataSource(string name) : TerraformDataSource("
     /// The amazon_side_asn attribute.
     /// </summary>
     public TerraformValue<string> AmazonSideAsn
-        => AsReference("amazon_side_asn");
+        => CreateReference("amazon_side_asn");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
 }

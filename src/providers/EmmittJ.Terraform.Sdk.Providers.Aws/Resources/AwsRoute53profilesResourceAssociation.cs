@@ -74,7 +74,7 @@ public partial class AwsRoute53profilesResourceAssociation(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsRoute53profilesResourceAssociation(string name) : Terraf
     /// </summary>
     public TerraformValue<string> ResourceProperties
     {
-        get => GetArgument<TerraformValue<string>>("resource_properties") ?? AsReference("resource_properties");
+        get => GetArgument<TerraformValue<string>>("resource_properties") ?? CreateReference("resource_properties");
         set => SetArgument("resource_properties", value);
     }
 
@@ -101,31 +101,31 @@ public partial class AwsRoute53profilesResourceAssociation(string name) : Terraf
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-        => AsReference("resource_type");
+        => CreateReference("resource_type");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-        => AsReference("status_message");
+        => CreateReference("status_message");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

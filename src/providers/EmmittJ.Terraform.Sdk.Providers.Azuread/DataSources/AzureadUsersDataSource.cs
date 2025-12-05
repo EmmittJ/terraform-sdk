@@ -36,7 +36,7 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformList<string> EmployeeIds
     {
-        get => GetArgument<TerraformList<string>>("employee_ids") ?? AsReference("employee_ids");
+        get => GetArgument<TerraformList<string>>("employee_ids") ?? CreateReference("employee_ids");
         set => SetArgument("employee_ids", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformList<string> MailNicknames
     {
-        get => GetArgument<TerraformList<string>>("mail_nicknames") ?? AsReference("mail_nicknames");
+        get => GetArgument<TerraformList<string>>("mail_nicknames") ?? CreateReference("mail_nicknames");
         set => SetArgument("mail_nicknames", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformList<string> Mails
     {
-        get => GetArgument<TerraformList<string>>("mails") ?? AsReference("mails");
+        get => GetArgument<TerraformList<string>>("mails") ?? CreateReference("mails");
         set => SetArgument("mails", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformList<string> ObjectIds
     {
-        get => GetArgument<TerraformList<string>>("object_ids") ?? AsReference("object_ids");
+        get => GetArgument<TerraformList<string>>("object_ids") ?? CreateReference("object_ids");
         set => SetArgument("object_ids", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformList<string> UserPrincipalNames
     {
-        get => GetArgument<TerraformList<string>>("user_principal_names") ?? AsReference("user_principal_names");
+        get => GetArgument<TerraformList<string>>("user_principal_names") ?? CreateReference("user_principal_names");
         set => SetArgument("user_principal_names", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// A list of users
     /// </summary>
     public TerraformList<TerraformMap<object>> Users
-        => AsReference("users");
+        => CreateReference("users");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

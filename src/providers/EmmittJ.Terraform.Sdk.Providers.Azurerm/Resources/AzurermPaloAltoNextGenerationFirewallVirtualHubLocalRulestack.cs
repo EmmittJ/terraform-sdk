@@ -137,7 +137,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSet
     /// The azure_dns_servers attribute.
     /// </summary>
     public TerraformList<string> AzureDnsServers
-        => AsReference("azure_dns_servers");
+        => CreateReference("azure_dns_servers");
 
     /// <summary>
     /// The dns_servers attribute.
@@ -184,13 +184,13 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetwor
     /// The egress_nat_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> EgressNatIpAddresses
-        => AsReference("egress_nat_ip_addresses");
+        => CreateReference("egress_nat_ip_addresses");
 
     /// <summary>
     /// The ip_of_trust_for_user_defined_routes attribute.
     /// </summary>
     public TerraformValue<string> IpOfTrustForUserDefinedRoutes
-        => AsReference("ip_of_trust_for_user_defined_routes");
+        => CreateReference("ip_of_trust_for_user_defined_routes");
 
     /// <summary>
     /// The network_virtual_appliance_id attribute.
@@ -216,7 +216,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetwor
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-        => AsReference("public_ip_addresses");
+        => CreateReference("public_ip_addresses");
 
     /// <summary>
     /// The trusted_address_ranges attribute.
@@ -231,13 +231,13 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetwor
     /// The trusted_subnet_id attribute.
     /// </summary>
     public TerraformValue<string> TrustedSubnetId
-        => AsReference("trusted_subnet_id");
+        => CreateReference("trusted_subnet_id");
 
     /// <summary>
     /// The untrusted_subnet_id attribute.
     /// </summary>
     public TerraformValue<string> UntrustedSubnetId
-        => AsReference("untrusted_subnet_id");
+        => CreateReference("untrusted_subnet_id");
 
     /// <summary>
     /// The virtual_hub_id attribute.
@@ -313,7 +313,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

@@ -64,7 +64,7 @@ public partial class AzurermStaticWebAppCustomDomain(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStaticWebAppCustomDomain(string name) : TerraformRes
     /// The validation_token attribute.
     /// </summary>
     public TerraformValue<string> ValidationToken
-        => AsReference("validation_token");
+        => CreateReference("validation_token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

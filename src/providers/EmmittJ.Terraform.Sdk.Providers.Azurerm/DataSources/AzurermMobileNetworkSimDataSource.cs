@@ -36,7 +36,7 @@ public partial class AzurermMobileNetworkSimDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermMobileNetworkSimDataSource(string name) : TerraformD
     /// The device_type attribute.
     /// </summary>
     public TerraformValue<string> DeviceType
-        => AsReference("device_type");
+        => CreateReference("device_type");
 
     /// <summary>
     /// The integrated_circuit_card_identifier attribute.
     /// </summary>
     public TerraformValue<string> IntegratedCircuitCardIdentifier
-        => AsReference("integrated_circuit_card_identifier");
+        => CreateReference("integrated_circuit_card_identifier");
 
     /// <summary>
     /// The international_mobile_subscriber_identity attribute.
     /// </summary>
     public TerraformValue<string> InternationalMobileSubscriberIdentity
-        => AsReference("international_mobile_subscriber_identity");
+        => CreateReference("international_mobile_subscriber_identity");
 
     /// <summary>
     /// The sim_policy_id attribute.
     /// </summary>
     public TerraformValue<string> SimPolicyId
-        => AsReference("sim_policy_id");
+        => CreateReference("sim_policy_id");
 
     /// <summary>
     /// The sim_state attribute.
     /// </summary>
     public TerraformValue<string> SimState
-        => AsReference("sim_state");
+        => CreateReference("sim_state");
 
     /// <summary>
     /// The static_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StaticIpConfiguration
-        => AsReference("static_ip_configuration");
+        => CreateReference("static_ip_configuration");
 
     /// <summary>
     /// The vendor_key_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> VendorKeyFingerprint
-        => AsReference("vendor_key_fingerprint");
+        => CreateReference("vendor_key_fingerprint");
 
     /// <summary>
     /// The vendor_name attribute.
     /// </summary>
     public TerraformValue<string> VendorName
-        => AsReference("vendor_name");
+        => CreateReference("vendor_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

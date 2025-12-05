@@ -23,7 +23,7 @@ public partial class AwsApprunnerAutoScalingConfigurationVersion(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsApprunnerAutoScalingConfigurationVersion(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsApprunnerAutoScalingConfigurationVersion(string name) : 
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -85,36 +85,36 @@ public partial class AwsApprunnerAutoScalingConfigurationVersion(string name) : 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auto_scaling_configuration_revision attribute.
     /// </summary>
     public TerraformValue<double> AutoScalingConfigurationRevision
-        => AsReference("auto_scaling_configuration_revision");
+        => CreateReference("auto_scaling_configuration_revision");
 
     /// <summary>
     /// The has_associated_service attribute.
     /// </summary>
     public TerraformValue<bool> HasAssociatedService
-        => AsReference("has_associated_service");
+        => CreateReference("has_associated_service");
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
     public TerraformValue<bool> IsDefault
-        => AsReference("is_default");
+        => CreateReference("is_default");
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
     public TerraformValue<bool> Latest
-        => AsReference("latest");
+        => CreateReference("latest");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

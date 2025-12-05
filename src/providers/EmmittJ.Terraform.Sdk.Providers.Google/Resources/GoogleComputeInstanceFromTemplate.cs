@@ -18,7 +18,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformValue<bool> EnableNestedVirtualization
     {
-        get => GetArgument<TerraformValue<bool>>("enable_nested_virtualization") ?? AsReference("enable_nested_virtualization");
+        get => GetArgument<TerraformValue<bool>>("enable_nested_virtualization") ?? CreateReference("enable_nested_virtualization");
         set => SetArgument("enable_nested_virtualization", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformValue<bool> EnableUefiNetworking
     {
-        get => GetArgument<TerraformValue<bool>>("enable_uefi_networking") ?? AsReference("enable_uefi_networking");
+        get => GetArgument<TerraformValue<bool>>("enable_uefi_networking") ?? CreateReference("enable_uefi_networking");
         set => SetArgument("enable_uefi_networking", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformValue<string> PerformanceMonitoringUnit
     {
-        get => GetArgument<TerraformValue<string>>("performance_monitoring_unit") ?? AsReference("performance_monitoring_unit");
+        get => GetArgument<TerraformValue<string>>("performance_monitoring_unit") ?? CreateReference("performance_monitoring_unit");
         set => SetArgument("performance_monitoring_unit", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformValue<double> ThreadsPerCore
     {
-        get => GetArgument<TerraformValue<double>>("threads_per_core") ?? AsReference("threads_per_core");
+        get => GetArgument<TerraformValue<double>>("threads_per_core") ?? CreateReference("threads_per_core");
         set => SetArgument("threads_per_core", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformValue<string> TurboMode
     {
-        get => GetArgument<TerraformValue<string>>("turbo_mode") ?? AsReference("turbo_mode");
+        get => GetArgument<TerraformValue<string>>("turbo_mode") ?? CreateReference("turbo_mode");
         set => SetArgument("turbo_mode", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformValue<double> VisibleCoreCount
     {
-        get => GetArgument<TerraformValue<double>>("visible_core_count") ?? AsReference("visible_core_count");
+        get => GetArgument<TerraformValue<double>>("visible_core_count") ?? CreateReference("visible_core_count");
         set => SetArgument("visible_core_count", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name") ?? AsReference("device_name");
+        get => GetArgument<TerraformValue<string>>("device_name") ?? CreateReference("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskEncryptionKeyRaw
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption_key_raw") ?? AsReference("disk_encryption_key_raw");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_key_raw") ?? CreateReference("disk_encryption_key_raw");
         set => SetArgument("disk_encryption_key_raw", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskEncryptionKeyRsa
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption_key_rsa") ?? AsReference("disk_encryption_key_rsa");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_key_rsa") ?? CreateReference("disk_encryption_key_rsa");
         set => SetArgument("disk_encryption_key_rsa", value);
     }
 
@@ -112,14 +112,14 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> DiskEncryptionKeySha256
-        => AsReference("disk_encryption_key_sha256");
+        => CreateReference("disk_encryption_key_sha256");
 
     /// <summary>
     /// The service account being used for the encryption request for the given KMS key. If absent, the Compute Engine default service account is used
     /// </summary>
     public TerraformValue<string> DiskEncryptionServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption_service_account") ?? AsReference("disk_encryption_service_account");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_service_account") ?? CreateReference("disk_encryption_service_account");
         set => SetArgument("disk_encryption_service_account", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> ForceAttach
     {
-        get => GetArgument<TerraformValue<bool>>("force_attach") ?? AsReference("force_attach");
+        get => GetArgument<TerraformValue<bool>>("force_attach") ?? CreateReference("force_attach");
         set => SetArgument("force_attach", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? CreateReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> AutoDelete
     {
-        get => GetArgument<TerraformValue<bool>>("auto_delete") ?? AsReference("auto_delete");
+        get => GetArgument<TerraformValue<bool>>("auto_delete") ?? CreateReference("auto_delete");
         set => SetArgument("auto_delete", value);
     }
 
@@ -188,7 +188,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name") ?? AsReference("device_name");
+        get => GetArgument<TerraformValue<string>>("device_name") ?? CreateReference("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -197,7 +197,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskEncryptionKeyRaw
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption_key_raw") ?? AsReference("disk_encryption_key_raw");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_key_raw") ?? CreateReference("disk_encryption_key_raw");
         set => SetArgument("disk_encryption_key_raw", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskEncryptionKeyRsa
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption_key_rsa") ?? AsReference("disk_encryption_key_rsa");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_key_rsa") ?? CreateReference("disk_encryption_key_rsa");
         set => SetArgument("disk_encryption_key_rsa", value);
     }
 
@@ -214,14 +214,14 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> DiskEncryptionKeySha256
-        => AsReference("disk_encryption_key_sha256");
+        => CreateReference("disk_encryption_key_sha256");
 
     /// <summary>
     /// The service account being used for the encryption request for the given KMS key. If absent, the Compute Engine default service account is used
     /// </summary>
     public TerraformValue<string> DiskEncryptionServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption_service_account") ?? AsReference("disk_encryption_service_account");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_service_account") ?? CreateReference("disk_encryption_service_account");
         set => SetArgument("disk_encryption_service_account", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> ForceAttach
     {
-        get => GetArgument<TerraformValue<bool>>("force_attach") ?? AsReference("force_attach");
+        get => GetArgument<TerraformValue<bool>>("force_attach") ?? CreateReference("force_attach");
         set => SetArgument("force_attach", value);
     }
 
@@ -239,7 +239,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> GuestOsFeatures
     {
-        get => GetArgument<TerraformList<string>>("guest_os_features") ?? AsReference("guest_os_features");
+        get => GetArgument<TerraformList<string>>("guest_os_features") ?? CreateReference("guest_os_features");
         set => SetArgument("guest_os_features", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> InterfaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("interface") ?? AsReference("interface");
+        get => GetArgument<TerraformValue<string>>("interface") ?? CreateReference("interface");
         set => SetArgument("interface", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? CreateReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -275,7 +275,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source") ?? AsReference("source");
+        get => GetArgument<TerraformValue<string>>("source") ?? CreateReference("source");
         set => SetArgument("source", value);
     }
 
@@ -307,7 +307,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> Architecture
     {
-        get => GetArgument<TerraformValue<string>>("architecture") ?? AsReference("architecture");
+        get => GetArgument<TerraformValue<string>>("architecture") ?? CreateReference("architecture");
         set => SetArgument("architecture", value);
     }
 
@@ -316,7 +316,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<bool> EnableConfidentialCompute
     {
-        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute") ?? AsReference("enable_confidential_compute");
+        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute") ?? CreateReference("enable_confidential_compute");
         set => SetArgument("enable_confidential_compute", value);
     }
 
@@ -325,7 +325,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image") ?? AsReference("image");
+        get => GetArgument<TerraformValue<string>>("image") ?? CreateReference("image");
         set => SetArgument("image", value);
     }
 
@@ -334,7 +334,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -343,7 +343,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<double> ProvisionedIops
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? AsReference("provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? CreateReference("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
@@ -352,7 +352,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<double> ProvisionedThroughput
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? AsReference("provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? CreateReference("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
@@ -361,7 +361,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformMap<string> ResourceManagerTags
     {
-        get => GetArgument<TerraformMap<string>>("resource_manager_tags") ?? AsReference("resource_manager_tags");
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags") ?? CreateReference("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
@@ -370,7 +370,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformList<string> ResourcePolicies
     {
-        get => GetArgument<TerraformList<string>>("resource_policies") ?? AsReference("resource_policies");
+        get => GetArgument<TerraformList<string>>("resource_policies") ?? CreateReference("resource_policies");
         set => SetArgument("resource_policies", value);
     }
 
@@ -379,7 +379,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? CreateReference("size");
         set => SetArgument("size", value);
     }
 
@@ -388,7 +388,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> Snapshot
     {
-        get => GetArgument<TerraformValue<string>>("snapshot") ?? AsReference("snapshot");
+        get => GetArgument<TerraformValue<string>>("snapshot") ?? CreateReference("snapshot");
         set => SetArgument("snapshot", value);
     }
 
@@ -397,7 +397,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> StoragePool
     {
-        get => GetArgument<TerraformValue<string>>("storage_pool") ?? AsReference("storage_pool");
+        get => GetArgument<TerraformValue<string>>("storage_pool") ?? CreateReference("storage_pool");
         set => SetArgument("storage_pool", value);
     }
 
@@ -406,7 +406,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -448,7 +448,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? CreateReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -457,7 +457,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> KmsKeyServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_service_account") ?? AsReference("kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account") ?? CreateReference("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -466,7 +466,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> RawKey
     {
-        get => GetArgument<TerraformValue<string>>("raw_key") ?? AsReference("raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key") ?? CreateReference("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -475,7 +475,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> RsaEncryptedKey
     {
-        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key") ?? AsReference("rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key") ?? CreateReference("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// The SHA256 hash of the encryption key used to encrypt this disk.
     /// </summary>
     public TerraformValue<string> Sha256
-        => AsReference("sha256");
+        => CreateReference("sha256");
 
 }
 
@@ -503,7 +503,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? CreateReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -512,7 +512,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> KmsKeyServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_service_account") ?? AsReference("kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account") ?? CreateReference("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -521,7 +521,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> RawKey
     {
-        get => GetArgument<TerraformValue<string>>("raw_key") ?? AsReference("raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key") ?? CreateReference("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -530,7 +530,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// </summary>
     public TerraformValue<string> RsaEncryptedKey
     {
-        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key") ?? AsReference("rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key") ?? CreateReference("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -538,7 +538,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// The SHA256 hash of the encryption key used to encrypt this disk.
     /// </summary>
     public TerraformValue<string> Sha256
-        => AsReference("sha256");
+        => CreateReference("sha256");
 
 }
 
@@ -563,7 +563,7 @@ public class GoogleComputeInstanceFromTemplateConfidentialInstanceConfigBlock : 
     /// </summary>
     public TerraformValue<string> ConfidentialInstanceType
     {
-        get => GetArgument<TerraformValue<string>>("confidential_instance_type") ?? AsReference("confidential_instance_type");
+        get => GetArgument<TerraformValue<string>>("confidential_instance_type") ?? CreateReference("confidential_instance_type");
         set => SetArgument("confidential_instance_type", value);
     }
 
@@ -572,7 +572,7 @@ public class GoogleComputeInstanceFromTemplateConfidentialInstanceConfigBlock : 
     /// </summary>
     public TerraformValue<bool> EnableConfidentialCompute
     {
-        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute") ?? AsReference("enable_confidential_compute");
+        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute") ?? CreateReference("enable_confidential_compute");
         set => SetArgument("enable_confidential_compute", value);
     }
 
@@ -629,7 +629,7 @@ public class GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock : Terra
     /// </summary>
     public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? CreateReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -638,7 +638,7 @@ public class GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock : Terra
     /// </summary>
     public TerraformValue<string> KmsKeyServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_service_account") ?? AsReference("kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account") ?? CreateReference("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -646,7 +646,7 @@ public class GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock : Terra
     /// The SHA256 hash of the customer&#39;s encryption key.
     /// </summary>
     public TerraformValue<string> Sha256
-        => AsReference("sha256");
+        => CreateReference("sha256");
 
 }
 
@@ -667,7 +667,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformValue<double> InternalIpv6PrefixLength
     {
-        get => GetArgument<TerraformValue<double>>("internal_ipv6_prefix_length") ?? AsReference("internal_ipv6_prefix_length");
+        get => GetArgument<TerraformValue<double>>("internal_ipv6_prefix_length") ?? CreateReference("internal_ipv6_prefix_length");
         set => SetArgument("internal_ipv6_prefix_length", value);
     }
 
@@ -675,14 +675,14 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// One of EXTERNAL, INTERNAL to indicate whether the IP can be accessed from the Internet. This field is always inherited from its subnetwork.
     /// </summary>
     public TerraformValue<string> Ipv6AccessType
-        => AsReference("ipv6_access_type");
+        => CreateReference("ipv6_access_type");
 
     /// <summary>
     /// An IPv6 internal network address for this network interface. If not specified, Google Cloud will automatically assign an internal IPv6 address from the instance&#39;s subnetwork.
     /// </summary>
     public TerraformValue<string> Ipv6Address
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_address") ?? AsReference("ipv6_address");
+        get => GetArgument<TerraformValue<string>>("ipv6_address") ?? CreateReference("ipv6_address");
         set => SetArgument("ipv6_address", value);
     }
 
@@ -690,14 +690,14 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// The name of the interface
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The name or self_link of the network attached to this interface.
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -706,7 +706,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformValue<string> NetworkAttachment
     {
-        get => GetArgument<TerraformValue<string>>("network_attachment") ?? AsReference("network_attachment");
+        get => GetArgument<TerraformValue<string>>("network_attachment") ?? CreateReference("network_attachment");
         set => SetArgument("network_attachment", value);
     }
 
@@ -715,7 +715,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformValue<string> NetworkIp
     {
-        get => GetArgument<TerraformValue<string>>("network_ip") ?? AsReference("network_ip");
+        get => GetArgument<TerraformValue<string>>("network_ip") ?? CreateReference("network_ip");
         set => SetArgument("network_ip", value);
     }
 
@@ -724,7 +724,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformValue<string> NicType
     {
-        get => GetArgument<TerraformValue<string>>("nic_type") ?? AsReference("nic_type");
+        get => GetArgument<TerraformValue<string>>("nic_type") ?? CreateReference("nic_type");
         set => SetArgument("nic_type", value);
     }
 
@@ -733,7 +733,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformValue<double> QueueCount
     {
-        get => GetArgument<TerraformValue<double>>("queue_count") ?? AsReference("queue_count");
+        get => GetArgument<TerraformValue<double>>("queue_count") ?? CreateReference("queue_count");
         set => SetArgument("queue_count", value);
     }
 
@@ -742,7 +742,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformValue<string> StackType
     {
-        get => GetArgument<TerraformValue<string>>("stack_type") ?? AsReference("stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type") ?? CreateReference("stack_type");
         set => SetArgument("stack_type", value);
     }
 
@@ -751,7 +751,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? CreateReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -760,7 +760,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformValue<string> SubnetworkProject
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork_project") ?? AsReference("subnetwork_project");
+        get => GetArgument<TerraformValue<string>>("subnetwork_project") ?? CreateReference("subnetwork_project");
         set => SetArgument("subnetwork_project", value);
     }
 
@@ -809,7 +809,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockAccessConfigB
     /// </summary>
     public TerraformValue<string> NatIp
     {
-        get => GetArgument<TerraformValue<string>>("nat_ip") ?? AsReference("nat_ip");
+        get => GetArgument<TerraformValue<string>>("nat_ip") ?? CreateReference("nat_ip");
         set => SetArgument("nat_ip", value);
     }
 
@@ -818,7 +818,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockAccessConfigB
     /// </summary>
     public TerraformValue<string> NetworkTier
     {
-        get => GetArgument<TerraformValue<string>>("network_tier") ?? AsReference("network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier") ?? CreateReference("network_tier");
         set => SetArgument("network_tier", value);
     }
 
@@ -827,7 +827,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockAccessConfigB
     /// </summary>
     public TerraformValue<string> PublicPtrDomainName
     {
-        get => GetArgument<TerraformValue<string>>("public_ptr_domain_name") ?? AsReference("public_ptr_domain_name");
+        get => GetArgument<TerraformValue<string>>("public_ptr_domain_name") ?? CreateReference("public_ptr_domain_name");
         set => SetArgument("public_ptr_domain_name", value);
     }
 
@@ -859,7 +859,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockAliasIpRangeB
     /// </summary>
     public TerraformValue<string> SubnetworkRangeName
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork_range_name") ?? AsReference("subnetwork_range_name");
+        get => GetArgument<TerraformValue<string>>("subnetwork_range_name") ?? CreateReference("subnetwork_range_name");
         set => SetArgument("subnetwork_range_name", value);
     }
 
@@ -881,7 +881,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockIpv6AccessCon
     /// </summary>
     public TerraformValue<string> ExternalIpv6
     {
-        get => GetArgument<TerraformValue<string>>("external_ipv6") ?? AsReference("external_ipv6");
+        get => GetArgument<TerraformValue<string>>("external_ipv6") ?? CreateReference("external_ipv6");
         set => SetArgument("external_ipv6", value);
     }
 
@@ -890,7 +890,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockIpv6AccessCon
     /// </summary>
     public TerraformValue<string> ExternalIpv6PrefixLength
     {
-        get => GetArgument<TerraformValue<string>>("external_ipv6_prefix_length") ?? AsReference("external_ipv6_prefix_length");
+        get => GetArgument<TerraformValue<string>>("external_ipv6_prefix_length") ?? CreateReference("external_ipv6_prefix_length");
         set => SetArgument("external_ipv6_prefix_length", value);
     }
 
@@ -899,7 +899,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockIpv6AccessCon
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -918,7 +918,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockIpv6AccessCon
     /// </summary>
     public TerraformValue<string> PublicPtrDomainName
     {
-        get => GetArgument<TerraformValue<string>>("public_ptr_domain_name") ?? AsReference("public_ptr_domain_name");
+        get => GetArgument<TerraformValue<string>>("public_ptr_domain_name") ?? CreateReference("public_ptr_domain_name");
         set => SetArgument("public_ptr_domain_name", value);
     }
 
@@ -965,7 +965,7 @@ public class GoogleComputeInstanceFromTemplateParamsAttributeBlock : TerraformBl
     /// </summary>
     public TerraformMap<string> ResourceManagerTags
     {
-        get => GetArgument<TerraformMap<string>>("resource_manager_tags") ?? AsReference("resource_manager_tags");
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags") ?? CreateReference("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
@@ -1055,7 +1055,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> AutomaticRestart
     {
-        get => GetArgument<TerraformValue<bool>>("automatic_restart") ?? AsReference("automatic_restart");
+        get => GetArgument<TerraformValue<bool>>("automatic_restart") ?? CreateReference("automatic_restart");
         set => SetArgument("automatic_restart", value);
     }
 
@@ -1064,7 +1064,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> AvailabilityDomain
     {
-        get => GetArgument<TerraformValue<double>>("availability_domain") ?? AsReference("availability_domain");
+        get => GetArgument<TerraformValue<double>>("availability_domain") ?? CreateReference("availability_domain");
         set => SetArgument("availability_domain", value);
     }
 
@@ -1073,7 +1073,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> InstanceTerminationAction
     {
-        get => GetArgument<TerraformValue<string>>("instance_termination_action") ?? AsReference("instance_termination_action");
+        get => GetArgument<TerraformValue<string>>("instance_termination_action") ?? CreateReference("instance_termination_action");
         set => SetArgument("instance_termination_action", value);
     }
 
@@ -1082,7 +1082,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MinNodeCpus
     {
-        get => GetArgument<TerraformValue<double>>("min_node_cpus") ?? AsReference("min_node_cpus");
+        get => GetArgument<TerraformValue<double>>("min_node_cpus") ?? CreateReference("min_node_cpus");
         set => SetArgument("min_node_cpus", value);
     }
 
@@ -1091,7 +1091,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OnHostMaintenance
     {
-        get => GetArgument<TerraformValue<string>>("on_host_maintenance") ?? AsReference("on_host_maintenance");
+        get => GetArgument<TerraformValue<string>>("on_host_maintenance") ?? CreateReference("on_host_maintenance");
         set => SetArgument("on_host_maintenance", value);
     }
 
@@ -1100,7 +1100,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Preemptible
     {
-        get => GetArgument<TerraformValue<bool>>("preemptible") ?? AsReference("preemptible");
+        get => GetArgument<TerraformValue<bool>>("preemptible") ?? CreateReference("preemptible");
         set => SetArgument("preemptible", value);
     }
 
@@ -1109,7 +1109,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProvisioningModel
     {
-        get => GetArgument<TerraformValue<string>>("provisioning_model") ?? AsReference("provisioning_model");
+        get => GetArgument<TerraformValue<string>>("provisioning_model") ?? CreateReference("provisioning_model");
         set => SetArgument("provisioning_model", value);
     }
 
@@ -1120,7 +1120,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TerminationTime
     {
-        get => GetArgument<TerraformValue<string>>("termination_time") ?? AsReference("termination_time");
+        get => GetArgument<TerraformValue<string>>("termination_time") ?? CreateReference("termination_time");
         set => SetArgument("termination_time", value);
     }
 
@@ -1184,7 +1184,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockLocalSsdRecoveryTim
     /// </summary>
     public TerraformValue<double> Nanos
     {
-        get => GetArgument<TerraformValue<double>>("nanos") ?? AsReference("nanos");
+        get => GetArgument<TerraformValue<double>>("nanos") ?? CreateReference("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1220,7 +1220,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockMaxRunDurationBlock
     /// </summary>
     public TerraformValue<double> Nanos
     {
-        get => GetArgument<TerraformValue<double>>("nanos") ?? AsReference("nanos");
+        get => GetArgument<TerraformValue<double>>("nanos") ?? CreateReference("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1296,7 +1296,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockOnInstanceStopActio
     /// </summary>
     public TerraformValue<bool> DiscardLocalSsd
     {
-        get => GetArgument<TerraformValue<bool>>("discard_local_ssd") ?? AsReference("discard_local_ssd");
+        get => GetArgument<TerraformValue<bool>>("discard_local_ssd") ?? CreateReference("discard_local_ssd");
         set => SetArgument("discard_local_ssd", value);
     }
 
@@ -1319,7 +1319,7 @@ public class GoogleComputeInstanceFromTemplateScratchDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name") ?? AsReference("device_name");
+        get => GetArgument<TerraformValue<string>>("device_name") ?? CreateReference("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -1338,7 +1338,7 @@ public class GoogleComputeInstanceFromTemplateScratchDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? CreateReference("size");
         set => SetArgument("size", value);
     }
 
@@ -1361,7 +1361,7 @@ public class GoogleComputeInstanceFromTemplateServiceAccountBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? CreateReference("email");
         set => SetArgument("email", value);
     }
 
@@ -1394,7 +1394,7 @@ public class GoogleComputeInstanceFromTemplateShieldedInstanceConfigBlock : Terr
     /// </summary>
     public TerraformValue<bool> EnableIntegrityMonitoring
     {
-        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring") ?? AsReference("enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring") ?? CreateReference("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
@@ -1403,7 +1403,7 @@ public class GoogleComputeInstanceFromTemplateShieldedInstanceConfigBlock : Terr
     /// </summary>
     public TerraformValue<bool> EnableSecureBoot
     {
-        get => GetArgument<TerraformValue<bool>>("enable_secure_boot") ?? AsReference("enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot") ?? CreateReference("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -1412,7 +1412,7 @@ public class GoogleComputeInstanceFromTemplateShieldedInstanceConfigBlock : Terr
     /// </summary>
     public TerraformValue<bool> EnableVtpm
     {
-        get => GetArgument<TerraformValue<bool>>("enable_vtpm") ?? AsReference("enable_vtpm");
+        get => GetArgument<TerraformValue<bool>>("enable_vtpm") ?? CreateReference("enable_vtpm");
         set => SetArgument("enable_vtpm", value);
     }
 
@@ -1471,7 +1471,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> AllowStoppingForUpdate
     {
-        get => GetArgument<TerraformValue<bool>>("allow_stopping_for_update") ?? AsReference("allow_stopping_for_update");
+        get => GetArgument<TerraformValue<bool>>("allow_stopping_for_update") ?? CreateReference("allow_stopping_for_update");
         set => SetArgument("allow_stopping_for_update", value);
     }
 
@@ -1480,7 +1480,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> CanIpForward
     {
-        get => GetArgument<TerraformValue<bool>>("can_ip_forward") ?? AsReference("can_ip_forward");
+        get => GetArgument<TerraformValue<bool>>("can_ip_forward") ?? CreateReference("can_ip_forward");
         set => SetArgument("can_ip_forward", value);
     }
 
@@ -1489,7 +1489,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> DeletionProtection
     {
-        get => GetArgument<TerraformValue<bool>>("deletion_protection") ?? AsReference("deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection") ?? CreateReference("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -1498,7 +1498,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -1507,7 +1507,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> DesiredStatus
     {
-        get => GetArgument<TerraformValue<string>>("desired_status") ?? AsReference("desired_status");
+        get => GetArgument<TerraformValue<string>>("desired_status") ?? CreateReference("desired_status");
         set => SetArgument("desired_status", value);
     }
 
@@ -1516,7 +1516,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> EnableDisplay
     {
-        get => GetArgument<TerraformValue<bool>>("enable_display") ?? AsReference("enable_display");
+        get => GetArgument<TerraformValue<bool>>("enable_display") ?? CreateReference("enable_display");
         set => SetArgument("enable_display", value);
     }
 
@@ -1525,7 +1525,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname") ?? AsReference("hostname");
+        get => GetArgument<TerraformValue<string>>("hostname") ?? CreateReference("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -1534,7 +1534,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1543,7 +1543,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> KeyRevocationActionType
     {
-        get => GetArgument<TerraformValue<string>>("key_revocation_action_type") ?? AsReference("key_revocation_action_type");
+        get => GetArgument<TerraformValue<string>>("key_revocation_action_type") ?? CreateReference("key_revocation_action_type");
         set => SetArgument("key_revocation_action_type", value);
     }
 
@@ -1555,7 +1555,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1564,7 +1564,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -1573,7 +1573,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -1582,7 +1582,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> MetadataStartupScript
     {
-        get => GetArgument<TerraformValue<string>>("metadata_startup_script") ?? AsReference("metadata_startup_script");
+        get => GetArgument<TerraformValue<string>>("metadata_startup_script") ?? CreateReference("metadata_startup_script");
         set => SetArgument("metadata_startup_script", value);
     }
 
@@ -1591,7 +1591,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -1610,7 +1610,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1619,7 +1619,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformList<string> ResourcePolicies
     {
-        get => GetArgument<TerraformList<string>>("resource_policies") ?? AsReference("resource_policies");
+        get => GetArgument<TerraformList<string>>("resource_policies") ?? CreateReference("resource_policies");
         set => SetArgument("resource_policies", value);
     }
 
@@ -1638,7 +1638,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformSet<string> Tags
     {
-        get => GetArgument<TerraformSet<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformSet<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -1647,7 +1647,7 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -1655,13 +1655,13 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// The CPU platform used by this instance.
     /// </summary>
     public TerraformValue<string> CpuPlatform
-        => AsReference("cpu_platform");
+        => CreateReference("cpu_platform");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// 
@@ -1670,49 +1670,49 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// 					For more information about the status of the instance, see [Instance life cycle](https://cloud.google.com/compute/docs/instances/instance-life-cycle).
     /// </summary>
     public TerraformValue<string> CurrentStatus
-        => AsReference("current_status");
+        => CreateReference("current_status");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The server-assigned unique identifier of this instance.
     /// </summary>
     public TerraformValue<string> InstanceId
-        => AsReference("instance_id");
+        => CreateReference("instance_id");
 
     /// <summary>
     /// The unique fingerprint of the labels.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// The unique fingerprint of the metadata.
     /// </summary>
     public TerraformValue<string> MetadataFingerprint
-        => AsReference("metadata_fingerprint");
+        => CreateReference("metadata_fingerprint");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The unique fingerprint of the tags.
     /// </summary>
     public TerraformValue<string> TagsFingerprint
-        => AsReference("tags_fingerprint");
+        => CreateReference("tags_fingerprint");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// AdvancedMachineFeatures block (nesting mode: list).

@@ -107,7 +107,7 @@ public partial class GoogleOrganizationAccessApprovalSettings(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleOrganizationAccessApprovalSettings(string name) : Ter
     /// </summary>
     public TerraformSet<string> NotificationEmails
     {
-        get => GetArgument<TerraformSet<string>>("notification_emails") ?? AsReference("notification_emails");
+        get => GetArgument<TerraformSet<string>>("notification_emails") ?? CreateReference("notification_emails");
         set => SetArgument("notification_emails", value);
     }
 
@@ -136,13 +136,13 @@ public partial class GoogleOrganizationAccessApprovalSettings(string name) : Ter
     /// This field will always be unset for the organization since organizations do not have ancestors.
     /// </summary>
     public TerraformValue<bool> AncestorHasActiveKeyVersion
-        => AsReference("ancestor_has_active_key_version");
+        => CreateReference("ancestor_has_active_key_version");
 
     /// <summary>
     /// This field will always be unset for the organization since organizations do not have ancestors.
     /// </summary>
     public TerraformValue<bool> EnrolledAncestor
-        => AsReference("enrolled_ancestor");
+        => CreateReference("enrolled_ancestor");
 
     /// <summary>
     /// If the field is true, that indicates that there is some configuration issue with the active_key_version
@@ -150,13 +150,13 @@ public partial class GoogleOrganizationAccessApprovalSettings(string name) : Ter
     /// correct permissions on it, etc.).
     /// </summary>
     public TerraformValue<bool> InvalidKeyVersion
-        => AsReference("invalid_key_version");
+        => CreateReference("invalid_key_version");
 
     /// <summary>
     /// The resource name of the settings. Format is &amp;quot;organizations/{organization_id}/accessApprovalSettings&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// EnrolledServices block (nesting mode: set).

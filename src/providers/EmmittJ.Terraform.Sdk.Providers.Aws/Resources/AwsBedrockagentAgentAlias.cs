@@ -83,7 +83,7 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     /// </summary>
     public TerraformList<TerraformMap<object>> RoutingConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("routing_configuration") ?? AsReference("routing_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("routing_configuration") ?? CreateReference("routing_configuration");
         set => SetArgument("routing_configuration", value);
     }
 
@@ -109,25 +109,25 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     /// The agent_alias_arn attribute.
     /// </summary>
     public TerraformValue<string> AgentAliasArn
-        => AsReference("agent_alias_arn");
+        => CreateReference("agent_alias_arn");
 
     /// <summary>
     /// The agent_alias_id attribute.
     /// </summary>
     public TerraformValue<string> AgentAliasId
-        => AsReference("agent_alias_id");
+        => CreateReference("agent_alias_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

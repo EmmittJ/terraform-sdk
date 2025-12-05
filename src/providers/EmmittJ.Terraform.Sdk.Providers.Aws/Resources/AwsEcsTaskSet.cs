@@ -242,7 +242,7 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     /// </summary>
     public TerraformValue<string> ExternalId
     {
-        get => GetArgument<TerraformValue<string>>("external_id") ?? AsReference("external_id");
+        get => GetArgument<TerraformValue<string>>("external_id") ?? CreateReference("external_id");
         set => SetArgument("external_id", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -269,7 +269,7 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     /// </summary>
     public TerraformValue<string> LaunchType
     {
-        get => GetArgument<TerraformValue<string>>("launch_type") ?? AsReference("launch_type");
+        get => GetArgument<TerraformValue<string>>("launch_type") ?? CreateReference("launch_type");
         set => SetArgument("launch_type", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     /// </summary>
     public TerraformValue<string> PlatformVersion
     {
-        get => GetArgument<TerraformValue<string>>("platform_version") ?? AsReference("platform_version");
+        get => GetArgument<TerraformValue<string>>("platform_version") ?? CreateReference("platform_version");
         set => SetArgument("platform_version", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -315,7 +315,7 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -351,25 +351,25 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The stability_status attribute.
     /// </summary>
     public TerraformValue<string> StabilityStatus
-        => AsReference("stability_status");
+        => CreateReference("stability_status");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The task_set_id attribute.
     /// </summary>
     public TerraformValue<string> TaskSetId
-        => AsReference("task_set_id");
+        => CreateReference("task_set_id");
 
     /// <summary>
     /// CapacityProviderStrategy block (nesting mode: set).

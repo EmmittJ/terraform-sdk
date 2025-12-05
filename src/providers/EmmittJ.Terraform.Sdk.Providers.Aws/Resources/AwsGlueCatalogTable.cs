@@ -86,7 +86,7 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
     /// The index_status attribute.
     /// </summary>
     public TerraformValue<string> IndexStatus
-        => AsReference("index_status");
+        => CreateReference("index_status");
 
     /// <summary>
     /// The keys attribute.
@@ -604,7 +604,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -632,7 +632,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -669,7 +669,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -713,7 +713,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// OpenTableFormatInput block (nesting mode: list).

@@ -32,7 +32,7 @@ variable "location" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  location = var.location
+  location = azurerm_resource_group.rg.location
   name     = "azure-registry-rg"
   tags = {
     Environment = "Development"
@@ -42,7 +42,7 @@ resource "azurerm_resource_group" "rg" {
 
 resource "random_string" "acr_suffix" {
   keepers = {
-    resource_group = azurerm_resource_group.rg.name
+    resource_group = "azure-registry-rg"
   }
   length  = 8
   numeric = true
@@ -53,8 +53,8 @@ resource "random_string" "acr_suffix" {
 resource "azurerm_container_registry" "acr" {
   admin_enabled       = true
   location            = azurerm_resource_group.rg.location
-  name                = "acr${random_string.acr_suffix.result}"
-  resource_group_name = azurerm_resource_group.rg.name
+  name                = azurerm_container_registry.acr.name
+  resource_group_name = "azure-registry-rg"
   sku                 = "Basic"
   tags = {
     Environment = "Development"

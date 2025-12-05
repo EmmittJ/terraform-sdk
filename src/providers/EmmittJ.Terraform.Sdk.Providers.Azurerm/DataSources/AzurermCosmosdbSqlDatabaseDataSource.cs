@@ -46,7 +46,7 @@ public partial class AzurermCosmosdbSqlDatabaseDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,13 +74,13 @@ public partial class AzurermCosmosdbSqlDatabaseDataSource(string name) : Terrafo
     /// The autoscale_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoscaleSettings
-        => AsReference("autoscale_settings");
+        => CreateReference("autoscale_settings");
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
     public TerraformValue<double> Throughput
-        => AsReference("throughput");
+        => CreateReference("throughput");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -100,7 +100,7 @@ public partial class AwsNetworkmanagerCoreNetwork(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsNetworkmanagerCoreNetwork(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -126,31 +126,31 @@ public partial class AwsNetworkmanagerCoreNetwork(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The edges attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Edges
-        => AsReference("edges");
+        => CreateReference("edges");
 
     /// <summary>
     /// The segments attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Segments
-        => AsReference("segments");
+        => CreateReference("segments");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

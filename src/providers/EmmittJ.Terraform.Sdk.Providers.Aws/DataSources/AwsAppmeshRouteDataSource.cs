@@ -13,7 +13,7 @@ public partial class AwsAppmeshRouteDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsAppmeshRouteDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> MeshOwner
     {
-        get => GetArgument<TerraformValue<string>>("mesh_owner") ?? AsReference("mesh_owner");
+        get => GetArgument<TerraformValue<string>>("mesh_owner") ?? CreateReference("mesh_owner");
         set => SetArgument("mesh_owner", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsAppmeshRouteDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsAppmeshRouteDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -78,30 +78,30 @@ public partial class AwsAppmeshRouteDataSource(string name) : TerraformDataSourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDate
-        => AsReference("last_updated_date");
+        => CreateReference("last_updated_date");
 
     /// <summary>
     /// The resource_owner attribute.
     /// </summary>
     public TerraformValue<string> ResourceOwner
-        => AsReference("resource_owner");
+        => CreateReference("resource_owner");
 
     /// <summary>
     /// The spec attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Spec
-        => AsReference("spec");
+        => CreateReference("spec");
 
 }

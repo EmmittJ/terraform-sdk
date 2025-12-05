@@ -239,7 +239,7 @@ public partial class AwsS3BucketWebsiteConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AwsS3BucketWebsiteConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AwsS3BucketWebsiteConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> RoutingRules
     {
-        get => GetArgument<TerraformValue<string>>("routing_rules") ?? AsReference("routing_rules");
+        get => GetArgument<TerraformValue<string>>("routing_rules") ?? CreateReference("routing_rules");
         set => SetArgument("routing_rules", value);
     }
 
@@ -265,13 +265,13 @@ public partial class AwsS3BucketWebsiteConfiguration(string name) : TerraformRes
     /// The website_domain attribute.
     /// </summary>
     public TerraformValue<string> WebsiteDomain
-        => AsReference("website_domain");
+        => CreateReference("website_domain");
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
     public TerraformValue<string> WebsiteEndpoint
-        => AsReference("website_endpoint");
+        => CreateReference("website_endpoint");
 
     /// <summary>
     /// ErrorDocument block (nesting mode: list).

@@ -69,13 +69,13 @@ public class AzurermAutomationAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -151,7 +151,7 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -226,31 +226,31 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     /// The dsc_primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> DscPrimaryAccessKey
-        => AsReference("dsc_primary_access_key");
+        => CreateReference("dsc_primary_access_key");
 
     /// <summary>
     /// The dsc_secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> DscSecondaryAccessKey
-        => AsReference("dsc_secondary_access_key");
+        => CreateReference("dsc_secondary_access_key");
 
     /// <summary>
     /// The dsc_server_endpoint attribute.
     /// </summary>
     public TerraformValue<string> DscServerEndpoint
-        => AsReference("dsc_server_endpoint");
+        => CreateReference("dsc_server_endpoint");
 
     /// <summary>
     /// The hybrid_service_url attribute.
     /// </summary>
     public TerraformValue<string> HybridServiceUrl
-        => AsReference("hybrid_service_url");
+        => CreateReference("hybrid_service_url");
 
     /// <summary>
     /// The private_endpoint_connection attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateEndpointConnection
-        => AsReference("private_endpoint_connection");
+        => CreateReference("private_endpoint_connection");
 
     /// <summary>
     /// Encryption block (nesting mode: list).

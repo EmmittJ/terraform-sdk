@@ -13,7 +13,7 @@ public partial class AwsVpclatticeListenerDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsVpclatticeListenerDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsVpclatticeListenerDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -59,60 +59,60 @@ public partial class AwsVpclatticeListenerDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DefaultAction
-        => AsReference("default_action");
+        => CreateReference("default_action");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedAt
-        => AsReference("last_updated_at");
+        => CreateReference("last_updated_at");
 
     /// <summary>
     /// The listener_id attribute.
     /// </summary>
     public TerraformValue<string> ListenerId
-        => AsReference("listener_id");
+        => CreateReference("listener_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-        => AsReference("protocol");
+        => CreateReference("protocol");
 
     /// <summary>
     /// The service_arn attribute.
     /// </summary>
     public TerraformValue<string> ServiceArn
-        => AsReference("service_arn");
+        => CreateReference("service_arn");
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceId
-        => AsReference("service_id");
+        => CreateReference("service_id");
 
 }

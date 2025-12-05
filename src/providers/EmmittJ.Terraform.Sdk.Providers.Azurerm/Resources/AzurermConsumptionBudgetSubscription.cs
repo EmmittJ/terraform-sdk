@@ -213,7 +213,7 @@ public class AzurermConsumptionBudgetSubscriptionTimePeriodBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> EndDate
     {
-        get => GetArgument<TerraformValue<string>>("end_date") ?? AsReference("end_date");
+        get => GetArgument<TerraformValue<string>>("end_date") ?? CreateReference("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -301,7 +301,7 @@ public partial class AzurermConsumptionBudgetSubscription(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? CreateReference("etag");
         set => SetArgument("etag", value);
     }
 
@@ -310,7 +310,7 @@ public partial class AzurermConsumptionBudgetSubscription(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

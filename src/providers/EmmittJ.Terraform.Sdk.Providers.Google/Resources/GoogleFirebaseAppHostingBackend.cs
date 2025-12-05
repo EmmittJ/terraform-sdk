@@ -148,7 +148,7 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -180,7 +180,7 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -212,38 +212,38 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     /// Time at which the backend was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Time at which the backend was deleted.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// A list of the resources managed by this backend.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedResources
-        => AsReference("managed_resources");
+        => CreateReference("managed_resources");
 
     /// <summary>
     /// Identifier. The resource name of the backend.
@@ -253,32 +253,32 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Time at which the backend was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// The primary URI to communicate with the backend.
     /// </summary>
     public TerraformValue<string> Uri
-        => AsReference("uri");
+        => CreateReference("uri");
 
     /// <summary>
     /// Codebase block (nesting mode: list).

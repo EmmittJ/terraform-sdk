@@ -63,7 +63,7 @@ public partial class AzurermKeyVaultManagedStorageAccountSasTokenDefinition(stri
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermKeyVaultManagedStorageAccountSasTokenDefinition(stri
     /// The secret_id attribute.
     /// </summary>
     public TerraformValue<string> SecretId
-        => AsReference("secret_id");
+        => CreateReference("secret_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

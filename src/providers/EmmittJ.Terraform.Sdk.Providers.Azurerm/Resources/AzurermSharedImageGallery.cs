@@ -60,7 +60,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The prefix attribute.
@@ -165,7 +165,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -212,7 +212,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     /// The unique_name attribute.
     /// </summary>
     public TerraformValue<string> UniqueName
-        => AsReference("unique_name");
+        => CreateReference("unique_name");
 
     /// <summary>
     /// Sharing block (nesting mode: list).

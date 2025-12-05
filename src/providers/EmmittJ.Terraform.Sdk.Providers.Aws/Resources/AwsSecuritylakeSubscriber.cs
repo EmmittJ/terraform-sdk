@@ -59,7 +59,7 @@ public class AwsSecuritylakeSubscriberSourceBlockAwsLogSourceResourceBlock : Ter
     /// </summary>
     public TerraformValue<string> SourceVersion
     {
-        get => GetArgument<TerraformValue<string>>("source_version") ?? AsReference("source_version");
+        get => GetArgument<TerraformValue<string>>("source_version") ?? CreateReference("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -80,13 +80,13 @@ public class AwsSecuritylakeSubscriberSourceBlockCustomLogSourceResourceBlock : 
     /// The attributes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attributes
-        => AsReference("attributes");
+        => CreateReference("attributes");
 
     /// <summary>
     /// The provider attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProviderAttribute
-        => AsReference("provider");
+        => CreateReference("provider");
 
     /// <summary>
     /// The source_name attribute.
@@ -103,7 +103,7 @@ public class AwsSecuritylakeSubscriberSourceBlockCustomLogSourceResourceBlock : 
     /// </summary>
     public TerraformValue<string> SourceVersion
     {
-        get => GetArgument<TerraformValue<string>>("source_version") ?? AsReference("source_version");
+        get => GetArgument<TerraformValue<string>>("source_version") ?? CreateReference("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsSecuritylakeSubscriber(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> AccessType
     {
-        get => GetArgument<TerraformValue<string>>("access_type") ?? AsReference("access_type");
+        get => GetArgument<TerraformValue<string>>("access_type") ?? CreateReference("access_type");
         set => SetArgument("access_type", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsSecuritylakeSubscriber(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -240,55 +240,55 @@ public partial class AwsSecuritylakeSubscriber(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The resource_share_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceShareArn
-        => AsReference("resource_share_arn");
+        => CreateReference("resource_share_arn");
 
     /// <summary>
     /// The resource_share_name attribute.
     /// </summary>
     public TerraformValue<string> ResourceShareName
-        => AsReference("resource_share_name");
+        => CreateReference("resource_share_name");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-        => AsReference("role_arn");
+        => CreateReference("role_arn");
 
     /// <summary>
     /// The s3_bucket_arn attribute.
     /// </summary>
     public TerraformValue<string> S3BucketArn
-        => AsReference("s3_bucket_arn");
+        => CreateReference("s3_bucket_arn");
 
     /// <summary>
     /// The subscriber_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SubscriberEndpoint
-        => AsReference("subscriber_endpoint");
+        => CreateReference("subscriber_endpoint");
 
     /// <summary>
     /// The subscriber_status attribute.
     /// </summary>
     public TerraformValue<string> SubscriberStatus
-        => AsReference("subscriber_status");
+        => CreateReference("subscriber_status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Source block (nesting mode: set).

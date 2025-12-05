@@ -23,7 +23,7 @@ public partial class AwsEcsContainerDefinitionDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsEcsContainerDefinitionDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,48 +50,48 @@ public partial class AwsEcsContainerDefinitionDataSource(string name) : Terrafor
     /// The cpu attribute.
     /// </summary>
     public TerraformValue<double> Cpu
-        => AsReference("cpu");
+        => CreateReference("cpu");
 
     /// <summary>
     /// The disable_networking attribute.
     /// </summary>
     public TerraformValue<bool> DisableNetworking
-        => AsReference("disable_networking");
+        => CreateReference("disable_networking");
 
     /// <summary>
     /// The docker_labels attribute.
     /// </summary>
     public TerraformMap<string> DockerLabels
-        => AsReference("docker_labels");
+        => CreateReference("docker_labels");
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
     public TerraformMap<string> Environment
-        => AsReference("environment");
+        => CreateReference("environment");
 
     /// <summary>
     /// The image attribute.
     /// </summary>
     public TerraformValue<string> Image
-        => AsReference("image");
+        => CreateReference("image");
 
     /// <summary>
     /// The image_digest attribute.
     /// </summary>
     public TerraformValue<string> ImageDigest
-        => AsReference("image_digest");
+        => CreateReference("image_digest");
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
     public TerraformValue<double> Memory
-        => AsReference("memory");
+        => CreateReference("memory");
 
     /// <summary>
     /// The memory_reservation attribute.
     /// </summary>
     public TerraformValue<double> MemoryReservation
-        => AsReference("memory_reservation");
+        => CreateReference("memory_reservation");
 
 }

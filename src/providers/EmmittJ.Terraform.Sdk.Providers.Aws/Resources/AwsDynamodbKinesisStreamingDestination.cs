@@ -13,7 +13,7 @@ public partial class AwsDynamodbKinesisStreamingDestination(string name) : Terra
     /// </summary>
     public TerraformValue<string> ApproximateCreationDateTimePrecision
     {
-        get => GetArgument<TerraformValue<string>>("approximate_creation_date_time_precision") ?? AsReference("approximate_creation_date_time_precision");
+        get => GetArgument<TerraformValue<string>>("approximate_creation_date_time_precision") ?? CreateReference("approximate_creation_date_time_precision");
         set => SetArgument("approximate_creation_date_time_precision", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDynamodbKinesisStreamingDestination(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsDynamodbKinesisStreamingDestination(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

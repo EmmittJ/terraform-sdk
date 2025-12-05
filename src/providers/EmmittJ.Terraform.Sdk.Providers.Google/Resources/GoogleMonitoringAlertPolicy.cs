@@ -144,7 +144,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlock
     /// policy.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// ConditionAbsent block (nesting mode: list).
@@ -1604,7 +1604,7 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1628,7 +1628,7 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1662,14 +1662,14 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// be ignored.
     /// </summary>
     public TerraformList<TerraformMap<object>> CreationRecord
-        => AsReference("creation_record");
+        => CreateReference("creation_record");
 
     /// <summary>
     /// The unique resource name for this policy.
     /// Its syntax is: projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// AlertStrategy block (nesting mode: list).

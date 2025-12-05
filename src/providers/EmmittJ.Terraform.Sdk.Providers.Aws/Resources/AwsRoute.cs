@@ -117,7 +117,7 @@ public partial class AwsRoute(string name) : TerraformResource("aws_route", name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsRoute(string name) : TerraformResource("aws_route", name
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
     {
-        get => GetArgument<TerraformValue<string>>("network_interface_id") ?? AsReference("network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id") ?? CreateReference("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsRoute(string name) : TerraformResource("aws_route", name
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -198,25 +198,25 @@ public partial class AwsRoute(string name) : TerraformResource("aws_route", name
     /// The instance_id attribute.
     /// </summary>
     public TerraformValue<string> InstanceId
-        => AsReference("instance_id");
+        => CreateReference("instance_id");
 
     /// <summary>
     /// The instance_owner_id attribute.
     /// </summary>
     public TerraformValue<string> InstanceOwnerId
-        => AsReference("instance_owner_id");
+        => CreateReference("instance_owner_id");
 
     /// <summary>
     /// The origin attribute.
     /// </summary>
     public TerraformValue<string> Origin
-        => AsReference("origin");
+        => CreateReference("origin");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

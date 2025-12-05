@@ -204,7 +204,7 @@ public partial class AwsBedrockagentcoreBrowser(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -221,19 +221,19 @@ public partial class AwsBedrockagentcoreBrowser(string name) : TerraformResource
     /// The browser_arn attribute.
     /// </summary>
     public TerraformValue<string> BrowserArn
-        => AsReference("browser_arn");
+        => CreateReference("browser_arn");
 
     /// <summary>
     /// The browser_id attribute.
     /// </summary>
     public TerraformValue<string> BrowserId
-        => AsReference("browser_id");
+        => CreateReference("browser_id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// NetworkConfiguration block (nesting mode: list).

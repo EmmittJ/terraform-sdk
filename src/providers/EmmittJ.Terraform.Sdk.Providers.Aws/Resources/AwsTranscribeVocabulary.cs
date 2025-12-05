@@ -54,7 +54,7 @@ public partial class AwsTranscribeVocabulary(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsTranscribeVocabulary(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsTranscribeVocabulary(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsTranscribeVocabulary(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> VocabularyFileUri
     {
-        get => GetArgument<TerraformValue<string>>("vocabulary_file_uri") ?? AsReference("vocabulary_file_uri");
+        get => GetArgument<TerraformValue<string>>("vocabulary_file_uri") ?? CreateReference("vocabulary_file_uri");
         set => SetArgument("vocabulary_file_uri", value);
     }
 
@@ -127,13 +127,13 @@ public partial class AwsTranscribeVocabulary(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The download_uri attribute.
     /// </summary>
     public TerraformValue<string> DownloadUri
-        => AsReference("download_uri");
+        => CreateReference("download_uri");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

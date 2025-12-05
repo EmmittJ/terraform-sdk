@@ -45,7 +45,7 @@ public partial class AwsEcrpublicImagesDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsEcrpublicImagesDataSource(string name) : TerraformDataSo
     /// The images attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Images
-        => AsReference("images");
+        => CreateReference("images");
 
     /// <summary>
     /// ImageIds block (nesting mode: list).

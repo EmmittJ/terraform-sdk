@@ -13,7 +13,7 @@ public partial class GoogleComputeSslCertificateDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,48 +50,48 @@ public partial class GoogleComputeSslCertificateDataSource(string name) : Terraf
     /// The chain must include at least one intermediate cert.
     /// </summary>
     public TerraformValue<string> Certificate
-        => AsReference("certificate");
+        => CreateReference("certificate");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> CertificateId
-        => AsReference("certificate_id");
+        => CreateReference("certificate_id");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Expire time of the certificate in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// Creates a unique name beginning with the specified prefix. Conflicts with name.
     /// </summary>
     public TerraformValue<string> NamePrefix
-        => AsReference("name_prefix");
+        => CreateReference("name_prefix");
 
     /// <summary>
     /// The write-only private key in PEM format.
     /// </summary>
     public TerraformValue<string> PrivateKey
-        => AsReference("private_key");
+        => CreateReference("private_key");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
 }

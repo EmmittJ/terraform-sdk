@@ -18,7 +18,7 @@ public class AwsCloudsearchDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> EnforceHttps
     {
-        get => GetArgument<TerraformValue<bool>>("enforce_https") ?? AsReference("enforce_https");
+        get => GetArgument<TerraformValue<bool>>("enforce_https") ?? CreateReference("enforce_https");
         set => SetArgument("enforce_https", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCloudsearchDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TlsSecurityPolicy
     {
-        get => GetArgument<TerraformValue<string>>("tls_security_policy") ?? AsReference("tls_security_policy");
+        get => GetArgument<TerraformValue<string>>("tls_security_policy") ?? CreateReference("tls_security_policy");
         set => SetArgument("tls_security_policy", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsCloudsearchDomainScalingParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DesiredInstanceType
     {
-        get => GetArgument<TerraformValue<string>>("desired_instance_type") ?? AsReference("desired_instance_type");
+        get => GetArgument<TerraformValue<string>>("desired_instance_type") ?? CreateReference("desired_instance_type");
         set => SetArgument("desired_instance_type", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsCloudsearchDomainScalingParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DesiredPartitionCount
     {
-        get => GetArgument<TerraformValue<double>>("desired_partition_count") ?? AsReference("desired_partition_count");
+        get => GetArgument<TerraformValue<double>>("desired_partition_count") ?? CreateReference("desired_partition_count");
         set => SetArgument("desired_partition_count", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsCloudsearchDomainScalingParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DesiredReplicationCount
     {
-        get => GetArgument<TerraformValue<double>>("desired_replication_count") ?? AsReference("desired_replication_count");
+        get => GetArgument<TerraformValue<double>>("desired_replication_count") ?? CreateReference("desired_replication_count");
         set => SetArgument("desired_replication_count", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AwsCloudsearchDomain(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AwsCloudsearchDomain(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> MultiAz
     {
-        get => GetArgument<TerraformValue<bool>>("multi_az") ?? AsReference("multi_az");
+        get => GetArgument<TerraformValue<bool>>("multi_az") ?? CreateReference("multi_az");
         set => SetArgument("multi_az", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AwsCloudsearchDomain(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -269,25 +269,25 @@ public partial class AwsCloudsearchDomain(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The document_service_endpoint attribute.
     /// </summary>
     public TerraformValue<string> DocumentServiceEndpoint
-        => AsReference("document_service_endpoint");
+        => CreateReference("document_service_endpoint");
 
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
     public TerraformValue<string> DomainId
-        => AsReference("domain_id");
+        => CreateReference("domain_id");
 
     /// <summary>
     /// The search_service_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SearchServiceEndpoint
-        => AsReference("search_service_endpoint");
+        => CreateReference("search_service_endpoint");
 
     /// <summary>
     /// EndpointOptions block (nesting mode: list).

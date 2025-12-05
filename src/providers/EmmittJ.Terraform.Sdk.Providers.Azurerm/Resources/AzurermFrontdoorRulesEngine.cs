@@ -317,7 +317,7 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -345,7 +345,7 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// Rule block (nesting mode: list).

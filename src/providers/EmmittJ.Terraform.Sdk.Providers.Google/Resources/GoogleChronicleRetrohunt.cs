@@ -79,7 +79,7 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Retrohunt
     {
-        get => GetArgument<TerraformValue<string>>("retrohunt") ?? AsReference("retrohunt");
+        get => GetArgument<TerraformValue<string>>("retrohunt") ?? CreateReference("retrohunt");
         set => SetArgument("retrohunt", value);
     }
 
@@ -140,7 +140,7 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     /// When both start and end are unspecified, the interval matches any time.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExecutionInterval
-        => AsReference("execution_interval");
+        => CreateReference("execution_interval");
 
     /// <summary>
     /// The resource name of the retrohunt.
@@ -150,13 +150,13 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     /// projects/{project}/locations/{location}/instances/{instance}/rules/{rule}/retrohunts/{retrohunt}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Percent progress of the retrohunt towards completion, from 0.00 to 100.00.
     /// </summary>
     public TerraformValue<double> ProgressPercentage
-        => AsReference("progress_percentage");
+        => CreateReference("progress_percentage");
 
     /// <summary>
     /// Output only. The state of the retrohunt.
@@ -167,7 +167,7 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     /// FAILED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// ProcessInterval block (nesting mode: list).

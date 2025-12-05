@@ -23,7 +23,7 @@ public partial class AwsSsoadminApplicationDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,48 +31,48 @@ public partial class AwsSsoadminApplicationDataSource(string name) : TerraformDa
     /// The application_account attribute.
     /// </summary>
     public TerraformValue<string> ApplicationAccount
-        => AsReference("application_account");
+        => CreateReference("application_account");
 
     /// <summary>
     /// The application_provider_arn attribute.
     /// </summary>
     public TerraformValue<string> ApplicationProviderArn
-        => AsReference("application_provider_arn");
+        => CreateReference("application_provider_arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
     public TerraformValue<string> InstanceArn
-        => AsReference("instance_arn");
+        => CreateReference("instance_arn");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The portal_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PortalOptions
-        => AsReference("portal_options");
+        => CreateReference("portal_options");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

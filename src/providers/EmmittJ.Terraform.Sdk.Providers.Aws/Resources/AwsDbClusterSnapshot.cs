@@ -56,7 +56,7 @@ public partial class AwsDbClusterSnapshot(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsDbClusterSnapshot(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsDbClusterSnapshot(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -100,79 +100,79 @@ public partial class AwsDbClusterSnapshot(string name) : TerraformResource("aws_
     /// The allocated_storage attribute.
     /// </summary>
     public TerraformValue<double> AllocatedStorage
-        => AsReference("allocated_storage");
+        => CreateReference("allocated_storage");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
     public TerraformList<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The db_cluster_snapshot_arn attribute.
     /// </summary>
     public TerraformValue<string> DbClusterSnapshotArn
-        => AsReference("db_cluster_snapshot_arn");
+        => CreateReference("db_cluster_snapshot_arn");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-        => AsReference("engine");
+        => CreateReference("engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-        => AsReference("engine_version");
+        => CreateReference("engine_version");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
     public TerraformValue<string> LicenseModel
-        => AsReference("license_model");
+        => CreateReference("license_model");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The snapshot_type attribute.
     /// </summary>
     public TerraformValue<string> SnapshotType
-        => AsReference("snapshot_type");
+        => CreateReference("snapshot_type");
 
     /// <summary>
     /// The source_db_cluster_snapshot_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceDbClusterSnapshotArn
-        => AsReference("source_db_cluster_snapshot_arn");
+        => CreateReference("source_db_cluster_snapshot_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
     public TerraformValue<bool> StorageEncrypted
-        => AsReference("storage_encrypted");
+        => CreateReference("storage_encrypted");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

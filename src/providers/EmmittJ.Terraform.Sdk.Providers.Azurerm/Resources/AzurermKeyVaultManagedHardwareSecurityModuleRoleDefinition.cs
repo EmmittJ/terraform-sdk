@@ -122,7 +122,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -159,13 +159,13 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// The role_type attribute.
     /// </summary>
     public TerraformValue<string> RoleType
-        => AsReference("role_type");
+        => CreateReference("role_type");
 
     /// <summary>
     /// Permission block (nesting mode: list).

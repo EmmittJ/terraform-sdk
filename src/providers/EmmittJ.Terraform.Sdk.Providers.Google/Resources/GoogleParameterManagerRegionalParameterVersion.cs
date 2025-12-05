@@ -63,7 +63,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,33 +101,33 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     /// The time at which the Regional Parameter Version was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKeyVersion used to decrypt regional parameter version payload. Format
     /// &#39;projects/{{project}}/locations/{{location}}/keyRings/{{key_ring}}/cryptoKeys/{{crypto_key}}/cryptoKeyVersions/{{crypto_key_version}}&#39;
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-        => AsReference("kms_key_version");
+        => CreateReference("kms_key_version");
 
     /// <summary>
     /// Location of Parameter Manager Regional parameter resource.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The resource name of the Regional Parameter Version. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/parameters/{{parameter_id}}/versions/{{parameter_version_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The time at which the Regional Parameter Version was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

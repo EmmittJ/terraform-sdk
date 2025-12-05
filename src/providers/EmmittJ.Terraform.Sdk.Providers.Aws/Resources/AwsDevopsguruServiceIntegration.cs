@@ -18,7 +18,7 @@ public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : Terra
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : Terra
     /// </summary>
     public TerraformValue<string> OptInStatus
     {
-        get => GetArgument<TerraformValue<string>>("opt_in_status") ?? AsReference("opt_in_status");
+        get => GetArgument<TerraformValue<string>>("opt_in_status") ?? CreateReference("opt_in_status");
         set => SetArgument("opt_in_status", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : Terra
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock : Terrafor
     /// </summary>
     public TerraformValue<string> OptInStatus
     {
-        get => GetArgument<TerraformValue<string>>("opt_in_status") ?? AsReference("opt_in_status");
+        get => GetArgument<TerraformValue<string>>("opt_in_status") ?? CreateReference("opt_in_status");
         set => SetArgument("opt_in_status", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsDevopsguruServiceIntegrationOpsCenterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OptInStatus
     {
-        get => GetArgument<TerraformValue<string>>("opt_in_status") ?? AsReference("opt_in_status");
+        get => GetArgument<TerraformValue<string>>("opt_in_status") ?? CreateReference("opt_in_status");
         set => SetArgument("opt_in_status", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsDevopsguruServiceIntegration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsDevopsguruServiceIntegration(string name) : TerraformRes
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// KmsServerSideEncryption block (nesting mode: list).

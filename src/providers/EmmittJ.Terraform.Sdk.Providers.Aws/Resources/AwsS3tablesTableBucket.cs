@@ -22,7 +22,7 @@ public partial class AwsS3tablesTableBucket(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool> ForceDestroy
     {
-        get => GetArgument<TerraformValue<bool>>("force_destroy") ?? AsReference("force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy") ?? CreateReference("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsS3tablesTableBucket(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<object> MaintenanceConfiguration
     {
-        get => GetArgument<TerraformMap<object>>("maintenance_configuration") ?? AsReference("maintenance_configuration");
+        get => GetArgument<TerraformMap<object>>("maintenance_configuration") ?? CreateReference("maintenance_configuration");
         set => SetArgument("maintenance_configuration", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsS3tablesTableBucket(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,18 +58,18 @@ public partial class AwsS3tablesTableBucket(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
 }

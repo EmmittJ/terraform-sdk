@@ -46,7 +46,7 @@ public partial class AzurermExpressRouteCircuitPeeringDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,67 +74,67 @@ public partial class AzurermExpressRouteCircuitPeeringDataSource(string name) : 
     /// The azure_asn attribute.
     /// </summary>
     public TerraformValue<double> AzureAsn
-        => AsReference("azure_asn");
+        => CreateReference("azure_asn");
 
     /// <summary>
     /// The gateway_manager_etag attribute.
     /// </summary>
     public TerraformValue<string> GatewayManagerEtag
-        => AsReference("gateway_manager_etag");
+        => CreateReference("gateway_manager_etag");
 
     /// <summary>
     /// The ipv4_enabled attribute.
     /// </summary>
     public TerraformValue<bool> Ipv4Enabled
-        => AsReference("ipv4_enabled");
+        => CreateReference("ipv4_enabled");
 
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
     public TerraformValue<double> PeerAsn
-        => AsReference("peer_asn");
+        => CreateReference("peer_asn");
 
     /// <summary>
     /// The primary_azure_port attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAzurePort
-        => AsReference("primary_azure_port");
+        => CreateReference("primary_azure_port");
 
     /// <summary>
     /// The primary_peer_address_prefix attribute.
     /// </summary>
     public TerraformValue<string> PrimaryPeerAddressPrefix
-        => AsReference("primary_peer_address_prefix");
+        => CreateReference("primary_peer_address_prefix");
 
     /// <summary>
     /// The route_filter_id attribute.
     /// </summary>
     public TerraformValue<string> RouteFilterId
-        => AsReference("route_filter_id");
+        => CreateReference("route_filter_id");
 
     /// <summary>
     /// The secondary_azure_port attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAzurePort
-        => AsReference("secondary_azure_port");
+        => CreateReference("secondary_azure_port");
 
     /// <summary>
     /// The secondary_peer_address_prefix attribute.
     /// </summary>
     public TerraformValue<string> SecondaryPeerAddressPrefix
-        => AsReference("secondary_peer_address_prefix");
+        => CreateReference("secondary_peer_address_prefix");
 
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
     public TerraformValue<string> SharedKey
-        => AsReference("shared_key");
+        => CreateReference("shared_key");
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
     public TerraformValue<double> VlanId
-        => AsReference("vlan_id");
+        => CreateReference("vlan_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

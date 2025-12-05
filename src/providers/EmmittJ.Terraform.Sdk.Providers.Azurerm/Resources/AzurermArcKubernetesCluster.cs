@@ -17,13 +17,13 @@ public class AzurermArcKubernetesClusterIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -109,7 +109,7 @@ public partial class AzurermArcKubernetesCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -156,43 +156,43 @@ public partial class AzurermArcKubernetesCluster(string name) : TerraformResourc
     /// The agent_version attribute.
     /// </summary>
     public TerraformValue<string> AgentVersion
-        => AsReference("agent_version");
+        => CreateReference("agent_version");
 
     /// <summary>
     /// The distribution attribute.
     /// </summary>
     public TerraformValue<string> Distribution
-        => AsReference("distribution");
+        => CreateReference("distribution");
 
     /// <summary>
     /// The infrastructure attribute.
     /// </summary>
     public TerraformValue<string> Infrastructure
-        => AsReference("infrastructure");
+        => CreateReference("infrastructure");
 
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
     public TerraformValue<string> KubernetesVersion
-        => AsReference("kubernetes_version");
+        => CreateReference("kubernetes_version");
 
     /// <summary>
     /// The offering attribute.
     /// </summary>
     public TerraformValue<string> Offering
-        => AsReference("offering");
+        => CreateReference("offering");
 
     /// <summary>
     /// The total_core_count attribute.
     /// </summary>
     public TerraformValue<double> TotalCoreCount
-        => AsReference("total_core_count");
+        => CreateReference("total_core_count");
 
     /// <summary>
     /// The total_node_count attribute.
     /// </summary>
     public TerraformValue<double> TotalNodeCount
-        => AsReference("total_node_count");
+        => CreateReference("total_node_count");
 
     /// <summary>
     /// Identity block (nesting mode: list).

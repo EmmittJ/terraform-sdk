@@ -45,7 +45,7 @@ public partial class AwsEc2TransitGatewayConnectPeer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> BgpAsn
     {
-        get => GetArgument<TerraformValue<string>>("bgp_asn") ?? AsReference("bgp_asn");
+        get => GetArgument<TerraformValue<string>>("bgp_asn") ?? CreateReference("bgp_asn");
         set => SetArgument("bgp_asn", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsEc2TransitGatewayConnectPeer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsEc2TransitGatewayConnectPeer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsEc2TransitGatewayConnectPeer(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsEc2TransitGatewayConnectPeer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> TransitGatewayAddress
     {
-        get => GetArgument<TerraformValue<string>>("transit_gateway_address") ?? AsReference("transit_gateway_address");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_address") ?? CreateReference("transit_gateway_address");
         set => SetArgument("transit_gateway_address", value);
     }
 
@@ -128,19 +128,19 @@ public partial class AwsEc2TransitGatewayConnectPeer(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The bgp_peer_address attribute.
     /// </summary>
     public TerraformValue<string> BgpPeerAddress
-        => AsReference("bgp_peer_address");
+        => CreateReference("bgp_peer_address");
 
     /// <summary>
     /// The bgp_transit_gateway_addresses attribute.
     /// </summary>
     public TerraformSet<string> BgpTransitGatewayAddresses
-        => AsReference("bgp_transit_gateway_addresses");
+        => CreateReference("bgp_transit_gateway_addresses");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

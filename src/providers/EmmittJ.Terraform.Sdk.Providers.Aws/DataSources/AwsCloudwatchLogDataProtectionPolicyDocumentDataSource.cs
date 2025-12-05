@@ -335,7 +335,7 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource(stri
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -362,7 +362,7 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource(stri
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-        => AsReference("json");
+        => CreateReference("json");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

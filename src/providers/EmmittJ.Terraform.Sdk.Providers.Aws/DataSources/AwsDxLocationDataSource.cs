@@ -13,7 +13,7 @@ public partial class AwsDxLocationDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsDxLocationDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,24 +40,24 @@ public partial class AwsDxLocationDataSource(string name) : TerraformDataSource(
     /// The available_macsec_port_speeds attribute.
     /// </summary>
     public TerraformList<string> AvailableMacsecPortSpeeds
-        => AsReference("available_macsec_port_speeds");
+        => CreateReference("available_macsec_port_speeds");
 
     /// <summary>
     /// The available_port_speeds attribute.
     /// </summary>
     public TerraformList<string> AvailablePortSpeeds
-        => AsReference("available_port_speeds");
+        => CreateReference("available_port_speeds");
 
     /// <summary>
     /// The available_providers attribute.
     /// </summary>
     public TerraformList<string> AvailableProviders
-        => AsReference("available_providers");
+        => CreateReference("available_providers");
 
     /// <summary>
     /// The location_name attribute.
     /// </summary>
     public TerraformValue<string> LocationName
-        => AsReference("location_name");
+        => CreateReference("location_name");
 
 }

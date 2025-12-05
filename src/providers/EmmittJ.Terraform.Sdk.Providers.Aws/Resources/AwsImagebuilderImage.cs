@@ -243,7 +243,7 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> ExecutionRole
     {
-        get => GetArgument<TerraformValue<string>>("execution_role") ?? AsReference("execution_role");
+        get => GetArgument<TerraformValue<string>>("execution_role") ?? CreateReference("execution_role");
         set => SetArgument("execution_role", value);
     }
 
@@ -252,7 +252,7 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -306,43 +306,43 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-        => AsReference("date_created");
+        => CreateReference("date_created");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The os_version attribute.
     /// </summary>
     public TerraformValue<string> OsVersion
-        => AsReference("os_version");
+        => CreateReference("os_version");
 
     /// <summary>
     /// The output_resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OutputResources
-        => AsReference("output_resources");
+        => CreateReference("output_resources");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-        => AsReference("platform");
+        => CreateReference("platform");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// ImageScanningConfiguration block (nesting mode: list).

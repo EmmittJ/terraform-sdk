@@ -54,7 +54,7 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociation(string nam
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -82,13 +82,13 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociation(string nam
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The original_default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> OriginalDefaultRouteTableId
-        => AsReference("original_default_route_table_id");
+        => CreateReference("original_default_route_table_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

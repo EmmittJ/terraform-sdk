@@ -13,7 +13,7 @@ public partial class GoogleParameterManagerRegionalParameterDataSource(string na
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,26 +50,26 @@ public partial class GoogleParameterManagerRegionalParameterDataSource(string na
     /// The time at which the regional Parameter was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The format type of the regional parameter. Default value: &amp;quot;UNFORMATTED&amp;quot; Possible values: [&amp;quot;UNFORMATTED&amp;quot;, &amp;quot;YAML&amp;quot;, &amp;quot;JSON&amp;quot;]
     /// </summary>
     public TerraformValue<string> Format
-        => AsReference("format");
+        => CreateReference("format");
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey used to encrypt regional parameter version payload. Format
     /// &#39;projects/{{project}}/locations/{{location}}/keyRings/{{key_ring}}/cryptoKeys/{{crypto_key}}&#39;
     /// </summary>
     public TerraformValue<string> KmsKey
-        => AsReference("kms_key");
+        => CreateReference("kms_key");
 
     /// <summary>
     /// The labels assigned to this regional Parameter.
@@ -90,32 +90,32 @@ public partial class GoogleParameterManagerRegionalParameterDataSource(string na
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The resource name of the regional Parameter. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/parameters/{{parameter_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// An object containing a unique resource identity tied to the regional parameter.
     /// </summary>
     public TerraformList<TerraformMap<object>> PolicyMember
-        => AsReference("policy_member");
+        => CreateReference("policy_member");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The time at which the regional Parameter was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

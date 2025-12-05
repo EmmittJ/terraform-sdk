@@ -303,7 +303,7 @@ public partial class AzurermLighthouseDefinition(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AzurermLighthouseDefinition(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> LighthouseDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("lighthouse_definition_id") ?? AsReference("lighthouse_definition_id");
+        get => GetArgument<TerraformValue<string>>("lighthouse_definition_id") ?? CreateReference("lighthouse_definition_id");
         set => SetArgument("lighthouse_definition_id", value);
     }
 

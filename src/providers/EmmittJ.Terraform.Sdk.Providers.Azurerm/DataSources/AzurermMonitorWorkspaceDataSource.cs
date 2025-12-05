@@ -36,7 +36,7 @@ public partial class AzurermMonitorWorkspaceDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermMonitorWorkspaceDataSource(string name) : TerraformD
     /// The default_data_collection_endpoint_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultDataCollectionEndpointId
-        => AsReference("default_data_collection_endpoint_id");
+        => CreateReference("default_data_collection_endpoint_id");
 
     /// <summary>
     /// The default_data_collection_rule_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultDataCollectionRuleId
-        => AsReference("default_data_collection_rule_id");
+        => CreateReference("default_data_collection_rule_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// The query_endpoint attribute.
     /// </summary>
     public TerraformValue<string> QueryEndpoint
-        => AsReference("query_endpoint");
+        => CreateReference("query_endpoint");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

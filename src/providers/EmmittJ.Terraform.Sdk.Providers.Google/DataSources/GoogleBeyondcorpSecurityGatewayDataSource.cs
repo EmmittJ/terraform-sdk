@@ -13,7 +13,7 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -43,58 +43,58 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     /// Output only. Timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Service account used for operations that involve resources in consumer projects.
     /// </summary>
     public TerraformValue<string> DelegatingServiceAccount
-        => AsReference("delegating_service_account");
+        => CreateReference("delegating_service_account");
 
     /// <summary>
     /// Optional. An arbitrary user-provided name for the SecurityGateway.
     /// Cannot exceed 64 characters.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Output only. IP addresses that will be used for establishing
     /// connection to the endpoints.
     /// </summary>
     public TerraformList<string> ExternalIps
-        => AsReference("external_ips");
+        => CreateReference("external_ips");
 
     /// <summary>
     /// Optional. Map of Hubs that represents regional data path deployment with GCP region
     /// as a key.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Hubs
-        => AsReference("hubs");
+        => CreateReference("hubs");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. Must be omitted or set to &#39;global&#39;.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// Identifier. Name of the resource.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Shared proxy configuration for all apps.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProxyProtocolConfig
-        => AsReference("proxy_protocol_config");
+        => CreateReference("proxy_protocol_config");
 
     /// <summary>
     /// Settings related to the Service Discovery.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceDiscovery
-        => AsReference("service_discovery");
+        => CreateReference("service_discovery");
 
     /// <summary>
     /// Output only. The operational state of the SecurityGateway.
@@ -108,12 +108,12 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     /// ERROR
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. Timestamp when the resource was last modified.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

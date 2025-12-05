@@ -13,7 +13,7 @@ public partial class GoogleNetblockIpRangesDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -30,18 +30,18 @@ public partial class GoogleNetblockIpRangesDataSource(string name) : TerraformDa
     /// The cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> CidrBlocks
-        => AsReference("cidr_blocks");
+        => CreateReference("cidr_blocks");
 
     /// <summary>
     /// The cidr_blocks_ipv4 attribute.
     /// </summary>
     public TerraformList<string> CidrBlocksIpv4
-        => AsReference("cidr_blocks_ipv4");
+        => CreateReference("cidr_blocks_ipv4");
 
     /// <summary>
     /// The cidr_blocks_ipv6 attribute.
     /// </summary>
     public TerraformList<string> CidrBlocksIpv6
-        => AsReference("cidr_blocks_ipv6");
+        => CreateReference("cidr_blocks_ipv6");
 
 }

@@ -27,7 +27,7 @@ public class AwsAcmCertificateOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Export
     {
-        get => GetArgument<TerraformValue<string>>("export") ?? AsReference("export");
+        get => GetArgument<TerraformValue<string>>("export") ?? CreateReference("export");
         set => SetArgument("export", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name") ?? AsReference("domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name") ?? CreateReference("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string> KeyAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("key_algorithm") ?? AsReference("key_algorithm");
+        get => GetArgument<TerraformValue<string>>("key_algorithm") ?? CreateReference("key_algorithm");
         set => SetArgument("key_algorithm", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformSet<string> SubjectAlternativeNames
     {
-        get => GetArgument<TerraformSet<string>>("subject_alternative_names") ?? AsReference("subject_alternative_names");
+        get => GetArgument<TerraformSet<string>>("subject_alternative_names") ?? CreateReference("subject_alternative_names");
         set => SetArgument("subject_alternative_names", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string> ValidationMethod
     {
-        get => GetArgument<TerraformValue<string>>("validation_method") ?? AsReference("validation_method");
+        get => GetArgument<TerraformValue<string>>("validation_method") ?? CreateReference("validation_method");
         set => SetArgument("validation_method", value);
     }
 
@@ -195,61 +195,61 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The domain_validation_options attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> DomainValidationOptions
-        => AsReference("domain_validation_options");
+        => CreateReference("domain_validation_options");
 
     /// <summary>
     /// The not_after attribute.
     /// </summary>
     public TerraformValue<string> NotAfter
-        => AsReference("not_after");
+        => CreateReference("not_after");
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     public TerraformValue<string> NotBefore
-        => AsReference("not_before");
+        => CreateReference("not_before");
 
     /// <summary>
     /// The pending_renewal attribute.
     /// </summary>
     public TerraformValue<bool> PendingRenewal
-        => AsReference("pending_renewal");
+        => CreateReference("pending_renewal");
 
     /// <summary>
     /// The renewal_eligibility attribute.
     /// </summary>
     public TerraformValue<string> RenewalEligibility
-        => AsReference("renewal_eligibility");
+        => CreateReference("renewal_eligibility");
 
     /// <summary>
     /// The renewal_summary attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RenewalSummary
-        => AsReference("renewal_summary");
+        => CreateReference("renewal_summary");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The validation_emails attribute.
     /// </summary>
     public TerraformList<string> ValidationEmails
-        => AsReference("validation_emails");
+        => CreateReference("validation_emails");
 
     /// <summary>
     /// Options block (nesting mode: list).

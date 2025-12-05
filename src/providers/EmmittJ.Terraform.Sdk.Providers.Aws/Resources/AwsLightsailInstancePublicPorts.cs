@@ -18,7 +18,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> CidrListAliases
     {
-        get => GetArgument<TerraformSet<string>>("cidr_list_aliases") ?? AsReference("cidr_list_aliases");
+        get => GetArgument<TerraformSet<string>>("cidr_list_aliases") ?? CreateReference("cidr_list_aliases");
         set => SetArgument("cidr_list_aliases", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> Cidrs
     {
-        get => GetArgument<TerraformSet<string>>("cidrs") ?? AsReference("cidrs");
+        get => GetArgument<TerraformSet<string>>("cidrs") ?? CreateReference("cidrs");
         set => SetArgument("cidrs", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> Ipv6Cidrs
     {
-        get => GetArgument<TerraformSet<string>>("ipv6_cidrs") ?? AsReference("ipv6_cidrs");
+        get => GetArgument<TerraformSet<string>>("ipv6_cidrs") ?? CreateReference("ipv6_cidrs");
         set => SetArgument("ipv6_cidrs", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsLightsailInstancePublicPorts(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsLightsailInstancePublicPorts(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

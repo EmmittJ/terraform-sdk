@@ -90,7 +90,7 @@ public class GoogleComputeBackendServiceBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxConnections
     {
-        get => GetArgument<TerraformValue<double>>("max_connections") ?? AsReference("max_connections");
+        get => GetArgument<TerraformValue<double>>("max_connections") ?? CreateReference("max_connections");
         set => SetArgument("max_connections", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleComputeBackendServiceBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxConnectionsPerEndpoint
     {
-        get => GetArgument<TerraformValue<double>>("max_connections_per_endpoint") ?? AsReference("max_connections_per_endpoint");
+        get => GetArgument<TerraformValue<double>>("max_connections_per_endpoint") ?? CreateReference("max_connections_per_endpoint");
         set => SetArgument("max_connections_per_endpoint", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleComputeBackendServiceBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxConnectionsPerInstance
     {
-        get => GetArgument<TerraformValue<double>>("max_connections_per_instance") ?? AsReference("max_connections_per_instance");
+        get => GetArgument<TerraformValue<double>>("max_connections_per_instance") ?? CreateReference("max_connections_per_instance");
         set => SetArgument("max_connections_per_instance", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleComputeBackendServiceBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxRate
     {
-        get => GetArgument<TerraformValue<double>>("max_rate") ?? AsReference("max_rate");
+        get => GetArgument<TerraformValue<double>>("max_rate") ?? CreateReference("max_rate");
         set => SetArgument("max_rate", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleComputeBackendServiceBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxRatePerEndpoint
     {
-        get => GetArgument<TerraformValue<double>>("max_rate_per_endpoint") ?? AsReference("max_rate_per_endpoint");
+        get => GetArgument<TerraformValue<double>>("max_rate_per_endpoint") ?? CreateReference("max_rate_per_endpoint");
         set => SetArgument("max_rate_per_endpoint", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleComputeBackendServiceBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxRatePerInstance
     {
-        get => GetArgument<TerraformValue<double>>("max_rate_per_instance") ?? AsReference("max_rate_per_instance");
+        get => GetArgument<TerraformValue<double>>("max_rate_per_instance") ?? CreateReference("max_rate_per_instance");
         set => SetArgument("max_rate_per_instance", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleComputeBackendServiceBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxUtilization
     {
-        get => GetArgument<TerraformValue<double>>("max_utilization") ?? AsReference("max_utilization");
+        get => GetArgument<TerraformValue<double>>("max_utilization") ?? CreateReference("max_utilization");
         set => SetArgument("max_utilization", value);
     }
 
@@ -267,7 +267,7 @@ public class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CacheMode
     {
-        get => GetArgument<TerraformValue<string>>("cache_mode") ?? AsReference("cache_mode");
+        get => GetArgument<TerraformValue<string>>("cache_mode") ?? CreateReference("cache_mode");
         set => SetArgument("cache_mode", value);
     }
 
@@ -276,7 +276,7 @@ public class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ClientTtl
     {
-        get => GetArgument<TerraformValue<double>>("client_ttl") ?? AsReference("client_ttl");
+        get => GetArgument<TerraformValue<double>>("client_ttl") ?? CreateReference("client_ttl");
         set => SetArgument("client_ttl", value);
     }
 
@@ -286,7 +286,7 @@ public class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DefaultTtl
     {
-        get => GetArgument<TerraformValue<double>>("default_ttl") ?? AsReference("default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl") ?? CreateReference("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -295,7 +295,7 @@ public class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxTtl
     {
-        get => GetArgument<TerraformValue<double>>("max_ttl") ?? AsReference("max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl") ?? CreateReference("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -304,7 +304,7 @@ public class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> NegativeCaching
     {
-        get => GetArgument<TerraformValue<bool>>("negative_caching") ?? AsReference("negative_caching");
+        get => GetArgument<TerraformValue<bool>>("negative_caching") ?? CreateReference("negative_caching");
         set => SetArgument("negative_caching", value);
     }
 
@@ -314,7 +314,7 @@ public class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> RequestCoalescing
     {
-        get => GetArgument<TerraformValue<bool>>("request_coalescing") ?? AsReference("request_coalescing");
+        get => GetArgument<TerraformValue<bool>>("request_coalescing") ?? CreateReference("request_coalescing");
         set => SetArgument("request_coalescing", value);
     }
 
@@ -323,7 +323,7 @@ public class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ServeWhileStale
     {
-        get => GetArgument<TerraformValue<double>>("serve_while_stale") ?? AsReference("serve_while_stale");
+        get => GetArgument<TerraformValue<double>>("serve_while_stale") ?? CreateReference("serve_while_stale");
         set => SetArgument("serve_while_stale", value);
     }
 
@@ -801,7 +801,7 @@ public class GoogleComputeBackendServiceIapBlock : TerraformBlock
     /// OAuth2 Client Secret SHA-256 for IAP
     /// </summary>
     public TerraformValue<string> Oauth2ClientSecretSha256
-        => AsReference("oauth2_client_secret_sha256");
+        => CreateReference("oauth2_client_secret_sha256");
 
 }
 
@@ -976,7 +976,7 @@ public class GoogleComputeBackendServiceLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OptionalMode
     {
-        get => GetArgument<TerraformValue<string>>("optional_mode") ?? AsReference("optional_mode");
+        get => GetArgument<TerraformValue<string>>("optional_mode") ?? CreateReference("optional_mode");
         set => SetArgument("optional_mode", value);
     }
 
@@ -1701,7 +1701,7 @@ public partial class GoogleComputeBackendService(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1820,7 +1820,7 @@ public partial class GoogleComputeBackendService(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> PortName
     {
-        get => GetArgument<TerraformValue<string>>("port_name") ?? AsReference("port_name");
+        get => GetArgument<TerraformValue<string>>("port_name") ?? CreateReference("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -1829,7 +1829,7 @@ public partial class GoogleComputeBackendService(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1842,7 +1842,7 @@ public partial class GoogleComputeBackendService(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? CreateReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -1871,7 +1871,7 @@ public partial class GoogleComputeBackendService(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> SessionAffinity
     {
-        get => GetArgument<TerraformValue<string>>("session_affinity") ?? AsReference("session_affinity");
+        get => GetArgument<TerraformValue<string>>("session_affinity") ?? CreateReference("session_affinity");
         set => SetArgument("session_affinity", value);
     }
 
@@ -1883,7 +1883,7 @@ public partial class GoogleComputeBackendService(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> TimeoutSec
     {
-        get => GetArgument<TerraformValue<double>>("timeout_sec") ?? AsReference("timeout_sec");
+        get => GetArgument<TerraformValue<double>>("timeout_sec") ?? CreateReference("timeout_sec");
         set => SetArgument("timeout_sec", value);
     }
 
@@ -1891,26 +1891,26 @@ public partial class GoogleComputeBackendService(string name) : TerraformResourc
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
     /// object. This field is used in optimistic locking.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> GeneratedId
-        => AsReference("generated_id");
+        => CreateReference("generated_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Backend block (nesting mode: set).

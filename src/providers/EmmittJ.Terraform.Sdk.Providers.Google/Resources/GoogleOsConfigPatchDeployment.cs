@@ -907,14 +907,14 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : TerraformBloc
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> LastExecuteTime
-        => AsReference("last_execute_time");
+        => CreateReference("last_execute_time");
 
     /// <summary>
     /// The time the next patch job is scheduled to run.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> NextExecuteTime
-        => AsReference("next_execute_time");
+        => CreateReference("next_execute_time");
 
     /// <summary>
     /// The time that the recurring schedule becomes effective. Defaults to createTime of the patch deployment.
@@ -1286,7 +1286,7 @@ public partial class GoogleOsConfigPatchDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1310,7 +1310,7 @@ public partial class GoogleOsConfigPatchDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1319,28 +1319,28 @@ public partial class GoogleOsConfigPatchDeployment(string name) : TerraformResou
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The last time a patch job was started by this deployment. Timestamp is in RFC3339 text format.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> LastExecuteTime
-        => AsReference("last_execute_time");
+        => CreateReference("last_execute_time");
 
     /// <summary>
     /// Unique name for the patch deployment resource in a project.
     /// The patch deployment name is in the form: projects/{project_id}/patchDeployments/{patchDeploymentId}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Time the patch deployment was last updated. Timestamp is in RFC3339 text format.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// InstanceFilter block (nesting mode: list).

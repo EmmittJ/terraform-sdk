@@ -46,7 +46,7 @@ public partial class AzurermApiManagementProductDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,43 +74,43 @@ public partial class AzurermApiManagementProductDataSource(string name) : Terraf
     /// The approval_required attribute.
     /// </summary>
     public TerraformValue<bool> ApprovalRequired
-        => AsReference("approval_required");
+        => CreateReference("approval_required");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The published attribute.
     /// </summary>
     public TerraformValue<bool> Published
-        => AsReference("published");
+        => CreateReference("published");
 
     /// <summary>
     /// The subscription_required attribute.
     /// </summary>
     public TerraformValue<bool> SubscriptionRequired
-        => AsReference("subscription_required");
+        => CreateReference("subscription_required");
 
     /// <summary>
     /// The subscriptions_limit attribute.
     /// </summary>
     public TerraformValue<double> SubscriptionsLimit
-        => AsReference("subscriptions_limit");
+        => CreateReference("subscriptions_limit");
 
     /// <summary>
     /// The terms attribute.
     /// </summary>
     public TerraformValue<string> Terms
-        => AsReference("terms");
+        => CreateReference("terms");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

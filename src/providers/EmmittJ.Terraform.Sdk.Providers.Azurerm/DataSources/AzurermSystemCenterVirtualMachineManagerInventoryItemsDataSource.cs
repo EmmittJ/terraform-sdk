@@ -36,7 +36,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     /// The inventory_items attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InventoryItems
-        => AsReference("inventory_items");
+        => CreateReference("inventory_items");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

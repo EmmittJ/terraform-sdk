@@ -46,7 +46,7 @@ public partial class AzurermDevCenterDevBoxDefinitionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermDevCenterDevBoxDefinitionDataSource(string name) : T
     /// The hibernate_support_enabled attribute.
     /// </summary>
     public TerraformValue<bool> HibernateSupportEnabled
-        => AsReference("hibernate_support_enabled");
+        => CreateReference("hibernate_support_enabled");
 
     /// <summary>
     /// The image_reference_id attribute.
     /// </summary>
     public TerraformValue<string> ImageReferenceId
-        => AsReference("image_reference_id");
+        => CreateReference("image_reference_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

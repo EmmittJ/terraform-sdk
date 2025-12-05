@@ -194,7 +194,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double> DiskIopsReadOnly
     {
-        get => GetArgument<TerraformValue<double>>("disk_iops_read_only") ?? AsReference("disk_iops_read_only");
+        get => GetArgument<TerraformValue<double>>("disk_iops_read_only") ?? CreateReference("disk_iops_read_only");
         set => SetArgument("disk_iops_read_only", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double> DiskIopsReadWrite
     {
-        get => GetArgument<TerraformValue<double>>("disk_iops_read_write") ?? AsReference("disk_iops_read_write");
+        get => GetArgument<TerraformValue<double>>("disk_iops_read_write") ?? CreateReference("disk_iops_read_write");
         set => SetArgument("disk_iops_read_write", value);
     }
 
@@ -212,7 +212,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double> DiskMbpsReadOnly
     {
-        get => GetArgument<TerraformValue<double>>("disk_mbps_read_only") ?? AsReference("disk_mbps_read_only");
+        get => GetArgument<TerraformValue<double>>("disk_mbps_read_only") ?? CreateReference("disk_mbps_read_only");
         set => SetArgument("disk_mbps_read_only", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double> DiskMbpsReadWrite
     {
-        get => GetArgument<TerraformValue<double>>("disk_mbps_read_write") ?? AsReference("disk_mbps_read_write");
+        get => GetArgument<TerraformValue<double>>("disk_mbps_read_write") ?? CreateReference("disk_mbps_read_write");
         set => SetArgument("disk_mbps_read_write", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -266,7 +266,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -294,7 +294,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double> LogicalSectorSize
     {
-        get => GetArgument<TerraformValue<double>>("logical_sector_size") ?? AsReference("logical_sector_size");
+        get => GetArgument<TerraformValue<double>>("logical_sector_size") ?? CreateReference("logical_sector_size");
         set => SetArgument("logical_sector_size", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double> MaxShares
     {
-        get => GetArgument<TerraformValue<double>>("max_shares") ?? AsReference("max_shares");
+        get => GetArgument<TerraformValue<double>>("max_shares") ?? CreateReference("max_shares");
         set => SetArgument("max_shares", value);
     }
 
@@ -413,7 +413,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> SourceUri
     {
-        get => GetArgument<TerraformValue<string>>("source_uri") ?? AsReference("source_uri");
+        get => GetArgument<TerraformValue<string>>("source_uri") ?? CreateReference("source_uri");
         set => SetArgument("source_uri", value);
     }
 
@@ -450,7 +450,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? CreateReference("tier");
         set => SetArgument("tier", value);
     }
 

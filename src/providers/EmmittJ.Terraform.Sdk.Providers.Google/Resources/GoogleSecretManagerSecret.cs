@@ -313,7 +313,7 @@ public partial class GoogleSecretManagerSecret(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> ExpireTime
     {
-        get => GetArgument<TerraformValue<string>>("expire_time") ?? AsReference("expire_time");
+        get => GetArgument<TerraformValue<string>>("expire_time") ?? CreateReference("expire_time");
         set => SetArgument("expire_time", value);
     }
 
@@ -322,7 +322,7 @@ public partial class GoogleSecretManagerSecret(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -355,7 +355,7 @@ public partial class GoogleSecretManagerSecret(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -425,33 +425,33 @@ public partial class GoogleSecretManagerSecret(string name) : TerraformResource(
     /// The time at which the Secret was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The resource name of the Secret. Format:
     /// &#39;projects/{{project}}/secrets/{{secret_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Replication block (nesting mode: list).

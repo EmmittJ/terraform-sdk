@@ -32,7 +32,7 @@ public partial class AwsCodecommitApprovalRuleTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCodecommitApprovalRuleTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,30 +59,30 @@ public partial class AwsCodecommitApprovalRuleTemplate(string name) : TerraformR
     /// The approval_rule_template_id attribute.
     /// </summary>
     public TerraformValue<string> ApprovalRuleTemplateId
-        => AsReference("approval_rule_template_id");
+        => CreateReference("approval_rule_template_id");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-        => AsReference("last_modified_date");
+        => CreateReference("last_modified_date");
 
     /// <summary>
     /// The last_modified_user attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedUser
-        => AsReference("last_modified_user");
+        => CreateReference("last_modified_user");
 
     /// <summary>
     /// The rule_content_sha256 attribute.
     /// </summary>
     public TerraformValue<string> RuleContentSha256
-        => AsReference("rule_content_sha256");
+        => CreateReference("rule_content_sha256");
 
 }

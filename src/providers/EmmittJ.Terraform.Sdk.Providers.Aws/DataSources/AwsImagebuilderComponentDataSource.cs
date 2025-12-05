@@ -23,7 +23,7 @@ public partial class AwsImagebuilderComponentDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsImagebuilderComponentDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsImagebuilderComponentDataSource(string name) : Terraform
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,72 +49,72 @@ public partial class AwsImagebuilderComponentDataSource(string name) : Terraform
     /// The change_description attribute.
     /// </summary>
     public TerraformValue<string> ChangeDescription
-        => AsReference("change_description");
+        => CreateReference("change_description");
 
     /// <summary>
     /// The data attribute.
     /// </summary>
     public TerraformValue<string> Data
-        => AsReference("data");
+        => CreateReference("data");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-        => AsReference("date_created");
+        => CreateReference("date_created");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-        => AsReference("encrypted");
+        => CreateReference("encrypted");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-        => AsReference("platform");
+        => CreateReference("platform");
 
     /// <summary>
     /// The supported_os_versions attribute.
     /// </summary>
     public TerraformSet<string> SupportedOsVersions
-        => AsReference("supported_os_versions");
+        => CreateReference("supported_os_versions");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

@@ -46,7 +46,7 @@ public partial class AzurermKustoDatabaseDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AzurermKustoDatabaseDataSource(string name) : TerraformData
     /// The hot_cache_period attribute.
     /// </summary>
     public TerraformValue<string> HotCachePeriod
-        => AsReference("hot_cache_period");
+        => CreateReference("hot_cache_period");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// The soft_delete_period attribute.
     /// </summary>
     public TerraformValue<string> SoftDeletePeriod
-        => AsReference("soft_delete_period");
+        => CreateReference("soft_delete_period");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

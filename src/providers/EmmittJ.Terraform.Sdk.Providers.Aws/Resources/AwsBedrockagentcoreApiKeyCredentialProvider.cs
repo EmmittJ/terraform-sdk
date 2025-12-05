@@ -50,7 +50,7 @@ public partial class AwsBedrockagentcoreApiKeyCredentialProvider(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,12 +58,12 @@ public partial class AwsBedrockagentcoreApiKeyCredentialProvider(string name) : 
     /// The api_key_secret_arn attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApiKeySecretArn
-        => AsReference("api_key_secret_arn");
+        => CreateReference("api_key_secret_arn");
 
     /// <summary>
     /// The credential_provider_arn attribute.
     /// </summary>
     public TerraformValue<string> CredentialProviderArn
-        => AsReference("credential_provider_arn");
+        => CreateReference("credential_provider_arn");
 
 }

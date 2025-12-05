@@ -13,7 +13,7 @@ public partial class AwsMemorydbParameterGroupDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsMemorydbParameterGroupDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsMemorydbParameterGroupDataSource(string name) : Terrafor
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,24 +49,24 @@ public partial class AwsMemorydbParameterGroupDataSource(string name) : Terrafor
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The family attribute.
     /// </summary>
     public TerraformValue<string> Family
-        => AsReference("family");
+        => CreateReference("family");
 
     /// <summary>
     /// The parameter attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Parameter
-        => AsReference("parameter");
+        => CreateReference("parameter");
 
 }

@@ -712,7 +712,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -740,7 +740,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     /// The resource name of the document schema.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// PropertyDefinitions block (nesting mode: list).

@@ -64,7 +64,7 @@ public partial class AwsShieldProactiveEngagement(string name) : TerraformResour
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// EmergencyContact block (nesting mode: list).

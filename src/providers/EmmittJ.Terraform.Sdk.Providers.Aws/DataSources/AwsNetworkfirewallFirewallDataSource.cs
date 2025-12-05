@@ -13,7 +13,7 @@ public partial class AwsNetworkfirewallFirewallDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsNetworkfirewallFirewallDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsNetworkfirewallFirewallDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsNetworkfirewallFirewallDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsNetworkfirewallFirewallDataSource(string name) : Terrafo
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,90 +57,90 @@ public partial class AwsNetworkfirewallFirewallDataSource(string name) : Terrafo
     /// The availability_zone_change_protection attribute.
     /// </summary>
     public TerraformValue<bool> AvailabilityZoneChangeProtection
-        => AsReference("availability_zone_change_protection");
+        => CreateReference("availability_zone_change_protection");
 
     /// <summary>
     /// The availability_zone_mapping attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> AvailabilityZoneMapping
-        => AsReference("availability_zone_mapping");
+        => CreateReference("availability_zone_mapping");
 
     /// <summary>
     /// The delete_protection attribute.
     /// </summary>
     public TerraformValue<bool> DeleteProtection
-        => AsReference("delete_protection");
+        => CreateReference("delete_protection");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The enabled_analysis_types attribute.
     /// </summary>
     public TerraformSet<string> EnabledAnalysisTypes
-        => AsReference("enabled_analysis_types");
+        => CreateReference("enabled_analysis_types");
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> EncryptionConfiguration
-        => AsReference("encryption_configuration");
+        => CreateReference("encryption_configuration");
 
     /// <summary>
     /// The firewall_policy_arn attribute.
     /// </summary>
     public TerraformValue<string> FirewallPolicyArn
-        => AsReference("firewall_policy_arn");
+        => CreateReference("firewall_policy_arn");
 
     /// <summary>
     /// The firewall_policy_change_protection attribute.
     /// </summary>
     public TerraformValue<bool> FirewallPolicyChangeProtection
-        => AsReference("firewall_policy_change_protection");
+        => CreateReference("firewall_policy_change_protection");
 
     /// <summary>
     /// The firewall_status attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FirewallStatus
-        => AsReference("firewall_status");
+        => CreateReference("firewall_status");
 
     /// <summary>
     /// The subnet_change_protection attribute.
     /// </summary>
     public TerraformValue<bool> SubnetChangeProtection
-        => AsReference("subnet_change_protection");
+        => CreateReference("subnet_change_protection");
 
     /// <summary>
     /// The subnet_mapping attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> SubnetMapping
-        => AsReference("subnet_mapping");
+        => CreateReference("subnet_mapping");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayId
-        => AsReference("transit_gateway_id");
+        => CreateReference("transit_gateway_id");
 
     /// <summary>
     /// The transit_gateway_owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayOwnerAccountId
-        => AsReference("transit_gateway_owner_account_id");
+        => CreateReference("transit_gateway_owner_account_id");
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
     public TerraformValue<string> UpdateToken
-        => AsReference("update_token");
+        => CreateReference("update_token");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }

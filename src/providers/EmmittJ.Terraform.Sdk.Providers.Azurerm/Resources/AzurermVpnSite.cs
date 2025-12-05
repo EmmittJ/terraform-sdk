@@ -26,7 +26,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The ip_address attribute.
@@ -263,7 +263,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

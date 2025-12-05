@@ -76,7 +76,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment(string name) : Ter
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -139,13 +139,13 @@ public partial class GoogleNetworkSecurityInterceptDeployment(string name) : Ter
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The resource name of this deployment, for example:
@@ -153,7 +153,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment(string name) : Ter
     /// See https://google.aip.dev/122 for more details.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The current state of the resource does not match the user&#39;s intended state,
@@ -162,7 +162,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment(string name) : Ter
     /// See https://google.aip.dev/128.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The current state of the deployment.
@@ -176,21 +176,21 @@ public partial class GoogleNetworkSecurityInterceptDeployment(string name) : Ter
     /// DELETE_FAILED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

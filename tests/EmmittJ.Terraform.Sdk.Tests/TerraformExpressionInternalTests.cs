@@ -17,7 +17,7 @@ public class TerraformExpressionPublicTests
         var output = new TerraformOutput("result")
         {
             Value = TerraformExpression.Conditional(
-                variable.AsReference(),
+                variable.ToReference(),
                 TerraformExpression.Literal("yes"),
                 TerraformExpression.Literal("no")
             )
@@ -39,7 +39,7 @@ public class TerraformExpressionPublicTests
 
         var output = new TerraformOutput("vpc_id")
         {
-            Value = resource.AsReference("id")
+            Value = resource["id"]
         };
         stack.Add(output);
 

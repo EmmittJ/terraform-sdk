@@ -13,7 +13,7 @@ public partial class AwsRedshiftserverlessSnapshot(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRedshiftserverlessSnapshot(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,42 +59,42 @@ public partial class AwsRedshiftserverlessSnapshot(string name) : TerraformResou
     /// The accounts_with_provisioned_restore_access attribute.
     /// </summary>
     public TerraformSet<string> AccountsWithProvisionedRestoreAccess
-        => AsReference("accounts_with_provisioned_restore_access");
+        => CreateReference("accounts_with_provisioned_restore_access");
 
     /// <summary>
     /// The accounts_with_restore_access attribute.
     /// </summary>
     public TerraformSet<string> AccountsWithRestoreAccess
-        => AsReference("accounts_with_restore_access");
+        => CreateReference("accounts_with_restore_access");
 
     /// <summary>
     /// The admin_username attribute.
     /// </summary>
     public TerraformValue<string> AdminUsername
-        => AsReference("admin_username");
+        => CreateReference("admin_username");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The namespace_arn attribute.
     /// </summary>
     public TerraformValue<string> NamespaceArn
-        => AsReference("namespace_arn");
+        => CreateReference("namespace_arn");
 
     /// <summary>
     /// The owner_account attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccount
-        => AsReference("owner_account");
+        => CreateReference("owner_account");
 
 }

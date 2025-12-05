@@ -13,7 +13,7 @@ public partial class AwsConnectContactFlowModuleDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> ContactFlowModuleId
     {
-        get => GetArgument<TerraformValue<string>>("contact_flow_module_id") ?? AsReference("contact_flow_module_id");
+        get => GetArgument<TerraformValue<string>>("contact_flow_module_id") ?? CreateReference("contact_flow_module_id");
         set => SetArgument("contact_flow_module_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsConnectContactFlowModuleDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsConnectContactFlowModuleDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsConnectContactFlowModuleDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsConnectContactFlowModuleDataSource(string name) : Terraf
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -67,30 +67,30 @@ public partial class AwsConnectContactFlowModuleDataSource(string name) : Terraf
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The content attribute.
     /// </summary>
     public TerraformValue<string> Content
-        => AsReference("content");
+        => CreateReference("content");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

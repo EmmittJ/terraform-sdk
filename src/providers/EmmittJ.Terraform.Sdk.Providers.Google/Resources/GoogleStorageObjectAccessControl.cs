@@ -82,7 +82,7 @@ public partial class GoogleStorageObjectAccessControl(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,31 +110,31 @@ public partial class GoogleStorageObjectAccessControl(string name) : TerraformRe
     /// The domain associated with the entity.
     /// </summary>
     public TerraformValue<string> Domain
-        => AsReference("domain");
+        => CreateReference("domain");
 
     /// <summary>
     /// The email address associated with the entity.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The ID for the entity
     /// </summary>
     public TerraformValue<string> EntityId
-        => AsReference("entity_id");
+        => CreateReference("entity_id");
 
     /// <summary>
     /// The content generation of the object, if applied to an object.
     /// </summary>
     public TerraformValue<double> Generation
-        => AsReference("generation");
+        => CreateReference("generation");
 
     /// <summary>
     /// The project team associated with the entity
     /// </summary>
     public TerraformList<TerraformMap<object>> ProjectTeam
-        => AsReference("project_team");
+        => CreateReference("project_team");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

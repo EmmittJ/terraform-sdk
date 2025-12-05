@@ -11,7 +11,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Each provider adds a set of resource types and/or data sources that Terraform can manage.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/provider"/></para>
 /// </remarks>
-public partial class TerraformProvider : TerraformBlock, ITerraformReferenceable
+public partial class TerraformProvider : TerraformBlock
 {
     /// <summary>
     /// Gets the provider name.
@@ -27,6 +27,11 @@ public partial class TerraformProvider : TerraformBlock, ITerraformReferenceable
     /// Gets the block labels (just the provider name).
     /// </summary>
     public override string[] BlockLabels => [Name];
+
+    /// <summary>
+    /// Gets the Terraform reference identifier for this provider.
+    /// </summary>
+    public override string ReferenceIdentifier => Name;
 
     /// <summary>
     /// Initializes a new instance of TerraformProvider.
@@ -45,20 +50,4 @@ public partial class TerraformProvider : TerraformBlock, ITerraformReferenceable
         get => GetArgument<TerraformValue<string>?>("alias");
         set => SetArgument("alias", value);
     }
-
-    /// <summary>
-    /// Generates a reference to this provider.
-    /// </summary>
-    /// <returns>A reference to this provider.</returns>
-    public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier(Name);
-
-    /// <summary>
-    /// Implicit conversion to TerraformExpression for natural reference usage.
-    /// Allows using providers directly in expressions without calling AsReference().
-    /// </summary>
-    /// <param name="provider">The provider to convert.</param>
-    /// <returns>A TerraformExpression representing the provider reference.</returns>
-    public static implicit operator TerraformExpression(TerraformProvider provider)
-        => provider.AsReference();
 }

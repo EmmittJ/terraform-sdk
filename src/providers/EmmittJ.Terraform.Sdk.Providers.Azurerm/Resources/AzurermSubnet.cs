@@ -86,7 +86,7 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
     /// The allocated_ip_address_prefixes attribute.
     /// </summary>
     public TerraformList<string> AllocatedIpAddressPrefixes
-        => AsReference("allocated_ip_address_prefixes");
+        => CreateReference("allocated_ip_address_prefixes");
 
     /// <summary>
     /// The id attribute.
@@ -190,7 +190,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

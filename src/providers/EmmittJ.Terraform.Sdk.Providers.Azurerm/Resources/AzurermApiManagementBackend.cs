@@ -143,7 +143,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> ClientCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("client_certificate_id") ?? AsReference("client_certificate_id");
+        get => GetArgument<TerraformValue<string>>("client_certificate_id") ?? CreateReference("client_certificate_id");
         set => SetArgument("client_certificate_id", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> ClientCertificateThumbprint
     {
-        get => GetArgument<TerraformValue<string>>("client_certificate_thumbprint") ?? AsReference("client_certificate_thumbprint");
+        get => GetArgument<TerraformValue<string>>("client_certificate_thumbprint") ?? CreateReference("client_certificate_thumbprint");
         set => SetArgument("client_certificate_thumbprint", value);
     }
 
@@ -342,7 +342,7 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

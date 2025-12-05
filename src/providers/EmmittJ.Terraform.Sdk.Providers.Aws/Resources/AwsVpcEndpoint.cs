@@ -18,7 +18,7 @@ public class AwsVpcEndpointDnsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DnsRecordIpType
     {
-        get => GetArgument<TerraformValue<string>>("dns_record_ip_type") ?? AsReference("dns_record_ip_type");
+        get => GetArgument<TerraformValue<string>>("dns_record_ip_type") ?? CreateReference("dns_record_ip_type");
         set => SetArgument("dns_record_ip_type", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? CreateReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformValue<bool> PrivateDnsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("private_dns_enabled") ?? AsReference("private_dns_enabled");
+        get => GetArgument<TerraformValue<bool>>("private_dns_enabled") ?? CreateReference("private_dns_enabled");
         set => SetArgument("private_dns_enabled", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformSet<string> RouteTableIds
     {
-        get => GetArgument<TerraformSet<string>>("route_table_ids") ?? AsReference("route_table_ids");
+        get => GetArgument<TerraformSet<string>>("route_table_ids") ?? CreateReference("route_table_ids");
         set => SetArgument("route_table_ids", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -226,7 +226,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformValue<string> ServiceRegion
     {
-        get => GetArgument<TerraformValue<string>>("service_region") ?? AsReference("service_region");
+        get => GetArgument<TerraformValue<string>>("service_region") ?? CreateReference("service_region");
         set => SetArgument("service_region", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? CreateReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -280,49 +280,49 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> CidrBlocks
-        => AsReference("cidr_blocks");
+        => CreateReference("cidr_blocks");
 
     /// <summary>
     /// The dns_entry attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsEntry
-        => AsReference("dns_entry");
+        => CreateReference("dns_entry");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformSet<string> NetworkInterfaceIds
-        => AsReference("network_interface_ids");
+        => CreateReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The prefix_list_id attribute.
     /// </summary>
     public TerraformValue<string> PrefixListId
-        => AsReference("prefix_list_id");
+        => CreateReference("prefix_list_id");
 
     /// <summary>
     /// The requester_managed attribute.
     /// </summary>
     public TerraformValue<bool> RequesterManaged
-        => AsReference("requester_managed");
+        => CreateReference("requester_managed");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// DnsOptions block (nesting mode: list).

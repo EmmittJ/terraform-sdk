@@ -190,7 +190,7 @@ public partial class GoogleIamAccessBoundaryPolicy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -218,7 +218,7 @@ public partial class GoogleIamAccessBoundaryPolicy(string name) : TerraformResou
     /// The hash of the resource. Used internally during updates.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Rules block (nesting mode: list).

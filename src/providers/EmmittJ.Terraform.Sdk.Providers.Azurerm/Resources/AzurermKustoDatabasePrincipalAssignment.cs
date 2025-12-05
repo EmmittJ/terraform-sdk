@@ -74,7 +74,7 @@ public partial class AzurermKustoDatabasePrincipalAssignment(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -142,13 +142,13 @@ public partial class AzurermKustoDatabasePrincipalAssignment(string name) : Terr
     /// The principal_name attribute.
     /// </summary>
     public TerraformValue<string> PrincipalName
-        => AsReference("principal_name");
+        => CreateReference("principal_name");
 
     /// <summary>
     /// The tenant_name attribute.
     /// </summary>
     public TerraformValue<string> TenantName
-        => AsReference("tenant_name");
+        => CreateReference("tenant_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

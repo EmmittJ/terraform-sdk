@@ -13,7 +13,7 @@ public partial class GoogleMonitoringUptimeCheckIpsDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -21,6 +21,6 @@ public partial class GoogleMonitoringUptimeCheckIpsDataSource(string name) : Ter
     /// The uptime_check_ips attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UptimeCheckIps
-        => AsReference("uptime_check_ips");
+        => CreateReference("uptime_check_ips");
 
 }

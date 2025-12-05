@@ -27,7 +27,7 @@ public class AzurermApplicationGatewayAuthenticationCertificateBlock : Terraform
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -99,7 +99,7 @@ public class AzurermApplicationGatewayBackendAddressPoolBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The ip_addresses attribute.
@@ -166,7 +166,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -210,7 +210,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// The probe_id attribute.
     /// </summary>
     public TerraformValue<string> ProbeId
-        => AsReference("probe_id");
+        => CreateReference("probe_id");
 
     /// <summary>
     /// The probe_name attribute.
@@ -285,7 +285,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlockAuthenticationCert
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -358,7 +358,7 @@ public class AzurermApplicationGatewayCustomErrorConfigurationBlock : TerraformB
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The status_code attribute.
@@ -388,7 +388,7 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -405,7 +405,7 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? CreateReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -422,7 +422,7 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     /// The private_link_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> PrivateLinkConfigurationId
-        => AsReference("private_link_configuration_id");
+        => CreateReference("private_link_configuration_id");
 
     /// <summary>
     /// The private_link_configuration_name attribute.
@@ -469,7 +469,7 @@ public class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -509,7 +509,7 @@ public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlo
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -592,7 +592,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// The frontend_ip_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> FrontendIpConfigurationId
-        => AsReference("frontend_ip_configuration_id");
+        => CreateReference("frontend_ip_configuration_id");
 
     /// <summary>
     /// The frontend_ip_configuration_name attribute.
@@ -608,7 +608,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// The frontend_port_id attribute.
     /// </summary>
     public TerraformValue<string> FrontendPortId
-        => AsReference("frontend_port_id");
+        => CreateReference("frontend_port_id");
 
     /// <summary>
     /// The frontend_port_name attribute.
@@ -642,7 +642,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -677,7 +677,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// The ssl_certificate_id attribute.
     /// </summary>
     public TerraformValue<string> SslCertificateId
-        => AsReference("ssl_certificate_id");
+        => CreateReference("ssl_certificate_id");
 
     /// <summary>
     /// The ssl_certificate_name attribute.
@@ -692,7 +692,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// The ssl_profile_id attribute.
     /// </summary>
     public TerraformValue<string> SslProfileId
-        => AsReference("ssl_profile_id");
+        => CreateReference("ssl_profile_id");
 
     /// <summary>
     /// The ssl_profile_name attribute.
@@ -739,7 +739,7 @@ public class AzurermApplicationGatewayHttpListenerBlockCustomErrorConfigurationB
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The status_code attribute.
@@ -778,13 +778,13 @@ public class AzurermApplicationGatewayIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -814,7 +814,7 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlock : TerraformB
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -876,7 +876,7 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlockIpConfigurati
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? CreateReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -927,7 +927,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The interval attribute.
@@ -1076,7 +1076,7 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The include_path attribute.
@@ -1120,7 +1120,7 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     /// The target_listener_id attribute.
     /// </summary>
     public TerraformValue<string> TargetListenerId
-        => AsReference("target_listener_id");
+        => CreateReference("target_listener_id");
 
     /// <summary>
     /// The target_listener_name attribute.
@@ -1158,7 +1158,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// The backend_address_pool_id attribute.
     /// </summary>
     public TerraformValue<string> BackendAddressPoolId
-        => AsReference("backend_address_pool_id");
+        => CreateReference("backend_address_pool_id");
 
     /// <summary>
     /// The backend_address_pool_name attribute.
@@ -1173,7 +1173,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// The backend_http_settings_id attribute.
     /// </summary>
     public TerraformValue<string> BackendHttpSettingsId
-        => AsReference("backend_http_settings_id");
+        => CreateReference("backend_http_settings_id");
 
     /// <summary>
     /// The backend_http_settings_name attribute.
@@ -1188,7 +1188,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// The http_listener_id attribute.
     /// </summary>
     public TerraformValue<string> HttpListenerId
-        => AsReference("http_listener_id");
+        => CreateReference("http_listener_id");
 
     /// <summary>
     /// The http_listener_name attribute.
@@ -1204,7 +1204,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -1229,7 +1229,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// The redirect_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> RedirectConfigurationId
-        => AsReference("redirect_configuration_id");
+        => CreateReference("redirect_configuration_id");
 
     /// <summary>
     /// The redirect_configuration_name attribute.
@@ -1244,7 +1244,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// The rewrite_rule_set_id attribute.
     /// </summary>
     public TerraformValue<string> RewriteRuleSetId
-        => AsReference("rewrite_rule_set_id");
+        => CreateReference("rewrite_rule_set_id");
 
     /// <summary>
     /// The rewrite_rule_set_name attribute.
@@ -1269,7 +1269,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// The url_path_map_id attribute.
     /// </summary>
     public TerraformValue<string> UrlPathMapId
-        => AsReference("url_path_map_id");
+        => CreateReference("url_path_map_id");
 
     /// <summary>
     /// The url_path_map_name attribute.
@@ -1298,7 +1298,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -1625,7 +1625,7 @@ public class AzurermApplicationGatewaySslCertificateBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The key_vault_secret_id attribute.
@@ -1659,7 +1659,7 @@ public class AzurermApplicationGatewaySslCertificateBlock : TerraformBlock
     /// The public_cert_data attribute.
     /// </summary>
     public TerraformValue<string> PublicCertData
-        => AsReference("public_cert_data");
+        => CreateReference("public_cert_data");
 
 }
 
@@ -1738,7 +1738,7 @@ public class AzurermApplicationGatewaySslProfileBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -1923,7 +1923,7 @@ public class AzurermApplicationGatewayTrustedClientCertificateBlock : TerraformB
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -1962,7 +1962,7 @@ public class AzurermApplicationGatewayTrustedRootCertificateBlock : TerraformBlo
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The key_vault_secret_id attribute.
@@ -2001,7 +2001,7 @@ public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
     /// The default_backend_address_pool_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultBackendAddressPoolId
-        => AsReference("default_backend_address_pool_id");
+        => CreateReference("default_backend_address_pool_id");
 
     /// <summary>
     /// The default_backend_address_pool_name attribute.
@@ -2016,7 +2016,7 @@ public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
     /// The default_backend_http_settings_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultBackendHttpSettingsId
-        => AsReference("default_backend_http_settings_id");
+        => CreateReference("default_backend_http_settings_id");
 
     /// <summary>
     /// The default_backend_http_settings_name attribute.
@@ -2031,7 +2031,7 @@ public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
     /// The default_redirect_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultRedirectConfigurationId
-        => AsReference("default_redirect_configuration_id");
+        => CreateReference("default_redirect_configuration_id");
 
     /// <summary>
     /// The default_redirect_configuration_name attribute.
@@ -2046,7 +2046,7 @@ public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
     /// The default_rewrite_rule_set_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultRewriteRuleSetId
-        => AsReference("default_rewrite_rule_set_id");
+        => CreateReference("default_rewrite_rule_set_id");
 
     /// <summary>
     /// The default_rewrite_rule_set_name attribute.
@@ -2061,7 +2061,7 @@ public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -2102,7 +2102,7 @@ public class AzurermApplicationGatewayUrlPathMapBlockPathRuleBlock : TerraformBl
     /// The backend_address_pool_id attribute.
     /// </summary>
     public TerraformValue<string> BackendAddressPoolId
-        => AsReference("backend_address_pool_id");
+        => CreateReference("backend_address_pool_id");
 
     /// <summary>
     /// The backend_address_pool_name attribute.
@@ -2117,7 +2117,7 @@ public class AzurermApplicationGatewayUrlPathMapBlockPathRuleBlock : TerraformBl
     /// The backend_http_settings_id attribute.
     /// </summary>
     public TerraformValue<string> BackendHttpSettingsId
-        => AsReference("backend_http_settings_id");
+        => CreateReference("backend_http_settings_id");
 
     /// <summary>
     /// The backend_http_settings_name attribute.
@@ -2141,7 +2141,7 @@ public class AzurermApplicationGatewayUrlPathMapBlockPathRuleBlock : TerraformBl
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -2167,7 +2167,7 @@ public class AzurermApplicationGatewayUrlPathMapBlockPathRuleBlock : TerraformBl
     /// The redirect_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> RedirectConfigurationId
-        => AsReference("redirect_configuration_id");
+        => CreateReference("redirect_configuration_id");
 
     /// <summary>
     /// The redirect_configuration_name attribute.
@@ -2182,7 +2182,7 @@ public class AzurermApplicationGatewayUrlPathMapBlockPathRuleBlock : TerraformBl
     /// The rewrite_rule_set_id attribute.
     /// </summary>
     public TerraformValue<string> RewriteRuleSetId
-        => AsReference("rewrite_rule_set_id");
+        => CreateReference("rewrite_rule_set_id");
 
     /// <summary>
     /// The rewrite_rule_set_name attribute.
@@ -2414,7 +2414,7 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2470,7 +2470,7 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// The private_endpoint_connection attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PrivateEndpointConnection
-        => AsReference("private_endpoint_connection");
+        => CreateReference("private_endpoint_connection");
 
     /// <summary>
     /// AuthenticationCertificate block (nesting mode: list).

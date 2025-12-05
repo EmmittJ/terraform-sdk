@@ -79,7 +79,7 @@ public partial class AwsAvailabilityZoneDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsAvailabilityZoneDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsAvailabilityZoneDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsAvailabilityZoneDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsAvailabilityZoneDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> ZoneId
     {
-        get => GetArgument<TerraformValue<string>>("zone_id") ?? AsReference("zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id") ?? CreateReference("zone_id");
         set => SetArgument("zone_id", value);
     }
 
@@ -123,49 +123,49 @@ public partial class AwsAvailabilityZoneDataSource(string name) : TerraformDataS
     /// The group_long_name attribute.
     /// </summary>
     public TerraformValue<string> GroupLongName
-        => AsReference("group_long_name");
+        => CreateReference("group_long_name");
 
     /// <summary>
     /// The group_name attribute.
     /// </summary>
     public TerraformValue<string> GroupName
-        => AsReference("group_name");
+        => CreateReference("group_name");
 
     /// <summary>
     /// The name_suffix attribute.
     /// </summary>
     public TerraformValue<string> NameSuffix
-        => AsReference("name_suffix");
+        => CreateReference("name_suffix");
 
     /// <summary>
     /// The network_border_group attribute.
     /// </summary>
     public TerraformValue<string> NetworkBorderGroup
-        => AsReference("network_border_group");
+        => CreateReference("network_border_group");
 
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
     public TerraformValue<string> OptInStatus
-        => AsReference("opt_in_status");
+        => CreateReference("opt_in_status");
 
     /// <summary>
     /// The parent_zone_id attribute.
     /// </summary>
     public TerraformValue<string> ParentZoneId
-        => AsReference("parent_zone_id");
+        => CreateReference("parent_zone_id");
 
     /// <summary>
     /// The parent_zone_name attribute.
     /// </summary>
     public TerraformValue<string> ParentZoneName
-        => AsReference("parent_zone_name");
+        => CreateReference("parent_zone_name");
 
     /// <summary>
     /// The zone_type attribute.
     /// </summary>
     public TerraformValue<string> ZoneType
-        => AsReference("zone_type");
+        => CreateReference("zone_type");
 
     /// <summary>
     /// Filter block (nesting mode: set).

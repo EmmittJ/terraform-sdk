@@ -115,7 +115,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<bool> AutoSubscribeNewMembers
     {
-        get => GetArgument<TerraformValue<bool>>("auto_subscribe_new_members") ?? AsReference("auto_subscribe_new_members");
+        get => GetArgument<TerraformValue<bool>>("auto_subscribe_new_members") ?? CreateReference("auto_subscribe_new_members");
         set => SetArgument("auto_subscribe_new_members", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<bool> ExternalSendersAllowed
     {
-        get => GetArgument<TerraformValue<bool>>("external_senders_allowed") ?? AsReference("external_senders_allowed");
+        get => GetArgument<TerraformValue<bool>>("external_senders_allowed") ?? CreateReference("external_senders_allowed");
         set => SetArgument("external_senders_allowed", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<bool> HideFromAddressLists
     {
-        get => GetArgument<TerraformValue<bool>>("hide_from_address_lists") ?? AsReference("hide_from_address_lists");
+        get => GetArgument<TerraformValue<bool>>("hide_from_address_lists") ?? CreateReference("hide_from_address_lists");
         set => SetArgument("hide_from_address_lists", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<bool> HideFromOutlookClients
     {
-        get => GetArgument<TerraformValue<bool>>("hide_from_outlook_clients") ?? AsReference("hide_from_outlook_clients");
+        get => GetArgument<TerraformValue<bool>>("hide_from_outlook_clients") ?? CreateReference("hide_from_outlook_clients");
         set => SetArgument("hide_from_outlook_clients", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<string> MailNickname
     {
-        get => GetArgument<TerraformValue<string>>("mail_nickname") ?? AsReference("mail_nickname");
+        get => GetArgument<TerraformValue<string>>("mail_nickname") ?? CreateReference("mail_nickname");
         set => SetArgument("mail_nickname", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformSet<string> Members
     {
-        get => GetArgument<TerraformSet<string>>("members") ?? AsReference("members");
+        get => GetArgument<TerraformSet<string>>("members") ?? CreateReference("members");
         set => SetArgument("members", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<string> OnpremisesGroupType
     {
-        get => GetArgument<TerraformValue<string>>("onpremises_group_type") ?? AsReference("onpremises_group_type");
+        get => GetArgument<TerraformValue<string>>("onpremises_group_type") ?? CreateReference("onpremises_group_type");
         set => SetArgument("onpremises_group_type", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformSet<string> Owners
     {
-        get => GetArgument<TerraformSet<string>>("owners") ?? AsReference("owners");
+        get => GetArgument<TerraformSet<string>>("owners") ?? CreateReference("owners");
         set => SetArgument("owners", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<string> Visibility
     {
-        get => GetArgument<TerraformValue<string>>("visibility") ?? AsReference("visibility");
+        get => GetArgument<TerraformValue<string>>("visibility") ?? CreateReference("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -295,55 +295,55 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// The SMTP address for the group
     /// </summary>
     public TerraformValue<string> Mail
-        => AsReference("mail");
+        => CreateReference("mail");
 
     /// <summary>
     /// The object ID of the group
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// The on-premises FQDN, also called dnsDomainName, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
     public TerraformValue<string> OnpremisesDomainName
-        => AsReference("onpremises_domain_name");
+        => CreateReference("onpremises_domain_name");
 
     /// <summary>
     /// The on-premises NetBIOS name, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
     public TerraformValue<string> OnpremisesNetbiosName
-        => AsReference("onpremises_netbios_name");
+        => CreateReference("onpremises_netbios_name");
 
     /// <summary>
     /// The on-premises SAM account name, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
     public TerraformValue<string> OnpremisesSamAccountName
-        => AsReference("onpremises_sam_account_name");
+        => CreateReference("onpremises_sam_account_name");
 
     /// <summary>
     /// The on-premises security identifier (SID), synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
     public TerraformValue<string> OnpremisesSecurityIdentifier
-        => AsReference("onpremises_security_identifier");
+        => CreateReference("onpremises_security_identifier");
 
     /// <summary>
     /// Whether this group is synchronized from an on-premises directory (true), no longer synchronized (false), or has never been synchronized (null)
     /// </summary>
     public TerraformValue<bool> OnpremisesSyncEnabled
-        => AsReference("onpremises_sync_enabled");
+        => CreateReference("onpremises_sync_enabled");
 
     /// <summary>
     /// The preferred language for a Microsoft 365 group, in ISO 639-1 notation
     /// </summary>
     public TerraformValue<string> PreferredLanguage
-        => AsReference("preferred_language");
+        => CreateReference("preferred_language");
 
     /// <summary>
     /// Email addresses for the group that direct to the same group mailbox
     /// </summary>
     public TerraformList<string> ProxyAddresses
-        => AsReference("proxy_addresses");
+        => CreateReference("proxy_addresses");
 
     /// <summary>
     /// DynamicMembership block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermExtendedLocationCustomLocationDataSource(string name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermExtendedLocationCustomLocationDataSource(string name
     /// The authentication attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Authentication
-        => AsReference("authentication");
+        => CreateReference("authentication");
 
     /// <summary>
     /// The cluster_extension_ids attribute.
     /// </summary>
     public TerraformList<string> ClusterExtensionIds
-        => AsReference("cluster_extension_ids");
+        => CreateReference("cluster_extension_ids");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The host_resource_id attribute.
     /// </summary>
     public TerraformValue<string> HostResourceId
-        => AsReference("host_resource_id");
+        => CreateReference("host_resource_id");
 
     /// <summary>
     /// The host_type attribute.
     /// </summary>
     public TerraformValue<string> HostType
-        => AsReference("host_type");
+        => CreateReference("host_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     public TerraformValue<string> NamespaceAttribute
-        => AsReference("namespace");
+        => CreateReference("namespace");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

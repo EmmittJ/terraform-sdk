@@ -36,7 +36,7 @@ public partial class AzurermPrivateDnsResolverInboundEndpointDataSource(string n
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,19 +64,19 @@ public partial class AzurermPrivateDnsResolverInboundEndpointDataSource(string n
     /// The ip_configurations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfigurations
-        => AsReference("ip_configurations");
+        => CreateReference("ip_configurations");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

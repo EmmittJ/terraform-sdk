@@ -54,7 +54,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,13 +112,13 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     /// The geo_replicated_primary_host_name attribute.
     /// </summary>
     public TerraformValue<string> GeoReplicatedPrimaryHostName
-        => AsReference("geo_replicated_primary_host_name");
+        => CreateReference("geo_replicated_primary_host_name");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -72,7 +72,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     /// The servicebus_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ServicebusEndpoint
-        => AsReference("servicebus_endpoint");
+        => CreateReference("servicebus_endpoint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -212,7 +212,7 @@ public partial class GoogleIamDenyPolicy(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -240,7 +240,7 @@ public partial class GoogleIamDenyPolicy(string name) : TerraformResource("googl
     /// The hash of the resource. Used internally during updates.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Rules block (nesting mode: list).

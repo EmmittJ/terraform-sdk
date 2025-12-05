@@ -73,7 +73,7 @@ public partial class AzureadApplicationFromTemplate(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,25 +91,25 @@ public partial class AzureadApplicationFromTemplate(string name) : TerraformReso
     /// The resource ID for this application
     /// </summary>
     public TerraformValue<string> ApplicationId
-        => AsReference("application_id");
+        => CreateReference("application_id");
 
     /// <summary>
     /// The object ID for this application
     /// </summary>
     public TerraformValue<string> ApplicationObjectId
-        => AsReference("application_object_id");
+        => CreateReference("application_object_id");
 
     /// <summary>
     /// The resource ID for this service principal
     /// </summary>
     public TerraformValue<string> ServicePrincipalId
-        => AsReference("service_principal_id");
+        => CreateReference("service_principal_id");
 
     /// <summary>
     /// The object ID for this service principal
     /// </summary>
     public TerraformValue<string> ServicePrincipalObjectId
-        => AsReference("service_principal_object_id");
+        => CreateReference("service_principal_object_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

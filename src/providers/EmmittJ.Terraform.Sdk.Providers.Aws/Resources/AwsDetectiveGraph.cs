@@ -13,7 +13,7 @@ public partial class AwsDetectiveGraph(string name) : TerraformResource("aws_det
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDetectiveGraph(string name) : TerraformResource("aws_det
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsDetectiveGraph(string name) : TerraformResource("aws_det
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -48,12 +48,12 @@ public partial class AwsDetectiveGraph(string name) : TerraformResource("aws_det
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The graph_arn attribute.
     /// </summary>
     public TerraformValue<string> GraphArn
-        => AsReference("graph_arn");
+        => CreateReference("graph_arn");
 
 }

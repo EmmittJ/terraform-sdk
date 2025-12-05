@@ -93,7 +93,7 @@ public partial class AzureadUserFlowAttribute(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzureadUserFlowAttribute(string name) : TerraformResource("
     /// The type of the user flow attribute
     /// </summary>
     public TerraformValue<string> AttributeType
-        => AsReference("attribute_type");
+        => CreateReference("attribute_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzurermStorageQueueDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermStorageQueueDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -83,13 +83,13 @@ public partial class AzurermStorageQueueDataSource(string name) : TerraformDataS
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

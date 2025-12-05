@@ -36,7 +36,7 @@ public partial class AzurermTrafficManagerProfileDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,31 +82,31 @@ public partial class AzurermTrafficManagerProfileDataSource(string name) : Terra
     /// The dns_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsConfig
-        => AsReference("dns_config");
+        => CreateReference("dns_config");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The monitor_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MonitorConfig
-        => AsReference("monitor_config");
+        => CreateReference("monitor_config");
 
     /// <summary>
     /// The profile_status attribute.
     /// </summary>
     public TerraformValue<string> ProfileStatus
-        => AsReference("profile_status");
+        => CreateReference("profile_status");
 
     /// <summary>
     /// The traffic_routing_method attribute.
     /// </summary>
     public TerraformValue<string> TrafficRoutingMethod
-        => AsReference("traffic_routing_method");
+        => CreateReference("traffic_routing_method");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

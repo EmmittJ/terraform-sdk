@@ -36,7 +36,7 @@ public partial class AzurermPrivateDnsZoneDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermPrivateDnsZoneDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? AsReference("resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? CreateReference("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -72,25 +72,25 @@ public partial class AzurermPrivateDnsZoneDataSource(string name) : TerraformDat
     /// The max_number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfRecordSets
-        => AsReference("max_number_of_record_sets");
+        => CreateReference("max_number_of_record_sets");
 
     /// <summary>
     /// The max_number_of_virtual_network_links attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfVirtualNetworkLinks
-        => AsReference("max_number_of_virtual_network_links");
+        => CreateReference("max_number_of_virtual_network_links");
 
     /// <summary>
     /// The max_number_of_virtual_network_links_with_registration attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfVirtualNetworkLinksWithRegistration
-        => AsReference("max_number_of_virtual_network_links_with_registration");
+        => CreateReference("max_number_of_virtual_network_links_with_registration");
 
     /// <summary>
     /// The number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> NumberOfRecordSets
-        => AsReference("number_of_record_sets");
+        => CreateReference("number_of_record_sets");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

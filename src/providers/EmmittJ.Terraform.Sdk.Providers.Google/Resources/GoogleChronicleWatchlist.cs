@@ -135,7 +135,7 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -187,7 +187,7 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> WatchlistId
     {
-        get => GetArgument<TerraformValue<string>>("watchlist_id") ?? AsReference("watchlist_id");
+        get => GetArgument<TerraformValue<string>>("watchlist_id") ?? CreateReference("watchlist_id");
         set => SetArgument("watchlist_id", value);
     }
 
@@ -195,13 +195,13 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// Output only. Time the watchlist was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Count of different types of entities in the watchlist.
     /// </summary>
     public TerraformList<TerraformMap<object>> EntityCount
-        => AsReference("entity_count");
+        => CreateReference("entity_count");
 
     /// <summary>
     /// Identifier. Resource name of the watchlist. This unique identifier is generated using values provided for the URL parameters.
@@ -209,13 +209,13 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// projects/{project}/locations/{location}/instances/{instance}/watchlists/{watchlist}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Time the watchlist was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// EntityPopulationMechanism block (nesting mode: list).

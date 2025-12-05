@@ -18,7 +18,7 @@ public class AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool> ReadOnlyAttribute
     {
-        get => GetArgument<TerraformValue<bool>>("read_only") ?? AsReference("read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only") ?? CreateReference("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -293,7 +293,7 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> DailyAutomaticBackupStartTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? AsReference("daily_automatic_backup_start_time");
+        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? CreateReference("daily_automatic_backup_start_time");
         set => SetArgument("daily_automatic_backup_start_time", value);
     }
 
@@ -321,7 +321,7 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> EndpointIpAddressRange
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_range") ?? AsReference("endpoint_ip_address_range");
+        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_range") ?? CreateReference("endpoint_ip_address_range");
         set => SetArgument("endpoint_ip_address_range", value);
     }
 
@@ -339,7 +339,7 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -348,7 +348,7 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -366,7 +366,7 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -375,7 +375,7 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string> RouteTableIds
     {
-        get => GetArgument<TerraformSet<string>>("route_table_ids") ?? AsReference("route_table_ids");
+        get => GetArgument<TerraformSet<string>>("route_table_ids") ?? CreateReference("route_table_ids");
         set => SetArgument("route_table_ids", value);
     }
 
@@ -439,7 +439,7 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -458,7 +458,7 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> WeeklyMaintenanceStartTime
     {
-        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? AsReference("weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? CreateReference("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 
@@ -466,43 +466,43 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The endpoint_ip_address attribute.
     /// </summary>
     public TerraformValue<string> EndpointIpAddress
-        => AsReference("endpoint_ip_address");
+        => CreateReference("endpoint_ip_address");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformList<string> NetworkInterfaceIds
-        => AsReference("network_interface_ids");
+        => CreateReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The root_volume_id attribute.
     /// </summary>
     public TerraformValue<string> RootVolumeId
-        => AsReference("root_volume_id");
+        => CreateReference("root_volume_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// DiskIopsConfiguration block (nesting mode: list).

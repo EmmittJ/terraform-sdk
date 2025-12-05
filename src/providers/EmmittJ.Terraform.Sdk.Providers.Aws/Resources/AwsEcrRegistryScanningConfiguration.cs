@@ -82,7 +82,7 @@ public partial class AwsEcrRegistryScanningConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsEcrRegistryScanningConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsEcrRegistryScanningConfiguration(string name) : Terrafor
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-        => AsReference("registry_id");
+        => CreateReference("registry_id");
 
     /// <summary>
     /// Rule block (nesting mode: set).

@@ -77,7 +77,7 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -131,26 +131,26 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     /// The time at which the Secret was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The time at which the Secret was destroyed. Only present if state is DESTROYED.
     /// </summary>
     public TerraformValue<string> DestroyTime
-        => AsReference("destroy_time");
+        => CreateReference("destroy_time");
 
     /// <summary>
     /// The resource name of the SecretVersion. Format:
     /// &#39;projects/{{project}}/secrets/{{secret_id}}/versions/{{version}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The version of the Secret.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

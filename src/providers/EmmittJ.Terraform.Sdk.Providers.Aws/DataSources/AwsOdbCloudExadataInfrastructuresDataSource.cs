@@ -13,7 +13,7 @@ public partial class AwsOdbCloudExadataInfrastructuresDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,6 +21,6 @@ public partial class AwsOdbCloudExadataInfrastructuresDataSource(string name) : 
     /// List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudExadataInfrastructures
-        => AsReference("cloud_exadata_infrastructures");
+        => CreateReference("cloud_exadata_infrastructures");
 
 }

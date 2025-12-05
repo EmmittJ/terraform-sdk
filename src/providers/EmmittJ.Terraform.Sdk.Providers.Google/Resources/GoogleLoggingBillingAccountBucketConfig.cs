@@ -37,13 +37,13 @@ public class GoogleLoggingBillingAccountBucketConfigCmekSettingsBlock : Terrafor
     /// This is a read-only field used to convey the specific configured CryptoKeyVersion of kms_key that has been configured. It will be populated in cases where the CMEK settings are bound to a single key version.
     /// </summary>
     public TerraformValue<string> KmsKeyVersionName
-        => AsReference("kms_key_version_name");
+        => CreateReference("kms_key_version_name");
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
@@ -51,7 +51,7 @@ public class GoogleLoggingBillingAccountBucketConfigCmekSettingsBlock : Terrafor
     /// See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-        => AsReference("service_account_id");
+        => CreateReference("service_account_id");
 
 }
 
@@ -123,7 +123,7 @@ public partial class GoogleLoggingBillingAccountBucketConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleLoggingBillingAccountBucketConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -159,13 +159,13 @@ public partial class GoogleLoggingBillingAccountBucketConfig(string name) : Terr
     /// The bucket&#39;s lifecycle such as active or deleted.
     /// </summary>
     public TerraformValue<string> LifecycleState
-        => AsReference("lifecycle_state");
+        => CreateReference("lifecycle_state");
 
     /// <summary>
     /// The resource name of the bucket
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// CmekSettings block (nesting mode: list).

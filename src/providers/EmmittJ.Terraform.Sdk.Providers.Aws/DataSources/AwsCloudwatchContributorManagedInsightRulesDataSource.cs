@@ -13,7 +13,7 @@ public partial class AwsCloudwatchContributorManagedInsightRulesDataSource(strin
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,6 +31,6 @@ public partial class AwsCloudwatchContributorManagedInsightRulesDataSource(strin
     /// The managed_rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedRules
-        => AsReference("managed_rules");
+        => CreateReference("managed_rules");
 
 }

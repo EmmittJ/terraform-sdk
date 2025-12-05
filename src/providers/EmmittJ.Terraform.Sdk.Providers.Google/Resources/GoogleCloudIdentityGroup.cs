@@ -121,7 +121,7 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -174,26 +174,26 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     /// Additional group keys associated with the Group
     /// </summary>
     public TerraformList<TerraformMap<object>> AdditionalGroupKeys
-        => AsReference("additional_group_keys");
+        => CreateReference("additional_group_keys");
 
     /// <summary>
     /// The time when the Group was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Resource name of the Group in the format: groups/{group_id}, where group_id
     /// is the unique ID assigned to the Group.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The time when the Group was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// GroupKey block (nesting mode: list).

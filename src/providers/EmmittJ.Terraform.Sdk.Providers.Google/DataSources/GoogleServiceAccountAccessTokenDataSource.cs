@@ -22,7 +22,7 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -59,6 +59,6 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     /// The access_token attribute.
     /// </summary>
     public TerraformValue<string> AccessToken
-        => AsReference("access_token");
+        => CreateReference("access_token");
 
 }

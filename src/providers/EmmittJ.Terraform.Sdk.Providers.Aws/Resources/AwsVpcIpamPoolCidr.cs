@@ -77,7 +77,7 @@ public partial class AwsVpcIpamPoolCidr(string name) : TerraformResource("aws_vp
     /// </summary>
     public TerraformValue<string> Cidr
     {
-        get => GetArgument<TerraformValue<string>>("cidr") ?? AsReference("cidr");
+        get => GetArgument<TerraformValue<string>>("cidr") ?? CreateReference("cidr");
         set => SetArgument("cidr", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsVpcIpamPoolCidr(string name) : TerraformResource("aws_vp
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsVpcIpamPoolCidr(string name) : TerraformResource("aws_vp
     /// </summary>
     public TerraformValue<double> NetmaskLength
     {
-        get => GetArgument<TerraformValue<double>>("netmask_length") ?? AsReference("netmask_length");
+        get => GetArgument<TerraformValue<double>>("netmask_length") ?? CreateReference("netmask_length");
         set => SetArgument("netmask_length", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsVpcIpamPoolCidr(string name) : TerraformResource("aws_vp
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsVpcIpamPoolCidr(string name) : TerraformResource("aws_vp
     /// The ipam_pool_cidr_id attribute.
     /// </summary>
     public TerraformValue<string> IpamPoolCidrId
-        => AsReference("ipam_pool_cidr_id");
+        => CreateReference("ipam_pool_cidr_id");
 
     /// <summary>
     /// CidrAuthorizationContext block (nesting mode: list).

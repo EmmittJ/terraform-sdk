@@ -64,7 +64,7 @@ public partial class AwsOpensearchserverlessCollection(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsOpensearchserverlessCollection(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> StandbyReplicas
     {
-        get => GetArgument<TerraformValue<string>>("standby_replicas") ?? AsReference("standby_replicas");
+        get => GetArgument<TerraformValue<string>>("standby_replicas") ?? CreateReference("standby_replicas");
         set => SetArgument("standby_replicas", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsOpensearchserverlessCollection(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -99,37 +99,37 @@ public partial class AwsOpensearchserverlessCollection(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
     /// </summary>
     public TerraformValue<string> CollectionEndpoint
-        => AsReference("collection_endpoint");
+        => CreateReference("collection_endpoint");
 
     /// <summary>
     /// Collection-specific endpoint used to access OpenSearch Dashboards.
     /// </summary>
     public TerraformValue<string> DashboardEndpoint
-        => AsReference("dashboard_endpoint");
+        => CreateReference("dashboard_endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
     /// </summary>
     public TerraformValue<string> KmsKeyArn
-        => AsReference("kms_key_arn");
+        => CreateReference("kms_key_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

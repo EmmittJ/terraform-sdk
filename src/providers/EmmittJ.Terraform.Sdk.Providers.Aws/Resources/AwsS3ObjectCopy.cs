@@ -120,7 +120,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> Acl
     {
-        get => GetArgument<TerraformValue<string>>("acl") ?? AsReference("acl");
+        get => GetArgument<TerraformValue<string>>("acl") ?? CreateReference("acl");
         set => SetArgument("acl", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<bool> BucketKeyEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("bucket_key_enabled") ?? AsReference("bucket_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("bucket_key_enabled") ?? CreateReference("bucket_key_enabled");
         set => SetArgument("bucket_key_enabled", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> CacheControl
     {
-        get => GetArgument<TerraformValue<string>>("cache_control") ?? AsReference("cache_control");
+        get => GetArgument<TerraformValue<string>>("cache_control") ?? CreateReference("cache_control");
         set => SetArgument("cache_control", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> ContentDisposition
     {
-        get => GetArgument<TerraformValue<string>>("content_disposition") ?? AsReference("content_disposition");
+        get => GetArgument<TerraformValue<string>>("content_disposition") ?? CreateReference("content_disposition");
         set => SetArgument("content_disposition", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> ContentEncoding
     {
-        get => GetArgument<TerraformValue<string>>("content_encoding") ?? AsReference("content_encoding");
+        get => GetArgument<TerraformValue<string>>("content_encoding") ?? CreateReference("content_encoding");
         set => SetArgument("content_encoding", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> ContentLanguage
     {
-        get => GetArgument<TerraformValue<string>>("content_language") ?? AsReference("content_language");
+        get => GetArgument<TerraformValue<string>>("content_language") ?? CreateReference("content_language");
         set => SetArgument("content_language", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type") ?? AsReference("content_type");
+        get => GetArgument<TerraformValue<string>>("content_type") ?? CreateReference("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> CustomerAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("customer_algorithm") ?? AsReference("customer_algorithm");
+        get => GetArgument<TerraformValue<string>>("customer_algorithm") ?? CreateReference("customer_algorithm");
         set => SetArgument("customer_algorithm", value);
     }
 
@@ -256,7 +256,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> CustomerKeyMd5
     {
-        get => GetArgument<TerraformValue<string>>("customer_key_md5") ?? AsReference("customer_key_md5");
+        get => GetArgument<TerraformValue<string>>("customer_key_md5") ?? CreateReference("customer_key_md5");
         set => SetArgument("customer_key_md5", value);
     }
 
@@ -301,7 +301,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -320,7 +320,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> KmsEncryptionContext
     {
-        get => GetArgument<TerraformValue<string>>("kms_encryption_context") ?? AsReference("kms_encryption_context");
+        get => GetArgument<TerraformValue<string>>("kms_encryption_context") ?? CreateReference("kms_encryption_context");
         set => SetArgument("kms_encryption_context", value);
     }
 
@@ -329,7 +329,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -338,7 +338,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -356,7 +356,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> ObjectLockLegalHoldStatus
     {
-        get => GetArgument<TerraformValue<string>>("object_lock_legal_hold_status") ?? AsReference("object_lock_legal_hold_status");
+        get => GetArgument<TerraformValue<string>>("object_lock_legal_hold_status") ?? CreateReference("object_lock_legal_hold_status");
         set => SetArgument("object_lock_legal_hold_status", value);
     }
 
@@ -365,7 +365,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> ObjectLockMode
     {
-        get => GetArgument<TerraformValue<string>>("object_lock_mode") ?? AsReference("object_lock_mode");
+        get => GetArgument<TerraformValue<string>>("object_lock_mode") ?? CreateReference("object_lock_mode");
         set => SetArgument("object_lock_mode", value);
     }
 
@@ -374,7 +374,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> ObjectLockRetainUntilDate
     {
-        get => GetArgument<TerraformValue<string>>("object_lock_retain_until_date") ?? AsReference("object_lock_retain_until_date");
+        get => GetArgument<TerraformValue<string>>("object_lock_retain_until_date") ?? CreateReference("object_lock_retain_until_date");
         set => SetArgument("object_lock_retain_until_date", value);
     }
 
@@ -383,7 +383,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -401,7 +401,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> ServerSideEncryption
     {
-        get => GetArgument<TerraformValue<string>>("server_side_encryption") ?? AsReference("server_side_encryption");
+        get => GetArgument<TerraformValue<string>>("server_side_encryption") ?? CreateReference("server_side_encryption");
         set => SetArgument("server_side_encryption", value);
     }
 
@@ -447,7 +447,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("storage_class") ?? AsReference("storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class") ?? CreateReference("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -474,7 +474,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -483,7 +483,7 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// </summary>
     public TerraformValue<string> WebsiteRedirect
     {
-        get => GetArgument<TerraformValue<string>>("website_redirect") ?? AsReference("website_redirect");
+        get => GetArgument<TerraformValue<string>>("website_redirect") ?? CreateReference("website_redirect");
         set => SetArgument("website_redirect", value);
     }
 
@@ -491,73 +491,73 @@ public partial class AwsS3ObjectCopy(string name) : TerraformResource("aws_s3_ob
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The checksum_crc32 attribute.
     /// </summary>
     public TerraformValue<string> ChecksumCrc32
-        => AsReference("checksum_crc32");
+        => CreateReference("checksum_crc32");
 
     /// <summary>
     /// The checksum_crc32c attribute.
     /// </summary>
     public TerraformValue<string> ChecksumCrc32c
-        => AsReference("checksum_crc32c");
+        => CreateReference("checksum_crc32c");
 
     /// <summary>
     /// The checksum_crc64nvme attribute.
     /// </summary>
     public TerraformValue<string> ChecksumCrc64nvme
-        => AsReference("checksum_crc64nvme");
+        => CreateReference("checksum_crc64nvme");
 
     /// <summary>
     /// The checksum_sha1 attribute.
     /// </summary>
     public TerraformValue<string> ChecksumSha1
-        => AsReference("checksum_sha1");
+        => CreateReference("checksum_sha1");
 
     /// <summary>
     /// The checksum_sha256 attribute.
     /// </summary>
     public TerraformValue<string> ChecksumSha256
-        => AsReference("checksum_sha256");
+        => CreateReference("checksum_sha256");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
     public TerraformValue<string> Expiration
-        => AsReference("expiration");
+        => CreateReference("expiration");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The request_charged attribute.
     /// </summary>
     public TerraformValue<bool> RequestCharged
-        => AsReference("request_charged");
+        => CreateReference("request_charged");
 
     /// <summary>
     /// The source_version_id attribute.
     /// </summary>
     public TerraformValue<string> SourceVersionId
-        => AsReference("source_version_id");
+        => CreateReference("source_version_id");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     public TerraformValue<string> VersionId
-        => AsReference("version_id");
+        => CreateReference("version_id");
 
     /// <summary>
     /// Grant block (nesting mode: set).

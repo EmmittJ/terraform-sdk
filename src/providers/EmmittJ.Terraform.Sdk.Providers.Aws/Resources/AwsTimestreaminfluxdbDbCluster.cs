@@ -156,7 +156,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> DbStorageType
     {
-        get => GetArgument<TerraformValue<string>>("db_storage_type") ?? AsReference("db_storage_type");
+        get => GetArgument<TerraformValue<string>>("db_storage_type") ?? CreateReference("db_storage_type");
         set => SetArgument("db_storage_type", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> DeploymentType
     {
-        get => GetArgument<TerraformValue<string>>("deployment_type") ?? AsReference("deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type") ?? CreateReference("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> FailoverMode
     {
-        get => GetArgument<TerraformValue<string>>("failover_mode") ?? AsReference("failover_mode");
+        get => GetArgument<TerraformValue<string>>("failover_mode") ?? CreateReference("failover_mode");
         set => SetArgument("failover_mode", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> NetworkType
     {
-        get => GetArgument<TerraformValue<string>>("network_type") ?? AsReference("network_type");
+        get => GetArgument<TerraformValue<string>>("network_type") ?? CreateReference("network_type");
         set => SetArgument("network_type", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool> PubliclyAccessible
     {
-        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? AsReference("publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? CreateReference("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -304,19 +304,19 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the 
@@ -325,20 +325,20 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// 					username, and password.
     /// </summary>
     public TerraformValue<string> InfluxAuthParametersSecretArn
-        => AsReference("influx_auth_parameters_secret_arn");
+        => CreateReference("influx_auth_parameters_secret_arn");
 
     /// <summary>
     /// The endpoint used to connect to the Timestream for InfluxDB cluster for 
     /// 					read-only operations.
     /// </summary>
     public TerraformValue<string> ReaderEndpoint
-        => AsReference("reader_endpoint");
+        => CreateReference("reader_endpoint");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// LogDeliveryConfiguration block (nesting mode: list).

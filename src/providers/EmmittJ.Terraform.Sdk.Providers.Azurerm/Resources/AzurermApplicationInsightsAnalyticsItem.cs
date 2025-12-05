@@ -92,7 +92,7 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,19 +130,19 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     /// The time_created attribute.
     /// </summary>
     public TerraformValue<string> TimeCreated
-        => AsReference("time_created");
+        => CreateReference("time_created");
 
     /// <summary>
     /// The time_modified attribute.
     /// </summary>
     public TerraformValue<string> TimeModified
-        => AsReference("time_modified");
+        => CreateReference("time_modified");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

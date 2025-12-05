@@ -56,7 +56,7 @@ public partial class GoogleComputeGlobalAddress(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Address
     {
-        get => GetArgument<TerraformValue<string>>("address") ?? AsReference("address");
+        get => GetArgument<TerraformValue<string>>("address") ?? CreateReference("address");
         set => SetArgument("address", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleComputeGlobalAddress(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -150,7 +150,7 @@ public partial class GoogleComputeGlobalAddress(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double> PrefixLength
     {
-        get => GetArgument<TerraformValue<double>>("prefix_length") ?? AsReference("prefix_length");
+        get => GetArgument<TerraformValue<double>>("prefix_length") ?? CreateReference("prefix_length");
         set => SetArgument("prefix_length", value);
     }
 
@@ -159,7 +159,7 @@ public partial class GoogleComputeGlobalAddress(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -180,33 +180,33 @@ public partial class GoogleComputeGlobalAddress(string name) : TerraformResource
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

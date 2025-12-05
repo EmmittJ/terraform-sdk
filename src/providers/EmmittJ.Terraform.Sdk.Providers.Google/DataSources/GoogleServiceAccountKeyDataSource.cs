@@ -13,7 +13,7 @@ public partial class GoogleServiceAccountKeyDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,12 +40,12 @@ public partial class GoogleServiceAccountKeyDataSource(string name) : TerraformD
     /// The key_algorithm attribute.
     /// </summary>
     public TerraformValue<string> KeyAlgorithm
-        => AsReference("key_algorithm");
+        => CreateReference("key_algorithm");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
 }

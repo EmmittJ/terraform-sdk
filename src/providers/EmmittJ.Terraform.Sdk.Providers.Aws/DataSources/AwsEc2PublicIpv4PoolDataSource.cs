@@ -13,7 +13,7 @@ public partial class AwsEc2PublicIpv4PoolDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsEc2PublicIpv4PoolDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsEc2PublicIpv4PoolDataSource(string name) : TerraformData
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,30 +49,30 @@ public partial class AwsEc2PublicIpv4PoolDataSource(string name) : TerraformData
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The network_border_group attribute.
     /// </summary>
     public TerraformValue<string> NetworkBorderGroup
-        => AsReference("network_border_group");
+        => CreateReference("network_border_group");
 
     /// <summary>
     /// The pool_address_ranges attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PoolAddressRanges
-        => AsReference("pool_address_ranges");
+        => CreateReference("pool_address_ranges");
 
     /// <summary>
     /// The total_address_count attribute.
     /// </summary>
     public TerraformValue<double> TotalAddressCount
-        => AsReference("total_address_count");
+        => CreateReference("total_address_count");
 
     /// <summary>
     /// The total_available_address_count attribute.
     /// </summary>
     public TerraformValue<double> TotalAvailableAddressCount
-        => AsReference("total_available_address_count");
+        => CreateReference("total_available_address_count");
 
 }

@@ -69,7 +69,7 @@ public class AwsRoute53ZoneVpcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VpcRegion
     {
-        get => GetArgument<TerraformValue<string>>("vpc_region") ?? AsReference("vpc_region");
+        get => GetArgument<TerraformValue<string>>("vpc_region") ?? CreateReference("vpc_region");
         set => SetArgument("vpc_region", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -150,25 +150,25 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformList<string> NameServers
-        => AsReference("name_servers");
+        => CreateReference("name_servers");
 
     /// <summary>
     /// The primary_name_server attribute.
     /// </summary>
     public TerraformValue<string> PrimaryNameServer
-        => AsReference("primary_name_server");
+        => CreateReference("primary_name_server");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     public TerraformValue<string> ZoneId
-        => AsReference("zone_id");
+        => CreateReference("zone_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

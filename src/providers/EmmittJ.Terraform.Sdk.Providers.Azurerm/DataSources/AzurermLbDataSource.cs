@@ -36,7 +36,7 @@ public partial class AzurermLbDataSource(string name) : TerraformDataSource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermLbDataSource(string name) : TerraformDataSource("azu
     /// The frontend_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FrontendIpConfiguration
-        => AsReference("frontend_ip_configuration");
+        => CreateReference("frontend_ip_configuration");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-        => AsReference("private_ip_addresses");
+        => CreateReference("private_ip_addresses");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

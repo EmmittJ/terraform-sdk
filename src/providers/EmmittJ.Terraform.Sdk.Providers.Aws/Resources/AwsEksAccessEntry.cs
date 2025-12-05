@@ -55,7 +55,7 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     /// </summary>
     public TerraformSet<string> KubernetesGroups
     {
-        get => GetArgument<TerraformSet<string>>("kubernetes_groups") ?? AsReference("kubernetes_groups");
+        get => GetArgument<TerraformSet<string>>("kubernetes_groups") ?? CreateReference("kubernetes_groups");
         set => SetArgument("kubernetes_groups", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     /// </summary>
     public TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name") ?? AsReference("user_name");
+        get => GetArgument<TerraformValue<string>>("user_name") ?? CreateReference("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -127,19 +127,19 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     /// The access_entry_arn attribute.
     /// </summary>
     public TerraformValue<string> AccessEntryArn
-        => AsReference("access_entry_arn");
+        => CreateReference("access_entry_arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
     public TerraformValue<string> ModifiedAt
-        => AsReference("modified_at");
+        => CreateReference("modified_at");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

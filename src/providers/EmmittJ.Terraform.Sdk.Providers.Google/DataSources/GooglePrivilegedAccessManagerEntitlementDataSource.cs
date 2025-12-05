@@ -24,7 +24,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource(string n
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,33 +50,33 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource(string n
     /// AdditionalNotificationTargets includes email addresses to be notified.
     /// </summary>
     public TerraformList<TerraformMap<object>> AdditionalNotificationTargets
-        => AsReference("additional_notification_targets");
+        => CreateReference("additional_notification_targets");
 
     /// <summary>
     /// The approvals needed before access will be granted to a requester.
     /// No approvals will be needed if this field is null. Different types of approval workflows that can be used to gate privileged access granting.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApprovalWorkflow
-        => AsReference("approval_workflow");
+        => CreateReference("approval_workflow");
 
     /// <summary>
     /// Output only. Create time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Who can create Grants using Entitlement. This list should contain at most one entry
     /// </summary>
     public TerraformList<TerraformMap<object>> EligibleUsers
-        => AsReference("eligible_users");
+        => CreateReference("eligible_users");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The maximum amount of time for which access would be granted for a request.
@@ -84,38 +84,38 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource(string n
     /// Format: calculate the time in seconds and concatenate it with &#39;s&#39; i.e. 2 hours = &amp;quot;7200s&amp;quot;, 45 minutes = &amp;quot;2700s&amp;quot;
     /// </summary>
     public TerraformValue<string> MaxRequestDuration
-        => AsReference("max_request_duration");
+        => CreateReference("max_request_duration");
 
     /// <summary>
     /// Output Only. The entitlement&#39;s name follows a hierarchical structure, comprising the organization, folder, or project, alongside the region and a unique entitlement ID.
     /// Formats: organizations/{organization-number}/locations/{region}/entitlements/{entitlement-id}, folders/{folder-number}/locations/{region}/entitlements/{entitlement-id}, and projects/{project-id|project-number}/locations/{region}/entitlements/{entitlement-id}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Privileged access that this service can be used to gate.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivilegedAccess
-        => AsReference("privileged_access");
+        => CreateReference("privileged_access");
 
     /// <summary>
     /// Defines the ways in which a requester should provide the justification while requesting for access.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequesterJustificationConfig
-        => AsReference("requester_justification_config");
+        => CreateReference("requester_justification_config");
 
     /// <summary>
     /// Output only. The current state of the Entitlement.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. Update time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

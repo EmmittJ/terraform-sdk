@@ -21,6 +21,6 @@ public partial class AwsBillingViewsDataSource(string name) : TerraformDataSourc
     /// The billing_view attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BillingView
-        => AsReference("billing_view");
+        => CreateReference("billing_view");
 
 }

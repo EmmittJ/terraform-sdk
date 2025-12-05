@@ -131,7 +131,7 @@ public partial class AwsBackupRestoreTestingSelection(string name) : TerraformRe
     /// </summary>
     public TerraformSet<string> ProtectedResourceArns
     {
-        get => GetArgument<TerraformSet<string>>("protected_resource_arns") ?? AsReference("protected_resource_arns");
+        get => GetArgument<TerraformSet<string>>("protected_resource_arns") ?? CreateReference("protected_resource_arns");
         set => SetArgument("protected_resource_arns", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsBackupRestoreTestingSelection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsBackupRestoreTestingSelection(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string> RestoreMetadataOverrides
     {
-        get => GetArgument<TerraformMap<string>>("restore_metadata_overrides") ?? AsReference("restore_metadata_overrides");
+        get => GetArgument<TerraformMap<string>>("restore_metadata_overrides") ?? CreateReference("restore_metadata_overrides");
         set => SetArgument("restore_metadata_overrides", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsBackupRestoreTestingSelection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double> ValidationWindowHours
     {
-        get => GetArgument<TerraformValue<double>>("validation_window_hours") ?? AsReference("validation_window_hours");
+        get => GetArgument<TerraformValue<double>>("validation_window_hours") ?? CreateReference("validation_window_hours");
         set => SetArgument("validation_window_hours", value);
     }
 

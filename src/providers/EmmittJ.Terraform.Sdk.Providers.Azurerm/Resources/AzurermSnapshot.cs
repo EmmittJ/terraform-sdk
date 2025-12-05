@@ -185,7 +185,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -295,7 +295,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// The trusted_launch_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TrustedLaunchEnabled
-        => AsReference("trusted_launch_enabled");
+        => CreateReference("trusted_launch_enabled");
 
     /// <summary>
     /// EncryptionSettings block (nesting mode: list).

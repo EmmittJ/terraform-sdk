@@ -99,7 +99,7 @@ public partial class AwsDatazoneFormType(string name) : TerraformResource("aws_d
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsDatazoneFormType(string name) : TerraformResource("aws_d
     /// </summary>
     public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? CreateReference("status");
         set => SetArgument("status", value);
     }
 
@@ -116,37 +116,37 @@ public partial class AwsDatazoneFormType(string name) : TerraformResource("aws_d
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-        => AsReference("created_by");
+        => CreateReference("created_by");
 
     /// <summary>
     /// The imports attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Imports
-        => AsReference("imports");
+        => CreateReference("imports");
 
     /// <summary>
     /// The origin_domain_id attribute.
     /// </summary>
     public TerraformValue<string> OriginDomainId
-        => AsReference("origin_domain_id");
+        => CreateReference("origin_domain_id");
 
     /// <summary>
     /// The origin_project_id attribute.
     /// </summary>
     public TerraformValue<string> OriginProjectId
-        => AsReference("origin_project_id");
+        => CreateReference("origin_project_id");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     public TerraformValue<string> Revision
-        => AsReference("revision");
+        => CreateReference("revision");
 
     /// <summary>
     /// Model block (nesting mode: list).

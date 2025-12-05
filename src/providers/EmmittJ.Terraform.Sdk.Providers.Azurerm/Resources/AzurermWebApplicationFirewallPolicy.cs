@@ -496,7 +496,7 @@ public class AzurermWebApplicationFirewallPolicyPolicySettingsBlock : TerraformB
     /// </summary>
     public TerraformValue<bool> FileUploadEnforcement
     {
-        get => GetArgument<TerraformValue<bool>>("file_upload_enforcement") ?? AsReference("file_upload_enforcement");
+        get => GetArgument<TerraformValue<bool>>("file_upload_enforcement") ?? CreateReference("file_upload_enforcement");
         set => SetArgument("file_upload_enforcement", value);
     }
 
@@ -718,7 +718,7 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -765,13 +765,13 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     /// The http_listener_ids attribute.
     /// </summary>
     public TerraformList<string> HttpListenerIds
-        => AsReference("http_listener_ids");
+        => CreateReference("http_listener_ids");
 
     /// <summary>
     /// The path_based_rule_ids attribute.
     /// </summary>
     public TerraformList<string> PathBasedRuleIds
-        => AsReference("path_based_rule_ids");
+        => CreateReference("path_based_rule_ids");
 
     /// <summary>
     /// CustomRules block (nesting mode: list).

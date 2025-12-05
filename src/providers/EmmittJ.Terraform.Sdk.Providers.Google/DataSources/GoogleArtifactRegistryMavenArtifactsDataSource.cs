@@ -13,7 +13,7 @@ public partial class GoogleArtifactRegistryMavenArtifactsDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,6 +50,6 @@ public partial class GoogleArtifactRegistryMavenArtifactsDataSource(string name)
     /// The maven_artifacts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MavenArtifacts
-        => AsReference("maven_artifacts");
+        => CreateReference("maven_artifacts");
 
 }

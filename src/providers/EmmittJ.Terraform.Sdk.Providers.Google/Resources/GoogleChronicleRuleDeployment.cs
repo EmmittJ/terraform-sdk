@@ -88,7 +88,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -148,7 +148,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// Output only. The timestamp when the rule deployment archive state was last set to true. If the rule deployment&#39;s current archive state is not set to true, the field will be empty.
     /// </summary>
     public TerraformValue<string> ArchiveTime
-        => AsReference("archive_time");
+        => CreateReference("archive_time");
 
     /// <summary>
     /// Output only. The names of the associated/chained consumer rules. Rules are considered
@@ -157,7 +157,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// projects/{project}/locations/{location}/instances/{instance}/rules/{rule}
     /// </summary>
     public TerraformList<string> ConsumerRules
-        => AsReference("consumer_rules");
+        => CreateReference("consumer_rules");
 
     /// <summary>
     /// The execution state of the rule deployment.
@@ -167,13 +167,13 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// PAUSED
     /// </summary>
     public TerraformValue<string> ExecutionState
-        => AsReference("execution_state");
+        => CreateReference("execution_state");
 
     /// <summary>
     /// Output only. The timestamp when the rule deployment alert state was lastly changed. This is filled regardless of the current alert state.E.g. if the current alert status is false, this timestamp will be the timestamp when the alert status was changed to false.
     /// </summary>
     public TerraformValue<string> LastAlertStatusChangeTime
-        => AsReference("last_alert_status_change_time");
+        => CreateReference("last_alert_status_change_time");
 
     /// <summary>
     /// The resource name of the rule deployment.
@@ -184,7 +184,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// projects/{project}/locations/{location}/instances/{instance}/rules/{rule}/deployment
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The names of the associated/chained producer rules. Rules are considered
@@ -193,7 +193,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// projects/{project}/locations/{location}/instances/{instance}/rules/{rule}
     /// </summary>
     public TerraformList<string> ProducerRules
-        => AsReference("producer_rules");
+        => CreateReference("producer_rules");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

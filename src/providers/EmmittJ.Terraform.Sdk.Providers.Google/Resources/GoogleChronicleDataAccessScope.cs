@@ -40,7 +40,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
     /// The ingestion key value pair will match the key of the tuple.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The name of the log type.
@@ -136,7 +136,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
     /// The ingestion key value pair will match the key of the tuple.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The name of the log type.
@@ -283,7 +283,7 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -312,7 +312,7 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -320,25 +320,25 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     /// Output only. The user who created the data access scope.
     /// </summary>
     public TerraformValue<string> Author
-        => AsReference("author");
+        => CreateReference("author");
 
     /// <summary>
     /// Output only. The time at which the data access scope was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. The name to be used for display to customers of the data access scope.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Output only. The user who last updated the data access scope.
     /// </summary>
     public TerraformValue<string> LastEditor
-        => AsReference("last_editor");
+        => CreateReference("last_editor");
 
     /// <summary>
     /// The unique full name of the data access scope. This unique identifier is generated using values provided for the URL parameters.
@@ -346,13 +346,13 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     /// projects/{project}/locations/{location}/instances/{instance}/dataAccessScopes/{data_access_scope_id}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The time at which the data access scope was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// AllowedDataAccessLabels block (nesting mode: list).

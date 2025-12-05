@@ -22,7 +22,7 @@ public partial class AwsSagemakerPrebuiltEcrImageDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsSagemakerPrebuiltEcrImageDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,12 +58,12 @@ public partial class AwsSagemakerPrebuiltEcrImageDataSource(string name) : Terra
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-        => AsReference("registry_id");
+        => CreateReference("registry_id");
 
     /// <summary>
     /// The registry_path attribute.
     /// </summary>
     public TerraformValue<string> RegistryPath
-        => AsReference("registry_path");
+        => CreateReference("registry_path");
 
 }

@@ -286,7 +286,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -360,7 +360,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// The instance_view attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceView
-        => AsReference("instance_view");
+        => CreateReference("instance_view");
 
     /// <summary>
     /// ErrorBlobManagedIdentity block (nesting mode: list).

@@ -107,7 +107,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DefaultTtl
     {
-        get => GetArgument<TerraformValue<double>>("default_ttl") ?? AsReference("default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl") ?? CreateReference("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxTtl
     {
-        get => GetArgument<TerraformValue<double>>("max_ttl") ?? AsReference("max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl") ?? CreateReference("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> TrustedKeyGroups
     {
-        get => GetArgument<TerraformList<string>>("trusted_key_groups") ?? AsReference("trusted_key_groups");
+        get => GetArgument<TerraformList<string>>("trusted_key_groups") ?? CreateReference("trusted_key_groups");
         set => SetArgument("trusted_key_groups", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> TrustedSigners
     {
-        get => GetArgument<TerraformList<string>>("trusted_signers") ?? AsReference("trusted_signers");
+        get => GetArgument<TerraformList<string>>("trusted_signers") ?? CreateReference("trusted_signers");
         set => SetArgument("trusted_signers", value);
     }
 
@@ -270,7 +270,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockForwardedValuesBl
     /// </summary>
     public TerraformSet<string> Headers
     {
-        get => GetArgument<TerraformSet<string>>("headers") ?? AsReference("headers");
+        get => GetArgument<TerraformSet<string>>("headers") ?? CreateReference("headers");
         set => SetArgument("headers", value);
     }
 
@@ -289,7 +289,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockForwardedValuesBl
     /// </summary>
     public TerraformList<string> QueryStringCacheKeys
     {
-        get => GetArgument<TerraformList<string>>("query_string_cache_keys") ?? AsReference("query_string_cache_keys");
+        get => GetArgument<TerraformList<string>>("query_string_cache_keys") ?? CreateReference("query_string_cache_keys");
         set => SetArgument("query_string_cache_keys", value);
     }
 
@@ -334,7 +334,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockForwardedValuesBl
     /// </summary>
     public TerraformSet<string> WhitelistedNames
     {
-        get => GetArgument<TerraformSet<string>>("whitelisted_names") ?? AsReference("whitelisted_names");
+        get => GetArgument<TerraformSet<string>>("whitelisted_names") ?? CreateReference("whitelisted_names");
         set => SetArgument("whitelisted_names", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockGrpcConfigBlock :
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -534,7 +534,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DefaultTtl
     {
-        get => GetArgument<TerraformValue<double>>("default_ttl") ?? AsReference("default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl") ?? CreateReference("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -552,7 +552,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxTtl
     {
-        get => GetArgument<TerraformValue<double>>("max_ttl") ?? AsReference("max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl") ?? CreateReference("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -707,7 +707,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockForwardedValuesBl
     /// </summary>
     public TerraformSet<string> Headers
     {
-        get => GetArgument<TerraformSet<string>>("headers") ?? AsReference("headers");
+        get => GetArgument<TerraformSet<string>>("headers") ?? CreateReference("headers");
         set => SetArgument("headers", value);
     }
 
@@ -726,7 +726,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockForwardedValuesBl
     /// </summary>
     public TerraformList<string> QueryStringCacheKeys
     {
-        get => GetArgument<TerraformList<string>>("query_string_cache_keys") ?? AsReference("query_string_cache_keys");
+        get => GetArgument<TerraformList<string>>("query_string_cache_keys") ?? CreateReference("query_string_cache_keys");
         set => SetArgument("query_string_cache_keys", value);
     }
 
@@ -826,7 +826,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockGrpcConfigBlock :
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -947,7 +947,7 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ResponseCompletionTimeout
     {
-        get => GetArgument<TerraformValue<double>>("response_completion_timeout") ?? AsReference("response_completion_timeout");
+        get => GetArgument<TerraformValue<double>>("response_completion_timeout") ?? CreateReference("response_completion_timeout");
         set => SetArgument("response_completion_timeout", value);
     }
 
@@ -1348,7 +1348,7 @@ public class AwsCloudfrontDistributionRestrictionsBlockGeoRestrictionBlock : Ter
     /// </summary>
     public TerraformSet<string> Locations
     {
-        get => GetArgument<TerraformSet<string>>("locations") ?? AsReference("locations");
+        get => GetArgument<TerraformSet<string>>("locations") ?? CreateReference("locations");
         set => SetArgument("locations", value);
     }
 
@@ -1462,7 +1462,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> ContinuousDeploymentPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("continuous_deployment_policy_id") ?? AsReference("continuous_deployment_policy_id");
+        get => GetArgument<TerraformValue<string>>("continuous_deployment_policy_id") ?? CreateReference("continuous_deployment_policy_id");
         set => SetArgument("continuous_deployment_policy_id", value);
     }
 
@@ -1499,7 +1499,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1553,7 +1553,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1579,61 +1579,61 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-        => AsReference("caller_reference");
+        => CreateReference("caller_reference");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-        => AsReference("domain_name");
+        => CreateReference("domain_name");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The in_progress_validation_batches attribute.
     /// </summary>
     public TerraformValue<double> InProgressValidationBatches
-        => AsReference("in_progress_validation_batches");
+        => CreateReference("in_progress_validation_batches");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-        => AsReference("last_modified_time");
+        => CreateReference("last_modified_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The trusted_key_groups attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrustedKeyGroups
-        => AsReference("trusted_key_groups");
+        => CreateReference("trusted_key_groups");
 
     /// <summary>
     /// The trusted_signers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrustedSigners
-        => AsReference("trusted_signers");
+        => CreateReference("trusted_signers");
 
     /// <summary>
     /// CustomErrorResponse block (nesting mode: set).

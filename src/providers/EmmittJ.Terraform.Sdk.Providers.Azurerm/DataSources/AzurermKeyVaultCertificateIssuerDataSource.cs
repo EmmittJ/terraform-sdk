@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,25 +64,25 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource(string name) : T
     /// The account_id attribute.
     /// </summary>
     public TerraformValue<string> AccountId
-        => AsReference("account_id");
+        => CreateReference("account_id");
 
     /// <summary>
     /// The admin attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Admin
-        => AsReference("admin");
+        => CreateReference("admin");
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     public TerraformValue<string> OrgId
-        => AsReference("org_id");
+        => CreateReference("org_id");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     public TerraformValue<string> ProviderName
-        => AsReference("provider_name");
+        => CreateReference("provider_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

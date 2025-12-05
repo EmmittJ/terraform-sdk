@@ -36,7 +36,7 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,25 +64,25 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The quota_size_in_kib attribute.
     /// </summary>
     public TerraformValue<double> QuotaSizeInKib
-        => AsReference("quota_size_in_kib");
+        => CreateReference("quota_size_in_kib");
 
     /// <summary>
     /// The quota_target attribute.
     /// </summary>
     public TerraformValue<string> QuotaTarget
-        => AsReference("quota_target");
+        => CreateReference("quota_target");
 
     /// <summary>
     /// The quota_type attribute.
     /// </summary>
     public TerraformValue<string> QuotaType
-        => AsReference("quota_type");
+        => CreateReference("quota_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock
     /// </summary>
     public TerraformValue<string> ConsumerGroupId
     {
-        get => GetArgument<TerraformValue<string>>("consumer_group_id") ?? AsReference("consumer_group_id");
+        get => GetArgument<TerraformValue<string>>("consumer_group_id") ?? CreateReference("consumer_group_id");
         set => SetArgument("consumer_group_id", value);
     }
 
@@ -312,7 +312,7 @@ public class AwsLambdaEventSourceMappingProvisionedPollerConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double> MaximumPollers
     {
-        get => GetArgument<TerraformValue<double>>("maximum_pollers") ?? AsReference("maximum_pollers");
+        get => GetArgument<TerraformValue<double>>("maximum_pollers") ?? CreateReference("maximum_pollers");
         set => SetArgument("maximum_pollers", value);
     }
 
@@ -321,7 +321,7 @@ public class AwsLambdaEventSourceMappingProvisionedPollerConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double> MinimumPollers
     {
-        get => GetArgument<TerraformValue<double>>("minimum_pollers") ?? AsReference("minimum_pollers");
+        get => GetArgument<TerraformValue<double>>("minimum_pollers") ?? CreateReference("minimum_pollers");
         set => SetArgument("minimum_pollers", value);
     }
 
@@ -391,7 +391,7 @@ public class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock :
     /// </summary>
     public TerraformValue<string> ConsumerGroupId
     {
-        get => GetArgument<TerraformValue<string>>("consumer_group_id") ?? AsReference("consumer_group_id");
+        get => GetArgument<TerraformValue<string>>("consumer_group_id") ?? CreateReference("consumer_group_id");
         set => SetArgument("consumer_group_id", value);
     }
 
@@ -610,7 +610,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -637,7 +637,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> MaximumRecordAgeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds") ?? AsReference("maximum_record_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds") ?? CreateReference("maximum_record_age_in_seconds");
         set => SetArgument("maximum_record_age_in_seconds", value);
     }
 
@@ -646,7 +646,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> MaximumRetryAttempts
     {
-        get => GetArgument<TerraformValue<double>>("maximum_retry_attempts") ?? AsReference("maximum_retry_attempts");
+        get => GetArgument<TerraformValue<double>>("maximum_retry_attempts") ?? CreateReference("maximum_retry_attempts");
         set => SetArgument("maximum_retry_attempts", value);
     }
 
@@ -655,7 +655,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> ParallelizationFactor
     {
-        get => GetArgument<TerraformValue<double>>("parallelization_factor") ?? AsReference("parallelization_factor");
+        get => GetArgument<TerraformValue<double>>("parallelization_factor") ?? CreateReference("parallelization_factor");
         set => SetArgument("parallelization_factor", value);
     }
 
@@ -673,7 +673,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -709,7 +709,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -735,43 +735,43 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
     public TerraformValue<string> FunctionArn
-        => AsReference("function_arn");
+        => CreateReference("function_arn");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The last_processing_result attribute.
     /// </summary>
     public TerraformValue<string> LastProcessingResult
-        => AsReference("last_processing_result");
+        => CreateReference("last_processing_result");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The state_transition_reason attribute.
     /// </summary>
     public TerraformValue<string> StateTransitionReason
-        => AsReference("state_transition_reason");
+        => CreateReference("state_transition_reason");
 
     /// <summary>
     /// The uuid attribute.
     /// </summary>
     public TerraformValue<string> Uuid
-        => AsReference("uuid");
+        => CreateReference("uuid");
 
     /// <summary>
     /// AmazonManagedKafkaEventSourceConfig block (nesting mode: list).

@@ -83,7 +83,7 @@ public partial class AzurermApiManagementEmailTemplate(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -121,13 +121,13 @@ public partial class AzurermApiManagementEmailTemplate(string name) : TerraformR
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     public TerraformValue<string> Title
-        => AsReference("title");
+        => CreateReference("title");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

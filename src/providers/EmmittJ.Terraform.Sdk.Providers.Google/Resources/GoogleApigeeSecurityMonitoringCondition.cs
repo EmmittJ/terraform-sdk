@@ -78,7 +78,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,32 +117,32 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     /// The timestamp at which this profile was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Name of the security monitoring condition resource,
     /// in the format &#39;organizations/{{org_name}}/securityMonitoringConditions/{{condition_id}}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Total number of deployed resources within scope.
     /// </summary>
     public TerraformValue<double> TotalDeployedResources
-        => AsReference("total_deployed_resources");
+        => CreateReference("total_deployed_resources");
 
     /// <summary>
     /// Total number of monitored resources within this condition.
     /// </summary>
     public TerraformValue<double> TotalMonitoredResources
-        => AsReference("total_monitored_resources");
+        => CreateReference("total_monitored_resources");
 
     /// <summary>
     /// The timestamp at which this profile was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// IncludeAllResources block (nesting mode: list).

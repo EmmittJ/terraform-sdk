@@ -136,7 +136,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// StorageAccount block (nesting mode: list).

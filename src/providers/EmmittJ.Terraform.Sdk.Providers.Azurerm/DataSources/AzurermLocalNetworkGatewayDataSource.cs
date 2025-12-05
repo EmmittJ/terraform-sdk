@@ -36,7 +36,7 @@ public partial class AzurermLocalNetworkGatewayDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermLocalNetworkGatewayDataSource(string name) : Terrafo
     /// The address_space attribute.
     /// </summary>
     public TerraformList<string> AddressSpace
-        => AsReference("address_space");
+        => CreateReference("address_space");
 
     /// <summary>
     /// The bgp_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BgpSettings
-        => AsReference("bgp_settings");
+        => CreateReference("bgp_settings");
 
     /// <summary>
     /// The gateway_address attribute.
     /// </summary>
     public TerraformValue<string> GatewayAddress
-        => AsReference("gateway_address");
+        => CreateReference("gateway_address");
 
     /// <summary>
     /// The gateway_fqdn attribute.
     /// </summary>
     public TerraformValue<string> GatewayFqdn
-        => AsReference("gateway_fqdn");
+        => CreateReference("gateway_fqdn");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

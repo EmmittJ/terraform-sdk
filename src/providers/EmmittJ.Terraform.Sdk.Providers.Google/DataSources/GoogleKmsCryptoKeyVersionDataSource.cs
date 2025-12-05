@@ -23,7 +23,7 @@ public partial class GoogleKmsCryptoKeyVersionDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,30 +40,30 @@ public partial class GoogleKmsCryptoKeyVersionDataSource(string name) : Terrafor
     /// The algorithm attribute.
     /// </summary>
     public TerraformValue<string> Algorithm
-        => AsReference("algorithm");
+        => CreateReference("algorithm");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The protection_level attribute.
     /// </summary>
     public TerraformValue<string> ProtectionLevel
-        => AsReference("protection_level");
+        => CreateReference("protection_level");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }

@@ -50,7 +50,7 @@ public class GoogleAlloydbInstanceClientConnectionConfigBlockSslConfigBlock : Te
     /// </summary>
     public TerraformValue<string> SslMode
     {
-        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? AsReference("ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? CreateReference("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> CpuCount
     {
-        get => GetArgument<TerraformValue<double>>("cpu_count") ?? AsReference("cpu_count");
+        get => GetArgument<TerraformValue<double>>("cpu_count") ?? CreateReference("cpu_count");
         set => SetArgument("cpu_count", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
     /// Name convention: &amp;lt;uid&amp;gt;.&amp;lt;uid&amp;gt;.&amp;lt;region&amp;gt;.alloydb-psc.goog
     /// </summary>
     public TerraformValue<string> PscDnsName
-        => AsReference("psc_dns_name");
+        => CreateReference("psc_dns_name");
 
     /// <summary>
     /// The service attachment created when Private Service Connect (PSC) is enabled for the instance.
@@ -201,7 +201,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
     /// &#39;projects/&amp;lt;alloydb-tenant-project-number&amp;gt;/regions/&amp;lt;region-name&amp;gt;/serviceAttachments/&amp;lt;service-attachment-name&amp;gt;&#39;
     /// </summary>
     public TerraformValue<string> ServiceAttachmentLink
-        => AsReference("service_attachment_link");
+        => CreateReference("service_attachment_link");
 
     /// <summary>
     /// PscAutoConnections block (nesting mode: list).
@@ -251,7 +251,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlockPscAutoConnectionsBlock 
     /// The status of the service connection policy.
     /// </summary>
     public TerraformValue<string> ConsumerNetworkStatus
-        => AsReference("consumer_network_status");
+        => CreateReference("consumer_network_status");
 
     /// <summary>
     /// The consumer project to which the PSC service automation endpoint will
@@ -268,13 +268,13 @@ public class GoogleAlloydbInstancePscInstanceConfigBlockPscAutoConnectionsBlock 
     /// The IP address of the PSC service automation endpoint.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The status of the PSC service automation connection.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }
 
@@ -435,7 +435,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> ActivationPolicy
     {
-        get => GetArgument<TerraformValue<string>>("activation_policy") ?? AsReference("activation_policy");
+        get => GetArgument<TerraformValue<string>>("activation_policy") ?? CreateReference("activation_policy");
         set => SetArgument("activation_policy", value);
     }
 
@@ -461,7 +461,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> AvailabilityType
     {
-        get => GetArgument<TerraformValue<string>>("availability_type") ?? AsReference("availability_type");
+        get => GetArgument<TerraformValue<string>>("availability_type") ?? CreateReference("availability_type");
         set => SetArgument("availability_type", value);
     }
 
@@ -481,7 +481,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string> DatabaseFlags
     {
-        get => GetArgument<TerraformMap<string>>("database_flags") ?? AsReference("database_flags");
+        get => GetArgument<TerraformMap<string>>("database_flags") ?? CreateReference("database_flags");
         set => SetArgument("database_flags", value);
     }
 
@@ -508,7 +508,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -554,31 +554,31 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// Time the Instance was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The IP address for the Instance. This is the connection endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The name of the instance resource.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The outbound public IP addresses for the instance. This is available ONLY when
@@ -586,7 +586,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// for outbound connections.
     /// </summary>
     public TerraformList<string> OutboundPublicIpAddresses
-        => AsReference("outbound_public_ip_addresses");
+        => CreateReference("outbound_public_ip_addresses");
 
     /// <summary>
     /// The public IP addresses for the Instance. This is available ONLY when
@@ -594,38 +594,38 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-        => AsReference("public_ip_address");
+        => CreateReference("public_ip_address");
 
     /// <summary>
     /// Set to true if the current state of Instance does not match the user&#39;s intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The current state of the alloydb instance.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// ClientConnectionConfig block (nesting mode: list).

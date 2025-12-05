@@ -18,7 +18,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> ColumnNames
     {
-        get => GetArgument<TerraformSet<string>>("column_names") ?? AsReference("column_names");
+        get => GetArgument<TerraformSet<string>>("column_names") ?? CreateReference("column_names");
         set => SetArgument("column_names", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VersionId
     {
-        get => GetArgument<TerraformValue<string>>("version_id") ?? AsReference("version_id");
+        get => GetArgument<TerraformValue<string>>("version_id") ?? CreateReference("version_id");
         set => SetArgument("version_id", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlockRowFilterBlock : Terra
     /// </summary>
     public TerraformValue<string> FilterExpression
     {
-        get => GetArgument<TerraformValue<string>>("filter_expression") ?? AsReference("filter_expression");
+        get => GetArgument<TerraformValue<string>>("filter_expression") ?? CreateReference("filter_expression");
         set => SetArgument("filter_expression", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AwsLakeformationDataCellsFilter(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsLakeformationDataCellsFilter(string name) : TerraformRes
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// TableData block (nesting mode: list).

@@ -47,7 +47,7 @@ public partial class AwsDbInstancesDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsDbInstancesDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsDbInstancesDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -73,13 +73,13 @@ public partial class AwsDbInstancesDataSource(string name) : TerraformDataSource
     /// The instance_arns attribute.
     /// </summary>
     public TerraformList<string> InstanceArns
-        => AsReference("instance_arns");
+        => CreateReference("instance_arns");
 
     /// <summary>
     /// The instance_identifiers attribute.
     /// </summary>
     public TerraformList<string> InstanceIdentifiers
-        => AsReference("instance_identifiers");
+        => CreateReference("instance_identifiers");
 
     /// <summary>
     /// Filter block (nesting mode: set).

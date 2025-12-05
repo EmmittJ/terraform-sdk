@@ -13,7 +13,7 @@ public partial class GoogleComputeInstanceGroupManagerDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,156 +57,156 @@ public partial class GoogleComputeInstanceGroupManagerDataSource(string name) : 
     /// Specifies configuration that overrides the instance template configuration for the group.
     /// </summary>
     public TerraformList<TerraformMap<object>> AllInstancesConfig
-        => AsReference("all_instances_config");
+        => CreateReference("all_instances_config");
 
     /// <summary>
     /// The autohealing policies for this managed instance group. You can specify only one value.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoHealingPolicies
-        => AsReference("auto_healing_policies");
+        => CreateReference("auto_healing_policies");
 
     /// <summary>
     /// The base instance name to use for instances in this group. The value must be a valid RFC1035 name. Supported characters are lowercase letters, numbers, and hyphens (-). Instances are named by appending a hyphen and a random four-character string to the base instance name.
     /// </summary>
     public TerraformValue<string> BaseInstanceName
-        => AsReference("base_instance_name");
+        => CreateReference("base_instance_name");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// An optional textual description of the instance group manager.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The fingerprint of the instance group manager.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The full URL of the instance group created by the manager.
     /// </summary>
     public TerraformValue<string> InstanceGroup
-        => AsReference("instance_group");
+        => CreateReference("instance_group");
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> InstanceGroupManagerId
-        => AsReference("instance_group_manager_id");
+        => CreateReference("instance_group_manager_id");
 
     /// <summary>
     /// The instance lifecycle policy for this managed instance group.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceLifecyclePolicy
-        => AsReference("instance_lifecycle_policy");
+        => CreateReference("instance_lifecycle_policy");
 
     /// <summary>
     /// Pagination behavior of the listManagedInstances API method for this managed instance group. Valid values are: &amp;quot;PAGELESS&amp;quot;, &amp;quot;PAGINATED&amp;quot;. If PAGELESS (default), Pagination is disabled for the group&#39;s listManagedInstances API method. maxResults and pageToken query parameters are ignored and all instances are returned in a single response. If PAGINATED, pagination is enabled, maxResults and pageToken query parameters are respected.
     /// </summary>
     public TerraformValue<string> ListManagedInstancesResults
-        => AsReference("list_managed_instances_results");
+        => CreateReference("list_managed_instances_results");
 
     /// <summary>
     /// The named port configuration.
     /// </summary>
     public TerraformSet<TerraformMap<object>> NamedPort
-        => AsReference("named_port");
+        => CreateReference("named_port");
 
     /// <summary>
     /// The operation attribute.
     /// </summary>
     public TerraformValue<string> Operation
-        => AsReference("operation");
+        => CreateReference("operation");
 
     /// <summary>
     /// Resource policies for this managed instance group.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourcePolicies
-        => AsReference("resource_policies");
+        => CreateReference("resource_policies");
 
     /// <summary>
     /// Standby policy for stopped and suspended instances.
     /// </summary>
     public TerraformList<TerraformMap<object>> StandbyPolicy
-        => AsReference("standby_policy");
+        => CreateReference("standby_policy");
 
     /// <summary>
     /// Disks created on the instances that will be preserved on instance delete, update, etc.
     /// </summary>
     public TerraformSet<TerraformMap<object>> StatefulDisk
-        => AsReference("stateful_disk");
+        => CreateReference("stateful_disk");
 
     /// <summary>
     /// External IPs considered stateful by the instance group. 
     /// </summary>
     public TerraformList<TerraformMap<object>> StatefulExternalIp
-        => AsReference("stateful_external_ip");
+        => CreateReference("stateful_external_ip");
 
     /// <summary>
     /// External IPs considered stateful by the instance group. 
     /// </summary>
     public TerraformList<TerraformMap<object>> StatefulInternalIp
-        => AsReference("stateful_internal_ip");
+        => CreateReference("stateful_internal_ip");
 
     /// <summary>
     /// The status of this managed instance group.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The full URL of all target pools to which new instances in the group are added. Updating the target pools attribute does not affect existing instances.
     /// </summary>
     public TerraformSet<string> TargetPools
-        => AsReference("target_pools");
+        => CreateReference("target_pools");
 
     /// <summary>
     /// The target number of running instances for this managed instance group. This value should always be explicitly set unless this resource is attached to an autoscaler, in which case it should never be set. Defaults to 0.
     /// </summary>
     public TerraformValue<double> TargetSize
-        => AsReference("target_size");
+        => CreateReference("target_size");
 
     /// <summary>
     /// The target number of stopped instances for this managed instance group.
     /// </summary>
     public TerraformValue<double> TargetStoppedSize
-        => AsReference("target_stopped_size");
+        => CreateReference("target_stopped_size");
 
     /// <summary>
     /// The target number of suspended instances for this managed instance group.
     /// </summary>
     public TerraformValue<double> TargetSuspendedSize
-        => AsReference("target_suspended_size");
+        => CreateReference("target_suspended_size");
 
     /// <summary>
     /// The update policy for this managed instance group.
     /// </summary>
     public TerraformList<TerraformMap<object>> UpdatePolicy
-        => AsReference("update_policy");
+        => CreateReference("update_policy");
 
     /// <summary>
     /// Application versions managed by this instance group. Each version deals with a specific instance template, allowing canary release scenarios.
     /// </summary>
     public TerraformList<TerraformMap<object>> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// Whether to wait for all instances to be created/updated before returning. Note that if this is set to true and the operation does not succeed, Terraform will continue trying until it times out.
     /// </summary>
     public TerraformValue<bool> WaitForInstances
-        => AsReference("wait_for_instances");
+        => CreateReference("wait_for_instances");
 
     /// <summary>
     /// When used with wait_for_instances specifies the status to wait for. When STABLE is specified this resource will wait until the instances are stable before returning. When UPDATED is set, it will wait for the version target to be reached and any per instance configs to be effective and all instances configs to be effective as well as all instances to be stable before returning.
     /// </summary>
     public TerraformValue<string> WaitForInstancesStatus
-        => AsReference("wait_for_instances_status");
+        => CreateReference("wait_for_instances_status");
 
 }

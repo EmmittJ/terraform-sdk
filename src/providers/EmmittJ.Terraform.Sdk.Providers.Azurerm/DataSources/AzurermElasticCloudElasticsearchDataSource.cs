@@ -17,25 +17,25 @@ public class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBloc
     /// The filtering_tag attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FilteringTag
-        => AsReference("filtering_tag");
+        => CreateReference("filtering_tag");
 
     /// <summary>
     /// The send_activity_logs attribute.
     /// </summary>
     public TerraformValue<bool> SendActivityLogs
-        => AsReference("send_activity_logs");
+        => CreateReference("send_activity_logs");
 
     /// <summary>
     /// The send_azuread_logs attribute.
     /// </summary>
     public TerraformValue<bool> SendAzureadLogs
-        => AsReference("send_azuread_logs");
+        => CreateReference("send_azuread_logs");
 
     /// <summary>
     /// The send_subscription_logs attribute.
     /// </summary>
     public TerraformValue<bool> SendSubscriptionLogs
-        => AsReference("send_subscription_logs");
+        => CreateReference("send_subscription_logs");
 
 }
 
@@ -74,7 +74,7 @@ public partial class AzurermElasticCloudElasticsearchDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,67 +102,67 @@ public partial class AzurermElasticCloudElasticsearchDataSource(string name) : T
     /// The elastic_cloud_deployment_id attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudDeploymentId
-        => AsReference("elastic_cloud_deployment_id");
+        => CreateReference("elastic_cloud_deployment_id");
 
     /// <summary>
     /// The elastic_cloud_email_address attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudEmailAddress
-        => AsReference("elastic_cloud_email_address");
+        => CreateReference("elastic_cloud_email_address");
 
     /// <summary>
     /// The elastic_cloud_sso_default_url attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudSsoDefaultUrl
-        => AsReference("elastic_cloud_sso_default_url");
+        => CreateReference("elastic_cloud_sso_default_url");
 
     /// <summary>
     /// The elastic_cloud_user_id attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudUserId
-        => AsReference("elastic_cloud_user_id");
+        => CreateReference("elastic_cloud_user_id");
 
     /// <summary>
     /// The elasticsearch_service_url attribute.
     /// </summary>
     public TerraformValue<string> ElasticsearchServiceUrl
-        => AsReference("elasticsearch_service_url");
+        => CreateReference("elasticsearch_service_url");
 
     /// <summary>
     /// The kibana_service_url attribute.
     /// </summary>
     public TerraformValue<string> KibanaServiceUrl
-        => AsReference("kibana_service_url");
+        => CreateReference("kibana_service_url");
 
     /// <summary>
     /// The kibana_sso_uri attribute.
     /// </summary>
     public TerraformValue<string> KibanaSsoUri
-        => AsReference("kibana_sso_uri");
+        => CreateReference("kibana_sso_uri");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
     public TerraformValue<bool> MonitoringEnabled
-        => AsReference("monitoring_enabled");
+        => CreateReference("monitoring_enabled");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Logs block (nesting mode: list).

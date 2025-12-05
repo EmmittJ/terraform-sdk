@@ -23,7 +23,7 @@ public partial class AwsImagebuilderImageRecipeDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsImagebuilderImageRecipeDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsImagebuilderImageRecipeDataSource(string name) : Terrafo
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,72 +49,72 @@ public partial class AwsImagebuilderImageRecipeDataSource(string name) : Terrafo
     /// The ami_tags attribute.
     /// </summary>
     public TerraformMap<string> AmiTags
-        => AsReference("ami_tags");
+        => CreateReference("ami_tags");
 
     /// <summary>
     /// The block_device_mapping attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> BlockDeviceMapping
-        => AsReference("block_device_mapping");
+        => CreateReference("block_device_mapping");
 
     /// <summary>
     /// The component attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Component
-        => AsReference("component");
+        => CreateReference("component");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-        => AsReference("date_created");
+        => CreateReference("date_created");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The parent_image attribute.
     /// </summary>
     public TerraformValue<string> ParentImage
-        => AsReference("parent_image");
+        => CreateReference("parent_image");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-        => AsReference("platform");
+        => CreateReference("platform");
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
     public TerraformValue<string> UserDataBase64
-        => AsReference("user_data_base64");
+        => CreateReference("user_data_base64");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
     public TerraformValue<string> WorkingDirectory
-        => AsReference("working_directory");
+        => CreateReference("working_directory");
 
 }

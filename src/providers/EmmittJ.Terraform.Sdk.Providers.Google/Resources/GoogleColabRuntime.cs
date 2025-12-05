@@ -115,7 +115,7 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -161,25 +161,25 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     /// Output only. Timestamp when this NotebookRuntime will be expired.
     /// </summary>
     public TerraformValue<string> ExpirationTime
-        => AsReference("expiration_time");
+        => CreateReference("expiration_time");
 
     /// <summary>
     /// Output only. Checks if the NotebookRuntime is upgradable.
     /// </summary>
     public TerraformValue<bool> IsUpgradable
-        => AsReference("is_upgradable");
+        => CreateReference("is_upgradable");
 
     /// <summary>
     /// Output only. The type of the notebook runtime.
     /// </summary>
     public TerraformValue<string> NotebookRuntimeType
-        => AsReference("notebook_runtime_type");
+        => CreateReference("notebook_runtime_type");
 
     /// <summary>
     /// Output only. The state of the runtime.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// NotebookRuntimeTemplateRef block (nesting mode: list).

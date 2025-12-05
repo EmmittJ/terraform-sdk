@@ -77,7 +77,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? CreateReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -222,13 +222,13 @@ public class AzurermSynapseWorkspaceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -331,7 +331,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -359,7 +359,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> ManagedResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("managed_resource_group_name") ?? AsReference("managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name") ?? CreateReference("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -460,7 +460,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// The connectivity_endpoints attribute.
     /// </summary>
     public TerraformMap<string> ConnectivityEndpoints
-        => AsReference("connectivity_endpoints");
+        => CreateReference("connectivity_endpoints");
 
     /// <summary>
     /// AzureDevopsRepo block (nesting mode: list).

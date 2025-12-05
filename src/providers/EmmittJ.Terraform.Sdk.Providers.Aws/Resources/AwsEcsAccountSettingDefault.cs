@@ -13,7 +13,7 @@ public partial class AwsEcsAccountSettingDefault(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsEcsAccountSettingDefault(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,6 +50,6 @@ public partial class AwsEcsAccountSettingDefault(string name) : TerraformResourc
     /// The principal_arn attribute.
     /// </summary>
     public TerraformValue<string> PrincipalArn
-        => AsReference("principal_arn");
+        => CreateReference("principal_arn");
 
 }

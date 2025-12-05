@@ -27,7 +27,7 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id") ?? AsReference("file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id") ?? CreateReference("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }
 
@@ -101,7 +101,7 @@ public partial class AwsEfsReplicationConfiguration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsEfsReplicationConfiguration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -128,25 +128,25 @@ public partial class AwsEfsReplicationConfiguration(string name) : TerraformReso
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The original_source_file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> OriginalSourceFileSystemArn
-        => AsReference("original_source_file_system_arn");
+        => CreateReference("original_source_file_system_arn");
 
     /// <summary>
     /// The source_file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceFileSystemArn
-        => AsReference("source_file_system_arn");
+        => CreateReference("source_file_system_arn");
 
     /// <summary>
     /// The source_file_system_region attribute.
     /// </summary>
     public TerraformValue<string> SourceFileSystemRegion
-        => AsReference("source_file_system_region");
+        => CreateReference("source_file_system_region");
 
     /// <summary>
     /// Destination block (nesting mode: list).

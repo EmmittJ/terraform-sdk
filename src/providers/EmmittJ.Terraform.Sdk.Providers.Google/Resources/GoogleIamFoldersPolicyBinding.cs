@@ -162,7 +162,7 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -211,43 +211,43 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     /// Output only. The time when the policy binding was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// Optional. The etag for the policy binding. If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The name of the policy binding in the format &#39;{binding_parent/locations/{location}/policyBindings/{policy_binding_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The globally unique ID of the policy to be bound.
     /// </summary>
     public TerraformValue<string> PolicyUid
-        => AsReference("policy_uid");
+        => CreateReference("policy_uid");
 
     /// <summary>
     /// Output only. The globally unique ID of the policy binding. Assigned when the policy binding is created.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time when the policy binding was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Condition block (nesting mode: list).

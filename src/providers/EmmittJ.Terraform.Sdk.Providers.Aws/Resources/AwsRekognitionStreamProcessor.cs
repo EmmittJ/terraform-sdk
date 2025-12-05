@@ -348,7 +348,7 @@ public class AwsRekognitionStreamProcessorSettingsBlockConnectedHomeBlock : Terr
     /// </summary>
     public TerraformValue<double> MinConfidence
     {
-        get => GetArgument<TerraformValue<double>>("min_confidence") ?? AsReference("min_confidence");
+        get => GetArgument<TerraformValue<double>>("min_confidence") ?? CreateReference("min_confidence");
         set => SetArgument("min_confidence", value);
     }
 
@@ -380,7 +380,7 @@ public class AwsRekognitionStreamProcessorSettingsBlockFaceSearchBlock : Terrafo
     /// </summary>
     public TerraformValue<double> FaceMatchThreshold
     {
-        get => GetArgument<TerraformValue<double>>("face_match_threshold") ?? AsReference("face_match_threshold");
+        get => GetArgument<TerraformValue<double>>("face_match_threshold") ?? CreateReference("face_match_threshold");
         set => SetArgument("face_match_threshold", value);
     }
 
@@ -458,7 +458,7 @@ public partial class AwsRekognitionStreamProcessor(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -485,20 +485,20 @@ public partial class AwsRekognitionStreamProcessor(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The stream_processor_arn attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> StreamProcessorArn
-        => AsReference("stream_processor_arn");
+        => CreateReference("stream_processor_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// DataSharingPreference block (nesting mode: list).

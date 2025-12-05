@@ -13,7 +13,7 @@ public partial class AwsDynamodbResourcePolicy(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool> ConfirmRemoveSelfResourceAccess
     {
-        get => GetArgument<TerraformValue<bool>>("confirm_remove_self_resource_access") ?? AsReference("confirm_remove_self_resource_access");
+        get => GetArgument<TerraformValue<bool>>("confirm_remove_self_resource_access") ?? CreateReference("confirm_remove_self_resource_access");
         set => SetArgument("confirm_remove_self_resource_access", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsDynamodbResourcePolicy(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,12 +50,12 @@ public partial class AwsDynamodbResourcePolicy(string name) : TerraformResource(
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
     public TerraformValue<string> RevisionId
-        => AsReference("revision_id");
+        => CreateReference("revision_id");
 
 }

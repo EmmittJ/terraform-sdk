@@ -13,7 +13,7 @@ public partial class AwsS3controlAccessGrantsInstance(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsS3controlAccessGrantsInstance(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -48,30 +48,30 @@ public partial class AwsS3controlAccessGrantsInstance(string name) : TerraformRe
     /// The access_grants_instance_arn attribute.
     /// </summary>
     public TerraformValue<string> AccessGrantsInstanceArn
-        => AsReference("access_grants_instance_arn");
+        => CreateReference("access_grants_instance_arn");
 
     /// <summary>
     /// The access_grants_instance_id attribute.
     /// </summary>
     public TerraformValue<string> AccessGrantsInstanceId
-        => AsReference("access_grants_instance_id");
+        => CreateReference("access_grants_instance_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The identity_center_application_arn attribute.
     /// </summary>
     public TerraformValue<string> IdentityCenterApplicationArn
-        => AsReference("identity_center_application_arn");
+        => CreateReference("identity_center_application_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
 }

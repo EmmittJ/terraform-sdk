@@ -77,13 +77,13 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -186,7 +186,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformList<TerraformMap<object>> Encryption
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption") ?? AsReference("encryption");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption") ?? CreateReference("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkRuleSet
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("network_rule_set") ?? AsReference("network_rule_set");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("network_rule_set") ?? CreateReference("network_rule_set");
         set => SetArgument("network_rule_set", value);
     }
 
@@ -324,25 +324,25 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// The admin_password attribute.
     /// </summary>
     public TerraformValue<string> AdminPassword
-        => AsReference("admin_password");
+        => CreateReference("admin_password");
 
     /// <summary>
     /// The admin_username attribute.
     /// </summary>
     public TerraformValue<string> AdminUsername
-        => AsReference("admin_username");
+        => CreateReference("admin_username");
 
     /// <summary>
     /// The data_endpoint_host_names attribute.
     /// </summary>
     public TerraformSet<string> DataEndpointHostNames
-        => AsReference("data_endpoint_host_names");
+        => CreateReference("data_endpoint_host_names");
 
     /// <summary>
     /// The login_server attribute.
     /// </summary>
     public TerraformValue<string> LoginServer
-        => AsReference("login_server");
+        => CreateReference("login_server");
 
     /// <summary>
     /// Georeplications block (nesting mode: list).

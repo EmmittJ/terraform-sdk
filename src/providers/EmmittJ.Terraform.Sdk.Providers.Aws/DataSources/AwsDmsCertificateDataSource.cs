@@ -23,7 +23,7 @@ public partial class AwsDmsCertificateDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsDmsCertificateDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsDmsCertificateDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,54 +49,54 @@ public partial class AwsDmsCertificateDataSource(string name) : TerraformDataSou
     /// The certificate_arn attribute.
     /// </summary>
     public TerraformValue<string> CertificateArn
-        => AsReference("certificate_arn");
+        => CreateReference("certificate_arn");
 
     /// <summary>
     /// The certificate_creation_date attribute.
     /// </summary>
     public TerraformValue<string> CertificateCreationDate
-        => AsReference("certificate_creation_date");
+        => CreateReference("certificate_creation_date");
 
     /// <summary>
     /// The certificate_owner attribute.
     /// </summary>
     public TerraformValue<string> CertificateOwner
-        => AsReference("certificate_owner");
+        => CreateReference("certificate_owner");
 
     /// <summary>
     /// The certificate_pem attribute.
     /// </summary>
     public TerraformValue<string> CertificatePem
-        => AsReference("certificate_pem");
+        => CreateReference("certificate_pem");
 
     /// <summary>
     /// The certificate_wallet attribute.
     /// </summary>
     public TerraformValue<string> CertificateWallet
-        => AsReference("certificate_wallet");
+        => CreateReference("certificate_wallet");
 
     /// <summary>
     /// The key_length attribute.
     /// </summary>
     public TerraformValue<double> KeyLength
-        => AsReference("key_length");
+        => CreateReference("key_length");
 
     /// <summary>
     /// The signing_algorithm attribute.
     /// </summary>
     public TerraformValue<string> SigningAlgorithm
-        => AsReference("signing_algorithm");
+        => CreateReference("signing_algorithm");
 
     /// <summary>
     /// The valid_from_date attribute.
     /// </summary>
     public TerraformValue<string> ValidFromDate
-        => AsReference("valid_from_date");
+        => CreateReference("valid_from_date");
 
     /// <summary>
     /// The valid_to_date attribute.
     /// </summary>
     public TerraformValue<string> ValidToDate
-        => AsReference("valid_to_date");
+        => CreateReference("valid_to_date");
 
 }

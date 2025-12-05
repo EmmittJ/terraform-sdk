@@ -72,7 +72,7 @@ public partial class AwsRdsClusterSnapshotCopy(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -118,67 +118,67 @@ public partial class AwsRdsClusterSnapshotCopy(string name) : TerraformResource(
     /// The allocated_storage attribute.
     /// </summary>
     public TerraformValue<double> AllocatedStorage
-        => AsReference("allocated_storage");
+        => CreateReference("allocated_storage");
 
     /// <summary>
     /// The db_cluster_snapshot_arn attribute.
     /// </summary>
     public TerraformValue<string> DbClusterSnapshotArn
-        => AsReference("db_cluster_snapshot_arn");
+        => CreateReference("db_cluster_snapshot_arn");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-        => AsReference("engine");
+        => CreateReference("engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-        => AsReference("engine_version");
+        => CreateReference("engine_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
     public TerraformValue<string> LicenseModel
-        => AsReference("license_model");
+        => CreateReference("license_model");
 
     /// <summary>
     /// The snapshot_type attribute.
     /// </summary>
     public TerraformValue<string> SnapshotType
-        => AsReference("snapshot_type");
+        => CreateReference("snapshot_type");
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
     public TerraformValue<bool> StorageEncrypted
-        => AsReference("storage_encrypted");
+        => CreateReference("storage_encrypted");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     public TerraformValue<string> StorageType
-        => AsReference("storage_type");
+        => CreateReference("storage_type");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

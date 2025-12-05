@@ -101,7 +101,7 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -128,51 +128,51 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     /// An array of connections for all the producers connected to this network attachment.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionEndpoints
-        => AsReference("connection_endpoints");
+        => CreateReference("connection_endpoints");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this object. This
     /// field is used in optimistic locking. An up-to-date fingerprint must be provided in order to patch.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource type. The server generates this identifier.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Type of the resource.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The URL of the network which the Network Attachment belongs to. Practically it is inferred by fetching the network of the first subnetwork associated.
     /// Because it is required that all the subnetworks must be from the same network, it is assured that the Network Attachment belongs to the same network as all the subnetworks.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Server-defined URL for this resource&#39;s resource id.
     /// </summary>
     public TerraformValue<string> SelfLinkWithId
-        => AsReference("self_link_with_id");
+        => CreateReference("self_link_with_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

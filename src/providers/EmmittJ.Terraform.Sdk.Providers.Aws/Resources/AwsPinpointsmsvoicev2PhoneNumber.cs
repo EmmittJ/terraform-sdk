@@ -54,7 +54,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool> DeletionProtectionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled") ?? AsReference("deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled") ?? CreateReference("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> OptOutListName
     {
-        get => GetArgument<TerraformValue<string>>("opt_out_list_name") ?? AsReference("opt_out_list_name");
+        get => GetArgument<TerraformValue<string>>("opt_out_list_name") ?? CreateReference("opt_out_list_name");
         set => SetArgument("opt_out_list_name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool> SelfManagedOptOutsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("self_managed_opt_outs_enabled") ?? AsReference("self_managed_opt_outs_enabled");
+        get => GetArgument<TerraformValue<bool>>("self_managed_opt_outs_enabled") ?? CreateReference("self_managed_opt_outs_enabled");
         set => SetArgument("self_managed_opt_outs_enabled", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool> TwoWayChannelEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("two_way_channel_enabled") ?? AsReference("two_way_channel_enabled");
+        get => GetArgument<TerraformValue<bool>>("two_way_channel_enabled") ?? CreateReference("two_way_channel_enabled");
         set => SetArgument("two_way_channel_enabled", value);
     }
 
@@ -174,31 +174,31 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The monthly_leasing_price attribute.
     /// </summary>
     public TerraformValue<string> MonthlyLeasingPrice
-        => AsReference("monthly_leasing_price");
+        => CreateReference("monthly_leasing_price");
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     public TerraformValue<string> PhoneNumber
-        => AsReference("phone_number");
+        => CreateReference("phone_number");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

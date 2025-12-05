@@ -23,7 +23,7 @@ public partial class AwsSesv2EmailIdentityMailFromAttributesDataSource(string na
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSesv2EmailIdentityMailFromAttributesDataSource(string na
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,12 +40,12 @@ public partial class AwsSesv2EmailIdentityMailFromAttributesDataSource(string na
     /// The behavior_on_mx_failure attribute.
     /// </summary>
     public TerraformValue<string> BehaviorOnMxFailure
-        => AsReference("behavior_on_mx_failure");
+        => CreateReference("behavior_on_mx_failure");
 
     /// <summary>
     /// The mail_from_domain attribute.
     /// </summary>
     public TerraformValue<string> MailFromDomain
-        => AsReference("mail_from_domain");
+        => CreateReference("mail_from_domain");
 
 }

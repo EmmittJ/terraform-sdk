@@ -23,7 +23,7 @@ public partial class AwsVerifiedpermissionsPolicyStoreDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,42 +31,42 @@ public partial class AwsVerifiedpermissionsPolicyStoreDataSource(string name) : 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
     public TerraformValue<string> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDate
-        => AsReference("last_updated_date");
+        => CreateReference("last_updated_date");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The validation_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValidationSettings
-        => AsReference("validation_settings");
+        => CreateReference("validation_settings");
 
 }

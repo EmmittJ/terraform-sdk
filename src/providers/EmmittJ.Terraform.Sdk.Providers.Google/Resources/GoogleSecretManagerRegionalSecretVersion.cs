@@ -77,7 +77,7 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -114,38 +114,38 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     /// The time at which the regional secret version was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The customer-managed encryption configuration of the regional secret.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomerManagedEncryption
-        => AsReference("customer_managed_encryption");
+        => CreateReference("customer_managed_encryption");
 
     /// <summary>
     /// The time at which the regional secret version was destroyed. Only present if state is DESTROYED.
     /// </summary>
     public TerraformValue<string> DestroyTime
-        => AsReference("destroy_time");
+        => CreateReference("destroy_time");
 
     /// <summary>
     /// Location of Secret Manager regional secret resource.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The resource name of the regional secret version. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/secrets/{{secret_id}}/versions/{{version}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The version of the Regional Secret.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

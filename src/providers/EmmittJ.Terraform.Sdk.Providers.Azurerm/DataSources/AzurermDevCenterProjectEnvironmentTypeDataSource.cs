@@ -46,7 +46,7 @@ public partial class AzurermDevCenterProjectEnvironmentTypeDataSource(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermDevCenterProjectEnvironmentTypeDataSource(string nam
     /// The creator_role_assignment_roles attribute.
     /// </summary>
     public TerraformSet<string> CreatorRoleAssignmentRoles
-        => AsReference("creator_role_assignment_roles");
+        => CreateReference("creator_role_assignment_roles");
 
     /// <summary>
     /// The deployment_target_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentTargetId
-        => AsReference("deployment_target_id");
+        => CreateReference("deployment_target_id");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The user_role_assignment attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> UserRoleAssignment
-        => AsReference("user_role_assignment");
+        => CreateReference("user_role_assignment");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

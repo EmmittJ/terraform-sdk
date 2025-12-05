@@ -290,7 +290,7 @@ public class AzurermServiceFabricManagedClusterNodeTypeBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The multiple_placement_groups_enabled attribute.
@@ -558,7 +558,7 @@ public partial class AzurermServiceFabricManagedCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string> DnsName
     {
-        get => GetArgument<TerraformValue<string>>("dns_name") ?? AsReference("dns_name");
+        get => GetArgument<TerraformValue<string>>("dns_name") ?? CreateReference("dns_name");
         set => SetArgument("dns_name", value);
     }
 
@@ -586,7 +586,7 @@ public partial class AzurermServiceFabricManagedCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

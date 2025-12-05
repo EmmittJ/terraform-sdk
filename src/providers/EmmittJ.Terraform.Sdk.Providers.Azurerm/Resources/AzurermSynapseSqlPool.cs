@@ -97,7 +97,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Collation
     {
-        get => GetArgument<TerraformValue<string>>("collation") ?? AsReference("collation");
+        get => GetArgument<TerraformValue<string>>("collation") ?? CreateReference("collation");
         set => SetArgument("collation", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

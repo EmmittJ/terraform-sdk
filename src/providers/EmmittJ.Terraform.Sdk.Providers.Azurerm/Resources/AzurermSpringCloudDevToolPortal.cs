@@ -113,7 +113,7 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool> ApplicationAcceleratorEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("application_accelerator_enabled") ?? AsReference("application_accelerator_enabled");
+        get => GetArgument<TerraformValue<bool>>("application_accelerator_enabled") ?? CreateReference("application_accelerator_enabled");
         set => SetArgument("application_accelerator_enabled", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool> ApplicationLiveViewEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("application_live_view_enabled") ?? AsReference("application_live_view_enabled");
+        get => GetArgument<TerraformValue<bool>>("application_live_view_enabled") ?? CreateReference("application_live_view_enabled");
         set => SetArgument("application_live_view_enabled", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

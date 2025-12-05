@@ -75,7 +75,7 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
     /// The allocated_ip_address_prefixes attribute.
     /// </summary>
     public TerraformList<string> AllocatedIpAddressPrefixes
-        => AsReference("allocated_ip_address_prefixes");
+        => CreateReference("allocated_ip_address_prefixes");
 
     /// <summary>
     /// The id attribute.
@@ -179,7 +179,7 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
     /// </summary>
     public TerraformList<string> DnsServers
     {
-        get => GetArgument<TerraformList<string>>("dns_servers") ?? AsReference("dns_servers");
+        get => GetArgument<TerraformList<string>>("dns_servers") ?? CreateReference("dns_servers");
         set => SetArgument("dns_servers", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
     /// </summary>
     public TerraformSet<TerraformMap<object>> Subnet
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("subnet") ?? AsReference("subnet");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("subnet") ?? CreateReference("subnet");
         set => SetArgument("subnet", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
     /// The guid attribute.
     /// </summary>
     public TerraformValue<string> Guid
-        => AsReference("guid");
+        => CreateReference("guid");
 
     /// <summary>
     /// DdosProtectionPlan block (nesting mode: list).

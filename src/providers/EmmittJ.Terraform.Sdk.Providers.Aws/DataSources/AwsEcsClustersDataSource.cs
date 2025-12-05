@@ -13,7 +13,7 @@ public partial class AwsEcsClustersDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,6 +21,6 @@ public partial class AwsEcsClustersDataSource(string name) : TerraformDataSource
     /// The cluster_arns attribute.
     /// </summary>
     public TerraformList<string> ClusterArns
-        => AsReference("cluster_arns");
+        => CreateReference("cluster_arns");
 
 }

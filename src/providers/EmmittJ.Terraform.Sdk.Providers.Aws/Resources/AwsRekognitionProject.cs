@@ -45,7 +45,7 @@ public partial class AwsRekognitionProject(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> AutoUpdate
     {
-        get => GetArgument<TerraformValue<string>>("auto_update") ?? AsReference("auto_update");
+        get => GetArgument<TerraformValue<string>>("auto_update") ?? CreateReference("auto_update");
         set => SetArgument("auto_update", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsRekognitionProject(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -90,19 +90,19 @@ public partial class AwsRekognitionProject(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

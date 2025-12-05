@@ -36,7 +36,7 @@ public partial class AzurermExpressRouteCircuitDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermExpressRouteCircuitDataSource(string name) : Terrafo
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The peerings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Peerings
-        => AsReference("peerings");
+        => CreateReference("peerings");
 
     /// <summary>
     /// The service_key attribute.
     /// </summary>
     public TerraformValue<string> ServiceKey
-        => AsReference("service_key");
+        => CreateReference("service_key");
 
     /// <summary>
     /// The service_provider_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceProviderProperties
-        => AsReference("service_provider_properties");
+        => CreateReference("service_provider_properties");
 
     /// <summary>
     /// The service_provider_provisioning_state attribute.
     /// </summary>
     public TerraformValue<string> ServiceProviderProvisioningState
-        => AsReference("service_provider_provisioning_state");
+        => CreateReference("service_provider_provisioning_state");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

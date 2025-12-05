@@ -61,6 +61,6 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
 }

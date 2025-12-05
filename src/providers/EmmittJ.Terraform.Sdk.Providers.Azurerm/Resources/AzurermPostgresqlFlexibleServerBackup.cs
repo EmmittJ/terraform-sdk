@@ -54,7 +54,7 @@ public partial class AzurermPostgresqlFlexibleServerBackup(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermPostgresqlFlexibleServerBackup(string name) : Terraf
     /// The completed_time attribute.
     /// </summary>
     public TerraformValue<string> CompletedTime
-        => AsReference("completed_time");
+        => CreateReference("completed_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

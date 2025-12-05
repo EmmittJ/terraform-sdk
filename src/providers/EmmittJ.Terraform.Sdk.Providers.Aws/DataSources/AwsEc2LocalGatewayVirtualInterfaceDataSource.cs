@@ -70,7 +70,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceDataSource(string name) :
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -96,43 +96,43 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceDataSource(string name) :
     /// The local_address attribute.
     /// </summary>
     public TerraformValue<string> LocalAddress
-        => AsReference("local_address");
+        => CreateReference("local_address");
 
     /// <summary>
     /// The local_bgp_asn attribute.
     /// </summary>
     public TerraformValue<double> LocalBgpAsn
-        => AsReference("local_bgp_asn");
+        => CreateReference("local_bgp_asn");
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> LocalGatewayId
-        => AsReference("local_gateway_id");
+        => CreateReference("local_gateway_id");
 
     /// <summary>
     /// The local_gateway_virtual_interface_ids attribute.
     /// </summary>
     public TerraformSet<string> LocalGatewayVirtualInterfaceIds
-        => AsReference("local_gateway_virtual_interface_ids");
+        => CreateReference("local_gateway_virtual_interface_ids");
 
     /// <summary>
     /// The peer_address attribute.
     /// </summary>
     public TerraformValue<string> PeerAddress
-        => AsReference("peer_address");
+        => CreateReference("peer_address");
 
     /// <summary>
     /// The peer_bgp_asn attribute.
     /// </summary>
     public TerraformValue<double> PeerBgpAsn
-        => AsReference("peer_bgp_asn");
+        => CreateReference("peer_bgp_asn");
 
     /// <summary>
     /// The vlan attribute.
     /// </summary>
     public TerraformValue<double> Vlan
-        => AsReference("vlan");
+        => CreateReference("vlan");
 
     /// <summary>
     /// Filter block (nesting mode: set).

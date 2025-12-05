@@ -22,7 +22,7 @@ public partial class AwsCloudwatchEventBusesDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -30,6 +30,6 @@ public partial class AwsCloudwatchEventBusesDataSource(string name) : TerraformD
     /// The event_buses attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EventBuses
-        => AsReference("event_buses");
+        => CreateReference("event_buses");
 
 }

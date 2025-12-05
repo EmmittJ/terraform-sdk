@@ -18,7 +18,7 @@ public class AwsMqBrokerConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsMqBrokerConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Revision
     {
-        get => GetArgument<TerraformValue<double>>("revision") ?? AsReference("revision");
+        get => GetArgument<TerraformValue<double>>("revision") ?? CreateReference("revision");
         set => SetArgument("revision", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsMqBrokerEncryptionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -377,7 +377,7 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// </summary>
     public TerraformValue<string> AuthenticationStrategy
     {
-        get => GetArgument<TerraformValue<string>>("authentication_strategy") ?? AsReference("authentication_strategy");
+        get => GetArgument<TerraformValue<string>>("authentication_strategy") ?? CreateReference("authentication_strategy");
         set => SetArgument("authentication_strategy", value);
     }
 
@@ -405,7 +405,7 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// </summary>
     public TerraformValue<string> DataReplicationMode
     {
-        get => GetArgument<TerraformValue<string>>("data_replication_mode") ?? AsReference("data_replication_mode");
+        get => GetArgument<TerraformValue<string>>("data_replication_mode") ?? CreateReference("data_replication_mode");
         set => SetArgument("data_replication_mode", value);
     }
 
@@ -462,7 +462,7 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -480,7 +480,7 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -498,7 +498,7 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// </summary>
     public TerraformValue<string> StorageType
     {
-        get => GetArgument<TerraformValue<string>>("storage_type") ?? AsReference("storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type") ?? CreateReference("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -507,7 +507,7 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// </summary>
     public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? CreateReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -525,7 +525,7 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -533,19 +533,19 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Instances
-        => AsReference("instances");
+        => CreateReference("instances");
 
     /// <summary>
     /// The pending_data_replication_mode attribute.
     /// </summary>
     public TerraformValue<string> PendingDataReplicationMode
-        => AsReference("pending_data_replication_mode");
+        => CreateReference("pending_data_replication_mode");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

@@ -37,7 +37,7 @@ public partial class GoogleSpannerInstanceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class GoogleSpannerInstanceDataSource(string name) : TerraformDat
     /// the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoscalingConfig
-        => AsReference("autoscaling_config");
+        => CreateReference("autoscaling_config");
 
     /// <summary>
     /// Controls the default backup behavior for new databases within the instance.
@@ -80,26 +80,26 @@ public partial class GoogleSpannerInstanceDataSource(string name) : TerraformDat
     /// if unset or NONE, no default backup schedule will be created for new databases within the instance. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;AUTOMATIC&amp;quot;]
     /// </summary>
     public TerraformValue<string> DefaultBackupScheduleType
-        => AsReference("default_backup_schedule_type");
+        => CreateReference("default_backup_schedule_type");
 
     /// <summary>
     /// The edition selected for this instance. Different editions provide different capabilities at different price points. Possible values: [&amp;quot;EDITION_UNSPECIFIED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;, &amp;quot;ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
     public TerraformValue<string> Edition
-        => AsReference("edition");
+        => CreateReference("edition");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
     /// This must be set to true if you created a backup manually in the console.
     /// </summary>
     public TerraformValue<bool> ForceDestroy
-        => AsReference("force_destroy");
+        => CreateReference("force_destroy");
 
     /// <summary>
     /// The type of this instance. The type can be used to distinguish product variants, that can affect aspects like:
@@ -107,7 +107,7 @@ public partial class GoogleSpannerInstanceDataSource(string name) : TerraformDat
     /// When configured as FREE_INSTANCE, the field &#39;edition&#39; should not be configured. Possible values: [&amp;quot;PROVISIONED&amp;quot;, &amp;quot;FREE_INSTANCE&amp;quot;]
     /// </summary>
     public TerraformValue<string> InstanceType
-        => AsReference("instance_type");
+        => CreateReference("instance_type");
 
     /// <summary>
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs.
@@ -118,33 +118,33 @@ public partial class GoogleSpannerInstanceDataSource(string name) : TerraformDat
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The number of nodes allocated to this instance. Exactly one of either num_nodes, processing_units or
     /// autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
     public TerraformValue<double> NumNodes
-        => AsReference("num_nodes");
+        => CreateReference("num_nodes");
 
     /// <summary>
     /// The number of processing units allocated to this instance. Exactly one of either num_nodes,
     /// processing_units or autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
     public TerraformValue<double> ProcessingUnits
-        => AsReference("processing_units");
+        => CreateReference("processing_units");
 
     /// <summary>
     /// Instance status: &#39;CREATING&#39; or &#39;READY&#39;.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
 }

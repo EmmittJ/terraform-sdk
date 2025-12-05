@@ -112,7 +112,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup(string name)
     /// </summary>
     public TerraformValue<string> EndpointGroupRegion
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_group_region") ?? AsReference("endpoint_group_region");
+        get => GetArgument<TerraformValue<string>>("endpoint_group_region") ?? CreateReference("endpoint_group_region");
         set => SetArgument("endpoint_group_region", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup(string name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// DestinationConfiguration block (nesting mode: set).

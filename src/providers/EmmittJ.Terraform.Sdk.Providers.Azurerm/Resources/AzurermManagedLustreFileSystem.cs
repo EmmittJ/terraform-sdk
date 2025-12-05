@@ -260,7 +260,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -347,7 +347,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     /// The mgs_address attribute.
     /// </summary>
     public TerraformValue<string> MgsAddress
-        => AsReference("mgs_address");
+        => CreateReference("mgs_address");
 
     /// <summary>
     /// EncryptionKey block (nesting mode: list).

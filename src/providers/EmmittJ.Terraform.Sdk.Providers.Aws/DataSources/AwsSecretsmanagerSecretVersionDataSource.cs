@@ -13,7 +13,7 @@ public partial class AwsSecretsmanagerSecretVersionDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSecretsmanagerSecretVersionDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSecretsmanagerSecretVersionDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> VersionId
     {
-        get => GetArgument<TerraformValue<string>>("version_id") ?? AsReference("version_id");
+        get => GetArgument<TerraformValue<string>>("version_id") ?? CreateReference("version_id");
         set => SetArgument("version_id", value);
     }
 
@@ -58,30 +58,30 @@ public partial class AwsSecretsmanagerSecretVersionDataSource(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The secret_binary attribute.
     /// </summary>
     public TerraformValue<string> SecretBinary
-        => AsReference("secret_binary");
+        => CreateReference("secret_binary");
 
     /// <summary>
     /// The secret_string attribute.
     /// </summary>
     public TerraformValue<string> SecretString
-        => AsReference("secret_string");
+        => CreateReference("secret_string");
 
     /// <summary>
     /// The version_stages attribute.
     /// </summary>
     public TerraformSet<string> VersionStages
-        => AsReference("version_stages");
+        => CreateReference("version_stages");
 
 }

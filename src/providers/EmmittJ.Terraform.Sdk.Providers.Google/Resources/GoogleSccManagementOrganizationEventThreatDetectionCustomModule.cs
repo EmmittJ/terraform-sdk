@@ -82,7 +82,7 @@ public partial class GoogleSccManagementOrganizationEventThreatDetectionCustomMo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,14 +118,14 @@ public partial class GoogleSccManagementOrganizationEventThreatDetectionCustomMo
     /// The editor that last updated the custom module
     /// </summary>
     public TerraformValue<string> LastEditor
-        => AsReference("last_editor");
+        => CreateReference("last_editor");
 
     /// <summary>
     /// The resource name of the Event Threat Detection custom module.
     /// Its format is &amp;quot;organizations/{organization}/locations/{location}/eventThreatDetectionCustomModules/{eventThreatDetectionCustomModule}&amp;quot;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The time at which the custom module was last updated.
@@ -134,7 +134,7 @@ public partial class GoogleSccManagementOrganizationEventThreatDetectionCustomMo
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

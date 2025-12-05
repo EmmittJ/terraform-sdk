@@ -36,7 +36,7 @@ public partial class AzurermSpringCloudAppDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,43 +74,43 @@ public partial class AzurermSpringCloudAppDataSource(string name) : TerraformDat
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
     public TerraformValue<bool> HttpsOnly
-        => AsReference("https_only");
+        => CreateReference("https_only");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The is_public attribute.
     /// </summary>
     public TerraformValue<bool> IsPublic
-        => AsReference("is_public");
+        => CreateReference("is_public");
 
     /// <summary>
     /// The persistent_disk attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PersistentDisk
-        => AsReference("persistent_disk");
+        => CreateReference("persistent_disk");
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TlsEnabled
-        => AsReference("tls_enabled");
+        => CreateReference("tls_enabled");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

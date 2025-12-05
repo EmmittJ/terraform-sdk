@@ -31,7 +31,7 @@ public partial class AwsLambdaLayerVersionDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsLambdaLayerVersionDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsLambdaLayerVersionDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<double> Version
     {
-        get => GetArgument<TerraformValue<double>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<double>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -67,73 +67,73 @@ public partial class AwsLambdaLayerVersionDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The code_sha256 attribute.
     /// </summary>
     public TerraformValue<string> CodeSha256
-        => AsReference("code_sha256");
+        => CreateReference("code_sha256");
 
     /// <summary>
     /// The compatible_architectures attribute.
     /// </summary>
     public TerraformSet<string> CompatibleArchitectures
-        => AsReference("compatible_architectures");
+        => CreateReference("compatible_architectures");
 
     /// <summary>
     /// The compatible_runtimes attribute.
     /// </summary>
     public TerraformSet<string> CompatibleRuntimes
-        => AsReference("compatible_runtimes");
+        => CreateReference("compatible_runtimes");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The layer_arn attribute.
     /// </summary>
     public TerraformValue<string> LayerArn
-        => AsReference("layer_arn");
+        => CreateReference("layer_arn");
 
     /// <summary>
     /// The license_info attribute.
     /// </summary>
     public TerraformValue<string> LicenseInfo
-        => AsReference("license_info");
+        => CreateReference("license_info");
 
     /// <summary>
     /// The signing_job_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningJobArn
-        => AsReference("signing_job_arn");
+        => CreateReference("signing_job_arn");
 
     /// <summary>
     /// The signing_profile_version_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningProfileVersionArn
-        => AsReference("signing_profile_version_arn");
+        => CreateReference("signing_profile_version_arn");
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> SourceCodeHash
-        => AsReference("source_code_hash");
+        => CreateReference("source_code_hash");
 
     /// <summary>
     /// The source_code_size attribute.
     /// </summary>
     public TerraformValue<double> SourceCodeSize
-        => AsReference("source_code_size");
+        => CreateReference("source_code_size");
 
 }

@@ -55,7 +55,7 @@ public partial class AwsNetworkmanagerTransitGatewayPeering(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsNetworkmanagerTransitGatewayPeering(string name) : Terra
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -91,43 +91,43 @@ public partial class AwsNetworkmanagerTransitGatewayPeering(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
-        => AsReference("core_network_arn");
+        => CreateReference("core_network_arn");
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
     public TerraformValue<string> EdgeLocation
-        => AsReference("edge_location");
+        => CreateReference("edge_location");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// The peering_type attribute.
     /// </summary>
     public TerraformValue<string> PeeringType
-        => AsReference("peering_type");
+        => CreateReference("peering_type");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-        => AsReference("resource_arn");
+        => CreateReference("resource_arn");
 
     /// <summary>
     /// The transit_gateway_peering_attachment_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayPeeringAttachmentId
-        => AsReference("transit_gateway_peering_attachment_id");
+        => CreateReference("transit_gateway_peering_attachment_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

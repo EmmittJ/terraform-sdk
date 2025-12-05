@@ -13,7 +13,7 @@ public partial class GoogleCloudQuotasQuotaInfoDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,84 +51,84 @@ public partial class GoogleCloudQuotasQuotaInfoDataSource(string name) : Terrafo
     /// The container_type attribute.
     /// </summary>
     public TerraformValue<string> ContainerType
-        => AsReference("container_type");
+        => CreateReference("container_type");
 
     /// <summary>
     /// The dimensions attribute.
     /// </summary>
     public TerraformList<string> Dimensions
-        => AsReference("dimensions");
+        => CreateReference("dimensions");
 
     /// <summary>
     /// The dimensions_infos attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DimensionsInfos
-        => AsReference("dimensions_infos");
+        => CreateReference("dimensions_infos");
 
     /// <summary>
     /// The is_concurrent attribute.
     /// </summary>
     public TerraformValue<bool> IsConcurrent
-        => AsReference("is_concurrent");
+        => CreateReference("is_concurrent");
 
     /// <summary>
     /// The is_fixed attribute.
     /// </summary>
     public TerraformValue<bool> IsFixed
-        => AsReference("is_fixed");
+        => CreateReference("is_fixed");
 
     /// <summary>
     /// The is_precise attribute.
     /// </summary>
     public TerraformValue<bool> IsPrecise
-        => AsReference("is_precise");
+        => CreateReference("is_precise");
 
     /// <summary>
     /// The metric attribute.
     /// </summary>
     public TerraformValue<string> Metric
-        => AsReference("metric");
+        => CreateReference("metric");
 
     /// <summary>
     /// The metric_display_name attribute.
     /// </summary>
     public TerraformValue<string> MetricDisplayName
-        => AsReference("metric_display_name");
+        => CreateReference("metric_display_name");
 
     /// <summary>
     /// The metric_unit attribute.
     /// </summary>
     public TerraformValue<string> MetricUnit
-        => AsReference("metric_unit");
+        => CreateReference("metric_unit");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The quota_display_name attribute.
     /// </summary>
     public TerraformValue<string> QuotaDisplayName
-        => AsReference("quota_display_name");
+        => CreateReference("quota_display_name");
 
     /// <summary>
     /// The quota_increase_eligibility attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QuotaIncreaseEligibility
-        => AsReference("quota_increase_eligibility");
+        => CreateReference("quota_increase_eligibility");
 
     /// <summary>
     /// The refresh_interval attribute.
     /// </summary>
     public TerraformValue<string> RefreshInterval
-        => AsReference("refresh_interval");
+        => CreateReference("refresh_interval");
 
     /// <summary>
     /// The service_request_quota_uri attribute.
     /// </summary>
     public TerraformValue<string> ServiceRequestQuotaUri
-        => AsReference("service_request_quota_uri");
+        => CreateReference("service_request_quota_uri");
 
 }

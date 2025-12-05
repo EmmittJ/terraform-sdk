@@ -139,7 +139,7 @@ public partial class AwsBedrockagentcoreCodeInterpreter(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -156,19 +156,19 @@ public partial class AwsBedrockagentcoreCodeInterpreter(string name) : Terraform
     /// The code_interpreter_arn attribute.
     /// </summary>
     public TerraformValue<string> CodeInterpreterArn
-        => AsReference("code_interpreter_arn");
+        => CreateReference("code_interpreter_arn");
 
     /// <summary>
     /// The code_interpreter_id attribute.
     /// </summary>
     public TerraformValue<string> CodeInterpreterId
-        => AsReference("code_interpreter_id");
+        => CreateReference("code_interpreter_id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// NetworkConfiguration block (nesting mode: list).

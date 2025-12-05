@@ -13,7 +13,7 @@ public partial class AwsCloudformationTypeDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCloudformationTypeDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsCloudformationTypeDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsCloudformationTypeDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsCloudformationTypeDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> TypeName
     {
-        get => GetArgument<TerraformValue<string>>("type_name") ?? AsReference("type_name");
+        get => GetArgument<TerraformValue<string>>("type_name") ?? CreateReference("type_name");
         set => SetArgument("type_name", value);
     }
 
@@ -66,72 +66,72 @@ public partial class AwsCloudformationTypeDataSource(string name) : TerraformDat
     /// The default_version_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultVersionId
-        => AsReference("default_version_id");
+        => CreateReference("default_version_id");
 
     /// <summary>
     /// The deprecated_status attribute.
     /// </summary>
     public TerraformValue<string> DeprecatedStatus
-        => AsReference("deprecated_status");
+        => CreateReference("deprecated_status");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The documentation_url attribute.
     /// </summary>
     public TerraformValue<string> DocumentationUrl
-        => AsReference("documentation_url");
+        => CreateReference("documentation_url");
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionRoleArn
-        => AsReference("execution_role_arn");
+        => CreateReference("execution_role_arn");
 
     /// <summary>
     /// The is_default_version attribute.
     /// </summary>
     public TerraformValue<bool> IsDefaultVersion
-        => AsReference("is_default_version");
+        => CreateReference("is_default_version");
 
     /// <summary>
     /// The logging_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LoggingConfig
-        => AsReference("logging_config");
+        => CreateReference("logging_config");
 
     /// <summary>
     /// The provisioning_type attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningType
-        => AsReference("provisioning_type");
+        => CreateReference("provisioning_type");
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     public TerraformValue<string> Schema
-        => AsReference("schema");
+        => CreateReference("schema");
 
     /// <summary>
     /// The source_url attribute.
     /// </summary>
     public TerraformValue<string> SourceUrl
-        => AsReference("source_url");
+        => CreateReference("source_url");
 
     /// <summary>
     /// The type_arn attribute.
     /// </summary>
     public TerraformValue<string> TypeArn
-        => AsReference("type_arn");
+        => CreateReference("type_arn");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     public TerraformValue<string> Visibility
-        => AsReference("visibility");
+        => CreateReference("visibility");
 
 }

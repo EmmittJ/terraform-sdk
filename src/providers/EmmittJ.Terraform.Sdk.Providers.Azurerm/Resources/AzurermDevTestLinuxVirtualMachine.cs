@@ -81,7 +81,7 @@ public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlo
     /// The frontend_port attribute.
     /// </summary>
     public TerraformValue<double> FrontendPort
-        => AsReference("frontend_port");
+        => CreateReference("frontend_port");
 
     /// <summary>
     /// The protocol attribute.
@@ -175,7 +175,7 @@ public partial class AzurermDevTestLinuxVirtualMachine(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -309,13 +309,13 @@ public partial class AzurermDevTestLinuxVirtualMachine(string name) : TerraformR
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
     public TerraformValue<string> UniqueIdentifier
-        => AsReference("unique_identifier");
+        => CreateReference("unique_identifier");
 
     /// <summary>
     /// GalleryImageReference block (nesting mode: list).

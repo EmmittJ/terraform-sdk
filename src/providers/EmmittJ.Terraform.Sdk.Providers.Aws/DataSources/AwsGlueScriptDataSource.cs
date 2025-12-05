@@ -153,7 +153,7 @@ public partial class AwsGlueScriptDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsGlueScriptDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -179,13 +179,13 @@ public partial class AwsGlueScriptDataSource(string name) : TerraformDataSource(
     /// The python_script attribute.
     /// </summary>
     public TerraformValue<string> PythonScript
-        => AsReference("python_script");
+        => CreateReference("python_script");
 
     /// <summary>
     /// The scala_code attribute.
     /// </summary>
     public TerraformValue<string> ScalaCode
-        => AsReference("scala_code");
+        => CreateReference("scala_code");
 
     /// <summary>
     /// DagEdge block (nesting mode: list).

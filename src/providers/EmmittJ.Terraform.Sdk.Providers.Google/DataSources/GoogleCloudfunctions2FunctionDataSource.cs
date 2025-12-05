@@ -13,7 +13,7 @@ public partial class GoogleCloudfunctions2FunctionDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -52,39 +52,39 @@ public partial class GoogleCloudfunctions2FunctionDataSource(string name) : Terr
     /// from the given source.
     /// </summary>
     public TerraformList<TerraformMap<object>> BuildConfig
-        => AsReference("build_config");
+        => CreateReference("build_config");
 
     /// <summary>
     /// User-provided description of a function.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The environment the function is hosted on.
     /// </summary>
     public TerraformValue<string> Environment
-        => AsReference("environment");
+        => CreateReference("environment");
 
     /// <summary>
     /// An Eventarc trigger managed by Google Cloud Functions that fires events in
     /// response to a condition in another service.
     /// </summary>
     public TerraformList<TerraformMap<object>> EventTrigger
-        => AsReference("event_trigger");
+        => CreateReference("event_trigger");
 
     /// <summary>
     /// Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources.
     /// It must match the pattern projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}.
     /// </summary>
     public TerraformValue<string> KmsKeyName
-        => AsReference("kms_key_name");
+        => CreateReference("kms_key_name");
 
     /// <summary>
     /// A set of key/value label pairs associated with this Cloud Function.
@@ -94,37 +94,37 @@ public partial class GoogleCloudfunctions2FunctionDataSource(string name) : Terr
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Describes the Service being deployed.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceConfig
-        => AsReference("service_config");
+        => CreateReference("service_config");
 
     /// <summary>
     /// Describes the current state of the function.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The last update timestamp of a Cloud Function.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Output only. The deployed url for the function.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
 }

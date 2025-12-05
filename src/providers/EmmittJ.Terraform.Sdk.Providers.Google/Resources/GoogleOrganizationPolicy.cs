@@ -51,7 +51,7 @@ public class GoogleOrganizationPolicyListPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SuggestedValue
     {
-        get => GetArgument<TerraformValue<string>>("suggested_value") ?? AsReference("suggested_value");
+        get => GetArgument<TerraformValue<string>>("suggested_value") ?? CreateReference("suggested_value");
         set => SetArgument("suggested_value", value);
     }
 
@@ -235,7 +235,7 @@ public partial class GoogleOrganizationPolicy(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -254,7 +254,7 @@ public partial class GoogleOrganizationPolicy(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> Version
     {
-        get => GetArgument<TerraformValue<double>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<double>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -262,13 +262,13 @@ public partial class GoogleOrganizationPolicy(string name) : TerraformResource("
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds, representing when the variable was last updated. Example: &amp;quot;2016-10-09T12:33:37.578138407Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// BooleanPolicy block (nesting mode: list).

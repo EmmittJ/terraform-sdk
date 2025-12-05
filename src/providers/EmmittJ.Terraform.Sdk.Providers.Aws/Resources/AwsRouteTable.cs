@@ -54,7 +54,7 @@ public partial class AwsRouteTable(string name) : TerraformResource("aws_route_t
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsRouteTable(string name) : TerraformResource("aws_route_t
     /// </summary>
     public TerraformSet<string> PropagatingVgws
     {
-        get => GetArgument<TerraformSet<string>>("propagating_vgws") ?? AsReference("propagating_vgws");
+        get => GetArgument<TerraformSet<string>>("propagating_vgws") ?? CreateReference("propagating_vgws");
         set => SetArgument("propagating_vgws", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsRouteTable(string name) : TerraformResource("aws_route_t
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsRouteTable(string name) : TerraformResource("aws_route_t
     /// </summary>
     public TerraformSet<TerraformMap<object>> Route
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("route") ?? AsReference("route");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("route") ?? CreateReference("route");
         set => SetArgument("route", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsRouteTable(string name) : TerraformResource("aws_route_t
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -117,13 +117,13 @@ public partial class AwsRouteTable(string name) : TerraformResource("aws_route_t
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

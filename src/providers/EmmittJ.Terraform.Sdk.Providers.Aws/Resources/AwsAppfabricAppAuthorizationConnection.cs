@@ -90,7 +90,7 @@ public partial class AwsAppfabricAppAuthorizationConnection(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -98,19 +98,19 @@ public partial class AwsAppfabricAppAuthorizationConnection(string name) : Terra
     /// The app attribute.
     /// </summary>
     public TerraformValue<string> App
-        => AsReference("app");
+        => CreateReference("app");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tenant attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Tenant
-        => AsReference("tenant");
+        => CreateReference("tenant");
 
     /// <summary>
     /// AuthRequest block (nesting mode: list).

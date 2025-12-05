@@ -36,7 +36,7 @@ public partial class AzurermContainerRegistryDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermContainerRegistryDataSource(string name) : Terraform
     /// The admin_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AdminEnabled
-        => AsReference("admin_enabled");
+        => CreateReference("admin_enabled");
 
     /// <summary>
     /// The admin_password attribute.
     /// </summary>
     public TerraformValue<string> AdminPassword
-        => AsReference("admin_password");
+        => CreateReference("admin_password");
 
     /// <summary>
     /// The admin_username attribute.
     /// </summary>
     public TerraformValue<string> AdminUsername
-        => AsReference("admin_username");
+        => CreateReference("admin_username");
 
     /// <summary>
     /// The data_endpoint_enabled attribute.
     /// </summary>
     public TerraformValue<bool> DataEndpointEnabled
-        => AsReference("data_endpoint_enabled");
+        => CreateReference("data_endpoint_enabled");
 
     /// <summary>
     /// The data_endpoint_host_names attribute.
     /// </summary>
     public TerraformSet<string> DataEndpointHostNames
-        => AsReference("data_endpoint_host_names");
+        => CreateReference("data_endpoint_host_names");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The login_server attribute.
     /// </summary>
     public TerraformValue<string> LoginServer
-        => AsReference("login_server");
+        => CreateReference("login_server");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

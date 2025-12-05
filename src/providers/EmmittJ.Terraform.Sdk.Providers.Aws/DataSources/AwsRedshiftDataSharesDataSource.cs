@@ -13,7 +13,7 @@ public partial class AwsRedshiftDataSharesDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,12 +21,12 @@ public partial class AwsRedshiftDataSharesDataSource(string name) : TerraformDat
     /// The data_shares attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataShares
-        => AsReference("data_shares");
+        => CreateReference("data_shares");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

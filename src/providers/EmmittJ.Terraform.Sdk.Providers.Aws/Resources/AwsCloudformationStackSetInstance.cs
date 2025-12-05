@@ -181,7 +181,7 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -236,7 +236,7 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> StackSetInstanceRegion
     {
-        get => GetArgument<TerraformValue<string>>("stack_set_instance_region") ?? AsReference("stack_set_instance_region");
+        get => GetArgument<TerraformValue<string>>("stack_set_instance_region") ?? CreateReference("stack_set_instance_region");
         set => SetArgument("stack_set_instance_region", value);
     }
 
@@ -254,19 +254,19 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     /// The organizational_unit_id attribute.
     /// </summary>
     public TerraformValue<string> OrganizationalUnitId
-        => AsReference("organizational_unit_id");
+        => CreateReference("organizational_unit_id");
 
     /// <summary>
     /// The stack_id attribute.
     /// </summary>
     public TerraformValue<string> StackId
-        => AsReference("stack_id");
+        => CreateReference("stack_id");
 
     /// <summary>
     /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set.
     /// </summary>
     public TerraformList<TerraformMap<object>> StackInstanceSummaries
-        => AsReference("stack_instance_summaries");
+        => CreateReference("stack_instance_summaries");
 
     /// <summary>
     /// DeploymentTargets block (nesting mode: list).

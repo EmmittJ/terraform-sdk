@@ -46,7 +46,7 @@ public partial class AzurermApiManagementApiDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,73 +84,73 @@ public partial class AzurermApiManagementApiDataSource(string name) : TerraformD
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The is_current attribute.
     /// </summary>
     public TerraformValue<bool> IsCurrent
-        => AsReference("is_current");
+        => CreateReference("is_current");
 
     /// <summary>
     /// The is_online attribute.
     /// </summary>
     public TerraformValue<bool> IsOnline
-        => AsReference("is_online");
+        => CreateReference("is_online");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-        => AsReference("path");
+        => CreateReference("path");
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
     public TerraformList<string> Protocols
-        => AsReference("protocols");
+        => CreateReference("protocols");
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
     public TerraformValue<string> ServiceUrl
-        => AsReference("service_url");
+        => CreateReference("service_url");
 
     /// <summary>
     /// The soap_pass_through attribute.
     /// </summary>
     public TerraformValue<bool> SoapPassThrough
-        => AsReference("soap_pass_through");
+        => CreateReference("soap_pass_through");
 
     /// <summary>
     /// The subscription_key_parameter_names attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SubscriptionKeyParameterNames
-        => AsReference("subscription_key_parameter_names");
+        => CreateReference("subscription_key_parameter_names");
 
     /// <summary>
     /// The subscription_required attribute.
     /// </summary>
     public TerraformValue<bool> SubscriptionRequired
-        => AsReference("subscription_required");
+        => CreateReference("subscription_required");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The version_set_id attribute.
     /// </summary>
     public TerraformValue<string> VersionSetId
-        => AsReference("version_set_id");
+        => CreateReference("version_set_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

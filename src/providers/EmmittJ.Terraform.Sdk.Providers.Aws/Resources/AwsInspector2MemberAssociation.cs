@@ -55,7 +55,7 @@ public partial class AwsInspector2MemberAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsInspector2MemberAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,19 +72,19 @@ public partial class AwsInspector2MemberAssociation(string name) : TerraformReso
     /// The delegated_admin_account_id attribute.
     /// </summary>
     public TerraformValue<string> DelegatedAdminAccountId
-        => AsReference("delegated_admin_account_id");
+        => CreateReference("delegated_admin_account_id");
 
     /// <summary>
     /// The relationship_status attribute.
     /// </summary>
     public TerraformValue<string> RelationshipStatus
-        => AsReference("relationship_status");
+        => CreateReference("relationship_status");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -64,7 +64,7 @@ public partial class AzurermSignalrServiceCustomCertificate(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSignalrServiceCustomCertificate(string name) : Terra
     /// The certificate_version attribute.
     /// </summary>
     public TerraformValue<string> CertificateVersion
-        => AsReference("certificate_version");
+        => CreateReference("certificate_version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

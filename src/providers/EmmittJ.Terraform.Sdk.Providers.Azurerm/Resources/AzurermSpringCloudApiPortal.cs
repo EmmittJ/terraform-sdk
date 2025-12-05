@@ -140,7 +140,7 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// Sso block (nesting mode: list).

@@ -83,7 +83,7 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,19 +119,19 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     /// The from_sender_domain attribute.
     /// </summary>
     public TerraformValue<string> FromSenderDomain
-        => AsReference("from_sender_domain");
+        => CreateReference("from_sender_domain");
 
     /// <summary>
     /// The mail_from_sender_domain attribute.
     /// </summary>
     public TerraformValue<string> MailFromSenderDomain
-        => AsReference("mail_from_sender_domain");
+        => CreateReference("mail_from_sender_domain");
 
     /// <summary>
     /// The verification_records attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VerificationRecords
-        => AsReference("verification_records");
+        => CreateReference("verification_records");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

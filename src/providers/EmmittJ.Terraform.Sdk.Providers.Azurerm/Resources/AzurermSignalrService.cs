@@ -50,13 +50,13 @@ public class AzurermSignalrServiceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -306,7 +306,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -417,49 +417,49 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-        => AsReference("primary_access_key");
+        => CreateReference("primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-        => AsReference("primary_connection_string");
+        => CreateReference("primary_connection_string");
 
     /// <summary>
     /// The public_port attribute.
     /// </summary>
     public TerraformValue<double> PublicPort
-        => AsReference("public_port");
+        => CreateReference("public_port");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-        => AsReference("secondary_access_key");
+        => CreateReference("secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-        => AsReference("secondary_connection_string");
+        => CreateReference("secondary_connection_string");
 
     /// <summary>
     /// The server_port attribute.
     /// </summary>
     public TerraformValue<double> ServerPort
-        => AsReference("server_port");
+        => CreateReference("server_port");
 
     /// <summary>
     /// Cors block (nesting mode: list).

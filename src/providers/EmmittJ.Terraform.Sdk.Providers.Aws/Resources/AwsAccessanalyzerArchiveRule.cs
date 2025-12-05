@@ -18,7 +18,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> ContainsAttribute
     {
-        get => GetArgument<TerraformList<string>>("contains") ?? AsReference("contains");
+        get => GetArgument<TerraformList<string>>("contains") ?? CreateReference("contains");
         set => SetArgument("contains", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> Eq
     {
-        get => GetArgument<TerraformList<string>>("eq") ?? AsReference("eq");
+        get => GetArgument<TerraformList<string>>("eq") ?? CreateReference("eq");
         set => SetArgument("eq", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Exists
     {
-        get => GetArgument<TerraformValue<string>>("exists") ?? AsReference("exists");
+        get => GetArgument<TerraformValue<string>>("exists") ?? CreateReference("exists");
         set => SetArgument("exists", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> Neq
     {
-        get => GetArgument<TerraformList<string>>("neq") ?? AsReference("neq");
+        get => GetArgument<TerraformList<string>>("neq") ?? CreateReference("neq");
         set => SetArgument("neq", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsAccessanalyzerArchiveRule(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsAccessanalyzerArchiveRule(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

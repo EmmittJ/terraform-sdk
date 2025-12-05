@@ -139,19 +139,19 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     /// A summary of the results attribute which is true if all of the results have decision &amp;quot;allowed&amp;quot;, and false otherwise.
     /// </summary>
     public TerraformValue<bool> AllAllowed
-        => AsReference("all_allowed");
+        => CreateReference("all_allowed");
 
     /// <summary>
     /// Do not use
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The results attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Results
-        => AsReference("results");
+        => CreateReference("results");
 
     /// <summary>
     /// Context block (nesting mode: set).

@@ -36,7 +36,7 @@ public partial class AzurermDevTestVirtualNetworkDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,19 +74,19 @@ public partial class AzurermDevTestVirtualNetworkDataSource(string name) : Terra
     /// The allowed_subnets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AllowedSubnets
-        => AsReference("allowed_subnets");
+        => CreateReference("allowed_subnets");
 
     /// <summary>
     /// The subnet_overrides attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SubnetOverrides
-        => AsReference("subnet_overrides");
+        => CreateReference("subnet_overrides");
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
     public TerraformValue<string> UniqueIdentifier
-        => AsReference("unique_identifier");
+        => CreateReference("unique_identifier");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

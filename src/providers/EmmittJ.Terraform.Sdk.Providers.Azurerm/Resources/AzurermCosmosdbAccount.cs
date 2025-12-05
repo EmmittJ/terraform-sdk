@@ -42,7 +42,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> IntervalInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("interval_in_minutes") ?? AsReference("interval_in_minutes");
+        get => GetArgument<TerraformValue<double>>("interval_in_minutes") ?? CreateReference("interval_in_minutes");
         set => SetArgument("interval_in_minutes", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> RetentionInHours
     {
-        get => GetArgument<TerraformValue<double>>("retention_in_hours") ?? AsReference("retention_in_hours");
+        get => GetArgument<TerraformValue<double>>("retention_in_hours") ?? CreateReference("retention_in_hours");
         set => SetArgument("retention_in_hours", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StorageRedundancy
     {
-        get => GetArgument<TerraformValue<string>>("storage_redundancy") ?? AsReference("storage_redundancy");
+        get => GetArgument<TerraformValue<string>>("storage_redundancy") ?? CreateReference("storage_redundancy");
         set => SetArgument("storage_redundancy", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? CreateReference("tier");
         set => SetArgument("tier", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The location attribute.
@@ -312,13 +312,13 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -588,7 +588,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> CreateMode
     {
-        get => GetArgument<TerraformValue<string>>("create_mode") ?? AsReference("create_mode");
+        get => GetArgument<TerraformValue<string>>("create_mode") ?? CreateReference("create_mode");
         set => SetArgument("create_mode", value);
     }
 
@@ -615,7 +615,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -697,7 +697,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> MongoServerVersion
     {
-        get => GetArgument<TerraformValue<string>>("mongo_server_version") ?? AsReference("mongo_server_version");
+        get => GetArgument<TerraformValue<string>>("mongo_server_version") ?? CreateReference("mongo_server_version");
         set => SetArgument("mongo_server_version", value);
     }
 
@@ -789,91 +789,91 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The primary_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryMongodbConnectionString
-        => AsReference("primary_mongodb_connection_string");
+        => CreateReference("primary_mongodb_connection_string");
 
     /// <summary>
     /// The primary_readonly_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryReadonlyKey
-        => AsReference("primary_readonly_key");
+        => CreateReference("primary_readonly_key");
 
     /// <summary>
     /// The primary_readonly_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryReadonlyMongodbConnectionString
-        => AsReference("primary_readonly_mongodb_connection_string");
+        => CreateReference("primary_readonly_mongodb_connection_string");
 
     /// <summary>
     /// The primary_readonly_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryReadonlySqlConnectionString
-        => AsReference("primary_readonly_sql_connection_string");
+        => CreateReference("primary_readonly_sql_connection_string");
 
     /// <summary>
     /// The primary_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimarySqlConnectionString
-        => AsReference("primary_sql_connection_string");
+        => CreateReference("primary_sql_connection_string");
 
     /// <summary>
     /// The read_endpoints attribute.
     /// </summary>
     public TerraformList<string> ReadEndpoints
-        => AsReference("read_endpoints");
+        => CreateReference("read_endpoints");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-        => AsReference("secondary_key");
+        => CreateReference("secondary_key");
 
     /// <summary>
     /// The secondary_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryMongodbConnectionString
-        => AsReference("secondary_mongodb_connection_string");
+        => CreateReference("secondary_mongodb_connection_string");
 
     /// <summary>
     /// The secondary_readonly_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryReadonlyKey
-        => AsReference("secondary_readonly_key");
+        => CreateReference("secondary_readonly_key");
 
     /// <summary>
     /// The secondary_readonly_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryReadonlyMongodbConnectionString
-        => AsReference("secondary_readonly_mongodb_connection_string");
+        => CreateReference("secondary_readonly_mongodb_connection_string");
 
     /// <summary>
     /// The secondary_readonly_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryReadonlySqlConnectionString
-        => AsReference("secondary_readonly_sql_connection_string");
+        => CreateReference("secondary_readonly_sql_connection_string");
 
     /// <summary>
     /// The secondary_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondarySqlConnectionString
-        => AsReference("secondary_sql_connection_string");
+        => CreateReference("secondary_sql_connection_string");
 
     /// <summary>
     /// The write_endpoints attribute.
     /// </summary>
     public TerraformList<string> WriteEndpoints
-        => AsReference("write_endpoints");
+        => CreateReference("write_endpoints");
 
     /// <summary>
     /// AnalyticalStorage block (nesting mode: list).

@@ -23,7 +23,7 @@ public partial class AwsLightsailBucketAccessKey(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLightsailBucketAccessKey(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,24 +40,24 @@ public partial class AwsLightsailBucketAccessKey(string name) : TerraformResourc
     /// The access_key_id attribute.
     /// </summary>
     public TerraformValue<string> AccessKeyId
-        => AsReference("access_key_id");
+        => CreateReference("access_key_id");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The secret_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecretAccessKey
-        => AsReference("secret_access_key");
+        => CreateReference("secret_access_key");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

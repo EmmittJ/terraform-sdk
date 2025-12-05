@@ -36,7 +36,7 @@ public partial class AzurermEventhubNamespaceDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,85 +64,85 @@ public partial class AzurermEventhubNamespaceDataSource(string name) : Terraform
     /// The auto_inflate_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AutoInflateEnabled
-        => AsReference("auto_inflate_enabled");
+        => CreateReference("auto_inflate_enabled");
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
     public TerraformValue<double> Capacity
-        => AsReference("capacity");
+        => CreateReference("capacity");
 
     /// <summary>
     /// The dedicated_cluster_id attribute.
     /// </summary>
     public TerraformValue<string> DedicatedClusterId
-        => AsReference("dedicated_cluster_id");
+        => CreateReference("dedicated_cluster_id");
 
     /// <summary>
     /// The default_primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryConnectionString
-        => AsReference("default_primary_connection_string");
+        => CreateReference("default_primary_connection_string");
 
     /// <summary>
     /// The default_primary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryConnectionStringAlias
-        => AsReference("default_primary_connection_string_alias");
+        => CreateReference("default_primary_connection_string_alias");
 
     /// <summary>
     /// The default_primary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryKey
-        => AsReference("default_primary_key");
+        => CreateReference("default_primary_key");
 
     /// <summary>
     /// The default_secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryConnectionString
-        => AsReference("default_secondary_connection_string");
+        => CreateReference("default_secondary_connection_string");
 
     /// <summary>
     /// The default_secondary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryConnectionStringAlias
-        => AsReference("default_secondary_connection_string_alias");
+        => CreateReference("default_secondary_connection_string_alias");
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryKey
-        => AsReference("default_secondary_key");
+        => CreateReference("default_secondary_key");
 
     /// <summary>
     /// The kafka_enabled attribute.
     /// </summary>
     public TerraformValue<bool> KafkaEnabled
-        => AsReference("kafka_enabled");
+        => CreateReference("kafka_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The maximum_throughput_units attribute.
     /// </summary>
     public TerraformValue<double> MaximumThroughputUnits
-        => AsReference("maximum_throughput_units");
+        => CreateReference("maximum_throughput_units");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

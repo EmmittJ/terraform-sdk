@@ -17,7 +17,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlock : Terraf
     /// The destination attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Destination
-        => AsReference("destination");
+        => CreateReference("destination");
 
     /// <summary>
     /// InventoryTableConfiguration block (nesting mode: list).
@@ -64,13 +64,13 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockInventory
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-        => AsReference("table_arn");
+        => CreateReference("table_arn");
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     public TerraformValue<string> TableName
-        => AsReference("table_name");
+        => CreateReference("table_name");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).
@@ -130,13 +130,13 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockJournalTa
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-        => AsReference("table_arn");
+        => CreateReference("table_arn");
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     public TerraformValue<string> TableName
-        => AsReference("table_name");
+        => CreateReference("table_name");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).
@@ -276,7 +276,7 @@ public partial class AwsS3BucketMetadataConfiguration(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

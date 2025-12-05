@@ -36,7 +36,7 @@ public partial class AzurermOracleCloudVmClusterDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,307 +64,307 @@ public partial class AzurermOracleCloudVmClusterDataSource(string name) : Terraf
     /// The backup_subnet_cidr attribute.
     /// </summary>
     public TerraformValue<string> BackupSubnetCidr
-        => AsReference("backup_subnet_cidr");
+        => CreateReference("backup_subnet_cidr");
 
     /// <summary>
     /// The cloud_exadata_infrastructure_id attribute.
     /// </summary>
     public TerraformValue<string> CloudExadataInfrastructureId
-        => AsReference("cloud_exadata_infrastructure_id");
+        => CreateReference("cloud_exadata_infrastructure_id");
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     public TerraformValue<string> ClusterName
-        => AsReference("cluster_name");
+        => CreateReference("cluster_name");
 
     /// <summary>
     /// The compartment_id attribute.
     /// </summary>
     public TerraformValue<string> CompartmentId
-        => AsReference("compartment_id");
+        => CreateReference("compartment_id");
 
     /// <summary>
     /// The compute_model attribute.
     /// </summary>
     public TerraformValue<string> ComputeModel
-        => AsReference("compute_model");
+        => CreateReference("compute_model");
 
     /// <summary>
     /// The compute_nodes attribute.
     /// </summary>
     public TerraformList<string> ComputeNodes
-        => AsReference("compute_nodes");
+        => CreateReference("compute_nodes");
 
     /// <summary>
     /// The cpu_core_count attribute.
     /// </summary>
     public TerraformValue<double> CpuCoreCount
-        => AsReference("cpu_core_count");
+        => CreateReference("cpu_core_count");
 
     /// <summary>
     /// The data_collection_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataCollectionOptions
-        => AsReference("data_collection_options");
+        => CreateReference("data_collection_options");
 
     /// <summary>
     /// The data_storage_percentage attribute.
     /// </summary>
     public TerraformValue<double> DataStoragePercentage
-        => AsReference("data_storage_percentage");
+        => CreateReference("data_storage_percentage");
 
     /// <summary>
     /// The data_storage_size_in_tbs attribute.
     /// </summary>
     public TerraformValue<double> DataStorageSizeInTbs
-        => AsReference("data_storage_size_in_tbs");
+        => CreateReference("data_storage_size_in_tbs");
 
     /// <summary>
     /// The db_node_storage_size_in_gbs attribute.
     /// </summary>
     public TerraformValue<double> DbNodeStorageSizeInGbs
-        => AsReference("db_node_storage_size_in_gbs");
+        => CreateReference("db_node_storage_size_in_gbs");
 
     /// <summary>
     /// The db_servers attribute.
     /// </summary>
     public TerraformList<string> DbServers
-        => AsReference("db_servers");
+        => CreateReference("db_servers");
 
     /// <summary>
     /// The disk_redundancy attribute.
     /// </summary>
     public TerraformValue<string> DiskRedundancy
-        => AsReference("disk_redundancy");
+        => CreateReference("disk_redundancy");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     public TerraformValue<string> Domain
-        => AsReference("domain");
+        => CreateReference("domain");
 
     /// <summary>
     /// The file_system_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FileSystemConfiguration
-        => AsReference("file_system_configuration");
+        => CreateReference("file_system_configuration");
 
     /// <summary>
     /// The gi_version attribute.
     /// </summary>
     public TerraformValue<string> GiVersion
-        => AsReference("gi_version");
+        => CreateReference("gi_version");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// The hostname_actual attribute.
     /// </summary>
     public TerraformValue<string> HostnameActual
-        => AsReference("hostname_actual");
+        => CreateReference("hostname_actual");
 
     /// <summary>
     /// The iorm_config_cache attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IormConfigCache
-        => AsReference("iorm_config_cache");
+        => CreateReference("iorm_config_cache");
 
     /// <summary>
     /// The last_update_history_entry_id attribute.
     /// </summary>
     public TerraformValue<string> LastUpdateHistoryEntryId
-        => AsReference("last_update_history_entry_id");
+        => CreateReference("last_update_history_entry_id");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
     public TerraformValue<string> LicenseModel
-        => AsReference("license_model");
+        => CreateReference("license_model");
 
     /// <summary>
     /// The lifecycle_details attribute.
     /// </summary>
     public TerraformValue<string> LifecycleDetails
-        => AsReference("lifecycle_details");
+        => CreateReference("lifecycle_details");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     public TerraformValue<string> LifecycleState
-        => AsReference("lifecycle_state");
+        => CreateReference("lifecycle_state");
 
     /// <summary>
     /// The listener_port attribute.
     /// </summary>
     public TerraformValue<double> ListenerPort
-        => AsReference("listener_port");
+        => CreateReference("listener_port");
 
     /// <summary>
     /// The local_backup_enabled attribute.
     /// </summary>
     public TerraformValue<bool> LocalBackupEnabled
-        => AsReference("local_backup_enabled");
+        => CreateReference("local_backup_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The memory_size_in_gbs attribute.
     /// </summary>
     public TerraformValue<double> MemorySizeInGbs
-        => AsReference("memory_size_in_gbs");
+        => CreateReference("memory_size_in_gbs");
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
     public TerraformValue<double> NodeCount
-        => AsReference("node_count");
+        => CreateReference("node_count");
 
     /// <summary>
     /// The nsg_url attribute.
     /// </summary>
     public TerraformValue<string> NsgUrl
-        => AsReference("nsg_url");
+        => CreateReference("nsg_url");
 
     /// <summary>
     /// The oci_url attribute.
     /// </summary>
     public TerraformValue<string> OciUrl
-        => AsReference("oci_url");
+        => CreateReference("oci_url");
 
     /// <summary>
     /// The ocid attribute.
     /// </summary>
     public TerraformValue<string> Ocid
-        => AsReference("ocid");
+        => CreateReference("ocid");
 
     /// <summary>
     /// The ocpu_count attribute.
     /// </summary>
     public TerraformValue<double> OcpuCount
-        => AsReference("ocpu_count");
+        => CreateReference("ocpu_count");
 
     /// <summary>
     /// The scan_dns_name attribute.
     /// </summary>
     public TerraformValue<string> ScanDnsName
-        => AsReference("scan_dns_name");
+        => CreateReference("scan_dns_name");
 
     /// <summary>
     /// The scan_dns_record_id attribute.
     /// </summary>
     public TerraformValue<string> ScanDnsRecordId
-        => AsReference("scan_dns_record_id");
+        => CreateReference("scan_dns_record_id");
 
     /// <summary>
     /// The scan_ip_ids attribute.
     /// </summary>
     public TerraformList<string> ScanIpIds
-        => AsReference("scan_ip_ids");
+        => CreateReference("scan_ip_ids");
 
     /// <summary>
     /// The scan_listener_port_tcp attribute.
     /// </summary>
     public TerraformValue<double> ScanListenerPortTcp
-        => AsReference("scan_listener_port_tcp");
+        => CreateReference("scan_listener_port_tcp");
 
     /// <summary>
     /// The scan_listener_port_tcp_ssl attribute.
     /// </summary>
     public TerraformValue<double> ScanListenerPortTcpSsl
-        => AsReference("scan_listener_port_tcp_ssl");
+        => CreateReference("scan_listener_port_tcp_ssl");
 
     /// <summary>
     /// The shape attribute.
     /// </summary>
     public TerraformValue<string> Shape
-        => AsReference("shape");
+        => CreateReference("shape");
 
     /// <summary>
     /// The sparse_diskgroup_enabled attribute.
     /// </summary>
     public TerraformValue<bool> SparseDiskgroupEnabled
-        => AsReference("sparse_diskgroup_enabled");
+        => CreateReference("sparse_diskgroup_enabled");
 
     /// <summary>
     /// The ssh_public_keys attribute.
     /// </summary>
     public TerraformList<string> SshPublicKeys
-        => AsReference("ssh_public_keys");
+        => CreateReference("ssh_public_keys");
 
     /// <summary>
     /// The storage_size_in_gbs attribute.
     /// </summary>
     public TerraformValue<double> StorageSizeInGbs
-        => AsReference("storage_size_in_gbs");
+        => CreateReference("storage_size_in_gbs");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-        => AsReference("subnet_id");
+        => CreateReference("subnet_id");
 
     /// <summary>
     /// The subnet_ocid attribute.
     /// </summary>
     public TerraformValue<string> SubnetOcid
-        => AsReference("subnet_ocid");
+        => CreateReference("subnet_ocid");
 
     /// <summary>
     /// The system_version attribute.
     /// </summary>
     public TerraformValue<string> SystemVersion
-        => AsReference("system_version");
+        => CreateReference("system_version");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
     public TerraformValue<string> TimeCreated
-        => AsReference("time_created");
+        => CreateReference("time_created");
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     public TerraformValue<string> TimeZone
-        => AsReference("time_zone");
+        => CreateReference("time_zone");
 
     /// <summary>
     /// The vip_ods attribute.
     /// </summary>
     public TerraformList<string> VipOds
-        => AsReference("vip_ods");
+        => CreateReference("vip_ods");
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualNetworkId
-        => AsReference("virtual_network_id");
+        => CreateReference("virtual_network_id");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     public TerraformValue<string> ZoneId
-        => AsReference("zone_id");
+        => CreateReference("zone_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

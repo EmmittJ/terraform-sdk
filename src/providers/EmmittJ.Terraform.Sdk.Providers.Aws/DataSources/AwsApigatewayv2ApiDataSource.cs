@@ -23,7 +23,7 @@ public partial class AwsApigatewayv2ApiDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsApigatewayv2ApiDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsApigatewayv2ApiDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,72 +49,72 @@ public partial class AwsApigatewayv2ApiDataSource(string name) : TerraformDataSo
     /// The api_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ApiEndpoint
-        => AsReference("api_endpoint");
+        => CreateReference("api_endpoint");
 
     /// <summary>
     /// The api_key_selection_expression attribute.
     /// </summary>
     public TerraformValue<string> ApiKeySelectionExpression
-        => AsReference("api_key_selection_expression");
+        => CreateReference("api_key_selection_expression");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cors_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CorsConfiguration
-        => AsReference("cors_configuration");
+        => CreateReference("cors_configuration");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The disable_execute_api_endpoint attribute.
     /// </summary>
     public TerraformValue<bool> DisableExecuteApiEndpoint
-        => AsReference("disable_execute_api_endpoint");
+        => CreateReference("disable_execute_api_endpoint");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionArn
-        => AsReference("execution_arn");
+        => CreateReference("execution_arn");
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
     public TerraformValue<string> IpAddressType
-        => AsReference("ip_address_type");
+        => CreateReference("ip_address_type");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
     public TerraformValue<string> ProtocolType
-        => AsReference("protocol_type");
+        => CreateReference("protocol_type");
 
     /// <summary>
     /// The route_selection_expression attribute.
     /// </summary>
     public TerraformValue<string> RouteSelectionExpression
-        => AsReference("route_selection_expression");
+        => CreateReference("route_selection_expression");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

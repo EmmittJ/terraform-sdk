@@ -131,7 +131,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TransparentHugePage
     {
-        get => GetArgument<TerraformValue<string>>("transparent_huge_page") ?? AsReference("transparent_huge_page");
+        get => GetArgument<TerraformValue<string>>("transparent_huge_page") ?? CreateReference("transparent_huge_page");
         set => SetArgument("transparent_huge_page", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> TransparentHugePageEnabled
     {
-        get => GetArgument<TerraformValue<string>>("transparent_huge_page_enabled") ?? AsReference("transparent_huge_page_enabled");
+        get => GetArgument<TerraformValue<string>>("transparent_huge_page_enabled") ?? CreateReference("transparent_huge_page_enabled");
         set => SetArgument("transparent_huge_page_enabled", value);
     }
 
@@ -720,7 +720,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -729,7 +729,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> KubeletDiskType
     {
-        get => GetArgument<TerraformValue<string>>("kubelet_disk_type") ?? AsReference("kubelet_disk_type");
+        get => GetArgument<TerraformValue<string>>("kubelet_disk_type") ?? CreateReference("kubelet_disk_type");
         set => SetArgument("kubelet_disk_type", value);
     }
 
@@ -757,7 +757,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double> MaxPods
     {
-        get => GetArgument<TerraformValue<double>>("max_pods") ?? AsReference("max_pods");
+        get => GetArgument<TerraformValue<double>>("max_pods") ?? CreateReference("max_pods");
         set => SetArgument("max_pods", value);
     }
 
@@ -794,7 +794,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? CreateReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -803,7 +803,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string> NodeLabels
     {
-        get => GetArgument<TerraformMap<string>>("node_labels") ?? AsReference("node_labels");
+        get => GetArgument<TerraformMap<string>>("node_labels") ?? CreateReference("node_labels");
         set => SetArgument("node_labels", value);
     }
 
@@ -839,7 +839,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> OrchestratorVersion
     {
-        get => GetArgument<TerraformValue<string>>("orchestrator_version") ?? AsReference("orchestrator_version");
+        get => GetArgument<TerraformValue<string>>("orchestrator_version") ?? CreateReference("orchestrator_version");
         set => SetArgument("orchestrator_version", value);
     }
 
@@ -848,7 +848,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double> OsDiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("os_disk_size_gb") ?? AsReference("os_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("os_disk_size_gb") ?? CreateReference("os_disk_size_gb");
         set => SetArgument("os_disk_size_gb", value);
     }
 
@@ -866,7 +866,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> OsSku
     {
-        get => GetArgument<TerraformValue<string>>("os_sku") ?? AsReference("os_sku");
+        get => GetArgument<TerraformValue<string>>("os_sku") ?? CreateReference("os_sku");
         set => SetArgument("os_sku", value);
     }
 
@@ -965,7 +965,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> VmSize
     {
-        get => GetArgument<TerraformValue<string>>("vm_size") ?? AsReference("vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size") ?? CreateReference("vm_size");
         set => SetArgument("vm_size", value);
     }
 

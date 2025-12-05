@@ -22,7 +22,7 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> InstanceClass
     {
-        get => GetArgument<TerraformValue<string>>("instance_class") ?? AsReference("instance_class");
+        get => GetArgument<TerraformValue<string>>("instance_class") ?? CreateReference("instance_class");
         set => SetArgument("instance_class", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<bool> Vpc
     {
-        get => GetArgument<TerraformValue<bool>>("vpc") ?? AsReference("vpc");
+        get => GetArgument<TerraformValue<bool>>("vpc") ?? CreateReference("vpc");
         set => SetArgument("vpc", value);
     }
 
@@ -84,6 +84,6 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// The availability_zones attribute.
     /// </summary>
     public TerraformList<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
 }

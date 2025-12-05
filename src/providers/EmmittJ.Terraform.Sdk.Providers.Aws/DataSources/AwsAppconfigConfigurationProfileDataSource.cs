@@ -33,7 +33,7 @@ public partial class AwsAppconfigConfigurationProfileDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsAppconfigConfigurationProfileDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsAppconfigConfigurationProfileDataSource(string name) : T
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -59,48 +59,48 @@ public partial class AwsAppconfigConfigurationProfileDataSource(string name) : T
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyIdentifier
-        => AsReference("kms_key_identifier");
+        => CreateReference("kms_key_identifier");
 
     /// <summary>
     /// The location_uri attribute.
     /// </summary>
     public TerraformValue<string> LocationUri
-        => AsReference("location_uri");
+        => CreateReference("location_uri");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The retrieval_role_arn attribute.
     /// </summary>
     public TerraformValue<string> RetrievalRoleArn
-        => AsReference("retrieval_role_arn");
+        => CreateReference("retrieval_role_arn");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The validator attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Validator
-        => AsReference("validator");
+        => CreateReference("validator");
 
 }

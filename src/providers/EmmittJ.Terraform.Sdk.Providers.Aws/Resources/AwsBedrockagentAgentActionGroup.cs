@@ -287,7 +287,7 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> ActionGroupState
     {
-        get => GetArgument<TerraformValue<string>>("action_group_state") ?? AsReference("action_group_state");
+        get => GetArgument<TerraformValue<string>>("action_group_state") ?? CreateReference("action_group_state");
         set => SetArgument("action_group_state", value);
     }
 
@@ -334,7 +334,7 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool> PrepareAgent
     {
-        get => GetArgument<TerraformValue<bool>>("prepare_agent") ?? AsReference("prepare_agent");
+        get => GetArgument<TerraformValue<bool>>("prepare_agent") ?? CreateReference("prepare_agent");
         set => SetArgument("prepare_agent", value);
     }
 
@@ -343,7 +343,7 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -352,7 +352,7 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool> SkipResourceInUseCheck
     {
-        get => GetArgument<TerraformValue<bool>>("skip_resource_in_use_check") ?? AsReference("skip_resource_in_use_check");
+        get => GetArgument<TerraformValue<bool>>("skip_resource_in_use_check") ?? CreateReference("skip_resource_in_use_check");
         set => SetArgument("skip_resource_in_use_check", value);
     }
 
@@ -360,13 +360,13 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     /// The action_group_id attribute.
     /// </summary>
     public TerraformValue<string> ActionGroupId
-        => AsReference("action_group_id");
+        => CreateReference("action_group_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// ActionGroupExecutor block (nesting mode: list).

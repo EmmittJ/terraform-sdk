@@ -23,7 +23,7 @@ public partial class AwsCodeguruprofilerProfilingGroupDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,48 +31,48 @@ public partial class AwsCodeguruprofilerProfilingGroupDataSource(string name) : 
     /// The agent_orchestration_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AgentOrchestrationConfig
-        => AsReference("agent_orchestration_config");
+        => CreateReference("agent_orchestration_config");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The compute_platform attribute.
     /// </summary>
     public TerraformValue<string> ComputePlatform
-        => AsReference("compute_platform");
+        => CreateReference("compute_platform");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The profiling_status attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProfilingStatus
-        => AsReference("profiling_status");
+        => CreateReference("profiling_status");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
 }

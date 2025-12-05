@@ -13,7 +13,7 @@ public partial class GoogleTagsTagValuesDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,6 +31,6 @@ public partial class GoogleTagsTagValuesDataSource(string name) : TerraformDataS
     /// The values attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValuesAttribute
-        => AsReference("values");
+        => CreateReference("values");
 
 }

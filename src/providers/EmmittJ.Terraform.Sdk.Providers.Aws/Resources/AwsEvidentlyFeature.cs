@@ -141,7 +141,7 @@ public partial class AwsEvidentlyFeature(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> DefaultVariation
     {
-        get => GetArgument<TerraformValue<string>>("default_variation") ?? AsReference("default_variation");
+        get => GetArgument<TerraformValue<string>>("default_variation") ?? CreateReference("default_variation");
         set => SetArgument("default_variation", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AwsEvidentlyFeature(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> EvaluationStrategy
     {
-        get => GetArgument<TerraformValue<string>>("evaluation_strategy") ?? AsReference("evaluation_strategy");
+        get => GetArgument<TerraformValue<string>>("evaluation_strategy") ?? CreateReference("evaluation_strategy");
         set => SetArgument("evaluation_strategy", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AwsEvidentlyFeature(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AwsEvidentlyFeature(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AwsEvidentlyFeature(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -232,37 +232,37 @@ public partial class AwsEvidentlyFeature(string name) : TerraformResource("aws_e
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The evaluation_rules attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> EvaluationRules
-        => AsReference("evaluation_rules");
+        => CreateReference("evaluation_rules");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-        => AsReference("last_updated_time");
+        => CreateReference("last_updated_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The value_type attribute.
     /// </summary>
     public TerraformValue<string> ValueType
-        => AsReference("value_type");
+        => CreateReference("value_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

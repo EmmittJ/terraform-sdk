@@ -171,7 +171,7 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -209,32 +209,32 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     /// Uses RFC 3339, where generated output will always be Z-normalized and uses 0, 3, 6 or 9 fractional digits. Offsets other than &amp;quot;Z&amp;quot; are also accepted. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The unique identifier of the Playbook.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/playbooks/&amp;lt;Playbook ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The resource name of flows referenced by the current playbook in the instructions.
     /// </summary>
     public TerraformList<string> ReferencedFlows
-        => AsReference("referenced_flows");
+        => CreateReference("referenced_flows");
 
     /// <summary>
     /// The resource name of other playbooks referenced by the current playbook in the instructions.
     /// </summary>
     public TerraformList<string> ReferencedPlaybooks
-        => AsReference("referenced_playbooks");
+        => CreateReference("referenced_playbooks");
 
     /// <summary>
     /// Estimated number of tokes current playbook takes when sent to the LLM.
     /// </summary>
     public TerraformValue<string> TokenCount
-        => AsReference("token_count");
+        => CreateReference("token_count");
 
     /// <summary>
     /// Last time the playbook version was updated.
@@ -242,7 +242,7 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     /// Uses RFC 3339, where generated output will always be Z-normalized and uses 0, 3, 6 or 9 fractional digits. Offsets other than &amp;quot;Z&amp;quot; are also accepted. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Instruction block (nesting mode: list).

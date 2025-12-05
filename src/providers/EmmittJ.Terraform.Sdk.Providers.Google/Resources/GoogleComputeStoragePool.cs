@@ -54,7 +54,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> CapacityProvisioningType
     {
-        get => GetArgument<TerraformValue<string>>("capacity_provisioning_type") ?? AsReference("capacity_provisioning_type");
+        get => GetArgument<TerraformValue<string>>("capacity_provisioning_type") ?? CreateReference("capacity_provisioning_type");
         set => SetArgument("capacity_provisioning_type", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> PerformanceProvisioningType
     {
-        get => GetArgument<TerraformValue<string>>("performance_provisioning_type") ?? AsReference("performance_provisioning_type");
+        get => GetArgument<TerraformValue<string>>("performance_provisioning_type") ?? CreateReference("performance_provisioning_type");
         set => SetArgument("performance_provisioning_type", value);
     }
 
@@ -154,7 +154,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -177,7 +177,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -185,51 +185,51 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Type of the resource.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.
     /// Used internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// Status information for the storage pool resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceStatus
-        => AsReference("resource_status");
+        => CreateReference("resource_status");
 
     /// <summary>
     /// Status information for the storage pool resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

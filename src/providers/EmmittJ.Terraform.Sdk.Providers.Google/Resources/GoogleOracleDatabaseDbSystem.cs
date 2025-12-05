@@ -31,7 +31,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ComputeModel
     {
-        get => GetArgument<TerraformValue<string>>("compute_model") ?? AsReference("compute_model");
+        get => GetArgument<TerraformValue<string>>("compute_model") ?? CreateReference("compute_model");
         set => SetArgument("compute_model", value);
     }
 
@@ -40,7 +40,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DataStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_gb") ?? AsReference("data_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_gb") ?? CreateReference("data_storage_size_gb");
         set => SetArgument("data_storage_size_gb", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain") ?? AsReference("domain");
+        get => GetArgument<TerraformValue<string>>("domain") ?? CreateReference("domain");
         set => SetArgument("domain", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// The hostname of the DbSystem.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// Prefix for DB System host names.
@@ -120,14 +120,14 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// UPGRADING
     /// </summary>
     public TerraformValue<string> LifecycleState
-        => AsReference("lifecycle_state");
+        => CreateReference("lifecycle_state");
 
     /// <summary>
     /// The memory size in GB.
     /// </summary>
     public TerraformValue<double> MemorySizeGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_gb") ?? AsReference("memory_size_gb");
+        get => GetArgument<TerraformValue<double>>("memory_size_gb") ?? CreateReference("memory_size_gb");
         set => SetArgument("memory_size_gb", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? CreateReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -144,14 +144,14 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// OCID of the DbSystem.
     /// </summary>
     public TerraformValue<string> Ocid
-        => AsReference("ocid");
+        => CreateReference("ocid");
 
     /// <summary>
     /// The private IP address of the DbSystem.
     /// </summary>
     public TerraformValue<string> PrivateIp
     {
-        get => GetArgument<TerraformValue<string>>("private_ip") ?? AsReference("private_ip");
+        get => GetArgument<TerraformValue<string>>("private_ip") ?? CreateReference("private_ip");
         set => SetArgument("private_ip", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> RecoStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("reco_storage_size_gb") ?? AsReference("reco_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("reco_storage_size_gb") ?? CreateReference("reco_storage_size_gb");
         set => SetArgument("reco_storage_size_gb", value);
     }
 
@@ -294,7 +294,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlock : TerraformB
     /// </summary>
     public TerraformValue<bool> IsUnifiedAuditingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("is_unified_auditing_enabled") ?? AsReference("is_unified_auditing_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_unified_auditing_enabled") ?? CreateReference("is_unified_auditing_enabled");
         set => SetArgument("is_unified_auditing_enabled", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// </summary>
     public TerraformValue<string> CharacterSet
     {
-        get => GetArgument<TerraformValue<string>>("character_set") ?? AsReference("character_set");
+        get => GetArgument<TerraformValue<string>>("character_set") ?? CreateReference("character_set");
         set => SetArgument("character_set", value);
     }
 
@@ -347,7 +347,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// The date and time that the Database was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The database ID of the Database.
@@ -364,7 +364,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// </summary>
     public TerraformValue<string> DbHomeName
     {
-        get => GetArgument<TerraformValue<string>>("db_home_name") ?? AsReference("db_home_name");
+        get => GetArgument<TerraformValue<string>>("db_home_name") ?? CreateReference("db_home_name");
         set => SetArgument("db_home_name", value);
     }
 
@@ -384,7 +384,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// </summary>
     public TerraformValue<string> DbUniqueName
     {
-        get => GetArgument<TerraformValue<string>>("db_unique_name") ?? AsReference("db_unique_name");
+        get => GetArgument<TerraformValue<string>>("db_unique_name") ?? CreateReference("db_unique_name");
         set => SetArgument("db_unique_name", value);
     }
 
@@ -393,7 +393,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// </summary>
     public TerraformValue<string> GcpOracleZone
     {
-        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? AsReference("gcp_oracle_zone");
+        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? CreateReference("gcp_oracle_zone");
         set => SetArgument("gcp_oracle_zone", value);
     }
 
@@ -402,14 +402,14 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// projects/{project}/locations/{region}/databases/{database}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The national character set for the database. The default is AL16UTF16.
     /// </summary>
     public TerraformValue<string> NcharacterSet
     {
-        get => GetArgument<TerraformValue<string>>("ncharacter_set") ?? AsReference("ncharacter_set");
+        get => GetArgument<TerraformValue<string>>("ncharacter_set") ?? CreateReference("ncharacter_set");
         set => SetArgument("ncharacter_set", value);
     }
 
@@ -417,7 +417,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// HTTPS link to OCI resources exposed to Customer via UI Interface.
     /// </summary>
     public TerraformValue<string> OciUrl
-        => AsReference("oci_url");
+        => CreateReference("oci_url");
 
     /// <summary>
     /// The Status of Operations Insights for this Database.
@@ -430,7 +430,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// FAILED_DISABLING
     /// </summary>
     public TerraformValue<string> OpsInsightsStatus
-        => AsReference("ops_insights_status");
+        => CreateReference("ops_insights_status");
 
     /// <summary>
     /// The TDE wallet password for the database.
@@ -489,7 +489,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// FAILED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// DatabaseManagementConfig block (nesting mode: list).
@@ -537,7 +537,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// FAILED_UPDATING
     /// </summary>
     public TerraformValue<string> ManagementState
-        => AsReference("management_state");
+        => CreateReference("management_state");
 
     /// <summary>
     /// The Database Management type.
@@ -546,7 +546,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// ADVANCED
     /// </summary>
     public TerraformValue<string> ManagementType
-        => AsReference("management_type");
+        => CreateReference("management_type");
 
 }
 
@@ -605,7 +605,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// </summary>
     public TerraformValue<string> AutoFullBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("auto_full_backup_window") ?? AsReference("auto_full_backup_window");
+        get => GetArgument<TerraformValue<string>>("auto_full_backup_window") ?? CreateReference("auto_full_backup_window");
         set => SetArgument("auto_full_backup_window", value);
     }
 
@@ -629,7 +629,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// </summary>
     public TerraformValue<string> AutoIncrementalBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("auto_incremental_backup_window") ?? AsReference("auto_incremental_backup_window");
+        get => GetArgument<TerraformValue<string>>("auto_incremental_backup_window") ?? CreateReference("auto_incremental_backup_window");
         set => SetArgument("auto_incremental_backup_window", value);
     }
 
@@ -641,7 +641,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// </summary>
     public TerraformValue<string> BackupDeletionPolicy
     {
-        get => GetArgument<TerraformValue<string>>("backup_deletion_policy") ?? AsReference("backup_deletion_policy");
+        get => GetArgument<TerraformValue<string>>("backup_deletion_policy") ?? CreateReference("backup_deletion_policy");
         set => SetArgument("backup_deletion_policy", value);
     }
 
@@ -652,7 +652,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// </summary>
     public TerraformValue<double> RetentionPeriodDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_period_days") ?? AsReference("retention_period_days");
+        get => GetArgument<TerraformValue<double>>("retention_period_days") ?? CreateReference("retention_period_days");
         set => SetArgument("retention_period_days", value);
     }
 
@@ -689,7 +689,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -714,7 +714,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbSystemOptionsBlock : T
     /// </summary>
     public TerraformValue<string> StorageManagement
     {
-        get => GetArgument<TerraformValue<string>>("storage_management") ?? AsReference("storage_management");
+        get => GetArgument<TerraformValue<string>>("storage_management") ?? CreateReference("storage_management");
         set => SetArgument("storage_management", value);
     }
 
@@ -736,7 +736,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockTimeZoneBlock : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -830,7 +830,7 @@ public partial class GoogleOracleDatabaseDbSystem(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> GcpOracleZone
     {
-        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? AsReference("gcp_oracle_zone");
+        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? CreateReference("gcp_oracle_zone");
         set => SetArgument("gcp_oracle_zone", value);
     }
 
@@ -839,7 +839,7 @@ public partial class GoogleOracleDatabaseDbSystem(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -894,7 +894,7 @@ public partial class GoogleOracleDatabaseDbSystem(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -902,39 +902,39 @@ public partial class GoogleOracleDatabaseDbSystem(string name) : TerraformResour
     /// The date and time that the DbSystem was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the DbSystem
     /// </summary>
     public TerraformValue<string> EntitlementId
-        => AsReference("entitlement_id");
+        => CreateReference("entitlement_id");
 
     /// <summary>
     /// Identifier. The name of the DbSystem resource in the following format:
     /// projects/{project}/locations/{region}/dbSystems/{db_system}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// HTTPS link to OCI resources exposed to Customer via UI Interface.
     /// </summary>
     public TerraformValue<string> OciUrl
-        => AsReference("oci_url");
+        => CreateReference("oci_url");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Properties block (nesting mode: list).

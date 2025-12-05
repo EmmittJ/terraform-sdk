@@ -1438,7 +1438,7 @@ public partial class AwsBedrockagentDataSource(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> DataDeletionPolicy
     {
-        get => GetArgument<TerraformValue<string>>("data_deletion_policy") ?? AsReference("data_deletion_policy");
+        get => GetArgument<TerraformValue<string>>("data_deletion_policy") ?? CreateReference("data_deletion_policy");
         set => SetArgument("data_deletion_policy", value);
     }
 
@@ -1476,7 +1476,7 @@ public partial class AwsBedrockagentDataSource(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1484,13 +1484,13 @@ public partial class AwsBedrockagentDataSource(string name) : TerraformResource(
     /// The data_source_id attribute.
     /// </summary>
     public TerraformValue<string> DataSourceId
-        => AsReference("data_source_id");
+        => CreateReference("data_source_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// DataSourceConfiguration block (nesting mode: list).

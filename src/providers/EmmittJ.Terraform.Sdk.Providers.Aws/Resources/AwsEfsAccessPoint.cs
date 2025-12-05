@@ -61,7 +61,7 @@ public class AwsEfsAccessPointRootDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsEfsAccessPoint(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsEfsAccessPoint(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AwsEfsAccessPoint(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -177,19 +177,19 @@ public partial class AwsEfsAccessPoint(string name) : TerraformResource("aws_efs
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> FileSystemArn
-        => AsReference("file_system_arn");
+        => CreateReference("file_system_arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// PosixUser block (nesting mode: list).

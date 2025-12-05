@@ -23,7 +23,7 @@ public partial class AwsTimestreamwriteDatabaseDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,30 +31,30 @@ public partial class AwsTimestreamwriteDatabaseDataSource(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-        => AsReference("last_updated_time");
+        => CreateReference("last_updated_time");
 
     /// <summary>
     /// The table_count attribute.
     /// </summary>
     public TerraformValue<double> TableCount
-        => AsReference("table_count");
+        => CreateReference("table_count");
 
 }

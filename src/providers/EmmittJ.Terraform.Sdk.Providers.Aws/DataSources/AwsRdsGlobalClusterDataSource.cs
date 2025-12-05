@@ -23,7 +23,7 @@ public partial class AwsRdsGlobalClusterDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,66 +31,66 @@ public partial class AwsRdsGlobalClusterDataSource(string name) : TerraformDataS
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     public TerraformValue<string> DatabaseName
-        => AsReference("database_name");
+        => CreateReference("database_name");
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-        => AsReference("engine");
+        => CreateReference("engine");
 
     /// <summary>
     /// The engine_lifecycle_support attribute.
     /// </summary>
     public TerraformValue<string> EngineLifecycleSupport
-        => AsReference("engine_lifecycle_support");
+        => CreateReference("engine_lifecycle_support");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-        => AsReference("engine_version");
+        => CreateReference("engine_version");
 
     /// <summary>
     /// The members attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Members
-        => AsReference("members");
+        => CreateReference("members");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-        => AsReference("resource_id");
+        => CreateReference("resource_id");
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
     public TerraformValue<bool> StorageEncrypted
-        => AsReference("storage_encrypted");
+        => CreateReference("storage_encrypted");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
 }

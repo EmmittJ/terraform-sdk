@@ -31600,7 +31600,7 @@ public partial class AwsLexv2modelsIntent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31608,25 +31608,25 @@ public partial class AwsLexv2modelsIntent(string name) : TerraformResource("aws_
     /// The creation_date_time attribute.
     /// </summary>
     public TerraformValue<string> CreationDateTime
-        => AsReference("creation_date_time");
+        => CreateReference("creation_date_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The intent_id attribute.
     /// </summary>
     public TerraformValue<string> IntentId
-        => AsReference("intent_id");
+        => CreateReference("intent_id");
 
     /// <summary>
     /// The last_updated_date_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDateTime
-        => AsReference("last_updated_date_time");
+        => CreateReference("last_updated_date_time");
 
     /// <summary>
     /// ClosingSetting block (nesting mode: list).

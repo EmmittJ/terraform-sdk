@@ -63,7 +63,7 @@ public partial class GoogleComputeTargetGrpcProxy(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class GoogleComputeTargetGrpcProxy(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -125,7 +125,7 @@ public partial class GoogleComputeTargetGrpcProxy(string name) : TerraformResour
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in
@@ -137,19 +137,19 @@ public partial class GoogleComputeTargetGrpcProxy(string name) : TerraformResour
     /// request to retrieve the TargetGrpcProxy. A base64-encoded string.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Server-defined URL with id for the resource.
     /// </summary>
     public TerraformValue<string> SelfLinkWithId
-        => AsReference("self_link_with_id");
+        => CreateReference("self_link_with_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

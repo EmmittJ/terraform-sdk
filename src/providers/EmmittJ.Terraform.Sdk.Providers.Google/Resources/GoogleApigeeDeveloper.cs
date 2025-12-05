@@ -106,7 +106,7 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -145,25 +145,25 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     /// Time at which the developer was created in milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// Time at which the developer was last modified in milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> LastModifiedAt
-        => AsReference("last_modified_at");
+        => CreateReference("last_modified_at");
 
     /// <summary>
     /// Name of the Apigee organization in which the developer resides.
     /// </summary>
     public TerraformValue<string> OrganizatioName
-        => AsReference("organizatio_name");
+        => CreateReference("organizatio_name");
 
     /// <summary>
     /// Status of the developer. Valid values are active and inactive.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

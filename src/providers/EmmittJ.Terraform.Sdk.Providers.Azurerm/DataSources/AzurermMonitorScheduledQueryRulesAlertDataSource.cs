@@ -36,7 +36,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlertDataSource(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,85 +64,85 @@ public partial class AzurermMonitorScheduledQueryRulesAlertDataSource(string nam
     /// The action attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Action
-        => AsReference("action");
+        => CreateReference("action");
 
     /// <summary>
     /// The authorized_resource_ids attribute.
     /// </summary>
     public TerraformSet<string> AuthorizedResourceIds
-        => AsReference("authorized_resource_ids");
+        => CreateReference("authorized_resource_ids");
 
     /// <summary>
     /// The data_source_id attribute.
     /// </summary>
     public TerraformValue<string> DataSourceId
-        => AsReference("data_source_id");
+        => CreateReference("data_source_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     public TerraformValue<double> Frequency
-        => AsReference("frequency");
+        => CreateReference("frequency");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The query attribute.
     /// </summary>
     public TerraformValue<string> Query
-        => AsReference("query");
+        => CreateReference("query");
 
     /// <summary>
     /// The query_type attribute.
     /// </summary>
     public TerraformValue<string> QueryType
-        => AsReference("query_type");
+        => CreateReference("query_type");
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
     public TerraformValue<double> Severity
-        => AsReference("severity");
+        => CreateReference("severity");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The throttling attribute.
     /// </summary>
     public TerraformValue<double> Throttling
-        => AsReference("throttling");
+        => CreateReference("throttling");
 
     /// <summary>
     /// The time_window attribute.
     /// </summary>
     public TerraformValue<double> TimeWindow
-        => AsReference("time_window");
+        => CreateReference("time_window");
 
     /// <summary>
     /// The trigger attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Trigger
-        => AsReference("trigger");
+        => CreateReference("trigger");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

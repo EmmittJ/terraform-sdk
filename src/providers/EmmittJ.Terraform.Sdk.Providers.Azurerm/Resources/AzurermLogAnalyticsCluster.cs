@@ -26,13 +26,13 @@ public class AzurermLogAnalyticsClusterIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -108,7 +108,7 @@ public partial class AzurermLogAnalyticsCluster(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermLogAnalyticsCluster(string name) : TerraformResource
     /// The cluster_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterId
-        => AsReference("cluster_id");
+        => CreateReference("cluster_id");
 
     /// <summary>
     /// Identity block (nesting mode: list).

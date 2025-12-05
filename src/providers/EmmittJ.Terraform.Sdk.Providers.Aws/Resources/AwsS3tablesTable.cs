@@ -94,7 +94,7 @@ public class AwsS3tablesTableMetadataBlockIcebergBlockSchemaBlockFieldBlock : Te
     /// </summary>
     public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? CreateReference("required");
         set => SetArgument("required", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     /// </summary>
     public TerraformMap<object> EncryptionConfiguration
     {
-        get => GetArgument<TerraformMap<object>>("encryption_configuration") ?? AsReference("encryption_configuration");
+        get => GetArgument<TerraformMap<object>>("encryption_configuration") ?? CreateReference("encryption_configuration");
         set => SetArgument("encryption_configuration", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     /// </summary>
     public TerraformMap<object> MaintenanceConfiguration
     {
-        get => GetArgument<TerraformMap<object>>("maintenance_configuration") ?? AsReference("maintenance_configuration");
+        get => GetArgument<TerraformMap<object>>("maintenance_configuration") ?? CreateReference("maintenance_configuration");
         set => SetArgument("maintenance_configuration", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -188,61 +188,61 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-        => AsReference("created_by");
+        => CreateReference("created_by");
 
     /// <summary>
     /// The metadata_location attribute.
     /// </summary>
     public TerraformValue<string> MetadataLocation
-        => AsReference("metadata_location");
+        => CreateReference("metadata_location");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
     public TerraformValue<string> ModifiedAt
-        => AsReference("modified_at");
+        => CreateReference("modified_at");
 
     /// <summary>
     /// The modified_by attribute.
     /// </summary>
     public TerraformValue<string> ModifiedBy
-        => AsReference("modified_by");
+        => CreateReference("modified_by");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The version_token attribute.
     /// </summary>
     public TerraformValue<string> VersionToken
-        => AsReference("version_token");
+        => CreateReference("version_token");
 
     /// <summary>
     /// The warehouse_location attribute.
     /// </summary>
     public TerraformValue<string> WarehouseLocation
-        => AsReference("warehouse_location");
+        => CreateReference("warehouse_location");
 
     /// <summary>
     /// Metadata block (nesting mode: list).

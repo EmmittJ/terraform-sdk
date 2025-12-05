@@ -36,7 +36,7 @@ public partial class AzurermIothubDpsDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,31 +73,31 @@ public partial class AzurermIothubDpsDataSource(string name) : TerraformDataSour
     /// The allocation_policy attribute.
     /// </summary>
     public TerraformValue<string> AllocationPolicy
-        => AsReference("allocation_policy");
+        => CreateReference("allocation_policy");
 
     /// <summary>
     /// The device_provisioning_host_name attribute.
     /// </summary>
     public TerraformValue<string> DeviceProvisioningHostName
-        => AsReference("device_provisioning_host_name");
+        => CreateReference("device_provisioning_host_name");
 
     /// <summary>
     /// The id_scope attribute.
     /// </summary>
     public TerraformValue<string> IdScope
-        => AsReference("id_scope");
+        => CreateReference("id_scope");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The service_operations_host_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceOperationsHostName
-        => AsReference("service_operations_host_name");
+        => CreateReference("service_operations_host_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

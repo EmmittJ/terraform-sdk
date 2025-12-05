@@ -82,7 +82,7 @@ public partial class GoogleLoggingLogView(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class GoogleLoggingLogView(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleLoggingLogView(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent") ?? AsReference("parent");
+        get => GetArgument<TerraformValue<string>>("parent") ?? CreateReference("parent");
         set => SetArgument("parent", value);
     }
 
@@ -118,13 +118,13 @@ public partial class GoogleLoggingLogView(string name) : TerraformResource("goog
     /// Output only. The creation timestamp of the view.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. The last update timestamp of the view.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

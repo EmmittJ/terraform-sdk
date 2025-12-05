@@ -54,7 +54,7 @@ public partial class AzurermPublicIpsDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermPublicIpsDataSource(string name) : TerraformDataSour
     /// The public_ips attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicIps
-        => AsReference("public_ips");
+        => CreateReference("public_ips");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

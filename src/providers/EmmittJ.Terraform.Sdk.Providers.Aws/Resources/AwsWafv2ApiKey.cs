@@ -13,7 +13,7 @@ public partial class AwsWafv2ApiKey(string name) : TerraformResource("aws_wafv2_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,6 +41,6 @@ public partial class AwsWafv2ApiKey(string name) : TerraformResource("aws_wafv2_
     /// The API key value. This is sensitive and not included in responses.
     /// </summary>
     public TerraformValue<string> ApiKey
-        => AsReference("api_key");
+        => CreateReference("api_key");
 
 }

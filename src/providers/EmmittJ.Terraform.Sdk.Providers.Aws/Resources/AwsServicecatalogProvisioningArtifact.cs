@@ -81,7 +81,7 @@ public partial class AwsServicecatalogProvisioningArtifact(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsServicecatalogProvisioningArtifact(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsServicecatalogProvisioningArtifact(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsServicecatalogProvisioningArtifact(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -171,13 +171,13 @@ public partial class AwsServicecatalogProvisioningArtifact(string name) : Terraf
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The provisioning_artifact_id attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningArtifactId
-        => AsReference("provisioning_artifact_id");
+        => CreateReference("provisioning_artifact_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

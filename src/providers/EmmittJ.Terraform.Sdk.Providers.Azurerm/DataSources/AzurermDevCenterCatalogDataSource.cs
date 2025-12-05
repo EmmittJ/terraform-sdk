@@ -46,7 +46,7 @@ public partial class AzurermDevCenterCatalogDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,13 +64,13 @@ public partial class AzurermDevCenterCatalogDataSource(string name) : TerraformD
     /// The catalog_adogit attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CatalogAdogit
-        => AsReference("catalog_adogit");
+        => CreateReference("catalog_adogit");
 
     /// <summary>
     /// The catalog_github attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CatalogGithub
-        => AsReference("catalog_github");
+        => CreateReference("catalog_github");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

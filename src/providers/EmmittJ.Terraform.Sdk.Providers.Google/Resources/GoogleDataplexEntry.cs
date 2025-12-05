@@ -56,13 +56,13 @@ public class GoogleDataplexEntryAspectsBlockAspectBlock : TerraformBlock
     /// The resource name of the type used to create this Aspect.
     /// </summary>
     public TerraformValue<string> AspectType
-        => AsReference("aspect_type");
+        => CreateReference("aspect_type");
 
     /// <summary>
     /// The time when the Aspect was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The content of the aspect in JSON form, according to its aspect type schema. The maximum size of the field is 120KB (encoded as UTF-8).
@@ -78,13 +78,13 @@ public class GoogleDataplexEntryAspectsBlockAspectBlock : TerraformBlock
     /// The path in the entry under which the aspect is attached.
     /// </summary>
     public TerraformValue<string> Path
-        => AsReference("path");
+        => CreateReference("path");
 
     /// <summary>
     /// The time when the Aspect was last modified.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }
 
@@ -143,7 +143,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// A different value allows capturing the source location for data external to Google Cloud.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The platform containing the source system. Maximum length is 64 characters.
@@ -316,7 +316,7 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -343,7 +343,7 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -351,19 +351,19 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// The time when the Entry was created in Dataplex.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The relative resource name of the entry, in the format projects/{project_number}/locations/{locationId}/entryGroups/{entryGroupId}/entries/{entryId}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The time when the entry was last updated in Dataplex.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Aspects block (nesting mode: list).

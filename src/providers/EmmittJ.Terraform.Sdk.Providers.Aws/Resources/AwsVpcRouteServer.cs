@@ -64,7 +64,7 @@ public partial class AwsVpcRouteServer(string name) : TerraformResource("aws_vpc
     /// </summary>
     public TerraformValue<string> PersistRoutes
     {
-        get => GetArgument<TerraformValue<string>>("persist_routes") ?? AsReference("persist_routes");
+        get => GetArgument<TerraformValue<string>>("persist_routes") ?? CreateReference("persist_routes");
         set => SetArgument("persist_routes", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsVpcRouteServer(string name) : TerraformResource("aws_vpc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsVpcRouteServer(string name) : TerraformResource("aws_vpc
     /// </summary>
     public TerraformValue<bool> SnsNotificationsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sns_notifications_enabled") ?? AsReference("sns_notifications_enabled");
+        get => GetArgument<TerraformValue<bool>>("sns_notifications_enabled") ?? CreateReference("sns_notifications_enabled");
         set => SetArgument("sns_notifications_enabled", value);
     }
 
@@ -108,25 +108,25 @@ public partial class AwsVpcRouteServer(string name) : TerraformResource("aws_vpc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The route_server_id attribute.
     /// </summary>
     public TerraformValue<string> RouteServerId
-        => AsReference("route_server_id");
+        => CreateReference("route_server_id");
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
     public TerraformValue<string> SnsTopicArn
-        => AsReference("sns_topic_arn");
+        => CreateReference("sns_topic_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

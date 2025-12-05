@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultCertificateDataDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermKeyVaultCertificateDataDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -73,43 +73,43 @@ public partial class AzurermKeyVaultCertificateDataDataSource(string name) : Ter
     /// The certificates_count attribute.
     /// </summary>
     public TerraformValue<double> CertificatesCount
-        => AsReference("certificates_count");
+        => CreateReference("certificates_count");
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
     public TerraformValue<string> Expires
-        => AsReference("expires");
+        => CreateReference("expires");
 
     /// <summary>
     /// The hex attribute.
     /// </summary>
     public TerraformValue<string> Hex
-        => AsReference("hex");
+        => CreateReference("hex");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     public TerraformValue<string> Key
-        => AsReference("key");
+        => CreateReference("key");
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     public TerraformValue<string> NotBefore
-        => AsReference("not_before");
+        => CreateReference("not_before");
 
     /// <summary>
     /// The pem attribute.
     /// </summary>
     public TerraformValue<string> Pem
-        => AsReference("pem");
+        => CreateReference("pem");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

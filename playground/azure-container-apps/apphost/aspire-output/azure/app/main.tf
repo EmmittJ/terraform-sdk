@@ -25,6 +25,7 @@ resource "azurerm_container_app" "app" {
   resource_group_name          = var.azure_resource_group_name
   revision_mode                = "Single"
   tags = {
+    CustomTag   = "MyValue"
     Environment = "Development"
     ManagedBy   = "Aspire-Terraform"
   }

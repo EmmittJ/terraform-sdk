@@ -126,7 +126,7 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,43 +162,43 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     /// The URL of the configuration JSON.
     /// </summary>
     public TerraformValue<string> ConfigUrl
-        => AsReference("config_url");
+        => CreateReference("config_url");
 
     /// <summary>
     /// The invocation URL.
     /// </summary>
     public TerraformValue<string> InvocationUrl
-        => AsReference("invocation_url");
+        => CreateReference("invocation_url");
 
     /// <summary>
     /// The Script root path URL.
     /// </summary>
     public TerraformValue<string> ScriptRootPathUrl
-        => AsReference("script_root_path_url");
+        => CreateReference("script_root_path_url");
 
     /// <summary>
     /// The script URL.
     /// </summary>
     public TerraformValue<string> ScriptUrl
-        => AsReference("script_url");
+        => CreateReference("script_url");
 
     /// <summary>
     /// The URL for the Secrets File.
     /// </summary>
     public TerraformValue<string> SecretsFileUrl
-        => AsReference("secrets_file_url");
+        => CreateReference("secrets_file_url");
 
     /// <summary>
     /// The Test data URL.
     /// </summary>
     public TerraformValue<string> TestDataUrl
-        => AsReference("test_data_url");
+        => CreateReference("test_data_url");
 
     /// <summary>
     /// The function URL.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// File block (nesting mode: list).

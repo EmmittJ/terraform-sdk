@@ -124,7 +124,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlockCl
     /// A thumbprint to represent the current client secret value.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -279,7 +279,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlockClien
     /// A thumbprint to represent the current client secret value.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -440,7 +440,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlockClientSecretBlockValueBlock 
     /// A thumbprint to represent the current client secret value.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -698,7 +698,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -760,7 +760,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// Format: &#39;locations/{location}/workforcePools/{workforcePoolId}/providers/{providerId}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The current state of the provider.
@@ -771,7 +771,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     ///   [providers.undelete](https://cloud.google.com/iam/docs/reference/rest/v1/locations.workforcePools.providers/undelete#google.iam.admin.v1.WorkforcePools.UndeleteWorkforcePoolProvider).
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// ExtendedAttributesOauth2Client block (nesting mode: list).

@@ -56,7 +56,7 @@ public partial class AzurermEventhubSasDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermEventhubSasDataSource(string name) : TerraformDataSo
     /// The sas attribute.
     /// </summary>
     public TerraformValue<string> Sas
-        => AsReference("sas");
+        => CreateReference("sas");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

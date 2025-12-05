@@ -76,7 +76,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string> FifoThroughputScope
     {
-        get => GetArgument<TerraformValue<string>>("fifo_throughput_scope") ?? AsReference("fifo_throughput_scope");
+        get => GetArgument<TerraformValue<string>>("fifo_throughput_scope") ?? CreateReference("fifo_throughput_scope");
         set => SetArgument("fifo_throughput_scope", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<double> SignatureVersion
     {
-        get => GetArgument<TerraformValue<double>>("signature_version") ?? AsReference("signature_version");
+        get => GetArgument<TerraformValue<double>>("signature_version") ?? CreateReference("signature_version");
         set => SetArgument("signature_version", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string> TracingConfig
     {
-        get => GetArgument<TerraformValue<string>>("tracing_config") ?? AsReference("tracing_config");
+        get => GetArgument<TerraformValue<string>>("tracing_config") ?? CreateReference("tracing_config");
         set => SetArgument("tracing_config", value);
     }
 
@@ -291,18 +291,18 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The beginning_archive_time attribute.
     /// </summary>
     public TerraformValue<string> BeginningArchiveTime
-        => AsReference("beginning_archive_time");
+        => CreateReference("beginning_archive_time");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
 }

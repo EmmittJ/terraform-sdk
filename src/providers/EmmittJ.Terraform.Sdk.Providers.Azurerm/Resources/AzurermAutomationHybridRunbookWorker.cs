@@ -64,7 +64,7 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,31 +112,31 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     /// The ip attribute.
     /// </summary>
     public TerraformValue<string> Ip
-        => AsReference("ip");
+        => CreateReference("ip");
 
     /// <summary>
     /// The last_seen_date_time attribute.
     /// </summary>
     public TerraformValue<string> LastSeenDateTime
-        => AsReference("last_seen_date_time");
+        => CreateReference("last_seen_date_time");
 
     /// <summary>
     /// The registration_date_time attribute.
     /// </summary>
     public TerraformValue<string> RegistrationDateTime
-        => AsReference("registration_date_time");
+        => CreateReference("registration_date_time");
 
     /// <summary>
     /// The worker_name attribute.
     /// </summary>
     public TerraformValue<string> WorkerName
-        => AsReference("worker_name");
+        => CreateReference("worker_name");
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
     public TerraformValue<string> WorkerType
-        => AsReference("worker_type");
+        => CreateReference("worker_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

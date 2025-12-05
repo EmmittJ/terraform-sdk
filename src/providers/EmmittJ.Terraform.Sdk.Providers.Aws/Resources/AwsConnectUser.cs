@@ -114,7 +114,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// </summary>
     public TerraformValue<string> DirectoryUserId
     {
-        get => GetArgument<TerraformValue<string>>("directory_user_id") ?? AsReference("directory_user_id");
+        get => GetArgument<TerraformValue<string>>("directory_user_id") ?? CreateReference("directory_user_id");
         set => SetArgument("directory_user_id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -216,13 +216,13 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     public TerraformValue<string> UserId
-        => AsReference("user_id");
+        => CreateReference("user_id");
 
     /// <summary>
     /// IdentityInfo block (nesting mode: list).

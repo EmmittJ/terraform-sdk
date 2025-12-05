@@ -198,7 +198,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? CreateReference("etag");
         set => SetArgument("etag", value);
     }
 
@@ -207,7 +207,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 

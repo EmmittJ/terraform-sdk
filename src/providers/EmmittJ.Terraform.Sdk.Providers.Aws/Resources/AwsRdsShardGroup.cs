@@ -54,7 +54,7 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     /// </summary>
     public TerraformValue<double> ComputeRedundancy
     {
-        get => GetArgument<TerraformValue<double>>("compute_redundancy") ?? AsReference("compute_redundancy");
+        get => GetArgument<TerraformValue<double>>("compute_redundancy") ?? CreateReference("compute_redundancy");
         set => SetArgument("compute_redundancy", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     /// </summary>
     public TerraformValue<double> MinAcu
     {
-        get => GetArgument<TerraformValue<double>>("min_acu") ?? AsReference("min_acu");
+        get => GetArgument<TerraformValue<double>>("min_acu") ?? CreateReference("min_acu");
         set => SetArgument("min_acu", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     /// </summary>
     public TerraformValue<bool> PubliclyAccessible
     {
-        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? AsReference("publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? CreateReference("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -128,25 +128,25 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The db_shard_group_resource_id attribute.
     /// </summary>
     public TerraformValue<string> DbShardGroupResourceId
-        => AsReference("db_shard_group_resource_id");
+        => CreateReference("db_shard_group_resource_id");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

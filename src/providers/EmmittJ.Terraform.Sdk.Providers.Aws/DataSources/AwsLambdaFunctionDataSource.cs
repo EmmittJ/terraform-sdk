@@ -23,7 +23,7 @@ public partial class AwsLambdaFunctionDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsLambdaFunctionDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsLambdaFunctionDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,187 +58,187 @@ public partial class AwsLambdaFunctionDataSource(string name) : TerraformDataSou
     /// The architectures attribute.
     /// </summary>
     public TerraformList<string> Architectures
-        => AsReference("architectures");
+        => CreateReference("architectures");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The code_sha256 attribute.
     /// </summary>
     public TerraformValue<string> CodeSha256
-        => AsReference("code_sha256");
+        => CreateReference("code_sha256");
 
     /// <summary>
     /// The code_signing_config_arn attribute.
     /// </summary>
     public TerraformValue<string> CodeSigningConfigArn
-        => AsReference("code_signing_config_arn");
+        => CreateReference("code_signing_config_arn");
 
     /// <summary>
     /// The dead_letter_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeadLetterConfig
-        => AsReference("dead_letter_config");
+        => CreateReference("dead_letter_config");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Environment
-        => AsReference("environment");
+        => CreateReference("environment");
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EphemeralStorage
-        => AsReference("ephemeral_storage");
+        => CreateReference("ephemeral_storage");
 
     /// <summary>
     /// The file_system_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FileSystemConfig
-        => AsReference("file_system_config");
+        => CreateReference("file_system_config");
 
     /// <summary>
     /// The handler attribute.
     /// </summary>
     public TerraformValue<string> Handler
-        => AsReference("handler");
+        => CreateReference("handler");
 
     /// <summary>
     /// The image_uri attribute.
     /// </summary>
     public TerraformValue<string> ImageUri
-        => AsReference("image_uri");
+        => CreateReference("image_uri");
 
     /// <summary>
     /// The invoke_arn attribute.
     /// </summary>
     public TerraformValue<string> InvokeArn
-        => AsReference("invoke_arn");
+        => CreateReference("invoke_arn");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyArn
-        => AsReference("kms_key_arn");
+        => CreateReference("kms_key_arn");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The layers attribute.
     /// </summary>
     public TerraformList<string> Layers
-        => AsReference("layers");
+        => CreateReference("layers");
 
     /// <summary>
     /// The logging_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LoggingConfig
-        => AsReference("logging_config");
+        => CreateReference("logging_config");
 
     /// <summary>
     /// The memory_size attribute.
     /// </summary>
     public TerraformValue<double> MemorySize
-        => AsReference("memory_size");
+        => CreateReference("memory_size");
 
     /// <summary>
     /// The qualified_arn attribute.
     /// </summary>
     public TerraformValue<string> QualifiedArn
-        => AsReference("qualified_arn");
+        => CreateReference("qualified_arn");
 
     /// <summary>
     /// The qualified_invoke_arn attribute.
     /// </summary>
     public TerraformValue<string> QualifiedInvokeArn
-        => AsReference("qualified_invoke_arn");
+        => CreateReference("qualified_invoke_arn");
 
     /// <summary>
     /// The reserved_concurrent_executions attribute.
     /// </summary>
     public TerraformValue<double> ReservedConcurrentExecutions
-        => AsReference("reserved_concurrent_executions");
+        => CreateReference("reserved_concurrent_executions");
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     public TerraformValue<string> Role
-        => AsReference("role");
+        => CreateReference("role");
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
     public TerraformValue<string> Runtime
-        => AsReference("runtime");
+        => CreateReference("runtime");
 
     /// <summary>
     /// The signing_job_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningJobArn
-        => AsReference("signing_job_arn");
+        => CreateReference("signing_job_arn");
 
     /// <summary>
     /// The signing_profile_version_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningProfileVersionArn
-        => AsReference("signing_profile_version_arn");
+        => CreateReference("signing_profile_version_arn");
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> SourceCodeHash
-        => AsReference("source_code_hash");
+        => CreateReference("source_code_hash");
 
     /// <summary>
     /// The source_code_size attribute.
     /// </summary>
     public TerraformValue<double> SourceCodeSize
-        => AsReference("source_code_size");
+        => CreateReference("source_code_size");
 
     /// <summary>
     /// The source_kms_key_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceKmsKeyArn
-        => AsReference("source_kms_key_arn");
+        => CreateReference("source_kms_key_arn");
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
     public TerraformValue<double> Timeout
-        => AsReference("timeout");
+        => CreateReference("timeout");
 
     /// <summary>
     /// The tracing_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TracingConfig
-        => AsReference("tracing_config");
+        => CreateReference("tracing_config");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The vpc_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpcConfig
-        => AsReference("vpc_config");
+        => CreateReference("vpc_config");
 
 }

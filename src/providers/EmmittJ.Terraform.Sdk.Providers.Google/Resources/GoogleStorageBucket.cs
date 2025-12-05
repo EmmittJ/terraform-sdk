@@ -28,7 +28,7 @@ public class GoogleStorageBucketAutoclassBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TerminalStorageClass
     {
-        get => GetArgument<TerraformValue<string>>("terminal_storage_class") ?? AsReference("terminal_storage_class");
+        get => GetArgument<TerraformValue<string>>("terminal_storage_class") ?? CreateReference("terminal_storage_class");
         set => SetArgument("terminal_storage_class", value);
     }
 
@@ -488,7 +488,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> WithState
     {
-        get => GetArgument<TerraformValue<string>>("with_state") ?? AsReference("with_state");
+        get => GetArgument<TerraformValue<string>>("with_state") ?? CreateReference("with_state");
         set => SetArgument("with_state", value);
     }
 
@@ -521,7 +521,7 @@ public class GoogleStorageBucketLoggingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LogObjectPrefix
     {
-        get => GetArgument<TerraformValue<string>>("log_object_prefix") ?? AsReference("log_object_prefix");
+        get => GetArgument<TerraformValue<string>>("log_object_prefix") ?? CreateReference("log_object_prefix");
         set => SetArgument("log_object_prefix", value);
     }
 
@@ -576,7 +576,7 @@ public class GoogleStorageBucketSoftDeletePolicyBlock : TerraformBlock
     /// Server-determined value that indicates the time from which the policy, or one with a greater retention, was effective. This value is in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> EffectiveTime
-        => AsReference("effective_time");
+        => CreateReference("effective_time");
 
     /// <summary>
     /// The duration in seconds that soft-deleted objects in the bucket will be retained and cannot be permanently deleted. Default value is 604800.
@@ -725,7 +725,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -763,7 +763,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -772,7 +772,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> PublicAccessPrevention
     {
-        get => GetArgument<TerraformValue<string>>("public_access_prevention") ?? AsReference("public_access_prevention");
+        get => GetArgument<TerraformValue<string>>("public_access_prevention") ?? CreateReference("public_access_prevention");
         set => SetArgument("public_access_prevention", value);
     }
 
@@ -790,7 +790,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Rpo
     {
-        get => GetArgument<TerraformValue<string>>("rpo") ?? AsReference("rpo");
+        get => GetArgument<TerraformValue<string>>("rpo") ?? CreateReference("rpo");
         set => SetArgument("rpo", value);
     }
 
@@ -808,7 +808,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool> UniformBucketLevelAccess
     {
-        get => GetArgument<TerraformValue<bool>>("uniform_bucket_level_access") ?? AsReference("uniform_bucket_level_access");
+        get => GetArgument<TerraformValue<bool>>("uniform_bucket_level_access") ?? CreateReference("uniform_bucket_level_access");
         set => SetArgument("uniform_bucket_level_access", value);
     }
 
@@ -816,43 +816,43 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The project number of the project in which the resource belongs.
     /// </summary>
     public TerraformValue<double> ProjectNumber
-        => AsReference("project_number");
+        => CreateReference("project_number");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The creation time of the bucket in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> TimeCreated
-        => AsReference("time_created");
+        => CreateReference("time_created");
 
     /// <summary>
     /// The time at which the bucket&#39;s metadata or IAM policy was last updated, in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> Updated
-        => AsReference("updated");
+        => CreateReference("updated");
 
     /// <summary>
     /// The base URL of the bucket, in the format gs://&amp;lt;bucket-name&amp;gt;.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// Autoclass block (nesting mode: list).

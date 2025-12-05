@@ -13,7 +13,7 @@ public partial class AwsKmsCustomKeyStoreDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> CustomKeyStoreId
     {
-        get => GetArgument<TerraformValue<string>>("custom_key_store_id") ?? AsReference("custom_key_store_id");
+        get => GetArgument<TerraformValue<string>>("custom_key_store_id") ?? CreateReference("custom_key_store_id");
         set => SetArgument("custom_key_store_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsKmsCustomKeyStoreDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> CustomKeyStoreName
     {
-        get => GetArgument<TerraformValue<string>>("custom_key_store_name") ?? AsReference("custom_key_store_name");
+        get => GetArgument<TerraformValue<string>>("custom_key_store_name") ?? CreateReference("custom_key_store_name");
         set => SetArgument("custom_key_store_name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsKmsCustomKeyStoreDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsKmsCustomKeyStoreDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -48,24 +48,24 @@ public partial class AwsKmsCustomKeyStoreDataSource(string name) : TerraformData
     /// The cloud_hsm_cluster_id attribute.
     /// </summary>
     public TerraformValue<string> CloudHsmClusterId
-        => AsReference("cloud_hsm_cluster_id");
+        => CreateReference("cloud_hsm_cluster_id");
 
     /// <summary>
     /// The connection_state attribute.
     /// </summary>
     public TerraformValue<string> ConnectionState
-        => AsReference("connection_state");
+        => CreateReference("connection_state");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The trust_anchor_certificate attribute.
     /// </summary>
     public TerraformValue<string> TrustAnchorCertificate
-        => AsReference("trust_anchor_certificate");
+        => CreateReference("trust_anchor_certificate");
 
 }

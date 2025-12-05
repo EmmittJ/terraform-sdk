@@ -72,7 +72,7 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfig(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,25 +110,25 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfig(string nam
     /// The default_primary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryKey
-        => AsReference("default_primary_key");
+        => CreateReference("default_primary_key");
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryKey
-        => AsReference("default_secondary_key");
+        => CreateReference("default_secondary_key");
 
     /// <summary>
     /// The primary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionStringAlias
-        => AsReference("primary_connection_string_alias");
+        => CreateReference("primary_connection_string_alias");
 
     /// <summary>
     /// The secondary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionStringAlias
-        => AsReference("secondary_connection_string_alias");
+        => CreateReference("secondary_connection_string_alias");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

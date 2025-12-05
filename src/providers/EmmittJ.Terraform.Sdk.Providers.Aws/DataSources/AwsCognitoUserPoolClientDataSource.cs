@@ -23,7 +23,7 @@ public partial class AwsCognitoUserPoolClientDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCognitoUserPoolClientDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,132 +50,132 @@ public partial class AwsCognitoUserPoolClientDataSource(string name) : Terraform
     /// The access_token_validity attribute.
     /// </summary>
     public TerraformValue<double> AccessTokenValidity
-        => AsReference("access_token_validity");
+        => CreateReference("access_token_validity");
 
     /// <summary>
     /// The allowed_oauth_flows attribute.
     /// </summary>
     public TerraformSet<string> AllowedOauthFlows
-        => AsReference("allowed_oauth_flows");
+        => CreateReference("allowed_oauth_flows");
 
     /// <summary>
     /// The allowed_oauth_flows_user_pool_client attribute.
     /// </summary>
     public TerraformValue<bool> AllowedOauthFlowsUserPoolClient
-        => AsReference("allowed_oauth_flows_user_pool_client");
+        => CreateReference("allowed_oauth_flows_user_pool_client");
 
     /// <summary>
     /// The allowed_oauth_scopes attribute.
     /// </summary>
     public TerraformSet<string> AllowedOauthScopes
-        => AsReference("allowed_oauth_scopes");
+        => CreateReference("allowed_oauth_scopes");
 
     /// <summary>
     /// The analytics_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AnalyticsConfiguration
-        => AsReference("analytics_configuration");
+        => CreateReference("analytics_configuration");
 
     /// <summary>
     /// The callback_urls attribute.
     /// </summary>
     public TerraformSet<string> CallbackUrls
-        => AsReference("callback_urls");
+        => CreateReference("callback_urls");
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     public TerraformValue<string> ClientSecret
-        => AsReference("client_secret");
+        => CreateReference("client_secret");
 
     /// <summary>
     /// The default_redirect_uri attribute.
     /// </summary>
     public TerraformValue<string> DefaultRedirectUri
-        => AsReference("default_redirect_uri");
+        => CreateReference("default_redirect_uri");
 
     /// <summary>
     /// The enable_propagate_additional_user_context_data attribute.
     /// </summary>
     public TerraformValue<bool> EnablePropagateAdditionalUserContextData
-        => AsReference("enable_propagate_additional_user_context_data");
+        => CreateReference("enable_propagate_additional_user_context_data");
 
     /// <summary>
     /// The enable_token_revocation attribute.
     /// </summary>
     public TerraformValue<bool> EnableTokenRevocation
-        => AsReference("enable_token_revocation");
+        => CreateReference("enable_token_revocation");
 
     /// <summary>
     /// The explicit_auth_flows attribute.
     /// </summary>
     public TerraformSet<string> ExplicitAuthFlows
-        => AsReference("explicit_auth_flows");
+        => CreateReference("explicit_auth_flows");
 
     /// <summary>
     /// The generate_secret attribute.
     /// </summary>
     public TerraformValue<bool> GenerateSecret
-        => AsReference("generate_secret");
+        => CreateReference("generate_secret");
 
     /// <summary>
     /// The id_token_validity attribute.
     /// </summary>
     public TerraformValue<double> IdTokenValidity
-        => AsReference("id_token_validity");
+        => CreateReference("id_token_validity");
 
     /// <summary>
     /// The logout_urls attribute.
     /// </summary>
     public TerraformSet<string> LogoutUrls
-        => AsReference("logout_urls");
+        => CreateReference("logout_urls");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The prevent_user_existence_errors attribute.
     /// </summary>
     public TerraformValue<string> PreventUserExistenceErrors
-        => AsReference("prevent_user_existence_errors");
+        => CreateReference("prevent_user_existence_errors");
 
     /// <summary>
     /// The read_attributes attribute.
     /// </summary>
     public TerraformSet<string> ReadAttributes
-        => AsReference("read_attributes");
+        => CreateReference("read_attributes");
 
     /// <summary>
     /// The refresh_token_rotation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RefreshTokenRotation
-        => AsReference("refresh_token_rotation");
+        => CreateReference("refresh_token_rotation");
 
     /// <summary>
     /// The refresh_token_validity attribute.
     /// </summary>
     public TerraformValue<double> RefreshTokenValidity
-        => AsReference("refresh_token_validity");
+        => CreateReference("refresh_token_validity");
 
     /// <summary>
     /// The supported_identity_providers attribute.
     /// </summary>
     public TerraformSet<string> SupportedIdentityProviders
-        => AsReference("supported_identity_providers");
+        => CreateReference("supported_identity_providers");
 
     /// <summary>
     /// The token_validity_units attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TokenValidityUnits
-        => AsReference("token_validity_units");
+        => CreateReference("token_validity_units");
 
     /// <summary>
     /// The write_attributes attribute.
     /// </summary>
     public TerraformSet<string> WriteAttributes
-        => AsReference("write_attributes");
+        => CreateReference("write_attributes");
 
 }

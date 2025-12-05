@@ -89,7 +89,7 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -138,20 +138,20 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     /// The default CmekConfig for the Customer.
     /// </summary>
     public TerraformValue<bool> IsDefault
-        => AsReference("is_default");
+        => CreateReference("is_default");
 
     /// <summary>
     /// KMS key version resource name which will be used to encrypt resources
     /// &#39;&amp;lt;kms_key&amp;gt;/cryptoKeyVersions/{keyVersion}&#39;.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-        => AsReference("kms_key_version");
+        => CreateReference("kms_key_version");
 
     /// <summary>
     /// The timestamp of the last key rotation.
     /// </summary>
     public TerraformValue<double> LastRotationTimestampMicros
-        => AsReference("last_rotation_timestamp_micros");
+        => CreateReference("last_rotation_timestamp_micros");
 
     /// <summary>
     /// The unique full resource name of the cmek config. Values are of the format
@@ -160,19 +160,19 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Whether the NotebookLM Corpus is ready to be used.
     /// </summary>
     public TerraformValue<string> NotebooklmState
-        => AsReference("notebooklm_state");
+        => CreateReference("notebooklm_state");
 
     /// <summary>
     /// The state of the CmekConfig.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// SingleRegionKeys block (nesting mode: list).

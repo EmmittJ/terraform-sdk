@@ -150,7 +150,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The description attribute.
@@ -166,7 +166,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<string> ExpiryTime
     {
-        get => GetArgument<TerraformValue<string>>("expiry_time") ?? AsReference("expiry_time");
+        get => GetArgument<TerraformValue<string>>("expiry_time") ?? CreateReference("expiry_time");
         set => SetArgument("expiry_time", value);
     }
 
@@ -211,14 +211,14 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-        => AsReference("last_modified_time");
+        => CreateReference("last_modified_time");
 
     /// <summary>
     /// The next_run attribute.
     /// </summary>
     public TerraformValue<string> NextRun
     {
-        get => GetArgument<TerraformValue<string>>("next_run") ?? AsReference("next_run");
+        get => GetArgument<TerraformValue<string>>("next_run") ?? CreateReference("next_run");
         set => SetArgument("next_run", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -581,7 +581,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -617,13 +617,13 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// The error_code attribute.
     /// </summary>
     public TerraformValue<string> ErrorCode
-        => AsReference("error_code");
+        => CreateReference("error_code");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-        => AsReference("error_message");
+        => CreateReference("error_message");
 
     /// <summary>
     /// Linux block (nesting mode: list).

@@ -115,7 +115,7 @@ public partial class AzurermElasticSan(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -171,31 +171,31 @@ public partial class AzurermElasticSan(string name) : TerraformResource("azurerm
     /// The total_iops attribute.
     /// </summary>
     public TerraformValue<double> TotalIops
-        => AsReference("total_iops");
+        => CreateReference("total_iops");
 
     /// <summary>
     /// The total_mbps attribute.
     /// </summary>
     public TerraformValue<double> TotalMbps
-        => AsReference("total_mbps");
+        => CreateReference("total_mbps");
 
     /// <summary>
     /// The total_size_in_tib attribute.
     /// </summary>
     public TerraformValue<double> TotalSizeInTib
-        => AsReference("total_size_in_tib");
+        => CreateReference("total_size_in_tib");
 
     /// <summary>
     /// The total_volume_size_in_gib attribute.
     /// </summary>
     public TerraformValue<double> TotalVolumeSizeInGib
-        => AsReference("total_volume_size_in_gib");
+        => CreateReference("total_volume_size_in_gib");
 
     /// <summary>
     /// The volume_group_count attribute.
     /// </summary>
     public TerraformValue<double> VolumeGroupCount
-        => AsReference("volume_group_count");
+        => CreateReference("volume_group_count");
 
     /// <summary>
     /// Sku block (nesting mode: list).

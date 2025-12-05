@@ -36,7 +36,7 @@ public partial class AzurermFirewallDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<bool> DnsProxyEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("dns_proxy_enabled") ?? AsReference("dns_proxy_enabled");
+        get => GetArgument<TerraformValue<bool>>("dns_proxy_enabled") ?? CreateReference("dns_proxy_enabled");
         set => SetArgument("dns_proxy_enabled", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermFirewallDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,67 +73,67 @@ public partial class AzurermFirewallDataSource(string name) : TerraformDataSourc
     /// The dns_servers attribute.
     /// </summary>
     public TerraformList<string> DnsServers
-        => AsReference("dns_servers");
+        => CreateReference("dns_servers");
 
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
     public TerraformValue<string> FirewallPolicyId
-        => AsReference("firewall_policy_id");
+        => CreateReference("firewall_policy_id");
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-        => AsReference("ip_configuration");
+        => CreateReference("ip_configuration");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The management_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagementIpConfiguration
-        => AsReference("management_ip_configuration");
+        => CreateReference("management_ip_configuration");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
     public TerraformValue<string> SkuTier
-        => AsReference("sku_tier");
+        => CreateReference("sku_tier");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The threat_intel_mode attribute.
     /// </summary>
     public TerraformValue<string> ThreatIntelMode
-        => AsReference("threat_intel_mode");
+        => CreateReference("threat_intel_mode");
 
     /// <summary>
     /// The virtual_hub attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VirtualHub
-        => AsReference("virtual_hub");
+        => CreateReference("virtual_hub");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class AwsS3controlAccessGrantsInstanceResourcePolicy(string name)
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsS3controlAccessGrantsInstanceResourcePolicy(string name)
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,6 +40,6 @@ public partial class AwsS3controlAccessGrantsInstanceResourcePolicy(string name)
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

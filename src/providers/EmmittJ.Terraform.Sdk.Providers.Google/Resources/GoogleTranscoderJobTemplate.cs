@@ -123,7 +123,7 @@ public class GoogleTranscoderJobTemplateConfigBlockAdBreaksBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> StartTimeOffset
     {
-        get => GetArgument<TerraformValue<string>>("start_time_offset") ?? AsReference("start_time_offset");
+        get => GetArgument<TerraformValue<string>>("start_time_offset") ?? CreateReference("start_time_offset");
         set => SetArgument("start_time_offset", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleTranscoderJobTemplateConfigBlockEditListBlock : TerraformBloc
     /// </summary>
     public TerraformList<string> Inputs
     {
-        get => GetArgument<TerraformList<string>>("inputs") ?? AsReference("inputs");
+        get => GetArgument<TerraformList<string>>("inputs") ?? CreateReference("inputs");
         set => SetArgument("inputs", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleTranscoderJobTemplateConfigBlockEditListBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleTranscoderJobTemplateConfigBlockEditListBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> StartTimeOffset
     {
-        get => GetArgument<TerraformValue<string>>("start_time_offset") ?? AsReference("start_time_offset");
+        get => GetArgument<TerraformValue<string>>("start_time_offset") ?? CreateReference("start_time_offset");
         set => SetArgument("start_time_offset", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlock : Terr
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -237,7 +237,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockAudioSt
     /// </summary>
     public TerraformValue<double> ChannelCount
     {
-        get => GetArgument<TerraformValue<double>>("channel_count") ?? AsReference("channel_count");
+        get => GetArgument<TerraformValue<double>>("channel_count") ?? CreateReference("channel_count");
         set => SetArgument("channel_count", value);
     }
 
@@ -246,7 +246,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockAudioSt
     /// </summary>
     public TerraformList<string> ChannelLayout
     {
-        get => GetArgument<TerraformList<string>>("channel_layout") ?? AsReference("channel_layout");
+        get => GetArgument<TerraformList<string>>("channel_layout") ?? CreateReference("channel_layout");
         set => SetArgument("channel_layout", value);
     }
 
@@ -255,7 +255,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockAudioSt
     /// </summary>
     public TerraformValue<string> Codec
     {
-        get => GetArgument<TerraformValue<string>>("codec") ?? AsReference("codec");
+        get => GetArgument<TerraformValue<string>>("codec") ?? CreateReference("codec");
         set => SetArgument("codec", value);
     }
 
@@ -264,7 +264,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockAudioSt
     /// </summary>
     public TerraformValue<double> SampleRateHertz
     {
-        get => GetArgument<TerraformValue<double>>("sample_rate_hertz") ?? AsReference("sample_rate_hertz");
+        get => GetArgument<TerraformValue<double>>("sample_rate_hertz") ?? CreateReference("sample_rate_hertz");
         set => SetArgument("sample_rate_hertz", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<double> CrfLevel
     {
-        get => GetArgument<TerraformValue<double>>("crf_level") ?? AsReference("crf_level");
+        get => GetArgument<TerraformValue<double>>("crf_level") ?? CreateReference("crf_level");
         set => SetArgument("crf_level", value);
     }
 
@@ -328,7 +328,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<string> EntropyCoder
     {
-        get => GetArgument<TerraformValue<string>>("entropy_coder") ?? AsReference("entropy_coder");
+        get => GetArgument<TerraformValue<string>>("entropy_coder") ?? CreateReference("entropy_coder");
         set => SetArgument("entropy_coder", value);
     }
 
@@ -347,7 +347,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<string> GopDuration
     {
-        get => GetArgument<TerraformValue<string>>("gop_duration") ?? AsReference("gop_duration");
+        get => GetArgument<TerraformValue<string>>("gop_duration") ?? CreateReference("gop_duration");
         set => SetArgument("gop_duration", value);
     }
 
@@ -356,7 +356,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<double> HeightPixels
     {
-        get => GetArgument<TerraformValue<double>>("height_pixels") ?? AsReference("height_pixels");
+        get => GetArgument<TerraformValue<double>>("height_pixels") ?? CreateReference("height_pixels");
         set => SetArgument("height_pixels", value);
     }
 
@@ -365,7 +365,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<string> PixelFormat
     {
-        get => GetArgument<TerraformValue<string>>("pixel_format") ?? AsReference("pixel_format");
+        get => GetArgument<TerraformValue<string>>("pixel_format") ?? CreateReference("pixel_format");
         set => SetArgument("pixel_format", value);
     }
 
@@ -374,7 +374,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<string> Preset
     {
-        get => GetArgument<TerraformValue<string>>("preset") ?? AsReference("preset");
+        get => GetArgument<TerraformValue<string>>("preset") ?? CreateReference("preset");
         set => SetArgument("preset", value);
     }
 
@@ -383,7 +383,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile") ?? AsReference("profile");
+        get => GetArgument<TerraformValue<string>>("profile") ?? CreateReference("profile");
         set => SetArgument("profile", value);
     }
 
@@ -392,7 +392,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<string> RateControlMode
     {
-        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? AsReference("rate_control_mode");
+        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? CreateReference("rate_control_mode");
         set => SetArgument("rate_control_mode", value);
     }
 
@@ -401,7 +401,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<double> VbvFullnessBits
     {
-        get => GetArgument<TerraformValue<double>>("vbv_fullness_bits") ?? AsReference("vbv_fullness_bits");
+        get => GetArgument<TerraformValue<double>>("vbv_fullness_bits") ?? CreateReference("vbv_fullness_bits");
         set => SetArgument("vbv_fullness_bits", value);
     }
 
@@ -410,7 +410,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<double> VbvSizeBits
     {
-        get => GetArgument<TerraformValue<double>>("vbv_size_bits") ?? AsReference("vbv_size_bits");
+        get => GetArgument<TerraformValue<double>>("vbv_size_bits") ?? CreateReference("vbv_size_bits");
         set => SetArgument("vbv_size_bits", value);
     }
 
@@ -419,7 +419,7 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     /// </summary>
     public TerraformValue<double> WidthPixels
     {
-        get => GetArgument<TerraformValue<double>>("width_pixels") ?? AsReference("width_pixels");
+        get => GetArgument<TerraformValue<double>>("width_pixels") ?? CreateReference("width_pixels");
         set => SetArgument("width_pixels", value);
     }
 
@@ -737,7 +737,7 @@ public class GoogleTranscoderJobTemplateConfigBlockInputsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -747,7 +747,7 @@ public class GoogleTranscoderJobTemplateConfigBlockInputsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri") ?? AsReference("uri");
+        get => GetArgument<TerraformValue<string>>("uri") ?? CreateReference("uri");
         set => SetArgument("uri", value);
     }
 
@@ -769,7 +769,7 @@ public class GoogleTranscoderJobTemplateConfigBlockManifestsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> FileName
     {
-        get => GetArgument<TerraformValue<string>>("file_name") ?? AsReference("file_name");
+        get => GetArgument<TerraformValue<string>>("file_name") ?? CreateReference("file_name");
         set => SetArgument("file_name", value);
     }
 
@@ -778,7 +778,7 @@ public class GoogleTranscoderJobTemplateConfigBlockManifestsBlock : TerraformBlo
     /// </summary>
     public TerraformList<string> MuxStreams
     {
-        get => GetArgument<TerraformList<string>>("mux_streams") ?? AsReference("mux_streams");
+        get => GetArgument<TerraformList<string>>("mux_streams") ?? CreateReference("mux_streams");
         set => SetArgument("mux_streams", value);
     }
 
@@ -787,7 +787,7 @@ public class GoogleTranscoderJobTemplateConfigBlockManifestsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -809,7 +809,7 @@ public class GoogleTranscoderJobTemplateConfigBlockMuxStreamsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> Container
     {
-        get => GetArgument<TerraformValue<string>>("container") ?? AsReference("container");
+        get => GetArgument<TerraformValue<string>>("container") ?? CreateReference("container");
         set => SetArgument("container", value);
     }
 
@@ -818,7 +818,7 @@ public class GoogleTranscoderJobTemplateConfigBlockMuxStreamsBlock : TerraformBl
     /// </summary>
     public TerraformList<string> ElementaryStreams
     {
-        get => GetArgument<TerraformList<string>>("elementary_streams") ?? AsReference("elementary_streams");
+        get => GetArgument<TerraformList<string>>("elementary_streams") ?? CreateReference("elementary_streams");
         set => SetArgument("elementary_streams", value);
     }
 
@@ -827,7 +827,7 @@ public class GoogleTranscoderJobTemplateConfigBlockMuxStreamsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> EncryptionId
     {
-        get => GetArgument<TerraformValue<string>>("encryption_id") ?? AsReference("encryption_id");
+        get => GetArgument<TerraformValue<string>>("encryption_id") ?? CreateReference("encryption_id");
         set => SetArgument("encryption_id", value);
     }
 
@@ -836,7 +836,7 @@ public class GoogleTranscoderJobTemplateConfigBlockMuxStreamsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> FileName
     {
-        get => GetArgument<TerraformValue<string>>("file_name") ?? AsReference("file_name");
+        get => GetArgument<TerraformValue<string>>("file_name") ?? CreateReference("file_name");
         set => SetArgument("file_name", value);
     }
 
@@ -845,7 +845,7 @@ public class GoogleTranscoderJobTemplateConfigBlockMuxStreamsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? CreateReference("key");
         set => SetArgument("key", value);
     }
 
@@ -877,7 +877,7 @@ public class GoogleTranscoderJobTemplateConfigBlockMuxStreamsBlockSegmentSetting
     /// </summary>
     public TerraformValue<string> SegmentDuration
     {
-        get => GetArgument<TerraformValue<string>>("segment_duration") ?? AsReference("segment_duration");
+        get => GetArgument<TerraformValue<string>>("segment_duration") ?? CreateReference("segment_duration");
         set => SetArgument("segment_duration", value);
     }
 
@@ -899,7 +899,7 @@ public class GoogleTranscoderJobTemplateConfigBlockOutputBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri") ?? AsReference("uri");
+        get => GetArgument<TerraformValue<string>>("uri") ?? CreateReference("uri");
         set => SetArgument("uri", value);
     }
 
@@ -976,7 +976,7 @@ public class GoogleTranscoderJobTemplateConfigBlockOverlaysBlockAnimationsBlockA
     /// </summary>
     public TerraformValue<string> EndTimeOffset
     {
-        get => GetArgument<TerraformValue<string>>("end_time_offset") ?? AsReference("end_time_offset");
+        get => GetArgument<TerraformValue<string>>("end_time_offset") ?? CreateReference("end_time_offset");
         set => SetArgument("end_time_offset", value);
     }
 
@@ -1002,7 +1002,7 @@ public class GoogleTranscoderJobTemplateConfigBlockOverlaysBlockAnimationsBlockA
     /// </summary>
     public TerraformValue<string> StartTimeOffset
     {
-        get => GetArgument<TerraformValue<string>>("start_time_offset") ?? AsReference("start_time_offset");
+        get => GetArgument<TerraformValue<string>>("start_time_offset") ?? CreateReference("start_time_offset");
         set => SetArgument("start_time_offset", value);
     }
 
@@ -1034,7 +1034,7 @@ public class GoogleTranscoderJobTemplateConfigBlockOverlaysBlockAnimationsBlockA
     /// </summary>
     public TerraformValue<double> X
     {
-        get => GetArgument<TerraformValue<double>>("x") ?? AsReference("x");
+        get => GetArgument<TerraformValue<double>>("x") ?? CreateReference("x");
         set => SetArgument("x", value);
     }
 
@@ -1043,7 +1043,7 @@ public class GoogleTranscoderJobTemplateConfigBlockOverlaysBlockAnimationsBlockA
     /// </summary>
     public TerraformValue<double> Y
     {
-        get => GetArgument<TerraformValue<double>>("y") ?? AsReference("y");
+        get => GetArgument<TerraformValue<double>>("y") ?? CreateReference("y");
         set => SetArgument("y", value);
     }
 
@@ -1147,7 +1147,7 @@ public partial class GoogleTranscoderJobTemplate(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1189,7 +1189,7 @@ public partial class GoogleTranscoderJobTemplate(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1197,20 +1197,20 @@ public partial class GoogleTranscoderJobTemplate(string name) : TerraformResourc
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The resource name of the job template.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Config block (nesting mode: list).

@@ -295,7 +295,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SharedKey
     {
-        get => GetArgument<TerraformValue<string>>("shared_key") ?? AsReference("shared_key");
+        get => GetArgument<TerraformValue<string>>("shared_key") ?? CreateReference("shared_key");
         set => SetArgument("shared_key", value);
     }
 
@@ -467,7 +467,7 @@ public partial class AzurermVpnGatewayConnection(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

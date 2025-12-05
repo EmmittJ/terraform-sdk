@@ -23,7 +23,7 @@ public partial class AwsSsmcontactsRotationDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,42 +31,42 @@ public partial class AwsSsmcontactsRotationDataSource(string name) : TerraformDa
     /// The contact_ids attribute.
     /// </summary>
     public TerraformList<string> ContactIds
-        => AsReference("contact_ids");
+        => CreateReference("contact_ids");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The recurrence attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Recurrence
-        => AsReference("recurrence");
+        => CreateReference("recurrence");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-        => AsReference("start_time");
+        => CreateReference("start_time");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The time_zone_id attribute.
     /// </summary>
     public TerraformValue<string> TimeZoneId
-        => AsReference("time_zone_id");
+        => CreateReference("time_zone_id");
 
 }

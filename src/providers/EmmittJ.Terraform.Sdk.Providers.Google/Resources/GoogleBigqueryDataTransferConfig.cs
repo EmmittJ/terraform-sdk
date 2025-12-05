@@ -246,7 +246,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -289,7 +289,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -329,7 +329,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// The name is ignored when creating a transfer config.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// EmailPreferences block (nesting mode: list).

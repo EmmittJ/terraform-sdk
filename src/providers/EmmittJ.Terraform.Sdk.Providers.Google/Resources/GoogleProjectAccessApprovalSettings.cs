@@ -108,7 +108,7 @@ public partial class GoogleProjectAccessApprovalSettings(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class GoogleProjectAccessApprovalSettings(string name) : Terrafor
     /// </summary>
     public TerraformSet<string> NotificationEmails
     {
-        get => GetArgument<TerraformSet<string>>("notification_emails") ?? AsReference("notification_emails");
+        get => GetArgument<TerraformSet<string>>("notification_emails") ?? CreateReference("notification_emails");
         set => SetArgument("notification_emails", value);
     }
 
@@ -147,13 +147,13 @@ public partial class GoogleProjectAccessApprovalSettings(string name) : Terrafor
     /// If the field is true, that indicates that an ancestor of this Project has set active_key_version.
     /// </summary>
     public TerraformValue<bool> AncestorHasActiveKeyVersion
-        => AsReference("ancestor_has_active_key_version");
+        => CreateReference("ancestor_has_active_key_version");
 
     /// <summary>
     /// If the field is true, that indicates that at least one service is enrolled for Access Approval in one or more ancestors of the Project.
     /// </summary>
     public TerraformValue<bool> EnrolledAncestor
-        => AsReference("enrolled_ancestor");
+        => CreateReference("enrolled_ancestor");
 
     /// <summary>
     /// If the field is true, that indicates that there is some configuration issue with the active_key_version
@@ -162,13 +162,13 @@ public partial class GoogleProjectAccessApprovalSettings(string name) : Terrafor
     /// as key versions are inherited top-down.
     /// </summary>
     public TerraformValue<bool> InvalidKeyVersion
-        => AsReference("invalid_key_version");
+        => CreateReference("invalid_key_version");
 
     /// <summary>
     /// The resource name of the settings. Format is &amp;quot;projects/{project_id}/accessApprovalSettings&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// EnrolledServices block (nesting mode: set).

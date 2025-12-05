@@ -63,7 +63,7 @@ public partial class AzurermMobileNetwork(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermMobileNetwork(string name) : TerraformResource("azur
     /// The service_key attribute.
     /// </summary>
     public TerraformValue<string> ServiceKey
-        => AsReference("service_key");
+        => CreateReference("service_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

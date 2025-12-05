@@ -65,7 +65,7 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -136,7 +136,7 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -144,19 +144,19 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     /// The uniquely generated identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> GeneratedId
-        => AsReference("generated_id");
+        => CreateReference("generated_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Number of network endpoints in the network endpoint group.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

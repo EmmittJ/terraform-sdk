@@ -108,7 +108,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool> ApplyImmediately
     {
-        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? AsReference("apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? CreateReference("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> AtRestEncryptionEnabled
     {
-        get => GetArgument<TerraformValue<string>>("at_rest_encryption_enabled") ?? AsReference("at_rest_encryption_enabled");
+        get => GetArgument<TerraformValue<string>>("at_rest_encryption_enabled") ?? CreateReference("at_rest_encryption_enabled");
         set => SetArgument("at_rest_encryption_enabled", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> AutoMinorVersionUpgrade
     {
-        get => GetArgument<TerraformValue<string>>("auto_minor_version_upgrade") ?? AsReference("auto_minor_version_upgrade");
+        get => GetArgument<TerraformValue<string>>("auto_minor_version_upgrade") ?? CreateReference("auto_minor_version_upgrade");
         set => SetArgument("auto_minor_version_upgrade", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> ClusterMode
     {
-        get => GetArgument<TerraformValue<string>>("cluster_mode") ?? AsReference("cluster_mode");
+        get => GetArgument<TerraformValue<string>>("cluster_mode") ?? CreateReference("cluster_mode");
         set => SetArgument("cluster_mode", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool> DataTieringEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("data_tiering_enabled") ?? AsReference("data_tiering_enabled");
+        get => GetArgument<TerraformValue<bool>>("data_tiering_enabled") ?? CreateReference("data_tiering_enabled");
         set => SetArgument("data_tiering_enabled", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine") ?? AsReference("engine");
+        get => GetArgument<TerraformValue<string>>("engine") ?? CreateReference("engine");
         set => SetArgument("engine", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> GlobalReplicationGroupId
     {
-        get => GetArgument<TerraformValue<string>>("global_replication_group_id") ?? AsReference("global_replication_group_id");
+        get => GetArgument<TerraformValue<string>>("global_replication_group_id") ?? CreateReference("global_replication_group_id");
         set => SetArgument("global_replication_group_id", value);
     }
 
@@ -226,7 +226,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> IpDiscovery
     {
-        get => GetArgument<TerraformValue<string>>("ip_discovery") ?? AsReference("ip_discovery");
+        get => GetArgument<TerraformValue<string>>("ip_discovery") ?? CreateReference("ip_discovery");
         set => SetArgument("ip_discovery", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> MaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_window") ?? AsReference("maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window") ?? CreateReference("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> NetworkType
     {
-        get => GetArgument<TerraformValue<string>>("network_type") ?? AsReference("network_type");
+        get => GetArgument<TerraformValue<string>>("network_type") ?? CreateReference("network_type");
         set => SetArgument("network_type", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type") ?? AsReference("node_type");
+        get => GetArgument<TerraformValue<string>>("node_type") ?? CreateReference("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double> NumCacheClusters
     {
-        get => GetArgument<TerraformValue<double>>("num_cache_clusters") ?? AsReference("num_cache_clusters");
+        get => GetArgument<TerraformValue<double>>("num_cache_clusters") ?? CreateReference("num_cache_clusters");
         set => SetArgument("num_cache_clusters", value);
     }
 
@@ -307,7 +307,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double> NumNodeGroups
     {
-        get => GetArgument<TerraformValue<double>>("num_node_groups") ?? AsReference("num_node_groups");
+        get => GetArgument<TerraformValue<double>>("num_node_groups") ?? CreateReference("num_node_groups");
         set => SetArgument("num_node_groups", value);
     }
 
@@ -316,7 +316,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> ParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_group_name") ?? AsReference("parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("parameter_group_name") ?? CreateReference("parameter_group_name");
         set => SetArgument("parameter_group_name", value);
     }
 
@@ -343,7 +343,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -352,7 +352,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double> ReplicasPerNodeGroup
     {
-        get => GetArgument<TerraformValue<double>>("replicas_per_node_group") ?? AsReference("replicas_per_node_group");
+        get => GetArgument<TerraformValue<double>>("replicas_per_node_group") ?? CreateReference("replicas_per_node_group");
         set => SetArgument("replicas_per_node_group", value);
     }
 
@@ -371,7 +371,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -380,7 +380,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string> SecurityGroupNames
     {
-        get => GetArgument<TerraformSet<string>>("security_group_names") ?? AsReference("security_group_names");
+        get => GetArgument<TerraformSet<string>>("security_group_names") ?? CreateReference("security_group_names");
         set => SetArgument("security_group_names", value);
     }
 
@@ -416,7 +416,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> SnapshotWindow
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_window") ?? AsReference("snapshot_window");
+        get => GetArgument<TerraformValue<string>>("snapshot_window") ?? CreateReference("snapshot_window");
         set => SetArgument("snapshot_window", value);
     }
 
@@ -425,7 +425,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> SubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("subnet_group_name") ?? AsReference("subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("subnet_group_name") ?? CreateReference("subnet_group_name");
         set => SetArgument("subnet_group_name", value);
     }
 
@@ -443,7 +443,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -452,7 +452,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool> TransitEncryptionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("transit_encryption_enabled") ?? AsReference("transit_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("transit_encryption_enabled") ?? CreateReference("transit_encryption_enabled");
         set => SetArgument("transit_encryption_enabled", value);
     }
 
@@ -461,7 +461,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> TransitEncryptionMode
     {
-        get => GetArgument<TerraformValue<string>>("transit_encryption_mode") ?? AsReference("transit_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("transit_encryption_mode") ?? CreateReference("transit_encryption_mode");
         set => SetArgument("transit_encryption_mode", value);
     }
 
@@ -478,43 +478,43 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cluster_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ClusterEnabled
-        => AsReference("cluster_enabled");
+        => CreateReference("cluster_enabled");
 
     /// <summary>
     /// The configuration_endpoint_address attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationEndpointAddress
-        => AsReference("configuration_endpoint_address");
+        => CreateReference("configuration_endpoint_address");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
     public TerraformValue<string> EngineVersionActual
-        => AsReference("engine_version_actual");
+        => CreateReference("engine_version_actual");
 
     /// <summary>
     /// The member_clusters attribute.
     /// </summary>
     public TerraformSet<string> MemberClusters
-        => AsReference("member_clusters");
+        => CreateReference("member_clusters");
 
     /// <summary>
     /// The primary_endpoint_address attribute.
     /// </summary>
     public TerraformValue<string> PrimaryEndpointAddress
-        => AsReference("primary_endpoint_address");
+        => CreateReference("primary_endpoint_address");
 
     /// <summary>
     /// The reader_endpoint_address attribute.
     /// </summary>
     public TerraformValue<string> ReaderEndpointAddress
-        => AsReference("reader_endpoint_address");
+        => CreateReference("reader_endpoint_address");
 
     /// <summary>
     /// LogDeliveryConfiguration block (nesting mode: set).

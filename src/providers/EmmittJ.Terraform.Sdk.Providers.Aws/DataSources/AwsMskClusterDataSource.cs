@@ -23,7 +23,7 @@ public partial class AwsMskClusterDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsMskClusterDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsMskClusterDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,84 +49,84 @@ public partial class AwsMskClusterDataSource(string name) : TerraformDataSource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The bootstrap_brokers attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokers
-        => AsReference("bootstrap_brokers");
+        => CreateReference("bootstrap_brokers");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_iam attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersPublicSaslIam
-        => AsReference("bootstrap_brokers_public_sasl_iam");
+        => CreateReference("bootstrap_brokers_public_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_scram attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersPublicSaslScram
-        => AsReference("bootstrap_brokers_public_sasl_scram");
+        => CreateReference("bootstrap_brokers_public_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_public_tls attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersPublicTls
-        => AsReference("bootstrap_brokers_public_tls");
+        => CreateReference("bootstrap_brokers_public_tls");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersSaslIam
-        => AsReference("bootstrap_brokers_sasl_iam");
+        => CreateReference("bootstrap_brokers_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_scram attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersSaslScram
-        => AsReference("bootstrap_brokers_sasl_scram");
+        => CreateReference("bootstrap_brokers_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_tls attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersTls
-        => AsReference("bootstrap_brokers_tls");
+        => CreateReference("bootstrap_brokers_tls");
 
     /// <summary>
     /// The broker_node_group_info attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BrokerNodeGroupInfo
-        => AsReference("broker_node_group_info");
+        => CreateReference("broker_node_group_info");
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
     public TerraformValue<string> ClusterUuid
-        => AsReference("cluster_uuid");
+        => CreateReference("cluster_uuid");
 
     /// <summary>
     /// The kafka_version attribute.
     /// </summary>
     public TerraformValue<string> KafkaVersion
-        => AsReference("kafka_version");
+        => CreateReference("kafka_version");
 
     /// <summary>
     /// The number_of_broker_nodes attribute.
     /// </summary>
     public TerraformValue<double> NumberOfBrokerNodes
-        => AsReference("number_of_broker_nodes");
+        => CreateReference("number_of_broker_nodes");
 
     /// <summary>
     /// The zookeeper_connect_string attribute.
     /// </summary>
     public TerraformValue<string> ZookeeperConnectString
-        => AsReference("zookeeper_connect_string");
+        => CreateReference("zookeeper_connect_string");
 
     /// <summary>
     /// The zookeeper_connect_string_tls attribute.
     /// </summary>
     public TerraformValue<string> ZookeeperConnectStringTls
-        => AsReference("zookeeper_connect_string_tls");
+        => CreateReference("zookeeper_connect_string_tls");
 
 }

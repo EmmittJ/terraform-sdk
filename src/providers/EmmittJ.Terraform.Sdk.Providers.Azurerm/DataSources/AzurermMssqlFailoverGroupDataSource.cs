@@ -36,7 +36,7 @@ public partial class AzurermMssqlFailoverGroupDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermMssqlFailoverGroupDataSource(string name) : Terrafor
     /// The databases attribute.
     /// </summary>
     public TerraformSet<string> Databases
-        => AsReference("databases");
+        => CreateReference("databases");
 
     /// <summary>
     /// The partner_server attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PartnerServer
-        => AsReference("partner_server");
+        => CreateReference("partner_server");
 
     /// <summary>
     /// The read_write_endpoint_failover_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReadWriteEndpointFailoverPolicy
-        => AsReference("read_write_endpoint_failover_policy");
+        => CreateReference("read_write_endpoint_failover_policy");
 
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled
-        => AsReference("readonly_endpoint_failover_policy_enabled");
+        => CreateReference("readonly_endpoint_failover_policy_enabled");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -70,7 +70,7 @@ public partial class AwsInstancesDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsInstancesDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformMap<string> InstanceTags
     {
-        get => GetArgument<TerraformMap<string>>("instance_tags") ?? AsReference("instance_tags");
+        get => GetArgument<TerraformMap<string>>("instance_tags") ?? CreateReference("instance_tags");
         set => SetArgument("instance_tags", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsInstancesDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,25 +105,25 @@ public partial class AwsInstancesDataSource(string name) : TerraformDataSource("
     /// The ids attribute.
     /// </summary>
     public TerraformList<string> Ids
-        => AsReference("ids");
+        => CreateReference("ids");
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
     public TerraformList<string> Ipv6Addresses
-        => AsReference("ipv6_addresses");
+        => CreateReference("ipv6_addresses");
 
     /// <summary>
     /// The private_ips attribute.
     /// </summary>
     public TerraformList<string> PrivateIps
-        => AsReference("private_ips");
+        => CreateReference("private_ips");
 
     /// <summary>
     /// The public_ips attribute.
     /// </summary>
     public TerraformList<string> PublicIps
-        => AsReference("public_ips");
+        => CreateReference("public_ips");
 
     /// <summary>
     /// Filter block (nesting mode: set).

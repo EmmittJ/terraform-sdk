@@ -23,7 +23,7 @@ public partial class AwsImagebuilderDistributionConfigurationDataSource(string n
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsImagebuilderDistributionConfigurationDataSource(string n
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsImagebuilderDistributionConfigurationDataSource(string n
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,30 +49,30 @@ public partial class AwsImagebuilderDistributionConfigurationDataSource(string n
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-        => AsReference("date_created");
+        => CreateReference("date_created");
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
     public TerraformValue<string> DateUpdated
-        => AsReference("date_updated");
+        => CreateReference("date_updated");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The distribution attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Distribution
-        => AsReference("distribution");
+        => CreateReference("distribution");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
 }

@@ -101,7 +101,7 @@ public partial class AwsWafByteMatchSet(string name) : TerraformResource("aws_wa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsWafByteMatchSet(string name) : TerraformResource("aws_wa
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// ByteMatchTuples block (nesting mode: set).

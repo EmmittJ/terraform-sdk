@@ -23,7 +23,7 @@ public partial class AwsMedialiveInputDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,90 +31,90 @@ public partial class AwsMedialiveInputDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The attached_channels attribute.
     /// </summary>
     public TerraformList<string> AttachedChannels
-        => AsReference("attached_channels");
+        => CreateReference("attached_channels");
 
     /// <summary>
     /// The destinations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Destinations
-        => AsReference("destinations");
+        => CreateReference("destinations");
 
     /// <summary>
     /// The input_class attribute.
     /// </summary>
     public TerraformValue<string> InputClass
-        => AsReference("input_class");
+        => CreateReference("input_class");
 
     /// <summary>
     /// The input_devices attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InputDevices
-        => AsReference("input_devices");
+        => CreateReference("input_devices");
 
     /// <summary>
     /// The input_partner_ids attribute.
     /// </summary>
     public TerraformList<string> InputPartnerIds
-        => AsReference("input_partner_ids");
+        => CreateReference("input_partner_ids");
 
     /// <summary>
     /// The input_source_type attribute.
     /// </summary>
     public TerraformValue<string> InputSourceType
-        => AsReference("input_source_type");
+        => CreateReference("input_source_type");
 
     /// <summary>
     /// The media_connect_flows attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MediaConnectFlows
-        => AsReference("media_connect_flows");
+        => CreateReference("media_connect_flows");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-        => AsReference("role_arn");
+        => CreateReference("role_arn");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     public TerraformList<string> SecurityGroups
-        => AsReference("security_groups");
+        => CreateReference("security_groups");
 
     /// <summary>
     /// The sources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Sources
-        => AsReference("sources");
+        => CreateReference("sources");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

@@ -23,7 +23,7 @@ public partial class GoogleProjectOrganizationPolicyDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,36 +41,36 @@ public partial class GoogleProjectOrganizationPolicyDataSource(string name) : Te
     /// A boolean policy is a constraint that is either enforced or not.
     /// </summary>
     public TerraformList<TerraformMap<object>> BooleanPolicy
-        => AsReference("boolean_policy");
+        => CreateReference("boolean_policy");
 
     /// <summary>
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// A policy that can define specific values that are allowed or denied for the given constraint. It can also be used to allow or deny all values. 
     /// </summary>
     public TerraformList<TerraformMap<object>> ListPolicy
-        => AsReference("list_policy");
+        => CreateReference("list_policy");
 
     /// <summary>
     /// A restore policy is a constraint to restore the default policy.
     /// </summary>
     public TerraformList<TerraformMap<object>> RestorePolicy
-        => AsReference("restore_policy");
+        => CreateReference("restore_policy");
 
     /// <summary>
     /// The timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds, representing when the variable was last updated. Example: &amp;quot;2016-10-09T12:33:37.578138407Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

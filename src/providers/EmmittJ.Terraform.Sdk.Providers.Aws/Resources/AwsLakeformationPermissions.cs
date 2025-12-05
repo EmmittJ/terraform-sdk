@@ -82,7 +82,7 @@ public class AwsLakeformationPermissionsDataLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsLakeformationPermissionsDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsLakeformationPermissionsLfTagBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsLakeformationPermissionsLfTagPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsLakeformationPermissionsTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -278,7 +278,7 @@ public class AwsLakeformationPermissionsTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsLakeformationPermissionsTableWithColumnsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -393,7 +393,7 @@ public partial class AwsLakeformationPermissions(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -412,7 +412,7 @@ public partial class AwsLakeformationPermissions(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string> PermissionsWithGrantOption
     {
-        get => GetArgument<TerraformSet<string>>("permissions_with_grant_option") ?? AsReference("permissions_with_grant_option");
+        get => GetArgument<TerraformSet<string>>("permissions_with_grant_option") ?? CreateReference("permissions_with_grant_option");
         set => SetArgument("permissions_with_grant_option", value);
     }
 
@@ -431,7 +431,7 @@ public partial class AwsLakeformationPermissions(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

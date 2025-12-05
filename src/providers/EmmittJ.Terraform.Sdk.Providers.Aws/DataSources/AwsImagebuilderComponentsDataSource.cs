@@ -47,7 +47,7 @@ public partial class AwsImagebuilderComponentsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsImagebuilderComponentsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -73,13 +73,13 @@ public partial class AwsImagebuilderComponentsDataSource(string name) : Terrafor
     /// The arns attribute.
     /// </summary>
     public TerraformSet<string> Arns
-        => AsReference("arns");
+        => CreateReference("arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     public TerraformSet<string> Names
-        => AsReference("names");
+        => CreateReference("names");
 
     /// <summary>
     /// Filter block (nesting mode: set).

@@ -47,7 +47,7 @@ public partial class AwsEc2NetworkInsightsAnalysisDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsEc2NetworkInsightsAnalysisDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> NetworkInsightsAnalysisId
     {
-        get => GetArgument<TerraformValue<string>>("network_insights_analysis_id") ?? AsReference("network_insights_analysis_id");
+        get => GetArgument<TerraformValue<string>>("network_insights_analysis_id") ?? CreateReference("network_insights_analysis_id");
         set => SetArgument("network_insights_analysis_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsEc2NetworkInsightsAnalysisDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsEc2NetworkInsightsAnalysisDataSource(string name) : Terr
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -82,73 +82,73 @@ public partial class AwsEc2NetworkInsightsAnalysisDataSource(string name) : Terr
     /// The alternate_path_hints attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AlternatePathHints
-        => AsReference("alternate_path_hints");
+        => CreateReference("alternate_path_hints");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The explanations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Explanations
-        => AsReference("explanations");
+        => CreateReference("explanations");
 
     /// <summary>
     /// The filter_in_arns attribute.
     /// </summary>
     public TerraformList<string> FilterInArns
-        => AsReference("filter_in_arns");
+        => CreateReference("filter_in_arns");
 
     /// <summary>
     /// The forward_path_components attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ForwardPathComponents
-        => AsReference("forward_path_components");
+        => CreateReference("forward_path_components");
 
     /// <summary>
     /// The network_insights_path_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInsightsPathId
-        => AsReference("network_insights_path_id");
+        => CreateReference("network_insights_path_id");
 
     /// <summary>
     /// The path_found attribute.
     /// </summary>
     public TerraformValue<bool> PathFound
-        => AsReference("path_found");
+        => CreateReference("path_found");
 
     /// <summary>
     /// The return_path_components attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReturnPathComponents
-        => AsReference("return_path_components");
+        => CreateReference("return_path_components");
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
     public TerraformValue<string> StartDate
-        => AsReference("start_date");
+        => CreateReference("start_date");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-        => AsReference("status_message");
+        => CreateReference("status_message");
 
     /// <summary>
     /// The warning_message attribute.
     /// </summary>
     public TerraformValue<string> WarningMessage
-        => AsReference("warning_message");
+        => CreateReference("warning_message");
 
     /// <summary>
     /// Filter block (nesting mode: set).

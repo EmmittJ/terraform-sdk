@@ -18,7 +18,7 @@ public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AssociatedRouteTableId
     {
-        get => GetArgument<TerraformValue<string>>("associated_route_table_id") ?? AsReference("associated_route_table_id");
+        get => GetArgument<TerraformValue<string>>("associated_route_table_id") ?? CreateReference("associated_route_table_id");
         set => SetArgument("associated_route_table_id", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermExpressRouteConnectionRoutingBlockPropagatedRouteTableBlock 
     /// </summary>
     public TerraformSet<string> Labels
     {
-        get => GetArgument<TerraformSet<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformSet<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermExpressRouteConnectionRoutingBlockPropagatedRouteTableBlock 
     /// </summary>
     public TerraformList<string> RouteTableIds
     {
-        get => GetArgument<TerraformList<string>>("route_table_ids") ?? AsReference("route_table_ids");
+        get => GetArgument<TerraformList<string>>("route_table_ids") ?? CreateReference("route_table_ids");
         set => SetArgument("route_table_ids", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermExpressRouteConnection(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

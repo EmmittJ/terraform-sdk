@@ -19,7 +19,7 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxNodes
     {
-        get => GetArgument<TerraformValue<double>>("max_nodes") ?? AsReference("max_nodes");
+        get => GetArgument<TerraformValue<double>>("max_nodes") ?? CreateReference("max_nodes");
         set => SetArgument("max_nodes", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MinNodes
     {
-        get => GetArgument<TerraformValue<double>>("min_nodes") ?? AsReference("min_nodes");
+        get => GetArgument<TerraformValue<double>>("min_nodes") ?? CreateReference("min_nodes");
         set => SetArgument("min_nodes", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -201,7 +201,7 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -248,7 +248,7 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -257,7 +257,7 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -265,19 +265,19 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The total number of nodes in the node group.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// AutoscalingPolicy block (nesting mode: list).

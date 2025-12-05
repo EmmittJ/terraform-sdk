@@ -55,7 +55,7 @@ public partial class GoogleAccessContextManagerEgressPolicy(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleAccessContextManagerEgressPolicy(string name) : Terra
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     public TerraformValue<string> AccessPolicyId
-        => AsReference("access_policy_id");
+        => CreateReference("access_policy_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

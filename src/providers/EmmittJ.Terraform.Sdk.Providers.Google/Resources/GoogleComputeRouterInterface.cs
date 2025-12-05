@@ -45,7 +45,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> IpRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_range") ?? AsReference("ip_range");
+        get => GetArgument<TerraformValue<string>>("ip_range") ?? CreateReference("ip_range");
         set => SetArgument("ip_range", value);
     }
 
@@ -72,7 +72,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> IpVersion
     {
-        get => GetArgument<TerraformValue<string>>("ip_version") ?? AsReference("ip_version");
+        get => GetArgument<TerraformValue<string>>("ip_version") ?? CreateReference("ip_version");
         set => SetArgument("ip_version", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> RedundantInterface
     {
-        get => GetArgument<TerraformValue<string>>("redundant_interface") ?? AsReference("redundant_interface");
+        get => GetArgument<TerraformValue<string>>("redundant_interface") ?? CreateReference("redundant_interface");
         set => SetArgument("redundant_interface", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

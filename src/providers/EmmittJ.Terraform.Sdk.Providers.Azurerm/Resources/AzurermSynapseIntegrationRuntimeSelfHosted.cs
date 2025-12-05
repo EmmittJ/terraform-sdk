@@ -72,7 +72,7 @@ public partial class AzurermSynapseIntegrationRuntimeSelfHosted(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,13 +100,13 @@ public partial class AzurermSynapseIntegrationRuntimeSelfHosted(string name) : T
     /// The authorization_key_primary attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationKeyPrimary
-        => AsReference("authorization_key_primary");
+        => CreateReference("authorization_key_primary");
 
     /// <summary>
     /// The authorization_key_secondary attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationKeySecondary
-        => AsReference("authorization_key_secondary");
+        => CreateReference("authorization_key_secondary");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

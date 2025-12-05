@@ -52,7 +52,7 @@ public partial class AwsS3BucketObjectsDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsS3BucketObjectsDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -96,18 +96,18 @@ public partial class AwsS3BucketObjectsDataSource(string name) : TerraformDataSo
     /// The common_prefixes attribute.
     /// </summary>
     public TerraformList<string> CommonPrefixes
-        => AsReference("common_prefixes");
+        => CreateReference("common_prefixes");
 
     /// <summary>
     /// The keys attribute.
     /// </summary>
     public TerraformList<string> KeysAttribute
-        => AsReference("keys");
+        => CreateReference("keys");
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
     public TerraformList<string> Owners
-        => AsReference("owners");
+        => CreateReference("owners");
 
 }

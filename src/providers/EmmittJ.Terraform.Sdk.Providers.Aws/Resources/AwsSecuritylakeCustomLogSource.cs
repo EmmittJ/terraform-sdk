@@ -110,7 +110,7 @@ public partial class AwsSecuritylakeCustomLogSource(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsSecuritylakeCustomLogSource(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> SourceVersion
     {
-        get => GetArgument<TerraformValue<string>>("source_version") ?? AsReference("source_version");
+        get => GetArgument<TerraformValue<string>>("source_version") ?? CreateReference("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -137,19 +137,19 @@ public partial class AwsSecuritylakeCustomLogSource(string name) : TerraformReso
     /// The attributes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attributes
-        => AsReference("attributes");
+        => CreateReference("attributes");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The provider_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProviderDetails
-        => AsReference("provider_details");
+        => CreateReference("provider_details");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

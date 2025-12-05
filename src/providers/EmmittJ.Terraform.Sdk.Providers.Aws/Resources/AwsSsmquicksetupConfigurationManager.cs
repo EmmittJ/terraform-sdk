@@ -17,7 +17,7 @@ public class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock : 
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The local_deployment_administration_role_arn attribute.
@@ -62,7 +62,7 @@ public class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock : 
     /// </summary>
     public TerraformValue<string> TypeVersion
     {
-        get => GetArgument<TerraformValue<string>>("type_version") ?? AsReference("type_version");
+        get => GetArgument<TerraformValue<string>>("type_version") ?? CreateReference("type_version");
         set => SetArgument("type_version", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AwsSsmquicksetupConfigurationManager(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AwsSsmquicksetupConfigurationManager(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -157,19 +157,19 @@ public partial class AwsSsmquicksetupConfigurationManager(string name) : Terrafo
     /// The manager_arn attribute.
     /// </summary>
     public TerraformValue<string> ManagerArn
-        => AsReference("manager_arn");
+        => CreateReference("manager_arn");
 
     /// <summary>
     /// The status_summaries attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StatusSummaries
-        => AsReference("status_summaries");
+        => CreateReference("status_summaries");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// ConfigurationDefinition block (nesting mode: list).

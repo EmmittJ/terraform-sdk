@@ -56,7 +56,7 @@ public partial class AwsEc2CapacityBlockReservation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -73,91 +73,91 @@ public partial class AwsEc2CapacityBlockReservation(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
     public TerraformValue<bool> EbsOptimized
-        => AsReference("ebs_optimized");
+        => CreateReference("ebs_optimized");
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
     public TerraformValue<string> EndDate
-        => AsReference("end_date");
+        => CreateReference("end_date");
 
     /// <summary>
     /// The end_date_type attribute.
     /// </summary>
     public TerraformValue<string> EndDateType
-        => AsReference("end_date_type");
+        => CreateReference("end_date_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     public TerraformValue<double> InstanceCount
-        => AsReference("instance_count");
+        => CreateReference("instance_count");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-        => AsReference("instance_type");
+        => CreateReference("instance_type");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-        => AsReference("outpost_arn");
+        => CreateReference("outpost_arn");
 
     /// <summary>
     /// The placement_group_arn attribute.
     /// </summary>
     public TerraformValue<string> PlacementGroupArn
-        => AsReference("placement_group_arn");
+        => CreateReference("placement_group_arn");
 
     /// <summary>
     /// The reservation_type attribute.
     /// </summary>
     public TerraformValue<string> ReservationType
-        => AsReference("reservation_type");
+        => CreateReference("reservation_type");
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
     public TerraformValue<string> StartDate
-        => AsReference("start_date");
+        => CreateReference("start_date");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
     public TerraformValue<string> Tenancy
-        => AsReference("tenancy");
+        => CreateReference("tenancy");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

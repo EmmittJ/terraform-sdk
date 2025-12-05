@@ -55,103 +55,103 @@ public partial class AzurermOracleAutonomousDatabaseBackupDataSource(string name
     /// The automatic attribute.
     /// </summary>
     public TerraformValue<bool> Automatic
-        => AsReference("automatic");
+        => CreateReference("automatic");
 
     /// <summary>
     /// The autonomous_database_backup_ocid attribute.
     /// </summary>
     public TerraformValue<string> AutonomousDatabaseBackupOcid
-        => AsReference("autonomous_database_backup_ocid");
+        => CreateReference("autonomous_database_backup_ocid");
 
     /// <summary>
     /// The autonomous_database_ocid attribute.
     /// </summary>
     public TerraformValue<string> AutonomousDatabaseOcid
-        => AsReference("autonomous_database_ocid");
+        => CreateReference("autonomous_database_ocid");
 
     /// <summary>
     /// The database_backup_size_in_tbs attribute.
     /// </summary>
     public TerraformValue<double> DatabaseBackupSizeInTbs
-        => AsReference("database_backup_size_in_tbs");
+        => CreateReference("database_backup_size_in_tbs");
 
     /// <summary>
     /// The database_version attribute.
     /// </summary>
     public TerraformValue<string> DatabaseVersion
-        => AsReference("database_version");
+        => CreateReference("database_version");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The lifecycle_details attribute.
     /// </summary>
     public TerraformValue<string> LifecycleDetails
-        => AsReference("lifecycle_details");
+        => CreateReference("lifecycle_details");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     public TerraformValue<string> LifecycleState
-        => AsReference("lifecycle_state");
+        => CreateReference("lifecycle_state");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The provisioning_state attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningState
-        => AsReference("provisioning_state");
+        => CreateReference("provisioning_state");
 
     /// <summary>
     /// The restorable attribute.
     /// </summary>
     public TerraformValue<bool> Restorable
-        => AsReference("restorable");
+        => CreateReference("restorable");
 
     /// <summary>
     /// The retention_period_in_days attribute.
     /// </summary>
     public TerraformValue<double> RetentionPeriodInDays
-        => AsReference("retention_period_in_days");
+        => CreateReference("retention_period_in_days");
 
     /// <summary>
     /// The time_available_til attribute.
     /// </summary>
     public TerraformValue<string> TimeAvailableTil
-        => AsReference("time_available_til");
+        => CreateReference("time_available_til");
 
     /// <summary>
     /// The time_ended attribute.
     /// </summary>
     public TerraformValue<string> TimeEnded
-        => AsReference("time_ended");
+        => CreateReference("time_ended");
 
     /// <summary>
     /// The time_started attribute.
     /// </summary>
     public TerraformValue<string> TimeStarted
-        => AsReference("time_started");
+        => CreateReference("time_started");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

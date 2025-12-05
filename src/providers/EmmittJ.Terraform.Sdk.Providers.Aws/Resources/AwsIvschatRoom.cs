@@ -18,7 +18,7 @@ public class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> FallbackResult
     {
-        get => GetArgument<TerraformValue<string>>("fallback_result") ?? AsReference("fallback_result");
+        get => GetArgument<TerraformValue<string>>("fallback_result") ?? CreateReference("fallback_result");
         set => SetArgument("fallback_result", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// </summary>
     public TerraformValue<double> MaximumMessageLength
     {
-        get => GetArgument<TerraformValue<double>>("maximum_message_length") ?? AsReference("maximum_message_length");
+        get => GetArgument<TerraformValue<double>>("maximum_message_length") ?? CreateReference("maximum_message_length");
         set => SetArgument("maximum_message_length", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// </summary>
     public TerraformValue<double> MaximumMessageRatePerSecond
     {
-        get => GetArgument<TerraformValue<double>>("maximum_message_rate_per_second") ?? AsReference("maximum_message_rate_per_second");
+        get => GetArgument<TerraformValue<double>>("maximum_message_rate_per_second") ?? CreateReference("maximum_message_rate_per_second");
         set => SetArgument("maximum_message_rate_per_second", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// MessageReviewHandler block (nesting mode: list).

@@ -4901,7 +4901,7 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -4910,7 +4910,7 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     /// </summary>
     public TerraformValue<string> SlotTypeId
     {
-        get => GetArgument<TerraformValue<string>>("slot_type_id") ?? AsReference("slot_type_id");
+        get => GetArgument<TerraformValue<string>>("slot_type_id") ?? CreateReference("slot_type_id");
         set => SetArgument("slot_type_id", value);
     }
 
@@ -4918,13 +4918,13 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The slot_id attribute.
     /// </summary>
     public TerraformValue<string> SlotId
-        => AsReference("slot_id");
+        => CreateReference("slot_id");
 
     /// <summary>
     /// MultipleValuesSetting block (nesting mode: list).

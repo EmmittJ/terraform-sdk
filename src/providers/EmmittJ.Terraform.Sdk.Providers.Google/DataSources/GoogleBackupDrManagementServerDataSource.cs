@@ -13,7 +13,7 @@ public partial class GoogleBackupDrManagementServerDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,36 +31,36 @@ public partial class GoogleBackupDrManagementServerDataSource(string name) : Ter
     /// The management console URI
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagementUri
-        => AsReference("management_uri");
+        => CreateReference("management_uri");
 
     /// <summary>
     /// The name of management server (management console)
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Network details to create management server (management console).
     /// </summary>
     public TerraformList<TerraformMap<object>> Networks
-        => AsReference("networks");
+        => CreateReference("networks");
 
     /// <summary>
     /// The oauth2ClientId of management console.
     /// </summary>
     public TerraformValue<string> Oauth2ClientId
-        => AsReference("oauth2_client_id");
+        => CreateReference("oauth2_client_id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     public TerraformValue<string> Project
-        => AsReference("project");
+        => CreateReference("project");
 
     /// <summary>
     /// The type of management server (management console). Default value: &amp;quot;BACKUP_RESTORE&amp;quot; Possible values: [&amp;quot;BACKUP_RESTORE&amp;quot;]
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

@@ -13,7 +13,7 @@ public partial class AwsOrganizationsOrganizationalUnitChildAccountsDataSource(s
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,6 +31,6 @@ public partial class AwsOrganizationsOrganizationalUnitChildAccountsDataSource(s
     /// The accounts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Accounts
-        => AsReference("accounts");
+        => CreateReference("accounts");
 
 }

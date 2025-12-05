@@ -63,7 +63,7 @@ public partial class AzurermUserAssignedIdentity(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,19 +110,19 @@ public partial class AzurermUserAssignedIdentity(string name) : TerraformResourc
     /// The client_id attribute.
     /// </summary>
     public TerraformValue<string> ClientId
-        => AsReference("client_id");
+        => CreateReference("client_id");
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

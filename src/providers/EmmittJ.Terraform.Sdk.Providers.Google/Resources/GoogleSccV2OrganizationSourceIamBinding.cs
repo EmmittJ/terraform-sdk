@@ -56,7 +56,7 @@ public partial class GoogleSccV2OrganizationSourceIamBinding(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -104,7 +104,7 @@ public partial class GoogleSccV2OrganizationSourceIamBinding(string name) : Terr
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Condition block (nesting mode: list).

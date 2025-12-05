@@ -45,7 +45,7 @@ public partial class AwsComputeoptimizerEnrollmentStatus(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool> IncludeMemberAccounts
     {
-        get => GetArgument<TerraformValue<bool>>("include_member_accounts") ?? AsReference("include_member_accounts");
+        get => GetArgument<TerraformValue<bool>>("include_member_accounts") ?? CreateReference("include_member_accounts");
         set => SetArgument("include_member_accounts", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsComputeoptimizerEnrollmentStatus(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,13 +72,13 @@ public partial class AwsComputeoptimizerEnrollmentStatus(string name) : Terrafor
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The number_of_member_accounts_opted_in attribute.
     /// </summary>
     public TerraformValue<double> NumberOfMemberAccountsOptedIn
-        => AsReference("number_of_member_accounts_opted_in");
+        => CreateReference("number_of_member_accounts_opted_in");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

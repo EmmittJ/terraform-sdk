@@ -41,7 +41,7 @@ public partial class AwsEcrPullThroughCacheRule(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsEcrPullThroughCacheRule(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -77,6 +77,6 @@ public partial class AwsEcrPullThroughCacheRule(string name) : TerraformResource
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-        => AsReference("registry_id");
+        => CreateReference("registry_id");
 
 }

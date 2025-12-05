@@ -1360,7 +1360,7 @@ public partial class GoogleDataLossPreventionInspectTemplate(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1386,7 +1386,7 @@ public partial class GoogleDataLossPreventionInspectTemplate(string name) : Terr
     /// </summary>
     public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? CreateReference("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -1394,7 +1394,7 @@ public partial class GoogleDataLossPreventionInspectTemplate(string name) : Terr
     /// The resource name of the inspect template. Set by the server.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// InspectConfig block (nesting mode: list).

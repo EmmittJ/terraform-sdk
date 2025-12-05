@@ -13,7 +13,7 @@ public partial class AwsApiGatewaySdkDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsApiGatewaySdkDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -69,18 +69,18 @@ public partial class AwsApiGatewaySdkDataSource(string name) : TerraformDataSour
     /// The body attribute.
     /// </summary>
     public TerraformValue<string> Body
-        => AsReference("body");
+        => CreateReference("body");
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
     public TerraformValue<string> ContentDisposition
-        => AsReference("content_disposition");
+        => CreateReference("content_disposition");
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     public TerraformValue<string> ContentType
-        => AsReference("content_type");
+        => CreateReference("content_type");
 
 }

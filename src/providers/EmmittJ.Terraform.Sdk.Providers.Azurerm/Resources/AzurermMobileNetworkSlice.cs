@@ -108,7 +108,7 @@ public partial class AzurermMobileNetworkSlice(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermMobileNetworkSlice(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> SliceDifferentiator
     {
-        get => GetArgument<TerraformValue<string>>("slice_differentiator") ?? AsReference("slice_differentiator");
+        get => GetArgument<TerraformValue<string>>("slice_differentiator") ?? CreateReference("slice_differentiator");
         set => SetArgument("slice_differentiator", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermMobileNetworkSlice(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double> SliceServiceType
     {
-        get => GetArgument<TerraformValue<double>>("slice_service_type") ?? AsReference("slice_service_type");
+        get => GetArgument<TerraformValue<double>>("slice_service_type") ?? CreateReference("slice_service_type");
         set => SetArgument("slice_service_type", value);
     }
 

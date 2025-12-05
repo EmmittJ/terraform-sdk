@@ -119,7 +119,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? CreateReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// The account_subscription_status attribute.
     /// </summary>
     public TerraformValue<string> AccountSubscriptionStatus
-        => AsReference("account_subscription_status");
+        => CreateReference("account_subscription_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

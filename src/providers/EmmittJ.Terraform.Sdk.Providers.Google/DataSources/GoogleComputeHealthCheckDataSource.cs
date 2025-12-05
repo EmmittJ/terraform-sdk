@@ -13,7 +13,7 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -47,69 +47,69 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     /// seconds.
     /// </summary>
     public TerraformValue<double> CheckIntervalSec
-        => AsReference("check_interval_sec");
+        => CreateReference("check_interval_sec");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> GrpcHealthCheck
-        => AsReference("grpc_health_check");
+        => CreateReference("grpc_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> GrpcTlsHealthCheck
-        => AsReference("grpc_tls_health_check");
+        => CreateReference("grpc_tls_health_check");
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many
     /// consecutive successes. The default value is 2.
     /// </summary>
     public TerraformValue<double> HealthyThreshold
-        => AsReference("healthy_threshold");
+        => CreateReference("healthy_threshold");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Http2HealthCheck
-        => AsReference("http2_health_check");
+        => CreateReference("http2_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> HttpHealthCheck
-        => AsReference("http_health_check");
+        => CreateReference("http_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> HttpsHealthCheck
-        => AsReference("https_health_check");
+        => CreateReference("https_health_check");
 
     /// <summary>
     /// Configure logging on this health check.
     /// </summary>
     public TerraformList<TerraformMap<object>> LogConfig
-        => AsReference("log_config");
+        => CreateReference("log_config");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The list of cloud regions from which health checks are performed. If
@@ -131,19 +131,19 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     /// instance group auto-healing.
     /// </summary>
     public TerraformList<string> SourceRegions
-        => AsReference("source_regions");
+        => CreateReference("source_regions");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> SslHealthCheck
-        => AsReference("ssl_health_check");
+        => CreateReference("ssl_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> TcpHealthCheck
-        => AsReference("tcp_health_check");
+        => CreateReference("tcp_health_check");
 
     /// <summary>
     /// How long (in seconds) to wait before claiming failure.
@@ -151,19 +151,19 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     /// greater value than checkIntervalSec.
     /// </summary>
     public TerraformValue<double> TimeoutSec
-        => AsReference("timeout_sec");
+        => CreateReference("timeout_sec");
 
     /// <summary>
     /// The type of the health check. One of HTTP, HTTPS, TCP, or SSL.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// A so-far healthy instance will be marked unhealthy after this many
     /// consecutive failures. The default value is 2.
     /// </summary>
     public TerraformValue<double> UnhealthyThreshold
-        => AsReference("unhealthy_threshold");
+        => CreateReference("unhealthy_threshold");
 
 }

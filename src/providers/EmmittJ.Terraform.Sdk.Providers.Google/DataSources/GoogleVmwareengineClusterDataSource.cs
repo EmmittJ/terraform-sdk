@@ -13,7 +13,7 @@ public partial class GoogleVmwareengineClusterDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleVmwareengineClusterDataSource(string name) : Terrafor
     /// Configuration of the autoscaling applied to this cluster
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoscalingSettings
-        => AsReference("autoscaling_settings");
+        => CreateReference("autoscaling_settings");
 
     /// <summary>
     /// Creation time of this resource.
@@ -51,33 +51,33 @@ public partial class GoogleVmwareengineClusterDataSource(string name) : Terrafor
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// True if the cluster is a management cluster; false otherwise.
     /// There can only be one management cluster in a private cloud and it has to be the first one.
     /// </summary>
     public TerraformValue<bool> Management
-        => AsReference("management");
+        => CreateReference("management");
 
     /// <summary>
     /// The map of cluster node types in this cluster,
     /// where the key is canonical identifier of the node type (corresponds to the NodeType).
     /// </summary>
     public TerraformSet<TerraformMap<object>> NodeTypeConfigs
-        => AsReference("node_type_configs");
+        => CreateReference("node_type_configs");
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -85,6 +85,6 @@ public partial class GoogleVmwareengineClusterDataSource(string name) : Terrafor
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

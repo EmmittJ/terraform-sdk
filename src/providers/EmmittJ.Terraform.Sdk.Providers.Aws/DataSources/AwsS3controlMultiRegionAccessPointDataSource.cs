@@ -13,7 +13,7 @@ public partial class AwsS3controlMultiRegionAccessPointDataSource(string name) :
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsS3controlMultiRegionAccessPointDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsS3controlMultiRegionAccessPointDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,42 +49,42 @@ public partial class AwsS3controlMultiRegionAccessPointDataSource(string name) :
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-        => AsReference("alias");
+        => CreateReference("alias");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-        => AsReference("domain_name");
+        => CreateReference("domain_name");
 
     /// <summary>
     /// The public_access_block attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicAccessBlock
-        => AsReference("public_access_block");
+        => CreateReference("public_access_block");
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Regions
-        => AsReference("regions");
+        => CreateReference("regions");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

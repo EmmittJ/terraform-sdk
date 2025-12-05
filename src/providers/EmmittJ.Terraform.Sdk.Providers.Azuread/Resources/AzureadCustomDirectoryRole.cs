@@ -116,7 +116,7 @@ public partial class AzureadCustomDirectoryRole(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzureadCustomDirectoryRole(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? CreateReference("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzureadCustomDirectoryRole(string name) : TerraformResource
     /// The object ID of the directory role
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// Permissions block (nesting mode: set).

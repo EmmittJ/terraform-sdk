@@ -26,7 +26,7 @@ public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
     /// The display name of this field
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Holds the value for a tag field with double type.
@@ -62,7 +62,7 @@ public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
     /// within a tag do not have to be sequential.
     /// </summary>
     public TerraformValue<double> Order
-        => AsReference("order");
+        => CreateReference("order");
 
     /// <summary>
     /// Holds the value for a tag field with string type.
@@ -151,7 +151,7 @@ public partial class GoogleDataCatalogTag(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -184,13 +184,13 @@ public partial class GoogleDataCatalogTag(string name) : TerraformResource("goog
     /// where tag_id is a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The display name of the tag template.
     /// </summary>
     public TerraformValue<string> TemplateDisplayname
-        => AsReference("template_displayname");
+        => CreateReference("template_displayname");
 
     /// <summary>
     /// Fields block (nesting mode: set).

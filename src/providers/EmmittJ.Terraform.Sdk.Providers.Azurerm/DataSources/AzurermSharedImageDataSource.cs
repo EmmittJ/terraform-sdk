@@ -46,7 +46,7 @@ public partial class AzurermSharedImageDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,109 +74,109 @@ public partial class AzurermSharedImageDataSource(string name) : TerraformDataSo
     /// The accelerated_network_support_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AcceleratedNetworkSupportEnabled
-        => AsReference("accelerated_network_support_enabled");
+        => CreateReference("accelerated_network_support_enabled");
 
     /// <summary>
     /// The architecture attribute.
     /// </summary>
     public TerraformValue<string> Architecture
-        => AsReference("architecture");
+        => CreateReference("architecture");
 
     /// <summary>
     /// The confidential_vm_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ConfidentialVmEnabled
-        => AsReference("confidential_vm_enabled");
+        => CreateReference("confidential_vm_enabled");
 
     /// <summary>
     /// The confidential_vm_supported attribute.
     /// </summary>
     public TerraformValue<bool> ConfidentialVmSupported
-        => AsReference("confidential_vm_supported");
+        => CreateReference("confidential_vm_supported");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The eula attribute.
     /// </summary>
     public TerraformValue<string> Eula
-        => AsReference("eula");
+        => CreateReference("eula");
 
     /// <summary>
     /// The hibernation_enabled attribute.
     /// </summary>
     public TerraformValue<bool> HibernationEnabled
-        => AsReference("hibernation_enabled");
+        => CreateReference("hibernation_enabled");
 
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
     public TerraformValue<string> HyperVGeneration
-        => AsReference("hyper_v_generation");
+        => CreateReference("hyper_v_generation");
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identifier
-        => AsReference("identifier");
+        => CreateReference("identifier");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
     public TerraformValue<string> OsType
-        => AsReference("os_type");
+        => CreateReference("os_type");
 
     /// <summary>
     /// The privacy_statement_uri attribute.
     /// </summary>
     public TerraformValue<string> PrivacyStatementUri
-        => AsReference("privacy_statement_uri");
+        => CreateReference("privacy_statement_uri");
 
     /// <summary>
     /// The purchase_plan attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PurchasePlan
-        => AsReference("purchase_plan");
+        => CreateReference("purchase_plan");
 
     /// <summary>
     /// The release_note_uri attribute.
     /// </summary>
     public TerraformValue<string> ReleaseNoteUri
-        => AsReference("release_note_uri");
+        => CreateReference("release_note_uri");
 
     /// <summary>
     /// The specialized attribute.
     /// </summary>
     public TerraformValue<bool> Specialized
-        => AsReference("specialized");
+        => CreateReference("specialized");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The trusted_launch_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TrustedLaunchEnabled
-        => AsReference("trusted_launch_enabled");
+        => CreateReference("trusted_launch_enabled");
 
     /// <summary>
     /// The trusted_launch_supported attribute.
     /// </summary>
     public TerraformValue<bool> TrustedLaunchSupported
-        => AsReference("trusted_launch_supported");
+        => CreateReference("trusted_launch_supported");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

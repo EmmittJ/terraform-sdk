@@ -73,7 +73,7 @@ public partial class AzurermNginxApiKey(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermNginxApiKey(string name) : TerraformResource("azurer
     /// The hint attribute.
     /// </summary>
     public TerraformValue<string> Hint
-        => AsReference("hint");
+        => CreateReference("hint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

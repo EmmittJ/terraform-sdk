@@ -18,7 +18,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock : Terr
     /// </summary>
     public TerraformValue<bool> IncludeTrustContext
     {
-        get => GetArgument<TerraformValue<bool>>("include_trust_context") ?? AsReference("include_trust_context");
+        get => GetArgument<TerraformValue<bool>>("include_trust_context") ?? CreateReference("include_trust_context");
         set => SetArgument("include_trust_context", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock : Terr
     /// </summary>
     public TerraformValue<string> LogVersion
     {
-        get => GetArgument<TerraformValue<string>>("log_version") ?? AsReference("log_version");
+        get => GetArgument<TerraformValue<string>>("log_version") ?? CreateReference("log_version");
         set => SetArgument("log_version", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockS3Block
     /// </summary>
     public TerraformValue<string> BucketOwner
     {
-        get => GetArgument<TerraformValue<string>>("bucket_owner") ?? AsReference("bucket_owner");
+        get => GetArgument<TerraformValue<string>>("bucket_owner") ?? CreateReference("bucket_owner");
         set => SetArgument("bucket_owner", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration(string name) 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

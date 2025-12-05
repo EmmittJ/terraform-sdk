@@ -13,7 +13,7 @@ public partial class AwsAutoscalingGroupDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsAutoscalingGroupDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,174 +40,174 @@ public partial class AwsAutoscalingGroupDataSource(string name) : TerraformDataS
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The default_cooldown attribute.
     /// </summary>
     public TerraformValue<double> DefaultCooldown
-        => AsReference("default_cooldown");
+        => CreateReference("default_cooldown");
 
     /// <summary>
     /// The desired_capacity attribute.
     /// </summary>
     public TerraformValue<double> DesiredCapacity
-        => AsReference("desired_capacity");
+        => CreateReference("desired_capacity");
 
     /// <summary>
     /// The desired_capacity_type attribute.
     /// </summary>
     public TerraformValue<string> DesiredCapacityType
-        => AsReference("desired_capacity_type");
+        => CreateReference("desired_capacity_type");
 
     /// <summary>
     /// The enabled_metrics attribute.
     /// </summary>
     public TerraformSet<string> EnabledMetrics
-        => AsReference("enabled_metrics");
+        => CreateReference("enabled_metrics");
 
     /// <summary>
     /// The health_check_grace_period attribute.
     /// </summary>
     public TerraformValue<double> HealthCheckGracePeriod
-        => AsReference("health_check_grace_period");
+        => CreateReference("health_check_grace_period");
 
     /// <summary>
     /// The health_check_type attribute.
     /// </summary>
     public TerraformValue<string> HealthCheckType
-        => AsReference("health_check_type");
+        => CreateReference("health_check_type");
 
     /// <summary>
     /// The instance_maintenance_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceMaintenancePolicy
-        => AsReference("instance_maintenance_policy");
+        => CreateReference("instance_maintenance_policy");
 
     /// <summary>
     /// The launch_configuration attribute.
     /// </summary>
     public TerraformValue<string> LaunchConfiguration
-        => AsReference("launch_configuration");
+        => CreateReference("launch_configuration");
 
     /// <summary>
     /// The launch_template attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LaunchTemplate
-        => AsReference("launch_template");
+        => CreateReference("launch_template");
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
     public TerraformSet<string> LoadBalancers
-        => AsReference("load_balancers");
+        => CreateReference("load_balancers");
 
     /// <summary>
     /// The max_instance_lifetime attribute.
     /// </summary>
     public TerraformValue<double> MaxInstanceLifetime
-        => AsReference("max_instance_lifetime");
+        => CreateReference("max_instance_lifetime");
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
     public TerraformValue<double> MaxSize
-        => AsReference("max_size");
+        => CreateReference("max_size");
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
     public TerraformValue<double> MinSize
-        => AsReference("min_size");
+        => CreateReference("min_size");
 
     /// <summary>
     /// The mixed_instances_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MixedInstancesPolicy
-        => AsReference("mixed_instances_policy");
+        => CreateReference("mixed_instances_policy");
 
     /// <summary>
     /// The new_instances_protected_from_scale_in attribute.
     /// </summary>
     public TerraformValue<bool> NewInstancesProtectedFromScaleIn
-        => AsReference("new_instances_protected_from_scale_in");
+        => CreateReference("new_instances_protected_from_scale_in");
 
     /// <summary>
     /// The placement_group attribute.
     /// </summary>
     public TerraformValue<string> PlacementGroup
-        => AsReference("placement_group");
+        => CreateReference("placement_group");
 
     /// <summary>
     /// The predicted_capacity attribute.
     /// </summary>
     public TerraformValue<double> PredictedCapacity
-        => AsReference("predicted_capacity");
+        => CreateReference("predicted_capacity");
 
     /// <summary>
     /// The service_linked_role_arn attribute.
     /// </summary>
     public TerraformValue<string> ServiceLinkedRoleArn
-        => AsReference("service_linked_role_arn");
+        => CreateReference("service_linked_role_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The suspended_processes attribute.
     /// </summary>
     public TerraformSet<string> SuspendedProcesses
-        => AsReference("suspended_processes");
+        => CreateReference("suspended_processes");
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Tag
-        => AsReference("tag");
+        => CreateReference("tag");
 
     /// <summary>
     /// The target_group_arns attribute.
     /// </summary>
     public TerraformSet<string> TargetGroupArns
-        => AsReference("target_group_arns");
+        => CreateReference("target_group_arns");
 
     /// <summary>
     /// The termination_policies attribute.
     /// </summary>
     public TerraformSet<string> TerminationPolicies
-        => AsReference("termination_policies");
+        => CreateReference("termination_policies");
 
     /// <summary>
     /// The traffic_source attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> TrafficSource
-        => AsReference("traffic_source");
+        => CreateReference("traffic_source");
 
     /// <summary>
     /// The vpc_zone_identifier attribute.
     /// </summary>
     public TerraformValue<string> VpcZoneIdentifier
-        => AsReference("vpc_zone_identifier");
+        => CreateReference("vpc_zone_identifier");
 
     /// <summary>
     /// The warm_pool attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WarmPool
-        => AsReference("warm_pool");
+        => CreateReference("warm_pool");
 
     /// <summary>
     /// The warm_pool_size attribute.
     /// </summary>
     public TerraformValue<double> WarmPoolSize
-        => AsReference("warm_pool_size");
+        => CreateReference("warm_pool_size");
 
 }

@@ -22,18 +22,18 @@ public partial class AwsRoute53DelegationSetDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-        => AsReference("caller_reference");
+        => CreateReference("caller_reference");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformList<string> NameServers
-        => AsReference("name_servers");
+        => CreateReference("name_servers");
 
 }

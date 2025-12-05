@@ -55,7 +55,7 @@ public partial class AwsOpensearchPackageAssociation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsOpensearchPackageAssociation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsOpensearchPackageAssociation(string name) : TerraformRes
     /// The reference_path attribute.
     /// </summary>
     public TerraformValue<string> ReferencePath
-        => AsReference("reference_path");
+        => CreateReference("reference_path");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

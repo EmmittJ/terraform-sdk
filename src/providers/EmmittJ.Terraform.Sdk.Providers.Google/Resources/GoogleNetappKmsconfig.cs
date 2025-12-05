@@ -73,7 +73,7 @@ public partial class GoogleNetappKmsconfig(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleNetappKmsconfig(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleNetappKmsconfig(string name) : TerraformResource("goo
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Access to the key needs to be granted. The instructions contain gcloud commands to run to grant access.
@@ -131,20 +131,20 @@ public partial class GoogleNetappKmsconfig(string name) : TerraformResource("goo
     /// To make the policy work, a CMEK policy check is required, which verifies key access.
     /// </summary>
     public TerraformValue<string> Instructions
-        => AsReference("instructions");
+        => CreateReference("instructions");
 
     /// <summary>
     /// The Service account which needs to have access to the  provided KMS key.
     /// </summary>
     public TerraformValue<string> ServiceAccount
-        => AsReference("service_account");
+        => CreateReference("service_account");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

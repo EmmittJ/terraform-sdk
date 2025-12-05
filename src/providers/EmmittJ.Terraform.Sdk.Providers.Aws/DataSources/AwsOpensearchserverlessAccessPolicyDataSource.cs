@@ -23,7 +23,7 @@ public partial class AwsOpensearchserverlessAccessPolicyDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,24 +41,24 @@ public partial class AwsOpensearchserverlessAccessPolicyDataSource(string name) 
     /// Description of the policy. Typically used to store information about the permissions defined in the policy.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// JSON policy document to use as the content for the new policy.
     /// </summary>
     public TerraformValue<string> Policy
-        => AsReference("policy");
+        => CreateReference("policy");
 
     /// <summary>
     /// Version of the policy.
     /// </summary>
     public TerraformValue<string> PolicyVersion
-        => AsReference("policy_version");
+        => CreateReference("policy_version");
 
 }

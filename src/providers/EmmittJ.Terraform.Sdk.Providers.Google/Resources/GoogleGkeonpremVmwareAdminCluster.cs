@@ -300,7 +300,7 @@ public class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlockManualLbConfigBlo
     /// </summary>
     public TerraformValue<double> AddonsNodePort
     {
-        get => GetArgument<TerraformValue<double>>("addons_node_port") ?? AsReference("addons_node_port");
+        get => GetArgument<TerraformValue<double>>("addons_node_port") ?? CreateReference("addons_node_port");
         set => SetArgument("addons_node_port", value);
     }
 
@@ -310,7 +310,7 @@ public class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlockManualLbConfigBlo
     /// </summary>
     public TerraformValue<double> ControlPlaneNodePort
     {
-        get => GetArgument<TerraformValue<double>>("control_plane_node_port") ?? AsReference("control_plane_node_port");
+        get => GetArgument<TerraformValue<double>>("control_plane_node_port") ?? CreateReference("control_plane_node_port");
         set => SetArgument("control_plane_node_port", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlockManualLbConfigBlo
     /// </summary>
     public TerraformValue<double> IngressHttpNodePort
     {
-        get => GetArgument<TerraformValue<double>>("ingress_http_node_port") ?? AsReference("ingress_http_node_port");
+        get => GetArgument<TerraformValue<double>>("ingress_http_node_port") ?? CreateReference("ingress_http_node_port");
         set => SetArgument("ingress_http_node_port", value);
     }
 
@@ -330,7 +330,7 @@ public class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlockManualLbConfigBlo
     /// </summary>
     public TerraformValue<double> IngressHttpsNodePort
     {
-        get => GetArgument<TerraformValue<double>>("ingress_https_node_port") ?? AsReference("ingress_https_node_port");
+        get => GetArgument<TerraformValue<double>>("ingress_https_node_port") ?? CreateReference("ingress_https_node_port");
         set => SetArgument("ingress_https_node_port", value);
     }
 
@@ -340,7 +340,7 @@ public class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlockManualLbConfigBlo
     /// </summary>
     public TerraformValue<double> KonnectivityServerNodePort
     {
-        get => GetArgument<TerraformValue<double>>("konnectivity_server_node_port") ?? AsReference("konnectivity_server_node_port");
+        get => GetArgument<TerraformValue<double>>("konnectivity_server_node_port") ?? CreateReference("konnectivity_server_node_port");
         set => SetArgument("konnectivity_server_node_port", value);
     }
 
@@ -595,7 +595,7 @@ public class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlockHaControlPlaneCo
     /// </summary>
     public TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname") ?? AsReference("hostname");
+        get => GetArgument<TerraformValue<string>>("hostname") ?? CreateReference("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -734,7 +734,7 @@ public class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlockStaticIpConfigBl
     /// </summary>
     public TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname") ?? AsReference("hostname");
+        get => GetArgument<TerraformValue<string>>("hostname") ?? CreateReference("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -766,13 +766,13 @@ public class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock : TerraformBlo
     /// The list of bundles installed in the admin cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> Bundles
-        => AsReference("bundles");
+        => CreateReference("bundles");
 
     /// <summary>
     /// The platform version e.g. 1.13.2.
     /// </summary>
     public TerraformValue<string> PlatformVersion
-        => AsReference("platform_version");
+        => CreateReference("platform_version");
 
     /// <summary>
     /// The required platform version e.g. 1.13.1.
@@ -791,7 +791,7 @@ public class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock : TerraformBlo
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }
 
@@ -1020,7 +1020,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// </summary>
     public TerraformMap<string> Annotations
     {
-        get => GetArgument<TerraformMap<string>>("annotations") ?? AsReference("annotations");
+        get => GetArgument<TerraformMap<string>>("annotations") ?? CreateReference("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -1029,7 +1029,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> BootstrapClusterMembership
     {
-        get => GetArgument<TerraformValue<string>>("bootstrap_cluster_membership") ?? AsReference("bootstrap_cluster_membership");
+        get => GetArgument<TerraformValue<string>>("bootstrap_cluster_membership") ?? CreateReference("bootstrap_cluster_membership");
         set => SetArgument("bootstrap_cluster_membership", value);
     }
 
@@ -1038,7 +1038,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -1047,7 +1047,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> EnableAdvancedCluster
     {
-        get => GetArgument<TerraformValue<bool>>("enable_advanced_cluster") ?? AsReference("enable_advanced_cluster");
+        get => GetArgument<TerraformValue<bool>>("enable_advanced_cluster") ?? CreateReference("enable_advanced_cluster");
         set => SetArgument("enable_advanced_cluster", value);
     }
 
@@ -1056,7 +1056,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1065,7 +1065,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> ImageType
     {
-        get => GetArgument<TerraformValue<string>>("image_type") ?? AsReference("image_type");
+        get => GetArgument<TerraformValue<string>>("image_type") ?? CreateReference("image_type");
         set => SetArgument("image_type", value);
     }
 
@@ -1103,7 +1103,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1111,19 +1111,19 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// The DNS name of VMware admin cluster&#39;s API server.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -1133,13 +1133,13 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// through optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Fleet configuration for the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> Fleet
-        => AsReference("fleet");
+        => CreateReference("fleet");
 
     /// <summary>
     /// The object name of the VMwareAdminCluster custom resource on the
@@ -1154,37 +1154,37 @@ public partial class GoogleGkeonpremVmwareAdminCluster(string name) : TerraformR
     /// cluster controller logs.
     /// </summary>
     public TerraformValue<string> LocalName
-        => AsReference("local_name");
+        => CreateReference("local_name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the VMware admin cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The lifecycle state of the VMware admin cluster.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The unique identifier of the VMware Admin Cluster.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// AddonNode block (nesting mode: list).

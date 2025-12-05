@@ -36,7 +36,7 @@ public partial class AzurermSourceControlTokenDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,13 +54,13 @@ public partial class AzurermSourceControlTokenDataSource(string name) : Terrafor
     /// The token attribute.
     /// </summary>
     public TerraformValue<string> Token
-        => AsReference("token");
+        => CreateReference("token");
 
     /// <summary>
     /// The token_secret attribute.
     /// </summary>
     public TerraformValue<string> TokenSecret
-        => AsReference("token_secret");
+        => CreateReference("token_secret");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

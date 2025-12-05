@@ -13,7 +13,7 @@ public partial class AwsServicequotasServiceQuota(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsServicequotasServiceQuota(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,48 +60,48 @@ public partial class AwsServicequotasServiceQuota(string name) : TerraformResour
     /// The adjustable attribute.
     /// </summary>
     public TerraformValue<bool> Adjustable
-        => AsReference("adjustable");
+        => CreateReference("adjustable");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The default_value attribute.
     /// </summary>
     public TerraformValue<double> DefaultValue
-        => AsReference("default_value");
+        => CreateReference("default_value");
 
     /// <summary>
     /// The quota_name attribute.
     /// </summary>
     public TerraformValue<string> QuotaName
-        => AsReference("quota_name");
+        => CreateReference("quota_name");
 
     /// <summary>
     /// The request_id attribute.
     /// </summary>
     public TerraformValue<string> RequestId
-        => AsReference("request_id");
+        => CreateReference("request_id");
 
     /// <summary>
     /// The request_status attribute.
     /// </summary>
     public TerraformValue<string> RequestStatus
-        => AsReference("request_status");
+        => CreateReference("request_status");
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceName
-        => AsReference("service_name");
+        => CreateReference("service_name");
 
     /// <summary>
     /// The usage_metric attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UsageMetric
-        => AsReference("usage_metric");
+        => CreateReference("usage_metric");
 
 }

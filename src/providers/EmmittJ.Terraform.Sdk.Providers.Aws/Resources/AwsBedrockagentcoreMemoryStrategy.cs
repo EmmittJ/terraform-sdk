@@ -210,7 +210,7 @@ public partial class AwsBedrockagentcoreMemoryStrategy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AwsBedrockagentcoreMemoryStrategy(string name) : TerraformR
     /// The memory_strategy_id attribute.
     /// </summary>
     public TerraformValue<string> MemoryStrategyId
-        => AsReference("memory_strategy_id");
+        => CreateReference("memory_strategy_id");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

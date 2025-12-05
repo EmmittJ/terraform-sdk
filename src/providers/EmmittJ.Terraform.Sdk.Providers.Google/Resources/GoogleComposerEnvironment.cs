@@ -17,20 +17,20 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// The URI of the Apache Airflow Web UI hosted within this environment.
     /// </summary>
     public TerraformValue<string> AirflowUri
-        => AsReference("airflow_uri");
+        => CreateReference("airflow_uri");
 
     /// <summary>
     /// The Cloud Storage prefix of the DAGs for this environment. Although Cloud Storage objects reside in a flat namespace, a hierarchical file tree can be simulated using &#39;/&#39;-delimited object name prefixes. DAG objects for this environment reside in a simulated directory with this prefix.
     /// </summary>
     public TerraformValue<string> DagGcsPrefix
-        => AsReference("dag_gcs_prefix");
+        => CreateReference("dag_gcs_prefix");
 
     /// <summary>
     /// Optional. If true, builds performed during operations that install Python packages have only private connectivity to Google services. If false, the builds also have access to the internet.
     /// </summary>
     public TerraformValue<bool> EnablePrivateBuildsOnly
     {
-        get => GetArgument<TerraformValue<bool>>("enable_private_builds_only") ?? AsReference("enable_private_builds_only");
+        get => GetArgument<TerraformValue<bool>>("enable_private_builds_only") ?? CreateReference("enable_private_builds_only");
         set => SetArgument("enable_private_builds_only", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> EnablePrivateEnvironment
     {
-        get => GetArgument<TerraformValue<bool>>("enable_private_environment") ?? AsReference("enable_private_environment");
+        get => GetArgument<TerraformValue<bool>>("enable_private_environment") ?? CreateReference("enable_private_environment");
         set => SetArgument("enable_private_environment", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EnvironmentSize
     {
-        get => GetArgument<TerraformValue<string>>("environment_size") ?? AsReference("environment_size");
+        get => GetArgument<TerraformValue<string>>("environment_size") ?? CreateReference("environment_size");
         set => SetArgument("environment_size", value);
     }
 
@@ -56,14 +56,14 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// The Kubernetes Engine cluster used to run this environment.
     /// </summary>
     public TerraformValue<string> GkeCluster
-        => AsReference("gke_cluster");
+        => CreateReference("gke_cluster");
 
     /// <summary>
     /// The number of nodes in the Kubernetes Engine cluster that will be used to run this environment. This field is supported for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
     /// </summary>
     public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? CreateReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ResilienceMode
     {
-        get => GetArgument<TerraformValue<string>>("resilience_mode") ?? AsReference("resilience_mode");
+        get => GetArgument<TerraformValue<string>>("resilience_mode") ?? CreateReference("resilience_mode");
         set => SetArgument("resilience_mode", value);
     }
 
@@ -245,7 +245,7 @@ public class GoogleComposerEnvironmentConfigBlockDataRetentionConfigBlockAirflow
     /// </summary>
     public TerraformValue<double> RetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_days") ?? AsReference("retention_days");
+        get => GetArgument<TerraformValue<double>>("retention_days") ?? CreateReference("retention_days");
         set => SetArgument("retention_days", value);
     }
 
@@ -254,7 +254,7 @@ public class GoogleComposerEnvironmentConfigBlockDataRetentionConfigBlockAirflow
     /// </summary>
     public TerraformValue<string> RetentionMode
     {
-        get => GetArgument<TerraformValue<string>>("retention_mode") ?? AsReference("retention_mode");
+        get => GetArgument<TerraformValue<string>>("retention_mode") ?? CreateReference("retention_mode");
         set => SetArgument("retention_mode", value);
     }
 
@@ -459,7 +459,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> ComposerInternalIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("composer_internal_ipv4_cidr_block") ?? AsReference("composer_internal_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("composer_internal_ipv4_cidr_block") ?? CreateReference("composer_internal_ipv4_cidr_block");
         set => SetArgument("composer_internal_ipv4_cidr_block", value);
     }
 
@@ -468,7 +468,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> ComposerNetworkAttachment
     {
-        get => GetArgument<TerraformValue<string>>("composer_network_attachment") ?? AsReference("composer_network_attachment");
+        get => GetArgument<TerraformValue<string>>("composer_network_attachment") ?? CreateReference("composer_network_attachment");
         set => SetArgument("composer_network_attachment", value);
     }
 
@@ -477,7 +477,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -486,7 +486,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool> EnableIpMasqAgent
     {
-        get => GetArgument<TerraformValue<bool>>("enable_ip_masq_agent") ?? AsReference("enable_ip_masq_agent");
+        get => GetArgument<TerraformValue<bool>>("enable_ip_masq_agent") ?? CreateReference("enable_ip_masq_agent");
         set => SetArgument("enable_ip_masq_agent", value);
     }
 
@@ -495,7 +495,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -504,7 +504,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -513,7 +513,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string> OauthScopes
     {
-        get => GetArgument<TerraformSet<string>>("oauth_scopes") ?? AsReference("oauth_scopes");
+        get => GetArgument<TerraformSet<string>>("oauth_scopes") ?? CreateReference("oauth_scopes");
         set => SetArgument("oauth_scopes", value);
     }
 
@@ -522,7 +522,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -531,7 +531,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? CreateReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -549,7 +549,7 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -639,7 +639,7 @@ public class GoogleComposerEnvironmentConfigBlockPrivateEnvironmentConfigBlock :
     /// </summary>
     public TerraformValue<string> CloudComposerConnectionSubnetwork
     {
-        get => GetArgument<TerraformValue<string>>("cloud_composer_connection_subnetwork") ?? AsReference("cloud_composer_connection_subnetwork");
+        get => GetArgument<TerraformValue<string>>("cloud_composer_connection_subnetwork") ?? CreateReference("cloud_composer_connection_subnetwork");
         set => SetArgument("cloud_composer_connection_subnetwork", value);
     }
 
@@ -648,7 +648,7 @@ public class GoogleComposerEnvironmentConfigBlockPrivateEnvironmentConfigBlock :
     /// </summary>
     public TerraformValue<string> CloudComposerNetworkIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cloud_composer_network_ipv4_cidr_block") ?? AsReference("cloud_composer_network_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("cloud_composer_network_ipv4_cidr_block") ?? CreateReference("cloud_composer_network_ipv4_cidr_block");
         set => SetArgument("cloud_composer_network_ipv4_cidr_block", value);
     }
 
@@ -657,7 +657,7 @@ public class GoogleComposerEnvironmentConfigBlockPrivateEnvironmentConfigBlock :
     /// </summary>
     public TerraformValue<string> CloudSqlIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cloud_sql_ipv4_cidr_block") ?? AsReference("cloud_sql_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("cloud_sql_ipv4_cidr_block") ?? CreateReference("cloud_sql_ipv4_cidr_block");
         set => SetArgument("cloud_sql_ipv4_cidr_block", value);
     }
 
@@ -666,7 +666,7 @@ public class GoogleComposerEnvironmentConfigBlockPrivateEnvironmentConfigBlock :
     /// </summary>
     public TerraformValue<string> ConnectionType
     {
-        get => GetArgument<TerraformValue<string>>("connection_type") ?? AsReference("connection_type");
+        get => GetArgument<TerraformValue<string>>("connection_type") ?? CreateReference("connection_type");
         set => SetArgument("connection_type", value);
     }
 
@@ -684,7 +684,7 @@ public class GoogleComposerEnvironmentConfigBlockPrivateEnvironmentConfigBlock :
     /// </summary>
     public TerraformValue<bool> EnablePrivatelyUsedPublicIps
     {
-        get => GetArgument<TerraformValue<bool>>("enable_privately_used_public_ips") ?? AsReference("enable_privately_used_public_ips");
+        get => GetArgument<TerraformValue<bool>>("enable_privately_used_public_ips") ?? CreateReference("enable_privately_used_public_ips");
         set => SetArgument("enable_privately_used_public_ips", value);
     }
 
@@ -693,7 +693,7 @@ public class GoogleComposerEnvironmentConfigBlockPrivateEnvironmentConfigBlock :
     /// </summary>
     public TerraformValue<string> MasterIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("master_ipv4_cidr_block") ?? AsReference("master_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("master_ipv4_cidr_block") ?? CreateReference("master_ipv4_cidr_block");
         set => SetArgument("master_ipv4_cidr_block", value);
     }
 
@@ -702,7 +702,7 @@ public class GoogleComposerEnvironmentConfigBlockPrivateEnvironmentConfigBlock :
     /// </summary>
     public TerraformValue<string> WebServerIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("web_server_ipv4_cidr_block") ?? AsReference("web_server_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("web_server_ipv4_cidr_block") ?? CreateReference("web_server_ipv4_cidr_block");
         set => SetArgument("web_server_ipv4_cidr_block", value);
     }
 
@@ -815,7 +815,7 @@ public class GoogleComposerEnvironmentConfigBlockSoftwareConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string> ImageVersion
     {
-        get => GetArgument<TerraformValue<string>>("image_version") ?? AsReference("image_version");
+        get => GetArgument<TerraformValue<string>>("image_version") ?? CreateReference("image_version");
         set => SetArgument("image_version", value);
     }
 
@@ -833,7 +833,7 @@ public class GoogleComposerEnvironmentConfigBlockSoftwareConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string> PythonVersion
     {
-        get => GetArgument<TerraformValue<string>>("python_version") ?? AsReference("python_version");
+        get => GetArgument<TerraformValue<string>>("python_version") ?? CreateReference("python_version");
         set => SetArgument("python_version", value);
     }
 
@@ -842,7 +842,7 @@ public class GoogleComposerEnvironmentConfigBlockSoftwareConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double> SchedulerCount
     {
-        get => GetArgument<TerraformValue<double>>("scheduler_count") ?? AsReference("scheduler_count");
+        get => GetArgument<TerraformValue<double>>("scheduler_count") ?? CreateReference("scheduler_count");
         set => SetArgument("scheduler_count", value);
     }
 
@@ -851,7 +851,7 @@ public class GoogleComposerEnvironmentConfigBlockSoftwareConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string> WebServerPluginsMode
     {
-        get => GetArgument<TerraformValue<string>>("web_server_plugins_mode") ?? AsReference("web_server_plugins_mode");
+        get => GetArgument<TerraformValue<string>>("web_server_plugins_mode") ?? CreateReference("web_server_plugins_mode");
         set => SetArgument("web_server_plugins_mode", value);
     }
 
@@ -1046,7 +1046,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockDagProcesso
     /// </summary>
     public TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count") ?? AsReference("count");
+        get => GetArgument<TerraformValue<double>>("count") ?? CreateReference("count");
         set => SetArgument("count", value);
     }
 
@@ -1055,7 +1055,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockDagProcesso
     /// </summary>
     public TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu") ?? AsReference("cpu");
+        get => GetArgument<TerraformValue<double>>("cpu") ?? CreateReference("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -1064,7 +1064,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockDagProcesso
     /// </summary>
     public TerraformValue<double> MemoryGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_gb") ?? AsReference("memory_gb");
+        get => GetArgument<TerraformValue<double>>("memory_gb") ?? CreateReference("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
@@ -1073,7 +1073,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockDagProcesso
     /// </summary>
     public TerraformValue<double> StorageGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_gb") ?? AsReference("storage_gb");
+        get => GetArgument<TerraformValue<double>>("storage_gb") ?? CreateReference("storage_gb");
         set => SetArgument("storage_gb", value);
     }
 
@@ -1095,7 +1095,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockSchedulerBl
     /// </summary>
     public TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count") ?? AsReference("count");
+        get => GetArgument<TerraformValue<double>>("count") ?? CreateReference("count");
         set => SetArgument("count", value);
     }
 
@@ -1104,7 +1104,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockSchedulerBl
     /// </summary>
     public TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu") ?? AsReference("cpu");
+        get => GetArgument<TerraformValue<double>>("cpu") ?? CreateReference("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -1113,7 +1113,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockSchedulerBl
     /// </summary>
     public TerraformValue<double> MemoryGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_gb") ?? AsReference("memory_gb");
+        get => GetArgument<TerraformValue<double>>("memory_gb") ?? CreateReference("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
@@ -1122,7 +1122,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockSchedulerBl
     /// </summary>
     public TerraformValue<double> StorageGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_gb") ?? AsReference("storage_gb");
+        get => GetArgument<TerraformValue<double>>("storage_gb") ?? CreateReference("storage_gb");
         set => SetArgument("storage_gb", value);
     }
 
@@ -1187,7 +1187,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWebServerBl
     /// </summary>
     public TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu") ?? AsReference("cpu");
+        get => GetArgument<TerraformValue<double>>("cpu") ?? CreateReference("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -1196,7 +1196,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWebServerBl
     /// </summary>
     public TerraformValue<double> MemoryGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_gb") ?? AsReference("memory_gb");
+        get => GetArgument<TerraformValue<double>>("memory_gb") ?? CreateReference("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
@@ -1205,7 +1205,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWebServerBl
     /// </summary>
     public TerraformValue<double> StorageGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_gb") ?? AsReference("storage_gb");
+        get => GetArgument<TerraformValue<double>>("storage_gb") ?? CreateReference("storage_gb");
         set => SetArgument("storage_gb", value);
     }
 
@@ -1227,7 +1227,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWorkerBlock
     /// </summary>
     public TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu") ?? AsReference("cpu");
+        get => GetArgument<TerraformValue<double>>("cpu") ?? CreateReference("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -1236,7 +1236,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWorkerBlock
     /// </summary>
     public TerraformValue<double> MaxCount
     {
-        get => GetArgument<TerraformValue<double>>("max_count") ?? AsReference("max_count");
+        get => GetArgument<TerraformValue<double>>("max_count") ?? CreateReference("max_count");
         set => SetArgument("max_count", value);
     }
 
@@ -1245,7 +1245,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWorkerBlock
     /// </summary>
     public TerraformValue<double> MemoryGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_gb") ?? AsReference("memory_gb");
+        get => GetArgument<TerraformValue<double>>("memory_gb") ?? CreateReference("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
@@ -1254,7 +1254,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWorkerBlock
     /// </summary>
     public TerraformValue<double> MinCount
     {
-        get => GetArgument<TerraformValue<double>>("min_count") ?? AsReference("min_count");
+        get => GetArgument<TerraformValue<double>>("min_count") ?? CreateReference("min_count");
         set => SetArgument("min_count", value);
     }
 
@@ -1263,7 +1263,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWorkerBlock
     /// </summary>
     public TerraformValue<double> StorageGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_gb") ?? AsReference("storage_gb");
+        get => GetArgument<TerraformValue<double>>("storage_gb") ?? CreateReference("storage_gb");
         set => SetArgument("storage_gb", value);
     }
 
@@ -1346,7 +1346,7 @@ public partial class GoogleComposerEnvironment(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1377,7 +1377,7 @@ public partial class GoogleComposerEnvironment(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1386,7 +1386,7 @@ public partial class GoogleComposerEnvironment(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1394,13 +1394,13 @@ public partial class GoogleComposerEnvironment(string name) : TerraformResource(
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Config block (nesting mode: list).

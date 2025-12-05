@@ -63,7 +63,7 @@ public partial class AzurermEventgridPartnerRegistration(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermEventgridPartnerRegistration(string name) : Terrafor
     /// The partner_registration_id attribute.
     /// </summary>
     public TerraformValue<string> PartnerRegistrationId
-        => AsReference("partner_registration_id");
+        => CreateReference("partner_registration_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

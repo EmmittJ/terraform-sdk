@@ -70,7 +70,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     /// Hex-encoded SHA-256 hash of the client secret.
     /// </summary>
     public TerraformValue<string> Oauth2ClientSecretSha256
-        => AsReference("oauth2_client_secret_sha256");
+        => CreateReference("oauth2_client_secret_sha256");
 
 }
 
@@ -118,7 +118,7 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> AuthDomain
     {
-        get => GetArgument<TerraformValue<string>>("auth_domain") ?? AsReference("auth_domain");
+        get => GetArgument<TerraformValue<string>>("auth_domain") ?? CreateReference("auth_domain");
         set => SetArgument("auth_domain", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> DatabaseType
     {
-        get => GetArgument<TerraformValue<string>>("database_type") ?? AsReference("database_type");
+        get => GetArgument<TerraformValue<string>>("database_type") ?? CreateReference("database_type");
         set => SetArgument("database_type", value);
     }
 
@@ -136,7 +136,7 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> ServingStatus
     {
-        get => GetArgument<TerraformValue<string>>("serving_status") ?? AsReference("serving_status");
+        get => GetArgument<TerraformValue<string>>("serving_status") ?? CreateReference("serving_status");
         set => SetArgument("serving_status", value);
     }
 
@@ -173,7 +173,7 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> SslPolicy
     {
-        get => GetArgument<TerraformValue<string>>("ssl_policy") ?? AsReference("ssl_policy");
+        get => GetArgument<TerraformValue<string>>("ssl_policy") ?? CreateReference("ssl_policy");
         set => SetArgument("ssl_policy", value);
     }
 
@@ -181,43 +181,43 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// Identifier of the app.
     /// </summary>
     public TerraformValue<string> AppId
-        => AsReference("app_id");
+        => CreateReference("app_id");
 
     /// <summary>
     /// The GCS bucket code is being stored in for this app.
     /// </summary>
     public TerraformValue<string> CodeBucket
-        => AsReference("code_bucket");
+        => CreateReference("code_bucket");
 
     /// <summary>
     /// The GCS bucket content is being stored in for this app.
     /// </summary>
     public TerraformValue<string> DefaultBucket
-        => AsReference("default_bucket");
+        => CreateReference("default_bucket");
 
     /// <summary>
     /// The default hostname for this app.
     /// </summary>
     public TerraformValue<string> DefaultHostname
-        => AsReference("default_hostname");
+        => CreateReference("default_hostname");
 
     /// <summary>
     /// The GCR domain used for storing managed Docker images for this app.
     /// </summary>
     public TerraformValue<string> GcrDomain
-        => AsReference("gcr_domain");
+        => CreateReference("gcr_domain");
 
     /// <summary>
     /// Unique name of the app.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// A list of dispatch rule blocks. Each block has a domain, path, and service field.
     /// </summary>
     public TerraformList<TerraformMap<object>> UrlDispatchRule
-        => AsReference("url_dispatch_rule");
+        => CreateReference("url_dispatch_rule");
 
     /// <summary>
     /// FeatureSettings block (nesting mode: list).

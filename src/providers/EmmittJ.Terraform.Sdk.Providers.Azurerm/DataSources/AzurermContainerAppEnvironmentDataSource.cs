@@ -36,7 +36,7 @@ public partial class AzurermContainerAppEnvironmentDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,73 +64,73 @@ public partial class AzurermContainerAppEnvironmentDataSource(string name) : Ter
     /// The ID of the Custom Domain Verification for this Container App Environment.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-        => AsReference("custom_domain_verification_id");
+        => CreateReference("custom_domain_verification_id");
 
     /// <summary>
     /// The default publicly resolvable name of this Container App Environment
     /// </summary>
     public TerraformValue<string> DefaultDomain
-        => AsReference("default_domain");
+        => CreateReference("default_domain");
 
     /// <summary>
     /// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
     /// </summary>
     public TerraformValue<string> DockerBridgeCidr
-        => AsReference("docker_bridge_cidr");
+        => CreateReference("docker_bridge_cidr");
 
     /// <summary>
     /// The existing Subnet in use by the Container Apps Control Plane.
     /// </summary>
     public TerraformValue<string> InfrastructureSubnetId
-        => AsReference("infrastructure_subnet_id");
+        => CreateReference("infrastructure_subnet_id");
 
     /// <summary>
     /// Does the Container Environment operate in Internal Load Balancing Mode?
     /// </summary>
     public TerraformValue<bool> InternalLoadBalancerEnabled
-        => AsReference("internal_load_balancer_enabled");
+        => CreateReference("internal_load_balancer_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The name of the Log Analytics Workspace this Container Apps Managed Environment is linked to.
     /// </summary>
     public TerraformValue<string> LogAnalyticsWorkspaceName
-        => AsReference("log_analytics_workspace_name");
+        => CreateReference("log_analytics_workspace_name");
 
     /// <summary>
     /// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
     /// </summary>
     public TerraformValue<string> PlatformReservedCidr
-        => AsReference("platform_reserved_cidr");
+        => CreateReference("platform_reserved_cidr");
 
     /// <summary>
     /// The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
     /// </summary>
     public TerraformValue<string> PlatformReservedDnsIpAddress
-        => AsReference("platform_reserved_dns_ip_address");
+        => CreateReference("platform_reserved_dns_ip_address");
 
     /// <summary>
     /// The public network access setting for this Container App Environment.
     /// </summary>
     public TerraformValue<string> PublicNetworkAccess
-        => AsReference("public_network_access");
+        => CreateReference("public_network_access");
 
     /// <summary>
     /// The Static IP Address of the Environment.
     /// </summary>
     public TerraformValue<string> StaticIpAddress
-        => AsReference("static_ip_address");
+        => CreateReference("static_ip_address");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

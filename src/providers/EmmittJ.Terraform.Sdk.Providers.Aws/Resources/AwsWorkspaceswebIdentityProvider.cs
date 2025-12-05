@@ -53,7 +53,7 @@ public partial class AwsWorkspaceswebIdentityProvider(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -70,12 +70,12 @@ public partial class AwsWorkspaceswebIdentityProvider(string name) : TerraformRe
     /// The identity_provider_arn attribute.
     /// </summary>
     public TerraformValue<string> IdentityProviderArn
-        => AsReference("identity_provider_arn");
+        => CreateReference("identity_provider_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
 }

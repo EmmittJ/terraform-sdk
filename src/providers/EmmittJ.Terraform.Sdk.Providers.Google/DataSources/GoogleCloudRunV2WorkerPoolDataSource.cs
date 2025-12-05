@@ -13,7 +13,7 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,56 +57,56 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource(string name) : Terrafo
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
     public TerraformMap<string> Annotations
-        => AsReference("annotations");
+        => CreateReference("annotations");
 
     /// <summary>
     /// Settings for the Binary Authorization feature.
     /// </summary>
     public TerraformList<TerraformMap<object>> BinaryAuthorization
-        => AsReference("binary_authorization");
+        => CreateReference("binary_authorization");
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
     public TerraformValue<string> Client
-        => AsReference("client");
+        => CreateReference("client");
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
     public TerraformValue<string> ClientVersion
-        => AsReference("client_version");
+        => CreateReference("client_version");
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the WorkerPool does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> Conditions
-        => AsReference("conditions");
+        => CreateReference("conditions");
 
     /// <summary>
     /// The creation time.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
     public TerraformValue<string> Creator
-        => AsReference("creator");
+        => CreateReference("creator");
 
     /// <summary>
     /// One or more custom audiences that you want this worker pool to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests.
     /// For more information, see https://cloud.google.com/run/docs/configuring/custom-audiences.
     /// </summary>
     public TerraformList<string> CustomAudiences
-        => AsReference("custom_audiences");
+        => CreateReference("custom_audiences");
 
     /// <summary>
     /// The deletion time.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the service. Defaults to true.
@@ -117,55 +117,55 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource(string name) : Terrafo
     /// When the field is set to false, deleting the WorkerPool is allowed.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// User-provided description of the WorkerPool. This field currently has a 512-character limit.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     public TerraformValue<string> Generation
-        => AsReference("generation");
+        => CreateReference("generation");
 
     /// <summary>
     /// Detailed status information for corresponding instance splits. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceSplitStatuses
-        => AsReference("instance_split_statuses");
+        => CreateReference("instance_split_statuses");
 
     /// <summary>
     /// Specifies how to distribute instances over a collection of Revisions belonging to the WorkerPool. If instance split is empty or not provided, defaults to 100% instances assigned to the latest Ready Revision.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceSplits
-        => AsReference("instance_splits");
+        => CreateReference("instance_splits");
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component,
@@ -178,25 +178,25 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource(string name) : Terrafo
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
     public TerraformValue<string> LastModifier
-        => AsReference("last_modifier");
+        => CreateReference("last_modifier");
 
     /// <summary>
     /// Name of the last created revision. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformValue<string> LatestCreatedRevision
-        => AsReference("latest_created_revision");
+        => CreateReference("latest_created_revision");
 
     /// <summary>
     /// Name of the latest revision that is serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformValue<string> LatestReadyRevision
-        => AsReference("latest_ready_revision");
+        => CreateReference("latest_ready_revision");
 
     /// <summary>
     /// The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/products#product-launch-stages). Cloud Run supports ALPHA, BETA, and GA.
@@ -205,13 +205,13 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource(string name) : Terrafo
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
     public TerraformValue<string> LaunchStage
-        => AsReference("launch_stage");
+        => CreateReference("launch_stage");
 
     /// <summary>
     /// The generation of this WorkerPool currently serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     public TerraformValue<string> ObservedGeneration
-        => AsReference("observed_generation");
+        => CreateReference("observed_generation");
 
     /// <summary>
     /// Returns true if the WorkerPool is currently being acted upon by the system to bring it into the desired state.
@@ -223,43 +223,43 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource(string name) : Terrafo
     /// If reconciliation failed, trafficStatuses, observedGeneration, and latestReadyRevision will have the state of the last serving revision, or empty for newly created WorkerPools. Additional information on the failure can be found in terminalCondition and conditions.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Scaling settings that apply to the worker pool.
     /// </summary>
     public TerraformList<TerraformMap<object>> Scaling
-        => AsReference("scaling");
+        => CreateReference("scaling");
 
     /// <summary>
     /// The template used to create revisions for this WorkerPool.
     /// </summary>
     public TerraformList<TerraformMap<object>> Template
-        => AsReference("template");
+        => CreateReference("template");
 
     /// <summary>
     /// The Condition of this WorkerPool, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> TerminalCondition
-        => AsReference("terminal_condition");
+        => CreateReference("terminal_condition");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

@@ -151,7 +151,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<bool> EnableAcceleration
     {
-        get => GetArgument<TerraformValue<bool>>("enable_acceleration") ?? AsReference("enable_acceleration");
+        get => GetArgument<TerraformValue<bool>>("enable_acceleration") ?? CreateReference("enable_acceleration");
         set => SetArgument("enable_acceleration", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> LocalIpv4NetworkCidr
     {
-        get => GetArgument<TerraformValue<string>>("local_ipv4_network_cidr") ?? AsReference("local_ipv4_network_cidr");
+        get => GetArgument<TerraformValue<string>>("local_ipv4_network_cidr") ?? CreateReference("local_ipv4_network_cidr");
         set => SetArgument("local_ipv4_network_cidr", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> LocalIpv6NetworkCidr
     {
-        get => GetArgument<TerraformValue<string>>("local_ipv6_network_cidr") ?? AsReference("local_ipv6_network_cidr");
+        get => GetArgument<TerraformValue<string>>("local_ipv6_network_cidr") ?? CreateReference("local_ipv6_network_cidr");
         set => SetArgument("local_ipv6_network_cidr", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> OutsideIpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("outside_ip_address_type") ?? AsReference("outside_ip_address_type");
+        get => GetArgument<TerraformValue<string>>("outside_ip_address_type") ?? CreateReference("outside_ip_address_type");
         set => SetArgument("outside_ip_address_type", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> PresharedKeyStorage
     {
-        get => GetArgument<TerraformValue<string>>("preshared_key_storage") ?? AsReference("preshared_key_storage");
+        get => GetArgument<TerraformValue<string>>("preshared_key_storage") ?? CreateReference("preshared_key_storage");
         set => SetArgument("preshared_key_storage", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> RemoteIpv4NetworkCidr
     {
-        get => GetArgument<TerraformValue<string>>("remote_ipv4_network_cidr") ?? AsReference("remote_ipv4_network_cidr");
+        get => GetArgument<TerraformValue<string>>("remote_ipv4_network_cidr") ?? CreateReference("remote_ipv4_network_cidr");
         set => SetArgument("remote_ipv4_network_cidr", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> RemoteIpv6NetworkCidr
     {
-        get => GetArgument<TerraformValue<string>>("remote_ipv6_network_cidr") ?? AsReference("remote_ipv6_network_cidr");
+        get => GetArgument<TerraformValue<string>>("remote_ipv6_network_cidr") ?? CreateReference("remote_ipv6_network_cidr");
         set => SetArgument("remote_ipv6_network_cidr", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<bool> StaticRoutesOnly
     {
-        get => GetArgument<TerraformValue<bool>>("static_routes_only") ?? AsReference("static_routes_only");
+        get => GetArgument<TerraformValue<bool>>("static_routes_only") ?? CreateReference("static_routes_only");
         set => SetArgument("static_routes_only", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -313,7 +313,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> Tunnel1InsideCidr
     {
-        get => GetArgument<TerraformValue<string>>("tunnel1_inside_cidr") ?? AsReference("tunnel1_inside_cidr");
+        get => GetArgument<TerraformValue<string>>("tunnel1_inside_cidr") ?? CreateReference("tunnel1_inside_cidr");
         set => SetArgument("tunnel1_inside_cidr", value);
     }
 
@@ -322,7 +322,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> Tunnel1InsideIpv6Cidr
     {
-        get => GetArgument<TerraformValue<string>>("tunnel1_inside_ipv6_cidr") ?? AsReference("tunnel1_inside_ipv6_cidr");
+        get => GetArgument<TerraformValue<string>>("tunnel1_inside_ipv6_cidr") ?? CreateReference("tunnel1_inside_ipv6_cidr");
         set => SetArgument("tunnel1_inside_ipv6_cidr", value);
     }
 
@@ -403,7 +403,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> Tunnel1PresharedKey
     {
-        get => GetArgument<TerraformValue<string>>("tunnel1_preshared_key") ?? AsReference("tunnel1_preshared_key");
+        get => GetArgument<TerraformValue<string>>("tunnel1_preshared_key") ?? CreateReference("tunnel1_preshared_key");
         set => SetArgument("tunnel1_preshared_key", value);
     }
 
@@ -484,7 +484,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> Tunnel2InsideCidr
     {
-        get => GetArgument<TerraformValue<string>>("tunnel2_inside_cidr") ?? AsReference("tunnel2_inside_cidr");
+        get => GetArgument<TerraformValue<string>>("tunnel2_inside_cidr") ?? CreateReference("tunnel2_inside_cidr");
         set => SetArgument("tunnel2_inside_cidr", value);
     }
 
@@ -493,7 +493,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> Tunnel2InsideIpv6Cidr
     {
-        get => GetArgument<TerraformValue<string>>("tunnel2_inside_ipv6_cidr") ?? AsReference("tunnel2_inside_ipv6_cidr");
+        get => GetArgument<TerraformValue<string>>("tunnel2_inside_ipv6_cidr") ?? CreateReference("tunnel2_inside_ipv6_cidr");
         set => SetArgument("tunnel2_inside_ipv6_cidr", value);
     }
 
@@ -574,7 +574,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> Tunnel2PresharedKey
     {
-        get => GetArgument<TerraformValue<string>>("tunnel2_preshared_key") ?? AsReference("tunnel2_preshared_key");
+        get => GetArgument<TerraformValue<string>>("tunnel2_preshared_key") ?? CreateReference("tunnel2_preshared_key");
         set => SetArgument("tunnel2_preshared_key", value);
     }
 
@@ -619,7 +619,7 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// </summary>
     public TerraformValue<string> TunnelInsideIpVersion
     {
-        get => GetArgument<TerraformValue<string>>("tunnel_inside_ip_version") ?? AsReference("tunnel_inside_ip_version");
+        get => GetArgument<TerraformValue<string>>("tunnel_inside_ip_version") ?? CreateReference("tunnel_inside_ip_version");
         set => SetArgument("tunnel_inside_ip_version", value);
     }
 
@@ -646,109 +646,109 @@ public partial class AwsVpnConnection(string name) : TerraformResource("aws_vpn_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
-        => AsReference("core_network_arn");
+        => CreateReference("core_network_arn");
 
     /// <summary>
     /// The core_network_attachment_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkAttachmentArn
-        => AsReference("core_network_attachment_arn");
+        => CreateReference("core_network_attachment_arn");
 
     /// <summary>
     /// The customer_gateway_configuration attribute.
     /// </summary>
     public TerraformValue<string> CustomerGatewayConfiguration
-        => AsReference("customer_gateway_configuration");
+        => CreateReference("customer_gateway_configuration");
 
     /// <summary>
     /// The preshared_key_arn attribute.
     /// </summary>
     public TerraformValue<string> PresharedKeyArn
-        => AsReference("preshared_key_arn");
+        => CreateReference("preshared_key_arn");
 
     /// <summary>
     /// The routes attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Routes
-        => AsReference("routes");
+        => CreateReference("routes");
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayAttachmentId
-        => AsReference("transit_gateway_attachment_id");
+        => CreateReference("transit_gateway_attachment_id");
 
     /// <summary>
     /// The tunnel1_address attribute.
     /// </summary>
     public TerraformValue<string> Tunnel1Address
-        => AsReference("tunnel1_address");
+        => CreateReference("tunnel1_address");
 
     /// <summary>
     /// The tunnel1_bgp_asn attribute.
     /// </summary>
     public TerraformValue<string> Tunnel1BgpAsn
-        => AsReference("tunnel1_bgp_asn");
+        => CreateReference("tunnel1_bgp_asn");
 
     /// <summary>
     /// The tunnel1_bgp_holdtime attribute.
     /// </summary>
     public TerraformValue<double> Tunnel1BgpHoldtime
-        => AsReference("tunnel1_bgp_holdtime");
+        => CreateReference("tunnel1_bgp_holdtime");
 
     /// <summary>
     /// The tunnel1_cgw_inside_address attribute.
     /// </summary>
     public TerraformValue<string> Tunnel1CgwInsideAddress
-        => AsReference("tunnel1_cgw_inside_address");
+        => CreateReference("tunnel1_cgw_inside_address");
 
     /// <summary>
     /// The tunnel1_vgw_inside_address attribute.
     /// </summary>
     public TerraformValue<string> Tunnel1VgwInsideAddress
-        => AsReference("tunnel1_vgw_inside_address");
+        => CreateReference("tunnel1_vgw_inside_address");
 
     /// <summary>
     /// The tunnel2_address attribute.
     /// </summary>
     public TerraformValue<string> Tunnel2Address
-        => AsReference("tunnel2_address");
+        => CreateReference("tunnel2_address");
 
     /// <summary>
     /// The tunnel2_bgp_asn attribute.
     /// </summary>
     public TerraformValue<string> Tunnel2BgpAsn
-        => AsReference("tunnel2_bgp_asn");
+        => CreateReference("tunnel2_bgp_asn");
 
     /// <summary>
     /// The tunnel2_bgp_holdtime attribute.
     /// </summary>
     public TerraformValue<double> Tunnel2BgpHoldtime
-        => AsReference("tunnel2_bgp_holdtime");
+        => CreateReference("tunnel2_bgp_holdtime");
 
     /// <summary>
     /// The tunnel2_cgw_inside_address attribute.
     /// </summary>
     public TerraformValue<string> Tunnel2CgwInsideAddress
-        => AsReference("tunnel2_cgw_inside_address");
+        => CreateReference("tunnel2_cgw_inside_address");
 
     /// <summary>
     /// The tunnel2_vgw_inside_address attribute.
     /// </summary>
     public TerraformValue<string> Tunnel2VgwInsideAddress
-        => AsReference("tunnel2_vgw_inside_address");
+        => CreateReference("tunnel2_vgw_inside_address");
 
     /// <summary>
     /// The vgw_telemetry attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> VgwTelemetry
-        => AsReference("vgw_telemetry");
+        => CreateReference("vgw_telemetry");
 
     /// <summary>
     /// Tunnel1LogOptions block (nesting mode: list).

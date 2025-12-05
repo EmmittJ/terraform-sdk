@@ -13,7 +13,7 @@ public partial class AwsIamUsersDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -39,12 +39,12 @@ public partial class AwsIamUsersDataSource(string name) : TerraformDataSource("a
     /// The arns attribute.
     /// </summary>
     public TerraformSet<string> Arns
-        => AsReference("arns");
+        => CreateReference("arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     public TerraformSet<string> Names
-        => AsReference("names");
+        => CreateReference("names");
 
 }

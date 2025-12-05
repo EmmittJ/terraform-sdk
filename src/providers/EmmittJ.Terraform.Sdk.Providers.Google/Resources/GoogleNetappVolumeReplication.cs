@@ -27,7 +27,7 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     /// </summary>
     public TerraformValue<string> ShareName
     {
-        get => GetArgument<TerraformValue<string>>("share_name") ?? AsReference("share_name");
+        get => GetArgument<TerraformValue<string>>("share_name") ?? CreateReference("share_name");
         set => SetArgument("share_name", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     /// </summary>
     public TerraformValue<string> VolumeId
     {
-        get => GetArgument<TerraformValue<string>>("volume_id") ?? AsReference("volume_id");
+        get => GetArgument<TerraformValue<string>>("volume_id") ?? CreateReference("volume_id");
         set => SetArgument("volume_id", value);
     }
 
@@ -183,7 +183,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -225,7 +225,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -276,19 +276,19 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// Create time of the active directory. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Full resource name of destination volume with format: &#39;projects/{{project}}/locations/{{location}}/volumes/{{volumeId}}&#39;
     /// </summary>
     public TerraformValue<string> DestinationVolume
-        => AsReference("destination_volume");
+        => CreateReference("destination_volume");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Condition of the relationship. Can be one of the following:
@@ -296,25 +296,25 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     ///   - false: The replication relationship is not healthy. It has missed the most recent scheduled transfer.
     /// </summary>
     public TerraformValue<bool> Healthy
-        => AsReference("healthy");
+        => CreateReference("healthy");
 
     /// <summary>
     /// HybridPeeringDetails contains details about the hybrid peering.
     /// </summary>
     public TerraformList<TerraformMap<object>> HybridPeeringDetails
-        => AsReference("hybrid_peering_details");
+        => CreateReference("hybrid_peering_details");
 
     /// <summary>
     /// Hybrid replication type.
     /// </summary>
     public TerraformValue<string> HybridReplicationType
-        => AsReference("hybrid_replication_type");
+        => CreateReference("hybrid_replication_type");
 
     /// <summary>
     /// Copy pastable snapmirror commands to be executed on onprem cluster by the customer.
     /// </summary>
     public TerraformList<TerraformMap<object>> HybridReplicationUserCommands
-        => AsReference("hybrid_replication_user_commands");
+        => CreateReference("hybrid_replication_user_commands");
 
     /// <summary>
     /// Indicates the state of the mirror between source and destination volumes. Depending on the amount of data
@@ -323,7 +323,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// currently receives an update. Updated every 5 minutes.
     /// </summary>
     public TerraformValue<string> MirrorState
-        => AsReference("mirror_state");
+        => CreateReference("mirror_state");
 
     /// <summary>
     /// Reverting a replication can swap source and destination volume roles. This field indicates if the &#39;location&#39; hosts
@@ -331,38 +331,38 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// which volume is the source volume, since it will overwrite changes done to the destination volume.
     /// </summary>
     public TerraformValue<string> Role
-        => AsReference("role");
+        => CreateReference("role");
 
     /// <summary>
     /// Full resource name of source volume with format: &#39;projects/{{project}}/locations/{{location}}/volumes/{{volumeId}}&#39;
     /// </summary>
     public TerraformValue<string> SourceVolume
-        => AsReference("source_volume");
+        => CreateReference("source_volume");
 
     /// <summary>
     /// Indicates the state of replication resource. State of the mirror itself is indicated in mirrorState.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// State details of the replication resource.
     /// </summary>
     public TerraformValue<string> StateDetails
-        => AsReference("state_details");
+        => CreateReference("state_details");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Replication transfer statistics. All statistics are updated every 5 minutes.
     /// </summary>
     public TerraformList<TerraformMap<object>> TransferStats
-        => AsReference("transfer_stats");
+        => CreateReference("transfer_stats");
 
     /// <summary>
     /// DestinationVolumeParameters block (nesting mode: list).

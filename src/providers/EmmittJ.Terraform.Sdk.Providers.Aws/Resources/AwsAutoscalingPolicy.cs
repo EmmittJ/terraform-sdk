@@ -1344,7 +1344,7 @@ public partial class AwsAutoscalingPolicy(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1353,7 +1353,7 @@ public partial class AwsAutoscalingPolicy(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> MetricAggregationType
     {
-        get => GetArgument<TerraformValue<string>>("metric_aggregation_type") ?? AsReference("metric_aggregation_type");
+        get => GetArgument<TerraformValue<string>>("metric_aggregation_type") ?? CreateReference("metric_aggregation_type");
         set => SetArgument("metric_aggregation_type", value);
     }
 
@@ -1390,7 +1390,7 @@ public partial class AwsAutoscalingPolicy(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1407,7 +1407,7 @@ public partial class AwsAutoscalingPolicy(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// PredictiveScalingConfiguration block (nesting mode: list).

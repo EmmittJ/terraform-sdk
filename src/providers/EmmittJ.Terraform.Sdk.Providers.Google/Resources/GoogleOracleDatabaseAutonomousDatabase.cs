@@ -18,21 +18,21 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// terabytes.
     /// </summary>
     public TerraformValue<double> ActualUsedDataStorageSizeTb
-        => AsReference("actual_used_data_storage_size_tb");
+        => CreateReference("actual_used_data_storage_size_tb");
 
     /// <summary>
     /// The amount of storage currently allocated for the database tables and
     /// billed for, rounded up in terabytes.
     /// </summary>
     public TerraformValue<double> AllocatedStorageSizeTb
-        => AsReference("allocated_storage_size_tb");
+        => CreateReference("allocated_storage_size_tb");
 
     /// <summary>
     /// Oracle APEX Application Development.
     /// https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/AutonomousDatabaseApex
     /// </summary>
     public TerraformList<TerraformMap<object>> ApexDetails
-        => AsReference("apex_details");
+        => CreateReference("apex_details");
 
     /// <summary>
     /// This field indicates the status of Data Guard and Access control for the
@@ -45,20 +45,20 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// compared to primary.
     /// </summary>
     public TerraformValue<bool> ArePrimaryAllowlistedIpsUsed
-        => AsReference("are_primary_allowlisted_ips_used");
+        => CreateReference("are_primary_allowlisted_ips_used");
 
     /// <summary>
     /// The Autonomous Container Database OCID.
     /// </summary>
     public TerraformValue<string> AutonomousContainerDatabaseId
-        => AsReference("autonomous_container_database_id");
+        => CreateReference("autonomous_container_database_id");
 
     /// <summary>
     /// The list of available Oracle Database upgrade versions for an Autonomous
     /// Database.
     /// </summary>
     public TerraformList<string> AvailableUpgradeVersions
-        => AsReference("available_upgrade_versions");
+        => CreateReference("available_upgrade_versions");
 
     /// <summary>
     /// The retention period for the Autonomous Database. This field is specified
@@ -67,7 +67,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<double> BackupRetentionPeriodDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_period_days") ?? AsReference("backup_retention_period_days");
+        get => GetArgument<TerraformValue<double>>("backup_retention_period_days") ?? CreateReference("backup_retention_period_days");
         set => SetArgument("backup_retention_period_days", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<double> ComputeCount
     {
-        get => GetArgument<TerraformValue<double>>("compute_count") ?? AsReference("compute_count");
+        get => GetArgument<TerraformValue<double>>("compute_count") ?? CreateReference("compute_count");
         set => SetArgument("compute_count", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/AutonomousDatabaseConnectionStrings
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionStrings
-        => AsReference("connection_strings");
+        => CreateReference("connection_strings");
 
     /// <summary>
     /// The URLs for accessing Oracle Application Express (APEX) and SQL Developer
@@ -102,7 +102,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/AutonomousDatabaseConnectionUrls
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionUrls
-        => AsReference("connection_urls");
+        => CreateReference("connection_urls");
 
     /// <summary>
     /// The current state of the Data Safe registration for the
@@ -116,14 +116,14 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// FAILED
     /// </summary>
     public TerraformValue<string> DataSafeState
-        => AsReference("data_safe_state");
+        => CreateReference("data_safe_state");
 
     /// <summary>
     /// The size of the data stored in the database, in gigabytes.
     /// </summary>
     public TerraformValue<double> DataStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_gb") ?? AsReference("data_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_gb") ?? CreateReference("data_storage_size_gb");
         set => SetArgument("data_storage_size_gb", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<double> DataStorageSizeTb
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_tb") ?? AsReference("data_storage_size_tb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_tb") ?? CreateReference("data_storage_size_tb");
         set => SetArgument("data_storage_size_tb", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// FAILED_DISABLING
     /// </summary>
     public TerraformValue<string> DatabaseManagementState
-        => AsReference("database_management_state");
+        => CreateReference("database_management_state");
 
     /// <summary>
     /// The edition of the Autonomous Databases. 
@@ -192,7 +192,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// Guard failover.
     /// </summary>
     public TerraformValue<string> FailedDataRecoveryDuration
-        => AsReference("failed_data_recovery_duration");
+        => CreateReference("failed_data_recovery_duration");
 
     /// <summary>
     /// This field indicates if auto scaling is enabled for the Autonomous Database
@@ -209,7 +209,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// Data Guard enabled.
     /// </summary>
     public TerraformValue<bool> IsLocalDataGuardEnabled
-        => AsReference("is_local_data_guard_enabled");
+        => CreateReference("is_local_data_guard_enabled");
 
     /// <summary>
     /// This field indicates if auto scaling is enabled for the Autonomous Database
@@ -217,7 +217,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool> IsStorageAutoScalingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("is_storage_auto_scaling_enabled") ?? AsReference("is_storage_auto_scaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_storage_auto_scaling_enabled") ?? CreateReference("is_storage_auto_scaling_enabled");
         set => SetArgument("is_storage_auto_scaling_enabled", value);
     }
 
@@ -239,14 +239,14 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// The details of the current lifestyle state of the Autonomous Database.
     /// </summary>
     public TerraformValue<string> LifecycleDetails
-        => AsReference("lifecycle_details");
+        => CreateReference("lifecycle_details");
 
     /// <summary>
     /// This field indicates the maximum data loss limit for an Autonomous
     /// Database, in seconds.
     /// </summary>
     public TerraformValue<double> LocalAdgAutoFailoverMaxDataLossLimit
-        => AsReference("local_adg_auto_failover_max_data_loss_limit");
+        => CreateReference("local_adg_auto_failover_max_data_loss_limit");
 
     /// <summary>
     /// This field indicates the local disaster recovery (DR) type of an
@@ -257,26 +257,26 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// BACKUP_BASED
     /// </summary>
     public TerraformValue<string> LocalDisasterRecoveryType
-        => AsReference("local_disaster_recovery_type");
+        => CreateReference("local_disaster_recovery_type");
 
     /// <summary>
     /// Autonomous Data Guard standby database details.
     /// https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/AutonomousDatabaseStandbySummary
     /// </summary>
     public TerraformList<TerraformMap<object>> LocalStandbyDb
-        => AsReference("local_standby_db");
+        => CreateReference("local_standby_db");
 
     /// <summary>
     /// The date and time when maintenance will begin.
     /// </summary>
     public TerraformValue<string> MaintenanceBeginTime
-        => AsReference("maintenance_begin_time");
+        => CreateReference("maintenance_begin_time");
 
     /// <summary>
     /// The date and time when maintenance will end.
     /// </summary>
     public TerraformValue<string> MaintenanceEndTime
-        => AsReference("maintenance_end_time");
+        => CreateReference("maintenance_end_time");
 
     /// <summary>
     /// The maintenance schedule of the Autonomous Database. 
@@ -287,7 +287,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> MaintenanceScheduleType
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_schedule_type") ?? AsReference("maintenance_schedule_type");
+        get => GetArgument<TerraformValue<string>>("maintenance_schedule_type") ?? CreateReference("maintenance_schedule_type");
         set => SetArgument("maintenance_schedule_type", value);
     }
 
@@ -295,13 +295,13 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// The amount of memory enabled per ECPU, in gigabytes.
     /// </summary>
     public TerraformValue<double> MemoryPerOracleComputeUnitGbs
-        => AsReference("memory_per_oracle_compute_unit_gbs");
+        => CreateReference("memory_per_oracle_compute_unit_gbs");
 
     /// <summary>
     /// The memory assigned to in-memory tables in an Autonomous Database.
     /// </summary>
     public TerraformValue<double> MemoryTableGbs
-        => AsReference("memory_table_gbs");
+        => CreateReference("memory_table_gbs");
 
     /// <summary>
     /// This field specifies if the Autonomous Database requires mTLS connections.
@@ -326,20 +326,20 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// The long term backup schedule of the Autonomous Database.
     /// </summary>
     public TerraformValue<string> NextLongTermBackupTime
-        => AsReference("next_long_term_backup_time");
+        => CreateReference("next_long_term_backup_time");
 
     /// <summary>
     /// The Oracle Cloud Infrastructure link for the Autonomous Database.
     /// </summary>
     public TerraformValue<string> OciUrl
-        => AsReference("oci_url");
+        => CreateReference("oci_url");
 
     /// <summary>
     /// OCID of the Autonomous Database.
     /// https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm#Oracle
     /// </summary>
     public TerraformValue<string> Ocid
-        => AsReference("ocid");
+        => CreateReference("ocid");
 
     /// <summary>
     /// This field indicates the current mode of the Autonomous Database. 
@@ -349,7 +349,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// READ_WRITE
     /// </summary>
     public TerraformValue<string> OpenMode
-        => AsReference("open_mode");
+        => CreateReference("open_mode");
 
     /// <summary>
     /// Possible values:
@@ -363,7 +363,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> OperationsInsightsState
     {
-        get => GetArgument<TerraformValue<string>>("operations_insights_state") ?? AsReference("operations_insights_state");
+        get => GetArgument<TerraformValue<string>>("operations_insights_state") ?? CreateReference("operations_insights_state");
         set => SetArgument("operations_insights_state", value);
     }
 
@@ -372,7 +372,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// remote regions that are associated with the source database.
     /// </summary>
     public TerraformList<string> PeerDbIds
-        => AsReference("peer_db_ids");
+        => CreateReference("peer_db_ids");
 
     /// <summary>
     /// The permission level of the Autonomous Database. 
@@ -382,20 +382,20 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// UNRESTRICTED
     /// </summary>
     public TerraformValue<string> PermissionLevel
-        => AsReference("permission_level");
+        => CreateReference("permission_level");
 
     /// <summary>
     /// The private endpoint for the Autonomous Database.
     /// </summary>
     public TerraformValue<string> PrivateEndpoint
-        => AsReference("private_endpoint");
+        => CreateReference("private_endpoint");
 
     /// <summary>
     /// The private endpoint IP address for the Autonomous Database.
     /// </summary>
     public TerraformValue<string> PrivateEndpointIp
     {
-        get => GetArgument<TerraformValue<string>>("private_endpoint_ip") ?? AsReference("private_endpoint_ip");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_ip") ?? CreateReference("private_endpoint_ip");
         set => SetArgument("private_endpoint_ip", value);
     }
 
@@ -404,7 +404,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> PrivateEndpointLabel
     {
-        get => GetArgument<TerraformValue<string>>("private_endpoint_label") ?? AsReference("private_endpoint_label");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_label") ?? CreateReference("private_endpoint_label");
         set => SetArgument("private_endpoint_label", value);
     }
 
@@ -416,7 +416,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// MANUAL
     /// </summary>
     public TerraformValue<string> RefreshableMode
-        => AsReference("refreshable_mode");
+        => CreateReference("refreshable_mode");
 
     /// <summary>
     /// The refresh State of the clone. 
@@ -426,7 +426,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// NOT_REFRESHING
     /// </summary>
     public TerraformValue<string> RefreshableState
-        => AsReference("refreshable_state");
+        => CreateReference("refreshable_state");
 
     /// <summary>
     /// The Data Guard role of the Autonomous Database. 
@@ -439,20 +439,20 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// SNAPSHOT_STANDBY
     /// </summary>
     public TerraformValue<string> Role
-        => AsReference("role");
+        => CreateReference("role");
 
     /// <summary>
     /// The list and details of the scheduled operations of the Autonomous
     /// Database.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScheduledOperationDetails
-        => AsReference("scheduled_operation_details");
+        => CreateReference("scheduled_operation_details");
 
     /// <summary>
     /// The SQL Web Developer URL for the Autonomous Database.
     /// </summary>
     public TerraformValue<string> SqlWebDeveloperUrl
-        => AsReference("sql_web_developer_url");
+        => CreateReference("sql_web_developer_url");
 
     /// <summary>
     /// Possible values:
@@ -480,27 +480,27 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// STANDBY
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The list of available regions that can be used to create a clone for the
     /// Autonomous Database.
     /// </summary>
     public TerraformList<string> SupportedCloneRegions
-        => AsReference("supported_clone_regions");
+        => CreateReference("supported_clone_regions");
 
     /// <summary>
     /// The storage space used by automatic backups of Autonomous Database, in
     /// gigabytes.
     /// </summary>
     public TerraformValue<double> TotalAutoBackupStorageSizeGbs
-        => AsReference("total_auto_backup_storage_size_gbs");
+        => CreateReference("total_auto_backup_storage_size_gbs");
 
     /// <summary>
     /// The storage space used by Autonomous Database, in gigabytes.
     /// </summary>
     public TerraformValue<double> UsedDataStorageSizeTbs
-        => AsReference("used_data_storage_size_tbs");
+        => CreateReference("used_data_storage_size_tbs");
 
     /// <summary>
     /// CustomerContacts block (nesting mode: list).
@@ -643,7 +643,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -652,7 +652,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -697,7 +697,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformValue<string> OdbNetwork
     {
-        get => GetArgument<TerraformValue<string>>("odb_network") ?? AsReference("odb_network");
+        get => GetArgument<TerraformValue<string>>("odb_network") ?? CreateReference("odb_network");
         set => SetArgument("odb_network", value);
     }
 
@@ -708,7 +708,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformValue<string> OdbSubnet
     {
-        get => GetArgument<TerraformValue<string>>("odb_subnet") ?? AsReference("odb_subnet");
+        get => GetArgument<TerraformValue<string>>("odb_subnet") ?? CreateReference("odb_subnet");
         set => SetArgument("odb_subnet", value);
     }
 
@@ -717,7 +717,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -725,34 +725,34 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// The date and time that the Autonomous Database was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the Autonomous
     /// Database.
     /// </summary>
     public TerraformValue<string> EntitlementId
-        => AsReference("entitlement_id");
+        => CreateReference("entitlement_id");
 
     /// <summary>
     /// Identifier. The name of the Autonomous Database resource in the following format:
     /// projects/{project}/locations/{region}/autonomousDatabases/{autonomous_database}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Properties block (nesting mode: list).

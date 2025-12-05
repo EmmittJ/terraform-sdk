@@ -36,7 +36,7 @@ public partial class AzurermManagedRedisDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermManagedRedisDataSource(string name) : TerraformDataS
     /// The customer_managed_key attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomerManagedKey
-        => AsReference("customer_managed_key");
+        => CreateReference("customer_managed_key");
 
     /// <summary>
     /// The default_database attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DefaultDatabase
-        => AsReference("default_database");
+        => CreateReference("default_database");
 
     /// <summary>
     /// The high_availability_enabled attribute.
     /// </summary>
     public TerraformValue<bool> HighAvailabilityEnabled
-        => AsReference("high_availability_enabled");
+        => CreateReference("high_availability_enabled");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

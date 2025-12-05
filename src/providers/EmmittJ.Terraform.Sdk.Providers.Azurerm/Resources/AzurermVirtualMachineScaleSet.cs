@@ -149,13 +149,13 @@ public class AzurermVirtualMachineScaleSetIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -318,7 +318,7 @@ public class AzurermVirtualMachineScaleSetNetworkProfileBlockIpConfigurationBloc
     /// </summary>
     public TerraformSet<string> LoadBalancerInboundNatRulesIds
     {
-        get => GetArgument<TerraformSet<string>>("load_balancer_inbound_nat_rules_ids") ?? AsReference("load_balancer_inbound_nat_rules_ids");
+        get => GetArgument<TerraformSet<string>>("load_balancer_inbound_nat_rules_ids") ?? CreateReference("load_balancer_inbound_nat_rules_ids");
         set => SetArgument("load_balancer_inbound_nat_rules_ids", value);
     }
 
@@ -854,7 +854,7 @@ public class AzurermVirtualMachineScaleSetSkuBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? CreateReference("tier");
         set => SetArgument("tier", value);
     }
 
@@ -877,7 +877,7 @@ public class AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock : Terrafor
     /// </summary>
     public TerraformValue<string> Caching
     {
-        get => GetArgument<TerraformValue<string>>("caching") ?? AsReference("caching");
+        get => GetArgument<TerraformValue<string>>("caching") ?? CreateReference("caching");
         set => SetArgument("caching", value);
     }
 
@@ -896,7 +896,7 @@ public class AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock : Terrafor
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -915,7 +915,7 @@ public class AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock : Terrafor
     /// </summary>
     public TerraformValue<string> ManagedDiskType
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? AsReference("managed_disk_type");
+        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? CreateReference("managed_disk_type");
         set => SetArgument("managed_disk_type", value);
     }
 
@@ -997,7 +997,7 @@ public class AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock : TerraformB
     /// </summary>
     public TerraformValue<string> Caching
     {
-        get => GetArgument<TerraformValue<string>>("caching") ?? AsReference("caching");
+        get => GetArgument<TerraformValue<string>>("caching") ?? CreateReference("caching");
         set => SetArgument("caching", value);
     }
 
@@ -1025,7 +1025,7 @@ public class AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock : TerraformB
     /// </summary>
     public TerraformValue<string> ManagedDiskType
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? AsReference("managed_disk_type");
+        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? CreateReference("managed_disk_type");
         set => SetArgument("managed_disk_type", value);
     }
 
@@ -1148,7 +1148,7 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1157,7 +1157,7 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> LicenseType
     {
-        get => GetArgument<TerraformValue<string>>("license_type") ?? AsReference("license_type");
+        get => GetArgument<TerraformValue<string>>("license_type") ?? CreateReference("license_type");
         set => SetArgument("license_type", value);
     }
 

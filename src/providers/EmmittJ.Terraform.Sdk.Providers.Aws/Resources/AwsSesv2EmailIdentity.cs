@@ -17,7 +17,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// The current_signing_key_length attribute.
     /// </summary>
     public TerraformValue<string> CurrentSigningKeyLength
-        => AsReference("current_signing_key_length");
+        => CreateReference("current_signing_key_length");
 
     /// <summary>
     /// The domain_signing_private_key attribute.
@@ -41,14 +41,14 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// The last_key_generation_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastKeyGenerationTimestamp
-        => AsReference("last_key_generation_timestamp");
+        => CreateReference("last_key_generation_timestamp");
 
     /// <summary>
     /// The next_signing_key_length attribute.
     /// </summary>
     public TerraformValue<string> NextSigningKeyLength
     {
-        get => GetArgument<TerraformValue<string>>("next_signing_key_length") ?? AsReference("next_signing_key_length");
+        get => GetArgument<TerraformValue<string>>("next_signing_key_length") ?? CreateReference("next_signing_key_length");
         set => SetArgument("next_signing_key_length", value);
     }
 
@@ -56,19 +56,19 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// The signing_attributes_origin attribute.
     /// </summary>
     public TerraformValue<string> SigningAttributesOrigin
-        => AsReference("signing_attributes_origin");
+        => CreateReference("signing_attributes_origin");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The tokens attribute.
     /// </summary>
     public TerraformList<string> Tokens
-        => AsReference("tokens");
+        => CreateReference("tokens");
 
 }
 
@@ -103,7 +103,7 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -138,25 +138,25 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
     public TerraformValue<string> IdentityType
-        => AsReference("identity_type");
+        => CreateReference("identity_type");
 
     /// <summary>
     /// The verification_status attribute.
     /// </summary>
     public TerraformValue<string> VerificationStatus
-        => AsReference("verification_status");
+        => CreateReference("verification_status");
 
     /// <summary>
     /// The verified_for_sending_status attribute.
     /// </summary>
     public TerraformValue<bool> VerifiedForSendingStatus
-        => AsReference("verified_for_sending_status");
+        => CreateReference("verified_for_sending_status");
 
     /// <summary>
     /// DkimSigningAttributes block (nesting mode: list).

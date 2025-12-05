@@ -18,7 +18,7 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// specified for this Managed Certificate.
     /// </summary>
     public TerraformList<TerraformMap<object>> AuthorizationAttemptInfo
-        => AsReference("authorization_attempt_info");
+        => CreateReference("authorization_attempt_info");
 
     /// <summary>
     /// Authorizations that will be used for performing domain authorization. Either issuanceConfig or dnsAuthorizations should be specificed, but not both.
@@ -54,13 +54,13 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// Information about issues with provisioning this Managed Certificate.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProvisioningIssue
-        => AsReference("provisioning_issue");
+        => CreateReference("provisioning_issue");
 
     /// <summary>
     /// A state of this Managed Certificate.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -182,7 +182,7 @@ public partial class GoogleCertificateManagerCertificate(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -224,7 +224,7 @@ public partial class GoogleCertificateManagerCertificate(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -253,20 +253,20 @@ public partial class GoogleCertificateManagerCertificate(string name) : Terrafor
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The list of Subject Alternative Names of dnsName type defined in the certificate (see RFC 5280 4.2.1.6)
     /// </summary>
     public TerraformList<string> SanDnsnames
-        => AsReference("san_dnsnames");
+        => CreateReference("san_dnsnames");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Managed block (nesting mode: list).

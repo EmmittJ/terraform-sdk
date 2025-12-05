@@ -113,7 +113,7 @@ public partial class AwsIdentitystoreUserDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsIdentitystoreUserDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsIdentitystoreUserDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> UserId
     {
-        get => GetArgument<TerraformValue<string>>("user_id") ?? AsReference("user_id");
+        get => GetArgument<TerraformValue<string>>("user_id") ?? CreateReference("user_id");
         set => SetArgument("user_id", value);
     }
 
@@ -149,85 +149,85 @@ public partial class AwsIdentitystoreUserDataSource(string name) : TerraformData
     /// The addresses attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Addresses
-        => AsReference("addresses");
+        => CreateReference("addresses");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The emails attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Emails
-        => AsReference("emails");
+        => CreateReference("emails");
 
     /// <summary>
     /// The external_ids attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalIds
-        => AsReference("external_ids");
+        => CreateReference("external_ids");
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
     public TerraformValue<string> Locale
-        => AsReference("locale");
+        => CreateReference("locale");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The nickname attribute.
     /// </summary>
     public TerraformValue<string> Nickname
-        => AsReference("nickname");
+        => CreateReference("nickname");
 
     /// <summary>
     /// The phone_numbers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PhoneNumbers
-        => AsReference("phone_numbers");
+        => CreateReference("phone_numbers");
 
     /// <summary>
     /// The preferred_language attribute.
     /// </summary>
     public TerraformValue<string> PreferredLanguage
-        => AsReference("preferred_language");
+        => CreateReference("preferred_language");
 
     /// <summary>
     /// The profile_url attribute.
     /// </summary>
     public TerraformValue<string> ProfileUrl
-        => AsReference("profile_url");
+        => CreateReference("profile_url");
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
     public TerraformValue<string> Timezone
-        => AsReference("timezone");
+        => CreateReference("timezone");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     public TerraformValue<string> Title
-        => AsReference("title");
+        => CreateReference("title");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     public TerraformValue<string> UserName
-        => AsReference("user_name");
+        => CreateReference("user_name");
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
     public TerraformValue<string> UserType
-        => AsReference("user_type");
+        => CreateReference("user_type");
 
     /// <summary>
     /// AlternateIdentifier block (nesting mode: list).

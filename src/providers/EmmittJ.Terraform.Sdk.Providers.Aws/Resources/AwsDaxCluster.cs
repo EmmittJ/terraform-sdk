@@ -124,7 +124,7 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// </summary>
     public TerraformValue<string> MaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_window") ?? AsReference("maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window") ?? CreateReference("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// </summary>
     public TerraformValue<string> ParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_group_name") ?? AsReference("parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("parameter_group_name") ?? CreateReference("parameter_group_name");
         set => SetArgument("parameter_group_name", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// </summary>
     public TerraformValue<string> SubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("subnet_group_name") ?? AsReference("subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("subnet_group_name") ?? CreateReference("subnet_group_name");
         set => SetArgument("subnet_group_name", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -224,31 +224,31 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cluster_address attribute.
     /// </summary>
     public TerraformValue<string> ClusterAddress
-        => AsReference("cluster_address");
+        => CreateReference("cluster_address");
 
     /// <summary>
     /// The configuration_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationEndpoint
-        => AsReference("configuration_endpoint");
+        => CreateReference("configuration_endpoint");
 
     /// <summary>
     /// The nodes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Nodes
-        => AsReference("nodes");
+        => CreateReference("nodes");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// ServerSideEncryption block (nesting mode: list).

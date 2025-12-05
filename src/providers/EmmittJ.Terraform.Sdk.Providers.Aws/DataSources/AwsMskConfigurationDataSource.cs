@@ -13,7 +13,7 @@ public partial class AwsMskConfigurationDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsMskConfigurationDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,30 +40,30 @@ public partial class AwsMskConfigurationDataSource(string name) : TerraformDataS
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The kafka_versions attribute.
     /// </summary>
     public TerraformSet<string> KafkaVersions
-        => AsReference("kafka_versions");
+        => CreateReference("kafka_versions");
 
     /// <summary>
     /// The latest_revision attribute.
     /// </summary>
     public TerraformValue<double> LatestRevision
-        => AsReference("latest_revision");
+        => CreateReference("latest_revision");
 
     /// <summary>
     /// The server_properties attribute.
     /// </summary>
     public TerraformValue<string> ServerProperties
-        => AsReference("server_properties");
+        => CreateReference("server_properties");
 
 }

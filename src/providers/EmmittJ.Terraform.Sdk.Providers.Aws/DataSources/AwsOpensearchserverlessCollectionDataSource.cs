@@ -13,7 +13,7 @@ public partial class AwsOpensearchserverlessCollectionDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsOpensearchserverlessCollectionDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsOpensearchserverlessCollectionDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -39,72 +39,72 @@ public partial class AwsOpensearchserverlessCollectionDataSource(string name) : 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
     /// </summary>
     public TerraformValue<string> CollectionEndpoint
-        => AsReference("collection_endpoint");
+        => CreateReference("collection_endpoint");
 
     /// <summary>
     /// Date the Collection was created.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// Collection-specific endpoint used to access OpenSearch Dashboards.
     /// </summary>
     public TerraformValue<string> DashboardEndpoint
-        => AsReference("dashboard_endpoint");
+        => CreateReference("dashboard_endpoint");
 
     /// <summary>
     /// Description of the collection.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// A failure code associated with the collection.
     /// </summary>
     public TerraformValue<string> FailureCode
-        => AsReference("failure_code");
+        => CreateReference("failure_code");
 
     /// <summary>
     /// A failure reason associated with the collection.
     /// </summary>
     public TerraformValue<string> FailureMessage
-        => AsReference("failure_message");
+        => CreateReference("failure_message");
 
     /// <summary>
     /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
     /// </summary>
     public TerraformValue<string> KmsKeyArn
-        => AsReference("kms_key_arn");
+        => CreateReference("kms_key_arn");
 
     /// <summary>
     /// Date the Collection was last modified.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-        => AsReference("last_modified_date");
+        => CreateReference("last_modified_date");
 
     /// <summary>
     /// Indicates whether standby replicas should be used for a collection.
     /// </summary>
     public TerraformValue<string> StandbyReplicas
-        => AsReference("standby_replicas");
+        => CreateReference("standby_replicas");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Type of collection.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

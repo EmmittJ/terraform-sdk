@@ -1198,7 +1198,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock : 
     /// The base_url attribute.
     /// </summary>
     public TerraformValue<string> BaseUrl
-        => AsReference("base_url");
+        => CreateReference("base_url");
 
     /// <summary>
     /// The max_events_per_batch attribute.
@@ -1260,7 +1260,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// </summary>
     public TerraformValue<string> EventhubEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_endpoint_id") ?? AsReference("eventhub_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("eventhub_endpoint_id") ?? CreateReference("eventhub_endpoint_id");
         set => SetArgument("eventhub_endpoint_id", value);
     }
 
@@ -1278,7 +1278,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// </summary>
     public TerraformValue<string> HybridConnectionEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("hybrid_connection_endpoint_id") ?? AsReference("hybrid_connection_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("hybrid_connection_endpoint_id") ?? CreateReference("hybrid_connection_endpoint_id");
         set => SetArgument("hybrid_connection_endpoint_id", value);
     }
 
@@ -1287,7 +1287,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1296,7 +1296,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// </summary>
     public TerraformList<string> IncludedEventTypes
     {
-        get => GetArgument<TerraformList<string>>("included_event_types") ?? AsReference("included_event_types");
+        get => GetArgument<TerraformList<string>>("included_event_types") ?? CreateReference("included_event_types");
         set => SetArgument("included_event_types", value);
     }
 

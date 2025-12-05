@@ -41,7 +41,7 @@ public class AwsAutoscalingGroupCapacityReservationSpecificationBlock : Terrafor
     /// </summary>
     public TerraformValue<string> CapacityReservationPreference
     {
-        get => GetArgument<TerraformValue<string>>("capacity_reservation_preference") ?? AsReference("capacity_reservation_preference");
+        get => GetArgument<TerraformValue<string>>("capacity_reservation_preference") ?? CreateReference("capacity_reservation_preference");
         set => SetArgument("capacity_reservation_preference", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsAutoscalingGroupInitialLifecycleHookBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DefaultResult
     {
-        get => GetArgument<TerraformValue<string>>("default_result") ?? AsReference("default_result");
+        get => GetArgument<TerraformValue<string>>("default_result") ?? CreateReference("default_result");
         set => SetArgument("default_result", value);
     }
 
@@ -387,7 +387,7 @@ public class AwsAutoscalingGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -396,7 +396,7 @@ public class AwsAutoscalingGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -405,7 +405,7 @@ public class AwsAutoscalingGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -464,7 +464,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockInstancesDistributionBl
     /// </summary>
     public TerraformValue<string> OnDemandAllocationStrategy
     {
-        get => GetArgument<TerraformValue<string>>("on_demand_allocation_strategy") ?? AsReference("on_demand_allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("on_demand_allocation_strategy") ?? CreateReference("on_demand_allocation_strategy");
         set => SetArgument("on_demand_allocation_strategy", value);
     }
 
@@ -473,7 +473,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockInstancesDistributionBl
     /// </summary>
     public TerraformValue<double> OnDemandBaseCapacity
     {
-        get => GetArgument<TerraformValue<double>>("on_demand_base_capacity") ?? AsReference("on_demand_base_capacity");
+        get => GetArgument<TerraformValue<double>>("on_demand_base_capacity") ?? CreateReference("on_demand_base_capacity");
         set => SetArgument("on_demand_base_capacity", value);
     }
 
@@ -482,7 +482,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockInstancesDistributionBl
     /// </summary>
     public TerraformValue<double> OnDemandPercentageAboveBaseCapacity
     {
-        get => GetArgument<TerraformValue<double>>("on_demand_percentage_above_base_capacity") ?? AsReference("on_demand_percentage_above_base_capacity");
+        get => GetArgument<TerraformValue<double>>("on_demand_percentage_above_base_capacity") ?? CreateReference("on_demand_percentage_above_base_capacity");
         set => SetArgument("on_demand_percentage_above_base_capacity", value);
     }
 
@@ -491,7 +491,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockInstancesDistributionBl
     /// </summary>
     public TerraformValue<string> SpotAllocationStrategy
     {
-        get => GetArgument<TerraformValue<string>>("spot_allocation_strategy") ?? AsReference("spot_allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("spot_allocation_strategy") ?? CreateReference("spot_allocation_strategy");
         set => SetArgument("spot_allocation_strategy", value);
     }
 
@@ -500,7 +500,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockInstancesDistributionBl
     /// </summary>
     public TerraformValue<double> SpotInstancePools
     {
-        get => GetArgument<TerraformValue<double>>("spot_instance_pools") ?? AsReference("spot_instance_pools");
+        get => GetArgument<TerraformValue<double>>("spot_instance_pools") ?? CreateReference("spot_instance_pools");
         set => SetArgument("spot_instance_pools", value);
     }
 
@@ -566,7 +566,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockLaunchTemplateBlockLaun
     /// </summary>
     public TerraformValue<string> LaunchTemplateId
     {
-        get => GetArgument<TerraformValue<string>>("launch_template_id") ?? AsReference("launch_template_id");
+        get => GetArgument<TerraformValue<string>>("launch_template_id") ?? CreateReference("launch_template_id");
         set => SetArgument("launch_template_id", value);
     }
 
@@ -575,7 +575,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockLaunchTemplateBlockLaun
     /// </summary>
     public TerraformValue<string> LaunchTemplateName
     {
-        get => GetArgument<TerraformValue<string>>("launch_template_name") ?? AsReference("launch_template_name");
+        get => GetArgument<TerraformValue<string>>("launch_template_name") ?? CreateReference("launch_template_name");
         set => SetArgument("launch_template_name", value);
     }
 
@@ -584,7 +584,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockLaunchTemplateBlockLaun
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -1174,7 +1174,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockLaunchTemplateBlockOver
     /// </summary>
     public TerraformValue<string> LaunchTemplateId
     {
-        get => GetArgument<TerraformValue<string>>("launch_template_id") ?? AsReference("launch_template_id");
+        get => GetArgument<TerraformValue<string>>("launch_template_id") ?? CreateReference("launch_template_id");
         set => SetArgument("launch_template_id", value);
     }
 
@@ -1183,7 +1183,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockLaunchTemplateBlockOver
     /// </summary>
     public TerraformValue<string> LaunchTemplateName
     {
-        get => GetArgument<TerraformValue<string>>("launch_template_name") ?? AsReference("launch_template_name");
+        get => GetArgument<TerraformValue<string>>("launch_template_name") ?? CreateReference("launch_template_name");
         set => SetArgument("launch_template_name", value);
     }
 
@@ -1192,7 +1192,7 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlockLaunchTemplateBlockOver
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -1392,7 +1392,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformSet<string> AvailabilityZones
     {
-        get => GetArgument<TerraformSet<string>>("availability_zones") ?? AsReference("availability_zones");
+        get => GetArgument<TerraformSet<string>>("availability_zones") ?? CreateReference("availability_zones");
         set => SetArgument("availability_zones", value);
     }
 
@@ -1419,7 +1419,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<double> DefaultCooldown
     {
-        get => GetArgument<TerraformValue<double>>("default_cooldown") ?? AsReference("default_cooldown");
+        get => GetArgument<TerraformValue<double>>("default_cooldown") ?? CreateReference("default_cooldown");
         set => SetArgument("default_cooldown", value);
     }
 
@@ -1437,7 +1437,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<double> DesiredCapacity
     {
-        get => GetArgument<TerraformValue<double>>("desired_capacity") ?? AsReference("desired_capacity");
+        get => GetArgument<TerraformValue<double>>("desired_capacity") ?? CreateReference("desired_capacity");
         set => SetArgument("desired_capacity", value);
     }
 
@@ -1491,7 +1491,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> HealthCheckType
     {
-        get => GetArgument<TerraformValue<string>>("health_check_type") ?? AsReference("health_check_type");
+        get => GetArgument<TerraformValue<string>>("health_check_type") ?? CreateReference("health_check_type");
         set => SetArgument("health_check_type", value);
     }
 
@@ -1500,7 +1500,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1527,7 +1527,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformSet<string> LoadBalancers
     {
-        get => GetArgument<TerraformSet<string>>("load_balancers") ?? AsReference("load_balancers");
+        get => GetArgument<TerraformSet<string>>("load_balancers") ?? CreateReference("load_balancers");
         set => SetArgument("load_balancers", value);
     }
 
@@ -1583,7 +1583,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -1592,7 +1592,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -1619,7 +1619,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1628,7 +1628,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> ServiceLinkedRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("service_linked_role_arn") ?? AsReference("service_linked_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_linked_role_arn") ?? CreateReference("service_linked_role_arn");
         set => SetArgument("service_linked_role_arn", value);
     }
 
@@ -1646,7 +1646,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformSet<string> TargetGroupArns
     {
-        get => GetArgument<TerraformSet<string>>("target_group_arns") ?? AsReference("target_group_arns");
+        get => GetArgument<TerraformSet<string>>("target_group_arns") ?? CreateReference("target_group_arns");
         set => SetArgument("target_group_arns", value);
     }
 
@@ -1664,7 +1664,7 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformSet<string> VpcZoneIdentifier
     {
-        get => GetArgument<TerraformSet<string>>("vpc_zone_identifier") ?? AsReference("vpc_zone_identifier");
+        get => GetArgument<TerraformSet<string>>("vpc_zone_identifier") ?? CreateReference("vpc_zone_identifier");
         set => SetArgument("vpc_zone_identifier", value);
     }
 
@@ -1690,19 +1690,19 @@ public partial class AwsAutoscalingGroup(string name) : TerraformResource("aws_a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The predicted_capacity attribute.
     /// </summary>
     public TerraformValue<double> PredictedCapacity
-        => AsReference("predicted_capacity");
+        => CreateReference("predicted_capacity");
 
     /// <summary>
     /// The warm_pool_size attribute.
     /// </summary>
     public TerraformValue<double> WarmPoolSize
-        => AsReference("warm_pool_size");
+        => CreateReference("warm_pool_size");
 
     /// <summary>
     /// AvailabilityZoneDistribution block (nesting mode: list).

@@ -172,7 +172,7 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Subdirectory
     {
-        get => GetArgument<TerraformValue<string>>("subdirectory") ?? AsReference("subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory") ?? CreateReference("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -236,25 +236,25 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The fsx_filesystem_arn attribute.
     /// </summary>
     public TerraformValue<string> FsxFilesystemArn
-        => AsReference("fsx_filesystem_arn");
+        => CreateReference("fsx_filesystem_arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-        => AsReference("uri");
+        => CreateReference("uri");
 
     /// <summary>
     /// Protocol block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermCdnFrontdoorOriginGroupDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,31 +74,31 @@ public partial class AzurermCdnFrontdoorOriginGroupDataSource(string name) : Ter
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorProfileId
-        => AsReference("cdn_frontdoor_profile_id");
+        => CreateReference("cdn_frontdoor_profile_id");
 
     /// <summary>
     /// The health_probe attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HealthProbe
-        => AsReference("health_probe");
+        => CreateReference("health_probe");
 
     /// <summary>
     /// The load_balancing attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LoadBalancing
-        => AsReference("load_balancing");
+        => CreateReference("load_balancing");
 
     /// <summary>
     /// The restore_traffic_time_to_healed_or_new_endpoint_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> RestoreTrafficTimeToHealedOrNewEndpointInMinutes
-        => AsReference("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
+        => CreateReference("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
 
     /// <summary>
     /// The session_affinity_enabled attribute.
     /// </summary>
     public TerraformValue<bool> SessionAffinityEnabled
-        => AsReference("session_affinity_enabled");
+        => CreateReference("session_affinity_enabled");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

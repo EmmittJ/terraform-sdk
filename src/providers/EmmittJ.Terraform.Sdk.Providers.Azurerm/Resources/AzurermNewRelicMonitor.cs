@@ -17,13 +17,13 @@ public class AzurermNewRelicMonitorIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -204,7 +204,7 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> OrganizationId
     {
-        get => GetArgument<TerraformValue<string>>("organization_id") ?? AsReference("organization_id");
+        get => GetArgument<TerraformValue<string>>("organization_id") ?? CreateReference("organization_id");
         set => SetArgument("organization_id", value);
     }
 

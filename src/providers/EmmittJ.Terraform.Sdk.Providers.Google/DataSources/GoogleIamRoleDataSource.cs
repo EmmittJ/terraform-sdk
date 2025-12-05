@@ -13,7 +13,7 @@ public partial class GoogleIamRoleDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,18 +31,18 @@ public partial class GoogleIamRoleDataSource(string name) : TerraformDataSource(
     /// The included_permissions attribute.
     /// </summary>
     public TerraformList<string> IncludedPermissions
-        => AsReference("included_permissions");
+        => CreateReference("included_permissions");
 
     /// <summary>
     /// The stage attribute.
     /// </summary>
     public TerraformValue<string> Stage
-        => AsReference("stage");
+        => CreateReference("stage");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     public TerraformValue<string> Title
-        => AsReference("title");
+        => CreateReference("title");
 
 }

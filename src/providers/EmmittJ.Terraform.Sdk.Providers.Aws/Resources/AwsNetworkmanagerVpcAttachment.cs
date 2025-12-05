@@ -18,7 +18,7 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> ApplianceModeSupport
     {
-        get => GetArgument<TerraformValue<bool>>("appliance_mode_support") ?? AsReference("appliance_mode_support");
+        get => GetArgument<TerraformValue<bool>>("appliance_mode_support") ?? CreateReference("appliance_mode_support");
         set => SetArgument("appliance_mode_support", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> DnsSupport
     {
-        get => GetArgument<TerraformValue<bool>>("dns_support") ?? AsReference("dns_support");
+        get => GetArgument<TerraformValue<bool>>("dns_support") ?? CreateReference("dns_support");
         set => SetArgument("dns_support", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Ipv6Support
     {
-        get => GetArgument<TerraformValue<bool>>("ipv6_support") ?? AsReference("ipv6_support");
+        get => GetArgument<TerraformValue<bool>>("ipv6_support") ?? CreateReference("ipv6_support");
         set => SetArgument("ipv6_support", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> SecurityGroupReferencingSupport
     {
-        get => GetArgument<TerraformValue<bool>>("security_group_referencing_support") ?? AsReference("security_group_referencing_support");
+        get => GetArgument<TerraformValue<bool>>("security_group_referencing_support") ?? CreateReference("security_group_referencing_support");
         set => SetArgument("security_group_referencing_support", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsNetworkmanagerVpcAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsNetworkmanagerVpcAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -160,55 +160,55 @@ public partial class AwsNetworkmanagerVpcAttachment(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The attachment_policy_rule_number attribute.
     /// </summary>
     public TerraformValue<double> AttachmentPolicyRuleNumber
-        => AsReference("attachment_policy_rule_number");
+        => CreateReference("attachment_policy_rule_number");
 
     /// <summary>
     /// The attachment_type attribute.
     /// </summary>
     public TerraformValue<string> AttachmentType
-        => AsReference("attachment_type");
+        => CreateReference("attachment_type");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
-        => AsReference("core_network_arn");
+        => CreateReference("core_network_arn");
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
     public TerraformValue<string> EdgeLocation
-        => AsReference("edge_location");
+        => CreateReference("edge_location");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-        => AsReference("resource_arn");
+        => CreateReference("resource_arn");
 
     /// <summary>
     /// The segment_name attribute.
     /// </summary>
     public TerraformValue<string> SegmentName
-        => AsReference("segment_name");
+        => CreateReference("segment_name");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Options block (nesting mode: list).

@@ -76,7 +76,7 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> CnamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("cname_prefix") ?? AsReference("cname_prefix");
+        get => GetArgument<TerraformValue<string>>("cname_prefix") ?? CreateReference("cname_prefix");
         set => SetArgument("cname_prefix", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> PlatformArn
     {
-        get => GetArgument<TerraformValue<string>>("platform_arn") ?? AsReference("platform_arn");
+        get => GetArgument<TerraformValue<string>>("platform_arn") ?? CreateReference("platform_arn");
         set => SetArgument("platform_arn", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> SolutionStackName
     {
-        get => GetArgument<TerraformValue<string>>("solution_stack_name") ?? AsReference("solution_stack_name");
+        get => GetArgument<TerraformValue<string>>("solution_stack_name") ?? CreateReference("solution_stack_name");
         set => SetArgument("solution_stack_name", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> VersionLabel
     {
-        get => GetArgument<TerraformValue<string>>("version_label") ?? AsReference("version_label");
+        get => GetArgument<TerraformValue<string>>("version_label") ?? CreateReference("version_label");
         set => SetArgument("version_label", value);
     }
 
@@ -202,61 +202,61 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// The all_settings attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> AllSettings
-        => AsReference("all_settings");
+        => CreateReference("all_settings");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The autoscaling_groups attribute.
     /// </summary>
     public TerraformList<string> AutoscalingGroups
-        => AsReference("autoscaling_groups");
+        => CreateReference("autoscaling_groups");
 
     /// <summary>
     /// The cname attribute.
     /// </summary>
     public TerraformValue<string> Cname
-        => AsReference("cname");
+        => CreateReference("cname");
 
     /// <summary>
     /// The endpoint_url attribute.
     /// </summary>
     public TerraformValue<string> EndpointUrl
-        => AsReference("endpoint_url");
+        => CreateReference("endpoint_url");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     public TerraformList<string> Instances
-        => AsReference("instances");
+        => CreateReference("instances");
 
     /// <summary>
     /// The launch_configurations attribute.
     /// </summary>
     public TerraformList<string> LaunchConfigurations
-        => AsReference("launch_configurations");
+        => CreateReference("launch_configurations");
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
     public TerraformList<string> LoadBalancers
-        => AsReference("load_balancers");
+        => CreateReference("load_balancers");
 
     /// <summary>
     /// The queues attribute.
     /// </summary>
     public TerraformList<string> Queues
-        => AsReference("queues");
+        => CreateReference("queues");
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
     public TerraformList<string> Triggers
-        => AsReference("triggers");
+        => CreateReference("triggers");
 
     /// <summary>
     /// Setting block (nesting mode: set).

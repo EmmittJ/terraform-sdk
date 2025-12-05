@@ -46,7 +46,7 @@ public partial class AzurermOracleAutonomousDatabaseBackupsDataSource(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermOracleAutonomousDatabaseBackupsDataSource(string nam
     /// The autonomous_database_backups attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutonomousDatabaseBackups
-        => AsReference("autonomous_database_backups");
+        => CreateReference("autonomous_database_backups");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> CdcStartPosition
     {
-        get => GetArgument<TerraformValue<string>>("cdc_start_position") ?? AsReference("cdc_start_position");
+        get => GetArgument<TerraformValue<string>>("cdc_start_position") ?? CreateReference("cdc_start_position");
         set => SetArgument("cdc_start_position", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> ReplicationTaskSettings
     {
-        get => GetArgument<TerraformValue<string>>("replication_task_settings") ?? AsReference("replication_task_settings");
+        get => GetArgument<TerraformValue<string>>("replication_task_settings") ?? CreateReference("replication_task_settings");
         set => SetArgument("replication_task_settings", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -153,12 +153,12 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// The replication_task_arn attribute.
     /// </summary>
     public TerraformValue<string> ReplicationTaskArn
-        => AsReference("replication_task_arn");
+        => CreateReference("replication_task_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

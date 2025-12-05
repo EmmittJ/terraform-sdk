@@ -13,7 +13,7 @@ public partial class GoogleSqlDatabasesDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,6 +40,6 @@ public partial class GoogleSqlDatabasesDataSource(string name) : TerraformDataSo
     /// The databases attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Databases
-        => AsReference("databases");
+        => CreateReference("databases");
 
 }

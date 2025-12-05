@@ -27,7 +27,7 @@ public class AwsEcrRepositoryEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key") ?? AsReference("kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key") ?? CreateReference("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -189,19 +189,19 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-        => AsReference("registry_id");
+        => CreateReference("registry_id");
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
     public TerraformValue<string> RepositoryUrl
-        => AsReference("repository_url");
+        => CreateReference("repository_url");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).

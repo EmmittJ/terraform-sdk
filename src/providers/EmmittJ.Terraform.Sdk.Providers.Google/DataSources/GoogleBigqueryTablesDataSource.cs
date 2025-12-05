@@ -23,7 +23,7 @@ public partial class GoogleBigqueryTablesDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,6 +40,6 @@ public partial class GoogleBigqueryTablesDataSource(string name) : TerraformData
     /// The tables attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Tables
-        => AsReference("tables");
+        => CreateReference("tables");
 
 }

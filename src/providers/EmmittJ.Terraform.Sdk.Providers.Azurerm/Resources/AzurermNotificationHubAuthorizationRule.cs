@@ -63,7 +63,7 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -138,25 +138,25 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-        => AsReference("primary_access_key");
+        => CreateReference("primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-        => AsReference("primary_connection_string");
+        => CreateReference("primary_connection_string");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-        => AsReference("secondary_access_key");
+        => CreateReference("secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-        => AsReference("secondary_connection_string");
+        => CreateReference("secondary_connection_string");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

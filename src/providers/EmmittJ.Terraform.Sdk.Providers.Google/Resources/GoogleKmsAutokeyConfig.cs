@@ -64,7 +64,7 @@ public partial class GoogleKmsAutokeyConfig(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleKmsAutokeyConfig(string name) : TerraformResource("go
     /// The etag of the AutokeyConfig for optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

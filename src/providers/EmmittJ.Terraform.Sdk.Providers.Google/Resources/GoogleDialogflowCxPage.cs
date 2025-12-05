@@ -306,7 +306,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockOutputAudio
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
@@ -343,7 +343,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockPlayAudioBl
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -395,7 +395,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockTextBlock :
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
@@ -464,7 +464,7 @@ public class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlock
     /// The unique identifier of this event handler.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The target flow to transition to.
@@ -738,7 +738,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
@@ -775,7 +775,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -827,7 +827,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
@@ -1319,7 +1319,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
@@ -1356,7 +1356,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -1408,7 +1408,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
@@ -1476,7 +1476,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// The unique identifier of this event handler.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The target flow to transition to.
@@ -1750,7 +1750,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
@@ -1787,7 +1787,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -1839,7 +1839,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
@@ -2320,14 +2320,14 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// This field is part of a union field &#39;message&#39;: Only one of &#39;text&#39;, &#39;payload&#39;, &#39;conversationSuccess&#39;, &#39;outputAudioText&#39;, &#39;liveAgentHandoff&#39;, &#39;endInteraction&#39;, &#39;playAudio&#39;, &#39;mixedAudio&#39;, &#39;telephonyTransferCall&#39;, or &#39;knowledgeInfoCard&#39; may be set.
     /// </summary>
     public TerraformList<TerraformMap<object>> EndInteraction
-        => AsReference("end_interaction");
+        => CreateReference("end_interaction");
 
     /// <summary>
     /// Represents an audio message that is composed of both segments synthesized from the Dialogflow agent prompts and ones hosted externally at the specified URIs. The external URIs are specified via playAudio. This message is generated by Dialogflow only and not supposed to be defined by the user.
     /// This field is part of a union field &#39;message&#39;: Only one of &#39;text&#39;, &#39;payload&#39;, &#39;conversationSuccess&#39;, &#39;outputAudioText&#39;, &#39;liveAgentHandoff&#39;, &#39;endInteraction&#39;, &#39;playAudio&#39;, &#39;mixedAudio&#39;, &#39;telephonyTransferCall&#39;, or &#39;knowledgeInfoCard&#39; may be set.
     /// </summary>
     public TerraformList<TerraformMap<object>> MixedAudio
-        => AsReference("mixed_audio");
+        => CreateReference("mixed_audio");
 
     /// <summary>
     /// Returns a response containing a custom, platform-specific payload.
@@ -2483,7 +2483,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
@@ -2522,7 +2522,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -2574,7 +2574,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text response variants. If multiple variants are defined, only one text response variant is returned at runtime.
@@ -2696,7 +2696,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// The unique identifier of this transition route.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The target flow to transition to.
@@ -2970,7 +2970,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
@@ -3007,7 +3007,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -3059,7 +3059,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-        => AsReference("allow_playback_interruption");
+        => CreateReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
@@ -3125,7 +3125,7 @@ public partial class GoogleDialogflowCxPage(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -3177,7 +3177,7 @@ public partial class GoogleDialogflowCxPage(string name) : TerraformResource("go
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;/pages/&amp;lt;Page ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// AdvancedSettings block (nesting mode: list).

@@ -73,7 +73,7 @@ public partial class GoogleApigeeSharedflow(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,25 +101,25 @@ public partial class GoogleApigeeSharedflow(string name) : TerraformResource("go
     /// The id of the most recently created revision for this shared flow.
     /// </summary>
     public TerraformValue<string> LatestRevisionId
-        => AsReference("latest_revision_id");
+        => CreateReference("latest_revision_id");
 
     /// <summary>
     /// Base 64 MD5 hash of the uploaded config bundle.
     /// </summary>
     public TerraformValue<string> Md5hash
-        => AsReference("md5hash");
+        => CreateReference("md5hash");
 
     /// <summary>
     /// Metadata describing the shared flow.
     /// </summary>
     public TerraformList<TerraformMap<object>> MetaData
-        => AsReference("meta_data");
+        => CreateReference("meta_data");
 
     /// <summary>
     /// A list of revisions of this shared flow.
     /// </summary>
     public TerraformList<string> Revision
-        => AsReference("revision");
+        => CreateReference("revision");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

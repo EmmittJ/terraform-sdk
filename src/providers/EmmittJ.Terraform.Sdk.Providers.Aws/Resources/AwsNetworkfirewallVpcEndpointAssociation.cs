@@ -18,7 +18,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : Terraf
     /// </summary>
     public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? CreateReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsNetworkfirewallVpcEndpointAssociation(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -124,25 +124,25 @@ public partial class AwsNetworkfirewallVpcEndpointAssociation(string name) : Ter
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The vpc_endpoint_association_arn attribute.
     /// </summary>
     public TerraformValue<string> VpcEndpointAssociationArn
-        => AsReference("vpc_endpoint_association_arn");
+        => CreateReference("vpc_endpoint_association_arn");
 
     /// <summary>
     /// The vpc_endpoint_association_id attribute.
     /// </summary>
     public TerraformValue<string> VpcEndpointAssociationId
-        => AsReference("vpc_endpoint_association_id");
+        => CreateReference("vpc_endpoint_association_id");
 
     /// <summary>
     /// The vpc_endpoint_association_status attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpcEndpointAssociationStatus
-        => AsReference("vpc_endpoint_association_status");
+        => CreateReference("vpc_endpoint_association_status");
 
     /// <summary>
     /// SubnetMapping block (nesting mode: list).

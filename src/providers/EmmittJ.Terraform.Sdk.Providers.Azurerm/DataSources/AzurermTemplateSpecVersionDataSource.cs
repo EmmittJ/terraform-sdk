@@ -36,7 +36,7 @@ public partial class AzurermTemplateSpecVersionDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,13 +74,13 @@ public partial class AzurermTemplateSpecVersionDataSource(string name) : Terrafo
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
     public TerraformValue<string> TemplateBody
-        => AsReference("template_body");
+        => CreateReference("template_body");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

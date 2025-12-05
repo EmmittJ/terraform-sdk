@@ -13,7 +13,7 @@ public partial class AwsOdbCloudVmClustersDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,6 +21,6 @@ public partial class AwsOdbCloudVmClustersDataSource(string name) : TerraformDat
     /// List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudVmClusters
-        => AsReference("cloud_vm_clusters");
+        => CreateReference("cloud_vm_clusters");
 
 }

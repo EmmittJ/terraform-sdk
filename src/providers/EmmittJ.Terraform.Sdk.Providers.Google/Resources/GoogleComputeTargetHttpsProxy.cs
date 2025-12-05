@@ -105,7 +105,7 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -140,7 +140,7 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool> ProxyBind
     {
-        get => GetArgument<TerraformValue<bool>>("proxy_bind") ?? AsReference("proxy_bind");
+        get => GetArgument<TerraformValue<bool>>("proxy_bind") ?? CreateReference("proxy_bind");
         set => SetArgument("proxy_bind", value);
     }
 
@@ -208,7 +208,7 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> TlsEarlyData
     {
-        get => GetArgument<TerraformValue<string>>("tls_early_data") ?? AsReference("tls_early_data");
+        get => GetArgument<TerraformValue<string>>("tls_early_data") ?? CreateReference("tls_early_data");
         set => SetArgument("tls_early_data", value);
     }
 
@@ -227,7 +227,7 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking.
@@ -237,19 +237,19 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     /// A base64-encoded string.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> ProxyId
-        => AsReference("proxy_id");
+        => CreateReference("proxy_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

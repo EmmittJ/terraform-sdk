@@ -36,7 +36,7 @@ public partial class AzurermFirewallPolicyDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermFirewallPolicyDataSource(string name) : TerraformDat
     /// The base_policy_id attribute.
     /// </summary>
     public TerraformValue<string> BasePolicyId
-        => AsReference("base_policy_id");
+        => CreateReference("base_policy_id");
 
     /// <summary>
     /// The child_policies attribute.
     /// </summary>
     public TerraformList<string> ChildPolicies
-        => AsReference("child_policies");
+        => CreateReference("child_policies");
 
     /// <summary>
     /// The dns attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Dns
-        => AsReference("dns");
+        => CreateReference("dns");
 
     /// <summary>
     /// The firewalls attribute.
     /// </summary>
     public TerraformList<string> Firewalls
-        => AsReference("firewalls");
+        => CreateReference("firewalls");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The rule_collection_groups attribute.
     /// </summary>
     public TerraformList<string> RuleCollectionGroups
-        => AsReference("rule_collection_groups");
+        => CreateReference("rule_collection_groups");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The threat_intelligence_allowlist attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ThreatIntelligenceAllowlist
-        => AsReference("threat_intelligence_allowlist");
+        => CreateReference("threat_intelligence_allowlist");
 
     /// <summary>
     /// The threat_intelligence_mode attribute.
     /// </summary>
     public TerraformValue<string> ThreatIntelligenceMode
-        => AsReference("threat_intelligence_mode");
+        => CreateReference("threat_intelligence_mode");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -23,7 +23,7 @@ public partial class AwsAuditmanagerControlDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,48 +41,48 @@ public partial class AwsAuditmanagerControlDataSource(string name) : TerraformDa
     /// The action_plan_instructions attribute.
     /// </summary>
     public TerraformValue<string> ActionPlanInstructions
-        => AsReference("action_plan_instructions");
+        => CreateReference("action_plan_instructions");
 
     /// <summary>
     /// The action_plan_title attribute.
     /// </summary>
     public TerraformValue<string> ActionPlanTitle
-        => AsReference("action_plan_title");
+        => CreateReference("action_plan_title");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The control_mapping_sources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ControlMappingSources
-        => AsReference("control_mapping_sources");
+        => CreateReference("control_mapping_sources");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The testing_information attribute.
     /// </summary>
     public TerraformValue<string> TestingInformation
-        => AsReference("testing_information");
+        => CreateReference("testing_information");
 
 }

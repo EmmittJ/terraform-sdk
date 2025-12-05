@@ -98,7 +98,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double> AllocatedStorage
     {
-        get => GetArgument<TerraformValue<double>>("allocated_storage") ?? AsReference("allocated_storage");
+        get => GetArgument<TerraformValue<double>>("allocated_storage") ?? CreateReference("allocated_storage");
         set => SetArgument("allocated_storage", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool> AutoMinorVersionUpgrade
     {
-        get => GetArgument<TerraformValue<bool>>("auto_minor_version_upgrade") ?? AsReference("auto_minor_version_upgrade");
+        get => GetArgument<TerraformValue<bool>>("auto_minor_version_upgrade") ?? CreateReference("auto_minor_version_upgrade");
         set => SetArgument("auto_minor_version_upgrade", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? CreateReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool> MultiAz
     {
-        get => GetArgument<TerraformValue<bool>>("multi_az") ?? AsReference("multi_az");
+        get => GetArgument<TerraformValue<bool>>("multi_az") ?? CreateReference("multi_az");
         set => SetArgument("multi_az", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> NetworkType
     {
-        get => GetArgument<TerraformValue<string>>("network_type") ?? AsReference("network_type");
+        get => GetArgument<TerraformValue<string>>("network_type") ?? CreateReference("network_type");
         set => SetArgument("network_type", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? CreateReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool> PubliclyAccessible
     {
-        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? AsReference("publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? CreateReference("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> ReplicationSubnetGroupId
     {
-        get => GetArgument<TerraformValue<string>>("replication_subnet_group_id") ?? AsReference("replication_subnet_group_id");
+        get => GetArgument<TerraformValue<string>>("replication_subnet_group_id") ?? CreateReference("replication_subnet_group_id");
         set => SetArgument("replication_subnet_group_id", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? CreateReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -279,19 +279,19 @@ public partial class AwsDmsReplicationInstance(string name) : TerraformResource(
     /// The replication_instance_arn attribute.
     /// </summary>
     public TerraformValue<string> ReplicationInstanceArn
-        => AsReference("replication_instance_arn");
+        => CreateReference("replication_instance_arn");
 
     /// <summary>
     /// The replication_instance_private_ips attribute.
     /// </summary>
     public TerraformList<string> ReplicationInstancePrivateIps
-        => AsReference("replication_instance_private_ips");
+        => CreateReference("replication_instance_private_ips");
 
     /// <summary>
     /// The replication_instance_public_ips attribute.
     /// </summary>
     public TerraformList<string> ReplicationInstancePublicIps
-        => AsReference("replication_instance_public_ips");
+        => CreateReference("replication_instance_public_ips");
 
     /// <summary>
     /// KerberosAuthenticationSettings block (nesting mode: list).

@@ -42,7 +42,7 @@ public partial class AwsRedshiftDataShareAuthorization(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,18 +50,18 @@ public partial class AwsRedshiftDataShareAuthorization(string name) : TerraformR
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The managed_by attribute.
     /// </summary>
     public TerraformValue<string> ManagedBy
-        => AsReference("managed_by");
+        => CreateReference("managed_by");
 
     /// <summary>
     /// The producer_arn attribute.
     /// </summary>
     public TerraformValue<string> ProducerArn
-        => AsReference("producer_arn");
+        => CreateReference("producer_arn");
 
 }

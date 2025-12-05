@@ -27,7 +27,7 @@ public class AwsDbProxyAuthBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ClientPasswordAuthType
     {
-        get => GetArgument<TerraformValue<string>>("client_password_auth_type") ?? AsReference("client_password_auth_type");
+        get => GetArgument<TerraformValue<string>>("client_password_auth_type") ?? CreateReference("client_password_auth_type");
         set => SetArgument("client_password_auth_type", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     /// </summary>
     public TerraformValue<string> DefaultAuthScheme
     {
-        get => GetArgument<TerraformValue<string>>("default_auth_scheme") ?? AsReference("default_auth_scheme");
+        get => GetArgument<TerraformValue<string>>("default_auth_scheme") ?? CreateReference("default_auth_scheme");
         set => SetArgument("default_auth_scheme", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     /// </summary>
     public TerraformValue<double> IdleClientTimeout
     {
-        get => GetArgument<TerraformValue<double>>("idle_client_timeout") ?? AsReference("idle_client_timeout");
+        get => GetArgument<TerraformValue<double>>("idle_client_timeout") ?? CreateReference("idle_client_timeout");
         set => SetArgument("idle_client_timeout", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? CreateReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -242,13 +242,13 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// Auth block (nesting mode: set).

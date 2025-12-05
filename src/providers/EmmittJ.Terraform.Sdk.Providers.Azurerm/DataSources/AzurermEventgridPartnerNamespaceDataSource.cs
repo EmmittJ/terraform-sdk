@@ -36,7 +36,7 @@ public partial class AzurermEventgridPartnerNamespaceDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermEventgridPartnerNamespaceDataSource(string name) : T
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The inbound_ip_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InboundIpRule
-        => AsReference("inbound_ip_rule");
+        => CreateReference("inbound_ip_rule");
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
     public TerraformValue<bool> LocalAuthenticationEnabled
-        => AsReference("local_authentication_enabled");
+        => CreateReference("local_authentication_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The partner_registration_id attribute.
     /// </summary>
     public TerraformValue<string> PartnerRegistrationId
-        => AsReference("partner_registration_id");
+        => CreateReference("partner_registration_id");
 
     /// <summary>
     /// The partner_topic_routing_mode attribute.
     /// </summary>
     public TerraformValue<string> PartnerTopicRoutingMode
-        => AsReference("partner_topic_routing_mode");
+        => CreateReference("partner_topic_routing_mode");
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
     public TerraformValue<string> PublicNetworkAccess
-        => AsReference("public_network_access");
+        => CreateReference("public_network_access");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

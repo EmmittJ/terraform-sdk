@@ -143,7 +143,7 @@ public class GoogleGkeonpremVmwareClusterControlPlaneNodeBlock : TerraformBlock
     /// Vsphere-specific config.
     /// </summary>
     public TerraformList<TerraformMap<object>> VsphereConfig
-        => AsReference("vsphere_config");
+        => CreateReference("vsphere_config");
 
     /// <summary>
     /// AutoResizeConfig block (nesting mode: list).
@@ -311,7 +311,7 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockF5ConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string> SnatPool
     {
-        get => GetArgument<TerraformValue<string>>("snat_pool") ?? AsReference("snat_pool");
+        get => GetArgument<TerraformValue<string>>("snat_pool") ?? CreateReference("snat_pool");
         set => SetArgument("snat_pool", value);
     }
 
@@ -334,7 +334,7 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockManualLbConfigBlock : 
     /// </summary>
     public TerraformValue<double> ControlPlaneNodePort
     {
-        get => GetArgument<TerraformValue<double>>("control_plane_node_port") ?? AsReference("control_plane_node_port");
+        get => GetArgument<TerraformValue<double>>("control_plane_node_port") ?? CreateReference("control_plane_node_port");
         set => SetArgument("control_plane_node_port", value);
     }
 
@@ -344,7 +344,7 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockManualLbConfigBlock : 
     /// </summary>
     public TerraformValue<double> IngressHttpNodePort
     {
-        get => GetArgument<TerraformValue<double>>("ingress_http_node_port") ?? AsReference("ingress_http_node_port");
+        get => GetArgument<TerraformValue<double>>("ingress_http_node_port") ?? CreateReference("ingress_http_node_port");
         set => SetArgument("ingress_http_node_port", value);
     }
 
@@ -354,7 +354,7 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockManualLbConfigBlock : 
     /// </summary>
     public TerraformValue<double> IngressHttpsNodePort
     {
-        get => GetArgument<TerraformValue<double>>("ingress_https_node_port") ?? AsReference("ingress_https_node_port");
+        get => GetArgument<TerraformValue<double>>("ingress_https_node_port") ?? CreateReference("ingress_https_node_port");
         set => SetArgument("ingress_https_node_port", value);
     }
 
@@ -364,7 +364,7 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockManualLbConfigBlock : 
     /// </summary>
     public TerraformValue<double> KonnectivityServerNodePort
     {
-        get => GetArgument<TerraformValue<double>>("konnectivity_server_node_port") ?? AsReference("konnectivity_server_node_port");
+        get => GetArgument<TerraformValue<double>>("konnectivity_server_node_port") ?? CreateReference("konnectivity_server_node_port");
         set => SetArgument("konnectivity_server_node_port", value);
     }
 
@@ -425,7 +425,7 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockMetalLbConfigBlockAddr
     /// </summary>
     public TerraformValue<bool> AvoidBuggyIps
     {
-        get => GetArgument<TerraformValue<bool>>("avoid_buggy_ips") ?? AsReference("avoid_buggy_ips");
+        get => GetArgument<TerraformValue<bool>>("avoid_buggy_ips") ?? CreateReference("avoid_buggy_ips");
         set => SetArgument("avoid_buggy_ips", value);
     }
 
@@ -434,7 +434,7 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockMetalLbConfigBlockAddr
     /// </summary>
     public TerraformValue<bool> ManualAssign
     {
-        get => GetArgument<TerraformValue<bool>>("manual_assign") ?? AsReference("manual_assign");
+        get => GetArgument<TerraformValue<bool>>("manual_assign") ?? CreateReference("manual_assign");
         set => SetArgument("manual_assign", value);
     }
 
@@ -521,7 +521,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VcenterNetwork
     {
-        get => GetArgument<TerraformValue<string>>("vcenter_network") ?? AsReference("vcenter_network");
+        get => GetArgument<TerraformValue<string>>("vcenter_network") ?? CreateReference("vcenter_network");
         set => SetArgument("vcenter_network", value);
     }
 
@@ -646,7 +646,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlockControlPlaneV2ConfigB
     /// </summary>
     public TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname") ?? AsReference("hostname");
+        get => GetArgument<TerraformValue<string>>("hostname") ?? CreateReference("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -811,7 +811,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlockStaticIpConfigBlockIp
     /// </summary>
     public TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname") ?? AsReference("hostname");
+        get => GetArgument<TerraformValue<string>>("hostname") ?? CreateReference("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -932,14 +932,14 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// The vCenter IP address.
     /// </summary>
     public TerraformValue<string> Address
-        => AsReference("address");
+        => CreateReference("address");
 
     /// <summary>
     /// Contains the vCenter CA certificate public key for SSL verification.
     /// </summary>
     public TerraformValue<string> CaCertData
     {
-        get => GetArgument<TerraformValue<string>>("ca_cert_data") ?? AsReference("ca_cert_data");
+        get => GetArgument<TerraformValue<string>>("ca_cert_data") ?? CreateReference("ca_cert_data");
         set => SetArgument("ca_cert_data", value);
     }
 
@@ -948,7 +948,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster") ?? AsReference("cluster");
+        get => GetArgument<TerraformValue<string>>("cluster") ?? CreateReference("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -957,7 +957,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Datacenter
     {
-        get => GetArgument<TerraformValue<string>>("datacenter") ?? AsReference("datacenter");
+        get => GetArgument<TerraformValue<string>>("datacenter") ?? CreateReference("datacenter");
         set => SetArgument("datacenter", value);
     }
 
@@ -966,7 +966,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Datastore
     {
-        get => GetArgument<TerraformValue<string>>("datastore") ?? AsReference("datastore");
+        get => GetArgument<TerraformValue<string>>("datastore") ?? CreateReference("datastore");
         set => SetArgument("datastore", value);
     }
 
@@ -975,7 +975,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Folder
     {
-        get => GetArgument<TerraformValue<string>>("folder") ?? AsReference("folder");
+        get => GetArgument<TerraformValue<string>>("folder") ?? CreateReference("folder");
         set => SetArgument("folder", value);
     }
 
@@ -984,7 +984,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ResourcePool
     {
-        get => GetArgument<TerraformValue<string>>("resource_pool") ?? AsReference("resource_pool");
+        get => GetArgument<TerraformValue<string>>("resource_pool") ?? CreateReference("resource_pool");
         set => SetArgument("resource_pool", value);
     }
 
@@ -993,7 +993,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StoragePolicyName
     {
-        get => GetArgument<TerraformValue<string>>("storage_policy_name") ?? AsReference("storage_policy_name");
+        get => GetArgument<TerraformValue<string>>("storage_policy_name") ?? CreateReference("storage_policy_name");
         set => SetArgument("storage_policy_name", value);
     }
 
@@ -1080,7 +1080,7 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1119,7 +1119,7 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1128,7 +1128,7 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool> VmTrackingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("vm_tracking_enabled") ?? AsReference("vm_tracking_enabled");
+        get => GetArgument<TerraformValue<bool>>("vm_tracking_enabled") ?? CreateReference("vm_tracking_enabled");
         set => SetArgument("vm_tracking_enabled", value);
     }
 
@@ -1136,25 +1136,25 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     /// The time at which VMware User Cluster was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The time at which VMware User Cluster was deleted.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// The DNS name of VMware User Cluster&#39;s API server.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -1164,13 +1164,13 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     /// through optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Fleet configuration for the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> Fleet
-        => AsReference("fleet");
+        => CreateReference("fleet");
 
     /// <summary>
     /// The object name of the VMware OnPremUserCluster custom resource on the
@@ -1186,43 +1186,43 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     /// cluster controller logs.
     /// </summary>
     public TerraformValue<string> LocalName
-        => AsReference("local_name");
+        => CreateReference("local_name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the VMware User Cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The unique identifier of the VMware User Cluster.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The time at which VMware User Cluster was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// ValidationCheck represents the result of the preflight check job.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValidationCheck
-        => AsReference("validation_check");
+        => CreateReference("validation_check");
 
     /// <summary>
     /// AntiAffinityGroups block (nesting mode: list).

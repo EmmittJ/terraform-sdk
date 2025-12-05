@@ -17,13 +17,13 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// The format of the key.
     /// </summary>
     public TerraformValue<string> Format
-        => AsReference("format");
+        => CreateReference("format");
 
     /// <summary>
     /// The key data. The format of the key is represented by the format field.
     /// </summary>
     public TerraformValue<string> Key
-        => AsReference("key");
+        => CreateReference("key");
 
     /// <summary>
     /// The specifications for the key. Possible values: [&amp;quot;RSA_2048&amp;quot;, &amp;quot;RSA_3072&amp;quot;, &amp;quot;RSA_4096&amp;quot;]
@@ -44,7 +44,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> NotAfterTime
-        => AsReference("not_after_time");
+        => CreateReference("not_after_time");
 
     /// <summary>
     /// Earliest timestamp when this key is valid. Attempts to use this key before this time will fail.
@@ -55,7 +55,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> NotBeforeTime
-        => AsReference("not_before_time");
+        => CreateReference("not_before_time");
 
 }
 
@@ -103,7 +103,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,20 +162,20 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     /// Note that the key may get purged before this time if the total limit of keys per provider is exceeded.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// Identifier. The resource name of the key.
     /// Format: &#39;locations/{location}/workforcePools/{workforcePoolId}/providers/{providerId}/keys/{keyId}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The state of the key.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// KeyData block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermCdnFrontdoorRuleSetDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermCdnFrontdoorRuleSetDataSource(string name) : Terrafo
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorProfileId
-        => AsReference("cdn_frontdoor_profile_id");
+        => CreateReference("cdn_frontdoor_profile_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

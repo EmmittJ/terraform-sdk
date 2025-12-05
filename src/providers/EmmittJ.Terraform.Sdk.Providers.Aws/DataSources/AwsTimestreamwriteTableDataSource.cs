@@ -33,7 +33,7 @@ public partial class AwsTimestreamwriteTableDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,42 +41,42 @@ public partial class AwsTimestreamwriteTableDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-        => AsReference("last_updated_time");
+        => CreateReference("last_updated_time");
 
     /// <summary>
     /// The magnetic_store_write_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MagneticStoreWriteProperties
-        => AsReference("magnetic_store_write_properties");
+        => CreateReference("magnetic_store_write_properties");
 
     /// <summary>
     /// The retention_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RetentionProperties
-        => AsReference("retention_properties");
+        => CreateReference("retention_properties");
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Schema
-        => AsReference("schema");
+        => CreateReference("schema");
 
     /// <summary>
     /// The table_status attribute.
     /// </summary>
     public TerraformValue<string> TableStatus
-        => AsReference("table_status");
+        => CreateReference("table_status");
 
 }

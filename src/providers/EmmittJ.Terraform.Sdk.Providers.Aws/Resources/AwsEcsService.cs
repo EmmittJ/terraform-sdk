@@ -138,7 +138,7 @@ public class AwsEcsServiceDeploymentConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> BakeTimeInMinutes
     {
-        get => GetArgument<TerraformValue<string>>("bake_time_in_minutes") ?? AsReference("bake_time_in_minutes");
+        get => GetArgument<TerraformValue<string>>("bake_time_in_minutes") ?? CreateReference("bake_time_in_minutes");
         set => SetArgument("bake_time_in_minutes", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsEcsServiceDeploymentConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Strategy
     {
-        get => GetArgument<TerraformValue<string>>("strategy") ?? AsReference("strategy");
+        get => GetArgument<TerraformValue<string>>("strategy") ?? CreateReference("strategy");
         set => SetArgument("strategy", value);
     }
 
@@ -486,7 +486,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace") ?? AsReference("namespace");
+        get => GetArgument<TerraformValue<string>>("namespace") ?? CreateReference("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -537,7 +537,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockLogConfigurationBlock 
     /// </summary>
     public TerraformMap<string> Options
     {
-        get => GetArgument<TerraformMap<string>>("options") ?? AsReference("options");
+        get => GetArgument<TerraformMap<string>>("options") ?? CreateReference("options");
         set => SetArgument("options", value);
     }
 
@@ -601,7 +601,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockServiceBlock : Terrafo
     /// </summary>
     public TerraformValue<string> DiscoveryName
     {
-        get => GetArgument<TerraformValue<string>>("discovery_name") ?? AsReference("discovery_name");
+        get => GetArgument<TerraformValue<string>>("discovery_name") ?? CreateReference("discovery_name");
         set => SetArgument("discovery_name", value);
     }
 
@@ -672,7 +672,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockServiceBlockClientAlia
     /// </summary>
     public TerraformValue<string> DnsName
     {
-        get => GetArgument<TerraformValue<string>>("dns_name") ?? AsReference("dns_name");
+        get => GetArgument<TerraformValue<string>>("dns_name") ?? CreateReference("dns_name");
         set => SetArgument("dns_name", value);
     }
 
@@ -1216,7 +1216,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// </summary>
     public TerraformValue<string> AvailabilityZoneRebalancing
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_rebalancing") ?? AsReference("availability_zone_rebalancing");
+        get => GetArgument<TerraformValue<string>>("availability_zone_rebalancing") ?? CreateReference("availability_zone_rebalancing");
         set => SetArgument("availability_zone_rebalancing", value);
     }
 
@@ -1225,7 +1225,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// </summary>
     public TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster") ?? AsReference("cluster");
+        get => GetArgument<TerraformValue<string>>("cluster") ?? CreateReference("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -1306,7 +1306,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// </summary>
     public TerraformValue<string> IamRole
     {
-        get => GetArgument<TerraformValue<string>>("iam_role") ?? AsReference("iam_role");
+        get => GetArgument<TerraformValue<string>>("iam_role") ?? CreateReference("iam_role");
         set => SetArgument("iam_role", value);
     }
 
@@ -1315,7 +1315,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1324,7 +1324,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// </summary>
     public TerraformValue<string> LaunchType
     {
-        get => GetArgument<TerraformValue<string>>("launch_type") ?? AsReference("launch_type");
+        get => GetArgument<TerraformValue<string>>("launch_type") ?? CreateReference("launch_type");
         set => SetArgument("launch_type", value);
     }
 
@@ -1343,7 +1343,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// </summary>
     public TerraformValue<string> PlatformVersion
     {
-        get => GetArgument<TerraformValue<string>>("platform_version") ?? AsReference("platform_version");
+        get => GetArgument<TerraformValue<string>>("platform_version") ?? CreateReference("platform_version");
         set => SetArgument("platform_version", value);
     }
 
@@ -1361,7 +1361,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1397,7 +1397,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1415,7 +1415,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// </summary>
     public TerraformMap<string> Triggers
     {
-        get => GetArgument<TerraformMap<string>>("triggers") ?? AsReference("triggers");
+        get => GetArgument<TerraformMap<string>>("triggers") ?? CreateReference("triggers");
         set => SetArgument("triggers", value);
     }
 
@@ -1432,7 +1432,7 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Alarms block (nesting mode: list).

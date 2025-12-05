@@ -121,7 +121,7 @@ public partial class GoogleSccProjectNotificationConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleSccProjectNotificationConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -150,14 +150,14 @@ public partial class GoogleSccProjectNotificationConfig(string name) : Terraform
     /// &#39;projects/{{projectId}}/notificationConfigs/{{config_id}}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The service account that needs &amp;quot;pubsub.topics.publish&amp;quot; permission to
     /// publish to the Pub/Sub topic.
     /// </summary>
     public TerraformValue<string> ServiceAccount
-        => AsReference("service_account");
+        => CreateReference("service_account");
 
     /// <summary>
     /// StreamingConfig block (nesting mode: list).

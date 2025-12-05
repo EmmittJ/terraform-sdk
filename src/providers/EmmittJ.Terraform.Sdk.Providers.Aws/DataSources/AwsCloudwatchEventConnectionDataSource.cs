@@ -13,7 +13,7 @@ public partial class AwsCloudwatchEventConnectionDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCloudwatchEventConnectionDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,24 +40,24 @@ public partial class AwsCloudwatchEventConnectionDataSource(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationType
-        => AsReference("authorization_type");
+        => CreateReference("authorization_type");
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyIdentifier
-        => AsReference("kms_key_identifier");
+        => CreateReference("kms_key_identifier");
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
     public TerraformValue<string> SecretArn
-        => AsReference("secret_arn");
+        => CreateReference("secret_arn");
 
 }

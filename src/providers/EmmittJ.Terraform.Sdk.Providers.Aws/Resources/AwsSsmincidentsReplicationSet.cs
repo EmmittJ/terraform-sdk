@@ -37,13 +37,13 @@ public class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-        => AsReference("status_message");
+        => CreateReference("status_message");
 
 }
 
@@ -82,13 +82,13 @@ public class AwsSsmincidentsReplicationSetRegionsBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-        => AsReference("status_message");
+        => CreateReference("status_message");
 
 }
 
@@ -145,7 +145,7 @@ public partial class AwsSsmincidentsReplicationSet(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsSsmincidentsReplicationSet(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -171,31 +171,31 @@ public partial class AwsSsmincidentsReplicationSet(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-        => AsReference("created_by");
+        => CreateReference("created_by");
 
     /// <summary>
     /// The deletion_protected attribute.
     /// </summary>
     public TerraformValue<bool> DeletionProtected
-        => AsReference("deletion_protected");
+        => CreateReference("deletion_protected");
 
     /// <summary>
     /// The last_modified_by attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedBy
-        => AsReference("last_modified_by");
+        => CreateReference("last_modified_by");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Region block (nesting mode: set).

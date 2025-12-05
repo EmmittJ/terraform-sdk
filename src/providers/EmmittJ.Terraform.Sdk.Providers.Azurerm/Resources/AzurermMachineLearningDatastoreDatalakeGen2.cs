@@ -99,7 +99,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// The is_default attribute.
     /// </summary>
     public TerraformValue<bool> IsDefault
-        => AsReference("is_default");
+        => CreateReference("is_default");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

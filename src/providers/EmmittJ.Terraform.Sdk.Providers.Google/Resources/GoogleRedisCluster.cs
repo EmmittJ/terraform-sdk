@@ -123,13 +123,13 @@ public class GoogleRedisClusterCrossClusterReplicationConfigBlock : TerraformBlo
     /// An output only view of all the member clusters participating in cross cluster replication. This field is populated for all the member clusters irrespective of their cluster role.
     /// </summary>
     public TerraformList<TerraformMap<object>> Membership
-        => AsReference("membership");
+        => CreateReference("membership");
 
     /// <summary>
     /// The last time cross cluster replication config was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// PrimaryCluster block (nesting mode: list).
@@ -176,7 +176,7 @@ public class GoogleRedisClusterCrossClusterReplicationConfigBlockPrimaryClusterB
     /// The unique id of the primary cluster.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
 }
 
@@ -204,7 +204,7 @@ public class GoogleRedisClusterCrossClusterReplicationConfigBlockSecondaryCluste
     /// The unique id of the secondary cluster.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
 }
 
@@ -250,7 +250,7 @@ public class GoogleRedisClusterMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. The time when the policy was last updated.
@@ -258,7 +258,7 @@ public class GoogleRedisClusterMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// WeeklyMaintenanceWindow block (nesting mode: list).
@@ -308,7 +308,7 @@ public class GoogleRedisClusterMaintenancePolicyBlockWeeklyMaintenanceWindowBloc
     /// terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
     public TerraformValue<string> Duration
-        => AsReference("duration");
+        => CreateReference("duration");
 
     /// <summary>
     /// StartTime block (nesting mode: list).
@@ -421,7 +421,7 @@ public class GoogleRedisClusterPersistenceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -467,7 +467,7 @@ public class GoogleRedisClusterPersistenceConfigBlockAofConfigBlock : TerraformB
     /// </summary>
     public TerraformValue<string> AppendFsync
     {
-        get => GetArgument<TerraformValue<string>>("append_fsync") ?? AsReference("append_fsync");
+        get => GetArgument<TerraformValue<string>>("append_fsync") ?? CreateReference("append_fsync");
         set => SetArgument("append_fsync", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleRedisClusterPersistenceConfigBlockRdbConfigBlock : TerraformB
     /// </summary>
     public TerraformValue<string> RdbSnapshotPeriod
     {
-        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period") ?? AsReference("rdb_snapshot_period");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period") ?? CreateReference("rdb_snapshot_period");
         set => SetArgument("rdb_snapshot_period", value);
     }
 
@@ -505,7 +505,7 @@ public class GoogleRedisClusterPersistenceConfigBlockRdbConfigBlock : TerraformB
     /// </summary>
     public TerraformValue<string> RdbSnapshotStartTime
     {
-        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time") ?? AsReference("rdb_snapshot_start_time");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time") ?? CreateReference("rdb_snapshot_start_time");
         set => SetArgument("rdb_snapshot_start_time", value);
     }
 
@@ -596,7 +596,7 @@ public class GoogleRedisClusterZoneDistributionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -643,7 +643,7 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -672,7 +672,7 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -682,7 +682,7 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type") ?? AsReference("node_type");
+        get => GetArgument<TerraformValue<string>>("node_type") ?? CreateReference("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -691,7 +691,7 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -711,7 +711,7 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -748,14 +748,14 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
     public TerraformList<string> AvailableMaintenanceVersions
-        => AsReference("available_maintenance_versions");
+        => CreateReference("available_maintenance_versions");
 
     /// <summary>
     /// The backup collection full resource name.
     /// Example: projects/{project}/locations/{location}/backupCollections/{collection}
     /// </summary>
     public TerraformValue<string> BackupCollection
-        => AsReference("backup_collection");
+        => CreateReference("backup_collection");
 
     /// <summary>
     /// The timestamp associated with the cluster creation request. A timestamp in
@@ -763,7 +763,7 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. Endpoints created on each given network,
@@ -771,67 +771,67 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// Currently only one endpoint is supported.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiscoveryEndpoints
-        => AsReference("discovery_endpoints");
+        => CreateReference("discovery_endpoints");
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
     public TerraformValue<string> EffectiveMaintenanceVersion
-        => AsReference("effective_maintenance_version");
+        => CreateReference("effective_maintenance_version");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-        => AsReference("maintenance_schedule");
+        => CreateReference("maintenance_schedule");
 
     /// <summary>
     /// Cluster&#39;s Certificate Authority. This field will only be populated if Redis Cluster&#39;s transit_encryption_mode is TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedServerCa
-        => AsReference("managed_server_ca");
+        => CreateReference("managed_server_ca");
 
     /// <summary>
     /// Output only. Redis memory precise size in GB for the entire cluster.
     /// </summary>
     public TerraformValue<double> PreciseSizeGb
-        => AsReference("precise_size_gb");
+        => CreateReference("precise_size_gb");
 
     /// <summary>
     /// Output only. PSC connections for discovery of the cluster topology and accessing the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscConnections
-        => AsReference("psc_connections");
+        => CreateReference("psc_connections");
 
     /// <summary>
     /// Service attachment details to configure Psc connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscServiceAttachments
-        => AsReference("psc_service_attachments");
+        => CreateReference("psc_service_attachments");
 
     /// <summary>
     /// Output only. Redis memory size in GB for the entire cluster.
     /// </summary>
     public TerraformValue<double> SizeGb
-        => AsReference("size_gb");
+        => CreateReference("size_gb");
 
     /// <summary>
     /// The current state of this cluster. Can be CREATING, READY, UPDATING, DELETING and SUSPENDED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. Additional information about the current state of the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> StateInfo
-        => AsReference("state_info");
+        => CreateReference("state_info");
 
     /// <summary>
     /// System assigned, unique identifier for the cluster.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// AutomatedBackupConfig block (nesting mode: list).

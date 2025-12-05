@@ -36,7 +36,7 @@ public partial class AzurermDnsZoneDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermDnsZoneDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? AsReference("resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? CreateReference("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -63,25 +63,25 @@ public partial class AzurermDnsZoneDataSource(string name) : TerraformDataSource
     /// The max_number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfRecordSets
-        => AsReference("max_number_of_record_sets");
+        => CreateReference("max_number_of_record_sets");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformSet<string> NameServers
-        => AsReference("name_servers");
+        => CreateReference("name_servers");
 
     /// <summary>
     /// The number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> NumberOfRecordSets
-        => AsReference("number_of_record_sets");
+        => CreateReference("number_of_record_sets");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

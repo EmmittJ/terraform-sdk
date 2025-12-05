@@ -527,7 +527,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? CreateReference("required");
         set => SetArgument("required", value);
     }
 
@@ -578,7 +578,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? CreateReference("required");
         set => SetArgument("required", value);
     }
 
@@ -765,7 +765,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? CreateReference("required");
         set => SetArgument("required", value);
     }
 
@@ -834,7 +834,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? CreateReference("required");
         set => SetArgument("required", value);
     }
 
@@ -1053,7 +1053,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? CreateReference("required");
         set => SetArgument("required", value);
     }
 
@@ -1104,7 +1104,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? CreateReference("required");
         set => SetArgument("required", value);
     }
 
@@ -1291,7 +1291,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? CreateReference("required");
         set => SetArgument("required", value);
     }
 
@@ -1360,7 +1360,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? CreateReference("required");
         set => SetArgument("required", value);
     }
 
@@ -1659,7 +1659,7 @@ public partial class AwsBedrockagentcoreGatewayTarget(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1667,7 +1667,7 @@ public partial class AwsBedrockagentcoreGatewayTarget(string name) : TerraformRe
     /// The target_id attribute.
     /// </summary>
     public TerraformValue<string> TargetId
-        => AsReference("target_id");
+        => CreateReference("target_id");
 
     /// <summary>
     /// CredentialProviderConfiguration block (nesting mode: list).

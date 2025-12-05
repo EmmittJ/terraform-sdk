@@ -619,7 +619,7 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> AlwaysLogErrors
     {
-        get => GetArgument<TerraformValue<bool>>("always_log_errors") ?? AsReference("always_log_errors");
+        get => GetArgument<TerraformValue<bool>>("always_log_errors") ?? CreateReference("always_log_errors");
         set => SetArgument("always_log_errors", value);
     }
 
@@ -658,7 +658,7 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> HttpCorrelationProtocol
     {
-        get => GetArgument<TerraformValue<string>>("http_correlation_protocol") ?? AsReference("http_correlation_protocol");
+        get => GetArgument<TerraformValue<string>>("http_correlation_protocol") ?? CreateReference("http_correlation_protocol");
         set => SetArgument("http_correlation_protocol", value);
     }
 
@@ -667,7 +667,7 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -686,7 +686,7 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> LogClientIp
     {
-        get => GetArgument<TerraformValue<bool>>("log_client_ip") ?? AsReference("log_client_ip");
+        get => GetArgument<TerraformValue<bool>>("log_client_ip") ?? CreateReference("log_client_ip");
         set => SetArgument("log_client_ip", value);
     }
 
@@ -714,7 +714,7 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// </summary>
     public TerraformValue<double> SamplingPercentage
     {
-        get => GetArgument<TerraformValue<double>>("sampling_percentage") ?? AsReference("sampling_percentage");
+        get => GetArgument<TerraformValue<double>>("sampling_percentage") ?? CreateReference("sampling_percentage");
         set => SetArgument("sampling_percentage", value);
     }
 
@@ -723,7 +723,7 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Verbosity
     {
-        get => GetArgument<TerraformValue<string>>("verbosity") ?? AsReference("verbosity");
+        get => GetArgument<TerraformValue<string>>("verbosity") ?? CreateReference("verbosity");
         set => SetArgument("verbosity", value);
     }
 

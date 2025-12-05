@@ -148,7 +148,7 @@ public partial class AzureadNamedLocation(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzureadNamedLocation(string name) : TerraformResource("azur
     /// The object ID of the named location
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// Country block (nesting mode: list).

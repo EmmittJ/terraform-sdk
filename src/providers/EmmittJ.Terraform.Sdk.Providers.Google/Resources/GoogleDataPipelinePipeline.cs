@@ -18,7 +18,7 @@ public class GoogleDataPipelinePipelineScheduleInfoBlock : TerraformBlock
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> NextJobTime
-        => AsReference("next_job_time");
+        => CreateReference("next_job_time");
 
     /// <summary>
     /// Unix-cron format of the schedule. This information is retrieved from the linked Cloud Scheduler.
@@ -625,7 +625,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -715,7 +715,7 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -747,7 +747,7 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -765,7 +765,7 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> SchedulerServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("scheduler_service_account_email") ?? AsReference("scheduler_service_account_email");
+        get => GetArgument<TerraformValue<string>>("scheduler_service_account_email") ?? CreateReference("scheduler_service_account_email");
         set => SetArgument("scheduler_service_account_email", value);
     }
 
@@ -796,20 +796,20 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Number of jobs.
     /// </summary>
     public TerraformValue<double> JobCount
-        => AsReference("job_count");
+        => CreateReference("job_count");
 
     /// <summary>
     /// The timestamp when the pipeline was last modified. Set by the Data Pipelines service.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> LastUpdateTime
-        => AsReference("last_update_time");
+        => CreateReference("last_update_time");
 
     /// <summary>
     /// ScheduleInfo block (nesting mode: list).

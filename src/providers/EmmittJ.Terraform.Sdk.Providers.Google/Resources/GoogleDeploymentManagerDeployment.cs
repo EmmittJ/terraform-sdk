@@ -213,7 +213,7 @@ public partial class GoogleDeploymentManagerDeployment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -248,7 +248,7 @@ public partial class GoogleDeploymentManagerDeployment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -256,20 +256,20 @@ public partial class GoogleDeploymentManagerDeployment(string name) : TerraformR
     /// Unique identifier for deployment. Output only.
     /// </summary>
     public TerraformValue<string> DeploymentId
-        => AsReference("deployment_id");
+        => CreateReference("deployment_id");
 
     /// <summary>
     /// Output only. URL of the manifest representing the last manifest that
     /// was successfully deployed.
     /// </summary>
     public TerraformValue<string> Manifest
-        => AsReference("manifest");
+        => CreateReference("manifest");
 
     /// <summary>
     /// Output only. Server defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Labels block (nesting mode: set).

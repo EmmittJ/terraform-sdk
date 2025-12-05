@@ -32,7 +32,7 @@ public partial class GoogleBillingSubaccount(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,18 +50,18 @@ public partial class GoogleBillingSubaccount(string name) : TerraformResource("g
     /// The billing_account_id attribute.
     /// </summary>
     public TerraformValue<string> BillingAccountId
-        => AsReference("billing_account_id");
+        => CreateReference("billing_account_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The open attribute.
     /// </summary>
     public TerraformValue<bool> Open
-        => AsReference("open");
+        => CreateReference("open");
 
 }

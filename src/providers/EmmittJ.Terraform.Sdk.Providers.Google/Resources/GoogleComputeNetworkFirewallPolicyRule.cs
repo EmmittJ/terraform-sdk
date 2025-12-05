@@ -184,7 +184,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlockSrcSecureTagsBlock 
     /// State of the secure tag, either EFFECTIVE or INEFFECTIVE. A secure tag is INEFFECTIVE when it is deleted or its network is deleted.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -213,7 +213,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock : Terra
     /// State of the secure tag, either EFFECTIVE or INEFFECTIVE. A secure tag is INEFFECTIVE when it is deleted or its network is deleted.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -332,7 +332,7 @@ public partial class GoogleComputeNetworkFirewallPolicyRule(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -353,7 +353,7 @@ public partial class GoogleComputeNetworkFirewallPolicyRule(string name) : Terra
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -400,19 +400,19 @@ public partial class GoogleComputeNetworkFirewallPolicyRule(string name) : Terra
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Type of the resource. Always &#39;compute#firewallPolicyRule&#39; for firewall policy rules
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// Calculation of the complexity of a single firewall policy rule.
     /// </summary>
     public TerraformValue<double> RuleTupleCount
-        => AsReference("rule_tuple_count");
+        => CreateReference("rule_tuple_count");
 
     /// <summary>
     /// Match block (nesting mode: list).

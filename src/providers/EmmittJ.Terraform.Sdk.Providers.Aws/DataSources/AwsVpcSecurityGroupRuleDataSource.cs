@@ -47,7 +47,7 @@ public partial class AwsVpcSecurityGroupRuleDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsVpcSecurityGroupRuleDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> SecurityGroupRuleId
     {
-        get => GetArgument<TerraformValue<string>>("security_group_rule_id") ?? AsReference("security_group_rule_id");
+        get => GetArgument<TerraformValue<string>>("security_group_rule_id") ?? CreateReference("security_group_rule_id");
         set => SetArgument("security_group_rule_id", value);
     }
 
@@ -64,79 +64,79 @@ public partial class AwsVpcSecurityGroupRuleDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cidr_ipv4 attribute.
     /// </summary>
     public TerraformValue<string> CidrIpv4
-        => AsReference("cidr_ipv4");
+        => CreateReference("cidr_ipv4");
 
     /// <summary>
     /// The cidr_ipv6 attribute.
     /// </summary>
     public TerraformValue<string> CidrIpv6
-        => AsReference("cidr_ipv6");
+        => CreateReference("cidr_ipv6");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
     public TerraformValue<double> FromPort
-        => AsReference("from_port");
+        => CreateReference("from_port");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The ip_protocol attribute.
     /// </summary>
     public TerraformValue<string> IpProtocol
-        => AsReference("ip_protocol");
+        => CreateReference("ip_protocol");
 
     /// <summary>
     /// The is_egress attribute.
     /// </summary>
     public TerraformValue<bool> IsEgress
-        => AsReference("is_egress");
+        => CreateReference("is_egress");
 
     /// <summary>
     /// The prefix_list_id attribute.
     /// </summary>
     public TerraformValue<string> PrefixListId
-        => AsReference("prefix_list_id");
+        => CreateReference("prefix_list_id");
 
     /// <summary>
     /// The referenced_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> ReferencedSecurityGroupId
-        => AsReference("referenced_security_group_id");
+        => CreateReference("referenced_security_group_id");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupId
-        => AsReference("security_group_id");
+        => CreateReference("security_group_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
     public TerraformValue<double> ToPort
-        => AsReference("to_port");
+        => CreateReference("to_port");
 
     /// <summary>
     /// Filter block (nesting mode: set).

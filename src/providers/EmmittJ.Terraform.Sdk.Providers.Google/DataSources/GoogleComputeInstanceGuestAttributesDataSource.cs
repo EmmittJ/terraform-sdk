@@ -13,7 +13,7 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -50,7 +50,7 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -68,7 +68,7 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -76,12 +76,12 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     /// The query_value attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QueryValue
-        => AsReference("query_value");
+        => CreateReference("query_value");
 
     /// <summary>
     /// The variable_value attribute.
     /// </summary>
     public TerraformValue<string> VariableValue
-        => AsReference("variable_value");
+        => CreateReference("variable_value");
 
 }

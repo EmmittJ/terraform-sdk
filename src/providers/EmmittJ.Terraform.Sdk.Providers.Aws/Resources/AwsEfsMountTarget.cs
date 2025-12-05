@@ -55,7 +55,7 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address") ?? AsReference("ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address") ?? CreateReference("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? CreateReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformValue<string> Ipv6Address
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_address") ?? AsReference("ipv6_address");
+        get => GetArgument<TerraformValue<string>>("ipv6_address") ?? CreateReference("ipv6_address");
         set => SetArgument("ipv6_address", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups") ?? AsReference("security_groups");
+        get => GetArgument<TerraformSet<string>>("security_groups") ?? CreateReference("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -118,43 +118,43 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     /// The availability_zone_id attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneId
-        => AsReference("availability_zone_id");
+        => CreateReference("availability_zone_id");
 
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneName
-        => AsReference("availability_zone_name");
+        => CreateReference("availability_zone_name");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> FileSystemArn
-        => AsReference("file_system_arn");
+        => CreateReference("file_system_arn");
 
     /// <summary>
     /// The mount_target_dns_name attribute.
     /// </summary>
     public TerraformValue<string> MountTargetDnsName
-        => AsReference("mount_target_dns_name");
+        => CreateReference("mount_target_dns_name");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
-        => AsReference("network_interface_id");
+        => CreateReference("network_interface_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

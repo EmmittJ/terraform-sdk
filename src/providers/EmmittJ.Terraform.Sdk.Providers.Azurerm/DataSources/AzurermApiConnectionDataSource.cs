@@ -36,7 +36,7 @@ public partial class AzurermApiConnectionDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermApiConnectionDataSource(string name) : TerraformData
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The managed_api_id attribute.
     /// </summary>
     public TerraformValue<string> ManagedApiId
-        => AsReference("managed_api_id");
+        => CreateReference("managed_api_id");
 
     /// <summary>
     /// The parameter_values attribute.
     /// </summary>
     public TerraformMap<string> ParameterValues
-        => AsReference("parameter_values");
+        => CreateReference("parameter_values");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

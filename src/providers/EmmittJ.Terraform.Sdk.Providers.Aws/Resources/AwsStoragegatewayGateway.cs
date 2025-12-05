@@ -68,7 +68,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     /// The active_directory_status attribute.
     /// </summary>
     public TerraformValue<string> ActiveDirectoryStatus
-        => AsReference("active_directory_status");
+        => CreateReference("active_directory_status");
 
     /// <summary>
     /// The domain_controllers attribute.
@@ -164,7 +164,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> ActivationKey
     {
-        get => GetArgument<TerraformValue<string>>("activation_key") ?? AsReference("activation_key");
+        get => GetArgument<TerraformValue<string>>("activation_key") ?? CreateReference("activation_key");
         set => SetArgument("activation_key", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> GatewayIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("gateway_ip_address") ?? AsReference("gateway_ip_address");
+        get => GetArgument<TerraformValue<string>>("gateway_ip_address") ?? CreateReference("gateway_ip_address");
         set => SetArgument("gateway_ip_address", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -265,7 +265,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -292,7 +292,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> SmbSecurityStrategy
     {
-        get => GetArgument<TerraformValue<string>>("smb_security_strategy") ?? AsReference("smb_security_strategy");
+        get => GetArgument<TerraformValue<string>>("smb_security_strategy") ?? CreateReference("smb_security_strategy");
         set => SetArgument("smb_security_strategy", value);
     }
 
@@ -310,7 +310,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -327,37 +327,37 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The ec2_instance_id attribute.
     /// </summary>
     public TerraformValue<string> Ec2InstanceId
-        => AsReference("ec2_instance_id");
+        => CreateReference("ec2_instance_id");
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     public TerraformValue<string> EndpointType
-        => AsReference("endpoint_type");
+        => CreateReference("endpoint_type");
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
     public TerraformValue<string> GatewayId
-        => AsReference("gateway_id");
+        => CreateReference("gateway_id");
 
     /// <summary>
     /// The gateway_network_interface attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GatewayNetworkInterface
-        => AsReference("gateway_network_interface");
+        => CreateReference("gateway_network_interface");
 
     /// <summary>
     /// The host_environment attribute.
     /// </summary>
     public TerraformValue<string> HostEnvironment
-        => AsReference("host_environment");
+        => CreateReference("host_environment");
 
     /// <summary>
     /// MaintenanceStartTime block (nesting mode: list).

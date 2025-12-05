@@ -18,7 +18,7 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaximumVideoBufferDelayMilliseconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_video_buffer_delay_milliseconds") ?? AsReference("maximum_video_buffer_delay_milliseconds");
+        get => GetArgument<TerraformValue<double>>("maximum_video_buffer_delay_milliseconds") ?? CreateReference("maximum_video_buffer_delay_milliseconds");
         set => SetArgument("maximum_video_buffer_delay_milliseconds", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> TransportStreamReservedBitrate
     {
-        get => GetArgument<TerraformValue<double>>("transport_stream_reserved_bitrate") ?? AsReference("transport_stream_reserved_bitrate");
+        get => GetArgument<TerraformValue<double>>("transport_stream_reserved_bitrate") ?? CreateReference("transport_stream_reserved_bitrate");
         set => SetArgument("transport_stream_reserved_bitrate", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsMedialiveMultiplex(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsMedialiveMultiplex(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsMedialiveMultiplex(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsMedialiveMultiplex(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// MultiplexSettings block (nesting mode: list).

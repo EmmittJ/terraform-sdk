@@ -45,7 +45,7 @@ public partial class GoogleKmsKeyHandle(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleKmsKeyHandle(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleKmsKeyHandle(string name) : TerraformResource("google
     /// &#39;projects/1/locations/us-east1/keyRings/foo/cryptoKeys/bar-ffffff&#39;
     /// </summary>
     public TerraformValue<string> KmsKey
-        => AsReference("kms_key");
+        => CreateReference("kms_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

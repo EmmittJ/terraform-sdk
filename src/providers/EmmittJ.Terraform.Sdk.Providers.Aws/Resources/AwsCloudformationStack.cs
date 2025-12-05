@@ -81,7 +81,7 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> Parameters
     {
-        get => GetArgument<TerraformMap<string>>("parameters") ?? AsReference("parameters");
+        get => GetArgument<TerraformMap<string>>("parameters") ?? CreateReference("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> PolicyBody
     {
-        get => GetArgument<TerraformValue<string>>("policy_body") ?? AsReference("policy_body");
+        get => GetArgument<TerraformValue<string>>("policy_body") ?? CreateReference("policy_body");
         set => SetArgument("policy_body", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> TemplateBody
     {
-        get => GetArgument<TerraformValue<string>>("template_body") ?? AsReference("template_body");
+        get => GetArgument<TerraformValue<string>>("template_body") ?? CreateReference("template_body");
         set => SetArgument("template_body", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// The outputs attribute.
     /// </summary>
     public TerraformMap<string> Outputs
-        => AsReference("outputs");
+        => CreateReference("outputs");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

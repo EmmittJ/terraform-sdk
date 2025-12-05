@@ -29,7 +29,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix") ?? AsReference("prefix");
+        get => GetArgument<TerraformValue<string>>("prefix") ?? CreateReference("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockExpirationBlock : Terrafo
     /// </summary>
     public TerraformValue<double> Days
     {
-        get => GetArgument<TerraformValue<double>>("days") ?? AsReference("days");
+        get => GetArgument<TerraformValue<double>>("days") ?? CreateReference("days");
         set => SetArgument("days", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockExpirationBlock : Terrafo
     /// </summary>
     public TerraformValue<bool> ExpiredObjectDeleteMarker
     {
-        get => GetArgument<TerraformValue<bool>>("expired_object_delete_marker") ?? AsReference("expired_object_delete_marker");
+        get => GetArgument<TerraformValue<bool>>("expired_object_delete_marker") ?? CreateReference("expired_object_delete_marker");
         set => SetArgument("expired_object_delete_marker", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlock : TerraformBl
     /// </summary>
     public TerraformValue<double> ObjectSizeGreaterThan
     {
-        get => GetArgument<TerraformValue<double>>("object_size_greater_than") ?? AsReference("object_size_greater_than");
+        get => GetArgument<TerraformValue<double>>("object_size_greater_than") ?? CreateReference("object_size_greater_than");
         set => SetArgument("object_size_greater_than", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlock : TerraformBl
     /// </summary>
     public TerraformValue<double> ObjectSizeLessThan
     {
-        get => GetArgument<TerraformValue<double>>("object_size_less_than") ?? AsReference("object_size_less_than");
+        get => GetArgument<TerraformValue<double>>("object_size_less_than") ?? CreateReference("object_size_less_than");
         set => SetArgument("object_size_less_than", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix") ?? AsReference("prefix");
+        get => GetArgument<TerraformValue<string>>("prefix") ?? CreateReference("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockAndBlock : Ter
     /// </summary>
     public TerraformValue<double> ObjectSizeGreaterThan
     {
-        get => GetArgument<TerraformValue<double>>("object_size_greater_than") ?? AsReference("object_size_greater_than");
+        get => GetArgument<TerraformValue<double>>("object_size_greater_than") ?? CreateReference("object_size_greater_than");
         set => SetArgument("object_size_greater_than", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockAndBlock : Ter
     /// </summary>
     public TerraformValue<double> ObjectSizeLessThan
     {
-        get => GetArgument<TerraformValue<double>>("object_size_less_than") ?? AsReference("object_size_less_than");
+        get => GetArgument<TerraformValue<double>>("object_size_less_than") ?? CreateReference("object_size_less_than");
         set => SetArgument("object_size_less_than", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockAndBlock : Ter
     /// </summary>
     public TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix") ?? AsReference("prefix");
+        get => GetArgument<TerraformValue<string>>("prefix") ?? CreateReference("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -400,7 +400,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockTransitionBlock : Terrafo
     /// </summary>
     public TerraformValue<double> Days
     {
-        get => GetArgument<TerraformValue<double>>("days") ?? AsReference("days");
+        get => GetArgument<TerraformValue<double>>("days") ?? CreateReference("days");
         set => SetArgument("days", value);
     }
 
@@ -470,7 +470,7 @@ public partial class AwsS3BucketLifecycleConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> ExpectedBucketOwner
     {
-        get => GetArgument<TerraformValue<string>>("expected_bucket_owner") ?? AsReference("expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner") ?? CreateReference("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
@@ -479,7 +479,7 @@ public partial class AwsS3BucketLifecycleConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -488,7 +488,7 @@ public partial class AwsS3BucketLifecycleConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> TransitionDefaultMinimumObjectSize
     {
-        get => GetArgument<TerraformValue<string>>("transition_default_minimum_object_size") ?? AsReference("transition_default_minimum_object_size");
+        get => GetArgument<TerraformValue<string>>("transition_default_minimum_object_size") ?? CreateReference("transition_default_minimum_object_size");
         set => SetArgument("transition_default_minimum_object_size", value);
     }
 
@@ -497,7 +497,7 @@ public partial class AwsS3BucketLifecycleConfiguration(string name) : TerraformR
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Rule block (nesting mode: list).

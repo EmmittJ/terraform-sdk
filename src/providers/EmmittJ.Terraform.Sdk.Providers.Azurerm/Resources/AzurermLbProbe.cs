@@ -63,7 +63,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     /// The load_balancer_rules attribute.
     /// </summary>
     public TerraformSet<string> LoadBalancerRules
-        => AsReference("load_balancer_rules");
+        => CreateReference("load_balancer_rules");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

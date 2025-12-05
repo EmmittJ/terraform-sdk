@@ -22,6 +22,6 @@ public partial class AwsIamOrganizationsFeatures(string name) : TerraformResourc
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

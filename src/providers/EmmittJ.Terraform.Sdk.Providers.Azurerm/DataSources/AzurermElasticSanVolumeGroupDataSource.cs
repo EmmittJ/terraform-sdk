@@ -46,7 +46,7 @@ public partial class AzurermElasticSanVolumeGroupDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermElasticSanVolumeGroupDataSource(string name) : Terra
     /// The encryption attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Encryption
-        => AsReference("encryption");
+        => CreateReference("encryption");
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     public TerraformValue<string> EncryptionType
-        => AsReference("encryption_type");
+        => CreateReference("encryption_type");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The network_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkRule
-        => AsReference("network_rule");
+        => CreateReference("network_rule");
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
     public TerraformValue<string> ProtocolType
-        => AsReference("protocol_type");
+        => CreateReference("protocol_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

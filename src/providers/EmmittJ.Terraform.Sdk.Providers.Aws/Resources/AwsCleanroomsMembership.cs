@@ -175,7 +175,7 @@ public partial class AwsCleanroomsMembership(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -192,67 +192,67 @@ public partial class AwsCleanroomsMembership(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The collaboration_arn attribute.
     /// </summary>
     public TerraformValue<string> CollaborationArn
-        => AsReference("collaboration_arn");
+        => CreateReference("collaboration_arn");
 
     /// <summary>
     /// The collaboration_creator_account_id attribute.
     /// </summary>
     public TerraformValue<string> CollaborationCreatorAccountId
-        => AsReference("collaboration_creator_account_id");
+        => CreateReference("collaboration_creator_account_id");
 
     /// <summary>
     /// The collaboration_creator_display_name attribute.
     /// </summary>
     public TerraformValue<string> CollaborationCreatorDisplayName
-        => AsReference("collaboration_creator_display_name");
+        => CreateReference("collaboration_creator_display_name");
 
     /// <summary>
     /// The collaboration_name attribute.
     /// </summary>
     public TerraformValue<string> CollaborationName
-        => AsReference("collaboration_name");
+        => CreateReference("collaboration_name");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The member_abilities attribute.
     /// </summary>
     public TerraformList<string> MemberAbilities
-        => AsReference("member_abilities");
+        => CreateReference("member_abilities");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// DefaultResultConfiguration block (nesting mode: list).

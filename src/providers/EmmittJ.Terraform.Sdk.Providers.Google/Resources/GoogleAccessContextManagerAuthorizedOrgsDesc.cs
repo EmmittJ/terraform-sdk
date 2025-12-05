@@ -99,7 +99,7 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -142,13 +142,13 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc(string name) :
     /// Time the AuthorizedOrgsDesc was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Time the AuthorizedOrgsDesc was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

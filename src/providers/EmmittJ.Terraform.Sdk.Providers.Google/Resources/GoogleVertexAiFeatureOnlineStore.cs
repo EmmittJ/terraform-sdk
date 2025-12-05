@@ -44,7 +44,7 @@ public class GoogleVertexAiFeatureOnlineStoreBigtableBlockAutoScalingBlock : Ter
     /// </summary>
     public TerraformValue<double> CpuUtilizationTarget
     {
-        get => GetArgument<TerraformValue<double>>("cpu_utilization_target") ?? AsReference("cpu_utilization_target");
+        get => GetArgument<TerraformValue<double>>("cpu_utilization_target") ?? CreateReference("cpu_utilization_target");
         set => SetArgument("cpu_utilization_target", value);
     }
 
@@ -86,13 +86,13 @@ public class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock : Ter
     /// Domain name to use for this FeatureOnlineStore
     /// </summary>
     public TerraformValue<string> PublicEndpointDomainName
-        => AsReference("public_endpoint_domain_name");
+        => CreateReference("public_endpoint_domain_name");
 
     /// <summary>
     /// Name of the service attachment resource. Applicable only if private service connect is enabled and after FeatureViewSync is created.
     /// </summary>
     public TerraformValue<string> ServiceAttachment
-        => AsReference("service_attachment");
+        => CreateReference("service_attachment");
 
     /// <summary>
     /// PrivateServiceConnectConfig block (nesting mode: list).
@@ -214,7 +214,7 @@ public partial class GoogleVertexAiFeatureOnlineStore(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -245,7 +245,7 @@ public partial class GoogleVertexAiFeatureOnlineStore(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -254,7 +254,7 @@ public partial class GoogleVertexAiFeatureOnlineStore(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -262,38 +262,38 @@ public partial class GoogleVertexAiFeatureOnlineStore(string name) : TerraformRe
     /// The timestamp of when the feature online store was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The state of the Feature Online Store. See the possible states in [this link](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.featureOnlineStores#state).
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The timestamp of when the feature online store was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Bigtable block (nesting mode: list).

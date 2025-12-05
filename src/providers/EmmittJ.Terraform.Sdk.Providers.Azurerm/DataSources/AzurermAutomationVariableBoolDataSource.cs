@@ -46,7 +46,7 @@ public partial class AzurermAutomationVariableBoolDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,19 +74,19 @@ public partial class AzurermAutomationVariableBoolDataSource(string name) : Terr
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-        => AsReference("encrypted");
+        => CreateReference("encrypted");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<bool> Value
-        => AsReference("value");
+        => CreateReference("value");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

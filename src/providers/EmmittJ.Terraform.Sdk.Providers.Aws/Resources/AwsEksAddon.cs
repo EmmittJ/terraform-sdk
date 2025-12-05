@@ -98,7 +98,7 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     /// </summary>
     public TerraformValue<string> AddonVersion
     {
-        get => GetArgument<TerraformValue<string>>("addon_version") ?? AsReference("addon_version");
+        get => GetArgument<TerraformValue<string>>("addon_version") ?? CreateReference("addon_version");
         set => SetArgument("addon_version", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     /// </summary>
     public TerraformValue<string> ConfigurationValues
     {
-        get => GetArgument<TerraformValue<string>>("configuration_values") ?? AsReference("configuration_values");
+        get => GetArgument<TerraformValue<string>>("configuration_values") ?? CreateReference("configuration_values");
         set => SetArgument("configuration_values", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -197,19 +197,19 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
     public TerraformValue<string> ModifiedAt
-        => AsReference("modified_at");
+        => CreateReference("modified_at");
 
     /// <summary>
     /// PodIdentityAssociation block (nesting mode: set).

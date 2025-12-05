@@ -36,7 +36,7 @@ public partial class AzurermMysqlFlexibleServerDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,109 +64,109 @@ public partial class AzurermMysqlFlexibleServerDataSource(string name) : Terrafo
     /// The administrator_login attribute.
     /// </summary>
     public TerraformValue<string> AdministratorLogin
-        => AsReference("administrator_login");
+        => CreateReference("administrator_login");
 
     /// <summary>
     /// The backup_retention_days attribute.
     /// </summary>
     public TerraformValue<double> BackupRetentionDays
-        => AsReference("backup_retention_days");
+        => CreateReference("backup_retention_days");
 
     /// <summary>
     /// The delegated_subnet_id attribute.
     /// </summary>
     public TerraformValue<string> DelegatedSubnetId
-        => AsReference("delegated_subnet_id");
+        => CreateReference("delegated_subnet_id");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The geo_redundant_backup_enabled attribute.
     /// </summary>
     public TerraformValue<bool> GeoRedundantBackupEnabled
-        => AsReference("geo_redundant_backup_enabled");
+        => CreateReference("geo_redundant_backup_enabled");
 
     /// <summary>
     /// The high_availability attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HighAvailability
-        => AsReference("high_availability");
+        => CreateReference("high_availability");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceWindow
-        => AsReference("maintenance_window");
+        => CreateReference("maintenance_window");
 
     /// <summary>
     /// The private_dns_zone_id attribute.
     /// </summary>
     public TerraformValue<string> PrivateDnsZoneId
-        => AsReference("private_dns_zone_id");
+        => CreateReference("private_dns_zone_id");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// The replica_capacity attribute.
     /// </summary>
     public TerraformValue<double> ReplicaCapacity
-        => AsReference("replica_capacity");
+        => CreateReference("replica_capacity");
 
     /// <summary>
     /// The replication_role attribute.
     /// </summary>
     public TerraformValue<string> ReplicationRole
-        => AsReference("replication_role");
+        => CreateReference("replication_role");
 
     /// <summary>
     /// The restore_point_in_time attribute.
     /// </summary>
     public TerraformValue<string> RestorePointInTime
-        => AsReference("restore_point_in_time");
+        => CreateReference("restore_point_in_time");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Storage
-        => AsReference("storage");
+        => CreateReference("storage");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
     public TerraformValue<string> Zone
-        => AsReference("zone");
+        => CreateReference("zone");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

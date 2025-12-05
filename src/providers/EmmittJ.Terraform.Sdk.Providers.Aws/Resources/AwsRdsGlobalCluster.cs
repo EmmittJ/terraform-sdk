@@ -54,7 +54,7 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// </summary>
     public TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name") ?? AsReference("database_name");
+        get => GetArgument<TerraformValue<string>>("database_name") ?? CreateReference("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// </summary>
     public TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine") ?? AsReference("engine");
+        get => GetArgument<TerraformValue<string>>("engine") ?? CreateReference("engine");
         set => SetArgument("engine", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// </summary>
     public TerraformValue<string> EngineLifecycleSupport
     {
-        get => GetArgument<TerraformValue<string>>("engine_lifecycle_support") ?? AsReference("engine_lifecycle_support");
+        get => GetArgument<TerraformValue<string>>("engine_lifecycle_support") ?? CreateReference("engine_lifecycle_support");
         set => SetArgument("engine_lifecycle_support", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// </summary>
     public TerraformValue<string> SourceDbClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("source_db_cluster_identifier") ?? AsReference("source_db_cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("source_db_cluster_identifier") ?? CreateReference("source_db_cluster_identifier");
         set => SetArgument("source_db_cluster_identifier", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// </summary>
     public TerraformValue<bool> StorageEncrypted
     {
-        get => GetArgument<TerraformValue<bool>>("storage_encrypted") ?? AsReference("storage_encrypted");
+        get => GetArgument<TerraformValue<bool>>("storage_encrypted") ?? CreateReference("storage_encrypted");
         set => SetArgument("storage_encrypted", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -171,31 +171,31 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
     public TerraformValue<string> EngineVersionActual
-        => AsReference("engine_version_actual");
+        => CreateReference("engine_version_actual");
 
     /// <summary>
     /// The global_cluster_members attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> GlobalClusterMembers
-        => AsReference("global_cluster_members");
+        => CreateReference("global_cluster_members");
 
     /// <summary>
     /// The global_cluster_resource_id attribute.
     /// </summary>
     public TerraformValue<string> GlobalClusterResourceId
-        => AsReference("global_cluster_resource_id");
+        => CreateReference("global_cluster_resource_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzurermVirtualHubDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermVirtualHubDataSource(string name) : TerraformDataSou
     /// The address_prefix attribute.
     /// </summary>
     public TerraformValue<string> AddressPrefix
-        => AsReference("address_prefix");
+        => CreateReference("address_prefix");
 
     /// <summary>
     /// The default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultRouteTableId
-        => AsReference("default_route_table_id");
+        => CreateReference("default_route_table_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The virtual_router_asn attribute.
     /// </summary>
     public TerraformValue<double> VirtualRouterAsn
-        => AsReference("virtual_router_asn");
+        => CreateReference("virtual_router_asn");
 
     /// <summary>
     /// The virtual_router_ips attribute.
     /// </summary>
     public TerraformList<string> VirtualRouterIps
-        => AsReference("virtual_router_ips");
+        => CreateReference("virtual_router_ips");
 
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualWanId
-        => AsReference("virtual_wan_id");
+        => CreateReference("virtual_wan_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

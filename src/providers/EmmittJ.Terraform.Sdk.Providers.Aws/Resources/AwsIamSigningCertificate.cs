@@ -23,7 +23,7 @@ public partial class AwsIamSigningCertificate(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,6 +50,6 @@ public partial class AwsIamSigningCertificate(string name) : TerraformResource("
     /// The certificate_id attribute.
     /// </summary>
     public TerraformValue<string> CertificateId
-        => AsReference("certificate_id");
+        => CreateReference("certificate_id");
 
 }

@@ -176,7 +176,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -223,13 +223,13 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     /// Chain of certificates under this alias.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertsInfo
-        => AsReference("certs_info");
+        => CreateReference("certs_info");
 
     /// <summary>
     /// Optional.Type of Alias
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Subject block (nesting mode: list).

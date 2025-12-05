@@ -281,7 +281,7 @@ public partial class AwsEmrInstanceFleet(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AwsEmrInstanceFleet(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -325,13 +325,13 @@ public partial class AwsEmrInstanceFleet(string name) : TerraformResource("aws_e
     /// The provisioned_on_demand_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedOnDemandCapacity
-        => AsReference("provisioned_on_demand_capacity");
+        => CreateReference("provisioned_on_demand_capacity");
 
     /// <summary>
     /// The provisioned_spot_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedSpotCapacity
-        => AsReference("provisioned_spot_capacity");
+        => CreateReference("provisioned_spot_capacity");
 
     /// <summary>
     /// InstanceTypeConfigs block (nesting mode: set).

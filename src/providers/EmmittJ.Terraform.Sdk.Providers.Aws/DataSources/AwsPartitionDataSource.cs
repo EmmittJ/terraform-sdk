@@ -13,7 +13,7 @@ public partial class AwsPartitionDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -21,18 +21,18 @@ public partial class AwsPartitionDataSource(string name) : TerraformDataSource("
     /// The dns_suffix attribute.
     /// </summary>
     public TerraformValue<string> DnsSuffix
-        => AsReference("dns_suffix");
+        => CreateReference("dns_suffix");
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
     public TerraformValue<string> Partition
-        => AsReference("partition");
+        => CreateReference("partition");
 
     /// <summary>
     /// The reverse_dns_prefix attribute.
     /// </summary>
     public TerraformValue<string> ReverseDnsPrefix
-        => AsReference("reverse_dns_prefix");
+        => CreateReference("reverse_dns_prefix");
 
 }

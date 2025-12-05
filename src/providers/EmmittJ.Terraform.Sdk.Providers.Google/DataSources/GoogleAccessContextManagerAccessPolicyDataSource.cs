@@ -13,7 +13,7 @@ public partial class GoogleAccessContextManagerAccessPolicyDataSource(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,12 +40,12 @@ public partial class GoogleAccessContextManagerAccessPolicyDataSource(string nam
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     public TerraformValue<string> Title
-        => AsReference("title");
+        => CreateReference("title");
 
 }

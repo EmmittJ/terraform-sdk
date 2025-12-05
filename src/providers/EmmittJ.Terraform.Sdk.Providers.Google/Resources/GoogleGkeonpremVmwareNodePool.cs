@@ -46,7 +46,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image") ?? AsReference("image");
+        get => GetArgument<TerraformValue<string>>("image") ?? CreateReference("image");
         set => SetArgument("image", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -343,7 +343,7 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -381,7 +381,7 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -399,19 +399,19 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -421,37 +421,37 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     /// through optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// If set, there are currently changes in flight to the node pool.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The unique identifier of the node pool.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Config block (nesting mode: list).

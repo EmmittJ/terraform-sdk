@@ -17,13 +17,13 @@ public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : Terrafor
     /// The branch_name attribute.
     /// </summary>
     public TerraformValue<string> BranchName
-        => AsReference("branch_name");
+        => CreateReference("branch_name");
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     public TerraformValue<string> RepositoryName
-        => AsReference("repository_name");
+        => CreateReference("repository_name");
 
 }
 
@@ -67,7 +67,7 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -113,43 +113,43 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     /// The ides attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Ides
-        => AsReference("ides");
+        => CreateReference("ides");
 
     /// <summary>
     /// The inactivity_timeout_minutes attribute.
     /// </summary>
     public TerraformValue<double> InactivityTimeoutMinutes
-        => AsReference("inactivity_timeout_minutes");
+        => CreateReference("inactivity_timeout_minutes");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-        => AsReference("instance_type");
+        => CreateReference("instance_type");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-        => AsReference("last_updated_time");
+        => CreateReference("last_updated_time");
 
     /// <summary>
     /// The persistent_storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PersistentStorage
-        => AsReference("persistent_storage");
+        => CreateReference("persistent_storage");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
     /// <summary>
     /// Repositories block (nesting mode: list).

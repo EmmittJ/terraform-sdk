@@ -113,7 +113,7 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// </summary>
     public TerraformList<string> AssignableScopes
     {
-        get => GetArgument<TerraformList<string>>("assignable_scopes") ?? AsReference("assignable_scopes");
+        get => GetArgument<TerraformList<string>>("assignable_scopes") ?? CreateReference("assignable_scopes");
         set => SetArgument("assignable_scopes", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? AsReference("role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? CreateReference("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// The role_definition_resource_id attribute.
     /// </summary>
     public TerraformValue<string> RoleDefinitionResourceId
-        => AsReference("role_definition_resource_id");
+        => CreateReference("role_definition_resource_id");
 
     /// <summary>
     /// Permissions block (nesting mode: list).

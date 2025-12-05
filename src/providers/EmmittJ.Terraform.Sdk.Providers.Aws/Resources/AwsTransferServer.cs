@@ -27,7 +27,7 @@ public class AwsTransferServerEndpointDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsTransferServerEndpointDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VpcEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_endpoint_id") ?? AsReference("vpc_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("vpc_endpoint_id") ?? CreateReference("vpc_endpoint_id");
         set => SetArgument("vpc_endpoint_id", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsTransferServerProtocolDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> As2Transports
     {
-        get => GetArgument<TerraformSet<string>>("as2_transports") ?? AsReference("as2_transports");
+        get => GetArgument<TerraformSet<string>>("as2_transports") ?? CreateReference("as2_transports");
         set => SetArgument("as2_transports", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsTransferServerProtocolDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PassiveIp
     {
-        get => GetArgument<TerraformValue<string>>("passive_ip") ?? AsReference("passive_ip");
+        get => GetArgument<TerraformValue<string>>("passive_ip") ?? CreateReference("passive_ip");
         set => SetArgument("passive_ip", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsTransferServerProtocolDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SetStatOption
     {
-        get => GetArgument<TerraformValue<string>>("set_stat_option") ?? AsReference("set_stat_option");
+        get => GetArgument<TerraformValue<string>>("set_stat_option") ?? CreateReference("set_stat_option");
         set => SetArgument("set_stat_option", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsTransferServerProtocolDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TlsSessionResumptionMode
     {
-        get => GetArgument<TerraformValue<string>>("tls_session_resumption_mode") ?? AsReference("tls_session_resumption_mode");
+        get => GetArgument<TerraformValue<string>>("tls_session_resumption_mode") ?? CreateReference("tls_session_resumption_mode");
         set => SetArgument("tls_session_resumption_mode", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsTransferServerS3StorageOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DirectoryListingOptimization
     {
-        get => GetArgument<TerraformValue<string>>("directory_listing_optimization") ?? AsReference("directory_listing_optimization");
+        get => GetArgument<TerraformValue<string>>("directory_listing_optimization") ?? CreateReference("directory_listing_optimization");
         set => SetArgument("directory_listing_optimization", value);
     }
 
@@ -308,7 +308,7 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -362,7 +362,7 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformSet<string> Protocols
     {
-        get => GetArgument<TerraformSet<string>>("protocols") ?? AsReference("protocols");
+        get => GetArgument<TerraformSet<string>>("protocols") ?? CreateReference("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -371,7 +371,7 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -389,7 +389,7 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformValue<string> SftpAuthenticationMethods
     {
-        get => GetArgument<TerraformValue<string>>("sftp_authentication_methods") ?? AsReference("sftp_authentication_methods");
+        get => GetArgument<TerraformValue<string>>("sftp_authentication_methods") ?? CreateReference("sftp_authentication_methods");
         set => SetArgument("sftp_authentication_methods", value);
     }
 
@@ -416,7 +416,7 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -433,19 +433,19 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The host_key_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> HostKeyFingerprint
-        => AsReference("host_key_fingerprint");
+        => CreateReference("host_key_fingerprint");
 
     /// <summary>
     /// EndpointDetails block (nesting mode: list).

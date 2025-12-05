@@ -343,7 +343,7 @@ public class AwsCognitoUserPoolLambdaConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PreTokenGeneration
     {
-        get => GetArgument<TerraformValue<string>>("pre_token_generation") ?? AsReference("pre_token_generation");
+        get => GetArgument<TerraformValue<string>>("pre_token_generation") ?? CreateReference("pre_token_generation");
         set => SetArgument("pre_token_generation", value);
     }
 
@@ -567,7 +567,7 @@ public class AwsCognitoUserPoolPasswordPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> TemporaryPasswordValidityDays
     {
-        get => GetArgument<TerraformValue<double>>("temporary_password_validity_days") ?? AsReference("temporary_password_validity_days");
+        get => GetArgument<TerraformValue<double>>("temporary_password_validity_days") ?? CreateReference("temporary_password_validity_days");
         set => SetArgument("temporary_password_validity_days", value);
     }
 
@@ -776,7 +776,7 @@ public class AwsCognitoUserPoolSmsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SnsRegion
     {
-        get => GetArgument<TerraformValue<string>>("sns_region") ?? AsReference("sns_region");
+        get => GetArgument<TerraformValue<string>>("sns_region") ?? CreateReference("sns_region");
         set => SetArgument("sns_region", value);
     }
 
@@ -880,7 +880,7 @@ public class AwsCognitoUserPoolUserPoolAddOnsBlockAdvancedSecurityAdditionalFlow
     /// </summary>
     public TerraformValue<string> CustomAuthMode
     {
-        get => GetArgument<TerraformValue<string>>("custom_auth_mode") ?? AsReference("custom_auth_mode");
+        get => GetArgument<TerraformValue<string>>("custom_auth_mode") ?? CreateReference("custom_auth_mode");
         set => SetArgument("custom_auth_mode", value);
     }
 
@@ -903,7 +903,7 @@ public class AwsCognitoUserPoolUsernameConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> CaseSensitive
     {
-        get => GetArgument<TerraformValue<bool>>("case_sensitive") ?? AsReference("case_sensitive");
+        get => GetArgument<TerraformValue<bool>>("case_sensitive") ?? CreateReference("case_sensitive");
         set => SetArgument("case_sensitive", value);
     }
 
@@ -935,7 +935,7 @@ public class AwsCognitoUserPoolVerificationMessageTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EmailMessage
     {
-        get => GetArgument<TerraformValue<string>>("email_message") ?? AsReference("email_message");
+        get => GetArgument<TerraformValue<string>>("email_message") ?? CreateReference("email_message");
         set => SetArgument("email_message", value);
     }
 
@@ -944,7 +944,7 @@ public class AwsCognitoUserPoolVerificationMessageTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EmailMessageByLink
     {
-        get => GetArgument<TerraformValue<string>>("email_message_by_link") ?? AsReference("email_message_by_link");
+        get => GetArgument<TerraformValue<string>>("email_message_by_link") ?? CreateReference("email_message_by_link");
         set => SetArgument("email_message_by_link", value);
     }
 
@@ -953,7 +953,7 @@ public class AwsCognitoUserPoolVerificationMessageTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EmailSubject
     {
-        get => GetArgument<TerraformValue<string>>("email_subject") ?? AsReference("email_subject");
+        get => GetArgument<TerraformValue<string>>("email_subject") ?? CreateReference("email_subject");
         set => SetArgument("email_subject", value);
     }
 
@@ -962,7 +962,7 @@ public class AwsCognitoUserPoolVerificationMessageTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EmailSubjectByLink
     {
-        get => GetArgument<TerraformValue<string>>("email_subject_by_link") ?? AsReference("email_subject_by_link");
+        get => GetArgument<TerraformValue<string>>("email_subject_by_link") ?? CreateReference("email_subject_by_link");
         set => SetArgument("email_subject_by_link", value);
     }
 
@@ -971,7 +971,7 @@ public class AwsCognitoUserPoolVerificationMessageTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SmsMessage
     {
-        get => GetArgument<TerraformValue<string>>("sms_message") ?? AsReference("sms_message");
+        get => GetArgument<TerraformValue<string>>("sms_message") ?? CreateReference("sms_message");
         set => SetArgument("sms_message", value);
     }
 
@@ -1048,7 +1048,7 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<string> EmailVerificationMessage
     {
-        get => GetArgument<TerraformValue<string>>("email_verification_message") ?? AsReference("email_verification_message");
+        get => GetArgument<TerraformValue<string>>("email_verification_message") ?? CreateReference("email_verification_message");
         set => SetArgument("email_verification_message", value);
     }
 
@@ -1057,7 +1057,7 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<string> EmailVerificationSubject
     {
-        get => GetArgument<TerraformValue<string>>("email_verification_subject") ?? AsReference("email_verification_subject");
+        get => GetArgument<TerraformValue<string>>("email_verification_subject") ?? CreateReference("email_verification_subject");
         set => SetArgument("email_verification_subject", value);
     }
 
@@ -1066,7 +1066,7 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1094,7 +1094,7 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1112,7 +1112,7 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<string> SmsVerificationMessage
     {
-        get => GetArgument<TerraformValue<string>>("sms_verification_message") ?? AsReference("sms_verification_message");
+        get => GetArgument<TerraformValue<string>>("sms_verification_message") ?? CreateReference("sms_verification_message");
         set => SetArgument("sms_verification_message", value);
     }
 
@@ -1130,7 +1130,7 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1139,7 +1139,7 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<string> UserPoolTier
     {
-        get => GetArgument<TerraformValue<string>>("user_pool_tier") ?? AsReference("user_pool_tier");
+        get => GetArgument<TerraformValue<string>>("user_pool_tier") ?? CreateReference("user_pool_tier");
         set => SetArgument("user_pool_tier", value);
     }
 
@@ -1156,43 +1156,43 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The custom_domain attribute.
     /// </summary>
     public TerraformValue<string> CustomDomain
-        => AsReference("custom_domain");
+        => CreateReference("custom_domain");
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     public TerraformValue<string> Domain
-        => AsReference("domain");
+        => CreateReference("domain");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The estimated_number_of_users attribute.
     /// </summary>
     public TerraformValue<double> EstimatedNumberOfUsers
-        => AsReference("estimated_number_of_users");
+        => CreateReference("estimated_number_of_users");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-        => AsReference("last_modified_date");
+        => CreateReference("last_modified_date");
 
     /// <summary>
     /// AccountRecoverySetting block (nesting mode: list).

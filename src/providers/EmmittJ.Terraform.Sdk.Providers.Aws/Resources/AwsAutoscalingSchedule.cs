@@ -23,7 +23,7 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double> DesiredCapacity
     {
-        get => GetArgument<TerraformValue<double>>("desired_capacity") ?? AsReference("desired_capacity");
+        get => GetArgument<TerraformValue<double>>("desired_capacity") ?? CreateReference("desired_capacity");
         set => SetArgument("desired_capacity", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> EndTime
     {
-        get => GetArgument<TerraformValue<string>>("end_time") ?? AsReference("end_time");
+        get => GetArgument<TerraformValue<string>>("end_time") ?? CreateReference("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double> MaxSize
     {
-        get => GetArgument<TerraformValue<double>>("max_size") ?? AsReference("max_size");
+        get => GetArgument<TerraformValue<double>>("max_size") ?? CreateReference("max_size");
         set => SetArgument("max_size", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double> MinSize
     {
-        get => GetArgument<TerraformValue<double>>("min_size") ?? AsReference("min_size");
+        get => GetArgument<TerraformValue<double>>("min_size") ?? CreateReference("min_size");
         set => SetArgument("min_size", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Recurrence
     {
-        get => GetArgument<TerraformValue<string>>("recurrence") ?? AsReference("recurrence");
+        get => GetArgument<TerraformValue<string>>("recurrence") ?? CreateReference("recurrence");
         set => SetArgument("recurrence", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone") ?? AsReference("time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone") ?? CreateReference("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -113,6 +113,6 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
 }

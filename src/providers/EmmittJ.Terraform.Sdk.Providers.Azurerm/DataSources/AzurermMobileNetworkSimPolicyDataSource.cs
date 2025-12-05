@@ -36,7 +36,7 @@ public partial class AzurermMobileNetworkSimPolicyDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermMobileNetworkSimPolicyDataSource(string name) : Terr
     /// The default_slice_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultSliceId
-        => AsReference("default_slice_id");
+        => CreateReference("default_slice_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The rat_frequency_selection_priority_index attribute.
     /// </summary>
     public TerraformValue<double> RatFrequencySelectionPriorityIndex
-        => AsReference("rat_frequency_selection_priority_index");
+        => CreateReference("rat_frequency_selection_priority_index");
 
     /// <summary>
     /// The registration_timer_in_seconds attribute.
     /// </summary>
     public TerraformValue<double> RegistrationTimerInSeconds
-        => AsReference("registration_timer_in_seconds");
+        => CreateReference("registration_timer_in_seconds");
 
     /// <summary>
     /// The slice attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Slice
-        => AsReference("slice");
+        => CreateReference("slice");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The user_equipment_aggregate_maximum_bit_rate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserEquipmentAggregateMaximumBitRate
-        => AsReference("user_equipment_aggregate_maximum_bit_rate");
+        => CreateReference("user_equipment_aggregate_maximum_bit_rate");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

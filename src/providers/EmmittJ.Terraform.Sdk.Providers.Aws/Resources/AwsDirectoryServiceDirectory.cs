@@ -17,13 +17,13 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The connect_ips attribute.
     /// </summary>
     public TerraformSet<string> ConnectIps
-        => AsReference("connect_ips");
+        => CreateReference("connect_ips");
 
     /// <summary>
     /// The customer_dns_ips attribute.
@@ -124,7 +124,7 @@ public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The subnet_ids attribute.
@@ -160,7 +160,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Alias
     {
-        get => GetArgument<TerraformValue<string>>("alias") ?? AsReference("alias");
+        get => GetArgument<TerraformValue<string>>("alias") ?? CreateReference("alias");
         set => SetArgument("alias", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double> DesiredNumberOfDomainControllers
     {
-        get => GetArgument<TerraformValue<double>>("desired_number_of_domain_controllers") ?? AsReference("desired_number_of_domain_controllers");
+        get => GetArgument<TerraformValue<double>>("desired_number_of_domain_controllers") ?? CreateReference("desired_number_of_domain_controllers");
         set => SetArgument("desired_number_of_domain_controllers", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Edition
     {
-        get => GetArgument<TerraformValue<string>>("edition") ?? AsReference("edition");
+        get => GetArgument<TerraformValue<string>>("edition") ?? CreateReference("edition");
         set => SetArgument("edition", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> ShortName
     {
-        get => GetArgument<TerraformValue<string>>("short_name") ?? AsReference("short_name");
+        get => GetArgument<TerraformValue<string>>("short_name") ?? CreateReference("short_name");
         set => SetArgument("short_name", value);
     }
 
@@ -252,7 +252,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Size
     {
-        get => GetArgument<TerraformValue<string>>("size") ?? AsReference("size");
+        get => GetArgument<TerraformValue<string>>("size") ?? CreateReference("size");
         set => SetArgument("size", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -287,19 +287,19 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// The access_url attribute.
     /// </summary>
     public TerraformValue<string> AccessUrl
-        => AsReference("access_url");
+        => CreateReference("access_url");
 
     /// <summary>
     /// The dns_ip_addresses attribute.
     /// </summary>
     public TerraformSet<string> DnsIpAddresses
-        => AsReference("dns_ip_addresses");
+        => CreateReference("dns_ip_addresses");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupId
-        => AsReference("security_group_id");
+        => CreateReference("security_group_id");
 
     /// <summary>
     /// ConnectSettings block (nesting mode: list).

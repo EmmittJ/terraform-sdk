@@ -26,13 +26,13 @@ public class AzurermRedisCacheIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -158,14 +158,14 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// The maxclients attribute.
     /// </summary>
     public TerraformValue<double> Maxclients
-        => AsReference("maxclients");
+        => CreateReference("maxclients");
 
     /// <summary>
     /// The maxfragmentationmemory_reserved attribute.
     /// </summary>
     public TerraformValue<double> MaxfragmentationmemoryReserved
     {
-        get => GetArgument<TerraformValue<double>>("maxfragmentationmemory_reserved") ?? AsReference("maxfragmentationmemory_reserved");
+        get => GetArgument<TerraformValue<double>>("maxfragmentationmemory_reserved") ?? CreateReference("maxfragmentationmemory_reserved");
         set => SetArgument("maxfragmentationmemory_reserved", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxmemoryDelta
     {
-        get => GetArgument<TerraformValue<double>>("maxmemory_delta") ?? AsReference("maxmemory_delta");
+        get => GetArgument<TerraformValue<double>>("maxmemory_delta") ?? CreateReference("maxmemory_delta");
         set => SetArgument("maxmemory_delta", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxmemoryReserved
     {
-        get => GetArgument<TerraformValue<double>>("maxmemory_reserved") ?? AsReference("maxmemory_reserved");
+        get => GetArgument<TerraformValue<double>>("maxmemory_reserved") ?? CreateReference("maxmemory_reserved");
         set => SetArgument("maxmemory_reserved", value);
     }
 
@@ -343,7 +343,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -390,7 +390,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> PrivateStaticIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_static_ip_address") ?? AsReference("private_static_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_static_ip_address") ?? CreateReference("private_static_ip_address");
         set => SetArgument("private_static_ip_address", value);
     }
 
@@ -417,7 +417,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<double> ReplicasPerMaster
     {
-        get => GetArgument<TerraformValue<double>>("replicas_per_master") ?? AsReference("replicas_per_master");
+        get => GetArgument<TerraformValue<double>>("replicas_per_master") ?? CreateReference("replicas_per_master");
         set => SetArgument("replicas_per_master", value);
     }
 
@@ -426,7 +426,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<double> ReplicasPerPrimary
     {
-        get => GetArgument<TerraformValue<double>>("replicas_per_primary") ?? AsReference("replicas_per_primary");
+        get => GetArgument<TerraformValue<double>>("replicas_per_primary") ?? CreateReference("replicas_per_primary");
         set => SetArgument("replicas_per_primary", value);
     }
 
@@ -499,43 +499,43 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-        => AsReference("primary_access_key");
+        => CreateReference("primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-        => AsReference("primary_connection_string");
+        => CreateReference("primary_connection_string");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-        => AsReference("secondary_access_key");
+        => CreateReference("secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-        => AsReference("secondary_connection_string");
+        => CreateReference("secondary_connection_string");
 
     /// <summary>
     /// The ssl_port attribute.
     /// </summary>
     public TerraformValue<double> SslPort
-        => AsReference("ssl_port");
+        => CreateReference("ssl_port");
 
     /// <summary>
     /// Identity block (nesting mode: list).

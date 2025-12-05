@@ -23,7 +23,7 @@ public partial class AwsS3BucketDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsS3BucketDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,42 +40,42 @@ public partial class AwsS3BucketDataSource(string name) : TerraformDataSource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The bucket_domain_name attribute.
     /// </summary>
     public TerraformValue<string> BucketDomainName
-        => AsReference("bucket_domain_name");
+        => CreateReference("bucket_domain_name");
 
     /// <summary>
     /// The bucket_region attribute.
     /// </summary>
     public TerraformValue<string> BucketRegion
-        => AsReference("bucket_region");
+        => CreateReference("bucket_region");
 
     /// <summary>
     /// The bucket_regional_domain_name attribute.
     /// </summary>
     public TerraformValue<string> BucketRegionalDomainName
-        => AsReference("bucket_regional_domain_name");
+        => CreateReference("bucket_regional_domain_name");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The website_domain attribute.
     /// </summary>
     public TerraformValue<string> WebsiteDomain
-        => AsReference("website_domain");
+        => CreateReference("website_domain");
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
     public TerraformValue<string> WebsiteEndpoint
-        => AsReference("website_endpoint");
+        => CreateReference("website_endpoint");
 
 }

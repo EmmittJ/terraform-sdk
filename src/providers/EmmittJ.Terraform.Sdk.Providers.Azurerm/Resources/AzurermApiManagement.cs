@@ -18,7 +18,7 @@ public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Capacity
     {
-        get => GetArgument<TerraformValue<double>>("capacity") ?? AsReference("capacity");
+        get => GetArgument<TerraformValue<double>>("capacity") ?? CreateReference("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -35,7 +35,7 @@ public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
     /// The gateway_regional_url attribute.
     /// </summary>
     public TerraformValue<string> GatewayRegionalUrl
-        => AsReference("gateway_regional_url");
+        => CreateReference("gateway_regional_url");
 
     /// <summary>
     /// The location attribute.
@@ -51,7 +51,7 @@ public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-        => AsReference("private_ip_addresses");
+        => CreateReference("private_ip_addresses");
 
     /// <summary>
     /// The public_ip_address_id attribute.
@@ -66,7 +66,7 @@ public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-        => AsReference("public_ip_addresses");
+        => CreateReference("public_ip_addresses");
 
     /// <summary>
     /// The zones attribute.
@@ -147,7 +147,7 @@ public class AzurermApiManagementCertificateBlock : TerraformBlock
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-        => AsReference("expiry");
+        => CreateReference("expiry");
 
     /// <summary>
     /// The store_name attribute.
@@ -163,13 +163,13 @@ public class AzurermApiManagementCertificateBlock : TerraformBlock
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-        => AsReference("subject");
+        => CreateReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -315,19 +315,19 @@ public class AzurermApiManagementHostnameConfigurationBlockDeveloperPortalBlock 
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-        => AsReference("certificate_source");
+        => CreateReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-        => AsReference("certificate_status");
+        => CreateReference("certificate_status");
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-        => AsReference("expiry");
+        => CreateReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -344,7 +344,7 @@ public class AzurermApiManagementHostnameConfigurationBlockDeveloperPortalBlock 
     /// </summary>
     public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? CreateReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -354,7 +354,7 @@ public class AzurermApiManagementHostnameConfigurationBlockDeveloperPortalBlock 
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? CreateReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -380,13 +380,13 @@ public class AzurermApiManagementHostnameConfigurationBlockDeveloperPortalBlock 
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-        => AsReference("subject");
+        => CreateReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -423,19 +423,19 @@ public class AzurermApiManagementHostnameConfigurationBlockManagementBlock : Ter
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-        => AsReference("certificate_source");
+        => CreateReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-        => AsReference("certificate_status");
+        => CreateReference("certificate_status");
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-        => AsReference("expiry");
+        => CreateReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -452,7 +452,7 @@ public class AzurermApiManagementHostnameConfigurationBlockManagementBlock : Ter
     /// </summary>
     public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? CreateReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -462,7 +462,7 @@ public class AzurermApiManagementHostnameConfigurationBlockManagementBlock : Ter
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? CreateReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -488,13 +488,13 @@ public class AzurermApiManagementHostnameConfigurationBlockManagementBlock : Ter
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-        => AsReference("subject");
+        => CreateReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -531,19 +531,19 @@ public class AzurermApiManagementHostnameConfigurationBlockPortalBlock : Terrafo
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-        => AsReference("certificate_source");
+        => CreateReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-        => AsReference("certificate_status");
+        => CreateReference("certificate_status");
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-        => AsReference("expiry");
+        => CreateReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -560,7 +560,7 @@ public class AzurermApiManagementHostnameConfigurationBlockPortalBlock : Terrafo
     /// </summary>
     public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? CreateReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -570,7 +570,7 @@ public class AzurermApiManagementHostnameConfigurationBlockPortalBlock : Terrafo
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? CreateReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -596,13 +596,13 @@ public class AzurermApiManagementHostnameConfigurationBlockPortalBlock : Terrafo
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-        => AsReference("subject");
+        => CreateReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -639,20 +639,20 @@ public class AzurermApiManagementHostnameConfigurationBlockProxyBlock : Terrafor
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-        => AsReference("certificate_source");
+        => CreateReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-        => AsReference("certificate_status");
+        => CreateReference("certificate_status");
 
     /// <summary>
     /// The default_ssl_binding attribute.
     /// </summary>
     public TerraformValue<bool> DefaultSslBinding
     {
-        get => GetArgument<TerraformValue<bool>>("default_ssl_binding") ?? AsReference("default_ssl_binding");
+        get => GetArgument<TerraformValue<bool>>("default_ssl_binding") ?? CreateReference("default_ssl_binding");
         set => SetArgument("default_ssl_binding", value);
     }
 
@@ -660,7 +660,7 @@ public class AzurermApiManagementHostnameConfigurationBlockProxyBlock : Terrafor
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-        => AsReference("expiry");
+        => CreateReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -677,7 +677,7 @@ public class AzurermApiManagementHostnameConfigurationBlockProxyBlock : Terrafor
     /// </summary>
     public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? CreateReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -687,7 +687,7 @@ public class AzurermApiManagementHostnameConfigurationBlockProxyBlock : Terrafor
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? CreateReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -713,13 +713,13 @@ public class AzurermApiManagementHostnameConfigurationBlockProxyBlock : Terrafor
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-        => AsReference("subject");
+        => CreateReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -756,19 +756,19 @@ public class AzurermApiManagementHostnameConfigurationBlockScmBlock : TerraformB
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-        => AsReference("certificate_source");
+        => CreateReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-        => AsReference("certificate_status");
+        => CreateReference("certificate_status");
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-        => AsReference("expiry");
+        => CreateReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -785,7 +785,7 @@ public class AzurermApiManagementHostnameConfigurationBlockScmBlock : TerraformB
     /// </summary>
     public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? CreateReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -795,7 +795,7 @@ public class AzurermApiManagementHostnameConfigurationBlockScmBlock : TerraformB
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? CreateReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -821,13 +821,13 @@ public class AzurermApiManagementHostnameConfigurationBlockScmBlock : TerraformB
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-        => AsReference("subject");
+        => CreateReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -856,13 +856,13 @@ public class AzurermApiManagementIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -894,7 +894,7 @@ public class AzurermApiManagementProtocolsBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableHttp2
     {
-        get => GetArgument<TerraformValue<bool>>("enable_http2") ?? AsReference("enable_http2");
+        get => GetArgument<TerraformValue<bool>>("enable_http2") ?? CreateReference("enable_http2");
         set => SetArgument("enable_http2", value);
     }
 
@@ -903,7 +903,7 @@ public class AzurermApiManagementProtocolsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Http2Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("http2_enabled") ?? AsReference("http2_enabled");
+        get => GetArgument<TerraformValue<bool>>("http2_enabled") ?? CreateReference("http2_enabled");
         set => SetArgument("http2_enabled", value);
     }
 
@@ -926,7 +926,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> BackendSsl30Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("backend_ssl30_enabled") ?? AsReference("backend_ssl30_enabled");
+        get => GetArgument<TerraformValue<bool>>("backend_ssl30_enabled") ?? CreateReference("backend_ssl30_enabled");
         set => SetArgument("backend_ssl30_enabled", value);
     }
 
@@ -935,7 +935,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> BackendTls10Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("backend_tls10_enabled") ?? AsReference("backend_tls10_enabled");
+        get => GetArgument<TerraformValue<bool>>("backend_tls10_enabled") ?? CreateReference("backend_tls10_enabled");
         set => SetArgument("backend_tls10_enabled", value);
     }
 
@@ -944,7 +944,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> BackendTls11Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("backend_tls11_enabled") ?? AsReference("backend_tls11_enabled");
+        get => GetArgument<TerraformValue<bool>>("backend_tls11_enabled") ?? CreateReference("backend_tls11_enabled");
         set => SetArgument("backend_tls11_enabled", value);
     }
 
@@ -954,7 +954,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableBackendSsl30
     {
-        get => GetArgument<TerraformValue<bool>>("enable_backend_ssl30") ?? AsReference("enable_backend_ssl30");
+        get => GetArgument<TerraformValue<bool>>("enable_backend_ssl30") ?? CreateReference("enable_backend_ssl30");
         set => SetArgument("enable_backend_ssl30", value);
     }
 
@@ -964,7 +964,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableBackendTls10
     {
-        get => GetArgument<TerraformValue<bool>>("enable_backend_tls10") ?? AsReference("enable_backend_tls10");
+        get => GetArgument<TerraformValue<bool>>("enable_backend_tls10") ?? CreateReference("enable_backend_tls10");
         set => SetArgument("enable_backend_tls10", value);
     }
 
@@ -974,7 +974,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableBackendTls11
     {
-        get => GetArgument<TerraformValue<bool>>("enable_backend_tls11") ?? AsReference("enable_backend_tls11");
+        get => GetArgument<TerraformValue<bool>>("enable_backend_tls11") ?? CreateReference("enable_backend_tls11");
         set => SetArgument("enable_backend_tls11", value);
     }
 
@@ -984,7 +984,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableFrontendSsl30
     {
-        get => GetArgument<TerraformValue<bool>>("enable_frontend_ssl30") ?? AsReference("enable_frontend_ssl30");
+        get => GetArgument<TerraformValue<bool>>("enable_frontend_ssl30") ?? CreateReference("enable_frontend_ssl30");
         set => SetArgument("enable_frontend_ssl30", value);
     }
 
@@ -994,7 +994,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableFrontendTls10
     {
-        get => GetArgument<TerraformValue<bool>>("enable_frontend_tls10") ?? AsReference("enable_frontend_tls10");
+        get => GetArgument<TerraformValue<bool>>("enable_frontend_tls10") ?? CreateReference("enable_frontend_tls10");
         set => SetArgument("enable_frontend_tls10", value);
     }
 
@@ -1004,7 +1004,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableFrontendTls11
     {
-        get => GetArgument<TerraformValue<bool>>("enable_frontend_tls11") ?? AsReference("enable_frontend_tls11");
+        get => GetArgument<TerraformValue<bool>>("enable_frontend_tls11") ?? CreateReference("enable_frontend_tls11");
         set => SetArgument("enable_frontend_tls11", value);
     }
 
@@ -1013,7 +1013,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> FrontendSsl30Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("frontend_ssl30_enabled") ?? AsReference("frontend_ssl30_enabled");
+        get => GetArgument<TerraformValue<bool>>("frontend_ssl30_enabled") ?? CreateReference("frontend_ssl30_enabled");
         set => SetArgument("frontend_ssl30_enabled", value);
     }
 
@@ -1022,7 +1022,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> FrontendTls10Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("frontend_tls10_enabled") ?? AsReference("frontend_tls10_enabled");
+        get => GetArgument<TerraformValue<bool>>("frontend_tls10_enabled") ?? CreateReference("frontend_tls10_enabled");
         set => SetArgument("frontend_tls10_enabled", value);
     }
 
@@ -1031,7 +1031,7 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> FrontendTls11Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("frontend_tls11_enabled") ?? AsReference("frontend_tls11_enabled");
+        get => GetArgument<TerraformValue<bool>>("frontend_tls11_enabled") ?? CreateReference("frontend_tls11_enabled");
         set => SetArgument("frontend_tls11_enabled", value);
     }
 
@@ -1265,19 +1265,19 @@ public class AzurermApiManagementTenantAccessBlock : TerraformBlock
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-        => AsReference("secondary_key");
+        => CreateReference("secondary_key");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
 }
 
@@ -1385,7 +1385,7 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1423,7 +1423,7 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> NotificationSenderEmail
     {
-        get => GetArgument<TerraformValue<string>>("notification_sender_email") ?? AsReference("notification_sender_email");
+        get => GetArgument<TerraformValue<string>>("notification_sender_email") ?? CreateReference("notification_sender_email");
         set => SetArgument("notification_sender_email", value);
     }
 
@@ -1516,49 +1516,49 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// The developer_portal_url attribute.
     /// </summary>
     public TerraformValue<string> DeveloperPortalUrl
-        => AsReference("developer_portal_url");
+        => CreateReference("developer_portal_url");
 
     /// <summary>
     /// The gateway_regional_url attribute.
     /// </summary>
     public TerraformValue<string> GatewayRegionalUrl
-        => AsReference("gateway_regional_url");
+        => CreateReference("gateway_regional_url");
 
     /// <summary>
     /// The gateway_url attribute.
     /// </summary>
     public TerraformValue<string> GatewayUrl
-        => AsReference("gateway_url");
+        => CreateReference("gateway_url");
 
     /// <summary>
     /// The management_api_url attribute.
     /// </summary>
     public TerraformValue<string> ManagementApiUrl
-        => AsReference("management_api_url");
+        => CreateReference("management_api_url");
 
     /// <summary>
     /// The portal_url attribute.
     /// </summary>
     public TerraformValue<string> PortalUrl
-        => AsReference("portal_url");
+        => CreateReference("portal_url");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-        => AsReference("private_ip_addresses");
+        => CreateReference("private_ip_addresses");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-        => AsReference("public_ip_addresses");
+        => CreateReference("public_ip_addresses");
 
     /// <summary>
     /// The scm_url attribute.
     /// </summary>
     public TerraformValue<string> ScmUrl
-        => AsReference("scm_url");
+        => CreateReference("scm_url");
 
     /// <summary>
     /// AdditionalLocation block (nesting mode: list).

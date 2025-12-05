@@ -18,7 +18,7 @@ public class AwsDatazoneDomainSingleSignOnBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     /// </summary>
     public TerraformValue<string> DomainVersion
     {
-        get => GetArgument<TerraformValue<string>>("domain_version") ?? AsReference("domain_version");
+        get => GetArgument<TerraformValue<string>>("domain_version") ?? CreateReference("domain_version");
         set => SetArgument("domain_version", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -159,25 +159,25 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The portal_url attribute.
     /// </summary>
     public TerraformValue<string> PortalUrl
-        => AsReference("portal_url");
+        => CreateReference("portal_url");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// SingleSignOn block (nesting mode: list).

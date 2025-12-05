@@ -13,7 +13,7 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
     public TerraformValue<string> Charset
-        => AsReference("charset");
+        => CreateReference("charset");
 
     /// <summary>
     /// The collation value. See MySQL&#39;s
@@ -66,7 +66,7 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
     public TerraformValue<string> Collation
-        => AsReference("collation");
+        => CreateReference("collation");
 
     /// <summary>
     /// The deletion policy for the database. Setting ABANDON allows the resource
@@ -75,12 +75,12 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     /// values are: &amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;. Defaults to &amp;quot;DELETE&amp;quot;.
     /// </summary>
     public TerraformValue<string> DeletionPolicy
-        => AsReference("deletion_policy");
+        => CreateReference("deletion_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
 }

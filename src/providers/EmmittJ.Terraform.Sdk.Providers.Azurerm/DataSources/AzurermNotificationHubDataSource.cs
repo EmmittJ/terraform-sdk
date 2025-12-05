@@ -36,7 +36,7 @@ public partial class AzurermNotificationHubDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AzurermNotificationHubDataSource(string name) : TerraformDa
     /// The apns_credential attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApnsCredential
-        => AsReference("apns_credential");
+        => CreateReference("apns_credential");
 
     /// <summary>
     /// The gcm_credential attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GcmCredential
-        => AsReference("gcm_credential");
+        => CreateReference("gcm_credential");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

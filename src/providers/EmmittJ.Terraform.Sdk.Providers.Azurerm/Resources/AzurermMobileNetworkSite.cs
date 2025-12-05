@@ -63,7 +63,7 @@ public partial class AzurermMobileNetworkSite(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermMobileNetworkSite(string name) : TerraformResource("
     /// The network_function_ids attribute.
     /// </summary>
     public TerraformList<string> NetworkFunctionIds
-        => AsReference("network_function_ids");
+        => CreateReference("network_function_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzurermStorageBlobDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermStorageBlobDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -83,37 +83,37 @@ public partial class AzurermStorageBlobDataSource(string name) : TerraformDataSo
     /// The access_tier attribute.
     /// </summary>
     public TerraformValue<string> AccessTier
-        => AsReference("access_tier");
+        => CreateReference("access_tier");
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
     public TerraformValue<string> ContentMd5
-        => AsReference("content_md5");
+        => CreateReference("content_md5");
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     public TerraformValue<string> ContentType
-        => AsReference("content_type");
+        => CreateReference("content_type");
 
     /// <summary>
     /// The encryption_scope attribute.
     /// </summary>
     public TerraformValue<string> EncryptionScope
-        => AsReference("encryption_scope");
+        => CreateReference("encryption_scope");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -242,7 +242,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> PipelineName
     {
-        get => GetArgument<TerraformValue<string>>("pipeline_name") ?? AsReference("pipeline_name");
+        get => GetArgument<TerraformValue<string>>("pipeline_name") ?? CreateReference("pipeline_name");
         set => SetArgument("pipeline_name", value);
     }
 
@@ -279,7 +279,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformMap<string> PipelineParameters
     {
-        get => GetArgument<TerraformMap<string>>("pipeline_parameters") ?? AsReference("pipeline_parameters");
+        get => GetArgument<TerraformMap<string>>("pipeline_parameters") ?? CreateReference("pipeline_parameters");
         set => SetArgument("pipeline_parameters", value);
     }
 
@@ -288,7 +288,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 

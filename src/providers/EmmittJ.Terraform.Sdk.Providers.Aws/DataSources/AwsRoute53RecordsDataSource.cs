@@ -31,6 +31,6 @@ public partial class AwsRoute53RecordsDataSource(string name) : TerraformDataSou
     /// The resource_record_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceRecordSets
-        => AsReference("resource_record_sets");
+        => CreateReference("resource_record_sets");
 
 }

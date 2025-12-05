@@ -13,7 +13,7 @@ public partial class AwsRoute53profilesProfilesDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,6 +21,6 @@ public partial class AwsRoute53profilesProfilesDataSource(string name) : Terrafo
     /// The profiles attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Profiles
-        => AsReference("profiles");
+        => CreateReference("profiles");
 
 }

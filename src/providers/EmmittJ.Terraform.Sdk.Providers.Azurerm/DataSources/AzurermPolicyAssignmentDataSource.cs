@@ -36,7 +36,7 @@ public partial class AzurermPolicyAssignmentDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,61 +64,61 @@ public partial class AzurermPolicyAssignmentDataSource(string name) : TerraformD
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The enforce attribute.
     /// </summary>
     public TerraformValue<bool> Enforce
-        => AsReference("enforce");
+        => CreateReference("enforce");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformValue<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// The non_compliance_message attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NonComplianceMessage
-        => AsReference("non_compliance_message");
+        => CreateReference("non_compliance_message");
 
     /// <summary>
     /// The not_scopes attribute.
     /// </summary>
     public TerraformList<string> NotScopes
-        => AsReference("not_scopes");
+        => CreateReference("not_scopes");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformValue<string> Parameters
-        => AsReference("parameters");
+        => CreateReference("parameters");
 
     /// <summary>
     /// The policy_definition_id attribute.
     /// </summary>
     public TerraformValue<string> PolicyDefinitionId
-        => AsReference("policy_definition_id");
+        => CreateReference("policy_definition_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

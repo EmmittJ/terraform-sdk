@@ -13,7 +13,7 @@ public partial class AwsIamOpenidConnectProviderDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsIamOpenidConnectProviderDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsIamOpenidConnectProviderDataSource(string name) : Terraf
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsIamOpenidConnectProviderDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url") ?? AsReference("url");
+        get => GetArgument<TerraformValue<string>>("url") ?? CreateReference("url");
         set => SetArgument("url", value);
     }
 
@@ -48,12 +48,12 @@ public partial class AwsIamOpenidConnectProviderDataSource(string name) : Terraf
     /// The client_id_list attribute.
     /// </summary>
     public TerraformList<string> ClientIdList
-        => AsReference("client_id_list");
+        => CreateReference("client_id_list");
 
     /// <summary>
     /// The thumbprint_list attribute.
     /// </summary>
     public TerraformList<string> ThumbprintList
-        => AsReference("thumbprint_list");
+        => CreateReference("thumbprint_list");
 
 }

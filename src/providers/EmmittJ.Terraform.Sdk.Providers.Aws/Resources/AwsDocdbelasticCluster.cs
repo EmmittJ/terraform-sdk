@@ -84,7 +84,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double> BackupRetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_period") ?? AsReference("backup_retention_period");
+        get => GetArgument<TerraformValue<double>>("backup_retention_period") ?? CreateReference("backup_retention_period");
         set => SetArgument("backup_retention_period", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> PreferredBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? AsReference("preferred_backup_window");
+        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? CreateReference("preferred_backup_window");
         set => SetArgument("preferred_backup_window", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? CreateReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? CreateReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? CreateReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -185,25 +185,25 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

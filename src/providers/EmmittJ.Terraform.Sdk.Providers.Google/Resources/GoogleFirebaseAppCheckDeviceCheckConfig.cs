@@ -65,7 +65,7 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string> TokenTtl
     {
-        get => GetArgument<TerraformValue<string>>("token_ttl") ?? AsReference("token_ttl");
+        get => GetArgument<TerraformValue<string>>("token_ttl") ?? CreateReference("token_ttl");
         set => SetArgument("token_ttl", value);
     }
 
@@ -114,14 +114,14 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     /// The relative resource name of the DeviceCheck configuration object
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Whether the privateKey field was previously set. Since App Check will never return the
     /// privateKey field, this field is the only way to find out whether it was previously set.
     /// </summary>
     public TerraformValue<bool> PrivateKeySet
-        => AsReference("private_key_set");
+        => CreateReference("private_key_set");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

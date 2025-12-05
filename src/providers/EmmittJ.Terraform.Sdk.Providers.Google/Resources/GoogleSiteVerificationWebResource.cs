@@ -80,7 +80,7 @@ public partial class GoogleSiteVerificationWebResource(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,13 +100,13 @@ public partial class GoogleSiteVerificationWebResource(string name) : TerraformR
     /// for example verified owners of the containing domain—are not included in this list.
     /// </summary>
     public TerraformList<string> Owners
-        => AsReference("owners");
+        => CreateReference("owners");
 
     /// <summary>
     /// The string used to identify this web resource.
     /// </summary>
     public TerraformValue<string> WebResourceId
-        => AsReference("web_resource_id");
+        => CreateReference("web_resource_id");
 
     /// <summary>
     /// Site block (nesting mode: list).

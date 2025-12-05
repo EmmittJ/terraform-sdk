@@ -13,7 +13,7 @@ public partial class AwsKmsAlias(string name) : TerraformResource("aws_kms_alias
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsKmsAlias(string name) : TerraformResource("aws_kms_alias
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsKmsAlias(string name) : TerraformResource("aws_kms_alias
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsKmsAlias(string name) : TerraformResource("aws_kms_alias
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,12 +58,12 @@ public partial class AwsKmsAlias(string name) : TerraformResource("aws_kms_alias
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The target_key_arn attribute.
     /// </summary>
     public TerraformValue<string> TargetKeyArn
-        => AsReference("target_key_arn");
+        => CreateReference("target_key_arn");
 
 }

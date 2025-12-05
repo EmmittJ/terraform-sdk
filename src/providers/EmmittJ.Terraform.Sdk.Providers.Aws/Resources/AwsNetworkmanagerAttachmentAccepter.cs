@@ -56,7 +56,7 @@ public partial class AwsNetworkmanagerAttachmentAccepter(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AwsNetworkmanagerAttachmentAccepter(string name) : Terrafor
     /// The attachment_policy_rule_number attribute.
     /// </summary>
     public TerraformValue<double> AttachmentPolicyRuleNumber
-        => AsReference("attachment_policy_rule_number");
+        => CreateReference("attachment_policy_rule_number");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
-        => AsReference("core_network_arn");
+        => CreateReference("core_network_arn");
 
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkId
-        => AsReference("core_network_id");
+        => CreateReference("core_network_id");
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
     public TerraformValue<string> EdgeLocation
-        => AsReference("edge_location");
+        => CreateReference("edge_location");
 
     /// <summary>
     /// The edge_locations attribute.
     /// </summary>
     public TerraformList<string> EdgeLocations
-        => AsReference("edge_locations");
+        => CreateReference("edge_locations");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-        => AsReference("resource_arn");
+        => CreateReference("resource_arn");
 
     /// <summary>
     /// The segment_name attribute.
     /// </summary>
     public TerraformValue<string> SegmentName
-        => AsReference("segment_name");
+        => CreateReference("segment_name");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

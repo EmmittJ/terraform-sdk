@@ -17,43 +17,43 @@ public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
     /// The additional_language_codes attribute.
     /// </summary>
     public TerraformList<string> AdditionalLanguageCodes
-        => AsReference("additional_language_codes");
+        => CreateReference("additional_language_codes");
 
     /// <summary>
     /// The gender attribute.
     /// </summary>
     public TerraformValue<string> Gender
-        => AsReference("gender");
+        => CreateReference("gender");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
     public TerraformValue<string> LanguageCode
-        => AsReference("language_code");
+        => CreateReference("language_code");
 
     /// <summary>
     /// The language_name attribute.
     /// </summary>
     public TerraformValue<string> LanguageName
-        => AsReference("language_name");
+        => CreateReference("language_name");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The supported_engines attribute.
     /// </summary>
     public TerraformList<string> SupportedEngines
-        => AsReference("supported_engines");
+        => CreateReference("supported_engines");
 
 }
 
@@ -96,7 +96,7 @@ public partial class AwsPollyVoicesDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsPollyVoicesDataSource(string name) : TerraformDataSource
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Voices block (nesting mode: list).

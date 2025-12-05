@@ -93,7 +93,7 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -140,13 +140,13 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The public_data attribute.
     /// </summary>
     public TerraformValue<string> PublicData
-        => AsReference("public_data");
+        => CreateReference("public_data");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

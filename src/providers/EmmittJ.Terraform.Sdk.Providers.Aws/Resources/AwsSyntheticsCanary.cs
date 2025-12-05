@@ -91,7 +91,7 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> EphemeralStorage
     {
-        get => GetArgument<TerraformValue<double>>("ephemeral_storage") ?? AsReference("ephemeral_storage");
+        get => GetArgument<TerraformValue<double>>("ephemeral_storage") ?? CreateReference("ephemeral_storage");
         set => SetArgument("ephemeral_storage", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MemoryInMb
     {
-        get => GetArgument<TerraformValue<double>>("memory_in_mb") ?? AsReference("memory_in_mb");
+        get => GetArgument<TerraformValue<double>>("memory_in_mb") ?? CreateReference("memory_in_mb");
         set => SetArgument("memory_in_mb", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> TimeoutInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("timeout_in_seconds") ?? AsReference("timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds") ?? CreateReference("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -224,7 +224,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }
 
@@ -288,7 +288,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -307,7 +307,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -380,7 +380,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -397,31 +397,31 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The engine_arn attribute.
     /// </summary>
     public TerraformValue<string> EngineArn
-        => AsReference("engine_arn");
+        => CreateReference("engine_arn");
 
     /// <summary>
     /// The source_location_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceLocationArn
-        => AsReference("source_location_arn");
+        => CreateReference("source_location_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The timeline attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Timeline
-        => AsReference("timeline");
+        => CreateReference("timeline");
 
     /// <summary>
     /// ArtifactConfig block (nesting mode: list).

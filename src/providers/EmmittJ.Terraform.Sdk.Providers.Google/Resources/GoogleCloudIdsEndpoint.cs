@@ -63,7 +63,7 @@ public partial class GoogleCloudIdsEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleCloudIdsEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -129,25 +129,25 @@ public partial class GoogleCloudIdsEndpoint(string name) : TerraformResource("go
     /// Creation timestamp in RFC 3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// URL of the endpoint&#39;s network address to which traffic is to be sent by Packet Mirroring.
     /// </summary>
     public TerraformValue<string> EndpointForwardingRule
-        => AsReference("endpoint_forwarding_rule");
+        => CreateReference("endpoint_forwarding_rule");
 
     /// <summary>
     /// Internal IP address of the endpoint&#39;s network entry point.
     /// </summary>
     public TerraformValue<string> EndpointIp
-        => AsReference("endpoint_ip");
+        => CreateReference("endpoint_ip");
 
     /// <summary>
     /// Last update timestamp in RFC 3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

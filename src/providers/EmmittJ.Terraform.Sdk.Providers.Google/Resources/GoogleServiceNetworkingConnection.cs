@@ -63,7 +63,7 @@ public partial class GoogleServiceNetworkingConnection(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleServiceNetworkingConnection(string name) : TerraformR
     /// The peering attribute.
     /// </summary>
     public TerraformValue<string> Peering
-        => AsReference("peering");
+        => CreateReference("peering");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

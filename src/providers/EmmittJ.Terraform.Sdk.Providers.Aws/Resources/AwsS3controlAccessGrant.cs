@@ -80,7 +80,7 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -125,31 +125,31 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     /// The access_grant_arn attribute.
     /// </summary>
     public TerraformValue<string> AccessGrantArn
-        => AsReference("access_grant_arn");
+        => CreateReference("access_grant_arn");
 
     /// <summary>
     /// The access_grant_id attribute.
     /// </summary>
     public TerraformValue<string> AccessGrantId
-        => AsReference("access_grant_id");
+        => CreateReference("access_grant_id");
 
     /// <summary>
     /// The grant_scope attribute.
     /// </summary>
     public TerraformValue<string> GrantScope
-        => AsReference("grant_scope");
+        => CreateReference("grant_scope");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// AccessGrantsLocationConfiguration block (nesting mode: list).

@@ -93,7 +93,7 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -111,13 +111,13 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     /// The deployment_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentId
-        => AsReference("deployment_id");
+        => CreateReference("deployment_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

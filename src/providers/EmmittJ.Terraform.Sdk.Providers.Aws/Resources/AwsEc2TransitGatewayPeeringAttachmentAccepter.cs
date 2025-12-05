@@ -13,7 +13,7 @@ public partial class AwsEc2TransitGatewayPeeringAttachmentAccepter(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsEc2TransitGatewayPeeringAttachmentAccepter(string name) 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsEc2TransitGatewayPeeringAttachmentAccepter(string name) 
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -58,24 +58,24 @@ public partial class AwsEc2TransitGatewayPeeringAttachmentAccepter(string name) 
     /// The peer_account_id attribute.
     /// </summary>
     public TerraformValue<string> PeerAccountId
-        => AsReference("peer_account_id");
+        => CreateReference("peer_account_id");
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
     public TerraformValue<string> PeerRegion
-        => AsReference("peer_region");
+        => CreateReference("peer_region");
 
     /// <summary>
     /// The peer_transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> PeerTransitGatewayId
-        => AsReference("peer_transit_gateway_id");
+        => CreateReference("peer_transit_gateway_id");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayId
-        => AsReference("transit_gateway_id");
+        => CreateReference("transit_gateway_id");
 
 }

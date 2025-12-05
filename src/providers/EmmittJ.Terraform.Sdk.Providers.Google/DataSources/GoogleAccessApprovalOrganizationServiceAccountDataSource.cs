@@ -13,7 +13,7 @@ public partial class GoogleAccessApprovalOrganizationServiceAccountDataSource(st
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,12 +31,12 @@ public partial class GoogleAccessApprovalOrganizationServiceAccountDataSource(st
     /// The account_email attribute.
     /// </summary>
     public TerraformValue<string> AccountEmail
-        => AsReference("account_email");
+        => CreateReference("account_email");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
 }

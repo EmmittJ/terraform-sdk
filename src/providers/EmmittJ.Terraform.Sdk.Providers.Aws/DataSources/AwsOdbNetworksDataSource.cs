@@ -13,7 +13,7 @@ public partial class AwsOdbNetworksDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,6 +21,6 @@ public partial class AwsOdbNetworksDataSource(string name) : TerraformDataSource
     /// List of odb networks returns basic information about odb networks.
     /// </summary>
     public TerraformList<TerraformMap<object>> OdbNetworks
-        => AsReference("odb_networks");
+        => CreateReference("odb_networks");
 
 }

@@ -149,7 +149,7 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string> FunctionVersion
     {
-        get => GetArgument<TerraformValue<string>>("function_version") ?? AsReference("function_version");
+        get => GetArgument<TerraformValue<string>>("function_version") ?? CreateReference("function_version");
         set => SetArgument("function_version", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -212,13 +212,13 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The function_id attribute.
     /// </summary>
     public TerraformValue<string> FunctionId
-        => AsReference("function_id");
+        => CreateReference("function_id");
 
     /// <summary>
     /// Runtime block (nesting mode: list).

@@ -13,7 +13,7 @@ public partial class AwsRoute53ResolverRuleDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name") ?? AsReference("domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name") ?? CreateReference("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsRoute53ResolverRuleDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsRoute53ResolverRuleDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsRoute53ResolverRuleDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsRoute53ResolverRuleDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> ResolverEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("resolver_endpoint_id") ?? AsReference("resolver_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("resolver_endpoint_id") ?? CreateReference("resolver_endpoint_id");
         set => SetArgument("resolver_endpoint_id", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsRoute53ResolverRuleDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> ResolverRuleId
     {
-        get => GetArgument<TerraformValue<string>>("resolver_rule_id") ?? AsReference("resolver_rule_id");
+        get => GetArgument<TerraformValue<string>>("resolver_rule_id") ?? CreateReference("resolver_rule_id");
         set => SetArgument("resolver_rule_id", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsRoute53ResolverRuleDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> RuleType
     {
-        get => GetArgument<TerraformValue<string>>("rule_type") ?? AsReference("rule_type");
+        get => GetArgument<TerraformValue<string>>("rule_type") ?? CreateReference("rule_type");
         set => SetArgument("rule_type", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsRoute53ResolverRuleDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -84,18 +84,18 @@ public partial class AwsRoute53ResolverRuleDataSource(string name) : TerraformDa
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The share_status attribute.
     /// </summary>
     public TerraformValue<string> ShareStatus
-        => AsReference("share_status");
+        => CreateReference("share_status");
 
 }

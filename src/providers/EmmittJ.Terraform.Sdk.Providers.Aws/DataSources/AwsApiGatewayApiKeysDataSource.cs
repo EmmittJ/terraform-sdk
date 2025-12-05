@@ -31,7 +31,7 @@ public partial class AwsApiGatewayApiKeysDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -39,12 +39,12 @@ public partial class AwsApiGatewayApiKeysDataSource(string name) : TerraformData
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The items attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Items
-        => AsReference("items");
+        => CreateReference("items");
 
 }

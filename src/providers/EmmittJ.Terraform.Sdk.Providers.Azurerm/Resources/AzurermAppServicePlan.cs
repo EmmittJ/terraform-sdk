@@ -18,7 +18,7 @@ public class AzurermAppServicePlanSkuBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Capacity
     {
-        get => GetArgument<TerraformValue<double>>("capacity") ?? AsReference("capacity");
+        get => GetArgument<TerraformValue<double>>("capacity") ?? CreateReference("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<double> MaximumElasticWorkerCount
     {
-        get => GetArgument<TerraformValue<double>>("maximum_elastic_worker_count") ?? AsReference("maximum_elastic_worker_count");
+        get => GetArgument<TerraformValue<double>>("maximum_elastic_worker_count") ?? CreateReference("maximum_elastic_worker_count");
         set => SetArgument("maximum_elastic_worker_count", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// The maximum_number_of_workers attribute.
     /// </summary>
     public TerraformValue<double> MaximumNumberOfWorkers
-        => AsReference("maximum_number_of_workers");
+        => CreateReference("maximum_number_of_workers");
 
     /// <summary>
     /// Sku block (nesting mode: list).

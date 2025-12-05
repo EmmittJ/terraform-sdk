@@ -193,7 +193,7 @@ public class AwsApprunnerServiceNetworkConfigurationBlockEgressConfigurationBloc
     /// </summary>
     public TerraformValue<string> EgressType
     {
-        get => GetArgument<TerraformValue<string>>("egress_type") ?? AsReference("egress_type");
+        get => GetArgument<TerraformValue<string>>("egress_type") ?? CreateReference("egress_type");
         set => SetArgument("egress_type", value);
     }
 
@@ -373,7 +373,7 @@ public class AwsApprunnerServiceSourceConfigurationBlockCodeRepositoryBlock : Te
     /// </summary>
     public TerraformValue<string> SourceDirectory
     {
-        get => GetArgument<TerraformValue<string>>("source_directory") ?? AsReference("source_directory");
+        get => GetArgument<TerraformValue<string>>("source_directory") ?? CreateReference("source_directory");
         set => SetArgument("source_directory", value);
     }
 
@@ -640,7 +640,7 @@ public partial class AwsApprunnerService(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> AutoScalingConfigurationArn
     {
-        get => GetArgument<TerraformValue<string>>("auto_scaling_configuration_arn") ?? AsReference("auto_scaling_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("auto_scaling_configuration_arn") ?? CreateReference("auto_scaling_configuration_arn");
         set => SetArgument("auto_scaling_configuration_arn", value);
     }
 
@@ -649,7 +649,7 @@ public partial class AwsApprunnerService(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -658,7 +658,7 @@ public partial class AwsApprunnerService(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -686,7 +686,7 @@ public partial class AwsApprunnerService(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -694,25 +694,25 @@ public partial class AwsApprunnerService(string name) : TerraformResource("aws_a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceId
-        => AsReference("service_id");
+        => CreateReference("service_id");
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
     public TerraformValue<string> ServiceUrl
-        => AsReference("service_url");
+        => CreateReference("service_url");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).

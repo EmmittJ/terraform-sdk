@@ -115,7 +115,7 @@ public partial class AwsInspector2OrganizationConfiguration(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsInspector2OrganizationConfiguration(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsInspector2OrganizationConfiguration(string name) : Terra
     /// The max_account_limit_reached attribute.
     /// </summary>
     public TerraformValue<bool> MaxAccountLimitReached
-        => AsReference("max_account_limit_reached");
+        => CreateReference("max_account_limit_reached");
 
     /// <summary>
     /// AutoEnable block (nesting mode: list).

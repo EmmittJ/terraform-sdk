@@ -70,7 +70,7 @@ public partial class AwsEc2TransitGatewayDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEc2TransitGatewayDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsEc2TransitGatewayDataSource(string name) : TerraformData
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -96,85 +96,85 @@ public partial class AwsEc2TransitGatewayDataSource(string name) : TerraformData
     /// The amazon_side_asn attribute.
     /// </summary>
     public TerraformValue<double> AmazonSideAsn
-        => AsReference("amazon_side_asn");
+        => CreateReference("amazon_side_asn");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The association_default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationDefaultRouteTableId
-        => AsReference("association_default_route_table_id");
+        => CreateReference("association_default_route_table_id");
 
     /// <summary>
     /// The auto_accept_shared_attachments attribute.
     /// </summary>
     public TerraformValue<string> AutoAcceptSharedAttachments
-        => AsReference("auto_accept_shared_attachments");
+        => CreateReference("auto_accept_shared_attachments");
 
     /// <summary>
     /// The default_route_table_association attribute.
     /// </summary>
     public TerraformValue<string> DefaultRouteTableAssociation
-        => AsReference("default_route_table_association");
+        => CreateReference("default_route_table_association");
 
     /// <summary>
     /// The default_route_table_propagation attribute.
     /// </summary>
     public TerraformValue<string> DefaultRouteTablePropagation
-        => AsReference("default_route_table_propagation");
+        => CreateReference("default_route_table_propagation");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
     public TerraformValue<string> DnsSupport
-        => AsReference("dns_support");
+        => CreateReference("dns_support");
 
     /// <summary>
     /// The multicast_support attribute.
     /// </summary>
     public TerraformValue<string> MulticastSupport
-        => AsReference("multicast_support");
+        => CreateReference("multicast_support");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The propagation_default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> PropagationDefaultRouteTableId
-        => AsReference("propagation_default_route_table_id");
+        => CreateReference("propagation_default_route_table_id");
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupReferencingSupport
-        => AsReference("security_group_referencing_support");
+        => CreateReference("security_group_referencing_support");
 
     /// <summary>
     /// The transit_gateway_cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> TransitGatewayCidrBlocks
-        => AsReference("transit_gateway_cidr_blocks");
+        => CreateReference("transit_gateway_cidr_blocks");
 
     /// <summary>
     /// The vpn_ecmp_support attribute.
     /// </summary>
     public TerraformValue<string> VpnEcmpSupport
-        => AsReference("vpn_ecmp_support");
+        => CreateReference("vpn_ecmp_support");
 
     /// <summary>
     /// Filter block (nesting mode: set).

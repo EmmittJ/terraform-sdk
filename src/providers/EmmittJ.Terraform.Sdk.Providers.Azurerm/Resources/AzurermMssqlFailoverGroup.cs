@@ -27,13 +27,13 @@ public class AzurermMssqlFailoverGroupPartnerServerBlock : TerraformBlock
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     public TerraformValue<string> Role
-        => AsReference("role");
+        => CreateReference("role");
 
 }
 
@@ -141,7 +141,7 @@ public partial class AzurermMssqlFailoverGroup(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermMssqlFailoverGroup(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("readonly_endpoint_failover_policy_enabled") ?? AsReference("readonly_endpoint_failover_policy_enabled");
+        get => GetArgument<TerraformValue<bool>>("readonly_endpoint_failover_policy_enabled") ?? CreateReference("readonly_endpoint_failover_policy_enabled");
         set => SetArgument("readonly_endpoint_failover_policy_enabled", value);
     }
 

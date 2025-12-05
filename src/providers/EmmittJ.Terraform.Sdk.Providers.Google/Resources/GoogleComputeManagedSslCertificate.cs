@@ -79,7 +79,7 @@ public partial class GoogleComputeManagedSslCertificate(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleComputeManagedSslCertificate(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -123,31 +123,31 @@ public partial class GoogleComputeManagedSslCertificate(string name) : Terraform
     /// The unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> CertificateId
-        => AsReference("certificate_id");
+        => CreateReference("certificate_id");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Expire time of the certificate in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Domains associated with the certificate via Subject Alternative Name.
     /// </summary>
     public TerraformList<string> SubjectAlternativeNames
-        => AsReference("subject_alternative_names");
+        => CreateReference("subject_alternative_names");
 
     /// <summary>
     /// Managed block (nesting mode: list).

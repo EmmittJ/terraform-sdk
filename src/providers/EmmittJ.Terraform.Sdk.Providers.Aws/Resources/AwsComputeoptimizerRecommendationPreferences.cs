@@ -196,7 +196,7 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     /// </summary>
     public TerraformValue<string> LookBackPeriod
     {
-        get => GetArgument<TerraformValue<string>>("look_back_period") ?? AsReference("look_back_period");
+        get => GetArgument<TerraformValue<string>>("look_back_period") ?? CreateReference("look_back_period");
         set => SetArgument("look_back_period", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// ExternalMetricsPreference block (nesting mode: list).

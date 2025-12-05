@@ -17,7 +17,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// User-provided key-value pairs
     /// </summary>
     public TerraformList<TerraformMap<object>> AdditionalEndpoints
-        => AsReference("additional_endpoints");
+        => CreateReference("additional_endpoints");
 
     /// <summary>
     /// Enables JSON-RPC access to functions in the admin namespace. Defaults to false.
@@ -211,7 +211,7 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -243,7 +243,7 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes(string name) : Te
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -251,38 +251,38 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes(string name) : Te
     /// The connection information through which to interact with a blockchain node.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionInfo
-        => AsReference("connection_info");
+        => CreateReference("connection_info");
 
     /// <summary>
     /// The timestamp at which the blockchain node was first created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The fully qualified name of the blockchain node. e.g. projects/my-project/locations/us-central1/blockchainNodes/my-node.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The timestamp at which the blockchain node was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// EthereumDetails block (nesting mode: list).

@@ -22,7 +22,7 @@ public partial class AwsS3AccountPublicAccessBlockDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -30,24 +30,24 @@ public partial class AwsS3AccountPublicAccessBlockDataSource(string name) : Terr
     /// The block_public_acls attribute.
     /// </summary>
     public TerraformValue<bool> BlockPublicAcls
-        => AsReference("block_public_acls");
+        => CreateReference("block_public_acls");
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
     public TerraformValue<bool> BlockPublicPolicy
-        => AsReference("block_public_policy");
+        => CreateReference("block_public_policy");
 
     /// <summary>
     /// The ignore_public_acls attribute.
     /// </summary>
     public TerraformValue<bool> IgnorePublicAcls
-        => AsReference("ignore_public_acls");
+        => CreateReference("ignore_public_acls");
 
     /// <summary>
     /// The restrict_public_buckets attribute.
     /// </summary>
     public TerraformValue<bool> RestrictPublicBuckets
-        => AsReference("restrict_public_buckets");
+        => CreateReference("restrict_public_buckets");
 
 }

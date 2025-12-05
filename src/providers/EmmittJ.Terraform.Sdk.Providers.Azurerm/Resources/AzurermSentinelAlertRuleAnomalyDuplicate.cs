@@ -17,7 +17,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The name attribute.
@@ -33,7 +33,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
     /// The supported_values attribute.
     /// </summary>
     public TerraformList<string> SupportedValues
-        => AsReference("supported_values");
+        => CreateReference("supported_values");
 
     /// <summary>
     /// The values attribute.
@@ -63,7 +63,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The exclude attribute.
@@ -111,7 +111,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The name attribute.
@@ -127,7 +127,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     /// The supported_values attribute.
     /// </summary>
     public TerraformList<string> SupportedValues
-        => AsReference("supported_values");
+        => CreateReference("supported_values");
 
     /// <summary>
     /// The value attribute.
@@ -157,19 +157,19 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The max attribute.
     /// </summary>
     public TerraformValue<string> Max
-        => AsReference("max");
+        => CreateReference("max");
 
     /// <summary>
     /// The min attribute.
     /// </summary>
     public TerraformValue<string> Min
-        => AsReference("min");
+        => CreateReference("min");
 
     /// <summary>
     /// The name attribute.
@@ -285,7 +285,7 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -313,61 +313,61 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     /// The anomaly_settings_version attribute.
     /// </summary>
     public TerraformValue<double> AnomalySettingsVersion
-        => AsReference("anomaly_settings_version");
+        => CreateReference("anomaly_settings_version");
 
     /// <summary>
     /// The anomaly_version attribute.
     /// </summary>
     public TerraformValue<string> AnomalyVersion
-        => AsReference("anomaly_version");
+        => CreateReference("anomaly_version");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     public TerraformValue<string> Frequency
-        => AsReference("frequency");
+        => CreateReference("frequency");
 
     /// <summary>
     /// The is_default_settings attribute.
     /// </summary>
     public TerraformValue<bool> IsDefaultSettings
-        => AsReference("is_default_settings");
+        => CreateReference("is_default_settings");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The required_data_connector attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequiredDataConnector
-        => AsReference("required_data_connector");
+        => CreateReference("required_data_connector");
 
     /// <summary>
     /// The settings_definition_id attribute.
     /// </summary>
     public TerraformValue<string> SettingsDefinitionId
-        => AsReference("settings_definition_id");
+        => CreateReference("settings_definition_id");
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
     public TerraformList<string> Tactics
-        => AsReference("tactics");
+        => CreateReference("tactics");
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
     public TerraformList<string> Techniques
-        => AsReference("techniques");
+        => CreateReference("techniques");
 
     /// <summary>
     /// MultiSelectObservation block (nesting mode: list).

@@ -47,7 +47,7 @@ public partial class AwsCognitoResourceServer(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsCognitoResourceServer(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsCognitoResourceServer(string name) : TerraformResource("
     /// The scope_identifiers attribute.
     /// </summary>
     public TerraformList<string> ScopeIdentifiers
-        => AsReference("scope_identifiers");
+        => CreateReference("scope_identifiers");
 
     /// <summary>
     /// Scope block (nesting mode: set).

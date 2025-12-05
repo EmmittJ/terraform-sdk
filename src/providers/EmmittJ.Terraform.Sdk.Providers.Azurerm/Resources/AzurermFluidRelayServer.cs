@@ -60,13 +60,13 @@ public class AzurermFluidRelayServerIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -142,7 +142,7 @@ public partial class AzurermFluidRelayServer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermFluidRelayServer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> StorageSku
     {
-        get => GetArgument<TerraformValue<string>>("storage_sku") ?? AsReference("storage_sku");
+        get => GetArgument<TerraformValue<string>>("storage_sku") ?? CreateReference("storage_sku");
         set => SetArgument("storage_sku", value);
     }
 
@@ -198,37 +198,37 @@ public partial class AzurermFluidRelayServer(string name) : TerraformResource("a
     /// The frs_tenant_id attribute.
     /// </summary>
     public TerraformValue<string> FrsTenantId
-        => AsReference("frs_tenant_id");
+        => CreateReference("frs_tenant_id");
 
     /// <summary>
     /// The orderer_endpoints attribute.
     /// </summary>
     public TerraformList<string> OrdererEndpoints
-        => AsReference("orderer_endpoints");
+        => CreateReference("orderer_endpoints");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-        => AsReference("secondary_key");
+        => CreateReference("secondary_key");
 
     /// <summary>
     /// The service_endpoints attribute.
     /// </summary>
     public TerraformList<string> ServiceEndpoints
-        => AsReference("service_endpoints");
+        => CreateReference("service_endpoints");
 
     /// <summary>
     /// The storage_endpoints attribute.
     /// </summary>
     public TerraformList<string> StorageEndpoints
-        => AsReference("storage_endpoints");
+        => CreateReference("storage_endpoints");
 
     /// <summary>
     /// CustomerManagedKey block (nesting mode: list).

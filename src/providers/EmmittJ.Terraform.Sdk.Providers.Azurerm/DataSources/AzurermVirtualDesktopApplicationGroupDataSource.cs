@@ -36,7 +36,7 @@ public partial class AzurermVirtualDesktopApplicationGroupDataSource(string name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermVirtualDesktopApplicationGroupDataSource(string name
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
     public TerraformValue<string> FriendlyName
-        => AsReference("friendly_name");
+        => CreateReference("friendly_name");
 
     /// <summary>
     /// The host_pool_id attribute.
     /// </summary>
     public TerraformValue<string> HostPoolId
-        => AsReference("host_pool_id");
+        => CreateReference("host_pool_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-        => AsReference("workspace_id");
+        => CreateReference("workspace_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

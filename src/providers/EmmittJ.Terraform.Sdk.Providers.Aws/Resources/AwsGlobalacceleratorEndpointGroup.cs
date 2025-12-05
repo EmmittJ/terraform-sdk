@@ -27,7 +27,7 @@ public class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<bool> ClientIpPreservationEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("client_ip_preservation_enabled") ?? AsReference("client_ip_preservation_enabled");
+        get => GetArgument<TerraformValue<bool>>("client_ip_preservation_enabled") ?? CreateReference("client_ip_preservation_enabled");
         set => SetArgument("client_ip_preservation_enabled", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> EndpointGroupRegion
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_group_region") ?? AsReference("endpoint_group_region");
+        get => GetArgument<TerraformValue<string>>("endpoint_group_region") ?? CreateReference("endpoint_group_region");
         set => SetArgument("endpoint_group_region", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> HealthCheckPath
     {
-        get => GetArgument<TerraformValue<string>>("health_check_path") ?? AsReference("health_check_path");
+        get => GetArgument<TerraformValue<string>>("health_check_path") ?? CreateReference("health_check_path");
         set => SetArgument("health_check_path", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<double> HealthCheckPort
     {
-        get => GetArgument<TerraformValue<double>>("health_check_port") ?? AsReference("health_check_port");
+        get => GetArgument<TerraformValue<double>>("health_check_port") ?? CreateReference("health_check_port");
         set => SetArgument("health_check_port", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// EndpointConfiguration block (nesting mode: set).

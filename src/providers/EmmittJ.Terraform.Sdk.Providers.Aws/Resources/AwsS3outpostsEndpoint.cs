@@ -13,7 +13,7 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> AccessType
     {
-        get => GetArgument<TerraformValue<string>>("access_type") ?? AsReference("access_type");
+        get => GetArgument<TerraformValue<string>>("access_type") ?? CreateReference("access_type");
         set => SetArgument("access_type", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -78,24 +78,24 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
     public TerraformValue<string> CidrBlock
-        => AsReference("cidr_block");
+        => CreateReference("cidr_block");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The network_interfaces attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> NetworkInterfaces
-        => AsReference("network_interfaces");
+        => CreateReference("network_interfaces");
 
 }

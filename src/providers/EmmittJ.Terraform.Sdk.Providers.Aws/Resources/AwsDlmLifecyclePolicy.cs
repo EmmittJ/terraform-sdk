@@ -45,7 +45,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PolicyLanguage
     {
-        get => GetArgument<TerraformValue<string>>("policy_language") ?? AsReference("policy_language");
+        get => GetArgument<TerraformValue<string>>("policy_language") ?? CreateReference("policy_language");
         set => SetArgument("policy_language", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> ResourceLocations
     {
-        get => GetArgument<TerraformList<string>>("resource_locations") ?? AsReference("resource_locations");
+        get => GetArgument<TerraformList<string>>("resource_locations") ?? CreateReference("resource_locations");
         set => SetArgument("resource_locations", value);
     }
 
@@ -467,7 +467,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool> CopyTags
     {
-        get => GetArgument<TerraformValue<bool>>("copy_tags") ?? AsReference("copy_tags");
+        get => GetArgument<TerraformValue<bool>>("copy_tags") ?? CreateReference("copy_tags");
         set => SetArgument("copy_tags", value);
     }
 
@@ -703,7 +703,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     /// </summary>
     public TerraformValue<string> IntervalUnit
     {
-        get => GetArgument<TerraformValue<string>>("interval_unit") ?? AsReference("interval_unit");
+        get => GetArgument<TerraformValue<string>>("interval_unit") ?? CreateReference("interval_unit");
         set => SetArgument("interval_unit", value);
     }
 
@@ -712,7 +712,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -721,7 +721,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     /// </summary>
     public TerraformList<string> Times
     {
-        get => GetArgument<TerraformList<string>>("times") ?? AsReference("times");
+        get => GetArgument<TerraformList<string>>("times") ?? CreateReference("times");
         set => SetArgument("times", value);
     }
 
@@ -753,7 +753,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     /// </summary>
     public TerraformValue<bool> ExecuteOperationOnScriptFailure
     {
-        get => GetArgument<TerraformValue<bool>>("execute_operation_on_script_failure") ?? AsReference("execute_operation_on_script_failure");
+        get => GetArgument<TerraformValue<bool>>("execute_operation_on_script_failure") ?? CreateReference("execute_operation_on_script_failure");
         set => SetArgument("execute_operation_on_script_failure", value);
     }
 
@@ -772,7 +772,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     /// </summary>
     public TerraformValue<string> ExecutionHandlerService
     {
-        get => GetArgument<TerraformValue<string>>("execution_handler_service") ?? AsReference("execution_handler_service");
+        get => GetArgument<TerraformValue<string>>("execution_handler_service") ?? CreateReference("execution_handler_service");
         set => SetArgument("execution_handler_service", value);
     }
 
@@ -781,7 +781,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     /// </summary>
     public TerraformValue<double> ExecutionTimeout
     {
-        get => GetArgument<TerraformValue<double>>("execution_timeout") ?? AsReference("execution_timeout");
+        get => GetArgument<TerraformValue<double>>("execution_timeout") ?? CreateReference("execution_timeout");
         set => SetArgument("execution_timeout", value);
     }
 
@@ -790,7 +790,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     /// </summary>
     public TerraformValue<double> MaximumRetryCount
     {
-        get => GetArgument<TerraformValue<double>>("maximum_retry_count") ?? AsReference("maximum_retry_count");
+        get => GetArgument<TerraformValue<double>>("maximum_retry_count") ?? CreateReference("maximum_retry_count");
         set => SetArgument("maximum_retry_count", value);
     }
 
@@ -830,7 +830,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCrossRegionCopy
     /// </summary>
     public TerraformValue<bool> CopyTags
     {
-        get => GetArgument<TerraformValue<bool>>("copy_tags") ?? AsReference("copy_tags");
+        get => GetArgument<TerraformValue<bool>>("copy_tags") ?? CreateReference("copy_tags");
         set => SetArgument("copy_tags", value);
     }
 
@@ -1162,7 +1162,7 @@ public partial class AwsDlmLifecyclePolicy(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1171,7 +1171,7 @@ public partial class AwsDlmLifecyclePolicy(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1198,7 +1198,7 @@ public partial class AwsDlmLifecyclePolicy(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1206,7 +1206,7 @@ public partial class AwsDlmLifecyclePolicy(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// PolicyDetails block (nesting mode: list).

@@ -13,7 +13,7 @@ public partial class AwsIamAccessKey(string name) : TerraformResource("aws_iam_a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,36 +49,36 @@ public partial class AwsIamAccessKey(string name) : TerraformResource("aws_iam_a
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-        => AsReference("create_date");
+        => CreateReference("create_date");
 
     /// <summary>
     /// The encrypted_secret attribute.
     /// </summary>
     public TerraformValue<string> EncryptedSecret
-        => AsReference("encrypted_secret");
+        => CreateReference("encrypted_secret");
 
     /// <summary>
     /// The encrypted_ses_smtp_password_v4 attribute.
     /// </summary>
     public TerraformValue<string> EncryptedSesSmtpPasswordV4
-        => AsReference("encrypted_ses_smtp_password_v4");
+        => CreateReference("encrypted_ses_smtp_password_v4");
 
     /// <summary>
     /// The key_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> KeyFingerprint
-        => AsReference("key_fingerprint");
+        => CreateReference("key_fingerprint");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     public TerraformValue<string> Secret
-        => AsReference("secret");
+        => CreateReference("secret");
 
     /// <summary>
     /// The ses_smtp_password_v4 attribute.
     /// </summary>
     public TerraformValue<string> SesSmtpPasswordV4
-        => AsReference("ses_smtp_password_v4");
+        => CreateReference("ses_smtp_password_v4");
 
 }

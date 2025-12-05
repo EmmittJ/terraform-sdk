@@ -22,7 +22,7 @@ public partial class AwsNeptuneOrderableDbInstanceDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsNeptuneOrderableDbInstanceDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsNeptuneOrderableDbInstanceDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> InstanceClass
     {
-        get => GetArgument<TerraformValue<string>>("instance_class") ?? AsReference("instance_class");
+        get => GetArgument<TerraformValue<string>>("instance_class") ?? CreateReference("instance_class");
         set => SetArgument("instance_class", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsNeptuneOrderableDbInstanceDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsNeptuneOrderableDbInstanceDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<bool> Vpc
     {
-        get => GetArgument<TerraformValue<bool>>("vpc") ?? AsReference("vpc");
+        get => GetArgument<TerraformValue<bool>>("vpc") ?? CreateReference("vpc");
         set => SetArgument("vpc", value);
     }
 
@@ -84,90 +84,90 @@ public partial class AwsNeptuneOrderableDbInstanceDataSource(string name) : Terr
     /// The availability_zones attribute.
     /// </summary>
     public TerraformList<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The max_iops_per_db_instance attribute.
     /// </summary>
     public TerraformValue<double> MaxIopsPerDbInstance
-        => AsReference("max_iops_per_db_instance");
+        => CreateReference("max_iops_per_db_instance");
 
     /// <summary>
     /// The max_iops_per_gib attribute.
     /// </summary>
     public TerraformValue<double> MaxIopsPerGib
-        => AsReference("max_iops_per_gib");
+        => CreateReference("max_iops_per_gib");
 
     /// <summary>
     /// The max_storage_size attribute.
     /// </summary>
     public TerraformValue<double> MaxStorageSize
-        => AsReference("max_storage_size");
+        => CreateReference("max_storage_size");
 
     /// <summary>
     /// The min_iops_per_db_instance attribute.
     /// </summary>
     public TerraformValue<double> MinIopsPerDbInstance
-        => AsReference("min_iops_per_db_instance");
+        => CreateReference("min_iops_per_db_instance");
 
     /// <summary>
     /// The min_iops_per_gib attribute.
     /// </summary>
     public TerraformValue<double> MinIopsPerGib
-        => AsReference("min_iops_per_gib");
+        => CreateReference("min_iops_per_gib");
 
     /// <summary>
     /// The min_storage_size attribute.
     /// </summary>
     public TerraformValue<double> MinStorageSize
-        => AsReference("min_storage_size");
+        => CreateReference("min_storage_size");
 
     /// <summary>
     /// The multi_az_capable attribute.
     /// </summary>
     public TerraformValue<bool> MultiAzCapable
-        => AsReference("multi_az_capable");
+        => CreateReference("multi_az_capable");
 
     /// <summary>
     /// The read_replica_capable attribute.
     /// </summary>
     public TerraformValue<bool> ReadReplicaCapable
-        => AsReference("read_replica_capable");
+        => CreateReference("read_replica_capable");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     public TerraformValue<string> StorageType
-        => AsReference("storage_type");
+        => CreateReference("storage_type");
 
     /// <summary>
     /// The supports_enhanced_monitoring attribute.
     /// </summary>
     public TerraformValue<bool> SupportsEnhancedMonitoring
-        => AsReference("supports_enhanced_monitoring");
+        => CreateReference("supports_enhanced_monitoring");
 
     /// <summary>
     /// The supports_iam_database_authentication attribute.
     /// </summary>
     public TerraformValue<bool> SupportsIamDatabaseAuthentication
-        => AsReference("supports_iam_database_authentication");
+        => CreateReference("supports_iam_database_authentication");
 
     /// <summary>
     /// The supports_iops attribute.
     /// </summary>
     public TerraformValue<bool> SupportsIops
-        => AsReference("supports_iops");
+        => CreateReference("supports_iops");
 
     /// <summary>
     /// The supports_performance_insights attribute.
     /// </summary>
     public TerraformValue<bool> SupportsPerformanceInsights
-        => AsReference("supports_performance_insights");
+        => CreateReference("supports_performance_insights");
 
     /// <summary>
     /// The supports_storage_encryption attribute.
     /// </summary>
     public TerraformValue<bool> SupportsStorageEncryption
-        => AsReference("supports_storage_encryption");
+        => CreateReference("supports_storage_encryption");
 
 }

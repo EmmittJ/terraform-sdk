@@ -54,7 +54,7 @@ public partial class AwsServicecatalogTagOptionResourceAssociation(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsServicecatalogTagOptionResourceAssociation(string name) 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -91,25 +91,25 @@ public partial class AwsServicecatalogTagOptionResourceAssociation(string name) 
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-        => AsReference("resource_arn");
+        => CreateReference("resource_arn");
 
     /// <summary>
     /// The resource_created_time attribute.
     /// </summary>
     public TerraformValue<string> ResourceCreatedTime
-        => AsReference("resource_created_time");
+        => CreateReference("resource_created_time");
 
     /// <summary>
     /// The resource_description attribute.
     /// </summary>
     public TerraformValue<string> ResourceDescription
-        => AsReference("resource_description");
+        => CreateReference("resource_description");
 
     /// <summary>
     /// The resource_name attribute.
     /// </summary>
     public TerraformValue<string> ResourceNameAttribute
-        => AsReference("resource_name");
+        => CreateReference("resource_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

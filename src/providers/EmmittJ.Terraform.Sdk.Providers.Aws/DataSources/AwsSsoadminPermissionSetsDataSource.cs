@@ -23,7 +23,7 @@ public partial class AwsSsoadminPermissionSetsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,12 +31,12 @@ public partial class AwsSsoadminPermissionSetsDataSource(string name) : Terrafor
     /// The arns attribute.
     /// </summary>
     public TerraformList<string> Arns
-        => AsReference("arns");
+        => CreateReference("arns");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

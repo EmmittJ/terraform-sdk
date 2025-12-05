@@ -42,7 +42,7 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     /// </summary>
     public TerraformValue<string> RegistryArn
     {
-        get => GetArgument<TerraformValue<string>>("registry_arn") ?? AsReference("registry_arn");
+        get => GetArgument<TerraformValue<string>>("registry_arn") ?? CreateReference("registry_arn");
         set => SetArgument("registry_arn", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -106,30 +106,30 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The latest_schema_version attribute.
     /// </summary>
     public TerraformValue<double> LatestSchemaVersion
-        => AsReference("latest_schema_version");
+        => CreateReference("latest_schema_version");
 
     /// <summary>
     /// The next_schema_version attribute.
     /// </summary>
     public TerraformValue<double> NextSchemaVersion
-        => AsReference("next_schema_version");
+        => CreateReference("next_schema_version");
 
     /// <summary>
     /// The registry_name attribute.
     /// </summary>
     public TerraformValue<string> RegistryName
-        => AsReference("registry_name");
+        => CreateReference("registry_name");
 
     /// <summary>
     /// The schema_checkpoint attribute.
     /// </summary>
     public TerraformValue<double> SchemaCheckpoint
-        => AsReference("schema_checkpoint");
+        => CreateReference("schema_checkpoint");
 
 }

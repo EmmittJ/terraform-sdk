@@ -70,7 +70,7 @@ public partial class AwsEc2ClientVpnEndpointDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> ClientVpnEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("client_vpn_endpoint_id") ?? AsReference("client_vpn_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("client_vpn_endpoint_id") ?? CreateReference("client_vpn_endpoint_id");
         set => SetArgument("client_vpn_endpoint_id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEc2ClientVpnEndpointDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsEc2ClientVpnEndpointDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsEc2ClientVpnEndpointDataSource(string name) : TerraformD
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -105,127 +105,127 @@ public partial class AwsEc2ClientVpnEndpointDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The authentication_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AuthenticationOptions
-        => AsReference("authentication_options");
+        => CreateReference("authentication_options");
 
     /// <summary>
     /// The client_cidr_block attribute.
     /// </summary>
     public TerraformValue<string> ClientCidrBlock
-        => AsReference("client_cidr_block");
+        => CreateReference("client_cidr_block");
 
     /// <summary>
     /// The client_connect_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientConnectOptions
-        => AsReference("client_connect_options");
+        => CreateReference("client_connect_options");
 
     /// <summary>
     /// The client_login_banner_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientLoginBannerOptions
-        => AsReference("client_login_banner_options");
+        => CreateReference("client_login_banner_options");
 
     /// <summary>
     /// The client_route_enforcement_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientRouteEnforcementOptions
-        => AsReference("client_route_enforcement_options");
+        => CreateReference("client_route_enforcement_options");
 
     /// <summary>
     /// The connection_log_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionLogOptions
-        => AsReference("connection_log_options");
+        => CreateReference("connection_log_options");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     public TerraformList<string> DnsServers
-        => AsReference("dns_servers");
+        => CreateReference("dns_servers");
 
     /// <summary>
     /// The endpoint_ip_address_type attribute.
     /// </summary>
     public TerraformValue<string> EndpointIpAddressType
-        => AsReference("endpoint_ip_address_type");
+        => CreateReference("endpoint_ip_address_type");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformList<string> SecurityGroupIds
-        => AsReference("security_group_ids");
+        => CreateReference("security_group_ids");
 
     /// <summary>
     /// The self_service_portal attribute.
     /// </summary>
     public TerraformValue<string> SelfServicePortal
-        => AsReference("self_service_portal");
+        => CreateReference("self_service_portal");
 
     /// <summary>
     /// The self_service_portal_url attribute.
     /// </summary>
     public TerraformValue<string> SelfServicePortalUrl
-        => AsReference("self_service_portal_url");
+        => CreateReference("self_service_portal_url");
 
     /// <summary>
     /// The server_certificate_arn attribute.
     /// </summary>
     public TerraformValue<string> ServerCertificateArn
-        => AsReference("server_certificate_arn");
+        => CreateReference("server_certificate_arn");
 
     /// <summary>
     /// The session_timeout_hours attribute.
     /// </summary>
     public TerraformValue<double> SessionTimeoutHours
-        => AsReference("session_timeout_hours");
+        => CreateReference("session_timeout_hours");
 
     /// <summary>
     /// The split_tunnel attribute.
     /// </summary>
     public TerraformValue<bool> SplitTunnel
-        => AsReference("split_tunnel");
+        => CreateReference("split_tunnel");
 
     /// <summary>
     /// The traffic_ip_address_type attribute.
     /// </summary>
     public TerraformValue<string> TrafficIpAddressType
-        => AsReference("traffic_ip_address_type");
+        => CreateReference("traffic_ip_address_type");
 
     /// <summary>
     /// The transport_protocol attribute.
     /// </summary>
     public TerraformValue<string> TransportProtocol
-        => AsReference("transport_protocol");
+        => CreateReference("transport_protocol");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// The vpn_port attribute.
     /// </summary>
     public TerraformValue<double> VpnPort
-        => AsReference("vpn_port");
+        => CreateReference("vpn_port");
 
     /// <summary>
     /// Filter block (nesting mode: set).

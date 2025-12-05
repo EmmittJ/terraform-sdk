@@ -70,7 +70,7 @@ public partial class AwsEc2ManagedPrefixListDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEc2ManagedPrefixListDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsEc2ManagedPrefixListDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsEc2ManagedPrefixListDataSource(string name) : TerraformD
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -105,37 +105,37 @@ public partial class AwsEc2ManagedPrefixListDataSource(string name) : TerraformD
     /// The address_family attribute.
     /// </summary>
     public TerraformValue<string> AddressFamily
-        => AsReference("address_family");
+        => CreateReference("address_family");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The entries attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Entries
-        => AsReference("entries");
+        => CreateReference("entries");
 
     /// <summary>
     /// The max_entries attribute.
     /// </summary>
     public TerraformValue<double> MaxEntries
-        => AsReference("max_entries");
+        => CreateReference("max_entries");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// Filter block (nesting mode: set).

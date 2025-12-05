@@ -109,7 +109,7 @@ public partial class GoogleApigeeDnsZone(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleApigeeDnsZone(string name) : TerraformResource("googl
     /// organizations/{organization}/dnsZones/{dnsZone}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// PeeringConfig block (nesting mode: list).

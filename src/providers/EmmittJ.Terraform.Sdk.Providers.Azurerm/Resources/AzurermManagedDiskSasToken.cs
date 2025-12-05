@@ -74,7 +74,7 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     /// The sas_url attribute.
     /// </summary>
     public TerraformValue<string> SasUrl
-        => AsReference("sas_url");
+        => CreateReference("sas_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

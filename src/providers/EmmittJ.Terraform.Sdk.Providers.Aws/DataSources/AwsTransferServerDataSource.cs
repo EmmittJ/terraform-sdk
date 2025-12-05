@@ -13,7 +13,7 @@ public partial class AwsTransferServerDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsTransferServerDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsTransferServerDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,72 +49,72 @@ public partial class AwsTransferServerDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
     public TerraformValue<string> Certificate
-        => AsReference("certificate");
+        => CreateReference("certificate");
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     public TerraformValue<string> Domain
-        => AsReference("domain");
+        => CreateReference("domain");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     public TerraformValue<string> EndpointType
-        => AsReference("endpoint_type");
+        => CreateReference("endpoint_type");
 
     /// <summary>
     /// The identity_provider_type attribute.
     /// </summary>
     public TerraformValue<string> IdentityProviderType
-        => AsReference("identity_provider_type");
+        => CreateReference("identity_provider_type");
 
     /// <summary>
     /// The invocation_role attribute.
     /// </summary>
     public TerraformValue<string> InvocationRole
-        => AsReference("invocation_role");
+        => CreateReference("invocation_role");
 
     /// <summary>
     /// The logging_role attribute.
     /// </summary>
     public TerraformValue<string> LoggingRole
-        => AsReference("logging_role");
+        => CreateReference("logging_role");
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
     public TerraformList<string> Protocols
-        => AsReference("protocols");
+        => CreateReference("protocols");
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
     public TerraformValue<string> SecurityPolicyName
-        => AsReference("security_policy_name");
+        => CreateReference("security_policy_name");
 
     /// <summary>
     /// The structured_log_destinations attribute.
     /// </summary>
     public TerraformList<string> StructuredLogDestinations
-        => AsReference("structured_log_destinations");
+        => CreateReference("structured_log_destinations");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
 }

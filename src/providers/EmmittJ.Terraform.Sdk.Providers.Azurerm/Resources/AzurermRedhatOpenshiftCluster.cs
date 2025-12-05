@@ -17,13 +17,13 @@ public class AzurermRedhatOpenshiftClusterApiServerProfileBlock : TerraformBlock
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// The visibility attribute.
@@ -90,7 +90,7 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
     /// The resource_group_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceGroupId
-        => AsReference("resource_group_id");
+        => CreateReference("resource_group_id");
 
     /// <summary>
     /// The version attribute.
@@ -120,13 +120,13 @@ public class AzurermRedhatOpenshiftClusterIngressProfileBlock : TerraformBlock
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The visibility attribute.
@@ -412,7 +412,7 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -459,7 +459,7 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     /// The console_url attribute.
     /// </summary>
     public TerraformValue<string> ConsoleUrl
-        => AsReference("console_url");
+        => CreateReference("console_url");
 
     /// <summary>
     /// ApiServerProfile block (nesting mode: list).

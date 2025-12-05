@@ -36,7 +36,7 @@ public partial class AzurermSpringCloudServiceDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermSpringCloudServiceDataSource(string name) : Terrafor
     /// The config_server_git_setting attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConfigServerGitSetting
-        => AsReference("config_server_git_setting");
+        => CreateReference("config_server_git_setting");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The outbound_public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> OutboundPublicIpAddresses
-        => AsReference("outbound_public_ip_addresses");
+        => CreateReference("outbound_public_ip_addresses");
 
     /// <summary>
     /// The required_network_traffic_rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequiredNetworkTrafficRules
-        => AsReference("required_network_traffic_rules");
+        => CreateReference("required_network_traffic_rules");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

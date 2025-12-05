@@ -17,7 +17,7 @@ public class AzurermAutomationRunbookDraftBlock : TerraformBlock
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The edit_mode_enabled attribute.
@@ -32,7 +32,7 @@ public class AzurermAutomationRunbookDraftBlock : TerraformBlock
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-        => AsReference("last_modified_time");
+        => CreateReference("last_modified_time");
 
     /// <summary>
     /// The output_types attribute.
@@ -347,7 +347,7 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content") ?? AsReference("content");
+        get => GetArgument<TerraformValue<string>>("content") ?? CreateReference("content");
         set => SetArgument("content", value);
     }
 
@@ -365,7 +365,7 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -374,7 +374,7 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<TerraformMap<object>> JobSchedule
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("job_schedule") ?? AsReference("job_schedule");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("job_schedule") ?? CreateReference("job_schedule");
         set => SetArgument("job_schedule", value);
     }
 

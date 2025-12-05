@@ -1,0 +1,4 @@
+﻿resource "test_policy" "policy" {
+  name       = "my-policy"
+  target_arn = test_resource_group.rg.arn
+}

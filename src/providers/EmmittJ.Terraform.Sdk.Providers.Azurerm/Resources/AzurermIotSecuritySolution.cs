@@ -292,7 +292,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -349,7 +349,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> QueryForResources
     {
-        get => GetArgument<TerraformValue<string>>("query_for_resources") ?? AsReference("query_for_resources");
+        get => GetArgument<TerraformValue<string>>("query_for_resources") ?? CreateReference("query_for_resources");
         set => SetArgument("query_for_resources", value);
     }
 
@@ -358,7 +358,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string> QuerySubscriptionIds
     {
-        get => GetArgument<TerraformSet<string>>("query_subscription_ids") ?? AsReference("query_subscription_ids");
+        get => GetArgument<TerraformSet<string>>("query_subscription_ids") ?? CreateReference("query_subscription_ids");
         set => SetArgument("query_subscription_ids", value);
     }
 

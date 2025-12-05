@@ -17,13 +17,13 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     /// The current_versioned_key_expiration_timestamp attribute.
     /// </summary>
     public TerraformValue<string> CurrentVersionedKeyExpirationTimestamp
-        => AsReference("current_versioned_key_expiration_timestamp");
+        => CreateReference("current_versioned_key_expiration_timestamp");
 
     /// <summary>
     /// The current_versioned_key_id attribute.
     /// </summary>
     public TerraformValue<string> CurrentVersionedKeyId
-        => AsReference("current_versioned_key_id");
+        => CreateReference("current_versioned_key_id");
 
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -39,7 +39,7 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     /// The last_key_rotation_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastKeyRotationTimestamp
-        => AsReference("last_key_rotation_timestamp");
+        => CreateReference("last_key_rotation_timestamp");
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
@@ -77,13 +77,13 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -211,7 +211,7 @@ public partial class AzurermElasticSanVolumeGroup(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

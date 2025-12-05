@@ -18,7 +18,7 @@ public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool> DiagnosticsEventsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("diagnostics_events_enabled") ?? AsReference("diagnostics_events_enabled");
+        get => GetArgument<TerraformValue<bool>>("diagnostics_events_enabled") ?? CreateReference("diagnostics_events_enabled");
         set => SetArgument("diagnostics_events_enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool> HealthMonitoringEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("health_monitoring_enabled") ?? AsReference("health_monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("health_monitoring_enabled") ?? CreateReference("health_monitoring_enabled");
         set => SetArgument("health_monitoring_enabled", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool> IncidentLogsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("incident_logs_enabled") ?? AsReference("incident_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("incident_logs_enabled") ?? CreateReference("incident_logs_enabled");
         set => SetArgument("incident_logs_enabled", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name") ?? AsReference("cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name") ?? CreateReference("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> DataStoragePercentage
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_percentage") ?? AsReference("data_storage_percentage");
+        get => GetArgument<TerraformValue<double>>("data_storage_percentage") ?? CreateReference("data_storage_percentage");
         set => SetArgument("data_storage_percentage", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> DataStorageSizeInTbs
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_in_tbs") ?? AsReference("data_storage_size_in_tbs");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_in_tbs") ?? CreateReference("data_storage_size_in_tbs");
         set => SetArgument("data_storage_size_in_tbs", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> DbNodeStorageSizeInGbs
     {
-        get => GetArgument<TerraformValue<double>>("db_node_storage_size_in_gbs") ?? AsReference("db_node_storage_size_in_gbs");
+        get => GetArgument<TerraformValue<double>>("db_node_storage_size_in_gbs") ?? CreateReference("db_node_storage_size_in_gbs");
         set => SetArgument("db_node_storage_size_in_gbs", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain") ?? AsReference("domain");
+        get => GetArgument<TerraformValue<string>>("domain") ?? CreateReference("domain");
         set => SetArgument("domain", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -269,7 +269,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool> LocalBackupEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("local_backup_enabled") ?? AsReference("local_backup_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_backup_enabled") ?? CreateReference("local_backup_enabled");
         set => SetArgument("local_backup_enabled", value);
     }
 
@@ -288,7 +288,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> MemorySizeInGbs
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_in_gbs") ?? AsReference("memory_size_in_gbs");
+        get => GetArgument<TerraformValue<double>>("memory_size_in_gbs") ?? CreateReference("memory_size_in_gbs");
         set => SetArgument("memory_size_in_gbs", value);
     }
 
@@ -335,7 +335,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool> SparseDiskgroupEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sparse_diskgroup_enabled") ?? AsReference("sparse_diskgroup_enabled");
+        get => GetArgument<TerraformValue<bool>>("sparse_diskgroup_enabled") ?? CreateReference("sparse_diskgroup_enabled");
         set => SetArgument("sparse_diskgroup_enabled", value);
     }
 
@@ -364,7 +364,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> SystemVersion
     {
-        get => GetArgument<TerraformValue<string>>("system_version") ?? AsReference("system_version");
+        get => GetArgument<TerraformValue<string>>("system_version") ?? CreateReference("system_version");
         set => SetArgument("system_version", value);
     }
 
@@ -382,7 +382,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone") ?? AsReference("time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone") ?? CreateReference("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -401,7 +401,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> ZoneId
     {
-        get => GetArgument<TerraformValue<string>>("zone_id") ?? AsReference("zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id") ?? CreateReference("zone_id");
         set => SetArgument("zone_id", value);
     }
 
@@ -409,13 +409,13 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// The hostname_actual attribute.
     /// </summary>
     public TerraformValue<string> HostnameActual
-        => AsReference("hostname_actual");
+        => CreateReference("hostname_actual");
 
     /// <summary>
     /// The ocid attribute.
     /// </summary>
     public TerraformValue<string> Ocid
-        => AsReference("ocid");
+        => CreateReference("ocid");
 
     /// <summary>
     /// DataCollectionOptions block (nesting mode: list).

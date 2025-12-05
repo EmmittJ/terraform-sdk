@@ -23,7 +23,7 @@ public partial class GoogleBackupDrBackupVaultDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,13 +50,13 @@ public partial class GoogleBackupDrBackupVaultDataSource(string name) : Terrafor
     /// Access restriction for the backup vault. Default value is &#39;WITHIN_ORGANIZATION&#39; if not provided during creation. Default value: &amp;quot;WITHIN_ORGANIZATION&amp;quot; Possible values: [&amp;quot;ACCESS_RESTRICTION_UNSPECIFIED&amp;quot;, &amp;quot;WITHIN_PROJECT&amp;quot;, &amp;quot;WITHIN_ORGANIZATION&amp;quot;, &amp;quot;UNRESTRICTED&amp;quot;, &amp;quot;WITHIN_ORG_BUT_UNRESTRICTED_FOR_BA&amp;quot;]
     /// </summary>
     public TerraformValue<string> AccessRestriction
-        => AsReference("access_restriction");
+        => CreateReference("access_restriction");
 
     /// <summary>
     /// Allow idempotent deletion of backup vault. The request will still succeed in case the backup vault does not exist.
     /// </summary>
     public TerraformValue<bool> AllowMissing
-        => AsReference("allow_missing");
+        => CreateReference("allow_missing");
 
     /// <summary>
     /// Optional. User annotations. See https://google.aip.dev/128#annotations
@@ -66,67 +66,67 @@ public partial class GoogleBackupDrBackupVaultDataSource(string name) : Terrafor
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
     public TerraformMap<string> Annotations
-        => AsReference("annotations");
+        => CreateReference("annotations");
 
     /// <summary>
     /// Output only. The number of backups in this backup vault.
     /// </summary>
     public TerraformValue<string> BackupCount
-        => AsReference("backup_count");
+        => CreateReference("backup_count");
 
     /// <summary>
     /// Required. The default and minimum enforced retention for each backup within the backup vault. The enforced retention for each backup can be extended.
     /// </summary>
     public TerraformValue<string> BackupMinimumEnforcedRetentionDuration
-        => AsReference("backup_minimum_enforced_retention_duration");
+        => CreateReference("backup_minimum_enforced_retention_duration");
 
     /// <summary>
     /// How a backup&#39;s enforced retention end time is inherited. Default value is &#39;INHERIT_VAULT_RETENTION&#39; if not provided during creation. Possible values: [&amp;quot;BACKUP_RETENTION_INHERITANCE_UNSPECIFIED&amp;quot;, &amp;quot;INHERIT_VAULT_RETENTION&amp;quot;, &amp;quot;MATCH_BACKUP_EXPIRE_TIME&amp;quot;]
     /// </summary>
     public TerraformValue<string> BackupRetentionInheritance
-        => AsReference("backup_retention_inheritance");
+        => CreateReference("backup_retention_inheritance");
 
     /// <summary>
     /// Output only. The time when the instance was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. Set to true when there are no backups nested under this resource.
     /// </summary>
     public TerraformValue<bool> Deletable
-        => AsReference("deletable");
+        => CreateReference("deletable");
 
     /// <summary>
     /// Optional. The description of the BackupVault instance (2048 characters or less).
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Optional. Time after which the BackupVault resource is locked.
     /// </summary>
     public TerraformValue<string> EffectiveTime
-        => AsReference("effective_time");
+        => CreateReference("effective_time");
 
     /// <summary>
     /// Optional. Server specified ETag for the backup vault resource to prevent simultaneous updates from overwiting each other.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
@@ -134,7 +134,7 @@ public partial class GoogleBackupDrBackupVaultDataSource(string name) : Terrafor
     ///    * deletion of a backup vault instance that is being referenced by an active backup plan.
     /// </summary>
     public TerraformValue<bool> ForceDelete
-        => AsReference("force_delete");
+        => CreateReference("force_delete");
 
     /// <summary>
     /// If set, allow update to extend the minimum enforced retention for backup vault. This overrides
@@ -143,21 +143,21 @@ public partial class GoogleBackupDrBackupVaultDataSource(string name) : Terrafor
     ///  retention set by the backup vault.
     /// </summary>
     public TerraformValue<bool> ForceUpdate
-        => AsReference("force_update");
+        => CreateReference("force_update");
 
     /// <summary>
     /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
     ///    * deletion of a backup vault instance that is being referenced by an active backup plan.
     /// </summary>
     public TerraformValue<bool> IgnoreBackupPlanReferences
-        => AsReference("ignore_backup_plan_references");
+        => CreateReference("ignore_backup_plan_references");
 
     /// <summary>
     /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
     ///    * deletion of a backup vault instance containing no backups, but still containing empty datasources.
     /// </summary>
     public TerraformValue<bool> IgnoreInactiveDatasources
-        => AsReference("ignore_inactive_datasources");
+        => CreateReference("ignore_inactive_datasources");
 
     /// <summary>
     /// Optional. Resource labels to represent user provided metadata. 
@@ -166,19 +166,19 @@ public partial class GoogleBackupDrBackupVaultDataSource(string name) : Terrafor
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Output only. Identifier. The resource name.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Service account used by the BackupVault Service for this BackupVault.  The user should grant this account permissions in their workload project to enable the service to run backups and restores there.
     /// </summary>
     public TerraformValue<string> ServiceAccount
-        => AsReference("service_account");
+        => CreateReference("service_account");
 
     /// <summary>
     /// Output only. The BackupVault resource instance state. 
@@ -190,31 +190,31 @@ public partial class GoogleBackupDrBackupVaultDataSource(string name) : Terrafor
     ///  ERROR
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. Total size of the storage used by all backup resources.
     /// </summary>
     public TerraformValue<string> TotalStoredBytes
-        => AsReference("total_stored_bytes");
+        => CreateReference("total_stored_bytes");
 
     /// <summary>
     /// Output only. Output only Immutable after resource creation until resource deletion.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time when the instance was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

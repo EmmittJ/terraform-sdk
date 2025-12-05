@@ -55,7 +55,7 @@ public partial class GoogleSqlSslCert(string name) : TerraformResource("google_s
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleSqlSslCert(string name) : TerraformResource("google_s
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -82,43 +82,43 @@ public partial class GoogleSqlSslCert(string name) : TerraformResource("google_s
     /// The actual certificate data for this client certificate.
     /// </summary>
     public TerraformValue<string> Cert
-        => AsReference("cert");
+        => CreateReference("cert");
 
     /// <summary>
     /// The serial number extracted from the certificate data.
     /// </summary>
     public TerraformValue<string> CertSerialNumber
-        => AsReference("cert_serial_number");
+        => CreateReference("cert_serial_number");
 
     /// <summary>
     /// The time when the certificate was created in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The time when the certificate expires in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
     /// </summary>
     public TerraformValue<string> ExpirationTime
-        => AsReference("expiration_time");
+        => CreateReference("expiration_time");
 
     /// <summary>
     /// The private key associated with the client certificate.
     /// </summary>
     public TerraformValue<string> PrivateKey
-        => AsReference("private_key");
+        => CreateReference("private_key");
 
     /// <summary>
     /// The CA cert of the server this client cert was generated from.
     /// </summary>
     public TerraformValue<string> ServerCaCert
-        => AsReference("server_ca_cert");
+        => CreateReference("server_ca_cert");
 
     /// <summary>
     /// The SHA1 Fingerprint of the certificate.
     /// </summary>
     public TerraformValue<string> Sha1Fingerprint
-        => AsReference("sha1_fingerprint");
+        => CreateReference("sha1_fingerprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

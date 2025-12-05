@@ -231,7 +231,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -299,7 +299,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool> ViolationNotificationsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("violation_notifications_enabled") ?? AsReference("violation_notifications_enabled");
+        get => GetArgument<TerraformValue<bool>>("violation_notifications_enabled") ?? CreateReference("violation_notifications_enabled");
         set => SetArgument("violation_notifications_enabled", value);
     }
 
@@ -307,61 +307,61 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// Output only. Count of active Violations in the Workload.
     /// </summary>
     public TerraformList<TerraformMap<object>> ComplianceStatus
-        => AsReference("compliance_status");
+        => CreateReference("compliance_status");
 
     /// <summary>
     /// Output only. Urls for services which are compliant for this Assured Workload, but which are currently disallowed by the ResourceUsageRestriction org policy. Invoke workloads.restrictAllowedResources endpoint to allow your project developers to use these services in their environment.
     /// </summary>
     public TerraformList<string> CompliantButDisallowedServices
-        => AsReference("compliant_but_disallowed_services");
+        => CreateReference("compliant_but_disallowed_services");
 
     /// <summary>
     /// Output only. Immutable. The Workload creation timestamp.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Optional. Represents the Ekm Provisioning State of the given workload.
     /// </summary>
     public TerraformList<TerraformMap<object>> EkmProvisioningResponse
-        => AsReference("ekm_provisioning_response");
+        => CreateReference("ekm_provisioning_response");
 
     /// <summary>
     /// Output only. Represents the KAJ enrollment state of the given workload. Possible values: KAJ_ENROLLMENT_STATE_UNSPECIFIED, KAJ_ENROLLMENT_STATE_PENDING, KAJ_ENROLLMENT_STATE_COMPLETE
     /// </summary>
     public TerraformValue<string> KajEnrollmentState
-        => AsReference("kaj_enrollment_state");
+        => CreateReference("kaj_enrollment_state");
 
     /// <summary>
     /// Output only. The resource name of the workload.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The resources associated with this workload. These resources will be created when creating the workload. If any of the projects already exist, the workload creation will fail. Always read only.
     /// </summary>
     public TerraformList<TerraformMap<object>> Resources
-        => AsReference("resources");
+        => CreateReference("resources");
 
     /// <summary>
     /// Output only. Represents the SAA enrollment response of the given workload. SAA enrollment response is queried during workloads.get call. In failure cases, user friendly error message is shown in SAA details page.
     /// </summary>
     public TerraformList<TerraformMap<object>> SaaEnrollmentResponse
-        => AsReference("saa_enrollment_response");
+        => CreateReference("saa_enrollment_response");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// KmsSettings block (nesting mode: list).

@@ -336,7 +336,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// </summary>
     public TerraformValue<double> CheckpointInterval
     {
-        get => GetArgument<TerraformValue<double>>("checkpoint_interval") ?? AsReference("checkpoint_interval");
+        get => GetArgument<TerraformValue<double>>("checkpoint_interval") ?? CreateReference("checkpoint_interval");
         set => SetArgument("checkpoint_interval", value);
     }
 
@@ -345,7 +345,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// </summary>
     public TerraformValue<bool> CheckpointingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("checkpointing_enabled") ?? AsReference("checkpointing_enabled");
+        get => GetArgument<TerraformValue<bool>>("checkpointing_enabled") ?? CreateReference("checkpointing_enabled");
         set => SetArgument("checkpointing_enabled", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// </summary>
     public TerraformValue<double> MinPauseBetweenCheckpoints
     {
-        get => GetArgument<TerraformValue<double>>("min_pause_between_checkpoints") ?? AsReference("min_pause_between_checkpoints");
+        get => GetArgument<TerraformValue<double>>("min_pause_between_checkpoints") ?? CreateReference("min_pause_between_checkpoints");
         set => SetArgument("min_pause_between_checkpoints", value);
     }
 
@@ -396,7 +396,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// </summary>
     public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? CreateReference("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -405,7 +405,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// </summary>
     public TerraformValue<string> MetricsLevel
     {
-        get => GetArgument<TerraformValue<string>>("metrics_level") ?? AsReference("metrics_level");
+        get => GetArgument<TerraformValue<string>>("metrics_level") ?? CreateReference("metrics_level");
         set => SetArgument("metrics_level", value);
     }
 
@@ -427,7 +427,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// </summary>
     public TerraformValue<bool> AutoScalingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("auto_scaling_enabled") ?? AsReference("auto_scaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_scaling_enabled") ?? CreateReference("auto_scaling_enabled");
         set => SetArgument("auto_scaling_enabled", value);
     }
 
@@ -446,7 +446,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// </summary>
     public TerraformValue<double> Parallelism
     {
-        get => GetArgument<TerraformValue<double>>("parallelism") ?? AsReference("parallelism");
+        get => GetArgument<TerraformValue<double>>("parallelism") ?? CreateReference("parallelism");
         set => SetArgument("parallelism", value);
     }
 
@@ -455,7 +455,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// </summary>
     public TerraformValue<double> ParallelismPerKpu
     {
-        get => GetArgument<TerraformValue<double>>("parallelism_per_kpu") ?? AsReference("parallelism_per_kpu");
+        get => GetArgument<TerraformValue<double>>("parallelism_per_kpu") ?? CreateReference("parallelism_per_kpu");
         set => SetArgument("parallelism_per_kpu", value);
     }
 
@@ -510,7 +510,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockRunCon
     /// </summary>
     public TerraformValue<string> ApplicationRestoreType
     {
-        get => GetArgument<TerraformValue<string>>("application_restore_type") ?? AsReference("application_restore_type");
+        get => GetArgument<TerraformValue<string>>("application_restore_type") ?? CreateReference("application_restore_type");
         set => SetArgument("application_restore_type", value);
     }
 
@@ -541,7 +541,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockRunCon
     /// </summary>
     public TerraformValue<bool> AllowNonRestoredState
     {
-        get => GetArgument<TerraformValue<bool>>("allow_non_restored_state") ?? AsReference("allow_non_restored_state");
+        get => GetArgument<TerraformValue<bool>>("allow_non_restored_state") ?? CreateReference("allow_non_restored_state");
         set => SetArgument("allow_non_restored_state", value);
     }
 
@@ -605,13 +605,13 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     /// The in_app_stream_names attribute.
     /// </summary>
     public TerraformList<string> InAppStreamNames
-        => AsReference("in_app_stream_names");
+        => CreateReference("in_app_stream_names");
 
     /// <summary>
     /// The input_id attribute.
     /// </summary>
     public TerraformValue<string> InputId
-        => AsReference("input_id");
+        => CreateReference("input_id");
 
     /// <summary>
     /// The name_prefix attribute.
@@ -703,7 +703,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     /// </summary>
     public TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count") ?? AsReference("count");
+        get => GetArgument<TerraformValue<double>>("count") ?? CreateReference("count");
         set => SetArgument("count", value);
     }
 
@@ -989,7 +989,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     /// </summary>
     public TerraformValue<string> InputStartingPosition
     {
-        get => GetArgument<TerraformValue<string>>("input_starting_position") ?? AsReference("input_starting_position");
+        get => GetArgument<TerraformValue<string>>("input_starting_position") ?? CreateReference("input_starting_position");
         set => SetArgument("input_starting_position", value);
     }
 
@@ -1066,7 +1066,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     /// The output_id attribute.
     /// </summary>
     public TerraformValue<string> OutputId
-        => AsReference("output_id");
+        => CreateReference("output_id");
 
     /// <summary>
     /// DestinationSchema block (nesting mode: list).
@@ -1220,7 +1220,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     /// The reference_id attribute.
     /// </summary>
     public TerraformValue<string> ReferenceId
-        => AsReference("reference_id");
+        => CreateReference("reference_id");
 
     /// <summary>
     /// The table_name attribute.
@@ -1543,13 +1543,13 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockVpcCon
     /// The vpc_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> VpcConfigurationId
-        => AsReference("vpc_configuration_id");
+        => CreateReference("vpc_configuration_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }
 
@@ -1569,7 +1569,7 @@ public class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : Ter
     /// The cloudwatch_logging_option_id attribute.
     /// </summary>
     public TerraformValue<string> CloudwatchLoggingOptionId
-        => AsReference("cloudwatch_logging_option_id");
+        => CreateReference("cloudwatch_logging_option_id");
 
     /// <summary>
     /// The log_stream_arn attribute.
@@ -1636,7 +1636,7 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> ApplicationMode
     {
-        get => GetArgument<TerraformValue<string>>("application_mode") ?? AsReference("application_mode");
+        get => GetArgument<TerraformValue<string>>("application_mode") ?? CreateReference("application_mode");
         set => SetArgument("application_mode", value);
     }
 
@@ -1663,7 +1663,7 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1682,7 +1682,7 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1729,7 +1729,7 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1737,31 +1737,31 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The create_timestamp attribute.
     /// </summary>
     public TerraformValue<string> CreateTimestamp
-        => AsReference("create_timestamp");
+        => CreateReference("create_timestamp");
 
     /// <summary>
     /// The last_update_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastUpdateTimestamp
-        => AsReference("last_update_timestamp");
+        => CreateReference("last_update_timestamp");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     public TerraformValue<double> VersionId
-        => AsReference("version_id");
+        => CreateReference("version_id");
 
     /// <summary>
     /// ApplicationConfiguration block (nesting mode: list).

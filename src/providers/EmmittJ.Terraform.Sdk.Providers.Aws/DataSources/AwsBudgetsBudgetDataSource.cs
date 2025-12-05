@@ -13,7 +13,7 @@ public partial class AwsBudgetsBudgetDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsBudgetsBudgetDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsBudgetsBudgetDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,84 +58,84 @@ public partial class AwsBudgetsBudgetDataSource(string name) : TerraformDataSour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auto_adjust_data attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoAdjustData
-        => AsReference("auto_adjust_data");
+        => CreateReference("auto_adjust_data");
 
     /// <summary>
     /// The billing_view_arn attribute.
     /// </summary>
     public TerraformValue<string> BillingViewArn
-        => AsReference("billing_view_arn");
+        => CreateReference("billing_view_arn");
 
     /// <summary>
     /// The budget_exceeded attribute.
     /// </summary>
     public TerraformValue<bool> BudgetExceeded
-        => AsReference("budget_exceeded");
+        => CreateReference("budget_exceeded");
 
     /// <summary>
     /// The budget_limit attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BudgetLimit
-        => AsReference("budget_limit");
+        => CreateReference("budget_limit");
 
     /// <summary>
     /// The budget_type attribute.
     /// </summary>
     public TerraformValue<string> BudgetType
-        => AsReference("budget_type");
+        => CreateReference("budget_type");
 
     /// <summary>
     /// The calculated_spend attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CalculatedSpend
-        => AsReference("calculated_spend");
+        => CreateReference("calculated_spend");
 
     /// <summary>
     /// The cost_filter attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> CostFilter
-        => AsReference("cost_filter");
+        => CreateReference("cost_filter");
 
     /// <summary>
     /// The cost_types attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CostTypes
-        => AsReference("cost_types");
+        => CreateReference("cost_types");
 
     /// <summary>
     /// The notification attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Notification
-        => AsReference("notification");
+        => CreateReference("notification");
 
     /// <summary>
     /// The planned_limit attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PlannedLimit
-        => AsReference("planned_limit");
+        => CreateReference("planned_limit");
 
     /// <summary>
     /// The time_period_end attribute.
     /// </summary>
     public TerraformValue<string> TimePeriodEnd
-        => AsReference("time_period_end");
+        => CreateReference("time_period_end");
 
     /// <summary>
     /// The time_period_start attribute.
     /// </summary>
     public TerraformValue<string> TimePeriodStart
-        => AsReference("time_period_start");
+        => CreateReference("time_period_start");
 
     /// <summary>
     /// The time_unit attribute.
     /// </summary>
     public TerraformValue<string> TimeUnit
-        => AsReference("time_unit");
+        => CreateReference("time_unit");
 
 }

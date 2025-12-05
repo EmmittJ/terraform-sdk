@@ -37,14 +37,14 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
     public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? CreateReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> OwnershipVerificationCertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("ownership_verification_certificate_arn") ?? AsReference("ownership_verification_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("ownership_verification_certificate_arn") ?? CreateReference("ownership_verification_certificate_arn");
         set => SetArgument("ownership_verification_certificate_arn", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     /// The target_domain_name attribute.
     /// </summary>
     public TerraformValue<string> TargetDomainName
-        => AsReference("target_domain_name");
+        => CreateReference("target_domain_name");
 
 }
 
@@ -162,7 +162,7 @@ public partial class AwsApigatewayv2DomainName(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsApigatewayv2DomainName(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsApigatewayv2DomainName(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -197,13 +197,13 @@ public partial class AwsApigatewayv2DomainName(string name) : TerraformResource(
     /// The api_mapping_selection_expression attribute.
     /// </summary>
     public TerraformValue<string> ApiMappingSelectionExpression
-        => AsReference("api_mapping_selection_expression");
+        => CreateReference("api_mapping_selection_expression");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// DomainNameConfiguration block (nesting mode: list).

@@ -151,7 +151,7 @@ public partial class AwsEvidentlyProject(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsEvidentlyProject(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AwsEvidentlyProject(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -196,55 +196,55 @@ public partial class AwsEvidentlyProject(string name) : TerraformResource("aws_e
     /// The active_experiment_count attribute.
     /// </summary>
     public TerraformValue<double> ActiveExperimentCount
-        => AsReference("active_experiment_count");
+        => CreateReference("active_experiment_count");
 
     /// <summary>
     /// The active_launch_count attribute.
     /// </summary>
     public TerraformValue<double> ActiveLaunchCount
-        => AsReference("active_launch_count");
+        => CreateReference("active_launch_count");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The experiment_count attribute.
     /// </summary>
     public TerraformValue<double> ExperimentCount
-        => AsReference("experiment_count");
+        => CreateReference("experiment_count");
 
     /// <summary>
     /// The feature_count attribute.
     /// </summary>
     public TerraformValue<double> FeatureCount
-        => AsReference("feature_count");
+        => CreateReference("feature_count");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-        => AsReference("last_updated_time");
+        => CreateReference("last_updated_time");
 
     /// <summary>
     /// The launch_count attribute.
     /// </summary>
     public TerraformValue<double> LaunchCount
-        => AsReference("launch_count");
+        => CreateReference("launch_count");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// DataDelivery block (nesting mode: list).

@@ -45,7 +45,7 @@ public partial class AwsServicecatalogConstraintDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsServicecatalogConstraintDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,37 +72,37 @@ public partial class AwsServicecatalogConstraintDataSource(string name) : Terraf
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformValue<string> Parameters
-        => AsReference("parameters");
+        => CreateReference("parameters");
 
     /// <summary>
     /// The portfolio_id attribute.
     /// </summary>
     public TerraformValue<string> PortfolioId
-        => AsReference("portfolio_id");
+        => CreateReference("portfolio_id");
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
     public TerraformValue<string> ProductId
-        => AsReference("product_id");
+        => CreateReference("product_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

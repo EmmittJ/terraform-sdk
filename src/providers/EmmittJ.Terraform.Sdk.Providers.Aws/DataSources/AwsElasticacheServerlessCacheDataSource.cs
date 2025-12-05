@@ -23,7 +23,7 @@ public partial class AwsElasticacheServerlessCacheDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,96 +31,96 @@ public partial class AwsElasticacheServerlessCacheDataSource(string name) : Terr
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cache_usage_limits attribute.
     /// </summary>
     public TerraformMap<object> CacheUsageLimits
-        => AsReference("cache_usage_limits");
+        => CreateReference("cache_usage_limits");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The daily_snapshot_time attribute.
     /// </summary>
     public TerraformValue<string> DailySnapshotTime
-        => AsReference("daily_snapshot_time");
+        => CreateReference("daily_snapshot_time");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformMap<object> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-        => AsReference("engine");
+        => CreateReference("engine");
 
     /// <summary>
     /// The full_engine_version attribute.
     /// </summary>
     public TerraformValue<string> FullEngineVersion
-        => AsReference("full_engine_version");
+        => CreateReference("full_engine_version");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The major_engine_version attribute.
     /// </summary>
     public TerraformValue<string> MajorEngineVersion
-        => AsReference("major_engine_version");
+        => CreateReference("major_engine_version");
 
     /// <summary>
     /// The reader_endpoint attribute.
     /// </summary>
     public TerraformMap<object> ReaderEndpoint
-        => AsReference("reader_endpoint");
+        => CreateReference("reader_endpoint");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformList<string> SecurityGroupIds
-        => AsReference("security_group_ids");
+        => CreateReference("security_group_ids");
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
     public TerraformValue<double> SnapshotRetentionLimit
-        => AsReference("snapshot_retention_limit");
+        => CreateReference("snapshot_retention_limit");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     public TerraformList<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The user_group_id attribute.
     /// </summary>
     public TerraformValue<string> UserGroupId
-        => AsReference("user_group_id");
+        => CreateReference("user_group_id");
 
 }

@@ -36,7 +36,7 @@ public partial class AzurermActiveDirectoryDomainServiceDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,85 +73,85 @@ public partial class AzurermActiveDirectoryDomainServiceDataSource(string name) 
     /// The deployment_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentId
-        => AsReference("deployment_id");
+        => CreateReference("deployment_id");
 
     /// <summary>
     /// The domain_configuration_type attribute.
     /// </summary>
     public TerraformValue<string> DomainConfigurationType
-        => AsReference("domain_configuration_type");
+        => CreateReference("domain_configuration_type");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-        => AsReference("domain_name");
+        => CreateReference("domain_name");
 
     /// <summary>
     /// The filtered_sync_enabled attribute.
     /// </summary>
     public TerraformValue<bool> FilteredSyncEnabled
-        => AsReference("filtered_sync_enabled");
+        => CreateReference("filtered_sync_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The notifications attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Notifications
-        => AsReference("notifications");
+        => CreateReference("notifications");
 
     /// <summary>
     /// The replica_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReplicaSets
-        => AsReference("replica_sets");
+        => CreateReference("replica_sets");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-        => AsReference("resource_id");
+        => CreateReference("resource_id");
 
     /// <summary>
     /// The secure_ldap attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecureLdap
-        => AsReference("secure_ldap");
+        => CreateReference("secure_ldap");
 
     /// <summary>
     /// The security attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Security
-        => AsReference("security");
+        => CreateReference("security");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The sync_owner attribute.
     /// </summary>
     public TerraformValue<string> SyncOwner
-        => AsReference("sync_owner");
+        => CreateReference("sync_owner");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

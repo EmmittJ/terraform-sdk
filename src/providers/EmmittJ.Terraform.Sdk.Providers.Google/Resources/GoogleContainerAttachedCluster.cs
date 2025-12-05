@@ -84,7 +84,7 @@ public class GoogleContainerAttachedClusterFleetBlock : TerraformBlock
     /// projects/&amp;lt;project-number&amp;gt;/locations/global/membership/&amp;lt;cluster-id&amp;gt;.
     /// </summary>
     public TerraformValue<string> Membership
-        => AsReference("membership");
+        => CreateReference("membership");
 
     /// <summary>
     /// The number of the Fleet host project where this cluster will be registered.
@@ -407,7 +407,7 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -446,7 +446,7 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -457,37 +457,37 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     /// this is an Azure region.
     /// </summary>
     public TerraformValue<string> ClusterRegion
-        => AsReference("cluster_region");
+        => CreateReference("cluster_region");
 
     /// <summary>
     /// Output only. The time at which this cluster was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// A set of errors found in the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> Errors
-        => AsReference("errors");
+        => CreateReference("errors");
 
     /// <summary>
     /// The Kubernetes version of the cluster.
     /// </summary>
     public TerraformValue<string> KubernetesVersion
-        => AsReference("kubernetes_version");
+        => CreateReference("kubernetes_version");
 
     /// <summary>
     /// If set, there are currently changes in flight to the cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The current state of the cluster. Possible values:
@@ -495,25 +495,25 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     /// DEGRADED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// A globally unique identifier for the cluster.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The time at which this cluster was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Workload Identity settings.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadIdentityConfig
-        => AsReference("workload_identity_config");
+        => CreateReference("workload_identity_config");
 
     /// <summary>
     /// Authorization block (nesting mode: list).

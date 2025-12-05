@@ -65,7 +65,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -120,19 +120,19 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     /// Basepaths associated with the deployed proxy.
     /// </summary>
     public TerraformList<string> Basepaths
-        => AsReference("basepaths");
+        => CreateReference("basepaths");
 
     /// <summary>
     /// RFC3339 timestamp when deployment started.
     /// </summary>
     public TerraformValue<string> DeployStartTime
-        => AsReference("deploy_start_time");
+        => CreateReference("deploy_start_time");
 
     /// <summary>
     /// Deployment state reported by Apigee.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

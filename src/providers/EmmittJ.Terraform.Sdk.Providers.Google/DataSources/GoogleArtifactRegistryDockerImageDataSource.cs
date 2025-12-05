@@ -13,7 +13,7 @@ public partial class GoogleArtifactRegistryDockerImageDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -60,48 +60,48 @@ public partial class GoogleArtifactRegistryDockerImageDataSource(string name) : 
     /// The time, as a RFC 3339 string, this image was built.
     /// </summary>
     public TerraformValue<string> BuildTime
-        => AsReference("build_time");
+        => CreateReference("build_time");
 
     /// <summary>
     /// Calculated size of the image in bytes.
     /// </summary>
     public TerraformValue<string> ImageSizeBytes
-        => AsReference("image_size_bytes");
+        => CreateReference("image_size_bytes");
 
     /// <summary>
     /// Media type of this image.
     /// </summary>
     public TerraformValue<string> MediaType
-        => AsReference("media_type");
+        => CreateReference("media_type");
 
     /// <summary>
     /// The fully qualified name of the fetched image.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The URI to access the image.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// All tags associated with the image.
     /// </summary>
     public TerraformList<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The time, as a RFC 3339 string, this image was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// The time, as a RFC 3339 string, the image was uploaded.
     /// </summary>
     public TerraformValue<string> UploadTime
-        => AsReference("upload_time");
+        => CreateReference("upload_time");
 
 }

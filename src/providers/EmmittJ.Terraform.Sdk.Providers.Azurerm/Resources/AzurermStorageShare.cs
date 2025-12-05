@@ -137,7 +137,7 @@ public partial class AzurermStorageShare(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> AccessTier
     {
-        get => GetArgument<TerraformValue<string>>("access_tier") ?? AsReference("access_tier");
+        get => GetArgument<TerraformValue<string>>("access_tier") ?? CreateReference("access_tier");
         set => SetArgument("access_tier", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermStorageShare(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermStorageShare(string name) : TerraformResource("azure
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -212,13 +212,13 @@ public partial class AzurermStorageShare(string name) : TerraformResource("azure
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// Acl block (nesting mode: set).

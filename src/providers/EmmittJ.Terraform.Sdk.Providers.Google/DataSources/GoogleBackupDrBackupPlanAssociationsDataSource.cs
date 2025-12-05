@@ -13,7 +13,7 @@ public partial class GoogleBackupDrBackupPlanAssociationsDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleBackupDrBackupPlanAssociationsDataSource(string name)
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -50,6 +50,6 @@ public partial class GoogleBackupDrBackupPlanAssociationsDataSource(string name)
     /// A list of the backup plan associations found.
     /// </summary>
     public TerraformList<TerraformMap<object>> Associations
-        => AsReference("associations");
+        => CreateReference("associations");
 
 }

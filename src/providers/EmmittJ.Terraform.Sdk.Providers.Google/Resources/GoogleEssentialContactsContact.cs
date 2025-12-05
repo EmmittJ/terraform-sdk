@@ -64,7 +64,7 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     /// The identifier for the contact. Format: {resourceType}/{resource_id}/contacts/{contact_id}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

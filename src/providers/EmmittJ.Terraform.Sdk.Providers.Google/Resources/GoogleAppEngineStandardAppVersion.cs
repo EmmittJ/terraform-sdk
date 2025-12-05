@@ -92,7 +92,7 @@ public class GoogleAppEngineStandardAppVersionAutomaticScalingBlockStandardSched
     /// </summary>
     public TerraformValue<double> MaxInstances
     {
-        get => GetArgument<TerraformValue<double>>("max_instances") ?? AsReference("max_instances");
+        get => GetArgument<TerraformValue<double>>("max_instances") ?? CreateReference("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -646,7 +646,7 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -667,7 +667,7 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> InstanceClass
     {
-        get => GetArgument<TerraformValue<string>>("instance_class") ?? AsReference("instance_class");
+        get => GetArgument<TerraformValue<string>>("instance_class") ?? CreateReference("instance_class");
         set => SetArgument("instance_class", value);
     }
 
@@ -685,7 +685,7 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -725,7 +725,7 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -751,7 +751,7 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     /// Full path to the Version resource in the API. Example, &amp;quot;v1&amp;quot;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// AutomaticScaling block (nesting mode: list).

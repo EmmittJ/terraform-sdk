@@ -76,7 +76,7 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool> FailOpen
     {
-        get => GetArgument<TerraformValue<bool>>("fail_open") ?? AsReference("fail_open");
+        get => GetArgument<TerraformValue<bool>>("fail_open") ?? CreateReference("fail_open");
         set => SetArgument("fail_open", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -158,7 +158,7 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -189,7 +189,7 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> WireFormat
     {
-        get => GetArgument<TerraformValue<string>>("wire_format") ?? AsReference("wire_format");
+        get => GetArgument<TerraformValue<string>>("wire_format") ?? CreateReference("wire_format");
         set => SetArgument("wire_format", value);
     }
 
@@ -197,26 +197,26 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     /// The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

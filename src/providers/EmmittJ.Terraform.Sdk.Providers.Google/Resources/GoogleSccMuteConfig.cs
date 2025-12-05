@@ -90,7 +90,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// the server and will be ignored if provided on config creation.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Email address of the user who last edited the mute config. This
@@ -138,7 +138,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// config creation or update.
     /// </summary>
     public TerraformValue<string> MostRecentEditor
-        => AsReference("most_recent_editor");
+        => CreateReference("most_recent_editor");
 
     /// <summary>
     /// Name of the mute config. Its format is
@@ -147,7 +147,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// or projects/{project}/muteConfigs/{configId}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The most recent time at which the mute config was
@@ -155,7 +155,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// provided on config creation or update.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

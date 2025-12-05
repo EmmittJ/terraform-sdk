@@ -22,7 +22,7 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Ckn
     {
-        get => GetArgument<TerraformValue<string>>("ckn") ?? AsReference("ckn");
+        get => GetArgument<TerraformValue<string>>("ckn") ?? CreateReference("ckn");
         set => SetArgument("ckn", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> SecretArn
     {
-        get => GetArgument<TerraformValue<string>>("secret_arn") ?? AsReference("secret_arn");
+        get => GetArgument<TerraformValue<string>>("secret_arn") ?? CreateReference("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -67,12 +67,12 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     /// The start_on attribute.
     /// </summary>
     public TerraformValue<string> StartOn
-        => AsReference("start_on");
+        => CreateReference("start_on");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }

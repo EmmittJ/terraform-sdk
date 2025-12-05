@@ -13,7 +13,7 @@ public partial class AwsApiGatewayAccount(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> CloudwatchRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("cloudwatch_role_arn") ?? AsReference("cloudwatch_role_arn");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_role_arn") ?? CreateReference("cloudwatch_role_arn");
         set => SetArgument("cloudwatch_role_arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsApiGatewayAccount(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -30,25 +30,25 @@ public partial class AwsApiGatewayAccount(string name) : TerraformResource("aws_
     /// The api_key_version attribute.
     /// </summary>
     public TerraformValue<string> ApiKeyVersion
-        => AsReference("api_key_version");
+        => CreateReference("api_key_version");
 
     /// <summary>
     /// The features attribute.
     /// </summary>
     public TerraformSet<string> Features
-        => AsReference("features");
+        => CreateReference("features");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The throttle_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ThrottleSettings
-        => AsReference("throttle_settings");
+        => CreateReference("throttle_settings");
 
 }

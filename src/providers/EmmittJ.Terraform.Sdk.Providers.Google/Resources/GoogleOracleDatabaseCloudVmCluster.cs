@@ -18,7 +18,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name") ?? AsReference("cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name") ?? CreateReference("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -26,7 +26,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// Compartment ID of cluster.
     /// </summary>
     public TerraformValue<string> CompartmentId
-        => AsReference("compartment_id");
+        => CreateReference("compartment_id");
 
     /// <summary>
     /// Number of enabled CPU cores.
@@ -43,7 +43,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DataStorageSizeTb
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_tb") ?? AsReference("data_storage_size_tb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_tb") ?? CreateReference("data_storage_size_tb");
         set => SetArgument("data_storage_size_tb", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DbNodeStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("db_node_storage_size_gb") ?? AsReference("db_node_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("db_node_storage_size_gb") ?? CreateReference("db_node_storage_size_gb");
         set => SetArgument("db_node_storage_size_gb", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> DbServerOcids
     {
-        get => GetArgument<TerraformList<string>>("db_server_ocids") ?? AsReference("db_server_ocids");
+        get => GetArgument<TerraformList<string>>("db_server_ocids") ?? CreateReference("db_server_ocids");
         set => SetArgument("db_server_ocids", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskRedundancy
     {
-        get => GetArgument<TerraformValue<string>>("disk_redundancy") ?? AsReference("disk_redundancy");
+        get => GetArgument<TerraformValue<string>>("disk_redundancy") ?? CreateReference("disk_redundancy");
         set => SetArgument("disk_redundancy", value);
     }
 
@@ -82,14 +82,14 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// DNS listener IP.
     /// </summary>
     public TerraformValue<string> DnsListenerIp
-        => AsReference("dns_listener_ip");
+        => CreateReference("dns_listener_ip");
 
     /// <summary>
     /// Parent DNS domain where SCAN DNS and hosts names are qualified.
     /// ex: ocispdelegated.ocisp10jvnet.oraclevcn.com
     /// </summary>
     public TerraformValue<string> Domain
-        => AsReference("domain");
+        => CreateReference("domain");
 
     /// <summary>
     /// Grid Infrastructure Version.
@@ -106,7 +106,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// ex: sp2-yi0xq where &amp;quot;sp2&amp;quot; is the hostname_prefix.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// Prefix for VM cluster host names.
@@ -145,7 +145,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MemorySizeGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_gb") ?? AsReference("memory_size_gb");
+        get => GetArgument<TerraformValue<double>>("memory_size_gb") ?? CreateReference("memory_size_gb");
         set => SetArgument("memory_size_gb", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? CreateReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -162,20 +162,20 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// Deep link to the OCI console to view this resource.
     /// </summary>
     public TerraformValue<string> OciUrl
-        => AsReference("oci_url");
+        => CreateReference("oci_url");
 
     /// <summary>
     /// Oracle Cloud Infrastructure ID of VM Cluster.
     /// </summary>
     public TerraformValue<string> Ocid
-        => AsReference("ocid");
+        => CreateReference("ocid");
 
     /// <summary>
     /// OCPU count per VM. Minimum is 0.1.
     /// </summary>
     public TerraformValue<double> OcpuCount
     {
-        get => GetArgument<TerraformValue<double>>("ocpu_count") ?? AsReference("ocpu_count");
+        get => GetArgument<TerraformValue<double>>("ocpu_count") ?? CreateReference("ocpu_count");
         set => SetArgument("ocpu_count", value);
     }
 
@@ -184,44 +184,44 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// ex: sp2-yi0xq-scan.ocispdelegated.ocisp10jvnet.oraclevcn.com
     /// </summary>
     public TerraformValue<string> ScanDns
-        => AsReference("scan_dns");
+        => CreateReference("scan_dns");
 
     /// <summary>
     /// OCID of scan DNS record.
     /// </summary>
     public TerraformValue<string> ScanDnsRecordId
-        => AsReference("scan_dns_record_id");
+        => CreateReference("scan_dns_record_id");
 
     /// <summary>
     /// OCIDs of scan IPs.
     /// </summary>
     public TerraformList<string> ScanIpIds
-        => AsReference("scan_ip_ids");
+        => CreateReference("scan_ip_ids");
 
     /// <summary>
     /// SCAN listener port - TCP
     /// </summary>
     public TerraformValue<double> ScanListenerPortTcp
-        => AsReference("scan_listener_port_tcp");
+        => CreateReference("scan_listener_port_tcp");
 
     /// <summary>
     /// SCAN listener port - TLS
     /// </summary>
     public TerraformValue<double> ScanListenerPortTcpSsl
-        => AsReference("scan_listener_port_tcp_ssl");
+        => CreateReference("scan_listener_port_tcp_ssl");
 
     /// <summary>
     /// Shape of VM Cluster.
     /// </summary>
     public TerraformValue<string> Shape
-        => AsReference("shape");
+        => CreateReference("shape");
 
     /// <summary>
     /// Use exadata sparse snapshots.
     /// </summary>
     public TerraformValue<bool> SparseDiskgroupEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sparse_diskgroup_enabled") ?? AsReference("sparse_diskgroup_enabled");
+        get => GetArgument<TerraformValue<bool>>("sparse_diskgroup_enabled") ?? CreateReference("sparse_diskgroup_enabled");
         set => SetArgument("sparse_diskgroup_enabled", value);
     }
 
@@ -247,19 +247,19 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// MAINTENANCE_IN_PROGRESS
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The storage allocation for the disk group, in gigabytes (GB).
     /// </summary>
     public TerraformValue<double> StorageSizeGb
-        => AsReference("storage_size_gb");
+        => CreateReference("storage_size_gb");
 
     /// <summary>
     /// Operating system version of the image.
     /// </summary>
     public TerraformValue<string> SystemVersion
-        => AsReference("system_version");
+        => CreateReference("system_version");
 
     /// <summary>
     /// DiagnosticsDataCollectionOptions block (nesting mode: list).
@@ -340,7 +340,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlockTimeZoneBlock : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -401,7 +401,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string> BackupOdbSubnet
     {
-        get => GetArgument<TerraformValue<string>>("backup_odb_subnet") ?? AsReference("backup_odb_subnet");
+        get => GetArgument<TerraformValue<string>>("backup_odb_subnet") ?? CreateReference("backup_odb_subnet");
         set => SetArgument("backup_odb_subnet", value);
     }
 
@@ -471,7 +471,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -516,7 +516,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string> OdbNetwork
     {
-        get => GetArgument<TerraformValue<string>>("odb_network") ?? AsReference("odb_network");
+        get => GetArgument<TerraformValue<string>>("odb_network") ?? CreateReference("odb_network");
         set => SetArgument("odb_network", value);
     }
 
@@ -527,7 +527,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string> OdbSubnet
     {
-        get => GetArgument<TerraformValue<string>>("odb_subnet") ?? AsReference("odb_subnet");
+        get => GetArgument<TerraformValue<string>>("odb_subnet") ?? CreateReference("odb_subnet");
         set => SetArgument("odb_subnet", value);
     }
 
@@ -536,7 +536,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -544,34 +544,34 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// The date and time that the VM cluster was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted. It is same as GCP Oracle zone
     /// of Exadata infrastructure.
     /// </summary>
     public TerraformValue<string> GcpOracleZone
-        => AsReference("gcp_oracle_zone");
+        => CreateReference("gcp_oracle_zone");
 
     /// <summary>
     /// Identifier. The name of the VM Cluster resource with the format:
     /// projects/{project}/locations/{region}/cloudVmClusters/{cloud_vm_cluster}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Properties block (nesting mode: list).

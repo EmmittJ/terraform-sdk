@@ -70,7 +70,7 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -132,85 +132,85 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The data_encryption_key_id attribute.
     /// </summary>
     public TerraformValue<string> DataEncryptionKeyId
-        => AsReference("data_encryption_key_id");
+        => CreateReference("data_encryption_key_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-        => AsReference("encrypted");
+        => CreateReference("encrypted");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-        => AsReference("outpost_arn");
+        => CreateReference("outpost_arn");
 
     /// <summary>
     /// The owner_alias attribute.
     /// </summary>
     public TerraformValue<string> OwnerAlias
-        => AsReference("owner_alias");
+        => CreateReference("owner_alias");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
     public TerraformValue<string> SnapshotId
-        => AsReference("snapshot_id");
+        => CreateReference("snapshot_id");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-        => AsReference("start_time");
+        => CreateReference("start_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
     public TerraformValue<string> StorageTier
-        => AsReference("storage_tier");
+        => CreateReference("storage_tier");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-        => AsReference("volume_id");
+        => CreateReference("volume_id");
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
     public TerraformValue<double> VolumeSize
-        => AsReference("volume_size");
+        => CreateReference("volume_size");
 
     /// <summary>
     /// Filter block (nesting mode: set).

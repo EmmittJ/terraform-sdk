@@ -63,7 +63,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     /// The callback_url attribute.
     /// </summary>
     public TerraformValue<string> CallbackUrl
-        => AsReference("callback_url");
+        => CreateReference("callback_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

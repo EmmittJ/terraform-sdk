@@ -55,7 +55,7 @@ public partial class AwsBedrockagentAgentKnowledgeBaseAssociation(string name) :
     /// </summary>
     public TerraformValue<string> AgentVersion
     {
-        get => GetArgument<TerraformValue<string>>("agent_version") ?? AsReference("agent_version");
+        get => GetArgument<TerraformValue<string>>("agent_version") ?? CreateReference("agent_version");
         set => SetArgument("agent_version", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsBedrockagentAgentKnowledgeBaseAssociation(string name) :
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsBedrockagentAgentKnowledgeBaseAssociation(string name) :
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -51,7 +51,7 @@ public class AwsLakeformationResourceLfTagLfTagBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AwsLakeformationResourceLfTag(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -272,7 +272,7 @@ public partial class AwsLakeformationResourceLfTag(string name) : TerraformResou
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Database block (nesting mode: list).

@@ -44,7 +44,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : TerraformB
     /// </summary>
     public TerraformMap<string> ConfigOverrides
     {
-        get => GetArgument<TerraformMap<string>>("config_overrides") ?? AsReference("config_overrides");
+        get => GetArgument<TerraformMap<string>>("config_overrides") ?? CreateReference("config_overrides");
         set => SetArgument("config_overrides", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleDataprocMetastoreServiceNetworkConfigBlockConsumersBlock : Te
     /// The URI of the endpoint used to access the metastore service.
     /// </summary>
     public TerraformValue<string> EndpointUri
-        => AsReference("endpoint_uri");
+        => CreateReference("endpoint_uri");
 
     /// <summary>
     /// The subnetwork of the customer project from which an IP address is reserved and used as the Dataproc Metastore service&#39;s endpoint.
@@ -410,7 +410,7 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlockAutoscalingConfigBl
     /// Output only. The scaling factor of a service with autoscaling enabled.
     /// </summary>
     public TerraformValue<double> AutoscalingFactor
-        => AsReference("autoscaling_factor");
+        => CreateReference("autoscaling_factor");
 
     /// <summary>
     /// LimitConfig block (nesting mode: list).
@@ -440,7 +440,7 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlockAutoscalingConfigBl
     /// </summary>
     public TerraformValue<double> MaxScalingFactor
     {
-        get => GetArgument<TerraformValue<double>>("max_scaling_factor") ?? AsReference("max_scaling_factor");
+        get => GetArgument<TerraformValue<double>>("max_scaling_factor") ?? CreateReference("max_scaling_factor");
         set => SetArgument("max_scaling_factor", value);
     }
 
@@ -449,7 +449,7 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlockAutoscalingConfigBl
     /// </summary>
     public TerraformValue<double> MinScalingFactor
     {
-        get => GetArgument<TerraformValue<double>>("min_scaling_factor") ?? AsReference("min_scaling_factor");
+        get => GetArgument<TerraformValue<double>>("min_scaling_factor") ?? CreateReference("min_scaling_factor");
         set => SetArgument("min_scaling_factor", value);
     }
 
@@ -491,7 +491,7 @@ public class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -500,7 +500,7 @@ public class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone") ?? AsReference("time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone") ?? CreateReference("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -600,7 +600,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -633,7 +633,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -642,7 +642,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -651,7 +651,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -692,7 +692,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? CreateReference("tier");
         set => SetArgument("tier", value);
     }
 
@@ -700,62 +700,62 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored.
     /// </summary>
     public TerraformValue<string> ArtifactGcsUri
-        => AsReference("artifact_gcs_uri");
+        => CreateReference("artifact_gcs_uri");
 
     /// <summary>
     /// Output only. The time when the metastore service was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The URI of the endpoint used to access the metastore service.
     /// </summary>
     public TerraformValue<string> EndpointUri
-        => AsReference("endpoint_uri");
+        => CreateReference("endpoint_uri");
 
     /// <summary>
     /// The relative resource name of the metastore service.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The current state of the metastore service.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Additional information about the current state of the metastore service, if available.
     /// </summary>
     public TerraformValue<string> StateMessage
-        => AsReference("state_message");
+        => CreateReference("state_message");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The globally unique resource identifier of the metastore service.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time when the metastore service was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// EncryptionConfig block (nesting mode: list).

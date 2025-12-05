@@ -140,7 +140,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Distributor
     {
-        get => GetArgument<TerraformValue<string>>("distributor") ?? AsReference("distributor");
+        get => GetArgument<TerraformValue<string>>("distributor") ?? CreateReference("distributor");
         set => SetArgument("distributor", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> SupportDescription
     {
-        get => GetArgument<TerraformValue<string>>("support_description") ?? AsReference("support_description");
+        get => GetArgument<TerraformValue<string>>("support_description") ?? CreateReference("support_description");
         set => SetArgument("support_description", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> SupportEmail
     {
-        get => GetArgument<TerraformValue<string>>("support_email") ?? AsReference("support_email");
+        get => GetArgument<TerraformValue<string>>("support_email") ?? CreateReference("support_email");
         set => SetArgument("support_email", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> SupportUrl
     {
-        get => GetArgument<TerraformValue<string>>("support_url") ?? AsReference("support_url");
+        get => GetArgument<TerraformValue<string>>("support_url") ?? CreateReference("support_url");
         set => SetArgument("support_url", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -250,25 +250,25 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The has_default_path attribute.
     /// </summary>
     public TerraformValue<bool> HasDefaultPath
-        => AsReference("has_default_path");
+        => CreateReference("has_default_path");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// ProvisioningArtifactParameters block (nesting mode: list).

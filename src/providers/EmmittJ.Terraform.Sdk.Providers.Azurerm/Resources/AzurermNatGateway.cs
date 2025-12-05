@@ -63,7 +63,7 @@ public partial class AzurermNatGateway(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermNatGateway(string name) : TerraformResource("azurerm
     /// The resource_guid attribute.
     /// </summary>
     public TerraformValue<string> ResourceGuid
-        => AsReference("resource_guid");
+        => CreateReference("resource_guid");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

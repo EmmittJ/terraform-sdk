@@ -59,7 +59,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> FilterPolicyScope
     {
-        get => GetArgument<TerraformValue<string>>("filter_policy_scope") ?? AsReference("filter_policy_scope");
+        get => GetArgument<TerraformValue<string>>("filter_policy_scope") ?? CreateReference("filter_policy_scope");
         set => SetArgument("filter_policy_scope", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -141,24 +141,24 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The confirmation_was_authenticated attribute.
     /// </summary>
     public TerraformValue<bool> ConfirmationWasAuthenticated
-        => AsReference("confirmation_was_authenticated");
+        => CreateReference("confirmation_was_authenticated");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The pending_confirmation attribute.
     /// </summary>
     public TerraformValue<bool> PendingConfirmation
-        => AsReference("pending_confirmation");
+        => CreateReference("pending_confirmation");
 
 }

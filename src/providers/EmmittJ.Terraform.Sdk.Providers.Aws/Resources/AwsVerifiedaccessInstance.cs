@@ -40,7 +40,7 @@ public partial class AwsVerifiedaccessInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsVerifiedaccessInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsVerifiedaccessInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -75,24 +75,24 @@ public partial class AwsVerifiedaccessInstance(string name) : TerraformResource(
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-        => AsReference("last_updated_time");
+        => CreateReference("last_updated_time");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformSet<string> NameServers
-        => AsReference("name_servers");
+        => CreateReference("name_servers");
 
     /// <summary>
     /// The verified_access_trust_providers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VerifiedAccessTrustProviders
-        => AsReference("verified_access_trust_providers");
+        => CreateReference("verified_access_trust_providers");
 
 }

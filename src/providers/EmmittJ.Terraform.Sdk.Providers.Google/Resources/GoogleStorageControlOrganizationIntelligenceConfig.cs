@@ -200,7 +200,7 @@ public partial class GoogleStorageControlOrganizationIntelligenceConfig(string n
     /// </summary>
     public TerraformValue<string> EditionConfig
     {
-        get => GetArgument<TerraformValue<string>>("edition_config") ?? AsReference("edition_config");
+        get => GetArgument<TerraformValue<string>>("edition_config") ?? CreateReference("edition_config");
         set => SetArgument("edition_config", value);
     }
 
@@ -209,7 +209,7 @@ public partial class GoogleStorageControlOrganizationIntelligenceConfig(string n
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -227,19 +227,19 @@ public partial class GoogleStorageControlOrganizationIntelligenceConfig(string n
     /// The Intelligence config that is effective for the resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveIntelligenceConfig
-        => AsReference("effective_intelligence_config");
+        => CreateReference("effective_intelligence_config");
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrialConfig
-        => AsReference("trial_config");
+        => CreateReference("trial_config");
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Filter block (nesting mode: list).

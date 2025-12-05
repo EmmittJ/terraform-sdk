@@ -13,7 +13,7 @@ public partial class GoogleProjectServiceDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,12 +40,12 @@ public partial class GoogleProjectServiceDataSource(string name) : TerraformData
     /// The disable_dependent_services attribute.
     /// </summary>
     public TerraformValue<bool> DisableDependentServices
-        => AsReference("disable_dependent_services");
+        => CreateReference("disable_dependent_services");
 
     /// <summary>
     /// The disable_on_destroy attribute.
     /// </summary>
     public TerraformValue<bool> DisableOnDestroy
-        => AsReference("disable_on_destroy");
+        => CreateReference("disable_on_destroy");
 
 }

@@ -23,7 +23,7 @@ public partial class AwsBedrockFoundationModelDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,54 +31,54 @@ public partial class AwsBedrockFoundationModelDataSource(string name) : Terrafor
     /// The customizations_supported attribute.
     /// </summary>
     public TerraformSet<string> CustomizationsSupported
-        => AsReference("customizations_supported");
+        => CreateReference("customizations_supported");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The inference_types_supported attribute.
     /// </summary>
     public TerraformSet<string> InferenceTypesSupported
-        => AsReference("inference_types_supported");
+        => CreateReference("inference_types_supported");
 
     /// <summary>
     /// The input_modalities attribute.
     /// </summary>
     public TerraformSet<string> InputModalities
-        => AsReference("input_modalities");
+        => CreateReference("input_modalities");
 
     /// <summary>
     /// The model_arn attribute.
     /// </summary>
     public TerraformValue<string> ModelArn
-        => AsReference("model_arn");
+        => CreateReference("model_arn");
 
     /// <summary>
     /// The model_name attribute.
     /// </summary>
     public TerraformValue<string> ModelName
-        => AsReference("model_name");
+        => CreateReference("model_name");
 
     /// <summary>
     /// The output_modalities attribute.
     /// </summary>
     public TerraformSet<string> OutputModalities
-        => AsReference("output_modalities");
+        => CreateReference("output_modalities");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     public TerraformValue<string> ProviderName
-        => AsReference("provider_name");
+        => CreateReference("provider_name");
 
     /// <summary>
     /// The response_streaming_supported attribute.
     /// </summary>
     public TerraformValue<bool> ResponseStreamingSupported
-        => AsReference("response_streaming_supported");
+        => CreateReference("response_streaming_supported");
 
 }

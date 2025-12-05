@@ -225,13 +225,13 @@ public class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock : TerraformBl
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -353,7 +353,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -475,19 +475,19 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2(string name) : Ter
     /// The created_with_api_version attribute.
     /// </summary>
     public TerraformValue<string> CreatedWithApiVersion
-        => AsReference("created_with_api_version");
+        => CreateReference("created_with_api_version");
 
     /// <summary>
     /// The is_a_legacy_log_analytics_rule attribute.
     /// </summary>
     public TerraformValue<bool> IsALegacyLogAnalyticsRule
-        => AsReference("is_a_legacy_log_analytics_rule");
+        => CreateReference("is_a_legacy_log_analytics_rule");
 
     /// <summary>
     /// The is_workspace_alerts_storage_configured attribute.
     /// </summary>
     public TerraformValue<bool> IsWorkspaceAlertsStorageConfigured
-        => AsReference("is_workspace_alerts_storage_configured");
+        => CreateReference("is_workspace_alerts_storage_configured");
 
     /// <summary>
     /// Action block (nesting mode: list).

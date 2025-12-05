@@ -45,7 +45,7 @@ public partial class AwsRoute53ZoneAssociation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsRoute53ZoneAssociation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> VpcRegion
     {
-        get => GetArgument<TerraformValue<string>>("vpc_region") ?? AsReference("vpc_region");
+        get => GetArgument<TerraformValue<string>>("vpc_region") ?? CreateReference("vpc_region");
         set => SetArgument("vpc_region", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsRoute53ZoneAssociation(string name) : TerraformResource(
     /// The owning_account attribute.
     /// </summary>
     public TerraformValue<string> OwningAccount
-        => AsReference("owning_account");
+        => CreateReference("owning_account");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

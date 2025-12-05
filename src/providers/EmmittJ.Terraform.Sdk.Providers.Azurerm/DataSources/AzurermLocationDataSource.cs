@@ -36,7 +36,7 @@ public partial class AzurermLocationDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,13 +54,13 @@ public partial class AzurermLocationDataSource(string name) : TerraformDataSourc
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The zone_mappings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ZoneMappings
-        => AsReference("zone_mappings");
+        => CreateReference("zone_mappings");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

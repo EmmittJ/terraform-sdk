@@ -73,7 +73,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> EmailAssertion
     {
-        get => GetArgument<TerraformValue<string>>("email_assertion") ?? AsReference("email_assertion");
+        get => GetArgument<TerraformValue<string>>("email_assertion") ?? CreateReference("email_assertion");
         set => SetArgument("email_assertion", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> LoginAssertion
     {
-        get => GetArgument<TerraformValue<string>>("login_assertion") ?? AsReference("login_assertion");
+        get => GetArgument<TerraformValue<string>>("login_assertion") ?? CreateReference("login_assertion");
         set => SetArgument("login_assertion", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<double> LoginValidityDuration
     {
-        get => GetArgument<TerraformValue<double>>("login_validity_duration") ?? AsReference("login_validity_duration");
+        get => GetArgument<TerraformValue<double>>("login_validity_duration") ?? CreateReference("login_validity_duration");
         set => SetArgument("login_validity_duration", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> NameAssertion
     {
-        get => GetArgument<TerraformValue<string>>("name_assertion") ?? AsReference("name_assertion");
+        get => GetArgument<TerraformValue<string>>("name_assertion") ?? CreateReference("name_assertion");
         set => SetArgument("name_assertion", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

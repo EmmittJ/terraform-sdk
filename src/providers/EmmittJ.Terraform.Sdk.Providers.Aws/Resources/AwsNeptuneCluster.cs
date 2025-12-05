@@ -86,7 +86,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<bool> AllowMajorVersionUpgrade
     {
-        get => GetArgument<TerraformValue<bool>>("allow_major_version_upgrade") ?? AsReference("allow_major_version_upgrade");
+        get => GetArgument<TerraformValue<bool>>("allow_major_version_upgrade") ?? CreateReference("allow_major_version_upgrade");
         set => SetArgument("allow_major_version_upgrade", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<bool> ApplyImmediately
     {
-        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? AsReference("apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? CreateReference("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformSet<string> AvailabilityZones
     {
-        get => GetArgument<TerraformSet<string>>("availability_zones") ?? AsReference("availability_zones");
+        get => GetArgument<TerraformSet<string>>("availability_zones") ?? CreateReference("availability_zones");
         set => SetArgument("availability_zones", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> ClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier") ?? AsReference("cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier") ?? CreateReference("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> ClusterIdentifierPrefix
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier_prefix") ?? AsReference("cluster_identifier_prefix");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier_prefix") ?? CreateReference("cluster_identifier_prefix");
         set => SetArgument("cluster_identifier_prefix", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? CreateReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> NeptuneClusterParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("neptune_cluster_parameter_group_name") ?? AsReference("neptune_cluster_parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("neptune_cluster_parameter_group_name") ?? CreateReference("neptune_cluster_parameter_group_name");
         set => SetArgument("neptune_cluster_parameter_group_name", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> NeptuneSubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("neptune_subnet_group_name") ?? AsReference("neptune_subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("neptune_subnet_group_name") ?? CreateReference("neptune_subnet_group_name");
         set => SetArgument("neptune_subnet_group_name", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> PreferredBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? AsReference("preferred_backup_window");
+        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? CreateReference("preferred_backup_window");
         set => SetArgument("preferred_backup_window", value);
     }
 
@@ -284,7 +284,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? CreateReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -293,7 +293,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -338,7 +338,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformValue<string> StorageType
     {
-        get => GetArgument<TerraformValue<string>>("storage_type") ?? AsReference("storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type") ?? CreateReference("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -356,7 +356,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -365,7 +365,7 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? CreateReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -373,37 +373,37 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cluster_members attribute.
     /// </summary>
     public TerraformSet<string> ClusterMembers
-        => AsReference("cluster_members");
+        => CreateReference("cluster_members");
 
     /// <summary>
     /// The cluster_resource_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterResourceId
-        => AsReference("cluster_resource_id");
+        => CreateReference("cluster_resource_id");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The reader_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ReaderEndpoint
-        => AsReference("reader_endpoint");
+        => CreateReference("reader_endpoint");
 
     /// <summary>
     /// ServerlessV2ScalingConfiguration block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermNotificationHubNamespaceDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermNotificationHubNamespaceDataSource(string name) : Te
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The namespace_type attribute.
     /// </summary>
     public TerraformValue<string> NamespaceType
-        => AsReference("namespace_type");
+        => CreateReference("namespace_type");
 
     /// <summary>
     /// The servicebus_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ServicebusEndpoint
-        => AsReference("servicebus_endpoint");
+        => CreateReference("servicebus_endpoint");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

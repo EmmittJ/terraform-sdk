@@ -45,7 +45,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     /// </summary>
     public TerraformValue<string> ProducerInstanceLocation
     {
-        get => GetArgument<TerraformValue<string>>("producer_instance_location") ?? AsReference("producer_instance_location");
+        get => GetArgument<TerraformValue<string>>("producer_instance_location") ?? CreateReference("producer_instance_location");
         set => SetArgument("producer_instance_location", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -194,44 +194,44 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     /// The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The type of underlying resources used to create the connection.
     /// </summary>
     public TerraformValue<string> Infrastructure
-        => AsReference("infrastructure");
+        => CreateReference("infrastructure");
 
     /// <summary>
     /// Information about each Private Service Connect connection.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscConnections
-        => AsReference("psc_connections");
+        => CreateReference("psc_connections");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// PscConfig block (nesting mode: list).

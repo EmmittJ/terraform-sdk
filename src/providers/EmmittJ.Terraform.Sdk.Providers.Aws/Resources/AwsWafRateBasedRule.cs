@@ -57,7 +57,7 @@ public partial class AwsWafRateBasedRule(string name) : TerraformResource("aws_w
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsWafRateBasedRule(string name) : TerraformResource("aws_w
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsWafRateBasedRule(string name) : TerraformResource("aws_w
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Predicates block (nesting mode: set).

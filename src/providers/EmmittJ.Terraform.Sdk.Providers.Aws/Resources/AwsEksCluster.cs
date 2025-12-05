@@ -18,7 +18,7 @@ public class AwsEksClusterAccessConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AuthenticationMode
     {
-        get => GetArgument<TerraformValue<string>>("authentication_mode") ?? AsReference("authentication_mode");
+        get => GetArgument<TerraformValue<string>>("authentication_mode") ?? CreateReference("authentication_mode");
         set => SetArgument("authentication_mode", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsEksClusterComputeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> IpFamily
     {
-        get => GetArgument<TerraformValue<string>>("ip_family") ?? AsReference("ip_family");
+        get => GetArgument<TerraformValue<string>>("ip_family") ?? CreateReference("ip_family");
         set => SetArgument("ip_family", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceIpv4Cidr
     {
-        get => GetArgument<TerraformValue<string>>("service_ipv4_cidr") ?? AsReference("service_ipv4_cidr");
+        get => GetArgument<TerraformValue<string>>("service_ipv4_cidr") ?? CreateReference("service_ipv4_cidr");
         set => SetArgument("service_ipv4_cidr", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlock
     /// The service_ipv6_cidr attribute.
     /// </summary>
     public TerraformValue<string> ServiceIpv6Cidr
-        => AsReference("service_ipv6_cidr");
+        => CreateReference("service_ipv6_cidr");
 
     /// <summary>
     /// ElasticLoadBalancing block (nesting mode: list).
@@ -198,7 +198,7 @@ public class AwsEksClusterKubernetesNetworkConfigBlockElasticLoadBalancingBlock 
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -392,7 +392,7 @@ public class AwsEksClusterStorageConfigBlockBlockStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsEksClusterUpgradePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SupportType
     {
-        get => GetArgument<TerraformValue<string>>("support_type") ?? AsReference("support_type");
+        get => GetArgument<TerraformValue<string>>("support_type") ?? CreateReference("support_type");
         set => SetArgument("support_type", value);
     }
 
@@ -478,7 +478,7 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     /// The cluster_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterSecurityGroupId
-        => AsReference("cluster_security_group_id");
+        => CreateReference("cluster_security_group_id");
 
     /// <summary>
     /// The endpoint_private_access attribute.
@@ -503,7 +503,7 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> PublicAccessCidrs
     {
-        get => GetArgument<TerraformSet<string>>("public_access_cidrs") ?? AsReference("public_access_cidrs");
+        get => GetArgument<TerraformSet<string>>("public_access_cidrs") ?? CreateReference("public_access_cidrs");
         set => SetArgument("public_access_cidrs", value);
     }
 
@@ -530,7 +530,7 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }
 
@@ -578,7 +578,7 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// </summary>
     public TerraformValue<bool> DeletionProtection
     {
-        get => GetArgument<TerraformValue<bool>>("deletion_protection") ?? AsReference("deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection") ?? CreateReference("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -605,7 +605,7 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -624,7 +624,7 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -652,7 +652,7 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -661,7 +661,7 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -669,49 +669,49 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The certificate_authority attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificateAuthority
-        => AsReference("certificate_authority");
+        => CreateReference("certificate_authority");
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterId
-        => AsReference("cluster_id");
+        => CreateReference("cluster_id");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
     public TerraformValue<string> PlatformVersion
-        => AsReference("platform_version");
+        => CreateReference("platform_version");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// AccessConfig block (nesting mode: list).

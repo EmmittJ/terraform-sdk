@@ -87,7 +87,7 @@ public partial class GoogleStorageTransferAgentPool(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleStorageTransferAgentPool(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleStorageTransferAgentPool(string name) : TerraformReso
     /// Specifies the state of the AgentPool.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// BandwidthLimit block (nesting mode: list).

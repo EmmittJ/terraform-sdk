@@ -238,7 +238,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -265,31 +265,31 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     /// The gateway_arn attribute.
     /// </summary>
     public TerraformValue<string> GatewayArn
-        => AsReference("gateway_arn");
+        => CreateReference("gateway_arn");
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
     public TerraformValue<string> GatewayId
-        => AsReference("gateway_id");
+        => CreateReference("gateway_id");
 
     /// <summary>
     /// The gateway_url attribute.
     /// </summary>
     public TerraformValue<string> GatewayUrl
-        => AsReference("gateway_url");
+        => CreateReference("gateway_url");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The workload_identity_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadIdentityDetails
-        => AsReference("workload_identity_details");
+        => CreateReference("workload_identity_details");
 
     /// <summary>
     /// AuthorizerConfiguration block (nesting mode: list).

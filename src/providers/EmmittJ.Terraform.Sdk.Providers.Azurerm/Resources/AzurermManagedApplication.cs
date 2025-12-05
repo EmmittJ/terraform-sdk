@@ -135,7 +135,7 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> ParameterValues
     {
-        get => GetArgument<TerraformValue<string>>("parameter_values") ?? AsReference("parameter_values");
+        get => GetArgument<TerraformValue<string>>("parameter_values") ?? CreateReference("parameter_values");
         set => SetArgument("parameter_values", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     /// The outputs attribute.
     /// </summary>
     public TerraformMap<string> Outputs
-        => AsReference("outputs");
+        => CreateReference("outputs");
 
     /// <summary>
     /// Plan block (nesting mode: list).

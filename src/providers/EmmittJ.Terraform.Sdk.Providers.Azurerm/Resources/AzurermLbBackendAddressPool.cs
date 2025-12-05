@@ -117,7 +117,7 @@ public partial class AzurermLbBackendAddressPool(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -163,25 +163,25 @@ public partial class AzurermLbBackendAddressPool(string name) : TerraformResourc
     /// The backend_ip_configurations attribute.
     /// </summary>
     public TerraformList<string> BackendIpConfigurations
-        => AsReference("backend_ip_configurations");
+        => CreateReference("backend_ip_configurations");
 
     /// <summary>
     /// The inbound_nat_rules attribute.
     /// </summary>
     public TerraformList<string> InboundNatRules
-        => AsReference("inbound_nat_rules");
+        => CreateReference("inbound_nat_rules");
 
     /// <summary>
     /// The load_balancing_rules attribute.
     /// </summary>
     public TerraformList<string> LoadBalancingRules
-        => AsReference("load_balancing_rules");
+        => CreateReference("load_balancing_rules");
 
     /// <summary>
     /// The outbound_rules attribute.
     /// </summary>
     public TerraformList<string> OutboundRules
-        => AsReference("outbound_rules");
+        => CreateReference("outbound_rules");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

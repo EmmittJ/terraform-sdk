@@ -46,7 +46,7 @@ public partial class AzurermEventhubAuthorizationRuleDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,37 +111,37 @@ public partial class AzurermEventhubAuthorizationRuleDataSource(string name) : T
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-        => AsReference("primary_connection_string");
+        => CreateReference("primary_connection_string");
 
     /// <summary>
     /// The primary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionStringAlias
-        => AsReference("primary_connection_string_alias");
+        => CreateReference("primary_connection_string_alias");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-        => AsReference("secondary_connection_string");
+        => CreateReference("secondary_connection_string");
 
     /// <summary>
     /// The secondary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionStringAlias
-        => AsReference("secondary_connection_string_alias");
+        => CreateReference("secondary_connection_string_alias");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-        => AsReference("secondary_key");
+        => CreateReference("secondary_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

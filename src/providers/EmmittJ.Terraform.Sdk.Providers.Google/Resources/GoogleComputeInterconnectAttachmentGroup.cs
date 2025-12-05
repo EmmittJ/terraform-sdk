@@ -119,7 +119,7 @@ public partial class GoogleComputeInterconnectAttachmentGroup(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -153,7 +153,7 @@ public partial class GoogleComputeInterconnectAttachmentGroup(string name) : Ter
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -163,20 +163,20 @@ public partial class GoogleComputeInterconnectAttachmentGroup(string name) : Ter
     /// the Attachment&#39;s AttachmentGroup.
     /// </summary>
     public TerraformList<TerraformMap<object>> Configured
-        => AsReference("configured");
+        => CreateReference("configured");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// An analysis of the logical layout of Attachments in this
     /// group. Every Attachment in the group is shown once in this structure.
     /// </summary>
     public TerraformList<TerraformMap<object>> LogicalStructure
-        => AsReference("logical_structure");
+        => CreateReference("logical_structure");
 
     /// <summary>
     /// Attachments block (nesting mode: set).

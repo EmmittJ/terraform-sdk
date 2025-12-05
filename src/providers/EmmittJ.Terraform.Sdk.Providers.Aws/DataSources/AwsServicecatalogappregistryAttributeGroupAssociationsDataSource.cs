@@ -31,7 +31,7 @@ public partial class AwsServicecatalogappregistryAttributeGroupAssociationsDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -39,6 +39,6 @@ public partial class AwsServicecatalogappregistryAttributeGroupAssociationsDataS
     /// The attribute_group_ids attribute.
     /// </summary>
     public TerraformSet<string> AttributeGroupIds
-        => AsReference("attribute_group_ids");
+        => CreateReference("attribute_group_ids");
 
 }

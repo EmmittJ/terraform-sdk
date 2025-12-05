@@ -239,7 +239,7 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -256,25 +256,25 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The ingest_endpoint_urls attribute.
     /// </summary>
     public TerraformSet<string> IngestEndpointUrls
-        => AsReference("ingest_endpoint_urls");
+        => CreateReference("ingest_endpoint_urls");
 
     /// <summary>
     /// The pipeline_arn attribute.
     /// </summary>
     public TerraformValue<string> PipelineArn
-        => AsReference("pipeline_arn");
+        => CreateReference("pipeline_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// BufferOptions block (nesting mode: list).

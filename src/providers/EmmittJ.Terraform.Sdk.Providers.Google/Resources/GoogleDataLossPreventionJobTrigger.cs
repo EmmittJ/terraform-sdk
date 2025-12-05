@@ -942,7 +942,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// The creation timestamp of an inspectTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Resource name of the requested StoredInfoType, for example &#39;organizations/433245324/storedInfoTypes/432452342&#39;
@@ -2667,7 +2667,7 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2698,7 +2698,7 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// </summary>
     public TerraformValue<string> TriggerId
     {
-        get => GetArgument<TerraformValue<string>>("trigger_id") ?? AsReference("trigger_id");
+        get => GetArgument<TerraformValue<string>>("trigger_id") ?? CreateReference("trigger_id");
         set => SetArgument("trigger_id", value);
     }
 
@@ -2706,25 +2706,25 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// The creation timestamp of an inspectTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The timestamp of the last time this trigger executed.
     /// </summary>
     public TerraformValue<string> LastRunTime
-        => AsReference("last_run_time");
+        => CreateReference("last_run_time");
 
     /// <summary>
     /// The resource name of the job trigger. Set by the server.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The last update timestamp of an inspectTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// InspectJob block (nesting mode: list).

@@ -49,7 +49,7 @@ public partial class GoogleCloudIdentityGroupLookupDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,7 +57,7 @@ public partial class GoogleCloudIdentityGroupLookupDataSource(string name) : Ter
     /// The [resource name](https://cloud.google.com/apis/design/resource_names) of the looked-up Group.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// GroupKey block (nesting mode: list).

@@ -13,7 +13,7 @@ public partial class AwsApiGatewayRestApiDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsApiGatewayRestApiDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsApiGatewayRestApiDataSource(string name) : TerraformData
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,54 +49,54 @@ public partial class AwsApiGatewayRestApiDataSource(string name) : TerraformData
     /// The api_key_source attribute.
     /// </summary>
     public TerraformValue<string> ApiKeySource
-        => AsReference("api_key_source");
+        => CreateReference("api_key_source");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The binary_media_types attribute.
     /// </summary>
     public TerraformList<string> BinaryMediaTypes
-        => AsReference("binary_media_types");
+        => CreateReference("binary_media_types");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The endpoint_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EndpointConfiguration
-        => AsReference("endpoint_configuration");
+        => CreateReference("endpoint_configuration");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionArn
-        => AsReference("execution_arn");
+        => CreateReference("execution_arn");
 
     /// <summary>
     /// The minimum_compression_size attribute.
     /// </summary>
     public TerraformValue<string> MinimumCompressionSize
-        => AsReference("minimum_compression_size");
+        => CreateReference("minimum_compression_size");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     public TerraformValue<string> Policy
-        => AsReference("policy");
+        => CreateReference("policy");
 
     /// <summary>
     /// The root_resource_id attribute.
     /// </summary>
     public TerraformValue<string> RootResourceId
-        => AsReference("root_resource_id");
+        => CreateReference("root_resource_id");
 
 }

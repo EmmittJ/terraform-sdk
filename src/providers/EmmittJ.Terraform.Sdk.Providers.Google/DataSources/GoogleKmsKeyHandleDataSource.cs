@@ -13,7 +13,7 @@ public partial class GoogleKmsKeyHandleDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -53,13 +53,13 @@ public partial class GoogleKmsKeyHandleDataSource(string name) : TerraformDataSo
     /// &#39;projects/1/locations/us-east1/keyRings/foo/cryptoKeys/bar-ffffff&#39;
     /// </summary>
     public TerraformValue<string> KmsKey
-        => AsReference("kms_key");
+        => CreateReference("kms_key");
 
     /// <summary>
     /// Selector of the resource type where we want to protect resources.
     /// For example, &#39;storage.googleapis.com/Bucket&#39;.
     /// </summary>
     public TerraformValue<string> ResourceTypeSelector
-        => AsReference("resource_type_selector");
+        => CreateReference("resource_type_selector");
 
 }

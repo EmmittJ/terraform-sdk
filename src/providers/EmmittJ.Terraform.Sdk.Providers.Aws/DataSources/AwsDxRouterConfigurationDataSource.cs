@@ -13,7 +13,7 @@ public partial class AwsDxRouterConfigurationDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDxRouterConfigurationDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,18 +50,18 @@ public partial class AwsDxRouterConfigurationDataSource(string name) : Terraform
     /// The customer_router_config attribute.
     /// </summary>
     public TerraformValue<string> CustomerRouterConfig
-        => AsReference("customer_router_config");
+        => CreateReference("customer_router_config");
 
     /// <summary>
     /// The router attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Router
-        => AsReference("router");
+        => CreateReference("router");
 
     /// <summary>
     /// The virtual_interface_name attribute.
     /// </summary>
     public TerraformValue<string> VirtualInterfaceName
-        => AsReference("virtual_interface_name");
+        => CreateReference("virtual_interface_name");
 
 }

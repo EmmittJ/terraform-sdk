@@ -90,7 +90,7 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     /// </summary>
     public TerraformList<string> Events
     {
-        get => GetArgument<TerraformList<string>>("events") ?? AsReference("events");
+        get => GetArgument<TerraformList<string>>("events") ?? CreateReference("events");
         set => SetArgument("events", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -165,26 +165,26 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     /// Create timestamp.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// A unique identifier for a Hook. The name should be of the format:
     /// &#39;projects/{project}/locations/{location_id}/repositories/{repository_id}/hooks/{hook_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Unique identifier of the hook.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Update timestamp.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// PushOption block (nesting mode: list).

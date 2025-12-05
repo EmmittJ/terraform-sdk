@@ -47,7 +47,7 @@ public partial class AwsWafIpset(string name) : TerraformResource("aws_waf_ipset
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsWafIpset(string name) : TerraformResource("aws_waf_ipset
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// IpSetDescriptors block (nesting mode: set).

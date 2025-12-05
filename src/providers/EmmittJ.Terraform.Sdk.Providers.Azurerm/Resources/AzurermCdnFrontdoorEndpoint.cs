@@ -82,7 +82,7 @@ public partial class AzurermCdnFrontdoorEndpoint(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermCdnFrontdoorEndpoint(string name) : TerraformResourc
     /// The host_name attribute.
     /// </summary>
     public TerraformValue<string> HostName
-        => AsReference("host_name");
+        => CreateReference("host_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -112,7 +112,7 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlockTriggersBlock : T
     /// When the trigger was changed.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }
 
@@ -132,13 +132,13 @@ public class GoogleIdentityPlatformConfigClientBlock : TerraformBlock
     /// API key that can be used when making requests for this project.
     /// </summary>
     public TerraformValue<string> ApiKey
-        => AsReference("api_key");
+        => CreateReference("api_key");
 
     /// <summary>
     /// Firebase subdomain.
     /// </summary>
     public TerraformValue<string> FirebaseSubdomain
-        => AsReference("firebase_subdomain");
+        => CreateReference("firebase_subdomain");
 
     /// <summary>
     /// Permissions block (nesting mode: list).
@@ -209,7 +209,7 @@ public class GoogleIdentityPlatformConfigMfaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -240,7 +240,7 @@ public class GoogleIdentityPlatformConfigMfaBlockProviderConfigsBlock : Terrafor
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -447,7 +447,7 @@ public class GoogleIdentityPlatformConfigSignInBlock : TerraformBlock
     /// Output only. Hash config information.
     /// </summary>
     public TerraformList<TerraformMap<object>> HashConfig
-        => AsReference("hash_config");
+        => CreateReference("hash_config");
 
     /// <summary>
     /// Anonymous block (nesting mode: list).
@@ -701,7 +701,7 @@ public partial class GoogleIdentityPlatformConfig(string name) : TerraformResour
     /// </summary>
     public TerraformList<string> AuthorizedDomains
     {
-        get => GetArgument<TerraformList<string>>("authorized_domains") ?? AsReference("authorized_domains");
+        get => GetArgument<TerraformList<string>>("authorized_domains") ?? CreateReference("authorized_domains");
         set => SetArgument("authorized_domains", value);
     }
 
@@ -719,7 +719,7 @@ public partial class GoogleIdentityPlatformConfig(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -728,7 +728,7 @@ public partial class GoogleIdentityPlatformConfig(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -736,7 +736,7 @@ public partial class GoogleIdentityPlatformConfig(string name) : TerraformResour
     /// The name of the Config resource
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// BlockingFunctions block (nesting mode: list).

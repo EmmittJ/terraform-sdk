@@ -13,7 +13,7 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string> VersionStages
     {
-        get => GetArgument<TerraformSet<string>>("version_stages") ?? AsReference("version_stages");
+        get => GetArgument<TerraformSet<string>>("version_stages") ?? CreateReference("version_stages");
         set => SetArgument("version_stages", value);
     }
 
@@ -85,18 +85,18 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The has_secret_string_wo attribute.
     /// </summary>
     public TerraformValue<bool> HasSecretStringWo
-        => AsReference("has_secret_string_wo");
+        => CreateReference("has_secret_string_wo");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     public TerraformValue<string> VersionId
-        => AsReference("version_id");
+        => CreateReference("version_id");
 
 }

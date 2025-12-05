@@ -22,7 +22,7 @@ public partial class AwsNetworkfirewallFirewallPolicyDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsNetworkfirewallFirewallPolicyDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsNetworkfirewallFirewallPolicyDataSource(string name) : T
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,18 +57,18 @@ public partial class AwsNetworkfirewallFirewallPolicyDataSource(string name) : T
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The firewall_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FirewallPolicy
-        => AsReference("firewall_policy");
+        => CreateReference("firewall_policy");
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
     public TerraformValue<string> UpdateToken
-        => AsReference("update_token");
+        => CreateReference("update_token");
 
 }

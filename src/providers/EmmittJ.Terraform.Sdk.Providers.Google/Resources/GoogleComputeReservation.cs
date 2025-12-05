@@ -50,7 +50,7 @@ public class GoogleComputeReservationReservationSharingPolicyBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> ServiceShareType
     {
-        get => GetArgument<TerraformValue<string>>("service_share_type") ?? AsReference("service_share_type");
+        get => GetArgument<TerraformValue<string>>("service_share_type") ?? CreateReference("service_share_type");
         set => SetArgument("service_share_type", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleComputeReservationShareSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ShareType
     {
-        get => GetArgument<TerraformValue<string>>("share_type") ?? AsReference("share_type");
+        get => GetArgument<TerraformValue<string>>("share_type") ?? CreateReference("share_type");
         set => SetArgument("share_type", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleComputeReservationSpecificReservationBlock : TerraformBlock
     /// How many instances are in use.
     /// </summary>
     public TerraformValue<double> InUseCount
-        => AsReference("in_use_count");
+        => CreateReference("in_use_count");
 
     /// <summary>
     /// Specifies the instance template to create the reservation. If you use this field, you must exclude the
@@ -199,7 +199,7 @@ public class GoogleComputeReservationSpecificReservationBlockInstancePropertiesB
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -347,7 +347,7 @@ public partial class GoogleComputeReservation(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> DeleteAtTime
     {
-        get => GetArgument<TerraformValue<string>>("delete_at_time") ?? AsReference("delete_at_time");
+        get => GetArgument<TerraformValue<string>>("delete_at_time") ?? CreateReference("delete_at_time");
         set => SetArgument("delete_at_time", value);
     }
 
@@ -365,7 +365,7 @@ public partial class GoogleComputeReservation(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -390,7 +390,7 @@ public partial class GoogleComputeReservation(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -420,25 +420,25 @@ public partial class GoogleComputeReservation(string name) : TerraformResource("
     /// reservations that are tied to a commitment.
     /// </summary>
     public TerraformValue<string> Commitment
-        => AsReference("commitment");
+        => CreateReference("commitment");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The status of the reservation.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// DeleteAfterDuration block (nesting mode: list).

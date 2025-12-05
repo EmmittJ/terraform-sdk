@@ -28,7 +28,7 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     /// </summary>
     public TerraformSet<string> ExcludeVaults
     {
-        get => GetArgument<TerraformSet<string>>("exclude_vaults") ?? AsReference("exclude_vaults");
+        get => GetArgument<TerraformSet<string>>("exclude_vaults") ?? CreateReference("exclude_vaults");
         set => SetArgument("exclude_vaults", value);
     }
 
@@ -57,7 +57,7 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     /// </summary>
     public TerraformValue<double> SelectionWindowDays
     {
-        get => GetArgument<TerraformValue<double>>("selection_window_days") ?? AsReference("selection_window_days");
+        get => GetArgument<TerraformValue<double>>("selection_window_days") ?? CreateReference("selection_window_days");
         set => SetArgument("selection_window_days", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsBackupRestoreTestingPlan(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsBackupRestoreTestingPlan(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> ScheduleExpressionTimezone
     {
-        get => GetArgument<TerraformValue<string>>("schedule_expression_timezone") ?? AsReference("schedule_expression_timezone");
+        get => GetArgument<TerraformValue<string>>("schedule_expression_timezone") ?? CreateReference("schedule_expression_timezone");
         set => SetArgument("schedule_expression_timezone", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsBackupRestoreTestingPlan(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> StartWindowHours
     {
-        get => GetArgument<TerraformValue<double>>("start_window_hours") ?? AsReference("start_window_hours");
+        get => GetArgument<TerraformValue<double>>("start_window_hours") ?? CreateReference("start_window_hours");
         set => SetArgument("start_window_hours", value);
     }
 
@@ -130,13 +130,13 @@ public partial class AwsBackupRestoreTestingPlan(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// RecoveryPointSelection block (nesting mode: list).

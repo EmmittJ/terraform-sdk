@@ -63,7 +63,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformList<string> AuditActionsAndGroups
     {
-        get => GetArgument<TerraformList<string>>("audit_actions_and_groups") ?? AsReference("audit_actions_and_groups");
+        get => GetArgument<TerraformList<string>>("audit_actions_and_groups") ?? CreateReference("audit_actions_and_groups");
         set => SetArgument("audit_actions_and_groups", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

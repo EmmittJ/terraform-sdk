@@ -300,7 +300,7 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -319,7 +319,7 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -347,7 +347,7 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -365,19 +365,19 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The last_accessed_time attribute.
     /// </summary>
     public TerraformValue<string> LastAccessedTime
-        => AsReference("last_accessed_time");
+        => CreateReference("last_accessed_time");
 
     /// <summary>
     /// The last_analyzed_time attribute.
     /// </summary>
     public TerraformValue<string> LastAnalyzedTime
-        => AsReference("last_analyzed_time");
+        => CreateReference("last_analyzed_time");
 
     /// <summary>
     /// StorageDescriptor block (nesting mode: list).

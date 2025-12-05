@@ -8,23 +8,10 @@ namespace EmmittJ.Terraform.Sdk;
 /// Inherits from TerraformValue&lt;IEnumerable&lt;T&gt;&gt; for clean typing.
 /// </summary>
 /// <typeparam name="T">The element type (string, double, bool, TerraformBlock&lt;T&gt;, etc.)</typeparam>
-public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable, ITerraformHasParent
+public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
 {
     // Internal: Store elements as TerraformValue<T> to preserve unknowns (Pulumi pattern)
     private readonly List<TerraformValue<T>> _elements;
-
-    /// <summary>
-    /// Gets or sets the parent block for reference chaining.
-    /// Automatically set when this list is assigned to a parent's property via SetArgument.
-    /// </summary>
-    public ITerraformReferenceable? ParentBlock { get; set; }
-
-    /// <summary>
-    /// Gets or sets the attribute name this list was assigned to (e.g., "ingress").
-    /// Used for building indexed references like <c>resource.ingress[0].fqdn</c>.
-    /// Automatically set when this list is assigned to a parent's property via SetArgument.
-    /// </summary>
-    public string? ParentAttributeName { get; set; }
 
     // Parameterless constructor for collection initializer syntax
     public TerraformList()
@@ -61,6 +48,31 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable, ITe
         : base(resolvable)
     {
         _elements = new List<TerraformValue<T>>();
+    }
+
+    /// <summary>
+    /// Copy constructor for creating a copy of an existing list.
+    /// Used by <see cref="WithLineage"/> to create copies with lineage attached.
+    /// </summary>
+    /// <param name="other">The list to copy.</param>
+    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
+    private TerraformList(TerraformList<T> other, bool isCopy)
+        : base()
+    {
+        _ = isCopy; // Marker parameter for disambiguation
+        _elements = new List<TerraformValue<T>>(other._elements);
+    }
+
+    /// <summary>
+    /// Creates a copy of this list with the specified lineage attached.
+    /// </summary>
+    /// <param name="lineage">The lineage to attach to the copy.</param>
+    /// <returns>A new <see cref="TerraformList{T}"/> with the specified lineage.</returns>
+    public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
+    {
+        var copy = new TerraformList<T>(this, isCopy: true);
+        copy.Lineage = lineage;
+        return copy;
     }
 
     /// <summary>
@@ -104,6 +116,55 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable, ITe
     public void Add(TerraformValue<T> value)
     {
         _elements.Add(value);
+    }
+
+    /// <summary>
+    /// Gets the element at the specified index with lineage attached.
+    /// When this list has lineage, the returned element will have extended lineage
+    /// that includes the index (e.g., "resource.ingress[0]").
+    /// For value types, returns a COPY with lineage attached.
+    /// For blocks, sets lineage directly (blocks resolve their own content, lineage is for references).
+    /// </summary>
+    /// <param name="index">The zero-based index of the element to get.</param>
+    /// <returns>The element at the specified index with lineage attached.</returns>
+    public T this[int index]
+    {
+        get
+        {
+            if (index < 0 || index >= _elements.Count)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index), $"Index {index} is out of range. List has {_elements.Count} elements.");
+            }
+
+            var element = _elements[index];
+
+            // If the element is a lazy value wrapping an original T, get the original
+            T? result = element switch
+            {
+                TerraformLazyValue<T> { Original: T original } => original,
+                T directValue => directValue,
+                _ => default
+            };
+
+            // If this list has lineage, attach it to the element
+            if (Lineage is not null && result is ITerraformValue terraformValue)
+            {
+                var lineageForIndex = Lineage.WithIndex(index);
+
+                // For blocks, set lineage directly (blocks resolve their own content, lineage is for reference building)
+                // For other values, return a COPY with lineage to preserve original for source rendering
+                if (result is TerraformBlock block)
+                {
+                    block.Lineage = lineageForIndex;
+                    return result;
+                }
+
+                return (T)terraformValue.WithLineage(lineageForIndex);
+            }
+
+            return result ?? throw new InvalidOperationException(
+                $"Cannot retrieve element at index {index}. The element was not stored as type {typeof(T).Name}.");
+        }
     }
 
     // Implicit conversions from .NET collections
@@ -162,8 +223,36 @@ internal sealed class TerraformLazyList<T> : TerraformList<T>
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
+    /// <summary>
+    /// Copy constructor for creating a copy with lineage.
+    /// </summary>
+    /// <param name="other">The list to copy.</param>
+    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
+    private TerraformLazyList(TerraformLazyList<T> other, bool isCopy)
+        : base()
+    {
+        _ = isCopy; // Marker parameter for disambiguation
+        _producer = other._producer;
+    }
+
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
+        // Check lineage first - if present, resolve to reference
+        if (Lineage is not null)
+        {
+            return [Lineage.BuildExpression()];
+        }
+
         return _producer(context);
+    }
+
+    /// <summary>
+    /// Creates a copy of this lazy list with the specified lineage attached.
+    /// </summary>
+    public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
+    {
+        var copy = new TerraformLazyList<T>(this, isCopy: true);
+        copy.Lineage = lineage;
+        return copy;
     }
 }

@@ -13,7 +13,7 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource(string name)
     /// The action that the external access rule performs. Possible values: [&amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
     public TerraformValue<string> Action
-        => AsReference("action");
+        => CreateReference("action");
 
     /// <summary>
     /// Creation time of this resource.
@@ -51,63 +51,63 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource(string name)
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// User-provided description for the external access rule.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// If destination ranges are specified, the external access rule applies only to
     /// traffic that has a destination IP address in these ranges.
     /// </summary>
     public TerraformList<TerraformMap<object>> DestinationIpRanges
-        => AsReference("destination_ip_ranges");
+        => CreateReference("destination_ip_ranges");
 
     /// <summary>
     /// A list of destination ports to which the external access rule applies.
     /// </summary>
     public TerraformList<string> DestinationPorts
-        => AsReference("destination_ports");
+        => CreateReference("destination_ports");
 
     /// <summary>
     /// The IP protocol to which the external access rule applies.
     /// </summary>
     public TerraformValue<string> IpProtocol
-        => AsReference("ip_protocol");
+        => CreateReference("ip_protocol");
 
     /// <summary>
     /// External access rule priority, which determines the external access rule to use when multiple rules apply.
     /// </summary>
     public TerraformValue<double> Priority
-        => AsReference("priority");
+        => CreateReference("priority");
 
     /// <summary>
     /// If source ranges are specified, the external access rule applies only to
     /// traffic that has a source IP address in these ranges.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceIpRanges
-        => AsReference("source_ip_ranges");
+        => CreateReference("source_ip_ranges");
 
     /// <summary>
     /// A list of source ports to which the external access rule applies.
     /// </summary>
     public TerraformList<string> SourcePorts
-        => AsReference("source_ports");
+        => CreateReference("source_ports");
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -115,6 +115,6 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource(string name)
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

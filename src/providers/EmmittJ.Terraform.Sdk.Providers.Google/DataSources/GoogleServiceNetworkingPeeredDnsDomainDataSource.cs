@@ -13,7 +13,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,12 +61,12 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource(string nam
     /// The dns_suffix attribute.
     /// </summary>
     public TerraformValue<string> DnsSuffix
-        => AsReference("dns_suffix");
+        => CreateReference("dns_suffix");
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
     public TerraformValue<string> Parent
-        => AsReference("parent");
+        => CreateReference("parent");
 
 }

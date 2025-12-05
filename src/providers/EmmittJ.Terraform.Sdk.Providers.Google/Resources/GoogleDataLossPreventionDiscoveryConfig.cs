@@ -2366,7 +2366,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2415,31 +2415,31 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     /// Output only. The creation timestamp of a DiscoveryConfig.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. A stream of errors encountered when the config was activated. Repeated errors may result in the config automatically being paused. Output only field. Will return the last 100 errors. Whenever the config is modified this list will be cleared.
     /// </summary>
     public TerraformList<TerraformMap<object>> Errors
-        => AsReference("errors");
+        => CreateReference("errors");
 
     /// <summary>
     /// Output only. The timestamp of the last time this config was executed
     /// </summary>
     public TerraformValue<string> LastRunTime
-        => AsReference("last_run_time");
+        => CreateReference("last_run_time");
 
     /// <summary>
     /// Unique resource name for the DiscoveryConfig, assigned by the service when the DiscoveryConfig is created.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The last update timestamp of a DiscoveryConfig.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Actions block (nesting mode: list).

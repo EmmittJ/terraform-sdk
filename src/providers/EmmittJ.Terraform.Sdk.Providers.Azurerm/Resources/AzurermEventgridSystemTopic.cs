@@ -26,13 +26,13 @@ public class AzurermEventgridSystemTopicIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -108,7 +108,7 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> SourceArmResourceId
     {
-        get => GetArgument<TerraformValue<string>>("source_arm_resource_id") ?? AsReference("source_arm_resource_id");
+        get => GetArgument<TerraformValue<string>>("source_arm_resource_id") ?? CreateReference("source_arm_resource_id");
         set => SetArgument("source_arm_resource_id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> SourceResourceId
     {
-        get => GetArgument<TerraformValue<string>>("source_resource_id") ?? AsReference("source_resource_id");
+        get => GetArgument<TerraformValue<string>>("source_resource_id") ?? CreateReference("source_resource_id");
         set => SetArgument("source_resource_id", value);
     }
 
@@ -184,13 +184,13 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     /// The metric_arm_resource_id attribute.
     /// </summary>
     public TerraformValue<string> MetricArmResourceId
-        => AsReference("metric_arm_resource_id");
+        => CreateReference("metric_arm_resource_id");
 
     /// <summary>
     /// The metric_resource_id attribute.
     /// </summary>
     public TerraformValue<string> MetricResourceId
-        => AsReference("metric_resource_id");
+        => CreateReference("metric_resource_id");
 
     /// <summary>
     /// Identity block (nesting mode: list).

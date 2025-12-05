@@ -13,7 +13,7 @@ public partial class AwsStoragegatewayLocalDiskDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> DiskNode
     {
-        get => GetArgument<TerraformValue<string>>("disk_node") ?? AsReference("disk_node");
+        get => GetArgument<TerraformValue<string>>("disk_node") ?? CreateReference("disk_node");
         set => SetArgument("disk_node", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsStoragegatewayLocalDiskDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> DiskPath
     {
-        get => GetArgument<TerraformValue<string>>("disk_path") ?? AsReference("disk_path");
+        get => GetArgument<TerraformValue<string>>("disk_path") ?? CreateReference("disk_path");
         set => SetArgument("disk_path", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsStoragegatewayLocalDiskDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsStoragegatewayLocalDiskDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,6 +58,6 @@ public partial class AwsStoragegatewayLocalDiskDataSource(string name) : Terrafo
     /// The disk_id attribute.
     /// </summary>
     public TerraformValue<string> DiskId
-        => AsReference("disk_id");
+        => CreateReference("disk_id");
 
 }

@@ -23,7 +23,7 @@ public partial class AwsNetworkmanagerLinkDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsNetworkmanagerLinkDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -50,36 +50,36 @@ public partial class AwsNetworkmanagerLinkDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The bandwidth attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Bandwidth
-        => AsReference("bandwidth");
+        => CreateReference("bandwidth");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     public TerraformValue<string> ProviderName
-        => AsReference("provider_name");
+        => CreateReference("provider_name");
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
     public TerraformValue<string> SiteId
-        => AsReference("site_id");
+        => CreateReference("site_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

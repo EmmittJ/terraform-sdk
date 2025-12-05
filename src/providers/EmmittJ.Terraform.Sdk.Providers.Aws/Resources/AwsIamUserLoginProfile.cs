@@ -13,7 +13,7 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool> PasswordResetRequired
     {
-        get => GetArgument<TerraformValue<bool>>("password_reset_required") ?? AsReference("password_reset_required");
+        get => GetArgument<TerraformValue<bool>>("password_reset_required") ?? CreateReference("password_reset_required");
         set => SetArgument("password_reset_required", value);
     }
 
@@ -58,18 +58,18 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     /// The encrypted_password attribute.
     /// </summary>
     public TerraformValue<string> EncryptedPassword
-        => AsReference("encrypted_password");
+        => CreateReference("encrypted_password");
 
     /// <summary>
     /// The key_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> KeyFingerprint
-        => AsReference("key_fingerprint");
+        => CreateReference("key_fingerprint");
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     public TerraformValue<string> Password
-        => AsReference("password");
+        => CreateReference("password");
 
 }

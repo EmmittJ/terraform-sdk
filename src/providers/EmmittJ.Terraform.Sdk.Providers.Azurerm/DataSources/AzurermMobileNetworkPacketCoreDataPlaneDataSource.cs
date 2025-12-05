@@ -36,7 +36,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlaneDataSource(string na
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermMobileNetworkPacketCoreDataPlaneDataSource(string na
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The user_plane_access_ipv4_address attribute.
     /// </summary>
     public TerraformValue<string> UserPlaneAccessIpv4Address
-        => AsReference("user_plane_access_ipv4_address");
+        => CreateReference("user_plane_access_ipv4_address");
 
     /// <summary>
     /// The user_plane_access_ipv4_gateway attribute.
     /// </summary>
     public TerraformValue<string> UserPlaneAccessIpv4Gateway
-        => AsReference("user_plane_access_ipv4_gateway");
+        => CreateReference("user_plane_access_ipv4_gateway");
 
     /// <summary>
     /// The user_plane_access_ipv4_subnet attribute.
     /// </summary>
     public TerraformValue<string> UserPlaneAccessIpv4Subnet
-        => AsReference("user_plane_access_ipv4_subnet");
+        => CreateReference("user_plane_access_ipv4_subnet");
 
     /// <summary>
     /// The user_plane_access_name attribute.
     /// </summary>
     public TerraformValue<string> UserPlaneAccessName
-        => AsReference("user_plane_access_name");
+        => CreateReference("user_plane_access_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

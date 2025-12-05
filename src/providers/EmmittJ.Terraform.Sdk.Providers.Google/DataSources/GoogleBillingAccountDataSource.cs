@@ -22,7 +22,7 @@ public partial class GoogleBillingAccountDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleBillingAccountDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleBillingAccountDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<bool> Open
     {
-        get => GetArgument<TerraformValue<bool>>("open") ?? AsReference("open");
+        get => GetArgument<TerraformValue<bool>>("open") ?? CreateReference("open");
         set => SetArgument("open", value);
     }
 
@@ -57,18 +57,18 @@ public partial class GoogleBillingAccountDataSource(string name) : TerraformData
     /// The currency_code attribute.
     /// </summary>
     public TerraformValue<string> CurrencyCode
-        => AsReference("currency_code");
+        => CreateReference("currency_code");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The project_ids attribute.
     /// </summary>
     public TerraformSet<string> ProjectIds
-        => AsReference("project_ids");
+        => CreateReference("project_ids");
 
 }

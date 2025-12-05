@@ -55,7 +55,7 @@ public partial class AwsInspector2DelegatedAdminAccount(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsInspector2DelegatedAdminAccount(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsInspector2DelegatedAdminAccount(string name) : Terraform
     /// The relationship_status attribute.
     /// </summary>
     public TerraformValue<string> RelationshipStatus
-        => AsReference("relationship_status");
+        => CreateReference("relationship_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

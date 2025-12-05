@@ -13,7 +13,7 @@ public partial class AwsCognitoIdentityPoolDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCognitoIdentityPoolDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCognitoIdentityPoolDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,48 +49,48 @@ public partial class AwsCognitoIdentityPoolDataSource(string name) : TerraformDa
     /// The allow_classic_flow attribute.
     /// </summary>
     public TerraformValue<bool> AllowClassicFlow
-        => AsReference("allow_classic_flow");
+        => CreateReference("allow_classic_flow");
 
     /// <summary>
     /// The allow_unauthenticated_identities attribute.
     /// </summary>
     public TerraformValue<bool> AllowUnauthenticatedIdentities
-        => AsReference("allow_unauthenticated_identities");
+        => CreateReference("allow_unauthenticated_identities");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cognito_identity_providers attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> CognitoIdentityProviders
-        => AsReference("cognito_identity_providers");
+        => CreateReference("cognito_identity_providers");
 
     /// <summary>
     /// The developer_provider_name attribute.
     /// </summary>
     public TerraformValue<string> DeveloperProviderName
-        => AsReference("developer_provider_name");
+        => CreateReference("developer_provider_name");
 
     /// <summary>
     /// The openid_connect_provider_arns attribute.
     /// </summary>
     public TerraformSet<string> OpenidConnectProviderArns
-        => AsReference("openid_connect_provider_arns");
+        => CreateReference("openid_connect_provider_arns");
 
     /// <summary>
     /// The saml_provider_arns attribute.
     /// </summary>
     public TerraformList<string> SamlProviderArns
-        => AsReference("saml_provider_arns");
+        => CreateReference("saml_provider_arns");
 
     /// <summary>
     /// The supported_login_providers attribute.
     /// </summary>
     public TerraformMap<string> SupportedLoginProviders
-        => AsReference("supported_login_providers");
+        => CreateReference("supported_login_providers");
 
 }

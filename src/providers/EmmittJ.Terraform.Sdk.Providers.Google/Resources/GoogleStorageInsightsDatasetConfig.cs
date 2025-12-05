@@ -101,7 +101,7 @@ public class GoogleStorageInsightsDatasetConfigIdentityBlock : TerraformBlock
     /// Name of the identity.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Type of identity to use for the DatasetConfig. Possible values: [&amp;quot;IDENTITY_TYPE_PER_CONFIG&amp;quot;, &amp;quot;IDENTITY_TYPE_PER_PROJECT&amp;quot;]
@@ -317,7 +317,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -359,7 +359,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<string> OrganizationNumber
     {
-        get => GetArgument<TerraformValue<string>>("organization_number") ?? AsReference("organization_number");
+        get => GetArgument<TerraformValue<string>>("organization_number") ?? CreateReference("organization_number");
         set => SetArgument("organization_number", value);
     }
 
@@ -377,7 +377,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -395,37 +395,37 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// The UTC time at which the DatasetConfig was created. This is auto-populated.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// State of the DatasetConfig.
     /// </summary>
     public TerraformValue<string> DatasetConfigState
-        => AsReference("dataset_config_state");
+        => CreateReference("dataset_config_state");
 
     /// <summary>
     /// Details of the linked DatasetConfig.
     /// </summary>
     public TerraformList<TerraformMap<object>> Link
-        => AsReference("link");
+        => CreateReference("link");
 
     /// <summary>
     /// The full canonical resource name of the DatasetConfig (e.g., projects/P/locations/L/datasetConfigs/ID).
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// System generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The UTC time at which the DatasetConfig was updated. This is auto-populated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// ExcludeCloudStorageBuckets block (nesting mode: list).

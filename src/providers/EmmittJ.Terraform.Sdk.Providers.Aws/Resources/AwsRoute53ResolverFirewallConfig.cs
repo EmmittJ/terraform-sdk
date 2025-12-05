@@ -13,7 +13,7 @@ public partial class AwsRoute53ResolverFirewallConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> FirewallFailOpen
     {
-        get => GetArgument<TerraformValue<string>>("firewall_fail_open") ?? AsReference("firewall_fail_open");
+        get => GetArgument<TerraformValue<string>>("firewall_fail_open") ?? CreateReference("firewall_fail_open");
         set => SetArgument("firewall_fail_open", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsRoute53ResolverFirewallConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsRoute53ResolverFirewallConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,6 +49,6 @@ public partial class AwsRoute53ResolverFirewallConfig(string name) : TerraformRe
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
 }

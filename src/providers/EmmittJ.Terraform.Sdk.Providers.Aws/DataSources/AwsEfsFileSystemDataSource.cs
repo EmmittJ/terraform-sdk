@@ -13,7 +13,7 @@ public partial class AwsEfsFileSystemDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> CreationToken
     {
-        get => GetArgument<TerraformValue<string>>("creation_token") ?? AsReference("creation_token");
+        get => GetArgument<TerraformValue<string>>("creation_token") ?? CreateReference("creation_token");
         set => SetArgument("creation_token", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsEfsFileSystemDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id") ?? AsReference("file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id") ?? CreateReference("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsEfsFileSystemDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsEfsFileSystemDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsEfsFileSystemDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,78 +57,78 @@ public partial class AwsEfsFileSystemDataSource(string name) : TerraformDataSour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneId
-        => AsReference("availability_zone_id");
+        => CreateReference("availability_zone_id");
 
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneName
-        => AsReference("availability_zone_name");
+        => CreateReference("availability_zone_name");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-        => AsReference("encrypted");
+        => CreateReference("encrypted");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The lifecycle_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LifecyclePolicy
-        => AsReference("lifecycle_policy");
+        => CreateReference("lifecycle_policy");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The performance_mode attribute.
     /// </summary>
     public TerraformValue<string> PerformanceMode
-        => AsReference("performance_mode");
+        => CreateReference("performance_mode");
 
     /// <summary>
     /// The protection attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Protection
-        => AsReference("protection");
+        => CreateReference("protection");
 
     /// <summary>
     /// The provisioned_throughput_in_mibps attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedThroughputInMibps
-        => AsReference("provisioned_throughput_in_mibps");
+        => CreateReference("provisioned_throughput_in_mibps");
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
     public TerraformValue<double> SizeInBytes
-        => AsReference("size_in_bytes");
+        => CreateReference("size_in_bytes");
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
     public TerraformValue<string> ThroughputMode
-        => AsReference("throughput_mode");
+        => CreateReference("throughput_mode");
 
 }

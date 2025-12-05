@@ -112,7 +112,7 @@ public class AwsDataexchangeEventActionActionBlockExportRevisionToS3BlockRevisio
     /// </summary>
     public TerraformValue<string> KeyPattern
     {
-        get => GetArgument<TerraformValue<string>>("key_pattern") ?? AsReference("key_pattern");
+        get => GetArgument<TerraformValue<string>>("key_pattern") ?? CreateReference("key_pattern");
         set => SetArgument("key_pattern", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AwsDataexchangeEventAction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -184,25 +184,25 @@ public partial class AwsDataexchangeEventAction(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
     /// <summary>
     /// Action block (nesting mode: list).

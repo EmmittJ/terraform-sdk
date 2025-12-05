@@ -76,7 +76,7 @@ public partial class GoogleChronicleDataAccessLabel(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleChronicleDataAccessLabel(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -123,25 +123,25 @@ public partial class GoogleChronicleDataAccessLabel(string name) : TerraformReso
     /// Output only. The user who created the data access label.
     /// </summary>
     public TerraformValue<string> Author
-        => AsReference("author");
+        => CreateReference("author");
 
     /// <summary>
     /// Output only. The time at which the data access label was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. The short name displayed for the label as it appears on event data. This is same as data access label id.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Output only. The user who last updated the data access label.
     /// </summary>
     public TerraformValue<string> LastEditor
-        => AsReference("last_editor");
+        => CreateReference("last_editor");
 
     /// <summary>
     /// The unique resource name of the data access label. This unique identifier is generated using values provided for the URL parameters.
@@ -149,13 +149,13 @@ public partial class GoogleChronicleDataAccessLabel(string name) : TerraformReso
     /// projects/{project}/locations/{location}/instances/{instance}/dataAccessLabels/{data_access_label_id}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The time at which the data access label was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

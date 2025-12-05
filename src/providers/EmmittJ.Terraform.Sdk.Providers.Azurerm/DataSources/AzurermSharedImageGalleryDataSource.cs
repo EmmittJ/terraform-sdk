@@ -36,7 +36,7 @@ public partial class AzurermSharedImageGalleryDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermSharedImageGalleryDataSource(string name) : Terrafor
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The image_names attribute.
     /// </summary>
     public TerraformList<string> ImageNames
-        => AsReference("image_names");
+        => CreateReference("image_names");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The unique_name attribute.
     /// </summary>
     public TerraformValue<string> UniqueName
-        => AsReference("unique_name");
+        => CreateReference("unique_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

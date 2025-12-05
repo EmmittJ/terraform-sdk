@@ -640,7 +640,7 @@ public class GoogleContainerClusterBinaryAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EvaluationMode
     {
-        get => GetArgument<TerraformValue<string>>("evaluation_mode") ?? AsReference("evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("evaluation_mode") ?? CreateReference("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -663,7 +663,7 @@ public class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> AutoProvisioningLocations
     {
-        get => GetArgument<TerraformList<string>>("auto_provisioning_locations") ?? AsReference("auto_provisioning_locations");
+        get => GetArgument<TerraformList<string>>("auto_provisioning_locations") ?? CreateReference("auto_provisioning_locations");
         set => SetArgument("auto_provisioning_locations", value);
     }
 
@@ -690,7 +690,7 @@ public class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -776,7 +776,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformList<string> OauthScopes
     {
-        get => GetArgument<TerraformList<string>>("oauth_scopes") ?? AsReference("oauth_scopes");
+        get => GetArgument<TerraformList<string>>("oauth_scopes") ?? CreateReference("oauth_scopes");
         set => SetArgument("oauth_scopes", value);
     }
 
@@ -837,7 +837,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<bool> AutoRepair
     {
-        get => GetArgument<TerraformValue<bool>>("auto_repair") ?? AsReference("auto_repair");
+        get => GetArgument<TerraformValue<bool>>("auto_repair") ?? CreateReference("auto_repair");
         set => SetArgument("auto_repair", value);
     }
 
@@ -846,7 +846,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<bool> AutoUpgrade
     {
-        get => GetArgument<TerraformValue<bool>>("auto_upgrade") ?? AsReference("auto_upgrade");
+        get => GetArgument<TerraformValue<bool>>("auto_upgrade") ?? CreateReference("auto_upgrade");
         set => SetArgument("auto_upgrade", value);
     }
 
@@ -854,7 +854,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// Specifies the Auto Upgrade knobs for the node pool.
     /// </summary>
     public TerraformList<TerraformMap<object>> UpgradeOptions
-        => AsReference("upgrade_options");
+        => CreateReference("upgrade_options");
 
 }
 
@@ -923,7 +923,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<string> Strategy
     {
-        get => GetArgument<TerraformValue<string>>("strategy") ?? AsReference("strategy");
+        get => GetArgument<TerraformValue<string>>("strategy") ?? CreateReference("strategy");
         set => SetArgument("strategy", value);
     }
 
@@ -957,7 +957,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<string> NodePoolSoakDuration
     {
-        get => GetArgument<TerraformValue<string>>("node_pool_soak_duration") ?? AsReference("node_pool_soak_duration");
+        get => GetArgument<TerraformValue<string>>("node_pool_soak_duration") ?? CreateReference("node_pool_soak_duration");
         set => SetArgument("node_pool_soak_duration", value);
     }
 
@@ -989,7 +989,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<double> BatchNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("batch_node_count") ?? AsReference("batch_node_count");
+        get => GetArgument<TerraformValue<double>>("batch_node_count") ?? CreateReference("batch_node_count");
         set => SetArgument("batch_node_count", value);
     }
 
@@ -998,7 +998,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<double> BatchPercentage
     {
-        get => GetArgument<TerraformValue<double>>("batch_percentage") ?? AsReference("batch_percentage");
+        get => GetArgument<TerraformValue<double>>("batch_percentage") ?? CreateReference("batch_percentage");
         set => SetArgument("batch_percentage", value);
     }
 
@@ -1167,7 +1167,7 @@ public class GoogleContainerClusterControlPlaneEndpointsConfigBlockDnsEndpointCo
     /// </summary>
     public TerraformValue<string> Endpoint
     {
-        get => GetArgument<TerraformValue<string>>("endpoint") ?? AsReference("endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint") ?? CreateReference("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -1368,7 +1368,7 @@ public class GoogleContainerClusterEnterpriseConfigBlock : TerraformBlock
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ClusterTier
-        => AsReference("cluster_tier");
+        => CreateReference("cluster_tier");
 
     /// <summary>
     /// Indicates the desired cluster tier. Available options include STANDARD and ENTERPRISE.
@@ -1376,7 +1376,7 @@ public class GoogleContainerClusterEnterpriseConfigBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> DesiredTier
     {
-        get => GetArgument<TerraformValue<string>>("desired_tier") ?? AsReference("desired_tier");
+        get => GetArgument<TerraformValue<string>>("desired_tier") ?? CreateReference("desired_tier");
         set => SetArgument("desired_tier", value);
     }
 
@@ -1398,19 +1398,19 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// Full resource name of the registered fleet membership of the cluster.
     /// </summary>
     public TerraformValue<string> Membership
-        => AsReference("membership");
+        => CreateReference("membership");
 
     /// <summary>
     /// Short name of the fleet membership, for example &amp;quot;member-1&amp;quot;.
     /// </summary>
     public TerraformValue<string> MembershipId
-        => AsReference("membership_id");
+        => CreateReference("membership_id");
 
     /// <summary>
     /// Location of the fleet membership, for example &amp;quot;us-central1&amp;quot;.
     /// </summary>
     public TerraformValue<string> MembershipLocation
-        => AsReference("membership_location");
+        => CreateReference("membership_location");
 
     /// <summary>
     /// The type of the cluster&#39;s fleet membership.
@@ -1425,7 +1425,7 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// Whether the cluster has been registered via the fleet API.
     /// </summary>
     public TerraformValue<bool> PreRegistered
-        => AsReference("pre_registered");
+        => CreateReference("pre_registered");
 
     /// <summary>
     /// The Fleet host project of the cluster.
@@ -1527,7 +1527,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ClusterIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cluster_ipv4_cidr_block") ?? AsReference("cluster_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("cluster_ipv4_cidr_block") ?? CreateReference("cluster_ipv4_cidr_block");
         set => SetArgument("cluster_ipv4_cidr_block", value);
     }
 
@@ -1536,7 +1536,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ClusterSecondaryRangeName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_secondary_range_name") ?? AsReference("cluster_secondary_range_name");
+        get => GetArgument<TerraformValue<string>>("cluster_secondary_range_name") ?? CreateReference("cluster_secondary_range_name");
         set => SetArgument("cluster_secondary_range_name", value);
     }
 
@@ -1545,7 +1545,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServicesIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("services_ipv4_cidr_block") ?? AsReference("services_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("services_ipv4_cidr_block") ?? CreateReference("services_ipv4_cidr_block");
         set => SetArgument("services_ipv4_cidr_block", value);
     }
 
@@ -1554,7 +1554,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServicesSecondaryRangeName
     {
-        get => GetArgument<TerraformValue<string>>("services_secondary_range_name") ?? AsReference("services_secondary_range_name");
+        get => GetArgument<TerraformValue<string>>("services_secondary_range_name") ?? CreateReference("services_secondary_range_name");
         set => SetArgument("services_secondary_range_name", value);
     }
 
@@ -1825,7 +1825,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockDailyMaintenanceWindowB
     /// The duration attribute.
     /// </summary>
     public TerraformValue<string> Duration
-        => AsReference("duration");
+        => CreateReference("duration");
 
     /// <summary>
     /// The start_time attribute.
@@ -1974,19 +1974,19 @@ public class GoogleContainerClusterMasterAuthBlock : TerraformBlock
     /// Base64 encoded public certificate used by clients to authenticate to the cluster endpoint.
     /// </summary>
     public TerraformValue<string> ClientCertificate
-        => AsReference("client_certificate");
+        => CreateReference("client_certificate");
 
     /// <summary>
     /// Base64 encoded private key used by clients to authenticate to the cluster endpoint.
     /// </summary>
     public TerraformValue<string> ClientKey
-        => AsReference("client_key");
+        => CreateReference("client_key");
 
     /// <summary>
     /// Base64 encoded public certificate that is the root of trust for the cluster.
     /// </summary>
     public TerraformValue<string> ClusterCaCertificate
-        => AsReference("cluster_ca_certificate");
+        => CreateReference("cluster_ca_certificate");
 
     /// <summary>
     /// ClientCertificateConfig block (nesting mode: list).
@@ -2043,7 +2043,7 @@ public class GoogleContainerClusterMasterAuthorizedNetworksConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<bool> GcpPublicCidrsAccessEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("gcp_public_cidrs_access_enabled") ?? AsReference("gcp_public_cidrs_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("gcp_public_cidrs_access_enabled") ?? CreateReference("gcp_public_cidrs_access_enabled");
         set => SetArgument("gcp_public_cidrs_access_enabled", value);
     }
 
@@ -2052,7 +2052,7 @@ public class GoogleContainerClusterMasterAuthorizedNetworksConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<bool> PrivateEndpointEnforcementEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("private_endpoint_enforcement_enabled") ?? AsReference("private_endpoint_enforcement_enabled");
+        get => GetArgument<TerraformValue<bool>>("private_endpoint_enforcement_enabled") ?? CreateReference("private_endpoint_enforcement_enabled");
         set => SetArgument("private_endpoint_enforcement_enabled", value);
     }
 
@@ -2140,7 +2140,7 @@ public class GoogleContainerClusterMonitoringConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> EnableComponents
     {
-        get => GetArgument<TerraformList<string>>("enable_components") ?? AsReference("enable_components");
+        get => GetArgument<TerraformList<string>>("enable_components") ?? CreateReference("enable_components");
         set => SetArgument("enable_components", value);
     }
 
@@ -2338,7 +2338,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -2347,7 +2347,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type") ?? AsReference("disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type") ?? CreateReference("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -2355,7 +2355,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// List of kubernetes taints applied to each node.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveTaints
-        => AsReference("effective_taints");
+        => CreateReference("effective_taints");
 
     /// <summary>
     /// If enabled boot disks are configured with confidential mode.
@@ -2380,7 +2380,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ImageType
     {
-        get => GetArgument<TerraformValue<string>>("image_type") ?? AsReference("image_type");
+        get => GetArgument<TerraformValue<string>>("image_type") ?? CreateReference("image_type");
         set => SetArgument("image_type", value);
     }
 
@@ -2389,7 +2389,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -2398,7 +2398,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> LocalSsdCount
     {
-        get => GetArgument<TerraformValue<double>>("local_ssd_count") ?? AsReference("local_ssd_count");
+        get => GetArgument<TerraformValue<double>>("local_ssd_count") ?? CreateReference("local_ssd_count");
         set => SetArgument("local_ssd_count", value);
     }
 
@@ -2416,7 +2416,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LoggingVariant
     {
-        get => GetArgument<TerraformValue<string>>("logging_variant") ?? AsReference("logging_variant");
+        get => GetArgument<TerraformValue<string>>("logging_variant") ?? CreateReference("logging_variant");
         set => SetArgument("logging_variant", value);
     }
 
@@ -2425,7 +2425,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -2443,7 +2443,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -2452,7 +2452,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -2470,7 +2470,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> OauthScopes
     {
-        get => GetArgument<TerraformSet<string>>("oauth_scopes") ?? AsReference("oauth_scopes");
+        get => GetArgument<TerraformSet<string>>("oauth_scopes") ?? CreateReference("oauth_scopes");
         set => SetArgument("oauth_scopes", value);
     }
 
@@ -2506,7 +2506,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -2794,7 +2794,7 @@ public class GoogleContainerClusterNodeConfigBlockBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type") ?? AsReference("disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type") ?? CreateReference("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -2803,7 +2803,7 @@ public class GoogleContainerClusterNodeConfigBlockBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ProvisionedIops
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? AsReference("provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? CreateReference("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
@@ -2812,7 +2812,7 @@ public class GoogleContainerClusterNodeConfigBlockBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ProvisionedThroughput
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? AsReference("provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? CreateReference("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
@@ -2821,7 +2821,7 @@ public class GoogleContainerClusterNodeConfigBlockBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> SizeGb
     {
-        get => GetArgument<TerraformValue<double>>("size_gb") ?? AsReference("size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb") ?? CreateReference("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -3258,7 +3258,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<bool> CpuCfsQuota
     {
-        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota") ?? AsReference("cpu_cfs_quota");
+        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota") ?? CreateReference("cpu_cfs_quota");
         set => SetArgument("cpu_cfs_quota", value);
     }
 
@@ -3330,7 +3330,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string> InsecureKubeletReadonlyPortEnabled
     {
-        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled") ?? AsReference("insecure_kubelet_readonly_port_enabled");
+        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled") ?? CreateReference("insecure_kubelet_readonly_port_enabled");
         set => SetArgument("insecure_kubelet_readonly_port_enabled", value);
     }
 
@@ -3339,7 +3339,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double> MaxParallelImagePulls
     {
-        get => GetArgument<TerraformValue<double>>("max_parallel_image_pulls") ?? AsReference("max_parallel_image_pulls");
+        get => GetArgument<TerraformValue<double>>("max_parallel_image_pulls") ?? CreateReference("max_parallel_image_pulls");
         set => SetArgument("max_parallel_image_pulls", value);
     }
 
@@ -3630,7 +3630,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockMemoryManage
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -3652,7 +3652,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockTopologyMana
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -3661,7 +3661,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockTopologyMana
     /// </summary>
     public TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope") ?? AsReference("scope");
+        get => GetArgument<TerraformValue<string>>("scope") ?? CreateReference("scope");
         set => SetArgument("scope", value);
     }
 
@@ -3683,7 +3683,7 @@ public class GoogleContainerClusterNodeConfigBlockLinuxNodeConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<string> CgroupMode
     {
-        get => GetArgument<TerraformValue<string>>("cgroup_mode") ?? AsReference("cgroup_mode");
+        get => GetArgument<TerraformValue<string>>("cgroup_mode") ?? CreateReference("cgroup_mode");
         set => SetArgument("cgroup_mode", value);
     }
 
@@ -3710,7 +3710,7 @@ public class GoogleContainerClusterNodeConfigBlockLinuxNodeConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<string> TransparentHugepageEnabled
     {
-        get => GetArgument<TerraformValue<string>>("transparent_hugepage_enabled") ?? AsReference("transparent_hugepage_enabled");
+        get => GetArgument<TerraformValue<string>>("transparent_hugepage_enabled") ?? CreateReference("transparent_hugepage_enabled");
         set => SetArgument("transparent_hugepage_enabled", value);
     }
 
@@ -4066,7 +4066,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> InitialNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("initial_node_count") ?? AsReference("initial_node_count");
+        get => GetArgument<TerraformValue<double>>("initial_node_count") ?? CreateReference("initial_node_count");
         set => SetArgument("initial_node_count", value);
     }
 
@@ -4074,20 +4074,20 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// The resource URLs of the managed instance groups associated with this node pool.
     /// </summary>
     public TerraformList<string> InstanceGroupUrls
-        => AsReference("instance_group_urls");
+        => CreateReference("instance_group_urls");
 
     /// <summary>
     /// List of instance group URLs which have been assigned to this node pool.
     /// </summary>
     public TerraformList<string> ManagedInstanceGroupUrls
-        => AsReference("managed_instance_group_urls");
+        => CreateReference("managed_instance_group_urls");
 
     /// <summary>
     /// The maximum number of pods per node in this node pool. Note that this does not work on node pools which are &amp;quot;route-based&amp;quot; - that is, node pools belonging to clusters that do not have IP Aliasing enabled.
     /// </summary>
     public TerraformValue<double> MaxPodsPerNode
     {
-        get => GetArgument<TerraformValue<double>>("max_pods_per_node") ?? AsReference("max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("max_pods_per_node") ?? CreateReference("max_pods_per_node");
         set => SetArgument("max_pods_per_node", value);
     }
 
@@ -4096,7 +4096,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -4105,7 +4105,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -4114,7 +4114,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? CreateReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -4123,7 +4123,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> NodeLocations
     {
-        get => GetArgument<TerraformSet<string>>("node_locations") ?? AsReference("node_locations");
+        get => GetArgument<TerraformSet<string>>("node_locations") ?? CreateReference("node_locations");
         set => SetArgument("node_locations", value);
     }
 
@@ -4132,7 +4132,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -4224,7 +4224,7 @@ public class GoogleContainerClusterNodePoolBlockAutoscalingBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> LocationPolicy
     {
-        get => GetArgument<TerraformValue<string>>("location_policy") ?? AsReference("location_policy");
+        get => GetArgument<TerraformValue<string>>("location_policy") ?? CreateReference("location_policy");
         set => SetArgument("location_policy", value);
     }
 
@@ -4322,7 +4322,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool> EnablePrivateNodes
     {
-        get => GetArgument<TerraformValue<bool>>("enable_private_nodes") ?? AsReference("enable_private_nodes");
+        get => GetArgument<TerraformValue<bool>>("enable_private_nodes") ?? CreateReference("enable_private_nodes");
         set => SetArgument("enable_private_nodes", value);
     }
 
@@ -4331,7 +4331,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> PodIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("pod_ipv4_cidr_block") ?? AsReference("pod_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("pod_ipv4_cidr_block") ?? CreateReference("pod_ipv4_cidr_block");
         set => SetArgument("pod_ipv4_cidr_block", value);
     }
 
@@ -4340,7 +4340,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> PodRange
     {
-        get => GetArgument<TerraformValue<string>>("pod_range") ?? AsReference("pod_range");
+        get => GetArgument<TerraformValue<string>>("pod_range") ?? CreateReference("pod_range");
         set => SetArgument("pod_range", value);
     }
 
@@ -4348,7 +4348,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlock : TerraformBl
     /// The subnetwork path for the node pool. Format: projects/{project}/regions/{region}/subnetworks/{subnetwork} . If the cluster is associated with multiple subnetworks, the subnetwork for the node pool is picked based on the IP utilization during node pool creation and is immutable.
     /// </summary>
     public TerraformValue<string> Subnetwork
-        => AsReference("subnetwork");
+        => CreateReference("subnetwork");
 
     /// <summary>
     /// AdditionalNodeNetworkConfigs block (nesting mode: list).
@@ -4437,7 +4437,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlockAdditionalPodN
     /// </summary>
     public TerraformValue<double> MaxPodsPerNode
     {
-        get => GetArgument<TerraformValue<double>>("max_pods_per_node") ?? AsReference("max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("max_pods_per_node") ?? CreateReference("max_pods_per_node");
         set => SetArgument("max_pods_per_node", value);
     }
 
@@ -4532,7 +4532,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -4541,7 +4541,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type") ?? AsReference("disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type") ?? CreateReference("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -4549,7 +4549,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// List of kubernetes taints applied to each node.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveTaints
-        => AsReference("effective_taints");
+        => CreateReference("effective_taints");
 
     /// <summary>
     /// If enabled boot disks are configured with confidential mode.
@@ -4574,7 +4574,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ImageType
     {
-        get => GetArgument<TerraformValue<string>>("image_type") ?? AsReference("image_type");
+        get => GetArgument<TerraformValue<string>>("image_type") ?? CreateReference("image_type");
         set => SetArgument("image_type", value);
     }
 
@@ -4583,7 +4583,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -4592,7 +4592,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> LocalSsdCount
     {
-        get => GetArgument<TerraformValue<double>>("local_ssd_count") ?? AsReference("local_ssd_count");
+        get => GetArgument<TerraformValue<double>>("local_ssd_count") ?? CreateReference("local_ssd_count");
         set => SetArgument("local_ssd_count", value);
     }
 
@@ -4610,7 +4610,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LoggingVariant
     {
-        get => GetArgument<TerraformValue<string>>("logging_variant") ?? AsReference("logging_variant");
+        get => GetArgument<TerraformValue<string>>("logging_variant") ?? CreateReference("logging_variant");
         set => SetArgument("logging_variant", value);
     }
 
@@ -4619,7 +4619,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -4637,7 +4637,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -4646,7 +4646,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -4664,7 +4664,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> OauthScopes
     {
-        get => GetArgument<TerraformSet<string>>("oauth_scopes") ?? AsReference("oauth_scopes");
+        get => GetArgument<TerraformSet<string>>("oauth_scopes") ?? CreateReference("oauth_scopes");
         set => SetArgument("oauth_scopes", value);
     }
 
@@ -4700,7 +4700,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -4988,7 +4988,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockBootDiskBlock : T
     /// </summary>
     public TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type") ?? AsReference("disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type") ?? CreateReference("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -4997,7 +4997,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockBootDiskBlock : T
     /// </summary>
     public TerraformValue<double> ProvisionedIops
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? AsReference("provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? CreateReference("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
@@ -5006,7 +5006,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockBootDiskBlock : T
     /// </summary>
     public TerraformValue<double> ProvisionedThroughput
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? AsReference("provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? CreateReference("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
@@ -5015,7 +5015,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockBootDiskBlock : T
     /// </summary>
     public TerraformValue<double> SizeGb
     {
-        get => GetArgument<TerraformValue<double>>("size_gb") ?? AsReference("size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb") ?? CreateReference("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -5452,7 +5452,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<bool> CpuCfsQuota
     {
-        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota") ?? AsReference("cpu_cfs_quota");
+        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota") ?? CreateReference("cpu_cfs_quota");
         set => SetArgument("cpu_cfs_quota", value);
     }
 
@@ -5524,7 +5524,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string> InsecureKubeletReadonlyPortEnabled
     {
-        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled") ?? AsReference("insecure_kubelet_readonly_port_enabled");
+        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled") ?? CreateReference("insecure_kubelet_readonly_port_enabled");
         set => SetArgument("insecure_kubelet_readonly_port_enabled", value);
     }
 
@@ -5533,7 +5533,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<double> MaxParallelImagePulls
     {
-        get => GetArgument<TerraformValue<double>>("max_parallel_image_pulls") ?? AsReference("max_parallel_image_pulls");
+        get => GetArgument<TerraformValue<double>>("max_parallel_image_pulls") ?? CreateReference("max_parallel_image_pulls");
         set => SetArgument("max_parallel_image_pulls", value);
     }
 
@@ -5824,7 +5824,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -5846,7 +5846,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -5855,7 +5855,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope") ?? AsReference("scope");
+        get => GetArgument<TerraformValue<string>>("scope") ?? CreateReference("scope");
         set => SetArgument("scope", value);
     }
 
@@ -5877,7 +5877,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockLinuxNodeConfigBl
     /// </summary>
     public TerraformValue<string> CgroupMode
     {
-        get => GetArgument<TerraformValue<string>>("cgroup_mode") ?? AsReference("cgroup_mode");
+        get => GetArgument<TerraformValue<string>>("cgroup_mode") ?? CreateReference("cgroup_mode");
         set => SetArgument("cgroup_mode", value);
     }
 
@@ -5904,7 +5904,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockLinuxNodeConfigBl
     /// </summary>
     public TerraformValue<string> TransparentHugepageEnabled
     {
-        get => GetArgument<TerraformValue<string>>("transparent_hugepage_enabled") ?? AsReference("transparent_hugepage_enabled");
+        get => GetArgument<TerraformValue<string>>("transparent_hugepage_enabled") ?? CreateReference("transparent_hugepage_enabled");
         set => SetArgument("transparent_hugepage_enabled", value);
     }
 
@@ -6323,7 +6323,7 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlock : Terraform
     /// </summary>
     public TerraformValue<double> MaxSurge
     {
-        get => GetArgument<TerraformValue<double>>("max_surge") ?? AsReference("max_surge");
+        get => GetArgument<TerraformValue<double>>("max_surge") ?? CreateReference("max_surge");
         set => SetArgument("max_surge", value);
     }
 
@@ -6332,7 +6332,7 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlock : Terraform
     /// </summary>
     public TerraformValue<double> MaxUnavailable
     {
-        get => GetArgument<TerraformValue<double>>("max_unavailable") ?? AsReference("max_unavailable");
+        get => GetArgument<TerraformValue<double>>("max_unavailable") ?? CreateReference("max_unavailable");
         set => SetArgument("max_unavailable", value);
     }
 
@@ -6373,7 +6373,7 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlockBlueGreenSet
     /// </summary>
     public TerraformValue<string> NodePoolSoakDuration
     {
-        get => GetArgument<TerraformValue<string>>("node_pool_soak_duration") ?? AsReference("node_pool_soak_duration");
+        get => GetArgument<TerraformValue<string>>("node_pool_soak_duration") ?? CreateReference("node_pool_soak_duration");
         set => SetArgument("node_pool_soak_duration", value);
     }
 
@@ -6408,7 +6408,7 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlockBlueGreenSet
     /// </summary>
     public TerraformValue<double> BatchNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("batch_node_count") ?? AsReference("batch_node_count");
+        get => GetArgument<TerraformValue<double>>("batch_node_count") ?? CreateReference("batch_node_count");
         set => SetArgument("batch_node_count", value);
     }
 
@@ -6417,7 +6417,7 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlockBlueGreenSet
     /// </summary>
     public TerraformValue<double> BatchPercentage
     {
-        get => GetArgument<TerraformValue<double>>("batch_percentage") ?? AsReference("batch_percentage");
+        get => GetArgument<TerraformValue<double>>("batch_percentage") ?? CreateReference("batch_percentage");
         set => SetArgument("batch_percentage", value);
     }
 
@@ -6426,7 +6426,7 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlockBlueGreenSet
     /// </summary>
     public TerraformValue<string> BatchSoakDuration
     {
-        get => GetArgument<TerraformValue<string>>("batch_soak_duration") ?? AsReference("batch_soak_duration");
+        get => GetArgument<TerraformValue<string>>("batch_soak_duration") ?? CreateReference("batch_soak_duration");
         set => SetArgument("batch_soak_duration", value);
     }
 
@@ -6501,7 +6501,7 @@ public class GoogleContainerClusterNodePoolAutoConfigBlockLinuxNodeConfigBlock :
     /// </summary>
     public TerraformValue<string> CgroupMode
     {
-        get => GetArgument<TerraformValue<string>>("cgroup_mode") ?? AsReference("cgroup_mode");
+        get => GetArgument<TerraformValue<string>>("cgroup_mode") ?? CreateReference("cgroup_mode");
         set => SetArgument("cgroup_mode", value);
     }
 
@@ -6545,7 +6545,7 @@ public class GoogleContainerClusterNodePoolAutoConfigBlockNodeKubeletConfigBlock
     /// </summary>
     public TerraformValue<string> InsecureKubeletReadonlyPortEnabled
     {
-        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled") ?? AsReference("insecure_kubelet_readonly_port_enabled");
+        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled") ?? CreateReference("insecure_kubelet_readonly_port_enabled");
         set => SetArgument("insecure_kubelet_readonly_port_enabled", value);
     }
 
@@ -6591,7 +6591,7 @@ public class GoogleContainerClusterNodePoolDefaultsBlockNodeConfigDefaultsBlock 
     /// </summary>
     public TerraformValue<string> InsecureKubeletReadonlyPortEnabled
     {
-        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled") ?? AsReference("insecure_kubelet_readonly_port_enabled");
+        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled") ?? CreateReference("insecure_kubelet_readonly_port_enabled");
         set => SetArgument("insecure_kubelet_readonly_port_enabled", value);
     }
 
@@ -6600,7 +6600,7 @@ public class GoogleContainerClusterNodePoolDefaultsBlockNodeConfigDefaultsBlock 
     /// </summary>
     public TerraformValue<string> LoggingVariant
     {
-        get => GetArgument<TerraformValue<string>>("logging_variant") ?? AsReference("logging_variant");
+        get => GetArgument<TerraformValue<string>>("logging_variant") ?? CreateReference("logging_variant");
         set => SetArgument("logging_variant", value);
     }
 
@@ -6919,7 +6919,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MasterIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("master_ipv4_cidr_block") ?? AsReference("master_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("master_ipv4_cidr_block") ?? CreateReference("master_ipv4_cidr_block");
         set => SetArgument("master_ipv4_cidr_block", value);
     }
 
@@ -6927,13 +6927,13 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// The name of the peering between this cluster and the Google owned VPC.
     /// </summary>
     public TerraformValue<string> PeeringName
-        => AsReference("peering_name");
+        => CreateReference("peering_name");
 
     /// <summary>
     /// The internal IP address of this cluster&#39;s master endpoint.
     /// </summary>
     public TerraformValue<string> PrivateEndpoint
-        => AsReference("private_endpoint");
+        => CreateReference("private_endpoint");
 
     /// <summary>
     /// Subnetwork in cluster&#39;s network where master&#39;s endpoint will be provisioned.
@@ -6948,7 +6948,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// The external IP address of this cluster&#39;s master endpoint.
     /// </summary>
     public TerraformValue<string> PublicEndpoint
-        => AsReference("public_endpoint");
+        => CreateReference("public_endpoint");
 
     /// <summary>
     /// MasterGlobalAccessConfig block (nesting mode: list).
@@ -7174,7 +7174,7 @@ public class GoogleContainerClusterSecretManagerConfigBlockRotationConfigBlock :
     /// </summary>
     public TerraformValue<string> RotationInterval
     {
-        get => GetArgument<TerraformValue<string>>("rotation_interval") ?? AsReference("rotation_interval");
+        get => GetArgument<TerraformValue<string>>("rotation_interval") ?? CreateReference("rotation_interval");
         set => SetArgument("rotation_interval", value);
     }
 
@@ -7197,7 +7197,7 @@ public class GoogleContainerClusterSecurityPostureConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -7206,7 +7206,7 @@ public class GoogleContainerClusterSecurityPostureConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VulnerabilityMode
     {
-        get => GetArgument<TerraformValue<string>>("vulnerability_mode") ?? AsReference("vulnerability_mode");
+        get => GetArgument<TerraformValue<string>>("vulnerability_mode") ?? CreateReference("vulnerability_mode");
         set => SetArgument("vulnerability_mode", value);
     }
 
@@ -7440,7 +7440,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> ClusterIpv4Cidr
     {
-        get => GetArgument<TerraformValue<string>>("cluster_ipv4_cidr") ?? AsReference("cluster_ipv4_cidr");
+        get => GetArgument<TerraformValue<string>>("cluster_ipv4_cidr") ?? CreateReference("cluster_ipv4_cidr");
         set => SetArgument("cluster_ipv4_cidr", value);
     }
 
@@ -7449,7 +7449,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> DatapathProvider
     {
-        get => GetArgument<TerraformValue<string>>("datapath_provider") ?? AsReference("datapath_provider");
+        get => GetArgument<TerraformValue<string>>("datapath_provider") ?? CreateReference("datapath_provider");
         set => SetArgument("datapath_provider", value);
     }
 
@@ -7458,7 +7458,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double> DefaultMaxPodsPerNode
     {
-        get => GetArgument<TerraformValue<double>>("default_max_pods_per_node") ?? AsReference("default_max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("default_max_pods_per_node") ?? CreateReference("default_max_pods_per_node");
         set => SetArgument("default_max_pods_per_node", value);
     }
 
@@ -7521,7 +7521,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool> EnableIntranodeVisibility
     {
-        get => GetArgument<TerraformValue<bool>>("enable_intranode_visibility") ?? AsReference("enable_intranode_visibility");
+        get => GetArgument<TerraformValue<bool>>("enable_intranode_visibility") ?? CreateReference("enable_intranode_visibility");
         set => SetArgument("enable_intranode_visibility", value);
     }
 
@@ -7584,7 +7584,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -7611,7 +7611,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -7620,7 +7620,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> LoggingService
     {
-        get => GetArgument<TerraformValue<string>>("logging_service") ?? AsReference("logging_service");
+        get => GetArgument<TerraformValue<string>>("logging_service") ?? CreateReference("logging_service");
         set => SetArgument("logging_service", value);
     }
 
@@ -7638,7 +7638,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> MonitoringService
     {
-        get => GetArgument<TerraformValue<string>>("monitoring_service") ?? AsReference("monitoring_service");
+        get => GetArgument<TerraformValue<string>>("monitoring_service") ?? CreateReference("monitoring_service");
         set => SetArgument("monitoring_service", value);
     }
 
@@ -7666,7 +7666,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> NetworkingMode
     {
-        get => GetArgument<TerraformValue<string>>("networking_mode") ?? AsReference("networking_mode");
+        get => GetArgument<TerraformValue<string>>("networking_mode") ?? CreateReference("networking_mode");
         set => SetArgument("networking_mode", value);
     }
 
@@ -7675,7 +7675,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformSet<string> NodeLocations
     {
-        get => GetArgument<TerraformSet<string>>("node_locations") ?? AsReference("node_locations");
+        get => GetArgument<TerraformSet<string>>("node_locations") ?? CreateReference("node_locations");
         set => SetArgument("node_locations", value);
     }
 
@@ -7684,7 +7684,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> NodeVersion
     {
-        get => GetArgument<TerraformValue<string>>("node_version") ?? AsReference("node_version");
+        get => GetArgument<TerraformValue<string>>("node_version") ?? CreateReference("node_version");
         set => SetArgument("node_version", value);
     }
 
@@ -7693,7 +7693,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> PrivateIpv6GoogleAccess
     {
-        get => GetArgument<TerraformValue<string>>("private_ipv6_google_access") ?? AsReference("private_ipv6_google_access");
+        get => GetArgument<TerraformValue<string>>("private_ipv6_google_access") ?? CreateReference("private_ipv6_google_access");
         set => SetArgument("private_ipv6_google_access", value);
     }
 
@@ -7702,7 +7702,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -7732,7 +7732,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? CreateReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -7740,55 +7740,55 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The IP address of this cluster&#39;s Kubernetes master.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The fingerprint of the set of labels for this cluster.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// The current version of the master in the cluster. This may be different than the min_master_version set in the config if the master has been updated by GKE.
     /// </summary>
     public TerraformValue<string> MasterVersion
-        => AsReference("master_version");
+        => CreateReference("master_version");
 
     /// <summary>
     /// The operation attribute.
     /// </summary>
     public TerraformValue<string> Operation
-        => AsReference("operation");
+        => CreateReference("operation");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The IP address range of the Kubernetes services in this cluster, in CIDR notation (e.g. 1.2.3.4/29). Service addresses are typically put in the last /16 from the container CIDR.
     /// </summary>
     public TerraformValue<string> ServicesIpv4Cidr
-        => AsReference("services_ipv4_cidr");
+        => CreateReference("services_ipv4_cidr");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The IP address range of the Cloud TPUs in this cluster, in CIDR notation (e.g. 1.2.3.4/29).
     /// </summary>
     public TerraformValue<string> TpuIpv4CidrBlock
-        => AsReference("tpu_ipv4_cidr_block");
+        => CreateReference("tpu_ipv4_cidr_block");
 
     /// <summary>
     /// AddonsConfig block (nesting mode: list).

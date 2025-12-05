@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultCertificateDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermKeyVaultCertificateDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -73,73 +73,73 @@ public partial class AzurermKeyVaultCertificateDataSource(string name) : Terrafo
     /// The certificate_data attribute.
     /// </summary>
     public TerraformValue<string> CertificateData
-        => AsReference("certificate_data");
+        => CreateReference("certificate_data");
 
     /// <summary>
     /// The certificate_data_base64 attribute.
     /// </summary>
     public TerraformValue<string> CertificateDataBase64
-        => AsReference("certificate_data_base64");
+        => CreateReference("certificate_data_base64");
 
     /// <summary>
     /// The certificate_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificatePolicy
-        => AsReference("certificate_policy");
+        => CreateReference("certificate_policy");
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
     public TerraformValue<string> Expires
-        => AsReference("expires");
+        => CreateReference("expires");
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     public TerraformValue<string> NotBefore
-        => AsReference("not_before");
+        => CreateReference("not_before");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// The resource_manager_versionless_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerVersionlessId
-        => AsReference("resource_manager_versionless_id");
+        => CreateReference("resource_manager_versionless_id");
 
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
     public TerraformValue<string> SecretId
-        => AsReference("secret_id");
+        => CreateReference("secret_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
     public TerraformValue<string> VersionlessId
-        => AsReference("versionless_id");
+        => CreateReference("versionless_id");
 
     /// <summary>
     /// The versionless_secret_id attribute.
     /// </summary>
     public TerraformValue<string> VersionlessSecretId
-        => AsReference("versionless_secret_id");
+        => CreateReference("versionless_secret_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -250,7 +250,7 @@ public partial class AwsWorkspaceswebDataProtectionSettings(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -267,19 +267,19 @@ public partial class AwsWorkspaceswebDataProtectionSettings(string name) : Terra
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-        => AsReference("associated_portal_arns");
+        => CreateReference("associated_portal_arns");
 
     /// <summary>
     /// The data_protection_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> DataProtectionSettingsArn
-        => AsReference("data_protection_settings_arn");
+        => CreateReference("data_protection_settings_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// InlineRedactionConfiguration block (nesting mode: list).

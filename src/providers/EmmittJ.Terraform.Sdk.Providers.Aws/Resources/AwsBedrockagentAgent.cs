@@ -54,7 +54,7 @@ public partial class AwsBedrockagentAgent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> AgentCollaboration
     {
-        get => GetArgument<TerraformValue<string>>("agent_collaboration") ?? AsReference("agent_collaboration");
+        get => GetArgument<TerraformValue<string>>("agent_collaboration") ?? CreateReference("agent_collaboration");
         set => SetArgument("agent_collaboration", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsBedrockagentAgent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double> IdleSessionTtlInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("idle_session_ttl_in_seconds") ?? AsReference("idle_session_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("idle_session_ttl_in_seconds") ?? CreateReference("idle_session_ttl_in_seconds");
         set => SetArgument("idle_session_ttl_in_seconds", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsBedrockagentAgent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Instruction
     {
-        get => GetArgument<TerraformValue<string>>("instruction") ?? AsReference("instruction");
+        get => GetArgument<TerraformValue<string>>("instruction") ?? CreateReference("instruction");
         set => SetArgument("instruction", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AwsBedrockagentAgent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformList<TerraformMap<object>> MemoryConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("memory_configuration") ?? AsReference("memory_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("memory_configuration") ?? CreateReference("memory_configuration");
         set => SetArgument("memory_configuration", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AwsBedrockagentAgent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> PrepareAgent
     {
-        get => GetArgument<TerraformValue<bool>>("prepare_agent") ?? AsReference("prepare_agent");
+        get => GetArgument<TerraformValue<bool>>("prepare_agent") ?? CreateReference("prepare_agent");
         set => SetArgument("prepare_agent", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsBedrockagentAgent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformList<TerraformMap<object>> PromptOverrideConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("prompt_override_configuration") ?? AsReference("prompt_override_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("prompt_override_configuration") ?? CreateReference("prompt_override_configuration");
         set => SetArgument("prompt_override_configuration", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsBedrockagentAgent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AwsBedrockagentAgent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> SkipResourceInUseCheck
     {
-        get => GetArgument<TerraformValue<bool>>("skip_resource_in_use_check") ?? AsReference("skip_resource_in_use_check");
+        get => GetArgument<TerraformValue<bool>>("skip_resource_in_use_check") ?? CreateReference("skip_resource_in_use_check");
         set => SetArgument("skip_resource_in_use_check", value);
     }
 
@@ -191,37 +191,37 @@ public partial class AwsBedrockagentAgent(string name) : TerraformResource("aws_
     /// The agent_arn attribute.
     /// </summary>
     public TerraformValue<string> AgentArn
-        => AsReference("agent_arn");
+        => CreateReference("agent_arn");
 
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
     public TerraformValue<string> AgentId
-        => AsReference("agent_id");
+        => CreateReference("agent_id");
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
     public TerraformValue<string> AgentVersion
-        => AsReference("agent_version");
+        => CreateReference("agent_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The prepared_at attribute.
     /// </summary>
     public TerraformValue<string> PreparedAt
-        => AsReference("prepared_at");
+        => CreateReference("prepared_at");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class AwsEcrRepositoryDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsEcrRepositoryDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsEcrRepositoryDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> RegistryId
     {
-        get => GetArgument<TerraformValue<string>>("registry_id") ?? AsReference("registry_id");
+        get => GetArgument<TerraformValue<string>>("registry_id") ?? CreateReference("registry_id");
         set => SetArgument("registry_id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsEcrRepositoryDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,42 +58,42 @@ public partial class AwsEcrRepositoryDataSource(string name) : TerraformDataSour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionConfiguration
-        => AsReference("encryption_configuration");
+        => CreateReference("encryption_configuration");
 
     /// <summary>
     /// The image_scanning_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ImageScanningConfiguration
-        => AsReference("image_scanning_configuration");
+        => CreateReference("image_scanning_configuration");
 
     /// <summary>
     /// The image_tag_mutability attribute.
     /// </summary>
     public TerraformValue<string> ImageTagMutability
-        => AsReference("image_tag_mutability");
+        => CreateReference("image_tag_mutability");
 
     /// <summary>
     /// The image_tag_mutability_exclusion_filter attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ImageTagMutabilityExclusionFilter
-        => AsReference("image_tag_mutability_exclusion_filter");
+        => CreateReference("image_tag_mutability_exclusion_filter");
 
     /// <summary>
     /// The most_recent_image_tags attribute.
     /// </summary>
     public TerraformList<string> MostRecentImageTags
-        => AsReference("most_recent_image_tags");
+        => CreateReference("most_recent_image_tags");
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
     public TerraformValue<string> RepositoryUrl
-        => AsReference("repository_url");
+        => CreateReference("repository_url");
 
 }

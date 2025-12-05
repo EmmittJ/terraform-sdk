@@ -47,7 +47,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EncryptionType
     {
-        get => GetArgument<TerraformValue<string>>("encryption_type") ?? AsReference("encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type") ?? CreateReference("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -171,7 +171,7 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -179,20 +179,20 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     /// Output only. Creation timestamp.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Identifier. Format:
     /// &#39;projects/{project}/locations/{location}/apiHubInstances/{apiHubInstance}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The current state of the ApiHub instance.
@@ -206,27 +206,27 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     /// FAILED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. Extra information about ApiHub instance state. Currently the message
     /// would be populated when state is &#39;FAILED&#39;.
     /// </summary>
     public TerraformValue<string> StateMessage
-        => AsReference("state_message");
+        => CreateReference("state_message");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. Last update timestamp.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Config block (nesting mode: list).

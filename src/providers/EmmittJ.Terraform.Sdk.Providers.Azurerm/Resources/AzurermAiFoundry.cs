@@ -69,13 +69,13 @@ public class AzurermAiFoundryIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -106,7 +106,7 @@ public class AzurermAiFoundryManagedNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> IsolationMode
     {
-        get => GetArgument<TerraformValue<string>>("isolation_mode") ?? AsReference("isolation_mode");
+        get => GetArgument<TerraformValue<string>>("isolation_mode") ?? CreateReference("isolation_mode");
         set => SetArgument("isolation_mode", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<bool> HighBusinessImpactEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("high_business_impact_enabled") ?? AsReference("high_business_impact_enabled");
+        get => GetArgument<TerraformValue<bool>>("high_business_impact_enabled") ?? CreateReference("high_business_impact_enabled");
         set => SetArgument("high_business_impact_enabled", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -304,13 +304,13 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     /// The discovery_url attribute.
     /// </summary>
     public TerraformValue<string> DiscoveryUrl
-        => AsReference("discovery_url");
+        => CreateReference("discovery_url");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-        => AsReference("workspace_id");
+        => CreateReference("workspace_id");
 
     /// <summary>
     /// Encryption block (nesting mode: list).

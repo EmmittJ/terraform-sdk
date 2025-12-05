@@ -70,7 +70,7 @@ public partial class AwsNetworkInterfaceDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsNetworkInterfaceDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsNetworkInterfaceDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -96,103 +96,103 @@ public partial class AwsNetworkInterfaceDataSource(string name) : TerraformDataS
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The association attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Association
-        => AsReference("association");
+        => CreateReference("association");
 
     /// <summary>
     /// The attachment attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attachment
-        => AsReference("attachment");
+        => CreateReference("attachment");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The interface_type attribute.
     /// </summary>
     public TerraformValue<string> InterfaceType
-        => AsReference("interface_type");
+        => CreateReference("interface_type");
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
     public TerraformSet<string> Ipv6Addresses
-        => AsReference("ipv6_addresses");
+        => CreateReference("ipv6_addresses");
 
     /// <summary>
     /// The mac_address attribute.
     /// </summary>
     public TerraformValue<string> MacAddress
-        => AsReference("mac_address");
+        => CreateReference("mac_address");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-        => AsReference("outpost_arn");
+        => CreateReference("outpost_arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The private_dns_name attribute.
     /// </summary>
     public TerraformValue<string> PrivateDnsName
-        => AsReference("private_dns_name");
+        => CreateReference("private_dns_name");
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
     public TerraformValue<string> PrivateIp
-        => AsReference("private_ip");
+        => CreateReference("private_ip");
 
     /// <summary>
     /// The private_ips attribute.
     /// </summary>
     public TerraformList<string> PrivateIps
-        => AsReference("private_ips");
+        => CreateReference("private_ips");
 
     /// <summary>
     /// The requester_id attribute.
     /// </summary>
     public TerraformValue<string> RequesterId
-        => AsReference("requester_id");
+        => CreateReference("requester_id");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroups
-        => AsReference("security_groups");
+        => CreateReference("security_groups");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-        => AsReference("subnet_id");
+        => CreateReference("subnet_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// Filter block (nesting mode: set).

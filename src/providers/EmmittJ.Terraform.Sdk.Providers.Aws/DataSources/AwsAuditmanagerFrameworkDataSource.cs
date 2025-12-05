@@ -33,7 +33,7 @@ public partial class AwsAuditmanagerFrameworkDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,36 +41,36 @@ public partial class AwsAuditmanagerFrameworkDataSource(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The compliance_type attribute.
     /// </summary>
     public TerraformValue<string> ComplianceType
-        => AsReference("compliance_type");
+        => CreateReference("compliance_type");
 
     /// <summary>
     /// The control_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ControlSets
-        => AsReference("control_sets");
+        => CreateReference("control_sets");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
 }

@@ -74,7 +74,7 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     /// </summary>
     public TerraformValue<string> SslState
     {
-        get => GetArgument<TerraformValue<string>>("ssl_state") ?? AsReference("ssl_state");
+        get => GetArgument<TerraformValue<string>>("ssl_state") ?? CreateReference("ssl_state");
         set => SetArgument("ssl_state", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     /// </summary>
     public TerraformValue<string> Thumbprint
     {
-        get => GetArgument<TerraformValue<string>>("thumbprint") ?? AsReference("thumbprint");
+        get => GetArgument<TerraformValue<string>>("thumbprint") ?? CreateReference("thumbprint");
         set => SetArgument("thumbprint", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     /// The virtual_ip attribute.
     /// </summary>
     public TerraformValue<string> VirtualIp
-        => AsReference("virtual_ip");
+        => CreateReference("virtual_ip");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class AwsOdbGiVersionsDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -30,6 +30,6 @@ public partial class AwsOdbGiVersionsDataSource(string name) : TerraformDataSour
     /// Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> GiVersions
-        => AsReference("gi_versions");
+        => CreateReference("gi_versions");
 
 }

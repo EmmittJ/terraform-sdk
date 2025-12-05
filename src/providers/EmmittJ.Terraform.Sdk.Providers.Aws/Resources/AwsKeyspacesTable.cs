@@ -27,7 +27,7 @@ public class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ThroughputMode
     {
-        get => GetArgument<TerraformValue<string>>("throughput_mode") ?? AsReference("throughput_mode");
+        get => GetArgument<TerraformValue<string>>("throughput_mode") ?? CreateReference("throughput_mode");
         set => SetArgument("throughput_mode", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsKeyspacesTableCommentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Message
     {
-        get => GetArgument<TerraformValue<string>>("message") ?? AsReference("message");
+        get => GetArgument<TerraformValue<string>>("message") ?? CreateReference("message");
         set => SetArgument("message", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsKeyspacesTableEncryptionSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsKeyspacesTablePointInTimeRecoveryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? CreateReference("status");
         set => SetArgument("status", value);
     }
 
@@ -398,7 +398,7 @@ public partial class AwsKeyspacesTable(string name) : TerraformResource("aws_key
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -417,7 +417,7 @@ public partial class AwsKeyspacesTable(string name) : TerraformResource("aws_key
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -445,7 +445,7 @@ public partial class AwsKeyspacesTable(string name) : TerraformResource("aws_key
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -453,7 +453,7 @@ public partial class AwsKeyspacesTable(string name) : TerraformResource("aws_key
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// CapacitySpecification block (nesting mode: list).

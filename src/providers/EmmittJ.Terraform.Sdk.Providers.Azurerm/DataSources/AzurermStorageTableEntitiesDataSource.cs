@@ -46,7 +46,7 @@ public partial class AzurermStorageTableEntitiesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermStorageTableEntitiesDataSource(string name) : Terraf
     /// The items attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Items
-        => AsReference("items");
+        => CreateReference("items");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

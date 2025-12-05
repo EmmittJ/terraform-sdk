@@ -74,7 +74,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     /// Name of the resource in the form of projects/{project}/locations/{location}/clusters/{cluster}/users/{user}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

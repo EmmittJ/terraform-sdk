@@ -58,7 +58,7 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -102,6 +102,6 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// The random_password attribute.
     /// </summary>
     public TerraformValue<string> RandomPassword
-        => AsReference("random_password");
+        => CreateReference("random_password");
 
 }

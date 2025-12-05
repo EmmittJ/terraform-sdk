@@ -36,7 +36,7 @@ public partial class AzurermCdnFrontdoorEndpointDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,19 +74,19 @@ public partial class AzurermCdnFrontdoorEndpointDataSource(string name) : Terraf
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     public TerraformValue<string> HostName
-        => AsReference("host_name");
+        => CreateReference("host_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

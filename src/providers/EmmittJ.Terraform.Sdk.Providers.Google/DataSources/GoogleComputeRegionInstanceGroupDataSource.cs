@@ -13,7 +13,7 @@ public partial class GoogleComputeRegionInstanceGroupDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleComputeRegionInstanceGroupDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleComputeRegionInstanceGroupDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleComputeRegionInstanceGroupDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleComputeRegionInstanceGroupDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> SelfLink
     {
-        get => GetArgument<TerraformValue<string>>("self_link") ?? AsReference("self_link");
+        get => GetArgument<TerraformValue<string>>("self_link") ?? CreateReference("self_link");
         set => SetArgument("self_link", value);
     }
 
@@ -57,12 +57,12 @@ public partial class GoogleComputeRegionInstanceGroupDataSource(string name) : T
     /// The instances attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Instances
-        => AsReference("instances");
+        => CreateReference("instances");
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
 }

@@ -119,13 +119,13 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock : Terr
     /// An output only view of all the member instance participating in cross instance replication. This field is populated for all the member clusters irrespective of their cluster role.
     /// </summary>
     public TerraformList<TerraformMap<object>> Membership
-        => AsReference("membership");
+        => CreateReference("membership");
 
     /// <summary>
     /// The last time cross instance replication config was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// PrimaryInstance block (nesting mode: list).
@@ -172,7 +172,7 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlockPrimary
     /// The unique id of the primary instance.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
 }
 
@@ -200,7 +200,7 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlockSeconda
     /// The unique id of the Nth instance.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
 }
 
@@ -318,7 +318,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The time when the policy was last updated.
@@ -326,7 +326,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// WeeklyMaintenanceWindow block (nesting mode: list).
@@ -376,7 +376,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlockWeeklyMaintenanceWin
     /// terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
     public TerraformValue<string> Duration
-        => AsReference("duration");
+        => CreateReference("duration");
 
     /// <summary>
     /// StartTime block (nesting mode: list).
@@ -489,7 +489,7 @@ public class GoogleMemorystoreInstancePersistenceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -535,7 +535,7 @@ public class GoogleMemorystoreInstancePersistenceConfigBlockAofConfigBlock : Ter
     /// </summary>
     public TerraformValue<string> AppendFsync
     {
-        get => GetArgument<TerraformValue<string>>("append_fsync") ?? AsReference("append_fsync");
+        get => GetArgument<TerraformValue<string>>("append_fsync") ?? CreateReference("append_fsync");
         set => SetArgument("append_fsync", value);
     }
 
@@ -562,7 +562,7 @@ public class GoogleMemorystoreInstancePersistenceConfigBlockRdbConfigBlock : Ter
     /// </summary>
     public TerraformValue<string> RdbSnapshotPeriod
     {
-        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period") ?? AsReference("rdb_snapshot_period");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period") ?? CreateReference("rdb_snapshot_period");
         set => SetArgument("rdb_snapshot_period", value);
     }
 
@@ -573,7 +573,7 @@ public class GoogleMemorystoreInstancePersistenceConfigBlockRdbConfigBlock : Ter
     /// </summary>
     public TerraformValue<string> RdbSnapshotStartTime
     {
-        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time") ?? AsReference("rdb_snapshot_start_time");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time") ?? CreateReference("rdb_snapshot_start_time");
         set => SetArgument("rdb_snapshot_start_time", value);
     }
 
@@ -640,7 +640,7 @@ public class GoogleMemorystoreInstanceZoneDistributionConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -670,7 +670,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> AuthorizationMode
     {
-        get => GetArgument<TerraformValue<string>>("authorization_mode") ?? AsReference("authorization_mode");
+        get => GetArgument<TerraformValue<string>>("authorization_mode") ?? CreateReference("authorization_mode");
         set => SetArgument("authorization_mode", value);
     }
 
@@ -697,7 +697,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -706,7 +706,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -778,7 +778,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -792,7 +792,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type") ?? AsReference("node_type");
+        get => GetArgument<TerraformValue<string>>("node_type") ?? CreateReference("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -801,7 +801,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -810,7 +810,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double> ReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("replica_count") ?? AsReference("replica_count");
+        get => GetArgument<TerraformValue<double>>("replica_count") ?? CreateReference("replica_count");
         set => SetArgument("replica_count", value);
     }
 
@@ -832,7 +832,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> TransitEncryptionMode
     {
-        get => GetArgument<TerraformValue<string>>("transit_encryption_mode") ?? AsReference("transit_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("transit_encryption_mode") ?? CreateReference("transit_encryption_mode");
         set => SetArgument("transit_encryption_mode", value);
     }
 
@@ -840,83 +840,83 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
     public TerraformList<string> AvailableMaintenanceVersions
-        => AsReference("available_maintenance_versions");
+        => CreateReference("available_maintenance_versions");
 
     /// <summary>
     /// The backup collection full resource name.
     /// Example: projects/{project}/locations/{location}/backupCollections/{collection}
     /// </summary>
     public TerraformValue<string> BackupCollection
-        => AsReference("backup_collection");
+        => CreateReference("backup_collection");
 
     /// <summary>
     /// Output only. Creation timestamp of the instance.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Deprecated. Output only. Endpoints clients can connect to the instance through.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformList<TerraformMap<object>> DiscoveryEndpoints
-        => AsReference("discovery_endpoints");
+        => CreateReference("discovery_endpoints");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
     public TerraformValue<string> EffectiveMaintenanceVersion
-        => AsReference("effective_maintenance_version");
+        => CreateReference("effective_maintenance_version");
 
     /// <summary>
     /// Endpoints for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoints
-        => AsReference("endpoints");
+        => CreateReference("endpoints");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-        => AsReference("maintenance_schedule");
+        => CreateReference("maintenance_schedule");
 
     /// <summary>
     /// Instance&#39;s Certificate Authority. This field will only be populated if instance&#39;s transit_encryption_mode is SERVER_AUTHENTICATION
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedServerCa
-        => AsReference("managed_server_ca");
+        => CreateReference("managed_server_ca");
 
     /// <summary>
     /// Identifier. Unique name of the instance.
     /// Format: projects/{project}/locations/{location}/instances/{instance}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Represents configuration for nodes of the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodeConfig
-        => AsReference("node_config");
+        => CreateReference("node_config");
 
     /// <summary>
     /// Configuration of a service attachment of the cluster, for creating PSC connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscAttachmentDetails
-        => AsReference("psc_attachment_details");
+        => CreateReference("psc_attachment_details");
 
     /// <summary>
     /// Output only. User inputs and resource details of the auto-created PSC connections.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformList<TerraformMap<object>> PscAutoConnections
-        => AsReference("psc_auto_connections");
+        => CreateReference("psc_auto_connections");
 
     /// <summary>
     /// Output only. Current state of the instance. 
@@ -927,32 +927,32 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// DELETING
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Additional information about the state of the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> StateInfo
-        => AsReference("state_info");
+        => CreateReference("state_info");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. System assigned, unique identifier for the instance.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. Latest update timestamp of the instance.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// AutomatedBackupConfig block (nesting mode: list).

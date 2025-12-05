@@ -28,7 +28,7 @@ public class GoogleApihubPluginInstanceActionsBlock : TerraformBlock
     /// The execution status for the plugin instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> HubInstanceAction
-        => AsReference("hub_instance_action");
+        => CreateReference("hub_instance_action");
 
     /// <summary>
     /// The schedule for this plugin instance action. This can only be set if the
@@ -36,7 +36,7 @@ public class GoogleApihubPluginInstanceActionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScheduleCronExpression
     {
-        get => GetArgument<TerraformValue<string>>("schedule_cron_expression") ?? AsReference("schedule_cron_expression");
+        get => GetArgument<TerraformValue<string>>("schedule_cron_expression") ?? CreateReference("schedule_cron_expression");
         set => SetArgument("schedule_cron_expression", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleApihubPluginInstanceActionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScheduleTimeZone
     {
-        get => GetArgument<TerraformValue<string>>("schedule_time_zone") ?? AsReference("schedule_time_zone");
+        get => GetArgument<TerraformValue<string>>("schedule_time_zone") ?? CreateReference("schedule_time_zone");
         set => SetArgument("schedule_time_zone", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleApihubPluginInstanceActionsBlock : TerraformBlock
     /// ERROR
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// CurationConfig block (nesting mode: list).
@@ -94,7 +94,7 @@ public class GoogleApihubPluginInstanceActionsBlockCurationConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<string> CurationType
     {
-        get => GetArgument<TerraformValue<string>>("curation_type") ?? AsReference("curation_type");
+        get => GetArgument<TerraformValue<string>>("curation_type") ?? CreateReference("curation_type");
         set => SetArgument("curation_type", value);
     }
 
@@ -503,7 +503,7 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -551,7 +551,7 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -559,7 +559,7 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     /// Timestamp indicating when the plugin instance was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Error message describing the failure, if any, during Create, Delete or
@@ -567,7 +567,7 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     /// only be populated if the plugin instance is in the ERROR or FAILED state.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-        => AsReference("error_message");
+        => CreateReference("error_message");
 
     /// <summary>
     /// Identifier. The unique name of the plugin instance resource.
@@ -575,7 +575,7 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     /// &#39;projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The current state of the plugin instance (e.g., enabled, disabled,
@@ -590,13 +590,13 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     /// DELETING
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timestamp indicating when the plugin instance was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Actions block (nesting mode: list).

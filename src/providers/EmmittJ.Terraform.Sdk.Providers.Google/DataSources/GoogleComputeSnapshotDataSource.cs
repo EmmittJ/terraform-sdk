@@ -22,7 +22,7 @@ public partial class GoogleComputeSnapshotDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -68,38 +68,38 @@ public partial class GoogleComputeSnapshotDataSource(string name) : TerraformDat
     /// resource, this field is visible only if it has a non-empty value.
     /// </summary>
     public TerraformValue<string> ChainName
-        => AsReference("chain_name");
+        => CreateReference("chain_name");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Size of the snapshot, specified in GB.
     /// </summary>
     public TerraformValue<double> DiskSizeGb
-        => AsReference("disk_size_gb");
+        => CreateReference("disk_size_gb");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource. Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// Labels to apply to this Snapshot.
@@ -108,7 +108,7 @@ public partial class GoogleComputeSnapshotDataSource(string name) : TerraformDat
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// A list of public visible licenses that apply to this snapshot. This
@@ -117,13 +117,13 @@ public partial class GoogleComputeSnapshotDataSource(string name) : TerraformDat
     /// snapshot using a customer-supplied encryption key.
     /// </summary>
     public TerraformList<string> Licenses
-        => AsReference("licenses");
+        => CreateReference("licenses");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Encrypts the snapshot using a customer-supplied encryption key.
@@ -141,19 +141,19 @@ public partial class GoogleComputeSnapshotDataSource(string name) : TerraformDat
     /// key and you do not need to provide a key to use the snapshot later.
     /// </summary>
     public TerraformList<TerraformMap<object>> SnapshotEncryptionKey
-        => AsReference("snapshot_encryption_key");
+        => CreateReference("snapshot_encryption_key");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> SnapshotId
-        => AsReference("snapshot_id");
+        => CreateReference("snapshot_id");
 
     /// <summary>
     /// A reference to the disk used to create this snapshot.
     /// </summary>
     public TerraformValue<string> SourceDisk
-        => AsReference("source_disk");
+        => CreateReference("source_disk");
 
     /// <summary>
     /// The customer-supplied encryption key of the source snapshot. Required
@@ -161,7 +161,7 @@ public partial class GoogleComputeSnapshotDataSource(string name) : TerraformDat
     /// key.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceDiskEncryptionKey
-        => AsReference("source_disk_encryption_key");
+        => CreateReference("source_disk_encryption_key");
 
     /// <summary>
     /// A size of the storage used by the snapshot. As snapshots share
@@ -169,25 +169,25 @@ public partial class GoogleComputeSnapshotDataSource(string name) : TerraformDat
     /// creation/deletion.
     /// </summary>
     public TerraformValue<double> StorageBytes
-        => AsReference("storage_bytes");
+        => CreateReference("storage_bytes");
 
     /// <summary>
     /// Cloud Storage bucket storage location of the snapshot (regional or multi-regional).
     /// </summary>
     public TerraformList<string> StorageLocations
-        => AsReference("storage_locations");
+        => CreateReference("storage_locations");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// A reference to the zone where the disk is hosted.
     /// </summary>
     public TerraformValue<string> Zone
-        => AsReference("zone");
+        => CreateReference("zone");
 
 }

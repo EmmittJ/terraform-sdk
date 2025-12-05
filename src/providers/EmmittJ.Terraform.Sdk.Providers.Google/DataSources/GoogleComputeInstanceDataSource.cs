@@ -13,7 +13,7 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,49 +57,49 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// Controls for advanced machine-related behavior features.
     /// </summary>
     public TerraformList<TerraformMap<object>> AdvancedMachineFeatures
-        => AsReference("advanced_machine_features");
+        => CreateReference("advanced_machine_features");
 
     /// <summary>
     /// If true, allows Terraform to stop the instance to update its properties. If you try to update a property that requires stopping the instance without setting this field, the update will fail.
     /// </summary>
     public TerraformValue<bool> AllowStoppingForUpdate
-        => AsReference("allow_stopping_for_update");
+        => CreateReference("allow_stopping_for_update");
 
     /// <summary>
     /// List of disks attached to the instance
     /// </summary>
     public TerraformList<TerraformMap<object>> AttachedDisk
-        => AsReference("attached_disk");
+        => CreateReference("attached_disk");
 
     /// <summary>
     /// The boot disk for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> BootDisk
-        => AsReference("boot_disk");
+        => CreateReference("boot_disk");
 
     /// <summary>
     /// Whether sending and receiving of packets with non-matching source or destination IPs is allowed.
     /// </summary>
     public TerraformValue<bool> CanIpForward
-        => AsReference("can_ip_forward");
+        => CreateReference("can_ip_forward");
 
     /// <summary>
     /// The Confidential VM config being used by the instance.  on_host_maintenance has to be set to TERMINATE or this will fail to create.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConfidentialInstanceConfig
-        => AsReference("confidential_instance_config");
+        => CreateReference("confidential_instance_config");
 
     /// <summary>
     /// The CPU platform used by this instance.
     /// </summary>
     public TerraformValue<string> CpuPlatform
-        => AsReference("cpu_platform");
+        => CreateReference("cpu_platform");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// 
@@ -108,73 +108,73 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// 					For more information about the status of the instance, see [Instance life cycle](https://cloud.google.com/compute/docs/instances/instance-life-cycle).
     /// </summary>
     public TerraformValue<string> CurrentStatus
-        => AsReference("current_status");
+        => CreateReference("current_status");
 
     /// <summary>
     /// Whether deletion protection is enabled on this instance.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// A brief description of the resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Desired status of the instance. Either &amp;quot;RUNNING&amp;quot;, &amp;quot;SUSPENDED&amp;quot; or &amp;quot;TERMINATED&amp;quot;.
     /// </summary>
     public TerraformValue<string> DesiredStatus
-        => AsReference("desired_status");
+        => CreateReference("desired_status");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Whether the instance has virtual displays enabled.
     /// </summary>
     public TerraformValue<bool> EnableDisplay
-        => AsReference("enable_display");
+        => CreateReference("enable_display");
 
     /// <summary>
     /// List of the type and count of accelerator cards attached to the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> GuestAccelerator
-        => AsReference("guest_accelerator");
+        => CreateReference("guest_accelerator");
 
     /// <summary>
     /// A custom hostname for the instance. Must be a fully qualified DNS name and RFC-1035-valid. Valid format is a series of labels 1-63 characters long matching the regular expression [a-z]([-a-z0-9]*[a-z0-9]), concatenated with periods. The entire hostname must not exceed 253 characters. Changing this forces a new resource to be created.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// Encryption key used to provide data encryption on the given instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceEncryptionKey
-        => AsReference("instance_encryption_key");
+        => CreateReference("instance_encryption_key");
 
     /// <summary>
     /// The server-assigned unique identifier of this instance.
     /// </summary>
     public TerraformValue<string> InstanceId
-        => AsReference("instance_id");
+        => CreateReference("instance_id");
 
     /// <summary>
     /// Action to be taken when a customer&#39;s encryption key is revoked. Supports &amp;quot;STOP&amp;quot; and &amp;quot;NONE&amp;quot;, with &amp;quot;NONE&amp;quot; being the default.
     /// </summary>
     public TerraformValue<string> KeyRevocationActionType
-        => AsReference("key_revocation_action_type");
+        => CreateReference("key_revocation_action_type");
 
     /// <summary>
     /// The unique fingerprint of the labels.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// A set of key/value label pairs assigned to the instance.
@@ -183,108 +183,108 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The machine type to create.
     /// </summary>
     public TerraformValue<string> MachineType
-        => AsReference("machine_type");
+        => CreateReference("machine_type");
 
     /// <summary>
     /// Metadata key/value pairs made available within the instance.
     /// </summary>
     public TerraformMap<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// The unique fingerprint of the metadata.
     /// </summary>
     public TerraformValue<string> MetadataFingerprint
-        => AsReference("metadata_fingerprint");
+        => CreateReference("metadata_fingerprint");
 
     /// <summary>
     /// Metadata startup scripts made available within the instance.
     /// </summary>
     public TerraformValue<string> MetadataStartupScript
-        => AsReference("metadata_startup_script");
+        => CreateReference("metadata_startup_script");
 
     /// <summary>
     /// The minimum CPU platform specified for the VM instance.
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
-        => AsReference("min_cpu_platform");
+        => CreateReference("min_cpu_platform");
 
     /// <summary>
     /// The networks attached to the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkInterface
-        => AsReference("network_interface");
+        => CreateReference("network_interface");
 
     /// <summary>
     /// Configures network performance settings for the instance. If not specified, the instance will be created with its default network performance configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkPerformanceConfig
-        => AsReference("network_performance_config");
+        => CreateReference("network_performance_config");
 
     /// <summary>
     /// Stores additional params passed with the request, but not persisted as part of resource payload.
     /// </summary>
     public TerraformList<TerraformMap<object>> ParamsAttribute
-        => AsReference("params");
+        => CreateReference("params");
 
     /// <summary>
     /// Specifies the reservations that this instance can consume from.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReservationAffinity
-        => AsReference("reservation_affinity");
+        => CreateReference("reservation_affinity");
 
     /// <summary>
     /// A list of self_links of resource policies to attach to the instance. Currently a max of 1 resource policy is supported.
     /// </summary>
     public TerraformList<string> ResourcePolicies
-        => AsReference("resource_policies");
+        => CreateReference("resource_policies");
 
     /// <summary>
     /// The scheduling strategy being used by the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Scheduling
-        => AsReference("scheduling");
+        => CreateReference("scheduling");
 
     /// <summary>
     /// The scratch disks attached to the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScratchDisk
-        => AsReference("scratch_disk");
+        => CreateReference("scratch_disk");
 
     /// <summary>
     /// The service account to attach to the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceAccount
-        => AsReference("service_account");
+        => CreateReference("service_account");
 
     /// <summary>
     /// The shielded vm config being used by the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ShieldedInstanceConfig
-        => AsReference("shielded_instance_config");
+        => CreateReference("shielded_instance_config");
 
     /// <summary>
     /// The list of tags attached to the instance.
     /// </summary>
     public TerraformSet<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The unique fingerprint of the tags.
     /// </summary>
     public TerraformValue<string> TagsFingerprint
-        => AsReference("tags_fingerprint");
+        => CreateReference("tags_fingerprint");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
 }

@@ -53,7 +53,7 @@ public class GoogleSqlUserPasswordPolicyBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }
 
@@ -121,7 +121,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// </summary>
     public TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host") ?? AsReference("host");
+        get => GetArgument<TerraformValue<string>>("host") ?? CreateReference("host");
         set => SetArgument("host", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -188,7 +188,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -206,7 +206,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// The sql_server_user_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SqlServerUserDetails
-        => AsReference("sql_server_user_details");
+        => CreateReference("sql_server_user_details");
 
     /// <summary>
     /// PasswordPolicy block (nesting mode: list).

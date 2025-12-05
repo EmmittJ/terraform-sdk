@@ -13,7 +13,7 @@ public partial class GoogleArtifactRegistryNpmPackagesDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,6 +50,6 @@ public partial class GoogleArtifactRegistryNpmPackagesDataSource(string name) : 
     /// The npm_packages attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NpmPackages
-        => AsReference("npm_packages");
+        => CreateReference("npm_packages");
 
 }

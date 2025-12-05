@@ -52,7 +52,7 @@ public class AwsDatasyncLocationHdfsQopConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DataTransferProtection
     {
-        get => GetArgument<TerraformValue<string>>("data_transfer_protection") ?? AsReference("data_transfer_protection");
+        get => GetArgument<TerraformValue<string>>("data_transfer_protection") ?? CreateReference("data_transfer_protection");
         set => SetArgument("data_transfer_protection", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsDatasyncLocationHdfsQopConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> RpcProtection
     {
-        get => GetArgument<TerraformValue<string>>("rpc_protection") ?? AsReference("rpc_protection");
+        get => GetArgument<TerraformValue<string>>("rpc_protection") ?? CreateReference("rpc_protection");
         set => SetArgument("rpc_protection", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -223,13 +223,13 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-        => AsReference("uri");
+        => CreateReference("uri");
 
     /// <summary>
     /// NameNode block (nesting mode: set).

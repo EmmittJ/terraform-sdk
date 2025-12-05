@@ -49,7 +49,7 @@ public partial class AwsGlueDevEndpoint(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsGlueDevEndpoint(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsGlueDevEndpoint(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -176,54 +176,54 @@ public partial class AwsGlueDevEndpoint(string name) : TerraformResource("aws_gl
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The failure_reason attribute.
     /// </summary>
     public TerraformValue<string> FailureReason
-        => AsReference("failure_reason");
+        => CreateReference("failure_reason");
 
     /// <summary>
     /// The private_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateAddress
-        => AsReference("private_address");
+        => CreateReference("private_address");
 
     /// <summary>
     /// The public_address attribute.
     /// </summary>
     public TerraformValue<string> PublicAddress
-        => AsReference("public_address");
+        => CreateReference("public_address");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// The yarn_endpoint_address attribute.
     /// </summary>
     public TerraformValue<string> YarnEndpointAddress
-        => AsReference("yarn_endpoint_address");
+        => CreateReference("yarn_endpoint_address");
 
     /// <summary>
     /// The zeppelin_remote_spark_interpreter_port attribute.
     /// </summary>
     public TerraformValue<double> ZeppelinRemoteSparkInterpreterPort
-        => AsReference("zeppelin_remote_spark_interpreter_port");
+        => CreateReference("zeppelin_remote_spark_interpreter_port");
 
 }

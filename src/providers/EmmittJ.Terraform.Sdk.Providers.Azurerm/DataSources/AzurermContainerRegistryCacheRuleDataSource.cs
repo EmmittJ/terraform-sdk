@@ -46,7 +46,7 @@ public partial class AzurermContainerRegistryCacheRuleDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,19 +64,19 @@ public partial class AzurermContainerRegistryCacheRuleDataSource(string name) : 
     /// The credential_set_id attribute.
     /// </summary>
     public TerraformValue<string> CredentialSetId
-        => AsReference("credential_set_id");
+        => CreateReference("credential_set_id");
 
     /// <summary>
     /// The source_repo attribute.
     /// </summary>
     public TerraformValue<string> SourceRepo
-        => AsReference("source_repo");
+        => CreateReference("source_repo");
 
     /// <summary>
     /// The target_repo attribute.
     /// </summary>
     public TerraformValue<string> TargetRepo
-        => AsReference("target_repo");
+        => CreateReference("target_repo");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

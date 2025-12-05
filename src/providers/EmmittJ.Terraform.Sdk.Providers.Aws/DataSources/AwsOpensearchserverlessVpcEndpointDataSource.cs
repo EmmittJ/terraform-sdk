@@ -13,7 +13,7 @@ public partial class AwsOpensearchserverlessVpcEndpointDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsOpensearchserverlessVpcEndpointDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,30 +40,30 @@ public partial class AwsOpensearchserverlessVpcEndpointDataSource(string name) :
     /// The date the endpoint was created.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The name of the endpoint.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
     /// </summary>
     public TerraformList<string> SecurityGroupIds
-        => AsReference("security_group_ids");
+        => CreateReference("security_group_ids");
 
     /// <summary>
     /// The IDs of the subnets from which you access OpenSearch Serverless.
     /// </summary>
     public TerraformList<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The ID of the VPC from which you access OpenSearch Serverless.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }

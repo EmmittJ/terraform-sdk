@@ -94,7 +94,7 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -182,7 +182,7 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> NextHopInstanceZone
     {
-        get => GetArgument<TerraformValue<string>>("next_hop_instance_zone") ?? AsReference("next_hop_instance_zone");
+        get => GetArgument<TerraformValue<string>>("next_hop_instance_zone") ?? CreateReference("next_hop_instance_zone");
         set => SetArgument("next_hop_instance_zone", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> NextHopIp
     {
-        get => GetArgument<TerraformValue<string>>("next_hop_ip") ?? AsReference("next_hop_ip");
+        get => GetArgument<TerraformValue<string>>("next_hop_ip") ?? CreateReference("next_hop_ip");
         set => SetArgument("next_hop_ip", value);
     }
 
@@ -224,7 +224,7 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -241,49 +241,49 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     /// The as_paths attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AsPaths
-        => AsReference("as_paths");
+        => CreateReference("as_paths");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// The hub network that should handle matching packets, which should conform to RFC1035.
     /// </summary>
     public TerraformValue<string> NextHopHub
-        => AsReference("next_hop_hub");
+        => CreateReference("next_hop_hub");
 
     /// <summary>
     /// Internal fixed region-to-region cost that Google Cloud calculates based on factors such as network performance, distance, and available bandwidth between regions.
     /// </summary>
     public TerraformValue<string> NextHopInterRegionCost
-        => AsReference("next_hop_inter_region_cost");
+        => CreateReference("next_hop_inter_region_cost");
 
     /// <summary>
     /// Multi-Exit Discriminator, a BGP route metric that indicates the desirability of a particular route in a network.
     /// </summary>
     public TerraformValue<string> NextHopMed
-        => AsReference("next_hop_med");
+        => CreateReference("next_hop_med");
 
     /// <summary>
     /// URL to a Network that should handle matching packets.
     /// </summary>
     public TerraformValue<string> NextHopNetwork
-        => AsReference("next_hop_network");
+        => CreateReference("next_hop_network");
 
     /// <summary>
     /// Indicates the origin of the route. Can be IGP (Interior Gateway Protocol), EGP (Exterior Gateway Protocol), or INCOMPLETE.
     /// </summary>
     public TerraformValue<string> NextHopOrigin
-        => AsReference("next_hop_origin");
+        => CreateReference("next_hop_origin");
 
     /// <summary>
     /// The network peering name that should handle matching packets, which should conform to RFC1035.
     /// </summary>
     public TerraformValue<string> NextHopPeering
-        => AsReference("next_hop_peering");
+        => CreateReference("next_hop_peering");
 
     /// <summary>
     /// The status of the route, which can be one of the following values:
@@ -291,7 +291,7 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     /// - &#39;INACTIVE&#39; for an inactive route
     /// </summary>
     public TerraformValue<string> RouteStatus
-        => AsReference("route_status");
+        => CreateReference("route_status");
 
     /// <summary>
     /// The type of this route, which can be one of the following values:
@@ -301,19 +301,19 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     /// - &#39;STATIC&#39; for a static route
     /// </summary>
     public TerraformValue<string> RouteType
-        => AsReference("route_type");
+        => CreateReference("route_type");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// If potential misconfigurations are detected for this route, this field will be populated with warning messages.
     /// </summary>
     public TerraformList<TerraformMap<object>> Warnings
-        => AsReference("warnings");
+        => CreateReference("warnings");
 
     /// <summary>
     /// ParamsAttribute block (nesting mode: list).

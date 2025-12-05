@@ -63,7 +63,7 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> Alias
     {
-        get => GetArgument<TerraformValue<string>>("alias") ?? AsReference("alias");
+        get => GetArgument<TerraformValue<string>>("alias") ?? CreateReference("alias");
         set => SetArgument("alias", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? CreateReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// The Tenant ID to which the subscription belongs
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

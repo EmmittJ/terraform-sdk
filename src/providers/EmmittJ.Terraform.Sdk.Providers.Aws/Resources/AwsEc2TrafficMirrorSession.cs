@@ -22,7 +22,7 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double> PacketLength
     {
-        get => GetArgument<TerraformValue<double>>("packet_length") ?? AsReference("packet_length");
+        get => GetArgument<TerraformValue<double>>("packet_length") ?? CreateReference("packet_length");
         set => SetArgument("packet_length", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double> VirtualNetworkId
     {
-        get => GetArgument<TerraformValue<double>>("virtual_network_id") ?? AsReference("virtual_network_id");
+        get => GetArgument<TerraformValue<double>>("virtual_network_id") ?? CreateReference("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -115,12 +115,12 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
 }

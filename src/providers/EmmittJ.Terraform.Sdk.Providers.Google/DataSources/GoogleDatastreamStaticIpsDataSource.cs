@@ -13,7 +13,7 @@ public partial class GoogleDatastreamStaticIpsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,6 +40,6 @@ public partial class GoogleDatastreamStaticIpsDataSource(string name) : Terrafor
     /// The static_ips attribute.
     /// </summary>
     public TerraformList<string> StaticIps
-        => AsReference("static_ips");
+        => CreateReference("static_ips");
 
 }

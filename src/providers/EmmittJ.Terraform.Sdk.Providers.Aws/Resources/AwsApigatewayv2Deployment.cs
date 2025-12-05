@@ -32,7 +32,7 @@ public partial class AwsApigatewayv2Deployment(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsApigatewayv2Deployment(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,6 +58,6 @@ public partial class AwsApigatewayv2Deployment(string name) : TerraformResource(
     /// The auto_deployed attribute.
     /// </summary>
     public TerraformValue<bool> AutoDeployed
-        => AsReference("auto_deployed");
+        => CreateReference("auto_deployed");
 
 }

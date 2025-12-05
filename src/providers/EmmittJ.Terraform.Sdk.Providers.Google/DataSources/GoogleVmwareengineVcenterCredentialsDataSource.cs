@@ -13,7 +13,7 @@ public partial class GoogleVmwareengineVcenterCredentialsDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,12 +33,12 @@ public partial class GoogleVmwareengineVcenterCredentialsDataSource(string name)
     /// Initial password.
     /// </summary>
     public TerraformValue<string> Password
-        => AsReference("password");
+        => CreateReference("password");
 
     /// <summary>
     /// Initial username.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }

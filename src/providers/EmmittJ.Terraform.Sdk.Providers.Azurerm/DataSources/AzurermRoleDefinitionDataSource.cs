@@ -36,7 +36,7 @@ public partial class AzurermRoleDefinitionDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermRoleDefinitionDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermRoleDefinitionDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? AsReference("role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? CreateReference("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -71,25 +71,25 @@ public partial class AzurermRoleDefinitionDataSource(string name) : TerraformDat
     /// The assignable_scopes attribute.
     /// </summary>
     public TerraformList<string> AssignableScopes
-        => AsReference("assignable_scopes");
+        => CreateReference("assignable_scopes");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Permissions
-        => AsReference("permissions");
+        => CreateReference("permissions");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

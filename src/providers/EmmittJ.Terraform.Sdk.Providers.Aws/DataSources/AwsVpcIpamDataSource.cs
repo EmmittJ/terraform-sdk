@@ -23,7 +23,7 @@ public partial class AwsVpcIpamDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,102 +31,102 @@ public partial class AwsVpcIpamDataSource(string name) : TerraformDataSource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The default_resource_discovery_association_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultResourceDiscoveryAssociationId
-        => AsReference("default_resource_discovery_association_id");
+        => CreateReference("default_resource_discovery_association_id");
 
     /// <summary>
     /// The default_resource_discovery_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultResourceDiscoveryId
-        => AsReference("default_resource_discovery_id");
+        => CreateReference("default_resource_discovery_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The enable_private_gua attribute.
     /// </summary>
     public TerraformValue<bool> EnablePrivateGua
-        => AsReference("enable_private_gua");
+        => CreateReference("enable_private_gua");
 
     /// <summary>
     /// The ipam_region attribute.
     /// </summary>
     public TerraformValue<string> IpamRegion
-        => AsReference("ipam_region");
+        => CreateReference("ipam_region");
 
     /// <summary>
     /// The metered_account attribute.
     /// </summary>
     public TerraformValue<string> MeteredAccount
-        => AsReference("metered_account");
+        => CreateReference("metered_account");
 
     /// <summary>
     /// The operating_regions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OperatingRegions
-        => AsReference("operating_regions");
+        => CreateReference("operating_regions");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The private_default_scope_id attribute.
     /// </summary>
     public TerraformValue<string> PrivateDefaultScopeId
-        => AsReference("private_default_scope_id");
+        => CreateReference("private_default_scope_id");
 
     /// <summary>
     /// The public_default_scope_id attribute.
     /// </summary>
     public TerraformValue<string> PublicDefaultScopeId
-        => AsReference("public_default_scope_id");
+        => CreateReference("public_default_scope_id");
 
     /// <summary>
     /// The resource_discovery_association_count attribute.
     /// </summary>
     public TerraformValue<double> ResourceDiscoveryAssociationCount
-        => AsReference("resource_discovery_association_count");
+        => CreateReference("resource_discovery_association_count");
 
     /// <summary>
     /// The scope_count attribute.
     /// </summary>
     public TerraformValue<double> ScopeCount
-        => AsReference("scope_count");
+        => CreateReference("scope_count");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The state_message attribute.
     /// </summary>
     public TerraformValue<string> StateMessage
-        => AsReference("state_message");
+        => CreateReference("state_message");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
     public TerraformValue<string> Tier
-        => AsReference("tier");
+        => CreateReference("tier");
 
 }

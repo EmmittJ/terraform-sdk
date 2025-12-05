@@ -17,13 +17,13 @@ public class AwsDevopsguruNotificationChannelDataSourceFiltersBlock : TerraformB
     /// The message_types attribute.
     /// </summary>
     public TerraformList<string> MessageTypes
-        => AsReference("message_types");
+        => CreateReference("message_types");
 
     /// <summary>
     /// The severities attribute.
     /// </summary>
     public TerraformList<string> Severities
-        => AsReference("severities");
+        => CreateReference("severities");
 
 }
 
@@ -43,7 +43,7 @@ public class AwsDevopsguruNotificationChannelDataSourceSnsBlock : TerraformBlock
     /// The topic_arn attribute.
     /// </summary>
     public TerraformValue<string> TopicArn
-        => AsReference("topic_arn");
+        => CreateReference("topic_arn");
 
 }
 
@@ -69,7 +69,7 @@ public partial class AwsDevopsguruNotificationChannelDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

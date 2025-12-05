@@ -84,7 +84,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool> CustomPerformanceEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("custom_performance_enabled") ?? AsReference("custom_performance_enabled");
+        get => GetArgument<TerraformValue<bool>>("custom_performance_enabled") ?? CreateReference("custom_performance_enabled");
         set => SetArgument("custom_performance_enabled", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -194,7 +194,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -204,7 +204,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> QosType
     {
-        get => GetArgument<TerraformValue<string>>("qos_type") ?? AsReference("qos_type");
+        get => GetArgument<TerraformValue<string>>("qos_type") ?? CreateReference("qos_type");
         set => SetArgument("qos_type", value);
     }
 
@@ -233,7 +233,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> TotalIops
     {
-        get => GetArgument<TerraformValue<string>>("total_iops") ?? AsReference("total_iops");
+        get => GetArgument<TerraformValue<string>>("total_iops") ?? CreateReference("total_iops");
         set => SetArgument("total_iops", value);
     }
 
@@ -242,7 +242,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> TotalThroughputMibps
     {
-        get => GetArgument<TerraformValue<string>>("total_throughput_mibps") ?? AsReference("total_throughput_mibps");
+        get => GetArgument<TerraformValue<string>>("total_throughput_mibps") ?? CreateReference("total_throughput_mibps");
         set => SetArgument("total_throughput_mibps", value);
     }
 
@@ -253,7 +253,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -264,7 +264,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -272,50 +272,50 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// Available throughput of the storage pool (in MiB/s).
     /// </summary>
     public TerraformValue<double> AvailableThroughputMibps
-        => AsReference("available_throughput_mibps");
+        => CreateReference("available_throughput_mibps");
 
     /// <summary>
     /// Total cold tier data rounded down to the nearest GiB used by the storage pool.
     /// </summary>
     public TerraformValue<string> ColdTierSizeUsedGib
-        => AsReference("cold_tier_size_used_gib");
+        => CreateReference("cold_tier_size_used_gib");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Reports if volumes in the pool are encrypted using a Google-managed encryption key or CMEK.
     /// </summary>
     public TerraformValue<string> EncryptionType
-        => AsReference("encryption_type");
+        => CreateReference("encryption_type");
 
     /// <summary>
     /// Total hot tier data rounded down to the nearest GiB used by the storage pool.
     /// </summary>
     public TerraformValue<string> HotTierSizeUsedGib
-        => AsReference("hot_tier_size_used_gib");
+        => CreateReference("hot_tier_size_used_gib");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Size allocated to volumes in the storage pool (in GiB).
     /// </summary>
     public TerraformValue<string> VolumeCapacityGib
-        => AsReference("volume_capacity_gib");
+        => CreateReference("volume_capacity_gib");
 
     /// <summary>
     /// Number of volume in the storage pool.
     /// </summary>
     public TerraformValue<double> VolumeCount
-        => AsReference("volume_count");
+        => CreateReference("volume_count");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -23,7 +23,7 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     /// </summary>
     public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? CreateReference("status");
         set => SetArgument("status", value);
     }
 
@@ -60,12 +60,12 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     /// The fingerprint attribute.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The ssh_public_key_id attribute.
     /// </summary>
     public TerraformValue<string> SshPublicKeyId
-        => AsReference("ssh_public_key_id");
+        => CreateReference("ssh_public_key_id");
 
 }

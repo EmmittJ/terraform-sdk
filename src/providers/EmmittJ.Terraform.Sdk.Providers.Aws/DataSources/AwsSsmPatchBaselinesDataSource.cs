@@ -56,7 +56,7 @@ public partial class AwsSsmPatchBaselinesDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsSsmPatchBaselinesDataSource(string name) : TerraformData
     /// The baseline_identities attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BaselineIdentities
-        => AsReference("baseline_identities");
+        => CreateReference("baseline_identities");
 
     /// <summary>
     /// Filter block (nesting mode: list).

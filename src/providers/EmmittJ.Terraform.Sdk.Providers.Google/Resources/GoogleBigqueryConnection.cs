@@ -53,7 +53,7 @@ public class GoogleBigqueryConnectionAwsBlockAccessRoleBlock : TerraformBlock
     /// A unique Google-owned and Google-generated identity for the Connection. This identity will be used to access the user&#39;s AWS IAM Role.
     /// </summary>
     public TerraformValue<string> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
 }
 
@@ -73,13 +73,13 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// The name of the Azure Active Directory Application.
     /// </summary>
     public TerraformValue<string> Application
-        => AsReference("application");
+        => CreateReference("application");
 
     /// <summary>
     /// The client id of the Azure Active Directory Application.
     /// </summary>
     public TerraformValue<string> ClientId
-        => AsReference("client_id");
+        => CreateReference("client_id");
 
     /// <summary>
     /// The id of customer&#39;s directory that host the data.
@@ -104,19 +104,19 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// A unique Google-owned and Google-generated identity for the Connection. This identity will be used to access the user&#39;s Azure Active Directory Application.
     /// </summary>
     public TerraformValue<string> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The object id of the Azure Active Directory Application.
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// The URL user will be redirected to after granting consent during connection setup.
     /// </summary>
     public TerraformValue<string> RedirectUri
-        => AsReference("redirect_uri");
+        => CreateReference("redirect_uri");
 
 }
 
@@ -136,7 +136,7 @@ public class GoogleBigqueryConnectionCloudResourceBlock : TerraformBlock
     /// The account ID of the service created for the purpose of this connection.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-        => AsReference("service_account_id");
+        => CreateReference("service_account_id");
 
 }
 
@@ -246,7 +246,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     /// When the connection is used in the context of an operation in BigQuery, this service account will serve as the identity being used for connecting to the CloudSQL instance specified in this connection.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-        => AsReference("service_account_id");
+        => CreateReference("service_account_id");
 
     /// <summary>
     /// Type of the Cloud SQL database. Possible values: [&amp;quot;DATABASE_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;POSTGRES&amp;quot;, &amp;quot;MYSQL&amp;quot;]
@@ -322,7 +322,7 @@ public class GoogleBigqueryConnectionSparkBlock : TerraformBlock
     /// The account ID of the service created for the purpose of this connection.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-        => AsReference("service_account_id");
+        => CreateReference("service_account_id");
 
     /// <summary>
     /// MetastoreServiceConfig block (nesting mode: list).
@@ -443,7 +443,7 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> ConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("connection_id") ?? AsReference("connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id") ?? CreateReference("connection_id");
         set => SetArgument("connection_id", value);
     }
 
@@ -470,7 +470,7 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -505,7 +505,7 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -513,14 +513,14 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// True if the connection has credential assigned.
     /// </summary>
     public TerraformValue<bool> HasCredential
-        => AsReference("has_credential");
+        => CreateReference("has_credential");
 
     /// <summary>
     /// The resource name of the connection in the form of:
     /// &amp;quot;projects/{project_id}/locations/{location_id}/connections/{connectionId}&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Aws block (nesting mode: list).

@@ -64,7 +64,7 @@ public partial class AwsVpcBlockPublicAccessOptions(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,19 +72,19 @@ public partial class AwsVpcBlockPublicAccessOptions(string name) : TerraformReso
     /// The aws_account_id attribute.
     /// </summary>
     public TerraformValue<string> AwsAccountId
-        => AsReference("aws_account_id");
+        => CreateReference("aws_account_id");
 
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
     public TerraformValue<string> AwsRegion
-        => AsReference("aws_region");
+        => CreateReference("aws_region");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

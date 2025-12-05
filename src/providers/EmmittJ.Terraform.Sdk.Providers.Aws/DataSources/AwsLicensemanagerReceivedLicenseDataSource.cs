@@ -13,7 +13,7 @@ public partial class AwsLicensemanagerReceivedLicenseDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLicensemanagerReceivedLicenseDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,84 +40,84 @@ public partial class AwsLicensemanagerReceivedLicenseDataSource(string name) : T
     /// The beneficiary attribute.
     /// </summary>
     public TerraformValue<string> Beneficiary
-        => AsReference("beneficiary");
+        => CreateReference("beneficiary");
 
     /// <summary>
     /// The consumption_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConsumptionConfiguration
-        => AsReference("consumption_configuration");
+        => CreateReference("consumption_configuration");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The entitlements attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Entitlements
-        => AsReference("entitlements");
+        => CreateReference("entitlements");
 
     /// <summary>
     /// The home_region attribute.
     /// </summary>
     public TerraformValue<string> HomeRegion
-        => AsReference("home_region");
+        => CreateReference("home_region");
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Issuer
-        => AsReference("issuer");
+        => CreateReference("issuer");
 
     /// <summary>
     /// The license_metadata attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LicenseMetadata
-        => AsReference("license_metadata");
+        => CreateReference("license_metadata");
 
     /// <summary>
     /// The license_name attribute.
     /// </summary>
     public TerraformValue<string> LicenseName
-        => AsReference("license_name");
+        => CreateReference("license_name");
 
     /// <summary>
     /// The product_name attribute.
     /// </summary>
     public TerraformValue<string> ProductName
-        => AsReference("product_name");
+        => CreateReference("product_name");
 
     /// <summary>
     /// The product_sku attribute.
     /// </summary>
     public TerraformValue<string> ProductSku
-        => AsReference("product_sku");
+        => CreateReference("product_sku");
 
     /// <summary>
     /// The received_metadata attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReceivedMetadata
-        => AsReference("received_metadata");
+        => CreateReference("received_metadata");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The validity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Validity
-        => AsReference("validity");
+        => CreateReference("validity");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

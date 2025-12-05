@@ -128,7 +128,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// The seed_node_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> SeedNodeIpAddresses
-        => AsReference("seed_node_ip_addresses");
+        => CreateReference("seed_node_ip_addresses");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

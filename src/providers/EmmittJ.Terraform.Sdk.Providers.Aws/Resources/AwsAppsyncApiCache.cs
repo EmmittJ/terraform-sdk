@@ -33,7 +33,7 @@ public partial class AwsAppsyncApiCache(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<bool> AtRestEncryptionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("at_rest_encryption_enabled") ?? AsReference("at_rest_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("at_rest_encryption_enabled") ?? CreateReference("at_rest_encryption_enabled");
         set => SetArgument("at_rest_encryption_enabled", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsAppsyncApiCache(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsAppsyncApiCache(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsAppsyncApiCache(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<bool> TransitEncryptionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("transit_encryption_enabled") ?? AsReference("transit_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("transit_encryption_enabled") ?? CreateReference("transit_encryption_enabled");
         set => SetArgument("transit_encryption_enabled", value);
     }
 

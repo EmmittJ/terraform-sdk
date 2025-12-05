@@ -36,7 +36,7 @@ public partial class AzurermVirtualNetworkDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermVirtualNetworkDataSource(string name) : TerraformDat
     /// The address_space attribute.
     /// </summary>
     public TerraformList<string> AddressSpace
-        => AsReference("address_space");
+        => CreateReference("address_space");
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     public TerraformList<string> DnsServers
-        => AsReference("dns_servers");
+        => CreateReference("dns_servers");
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
     public TerraformValue<string> Guid
-        => AsReference("guid");
+        => CreateReference("guid");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     public TerraformList<string> Subnets
-        => AsReference("subnets");
+        => CreateReference("subnets");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The vnet_peerings attribute.
     /// </summary>
     public TerraformMap<string> VnetPeerings
-        => AsReference("vnet_peerings");
+        => CreateReference("vnet_peerings");
 
     /// <summary>
     /// The vnet_peerings_addresses attribute.
     /// </summary>
     public TerraformList<string> VnetPeeringsAddresses
-        => AsReference("vnet_peerings_addresses");
+        => CreateReference("vnet_peerings_addresses");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

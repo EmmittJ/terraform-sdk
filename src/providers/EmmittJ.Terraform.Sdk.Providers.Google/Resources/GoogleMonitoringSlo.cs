@@ -929,7 +929,7 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -938,7 +938,7 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -967,7 +967,7 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> SloId
     {
-        get => GetArgument<TerraformValue<string>>("slo_id") ?? AsReference("slo_id");
+        get => GetArgument<TerraformValue<string>>("slo_id") ?? CreateReference("slo_id");
         set => SetArgument("slo_id", value);
     }
 
@@ -989,7 +989,7 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     /// projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// BasicSli block (nesting mode: list).

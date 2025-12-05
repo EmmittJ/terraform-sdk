@@ -27,7 +27,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlock
     /// The last_auto_adjust_time attribute.
     /// </summary>
     public TerraformValue<string> LastAutoAdjustTime
-        => AsReference("last_auto_adjust_time");
+        => CreateReference("last_auto_adjust_time");
 
     /// <summary>
     /// HistoricalOptions block (nesting mode: list).
@@ -66,7 +66,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlockHistoricalOptionsBlock : Terrafo
     /// The lookback_available_periods attribute.
     /// </summary>
     public TerraformValue<double> LookbackAvailablePeriods
-        => AsReference("lookback_available_periods");
+        => CreateReference("lookback_available_periods");
 
 }
 
@@ -345,7 +345,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -373,7 +373,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -382,7 +382,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformValue<string> LimitAmount
     {
-        get => GetArgument<TerraformValue<string>>("limit_amount") ?? AsReference("limit_amount");
+        get => GetArgument<TerraformValue<string>>("limit_amount") ?? CreateReference("limit_amount");
         set => SetArgument("limit_amount", value);
     }
 
@@ -391,7 +391,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformValue<string> LimitUnit
     {
-        get => GetArgument<TerraformValue<string>>("limit_unit") ?? AsReference("limit_unit");
+        get => GetArgument<TerraformValue<string>>("limit_unit") ?? CreateReference("limit_unit");
         set => SetArgument("limit_unit", value);
     }
 
@@ -400,7 +400,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -409,7 +409,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -427,7 +427,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -445,7 +445,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformValue<string> TimePeriodStart
     {
-        get => GetArgument<TerraformValue<string>>("time_period_start") ?? AsReference("time_period_start");
+        get => GetArgument<TerraformValue<string>>("time_period_start") ?? CreateReference("time_period_start");
         set => SetArgument("time_period_start", value);
     }
 
@@ -463,7 +463,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// AutoAdjustData block (nesting mode: list).

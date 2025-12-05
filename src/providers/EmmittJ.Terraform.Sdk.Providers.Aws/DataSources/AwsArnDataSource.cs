@@ -23,7 +23,7 @@ public partial class AwsArnDataSource(string name) : TerraformDataSource("aws_ar
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,30 +31,30 @@ public partial class AwsArnDataSource(string name) : TerraformDataSource("aws_ar
     /// The account attribute.
     /// </summary>
     public TerraformValue<string> Account
-        => AsReference("account");
+        => CreateReference("account");
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
     public TerraformValue<string> Partition
-        => AsReference("partition");
+        => CreateReference("partition");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     public TerraformValue<string> Region
-        => AsReference("region");
+        => CreateReference("region");
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
     public TerraformValue<string> Resource
-        => AsReference("resource");
+        => CreateReference("resource");
 
     /// <summary>
     /// The service attribute.
     /// </summary>
     public TerraformValue<string> Service
-        => AsReference("service");
+        => CreateReference("service");
 
 }

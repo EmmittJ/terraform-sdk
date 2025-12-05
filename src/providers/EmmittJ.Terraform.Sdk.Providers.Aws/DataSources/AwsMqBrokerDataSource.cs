@@ -13,7 +13,7 @@ public partial class AwsMqBrokerDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> BrokerId
     {
-        get => GetArgument<TerraformValue<string>>("broker_id") ?? AsReference("broker_id");
+        get => GetArgument<TerraformValue<string>>("broker_id") ?? CreateReference("broker_id");
         set => SetArgument("broker_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsMqBrokerDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> BrokerName
     {
-        get => GetArgument<TerraformValue<string>>("broker_name") ?? AsReference("broker_name");
+        get => GetArgument<TerraformValue<string>>("broker_name") ?? CreateReference("broker_name");
         set => SetArgument("broker_name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsMqBrokerDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsMqBrokerDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsMqBrokerDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,108 +57,108 @@ public partial class AwsMqBrokerDataSource(string name) : TerraformDataSource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The authentication_strategy attribute.
     /// </summary>
     public TerraformValue<string> AuthenticationStrategy
-        => AsReference("authentication_strategy");
+        => CreateReference("authentication_strategy");
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
     public TerraformValue<bool> AutoMinorVersionUpgrade
-        => AsReference("auto_minor_version_upgrade");
+        => CreateReference("auto_minor_version_upgrade");
 
     /// <summary>
     /// The configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Configuration
-        => AsReference("configuration");
+        => CreateReference("configuration");
 
     /// <summary>
     /// The deployment_mode attribute.
     /// </summary>
     public TerraformValue<string> DeploymentMode
-        => AsReference("deployment_mode");
+        => CreateReference("deployment_mode");
 
     /// <summary>
     /// The encryption_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionOptions
-        => AsReference("encryption_options");
+        => CreateReference("encryption_options");
 
     /// <summary>
     /// The engine_type attribute.
     /// </summary>
     public TerraformValue<string> EngineType
-        => AsReference("engine_type");
+        => CreateReference("engine_type");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-        => AsReference("engine_version");
+        => CreateReference("engine_version");
 
     /// <summary>
     /// The host_instance_type attribute.
     /// </summary>
     public TerraformValue<string> HostInstanceType
-        => AsReference("host_instance_type");
+        => CreateReference("host_instance_type");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Instances
-        => AsReference("instances");
+        => CreateReference("instances");
 
     /// <summary>
     /// The ldap_server_metadata attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LdapServerMetadata
-        => AsReference("ldap_server_metadata");
+        => CreateReference("ldap_server_metadata");
 
     /// <summary>
     /// The logs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Logs
-        => AsReference("logs");
+        => CreateReference("logs");
 
     /// <summary>
     /// The maintenance_window_start_time attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceWindowStartTime
-        => AsReference("maintenance_window_start_time");
+        => CreateReference("maintenance_window_start_time");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
     public TerraformValue<bool> PubliclyAccessible
-        => AsReference("publicly_accessible");
+        => CreateReference("publicly_accessible");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroups
-        => AsReference("security_groups");
+        => CreateReference("security_groups");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     public TerraformValue<string> StorageType
-        => AsReference("storage_type");
+        => CreateReference("storage_type");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     public TerraformSet<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> User
-        => AsReference("user");
+        => CreateReference("user");
 
 }

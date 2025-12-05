@@ -50,7 +50,7 @@ public class GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlockLayer7DdosD
     /// </summary>
     public TerraformValue<string> RuleVisibility
     {
-        get => GetArgument<TerraformValue<string>>("rule_visibility") ?? AsReference("rule_visibility");
+        get => GetArgument<TerraformValue<string>>("rule_visibility") ?? CreateReference("rule_visibility");
         set => SetArgument("rule_visibility", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> JsonParsing
     {
-        get => GetArgument<TerraformValue<string>>("json_parsing") ?? AsReference("json_parsing");
+        get => GetArgument<TerraformValue<string>>("json_parsing") ?? CreateReference("json_parsing");
         set => SetArgument("json_parsing", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? CreateReference("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -335,7 +335,7 @@ public class GoogleComputeSecurityPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Preview
     {
-        get => GetArgument<TerraformValue<bool>>("preview") ?? AsReference("preview");
+        get => GetArgument<TerraformValue<bool>>("preview") ?? CreateReference("preview");
         set => SetArgument("preview", value);
     }
 
@@ -1159,7 +1159,7 @@ public partial class GoogleComputeSecurityPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1191,7 +1191,7 @@ public partial class GoogleComputeSecurityPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1200,7 +1200,7 @@ public partial class GoogleComputeSecurityPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -1208,31 +1208,31 @@ public partial class GoogleComputeSecurityPolicy(string name) : TerraformResourc
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Fingerprint of this resource.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The unique fingerprint of the labels.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// AdaptiveProtectionConfig block (nesting mode: list).

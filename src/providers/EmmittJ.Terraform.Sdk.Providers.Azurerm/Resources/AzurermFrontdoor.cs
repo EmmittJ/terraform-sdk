@@ -27,7 +27,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The load_balancing_name attribute.
@@ -169,7 +169,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The interval_in_seconds attribute.
@@ -244,7 +244,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -335,7 +335,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -421,7 +421,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -691,7 +691,7 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -737,49 +737,49 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     /// The backend_pool_health_probes attribute.
     /// </summary>
     public TerraformMap<string> BackendPoolHealthProbes
-        => AsReference("backend_pool_health_probes");
+        => CreateReference("backend_pool_health_probes");
 
     /// <summary>
     /// The backend_pool_load_balancing_settings attribute.
     /// </summary>
     public TerraformMap<string> BackendPoolLoadBalancingSettings
-        => AsReference("backend_pool_load_balancing_settings");
+        => CreateReference("backend_pool_load_balancing_settings");
 
     /// <summary>
     /// The backend_pools attribute.
     /// </summary>
     public TerraformMap<string> BackendPools
-        => AsReference("backend_pools");
+        => CreateReference("backend_pools");
 
     /// <summary>
     /// The cname attribute.
     /// </summary>
     public TerraformValue<string> Cname
-        => AsReference("cname");
+        => CreateReference("cname");
 
     /// <summary>
     /// The explicit_resource_order attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExplicitResourceOrder
-        => AsReference("explicit_resource_order");
+        => CreateReference("explicit_resource_order");
 
     /// <summary>
     /// The frontend_endpoints attribute.
     /// </summary>
     public TerraformMap<string> FrontendEndpoints
-        => AsReference("frontend_endpoints");
+        => CreateReference("frontend_endpoints");
 
     /// <summary>
     /// The header_frontdoor_id attribute.
     /// </summary>
     public TerraformValue<string> HeaderFrontdoorId
-        => AsReference("header_frontdoor_id");
+        => CreateReference("header_frontdoor_id");
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
     public TerraformMap<string> RoutingRules
-        => AsReference("routing_rules");
+        => CreateReference("routing_rules");
 
     /// <summary>
     /// BackendPool block (nesting mode: list).

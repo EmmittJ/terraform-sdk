@@ -13,7 +13,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,13 +54,13 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// User-provided description for this network policy.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// IP address range in CIDR notation used to create internet access and external IP access.
@@ -68,26 +68,26 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// prefixes either in the consumer VPC network or in use by the private clouds attached to that VPC network.
     /// </summary>
     public TerraformValue<string> EdgeServicesCidr
-        => AsReference("edge_services_cidr");
+        => CreateReference("edge_services_cidr");
 
     /// <summary>
     /// Network service that allows External IP addresses to be assigned to VMware workloads.
     /// This service can only be enabled when internetAccess is also enabled.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalIp
-        => AsReference("external_ip");
+        => CreateReference("external_ip");
 
     /// <summary>
     /// Network service that allows VMware workloads to access the internet.
     /// </summary>
     public TerraformList<TerraformMap<object>> InternetAccess
-        => AsReference("internet_access");
+        => CreateReference("internet_access");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -95,7 +95,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// The relative resource name of the VMware Engine network. Specify the name in the following form:
@@ -103,13 +103,13 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// can either be a project number or a project ID.
     /// </summary>
     public TerraformValue<string> VmwareEngineNetwork
-        => AsReference("vmware_engine_network");
+        => CreateReference("vmware_engine_network");
 
     /// <summary>
     /// The canonical name of the VMware Engine network in the form:
     /// projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId}
     /// </summary>
     public TerraformValue<string> VmwareEngineNetworkCanonical
-        => AsReference("vmware_engine_network_canonical");
+        => CreateReference("vmware_engine_network_canonical");
 
 }

@@ -51,7 +51,7 @@ public class AwsFsxLustreFileSystemLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Destination
     {
-        get => GetArgument<TerraformValue<string>>("destination") ?? AsReference("destination");
+        get => GetArgument<TerraformValue<string>>("destination") ?? CreateReference("destination");
         set => SetArgument("destination", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsFsxLustreFileSystemMetadataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsFsxLustreFileSystemMetadataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> AutoImportPolicy
     {
-        get => GetArgument<TerraformValue<string>>("auto_import_policy") ?? AsReference("auto_import_policy");
+        get => GetArgument<TerraformValue<string>>("auto_import_policy") ?? CreateReference("auto_import_policy");
         set => SetArgument("auto_import_policy", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double> AutomaticBackupRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("automatic_backup_retention_days") ?? AsReference("automatic_backup_retention_days");
+        get => GetArgument<TerraformValue<double>>("automatic_backup_retention_days") ?? CreateReference("automatic_backup_retention_days");
         set => SetArgument("automatic_backup_retention_days", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> DailyAutomaticBackupStartTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? AsReference("daily_automatic_backup_start_time");
+        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? CreateReference("daily_automatic_backup_start_time");
         set => SetArgument("daily_automatic_backup_start_time", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool> EfaEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("efa_enabled") ?? AsReference("efa_enabled");
+        get => GetArgument<TerraformValue<bool>>("efa_enabled") ?? CreateReference("efa_enabled");
         set => SetArgument("efa_enabled", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> ExportPath
     {
-        get => GetArgument<TerraformValue<string>>("export_path") ?? AsReference("export_path");
+        get => GetArgument<TerraformValue<string>>("export_path") ?? CreateReference("export_path");
         set => SetArgument("export_path", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> FileSystemTypeVersion
     {
-        get => GetArgument<TerraformValue<string>>("file_system_type_version") ?? AsReference("file_system_type_version");
+        get => GetArgument<TerraformValue<string>>("file_system_type_version") ?? CreateReference("file_system_type_version");
         set => SetArgument("file_system_type_version", value);
     }
 
@@ -291,7 +291,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -309,7 +309,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double> ImportedFileChunkSize
     {
-        get => GetArgument<TerraformValue<double>>("imported_file_chunk_size") ?? AsReference("imported_file_chunk_size");
+        get => GetArgument<TerraformValue<double>>("imported_file_chunk_size") ?? CreateReference("imported_file_chunk_size");
         set => SetArgument("imported_file_chunk_size", value);
     }
 
@@ -318,7 +318,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -336,7 +336,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -400,7 +400,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -418,7 +418,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> WeeklyMaintenanceStartTime
     {
-        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? AsReference("weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? CreateReference("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 
@@ -426,37 +426,37 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The mount_name attribute.
     /// </summary>
     public TerraformValue<string> MountName
-        => AsReference("mount_name");
+        => CreateReference("mount_name");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformList<string> NetworkInterfaceIds
-        => AsReference("network_interface_ids");
+        => CreateReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// DataReadCacheConfiguration block (nesting mode: list).

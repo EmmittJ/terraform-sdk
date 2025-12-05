@@ -89,7 +89,7 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> DatabaseDialect
     {
-        get => GetArgument<TerraformValue<string>>("database_dialect") ?? AsReference("database_dialect");
+        get => GetArgument<TerraformValue<string>>("database_dialect") ?? CreateReference("database_dialect");
         set => SetArgument("database_dialect", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -185,7 +185,7 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -198,7 +198,7 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> VersionRetentionPeriod
     {
-        get => GetArgument<TerraformValue<string>>("version_retention_period") ?? AsReference("version_retention_period");
+        get => GetArgument<TerraformValue<string>>("version_retention_period") ?? CreateReference("version_retention_period");
         set => SetArgument("version_retention_period", value);
     }
 
@@ -206,7 +206,7 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     /// An explanation of the status of the database.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// EncryptionConfig block (nesting mode: list).

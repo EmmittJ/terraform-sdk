@@ -18,7 +18,7 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> DisablePublicIp
     {
-        get => GetArgument<TerraformValue<bool>>("disable_public_ip") ?? AsReference("disable_public_ip");
+        get => GetArgument<TerraformValue<bool>>("disable_public_ip") ?? CreateReference("disable_public_ip");
         set => SetArgument("disable_public_ip", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> Tags
     {
-        get => GetArgument<TerraformList<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformList<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskEncryption
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption") ?? AsReference("disk_encryption");
+        get => GetArgument<TerraformValue<string>>("disk_encryption") ?? CreateReference("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<string>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<string>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type") ?? AsReference("disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type") ?? CreateReference("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -316,7 +316,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockDataDisksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskEncryption
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption") ?? AsReference("disk_encryption");
+        get => GetArgument<TerraformValue<string>>("disk_encryption") ?? CreateReference("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockDataDisksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<string>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<string>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -369,7 +369,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockNetworkInterfacesBlock : Terraf
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -388,7 +388,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockNetworkInterfacesBlock : Terraf
     /// </summary>
     public TerraformValue<string> Subnet
     {
-        get => GetArgument<TerraformValue<string>>("subnet") ?? AsReference("subnet");
+        get => GetArgument<TerraformValue<string>>("subnet") ?? CreateReference("subnet");
         set => SetArgument("subnet", value);
     }
 
@@ -447,7 +447,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockReservationAffinityBlock : Terr
     /// </summary>
     public TerraformValue<string> ConsumeReservationType
     {
-        get => GetArgument<TerraformValue<string>>("consume_reservation_type") ?? AsReference("consume_reservation_type");
+        get => GetArgument<TerraformValue<string>>("consume_reservation_type") ?? CreateReference("consume_reservation_type");
         set => SetArgument("consume_reservation_type", value);
     }
 
@@ -492,7 +492,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockServiceAccountsBlock : Terrafor
     /// </summary>
     public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? CreateReference("email");
         set => SetArgument("email", value);
     }
 
@@ -501,7 +501,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockServiceAccountsBlock : Terrafor
     /// service account. Set by the CLH to https://www.googleapis.com/auth/cloud-platform
     /// </summary>
     public TerraformList<string> Scopes
-        => AsReference("scopes");
+        => CreateReference("scopes");
 
 }
 
@@ -685,7 +685,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -750,7 +750,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -759,19 +759,19 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// The milliseconds portion (&amp;quot;.SSS&amp;quot;) is optional.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. Email address of entity that sent original CreateInstance request.
     /// </summary>
     public TerraformValue<string> Creator
-        => AsReference("creator");
+        => CreateReference("creator");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// &#39;Output only. Additional information about instance health. Example:
@@ -779,45 +779,45 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// &amp;quot;-1&amp;quot;, &amp;quot;jupyterlab_status&amp;quot;: &amp;quot;-1&amp;quot;, &amp;quot;updated&amp;quot;: &amp;quot;2020-10-18 09:40:03.573409&amp;quot; }&#39;
     /// </summary>
     public TerraformList<TerraformMap<object>> HealthInfo
-        => AsReference("health_info");
+        => CreateReference("health_info");
 
     /// <summary>
     /// Output only. Instance health_state.
     /// </summary>
     public TerraformValue<string> HealthState
-        => AsReference("health_state");
+        => CreateReference("health_state");
 
     /// <summary>
     /// Output only. The proxy endpoint that is used to access the Jupyter notebook.
     /// </summary>
     public TerraformValue<string> ProxyUri
-        => AsReference("proxy_uri");
+        => CreateReference("proxy_uri");
 
     /// <summary>
     /// Output only. The state of this instance.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// An RFC3339 timestamp in UTC time. This in the format of yyyy-MM-ddTHH:mm:ss.SSSZ.
     /// The milliseconds portion (&amp;quot;.SSS&amp;quot;) is optional.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Output only. The upgrade history of this instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> UpgradeHistory
-        => AsReference("upgrade_history");
+        => CreateReference("upgrade_history");
 
     /// <summary>
     /// GceSetup block (nesting mode: list).

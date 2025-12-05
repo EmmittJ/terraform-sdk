@@ -13,7 +13,7 @@ public partial class GoogleOracleDatabaseCloudVmClustersDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,6 +40,6 @@ public partial class GoogleOracleDatabaseCloudVmClustersDataSource(string name) 
     /// The cloud_vm_clusters attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudVmClusters
-        => AsReference("cloud_vm_clusters");
+        => CreateReference("cloud_vm_clusters");
 
 }

@@ -277,7 +277,7 @@ public partial class AzurermStorageAccountSasDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -313,7 +313,7 @@ public partial class AzurermStorageAccountSasDataSource(string name) : Terraform
     /// The sas attribute.
     /// </summary>
     public TerraformValue<string> Sas
-        => AsReference("sas");
+        => CreateReference("sas");
 
     /// <summary>
     /// Permissions block (nesting mode: list).

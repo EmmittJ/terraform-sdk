@@ -23,7 +23,7 @@ public partial class AwsIamSamlProviderDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsIamSamlProviderDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -40,24 +40,24 @@ public partial class AwsIamSamlProviderDataSource(string name) : TerraformDataSo
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-        => AsReference("create_date");
+        => CreateReference("create_date");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The saml_metadata_document attribute.
     /// </summary>
     public TerraformValue<string> SamlMetadataDocument
-        => AsReference("saml_metadata_document");
+        => CreateReference("saml_metadata_document");
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
     public TerraformValue<string> ValidUntil
-        => AsReference("valid_until");
+        => CreateReference("valid_until");
 
 }

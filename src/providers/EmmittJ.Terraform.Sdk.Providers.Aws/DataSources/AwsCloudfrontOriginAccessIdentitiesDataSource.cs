@@ -22,7 +22,7 @@ public partial class AwsCloudfrontOriginAccessIdentitiesDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -30,18 +30,18 @@ public partial class AwsCloudfrontOriginAccessIdentitiesDataSource(string name) 
     /// The iam_arns attribute.
     /// </summary>
     public TerraformSet<string> IamArns
-        => AsReference("iam_arns");
+        => CreateReference("iam_arns");
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
     public TerraformSet<string> Ids
-        => AsReference("ids");
+        => CreateReference("ids");
 
     /// <summary>
     /// The s3_canonical_user_ids attribute.
     /// </summary>
     public TerraformSet<string> S3CanonicalUserIds
-        => AsReference("s3_canonical_user_ids");
+        => CreateReference("s3_canonical_user_ids");
 
 }

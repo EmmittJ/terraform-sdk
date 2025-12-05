@@ -35,7 +35,7 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,27 +63,27 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     /// Name used for UI elements listing this Service.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
     /// projects/[PROJECT_ID]/services/[SERVICE_ID].
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// An optional service ID to use. If not given, the server will generate a
     /// service ID.
     /// </summary>
     public TerraformValue<string> ServiceId
-        => AsReference("service_id");
+        => CreateReference("service_id");
 
     /// <summary>
     /// Configuration for how to query telemetry on a Service.
     /// </summary>
     public TerraformList<TerraformMap<object>> Telemetry
-        => AsReference("telemetry");
+        => CreateReference("telemetry");
 
     /// <summary>
     /// Labels which have been used to annotate the service. Label keys must start
@@ -94,6 +94,6 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     /// the empty string may be supplied for the label value.
     /// </summary>
     public TerraformMap<string> UserLabels
-        => AsReference("user_labels");
+        => CreateReference("user_labels");
 
 }

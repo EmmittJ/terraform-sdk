@@ -84,7 +84,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -131,31 +131,31 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     /// The namespace_name attribute.
     /// </summary>
     public TerraformValue<string> NamespaceName
-        => AsReference("namespace_name");
+        => CreateReference("namespace_name");
 
     /// <summary>
     /// The relay_name attribute.
     /// </summary>
     public TerraformValue<string> RelayName
-        => AsReference("relay_name");
+        => CreateReference("relay_name");
 
     /// <summary>
     /// The send_key_value attribute.
     /// </summary>
     public TerraformValue<string> SendKeyValue
-        => AsReference("send_key_value");
+        => CreateReference("send_key_value");
 
     /// <summary>
     /// The service_bus_namespace attribute.
     /// </summary>
     public TerraformValue<string> ServiceBusNamespace
-        => AsReference("service_bus_namespace");
+        => CreateReference("service_bus_namespace");
 
     /// <summary>
     /// The service_bus_suffix attribute.
     /// </summary>
     public TerraformValue<string> ServiceBusSuffix
-        => AsReference("service_bus_suffix");
+        => CreateReference("service_bus_suffix");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

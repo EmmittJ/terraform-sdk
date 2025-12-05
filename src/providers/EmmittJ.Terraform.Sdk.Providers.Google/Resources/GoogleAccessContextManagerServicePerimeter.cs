@@ -1305,7 +1305,7 @@ public partial class GoogleAccessContextManagerServicePerimeter(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1387,13 +1387,13 @@ public partial class GoogleAccessContextManagerServicePerimeter(string name) : T
     /// Time the AccessPolicy was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Time the AccessPolicy was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Spec block (nesting mode: list).

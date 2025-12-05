@@ -23,7 +23,7 @@ public partial class AwsEksPodIdentityAssociation(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool> DisableSessionTags
     {
-        get => GetArgument<TerraformValue<bool>>("disable_session_tags") ?? AsReference("disable_session_tags");
+        get => GetArgument<TerraformValue<bool>>("disable_session_tags") ?? CreateReference("disable_session_tags");
         set => SetArgument("disable_session_tags", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsEksPodIdentityAssociation(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -88,30 +88,30 @@ public partial class AwsEksPodIdentityAssociation(string name) : TerraformResour
     /// The association_arn attribute.
     /// </summary>
     public TerraformValue<string> AssociationArn
-        => AsReference("association_arn");
+        => CreateReference("association_arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
     public TerraformValue<string> ExternalId
-        => AsReference("external_id");
+        => CreateReference("external_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
 }

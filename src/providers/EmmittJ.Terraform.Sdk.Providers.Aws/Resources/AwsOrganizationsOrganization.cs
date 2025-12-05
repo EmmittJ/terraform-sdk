@@ -40,7 +40,7 @@ public partial class AwsOrganizationsOrganization(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -48,48 +48,48 @@ public partial class AwsOrganizationsOrganization(string name) : TerraformResour
     /// The accounts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Accounts
-        => AsReference("accounts");
+        => CreateReference("accounts");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The master_account_arn attribute.
     /// </summary>
     public TerraformValue<string> MasterAccountArn
-        => AsReference("master_account_arn");
+        => CreateReference("master_account_arn");
 
     /// <summary>
     /// The master_account_email attribute.
     /// </summary>
     public TerraformValue<string> MasterAccountEmail
-        => AsReference("master_account_email");
+        => CreateReference("master_account_email");
 
     /// <summary>
     /// The master_account_id attribute.
     /// </summary>
     public TerraformValue<string> MasterAccountId
-        => AsReference("master_account_id");
+        => CreateReference("master_account_id");
 
     /// <summary>
     /// The master_account_name attribute.
     /// </summary>
     public TerraformValue<string> MasterAccountName
-        => AsReference("master_account_name");
+        => CreateReference("master_account_name");
 
     /// <summary>
     /// The non_master_accounts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NonMasterAccounts
-        => AsReference("non_master_accounts");
+        => CreateReference("non_master_accounts");
 
     /// <summary>
     /// The roots attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Roots
-        => AsReference("roots");
+        => CreateReference("roots");
 
 }

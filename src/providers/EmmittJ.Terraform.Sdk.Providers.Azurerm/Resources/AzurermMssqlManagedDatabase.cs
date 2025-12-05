@@ -27,7 +27,7 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformValue<string> MonthlyRetention
     {
-        get => GetArgument<TerraformValue<string>>("monthly_retention") ?? AsReference("monthly_retention");
+        get => GetArgument<TerraformValue<string>>("monthly_retention") ?? CreateReference("monthly_retention");
         set => SetArgument("monthly_retention", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformValue<double> WeekOfYear
     {
-        get => GetArgument<TerraformValue<double>>("week_of_year") ?? AsReference("week_of_year");
+        get => GetArgument<TerraformValue<double>>("week_of_year") ?? CreateReference("week_of_year");
         set => SetArgument("week_of_year", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformValue<string> WeeklyRetention
     {
-        get => GetArgument<TerraformValue<string>>("weekly_retention") ?? AsReference("weekly_retention");
+        get => GetArgument<TerraformValue<string>>("weekly_retention") ?? CreateReference("weekly_retention");
         set => SetArgument("weekly_retention", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformValue<string> YearlyRetention
     {
-        get => GetArgument<TerraformValue<string>>("yearly_retention") ?? AsReference("yearly_retention");
+        get => GetArgument<TerraformValue<string>>("yearly_retention") ?? CreateReference("yearly_retention");
         set => SetArgument("yearly_retention", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

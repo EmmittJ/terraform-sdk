@@ -33,7 +33,7 @@ public partial class AwsNetworkmanagerDeviceDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsNetworkmanagerDeviceDataSource(string name) : TerraformD
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -50,54 +50,54 @@ public partial class AwsNetworkmanagerDeviceDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The aws_location attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AwsLocation
-        => AsReference("aws_location");
+        => CreateReference("aws_location");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The model attribute.
     /// </summary>
     public TerraformValue<string> Model
-        => AsReference("model");
+        => CreateReference("model");
 
     /// <summary>
     /// The serial_number attribute.
     /// </summary>
     public TerraformValue<string> SerialNumber
-        => AsReference("serial_number");
+        => CreateReference("serial_number");
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
     public TerraformValue<string> SiteId
-        => AsReference("site_id");
+        => CreateReference("site_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The vendor attribute.
     /// </summary>
     public TerraformValue<string> Vendor
-        => AsReference("vendor");
+        => CreateReference("vendor");
 
 }

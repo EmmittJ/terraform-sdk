@@ -13,7 +13,7 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,13 +50,13 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// &#39;default&#39; will be used.
     /// </summary>
     public TerraformValue<string> AuthorizedNetwork
-        => AsReference("authorized_network");
+        => CreateReference("authorized_network");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance.
@@ -67,25 +67,25 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// When the field is set to false, deleting the instance is allowed.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// Endpoint for Discovery API
     /// </summary>
     public TerraformValue<string> DiscoveryEndpoint
-        => AsReference("discovery_endpoint");
+        => CreateReference("discovery_endpoint");
 
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -95,37 +95,37 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Maintenance policy for an instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenancePolicy
-        => AsReference("maintenance_policy");
+        => CreateReference("maintenance_policy");
 
     /// <summary>
     /// Output only. Published maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-        => AsReference("maintenance_schedule");
+        => CreateReference("maintenance_schedule");
 
     /// <summary>
     /// The full version of memcached server running on this instance.
     /// </summary>
     public TerraformValue<string> MemcacheFullVersion
-        => AsReference("memcache_full_version");
+        => CreateReference("memcache_full_version");
 
     /// <summary>
     /// Additional information about the instance state, if available.
     /// </summary>
     public TerraformList<TerraformMap<object>> MemcacheNodes
-        => AsReference("memcache_nodes");
+        => CreateReference("memcache_nodes");
 
     /// <summary>
     /// User-specified parameters for this memcache instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> MemcacheParameters
-        => AsReference("memcache_parameters");
+        => CreateReference("memcache_parameters");
 
     /// <summary>
     /// The major version of Memcached software. If not provided, latest supported version will be used.
@@ -133,19 +133,19 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// determined by our system based on the latest supported minor version. Default value: &amp;quot;MEMCACHE_1_5&amp;quot; Possible values: [&amp;quot;MEMCACHE_1_5&amp;quot;, &amp;quot;MEMCACHE_1_6_15&amp;quot;]
     /// </summary>
     public TerraformValue<string> MemcacheVersion
-        => AsReference("memcache_version");
+        => CreateReference("memcache_version");
 
     /// <summary>
     /// Configuration for memcache nodes.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodeConfig
-        => AsReference("node_config");
+        => CreateReference("node_config");
 
     /// <summary>
     /// Number of nodes in the memcache instance.
     /// </summary>
     public TerraformValue<double> NodeCount
-        => AsReference("node_count");
+        => CreateReference("node_count");
 
     /// <summary>
     /// Contains the name of allocated IP address ranges associated with
@@ -153,20 +153,20 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// associated with IP range 10.0.0.0/29.
     /// </summary>
     public TerraformList<string> ReservedIpRangeId
-        => AsReference("reserved_ip_range_id");
+        => CreateReference("reserved_ip_range_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Zones where memcache nodes should be provisioned.  If not
     /// provided, all zones will be used.
     /// </summary>
     public TerraformSet<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
 }

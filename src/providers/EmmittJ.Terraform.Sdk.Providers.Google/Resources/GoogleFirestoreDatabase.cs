@@ -22,7 +22,7 @@ public class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlock
     /// &#39;projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{key_version}&#39;.
     /// </summary>
     public TerraformList<string> ActiveKeyVersion
-        => AsReference("active_key_version");
+        => CreateReference("active_key_version");
 
     /// <summary>
     /// The resource ID of a Cloud KMS key. If set, the database created will
@@ -101,7 +101,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> AppEngineIntegrationMode
     {
-        get => GetArgument<TerraformValue<string>>("app_engine_integration_mode") ?? AsReference("app_engine_integration_mode");
+        get => GetArgument<TerraformValue<string>>("app_engine_integration_mode") ?? CreateReference("app_engine_integration_mode");
         set => SetArgument("app_engine_integration_mode", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> ConcurrencyMode
     {
-        get => GetArgument<TerraformValue<string>>("concurrency_mode") ?? AsReference("concurrency_mode");
+        get => GetArgument<TerraformValue<string>>("concurrency_mode") ?? CreateReference("concurrency_mode");
         set => SetArgument("concurrency_mode", value);
     }
 
@@ -119,7 +119,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> DatabaseEdition
     {
-        get => GetArgument<TerraformValue<string>>("database_edition") ?? AsReference("database_edition");
+        get => GetArgument<TerraformValue<string>>("database_edition") ?? CreateReference("database_edition");
         set => SetArgument("database_edition", value);
     }
 
@@ -131,7 +131,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> DeleteProtectionState
     {
-        get => GetArgument<TerraformValue<string>>("delete_protection_state") ?? AsReference("delete_protection_state");
+        get => GetArgument<TerraformValue<string>>("delete_protection_state") ?? CreateReference("delete_protection_state");
         set => SetArgument("delete_protection_state", value);
     }
 
@@ -153,7 +153,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -201,7 +201,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -235,7 +235,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// Output only. The timestamp at which this database was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. The earliest timestamp at which older versions of the data can be read from the database. See versionRetentionPeriod above; this field is populated with now - versionRetentionPeriod.
@@ -243,7 +243,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> EarliestVersionTime
-        => AsReference("earliest_version_time");
+        => CreateReference("earliest_version_time");
 
     /// <summary>
     /// Output only. This checksum is computed by the server based on the value of other fields,
@@ -251,7 +251,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Output only. The keyPrefix for this database.
@@ -260,19 +260,19 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// This value may be empty in which case the appid to use for URL-encoded keys is the project_id (eg: foo instead of v~foo).
     /// </summary>
     public TerraformValue<string> KeyPrefix
-        => AsReference("key_prefix");
+        => CreateReference("key_prefix");
 
     /// <summary>
     /// Output only. The system-generated UUID4 for this Database.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The timestamp at which this database was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Output only. The period during which past versions of data are retained in the database.
@@ -281,7 +281,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
     public TerraformValue<string> VersionRetentionPeriod
-        => AsReference("version_retention_period");
+        => CreateReference("version_retention_period");
 
     /// <summary>
     /// CmekConfig block (nesting mode: list).

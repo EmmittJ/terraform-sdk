@@ -36,7 +36,7 @@ public partial class AzurermStorageEncryptionScopeDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,13 +64,13 @@ public partial class AzurermStorageEncryptionScopeDataSource(string name) : Terr
     /// The key_vault_key_id attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultKeyId
-        => AsReference("key_vault_key_id");
+        => CreateReference("key_vault_key_id");
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     public TerraformValue<string> Source
-        => AsReference("source");
+        => CreateReference("source");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

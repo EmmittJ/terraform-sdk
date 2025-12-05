@@ -13,7 +13,7 @@ public partial class AwsCodestarconnectionsConnectionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCodestarconnectionsConnectionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsCodestarconnectionsConnectionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsCodestarconnectionsConnectionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsCodestarconnectionsConnectionDataSource(string name) : T
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,18 +57,18 @@ public partial class AwsCodestarconnectionsConnectionDataSource(string name) : T
     /// The connection_status attribute.
     /// </summary>
     public TerraformValue<string> ConnectionStatus
-        => AsReference("connection_status");
+        => CreateReference("connection_status");
 
     /// <summary>
     /// The host_arn attribute.
     /// </summary>
     public TerraformValue<string> HostArn
-        => AsReference("host_arn");
+        => CreateReference("host_arn");
 
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
     public TerraformValue<string> ProviderType
-        => AsReference("provider_type");
+        => CreateReference("provider_type");
 
 }

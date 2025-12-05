@@ -33,7 +33,7 @@ public partial class GoogleBackupDrDataSourceDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,31 +61,31 @@ public partial class GoogleBackupDrDataSourceDataSource(string name) : Terraform
     /// Details of how the resource is configured for backup.
     /// </summary>
     public TerraformList<TerraformMap<object>> BackupConfigInfo
-        => AsReference("backup_config_info");
+        => CreateReference("backup_config_info");
 
     /// <summary>
     /// Number of backups in the data source.
     /// </summary>
     public TerraformValue<string> BackupCount
-        => AsReference("backup_count");
+        => CreateReference("backup_count");
 
     /// <summary>
     /// The backup configuration state.
     /// </summary>
     public TerraformValue<string> ConfigState
-        => AsReference("config_state");
+        => CreateReference("config_state");
 
     /// <summary>
     /// The time when the instance was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The backed up resource is a backup appliance application.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataSourceBackupApplianceApplication
-        => AsReference("data_source_backup_appliance_application");
+        => CreateReference("data_source_backup_appliance_application");
 
     /// <summary>
     /// The backed up resource is a Google Cloud resource.
@@ -94,19 +94,19 @@ public partial class GoogleBackupDrDataSourceDataSource(string name) : Terraform
     /// 			DataSource object.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataSourceGcpResource
-        => AsReference("data_source_gcp_resource");
+        => CreateReference("data_source_gcp_resource");
 
     /// <summary>
     /// Server specified ETag for the ManagementServer resource to prevent simultaneous updates from overwiting each other.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Name of the datasource to create.
@@ -114,24 +114,24 @@ public partial class GoogleBackupDrDataSourceDataSource(string name) : Terraform
     /// 			&#39;{datasource}&#39; cannot be changed after creation. It must be between 3-63 characters long and must be unique within the backup vault.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The DataSource resource instance state.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The number of bytes (metadata and data) stored in this datasource.
     /// </summary>
     public TerraformValue<string> TotalStoredBytes
-        => AsReference("total_stored_bytes");
+        => CreateReference("total_stored_bytes");
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

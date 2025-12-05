@@ -23,7 +23,7 @@ public partial class AwsOdbDbNodesDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,6 +31,6 @@ public partial class AwsOdbDbNodesDataSource(string name) : TerraformDataSource(
     /// The list of DB nodes along with their properties.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbNodes
-        => AsReference("db_nodes");
+        => CreateReference("db_nodes");
 
 }

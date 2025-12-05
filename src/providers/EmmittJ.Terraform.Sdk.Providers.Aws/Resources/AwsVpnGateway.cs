@@ -13,7 +13,7 @@ public partial class AwsVpnGateway(string name) : TerraformResource("aws_vpn_gat
     /// </summary>
     public TerraformValue<string> AmazonSideAsn
     {
-        get => GetArgument<TerraformValue<string>>("amazon_side_asn") ?? AsReference("amazon_side_asn");
+        get => GetArgument<TerraformValue<string>>("amazon_side_asn") ?? CreateReference("amazon_side_asn");
         set => SetArgument("amazon_side_asn", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsVpnGateway(string name) : TerraformResource("aws_vpn_gat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsVpnGateway(string name) : TerraformResource("aws_vpn_gat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsVpnGateway(string name) : TerraformResource("aws_vpn_gat
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsVpnGateway(string name) : TerraformResource("aws_vpn_gat
     /// </summary>
     public TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id") ?? AsReference("vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id") ?? CreateReference("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -75,6 +75,6 @@ public partial class AwsVpnGateway(string name) : TerraformResource("aws_vpn_gat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
 }

@@ -36,7 +36,7 @@ public partial class AzurermFunctionAppHostKeysDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermFunctionAppHostKeysDataSource(string name) : Terrafo
     /// The blobs_extension_key attribute.
     /// </summary>
     public TerraformValue<string> BlobsExtensionKey
-        => AsReference("blobs_extension_key");
+        => CreateReference("blobs_extension_key");
 
     /// <summary>
     /// The default_function_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultFunctionKey
-        => AsReference("default_function_key");
+        => CreateReference("default_function_key");
 
     /// <summary>
     /// The durabletask_extension_key attribute.
     /// </summary>
     public TerraformValue<string> DurabletaskExtensionKey
-        => AsReference("durabletask_extension_key");
+        => CreateReference("durabletask_extension_key");
 
     /// <summary>
     /// The event_grid_extension_config_key attribute.
     /// </summary>
     public TerraformValue<string> EventGridExtensionConfigKey
-        => AsReference("event_grid_extension_config_key");
+        => CreateReference("event_grid_extension_config_key");
 
     /// <summary>
     /// The event_grid_extension_key attribute.
     /// </summary>
     public TerraformValue<string> EventGridExtensionKey
-        => AsReference("event_grid_extension_key");
+        => CreateReference("event_grid_extension_key");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The signalr_extension_key attribute.
     /// </summary>
     public TerraformValue<string> SignalrExtensionKey
-        => AsReference("signalr_extension_key");
+        => CreateReference("signalr_extension_key");
 
     /// <summary>
     /// The webpubsub_extension_key attribute.
     /// </summary>
     public TerraformValue<string> WebpubsubExtensionKey
-        => AsReference("webpubsub_extension_key");
+        => CreateReference("webpubsub_extension_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

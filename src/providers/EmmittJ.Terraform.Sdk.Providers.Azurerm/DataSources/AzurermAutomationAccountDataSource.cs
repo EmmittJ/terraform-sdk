@@ -36,7 +36,7 @@ public partial class AzurermAutomationAccountDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermAutomationAccountDataSource(string name) : Terraform
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The hybrid_service_url attribute.
     /// </summary>
     public TerraformValue<string> HybridServiceUrl
-        => AsReference("hybrid_service_url");
+        => CreateReference("hybrid_service_url");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The private_endpoint_connection attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateEndpointConnection
-        => AsReference("private_endpoint_connection");
+        => CreateReference("private_endpoint_connection");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-        => AsReference("secondary_key");
+        => CreateReference("secondary_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

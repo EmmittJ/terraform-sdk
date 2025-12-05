@@ -36,7 +36,7 @@ public partial class AzurermBastionHostDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,79 +64,79 @@ public partial class AzurermBastionHostDataSource(string name) : TerraformDataSo
     /// The copy_paste_enabled attribute.
     /// </summary>
     public TerraformValue<bool> CopyPasteEnabled
-        => AsReference("copy_paste_enabled");
+        => CreateReference("copy_paste_enabled");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The file_copy_enabled attribute.
     /// </summary>
     public TerraformValue<bool> FileCopyEnabled
-        => AsReference("file_copy_enabled");
+        => CreateReference("file_copy_enabled");
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-        => AsReference("ip_configuration");
+        => CreateReference("ip_configuration");
 
     /// <summary>
     /// The ip_connect_enabled attribute.
     /// </summary>
     public TerraformValue<bool> IpConnectEnabled
-        => AsReference("ip_connect_enabled");
+        => CreateReference("ip_connect_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The scale_units attribute.
     /// </summary>
     public TerraformValue<double> ScaleUnits
-        => AsReference("scale_units");
+        => CreateReference("scale_units");
 
     /// <summary>
     /// The session_recording_enabled attribute.
     /// </summary>
     public TerraformValue<bool> SessionRecordingEnabled
-        => AsReference("session_recording_enabled");
+        => CreateReference("session_recording_enabled");
 
     /// <summary>
     /// The shareable_link_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ShareableLinkEnabled
-        => AsReference("shareable_link_enabled");
+        => CreateReference("shareable_link_enabled");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The tunneling_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TunnelingEnabled
-        => AsReference("tunneling_enabled");
+        => CreateReference("tunneling_enabled");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

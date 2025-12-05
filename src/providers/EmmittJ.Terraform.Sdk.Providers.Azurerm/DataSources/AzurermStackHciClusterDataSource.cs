@@ -36,7 +36,7 @@ public partial class AzurermStackHciClusterDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermStackHciClusterDataSource(string name) : TerraformDa
     /// The automanage_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> AutomanageConfigurationId
-        => AsReference("automanage_configuration_id");
+        => CreateReference("automanage_configuration_id");
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     public TerraformValue<string> ClientId
-        => AsReference("client_id");
+        => CreateReference("client_id");
 
     /// <summary>
     /// The cloud_id attribute.
     /// </summary>
     public TerraformValue<string> CloudId
-        => AsReference("cloud_id");
+        => CreateReference("cloud_id");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The resource_provider_object_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceProviderObjectId
-        => AsReference("resource_provider_object_id");
+        => CreateReference("resource_provider_object_id");
 
     /// <summary>
     /// The service_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ServiceEndpoint
-        => AsReference("service_endpoint");
+        => CreateReference("service_endpoint");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

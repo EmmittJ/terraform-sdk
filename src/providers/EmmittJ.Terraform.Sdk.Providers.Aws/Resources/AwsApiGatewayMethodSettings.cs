@@ -18,7 +18,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> CacheDataEncrypted
     {
-        get => GetArgument<TerraformValue<bool>>("cache_data_encrypted") ?? AsReference("cache_data_encrypted");
+        get => GetArgument<TerraformValue<bool>>("cache_data_encrypted") ?? CreateReference("cache_data_encrypted");
         set => SetArgument("cache_data_encrypted", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> CacheTtlInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("cache_ttl_in_seconds") ?? AsReference("cache_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("cache_ttl_in_seconds") ?? CreateReference("cache_ttl_in_seconds");
         set => SetArgument("cache_ttl_in_seconds", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> CachingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("caching_enabled") ?? AsReference("caching_enabled");
+        get => GetArgument<TerraformValue<bool>>("caching_enabled") ?? CreateReference("caching_enabled");
         set => SetArgument("caching_enabled", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> DataTraceEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("data_trace_enabled") ?? AsReference("data_trace_enabled");
+        get => GetArgument<TerraformValue<bool>>("data_trace_enabled") ?? CreateReference("data_trace_enabled");
         set => SetArgument("data_trace_enabled", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LoggingLevel
     {
-        get => GetArgument<TerraformValue<string>>("logging_level") ?? AsReference("logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level") ?? CreateReference("logging_level");
         set => SetArgument("logging_level", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> MetricsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("metrics_enabled") ?? AsReference("metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("metrics_enabled") ?? CreateReference("metrics_enabled");
         set => SetArgument("metrics_enabled", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> RequireAuthorizationForCacheControl
     {
-        get => GetArgument<TerraformValue<bool>>("require_authorization_for_cache_control") ?? AsReference("require_authorization_for_cache_control");
+        get => GetArgument<TerraformValue<bool>>("require_authorization_for_cache_control") ?? CreateReference("require_authorization_for_cache_control");
         set => SetArgument("require_authorization_for_cache_control", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> UnauthorizedCacheControlHeaderStrategy
     {
-        get => GetArgument<TerraformValue<string>>("unauthorized_cache_control_header_strategy") ?? AsReference("unauthorized_cache_control_header_strategy");
+        get => GetArgument<TerraformValue<string>>("unauthorized_cache_control_header_strategy") ?? CreateReference("unauthorized_cache_control_header_strategy");
         set => SetArgument("unauthorized_cache_control_header_strategy", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsApiGatewayMethodSettings(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsApiGatewayMethodSettings(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

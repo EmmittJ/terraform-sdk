@@ -456,7 +456,7 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AppNetworkResourceGroup
     {
-        get => GetArgument<TerraformValue<string>>("app_network_resource_group") ?? AsReference("app_network_resource_group");
+        get => GetArgument<TerraformValue<string>>("app_network_resource_group") ?? CreateReference("app_network_resource_group");
         set => SetArgument("app_network_resource_group", value);
     }
 
@@ -503,7 +503,7 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceRuntimeNetworkResourceGroup
     {
-        get => GetArgument<TerraformValue<string>>("service_runtime_network_resource_group") ?? AsReference("service_runtime_network_resource_group");
+        get => GetArgument<TerraformValue<string>>("service_runtime_network_resource_group") ?? CreateReference("service_runtime_network_resource_group");
         set => SetArgument("service_runtime_network_resource_group", value);
     }
 
@@ -622,7 +622,7 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -697,7 +697,7 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> SkuTier
     {
-        get => GetArgument<TerraformValue<string>>("sku_tier") ?? AsReference("sku_tier");
+        get => GetArgument<TerraformValue<string>>("sku_tier") ?? CreateReference("sku_tier");
         set => SetArgument("sku_tier", value);
     }
 
@@ -723,19 +723,19 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// The outbound_public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> OutboundPublicIpAddresses
-        => AsReference("outbound_public_ip_addresses");
+        => CreateReference("outbound_public_ip_addresses");
 
     /// <summary>
     /// The required_network_traffic_rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequiredNetworkTrafficRules
-        => AsReference("required_network_traffic_rules");
+        => CreateReference("required_network_traffic_rules");
 
     /// <summary>
     /// The service_registry_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceRegistryId
-        => AsReference("service_registry_id");
+        => CreateReference("service_registry_id");
 
     /// <summary>
     /// ConfigServerGitSetting block (nesting mode: list).

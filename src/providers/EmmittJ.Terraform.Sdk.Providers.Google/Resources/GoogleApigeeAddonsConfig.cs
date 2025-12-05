@@ -111,7 +111,7 @@ public class GoogleApigeeAddonsConfigAddonsConfigBlockApiSecurityConfigBlock : T
     /// Time at which the API Security add-on expires in in milliseconds since epoch. If unspecified, the add-on will never expire.
     /// </summary>
     public TerraformValue<string> ExpiresAt
-        => AsReference("expires_at");
+        => CreateReference("expires_at");
 
 }
 
@@ -139,7 +139,7 @@ public class GoogleApigeeAddonsConfigAddonsConfigBlockConnectorsPlatformConfigBl
     /// Time at which the Connectors Platform add-on expires in milliseconds since epoch. If unspecified, the add-on will never expire.
     /// </summary>
     public TerraformValue<string> ExpiresAt
-        => AsReference("expires_at");
+        => CreateReference("expires_at");
 
 }
 
@@ -240,7 +240,7 @@ public partial class GoogleApigeeAddonsConfig(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

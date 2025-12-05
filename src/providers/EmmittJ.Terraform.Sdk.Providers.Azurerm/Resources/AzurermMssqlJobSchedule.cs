@@ -63,7 +63,7 @@ public partial class AzurermMssqlJobSchedule(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermMssqlJobSchedule(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> EndTime
     {
-        get => GetArgument<TerraformValue<string>>("end_time") ?? AsReference("end_time");
+        get => GetArgument<TerraformValue<string>>("end_time") ?? CreateReference("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermMssqlJobSchedule(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermMssqlJobSchedule(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 

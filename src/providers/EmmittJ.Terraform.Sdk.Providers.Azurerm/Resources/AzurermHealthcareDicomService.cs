@@ -85,13 +85,13 @@ public class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -219,7 +219,7 @@ public partial class AzurermHealthcareDicomService(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -275,19 +275,19 @@ public partial class AzurermHealthcareDicomService(string name) : TerraformResou
     /// The authentication attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Authentication
-        => AsReference("authentication");
+        => CreateReference("authentication");
 
     /// <summary>
     /// The private_endpoint attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PrivateEndpoint
-        => AsReference("private_endpoint");
+        => CreateReference("private_endpoint");
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
     public TerraformValue<string> ServiceUrl
-        => AsReference("service_url");
+        => CreateReference("service_url");
 
     /// <summary>
     /// Cors block (nesting mode: list).

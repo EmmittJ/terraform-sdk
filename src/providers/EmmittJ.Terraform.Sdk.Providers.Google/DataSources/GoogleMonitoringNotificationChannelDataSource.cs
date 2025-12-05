@@ -22,7 +22,7 @@ public partial class GoogleMonitoringNotificationChannelDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,13 +72,13 @@ public partial class GoogleMonitoringNotificationChannelDataSource(string name) 
     /// An optional human-readable description of this notification channel. This description may provide additional details, beyond the display name, for the channel. This may not exceed 1024 Unicode characters.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Whether notifications are forwarded to the described channel. This makes it possible to disable delivery of notifications to a particular channel without removing the channel from all alerting policies that reference the channel. This is a more convenient approach when the change is temporary and you want to receive notifications from the same set of alerting policies on the channel at some point in the future.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// If true, the notification channel will be deleted regardless
@@ -88,7 +88,7 @@ public partial class GoogleMonitoringNotificationChannelDataSource(string name) 
     /// deleted in a delete operation.
     /// </summary>
     public TerraformValue<bool> ForceDelete
-        => AsReference("force_delete");
+        => CreateReference("force_delete");
 
     /// <summary>
     /// The full REST resource name for this channel. The syntax is:
@@ -96,7 +96,7 @@ public partial class GoogleMonitoringNotificationChannelDataSource(string name) 
     /// The [CHANNEL_ID] is automatically assigned by the server on creation.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Different notification type behaviors are configured primarily using the the &#39;labels&#39; field on this
@@ -108,12 +108,12 @@ public partial class GoogleMonitoringNotificationChannelDataSource(string name) 
     /// to a different credential configuration in the config will require an apply to update state.
     /// </summary>
     public TerraformList<TerraformMap<object>> SensitiveLabels
-        => AsReference("sensitive_labels");
+        => CreateReference("sensitive_labels");
 
     /// <summary>
     /// Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to be populated.If the value is UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification); otherwise, it is assumed that the channel works.If the channel is neither VERIFIED nor UNVERIFIED, it implies that the channel is of a type that does not require verification or that this specific channel has been exempted from verification because it was created prior to verification being required for channels of this type.This field cannot be modified using a standard UpdateNotificationChannel operation. To change the value of this field, you must call VerifyNotificationChannel.
     /// </summary>
     public TerraformValue<string> VerificationStatus
-        => AsReference("verification_status");
+        => CreateReference("verification_status");
 
 }

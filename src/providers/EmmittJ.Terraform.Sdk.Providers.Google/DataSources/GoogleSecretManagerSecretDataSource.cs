@@ -13,7 +13,7 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,13 +57,13 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
     public TerraformMap<string> Annotations
-        => AsReference("annotations");
+        => CreateReference("annotations");
 
     /// <summary>
     /// The time at which the Secret was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the secret. Defaults to false.
@@ -71,19 +71,19 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// or &#39;terraform destroy&#39; that would delete the secret will fail.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Timestamp in UTC when the Secret is scheduled to expire. This is always provided on output, regardless of what was sent on input.
@@ -91,7 +91,7 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// Only one of &#39;expire_time&#39; or &#39;ttl&#39; can be provided.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// The labels assigned to this Secret.
@@ -112,27 +112,27 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The resource name of the Secret. Format:
     /// &#39;projects/{{project}}/secrets/{{secret_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The replication policy of the secret data attached to the Secret. It cannot be changed
     /// after the Secret has been created.
     /// </summary>
     public TerraformList<TerraformMap<object>> Replication
-        => AsReference("replication");
+        => CreateReference("replication");
 
     /// <summary>
     /// The rotation time and period for a Secret. At &#39;next_rotation_time&#39;, Secret Manager will send a Pub/Sub notification to the topics configured on the Secret. &#39;topics&#39; must be set to configure rotation.
     /// </summary>
     public TerraformList<TerraformMap<object>> Rotation
-        => AsReference("rotation");
+        => CreateReference("rotation");
 
     /// <summary>
     /// A map of resource manager tags.
@@ -140,20 +140,20 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// A list of up to 10 Pub/Sub topics to which messages are published when control plane operations are called on the secret or its versions.
     /// </summary>
     public TerraformList<TerraformMap<object>> Topics
-        => AsReference("topics");
+        => CreateReference("topics");
 
     /// <summary>
     /// The TTL for the Secret.
@@ -161,7 +161,7 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// Only one of &#39;ttl&#39; or &#39;expire_time&#39; can be provided.
     /// </summary>
     public TerraformValue<string> Ttl
-        => AsReference("ttl");
+        => CreateReference("ttl");
 
     /// <summary>
     /// Mapping from version alias to version name.
@@ -175,7 +175,7 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
     public TerraformMap<string> VersionAliases
-        => AsReference("version_aliases");
+        => CreateReference("version_aliases");
 
     /// <summary>
     /// Secret Version TTL after destruction request.
@@ -185,6 +185,6 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// the actual destruction happens after this TTL expires.
     /// </summary>
     public TerraformValue<string> VersionDestroyTtl
-        => AsReference("version_destroy_ttl");
+        => CreateReference("version_destroy_ttl");
 
 }

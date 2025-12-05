@@ -23,7 +23,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CertificateId
     {
-        get => GetArgument<TerraformValue<string>>("certificate_id") ?? AsReference("certificate_id");
+        get => GetArgument<TerraformValue<string>>("certificate_id") ?? CreateReference("certificate_id");
         set => SetArgument("certificate_id", value);
     }
 
@@ -35,7 +35,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     /// &#39;certificateId&#39; field with an update request.
     /// </summary>
     public TerraformValue<string> PendingManagedCertificateId
-        => AsReference("pending_managed_certificate_id");
+        => CreateReference("pending_managed_certificate_id");
 
     /// <summary>
     /// SSL management type for this domain. If &#39;AUTOMATIC&#39;, a managed certificate is automatically provisioned.
@@ -113,7 +113,7 @@ public partial class GoogleAppEngineDomainMapping(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleAppEngineDomainMapping(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -140,14 +140,14 @@ public partial class GoogleAppEngineDomainMapping(string name) : TerraformResour
     /// Full path to the DomainMapping resource in the API. Example: apps/myapp/domainMapping/example.com.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The resource records required to configure this domain mapping. These records must be added to the domain&#39;s DNS
     /// configuration in order to serve the application via this domain mapping.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceRecords
-        => AsReference("resource_records");
+        => CreateReference("resource_records");
 
     /// <summary>
     /// SslSettings block (nesting mode: list).

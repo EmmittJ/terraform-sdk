@@ -95,7 +95,7 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -141,13 +141,13 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     /// The URL the user can use to redeem their invitation
     /// </summary>
     public TerraformValue<string> RedeemUrl
-        => AsReference("redeem_url");
+        => CreateReference("redeem_url");
 
     /// <summary>
     /// Object ID of the invited user
     /// </summary>
     public TerraformValue<string> UserId
-        => AsReference("user_id");
+        => CreateReference("user_id");
 
     /// <summary>
     /// Message block (nesting mode: list).

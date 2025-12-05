@@ -63,7 +63,7 @@ public partial class AzurermStorageSync(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermStorageSync(string name) : TerraformResource("azurer
     /// The registered_servers attribute.
     /// </summary>
     public TerraformList<string> RegisteredServers
-        => AsReference("registered_servers");
+        => CreateReference("registered_servers");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

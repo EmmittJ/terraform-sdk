@@ -23,7 +23,7 @@ public partial class AwsResourceexplorer2SearchDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsResourceexplorer2SearchDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> ViewArn
     {
-        get => GetArgument<TerraformValue<string>>("view_arn") ?? AsReference("view_arn");
+        get => GetArgument<TerraformValue<string>>("view_arn") ?? CreateReference("view_arn");
         set => SetArgument("view_arn", value);
     }
 
@@ -40,18 +40,18 @@ public partial class AwsResourceexplorer2SearchDataSource(string name) : Terrafo
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The resource_count attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceCount
-        => AsReference("resource_count");
+        => CreateReference("resource_count");
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Resources
-        => AsReference("resources");
+        => CreateReference("resources");
 
 }

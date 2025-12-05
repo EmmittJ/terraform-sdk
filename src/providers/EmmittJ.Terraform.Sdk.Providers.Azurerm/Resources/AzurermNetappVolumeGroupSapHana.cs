@@ -77,13 +77,13 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The mount_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> MountIpAddresses
-        => AsReference("mount_ip_addresses");
+        => CreateReference("mount_ip_addresses");
 
     /// <summary>
     /// The name attribute.
@@ -435,7 +435,7 @@ public partial class AzurermNetappVolumeGroupSapHana(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

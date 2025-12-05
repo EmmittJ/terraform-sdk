@@ -18,7 +18,7 @@ public class AwsVpclatticeTargetGroupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? CreateReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVpclatticeTargetGroupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LambdaEventStructureVersion
     {
-        get => GetArgument<TerraformValue<string>>("lambda_event_structure_version") ?? AsReference("lambda_event_structure_version");
+        get => GetArgument<TerraformValue<string>>("lambda_event_structure_version") ?? CreateReference("lambda_event_structure_version");
         set => SetArgument("lambda_event_structure_version", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsVpclatticeTargetGroupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsVpclatticeTargetGroupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? CreateReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsVpclatticeTargetGroupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProtocolVersion
     {
-        get => GetArgument<TerraformValue<string>>("protocol_version") ?? AsReference("protocol_version");
+        get => GetArgument<TerraformValue<string>>("protocol_version") ?? CreateReference("protocol_version");
         set => SetArgument("protocol_version", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsVpclatticeTargetGroupConfigBlockHealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsVpclatticeTargetGroupConfigBlockHealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? CreateReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -258,7 +258,7 @@ public partial class AwsVpclatticeTargetGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AwsVpclatticeTargetGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -295,7 +295,7 @@ public partial class AwsVpclatticeTargetGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -313,13 +313,13 @@ public partial class AwsVpclatticeTargetGroup(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Config block (nesting mode: list).

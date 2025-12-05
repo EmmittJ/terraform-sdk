@@ -30,42 +30,42 @@ public partial class AwsCloudfrontCachePolicyDataSource(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-        => AsReference("comment");
+        => CreateReference("comment");
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
     public TerraformValue<double> DefaultTtl
-        => AsReference("default_ttl");
+        => CreateReference("default_ttl");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
     public TerraformValue<double> MaxTtl
-        => AsReference("max_ttl");
+        => CreateReference("max_ttl");
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
     public TerraformValue<double> MinTtl
-        => AsReference("min_ttl");
+        => CreateReference("min_ttl");
 
     /// <summary>
     /// The parameters_in_cache_key_and_forwarded_to_origin attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ParametersInCacheKeyAndForwardedToOrigin
-        => AsReference("parameters_in_cache_key_and_forwarded_to_origin");
+        => CreateReference("parameters_in_cache_key_and_forwarded_to_origin");
 
 }

@@ -55,7 +55,7 @@ public partial class GoogleDiscoveryEngineSitemap(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleDiscoveryEngineSitemap(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleDiscoveryEngineSitemap(string name) : TerraformResour
     /// Timestamp when the sitemap was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The unique full resource name of the sitemap. Values are of the format
@@ -101,13 +101,13 @@ public partial class GoogleDiscoveryEngineSitemap(string name) : TerraformResour
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The unique id of the sitemap.
     /// </summary>
     public TerraformValue<string> SitemapId
-        => AsReference("sitemap_id");
+        => CreateReference("sitemap_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

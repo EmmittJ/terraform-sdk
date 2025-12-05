@@ -26,13 +26,13 @@ public class AzurermEventhubNamespaceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -135,7 +135,7 @@ public partial class AzurermEventhubNamespace(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermEventhubNamespace(string name) : TerraformResource("
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkRulesets
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("network_rulesets") ?? AsReference("network_rulesets");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("network_rulesets") ?? CreateReference("network_rulesets");
         set => SetArgument("network_rulesets", value);
     }
 
@@ -237,37 +237,37 @@ public partial class AzurermEventhubNamespace(string name) : TerraformResource("
     /// The default_primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryConnectionString
-        => AsReference("default_primary_connection_string");
+        => CreateReference("default_primary_connection_string");
 
     /// <summary>
     /// The default_primary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryConnectionStringAlias
-        => AsReference("default_primary_connection_string_alias");
+        => CreateReference("default_primary_connection_string_alias");
 
     /// <summary>
     /// The default_primary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryKey
-        => AsReference("default_primary_key");
+        => CreateReference("default_primary_key");
 
     /// <summary>
     /// The default_secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryConnectionString
-        => AsReference("default_secondary_connection_string");
+        => CreateReference("default_secondary_connection_string");
 
     /// <summary>
     /// The default_secondary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryConnectionStringAlias
-        => AsReference("default_secondary_connection_string_alias");
+        => CreateReference("default_secondary_connection_string_alias");
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryKey
-        => AsReference("default_secondary_key");
+        => CreateReference("default_secondary_key");
 
     /// <summary>
     /// Identity block (nesting mode: list).

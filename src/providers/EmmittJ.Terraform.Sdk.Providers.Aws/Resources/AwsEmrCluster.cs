@@ -83,7 +83,7 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -98,13 +98,13 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// The provisioned_on_demand_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedOnDemandCapacity
-        => AsReference("provisioned_on_demand_capacity");
+        => CreateReference("provisioned_on_demand_capacity");
 
     /// <summary>
     /// The provisioned_spot_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedSpotCapacity
-        => AsReference("provisioned_spot_capacity");
+        => CreateReference("provisioned_spot_capacity");
 
     /// <summary>
     /// The target_on_demand_capacity attribute.
@@ -435,7 +435,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The instance_count attribute.
@@ -571,7 +571,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EmrManagedMasterSecurityGroup
     {
-        get => GetArgument<TerraformValue<string>>("emr_managed_master_security_group") ?? AsReference("emr_managed_master_security_group");
+        get => GetArgument<TerraformValue<string>>("emr_managed_master_security_group") ?? CreateReference("emr_managed_master_security_group");
         set => SetArgument("emr_managed_master_security_group", value);
     }
 
@@ -580,7 +580,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EmrManagedSlaveSecurityGroup
     {
-        get => GetArgument<TerraformValue<string>>("emr_managed_slave_security_group") ?? AsReference("emr_managed_slave_security_group");
+        get => GetArgument<TerraformValue<string>>("emr_managed_slave_security_group") ?? CreateReference("emr_managed_slave_security_group");
         set => SetArgument("emr_managed_slave_security_group", value);
     }
 
@@ -608,7 +608,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceAccessSecurityGroup
     {
-        get => GetArgument<TerraformValue<string>>("service_access_security_group") ?? AsReference("service_access_security_group");
+        get => GetArgument<TerraformValue<string>>("service_access_security_group") ?? CreateReference("service_access_security_group");
         set => SetArgument("service_access_security_group", value);
     }
 
@@ -617,7 +617,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? CreateReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -626,7 +626,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? CreateReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -709,7 +709,7 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -724,13 +724,13 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// The provisioned_on_demand_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedOnDemandCapacity
-        => AsReference("provisioned_on_demand_capacity");
+        => CreateReference("provisioned_on_demand_capacity");
 
     /// <summary>
     /// The provisioned_spot_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedSpotCapacity
-        => AsReference("provisioned_spot_capacity");
+        => CreateReference("provisioned_spot_capacity");
 
     /// <summary>
     /// The target_on_demand_capacity attribute.
@@ -1052,7 +1052,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The instance_count attribute.
@@ -1228,7 +1228,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1237,7 +1237,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<bool> KeepJobFlowAliveWhenNoSteps
     {
-        get => GetArgument<TerraformValue<bool>>("keep_job_flow_alive_when_no_steps") ?? AsReference("keep_job_flow_alive_when_no_steps");
+        get => GetArgument<TerraformValue<bool>>("keep_job_flow_alive_when_no_steps") ?? CreateReference("keep_job_flow_alive_when_no_steps");
         set => SetArgument("keep_job_flow_alive_when_no_steps", value);
     }
 
@@ -1301,7 +1301,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1320,7 +1320,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string> ScaleDownBehavior
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_behavior") ?? AsReference("scale_down_behavior");
+        get => GetArgument<TerraformValue<string>>("scale_down_behavior") ?? CreateReference("scale_down_behavior");
         set => SetArgument("scale_down_behavior", value);
     }
 
@@ -1348,7 +1348,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformList<TerraformMap<object>> Step
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("step") ?? AsReference("step");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("step") ?? CreateReference("step");
         set => SetArgument("step", value);
     }
 
@@ -1375,7 +1375,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1384,7 +1384,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<bool> TerminationProtection
     {
-        get => GetArgument<TerraformValue<bool>>("termination_protection") ?? AsReference("termination_protection");
+        get => GetArgument<TerraformValue<bool>>("termination_protection") ?? CreateReference("termination_protection");
         set => SetArgument("termination_protection", value);
     }
 
@@ -1410,19 +1410,19 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cluster_state attribute.
     /// </summary>
     public TerraformValue<string> ClusterState
-        => AsReference("cluster_state");
+        => CreateReference("cluster_state");
 
     /// <summary>
     /// The master_public_dns attribute.
     /// </summary>
     public TerraformValue<string> MasterPublicDns
-        => AsReference("master_public_dns");
+        => CreateReference("master_public_dns");
 
     /// <summary>
     /// AutoTerminationPolicy block (nesting mode: list).

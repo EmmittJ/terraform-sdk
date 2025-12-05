@@ -46,7 +46,7 @@ public partial class AzureadNamedLocationDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,19 +54,19 @@ public partial class AzureadNamedLocationDataSource(string name) : TerraformData
     /// The country attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Country
-        => AsReference("country");
+        => CreateReference("country");
 
     /// <summary>
     /// The ip attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Ip
-        => AsReference("ip");
+        => CreateReference("ip");
 
     /// <summary>
     /// The object ID of the named location
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

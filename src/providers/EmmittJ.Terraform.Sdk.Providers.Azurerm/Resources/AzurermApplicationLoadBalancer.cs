@@ -63,7 +63,7 @@ public partial class AzurermApplicationLoadBalancer(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermApplicationLoadBalancer(string name) : TerraformReso
     /// The primary_configuration_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConfigurationEndpoint
-        => AsReference("primary_configuration_endpoint");
+        => CreateReference("primary_configuration_endpoint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

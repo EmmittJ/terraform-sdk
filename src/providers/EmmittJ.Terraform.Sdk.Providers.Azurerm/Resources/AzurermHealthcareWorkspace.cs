@@ -63,7 +63,7 @@ public partial class AzurermHealthcareWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermHealthcareWorkspace(string name) : TerraformResource
     /// The private_endpoint_connection attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PrivateEndpointConnection
-        => AsReference("private_endpoint_connection");
+        => CreateReference("private_endpoint_connection");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

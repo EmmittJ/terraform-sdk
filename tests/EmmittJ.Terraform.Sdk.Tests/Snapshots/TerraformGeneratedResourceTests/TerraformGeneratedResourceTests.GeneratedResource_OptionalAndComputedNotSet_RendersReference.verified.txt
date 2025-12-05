@@ -1,0 +1,4 @@
+﻿resource "test_policy" "policy" {
+  name              = "my-policy"
+  resource_group_id = test_resource_group.rg.id
+}

@@ -18,7 +18,7 @@ public class AwsKendraIndexCapacityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> QueryCapacityUnits
     {
-        get => GetArgument<TerraformValue<double>>("query_capacity_units") ?? AsReference("query_capacity_units");
+        get => GetArgument<TerraformValue<double>>("query_capacity_units") ?? CreateReference("query_capacity_units");
         set => SetArgument("query_capacity_units", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsKendraIndexCapacityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> StorageCapacityUnits
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity_units") ?? AsReference("storage_capacity_units");
+        get => GetArgument<TerraformValue<double>>("storage_capacity_units") ?? CreateReference("storage_capacity_units");
         set => SetArgument("storage_capacity_units", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockRelevanceBlo
     /// </summary>
     public TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration") ?? AsReference("duration");
+        get => GetArgument<TerraformValue<string>>("duration") ?? CreateReference("duration");
         set => SetArgument("duration", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockRelevanceBlo
     /// </summary>
     public TerraformValue<bool> Freshness
     {
-        get => GetArgument<TerraformValue<bool>>("freshness") ?? AsReference("freshness");
+        get => GetArgument<TerraformValue<bool>>("freshness") ?? CreateReference("freshness");
         set => SetArgument("freshness", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockRelevanceBlo
     /// </summary>
     public TerraformValue<double> Importance
     {
-        get => GetArgument<TerraformValue<double>>("importance") ?? AsReference("importance");
+        get => GetArgument<TerraformValue<double>>("importance") ?? CreateReference("importance");
         set => SetArgument("importance", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockRelevanceBlo
     /// </summary>
     public TerraformValue<string> RankOrder
     {
-        get => GetArgument<TerraformValue<string>>("rank_order") ?? AsReference("rank_order");
+        get => GetArgument<TerraformValue<string>>("rank_order") ?? CreateReference("rank_order");
         set => SetArgument("rank_order", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockRelevanceBlo
     /// </summary>
     public TerraformMap<double> ValuesImportanceMap
     {
-        get => GetArgument<TerraformMap<double>>("values_importance_map") ?? AsReference("values_importance_map");
+        get => GetArgument<TerraformMap<double>>("values_importance_map") ?? CreateReference("values_importance_map");
         set => SetArgument("values_importance_map", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockSearchBlock 
     /// </summary>
     public TerraformValue<bool> Displayable
     {
-        get => GetArgument<TerraformValue<bool>>("displayable") ?? AsReference("displayable");
+        get => GetArgument<TerraformValue<bool>>("displayable") ?? CreateReference("displayable");
         set => SetArgument("displayable", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockSearchBlock 
     /// </summary>
     public TerraformValue<bool> Facetable
     {
-        get => GetArgument<TerraformValue<bool>>("facetable") ?? AsReference("facetable");
+        get => GetArgument<TerraformValue<bool>>("facetable") ?? CreateReference("facetable");
         set => SetArgument("facetable", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockSearchBlock 
     /// </summary>
     public TerraformValue<bool> Searchable
     {
-        get => GetArgument<TerraformValue<bool>>("searchable") ?? AsReference("searchable");
+        get => GetArgument<TerraformValue<bool>>("searchable") ?? CreateReference("searchable");
         set => SetArgument("searchable", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockSearchBlock 
     /// </summary>
     public TerraformValue<bool> Sortable
     {
-        get => GetArgument<TerraformValue<bool>>("sortable") ?? AsReference("sortable");
+        get => GetArgument<TerraformValue<bool>>("sortable") ?? CreateReference("sortable");
         set => SetArgument("sortable", value);
     }
 
@@ -456,7 +456,7 @@ public partial class AwsKendraIndex(string name) : TerraformResource("aws_kendra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -475,7 +475,7 @@ public partial class AwsKendraIndex(string name) : TerraformResource("aws_kendra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -503,7 +503,7 @@ public partial class AwsKendraIndex(string name) : TerraformResource("aws_kendra
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -520,37 +520,37 @@ public partial class AwsKendraIndex(string name) : TerraformResource("aws_kendra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-        => AsReference("error_message");
+        => CreateReference("error_message");
 
     /// <summary>
     /// The index_statistics attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IndexStatistics
-        => AsReference("index_statistics");
+        => CreateReference("index_statistics");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
     /// <summary>
     /// CapacityUnits block (nesting mode: list).

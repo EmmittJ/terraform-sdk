@@ -54,7 +54,7 @@ public partial class AzurermAdvisorRecommendationsDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AzurermAdvisorRecommendationsDataSource(string name) : Terr
     /// The recommendations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Recommendations
-        => AsReference("recommendations");
+        => CreateReference("recommendations");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

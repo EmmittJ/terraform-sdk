@@ -36,7 +36,7 @@ public partial class AzurermOracleGiVersionsDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermOracleGiVersionsDataSource(string name) : TerraformD
     /// The versions attribute.
     /// </summary>
     public TerraformList<string> Versions
-        => AsReference("versions");
+        => CreateReference("versions");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

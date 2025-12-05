@@ -23,7 +23,7 @@ public partial class AwsRoute53ResolverFirewallDomainListDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRoute53ResolverFirewallDomainListDataSource(string name)
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,54 +40,54 @@ public partial class AwsRoute53ResolverFirewallDomainListDataSource(string name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The creator_request_id attribute.
     /// </summary>
     public TerraformValue<string> CreatorRequestId
-        => AsReference("creator_request_id");
+        => CreateReference("creator_request_id");
 
     /// <summary>
     /// The domain_count attribute.
     /// </summary>
     public TerraformValue<double> DomainCount
-        => AsReference("domain_count");
+        => CreateReference("domain_count");
 
     /// <summary>
     /// The managed_owner_name attribute.
     /// </summary>
     public TerraformValue<string> ManagedOwnerName
-        => AsReference("managed_owner_name");
+        => CreateReference("managed_owner_name");
 
     /// <summary>
     /// The modification_time attribute.
     /// </summary>
     public TerraformValue<string> ModificationTime
-        => AsReference("modification_time");
+        => CreateReference("modification_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-        => AsReference("status_message");
+        => CreateReference("status_message");
 
 }

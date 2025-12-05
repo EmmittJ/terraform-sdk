@@ -264,7 +264,7 @@ public class AwsAcmpcaCertificateAuthorityRevocationConfigurationBlockCrlConfigu
     /// </summary>
     public TerraformValue<string> S3ObjectAcl
     {
-        get => GetArgument<TerraformValue<string>>("s3_object_acl") ?? AsReference("s3_object_acl");
+        get => GetArgument<TerraformValue<string>>("s3_object_acl") ?? CreateReference("s3_object_acl");
         set => SetArgument("s3_object_acl", value);
     }
 
@@ -346,7 +346,7 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -355,7 +355,7 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> KeyStorageSecurityStandard
     {
-        get => GetArgument<TerraformValue<string>>("key_storage_security_standard") ?? AsReference("key_storage_security_standard");
+        get => GetArgument<TerraformValue<string>>("key_storage_security_standard") ?? CreateReference("key_storage_security_standard");
         set => SetArgument("key_storage_security_standard", value);
     }
 
@@ -373,7 +373,7 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -391,7 +391,7 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -409,7 +409,7 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> UsageMode
     {
-        get => GetArgument<TerraformValue<string>>("usage_mode") ?? AsReference("usage_mode");
+        get => GetArgument<TerraformValue<string>>("usage_mode") ?? CreateReference("usage_mode");
         set => SetArgument("usage_mode", value);
     }
 
@@ -417,43 +417,43 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
     public TerraformValue<string> Certificate
-        => AsReference("certificate");
+        => CreateReference("certificate");
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
     public TerraformValue<string> CertificateChain
-        => AsReference("certificate_chain");
+        => CreateReference("certificate_chain");
 
     /// <summary>
     /// The certificate_signing_request attribute.
     /// </summary>
     public TerraformValue<string> CertificateSigningRequest
-        => AsReference("certificate_signing_request");
+        => CreateReference("certificate_signing_request");
 
     /// <summary>
     /// The not_after attribute.
     /// </summary>
     public TerraformValue<string> NotAfter
-        => AsReference("not_after");
+        => CreateReference("not_after");
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     public TerraformValue<string> NotBefore
-        => AsReference("not_before");
+        => CreateReference("not_before");
 
     /// <summary>
     /// The serial attribute.
     /// </summary>
     public TerraformValue<string> Serial
-        => AsReference("serial");
+        => CreateReference("serial");
 
     /// <summary>
     /// CertificateAuthorityConfiguration block (nesting mode: list).

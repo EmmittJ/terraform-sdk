@@ -13,7 +13,7 @@ public partial class AwsAppstreamImageDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsAppstreamImageDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsAppstreamImageDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -66,78 +66,78 @@ public partial class AwsAppstreamImageDataSource(string name) : TerraformDataSou
     /// The applications attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Applications
-        => AsReference("applications");
+        => CreateReference("applications");
 
     /// <summary>
     /// The appstream_agent_version attribute.
     /// </summary>
     public TerraformValue<string> AppstreamAgentVersion
-        => AsReference("appstream_agent_version");
+        => CreateReference("appstream_agent_version");
 
     /// <summary>
     /// The base_image_arn attribute.
     /// </summary>
     public TerraformValue<string> BaseImageArn
-        => AsReference("base_image_arn");
+        => CreateReference("base_image_arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The image_builder_name attribute.
     /// </summary>
     public TerraformValue<string> ImageBuilderName
-        => AsReference("image_builder_name");
+        => CreateReference("image_builder_name");
 
     /// <summary>
     /// The image_builder_supported attribute.
     /// </summary>
     public TerraformValue<bool> ImageBuilderSupported
-        => AsReference("image_builder_supported");
+        => CreateReference("image_builder_supported");
 
     /// <summary>
     /// The image_permissions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ImagePermissions
-        => AsReference("image_permissions");
+        => CreateReference("image_permissions");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-        => AsReference("platform");
+        => CreateReference("platform");
 
     /// <summary>
     /// The public_base_image_released_date attribute.
     /// </summary>
     public TerraformValue<string> PublicBaseImageReleasedDate
-        => AsReference("public_base_image_released_date");
+        => CreateReference("public_base_image_released_date");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The state_change_reason attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StateChangeReason
-        => AsReference("state_change_reason");
+        => CreateReference("state_change_reason");
 
 }

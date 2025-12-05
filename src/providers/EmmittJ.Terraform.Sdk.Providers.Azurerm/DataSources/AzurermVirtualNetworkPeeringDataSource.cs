@@ -36,7 +36,7 @@ public partial class AzurermVirtualNetworkPeeringDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermVirtualNetworkPeeringDataSource(string name) : Terra
     /// The allow_forwarded_traffic attribute.
     /// </summary>
     public TerraformValue<bool> AllowForwardedTraffic
-        => AsReference("allow_forwarded_traffic");
+        => CreateReference("allow_forwarded_traffic");
 
     /// <summary>
     /// The allow_gateway_transit attribute.
     /// </summary>
     public TerraformValue<bool> AllowGatewayTransit
-        => AsReference("allow_gateway_transit");
+        => CreateReference("allow_gateway_transit");
 
     /// <summary>
     /// The allow_virtual_network_access attribute.
     /// </summary>
     public TerraformValue<bool> AllowVirtualNetworkAccess
-        => AsReference("allow_virtual_network_access");
+        => CreateReference("allow_virtual_network_access");
 
     /// <summary>
     /// The only_ipv6_peering_enabled attribute.
     /// </summary>
     public TerraformValue<bool> OnlyIpv6PeeringEnabled
-        => AsReference("only_ipv6_peering_enabled");
+        => CreateReference("only_ipv6_peering_enabled");
 
     /// <summary>
     /// The peer_complete_virtual_networks_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PeerCompleteVirtualNetworksEnabled
-        => AsReference("peer_complete_virtual_networks_enabled");
+        => CreateReference("peer_complete_virtual_networks_enabled");
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> RemoteVirtualNetworkId
-        => AsReference("remote_virtual_network_id");
+        => CreateReference("remote_virtual_network_id");
 
     /// <summary>
     /// The use_remote_gateways attribute.
     /// </summary>
     public TerraformValue<bool> UseRemoteGateways
-        => AsReference("use_remote_gateways");
+        => CreateReference("use_remote_gateways");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

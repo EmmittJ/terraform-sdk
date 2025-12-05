@@ -18,7 +18,7 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlockFieldSelectorB
     /// </summary>
     public TerraformList<string> EndsWith
     {
-        get => GetArgument<TerraformList<string>>("ends_with") ?? AsReference("ends_with");
+        get => GetArgument<TerraformList<string>>("ends_with") ?? CreateReference("ends_with");
         set => SetArgument("ends_with", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlockFieldSelectorB
     /// </summary>
     public TerraformList<string> EqualsAttribute
     {
-        get => GetArgument<TerraformList<string>>("equals") ?? AsReference("equals");
+        get => GetArgument<TerraformList<string>>("equals") ?? CreateReference("equals");
         set => SetArgument("equals", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlockFieldSelectorB
     /// </summary>
     public TerraformValue<string> Field
     {
-        get => GetArgument<TerraformValue<string>>("field") ?? AsReference("field");
+        get => GetArgument<TerraformValue<string>>("field") ?? CreateReference("field");
         set => SetArgument("field", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlockFieldSelectorB
     /// </summary>
     public TerraformList<string> NotEndsWith
     {
-        get => GetArgument<TerraformList<string>>("not_ends_with") ?? AsReference("not_ends_with");
+        get => GetArgument<TerraformList<string>>("not_ends_with") ?? CreateReference("not_ends_with");
         set => SetArgument("not_ends_with", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlockFieldSelectorB
     /// </summary>
     public TerraformList<string> NotEquals
     {
-        get => GetArgument<TerraformList<string>>("not_equals") ?? AsReference("not_equals");
+        get => GetArgument<TerraformList<string>>("not_equals") ?? CreateReference("not_equals");
         set => SetArgument("not_equals", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlockFieldSelectorB
     /// </summary>
     public TerraformList<string> NotStartsWith
     {
-        get => GetArgument<TerraformList<string>>("not_starts_with") ?? AsReference("not_starts_with");
+        get => GetArgument<TerraformList<string>>("not_starts_with") ?? CreateReference("not_starts_with");
         set => SetArgument("not_starts_with", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlockFieldSelectorB
     /// </summary>
     public TerraformList<string> StartsWith
     {
-        get => GetArgument<TerraformList<string>>("starts_with") ?? AsReference("starts_with");
+        get => GetArgument<TerraformList<string>>("starts_with") ?? CreateReference("starts_with");
         set => SetArgument("starts_with", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsCloudtrailEventDataStore(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AwsCloudtrailEventDataStore(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AwsCloudtrailEventDataStore(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AwsCloudtrailEventDataStore(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// AdvancedEventSelector block (nesting mode: list).

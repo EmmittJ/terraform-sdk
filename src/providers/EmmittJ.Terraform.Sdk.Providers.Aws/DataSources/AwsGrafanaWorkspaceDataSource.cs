@@ -13,7 +13,7 @@ public partial class AwsGrafanaWorkspaceDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsGrafanaWorkspaceDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsGrafanaWorkspaceDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,108 +49,108 @@ public partial class AwsGrafanaWorkspaceDataSource(string name) : TerraformDataS
     /// The account_access_type attribute.
     /// </summary>
     public TerraformValue<string> AccountAccessType
-        => AsReference("account_access_type");
+        => CreateReference("account_access_type");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The authentication_providers attribute.
     /// </summary>
     public TerraformList<string> AuthenticationProviders
-        => AsReference("authentication_providers");
+        => CreateReference("authentication_providers");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The data_sources attribute.
     /// </summary>
     public TerraformList<string> DataSources
-        => AsReference("data_sources");
+        => CreateReference("data_sources");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The grafana_version attribute.
     /// </summary>
     public TerraformValue<string> GrafanaVersion
-        => AsReference("grafana_version");
+        => CreateReference("grafana_version");
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDate
-        => AsReference("last_updated_date");
+        => CreateReference("last_updated_date");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The notification_destinations attribute.
     /// </summary>
     public TerraformList<string> NotificationDestinations
-        => AsReference("notification_destinations");
+        => CreateReference("notification_destinations");
 
     /// <summary>
     /// The organization_role_name attribute.
     /// </summary>
     public TerraformValue<string> OrganizationRoleName
-        => AsReference("organization_role_name");
+        => CreateReference("organization_role_name");
 
     /// <summary>
     /// The organizational_units attribute.
     /// </summary>
     public TerraformList<string> OrganizationalUnits
-        => AsReference("organizational_units");
+        => CreateReference("organizational_units");
 
     /// <summary>
     /// The permission_type attribute.
     /// </summary>
     public TerraformValue<string> PermissionType
-        => AsReference("permission_type");
+        => CreateReference("permission_type");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-        => AsReference("role_arn");
+        => CreateReference("role_arn");
 
     /// <summary>
     /// The saml_configuration_status attribute.
     /// </summary>
     public TerraformValue<string> SamlConfigurationStatus
-        => AsReference("saml_configuration_status");
+        => CreateReference("saml_configuration_status");
 
     /// <summary>
     /// The stack_set_name attribute.
     /// </summary>
     public TerraformValue<string> StackSetName
-        => AsReference("stack_set_name");
+        => CreateReference("stack_set_name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

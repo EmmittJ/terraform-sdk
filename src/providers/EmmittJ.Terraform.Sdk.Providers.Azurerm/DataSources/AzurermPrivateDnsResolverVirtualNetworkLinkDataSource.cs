@@ -46,7 +46,7 @@ public partial class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource(strin
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,13 +64,13 @@ public partial class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource(strin
     /// The metadata attribute.
     /// </summary>
     public TerraformMap<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualNetworkId
-        => AsReference("virtual_network_id");
+        => CreateReference("virtual_network_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

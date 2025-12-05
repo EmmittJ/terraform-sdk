@@ -13,7 +13,7 @@ public partial class AwsIamAccountAliasDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -21,6 +21,6 @@ public partial class AwsIamAccountAliasDataSource(string name) : TerraformDataSo
     /// The account_alias attribute.
     /// </summary>
     public TerraformValue<string> AccountAlias
-        => AsReference("account_alias");
+        => CreateReference("account_alias");
 
 }

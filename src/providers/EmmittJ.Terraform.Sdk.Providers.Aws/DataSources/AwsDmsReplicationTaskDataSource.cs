@@ -13,7 +13,7 @@ public partial class AwsDmsReplicationTaskDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDmsReplicationTaskDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsDmsReplicationTaskDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,66 +49,66 @@ public partial class AwsDmsReplicationTaskDataSource(string name) : TerraformDat
     /// The cdc_start_position attribute.
     /// </summary>
     public TerraformValue<string> CdcStartPosition
-        => AsReference("cdc_start_position");
+        => CreateReference("cdc_start_position");
 
     /// <summary>
     /// The cdc_start_time attribute.
     /// </summary>
     public TerraformValue<string> CdcStartTime
-        => AsReference("cdc_start_time");
+        => CreateReference("cdc_start_time");
 
     /// <summary>
     /// The migration_type attribute.
     /// </summary>
     public TerraformValue<string> MigrationType
-        => AsReference("migration_type");
+        => CreateReference("migration_type");
 
     /// <summary>
     /// The replication_instance_arn attribute.
     /// </summary>
     public TerraformValue<string> ReplicationInstanceArn
-        => AsReference("replication_instance_arn");
+        => CreateReference("replication_instance_arn");
 
     /// <summary>
     /// The replication_task_arn attribute.
     /// </summary>
     public TerraformValue<string> ReplicationTaskArn
-        => AsReference("replication_task_arn");
+        => CreateReference("replication_task_arn");
 
     /// <summary>
     /// The replication_task_settings attribute.
     /// </summary>
     public TerraformValue<string> ReplicationTaskSettings
-        => AsReference("replication_task_settings");
+        => CreateReference("replication_task_settings");
 
     /// <summary>
     /// The source_endpoint_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceEndpointArn
-        => AsReference("source_endpoint_arn");
+        => CreateReference("source_endpoint_arn");
 
     /// <summary>
     /// The start_replication_task attribute.
     /// </summary>
     public TerraformValue<bool> StartReplicationTask
-        => AsReference("start_replication_task");
+        => CreateReference("start_replication_task");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The table_mappings attribute.
     /// </summary>
     public TerraformValue<string> TableMappings
-        => AsReference("table_mappings");
+        => CreateReference("table_mappings");
 
     /// <summary>
     /// The target_endpoint_arn attribute.
     /// </summary>
     public TerraformValue<string> TargetEndpointArn
-        => AsReference("target_endpoint_arn");
+        => CreateReference("target_endpoint_arn");
 
 }

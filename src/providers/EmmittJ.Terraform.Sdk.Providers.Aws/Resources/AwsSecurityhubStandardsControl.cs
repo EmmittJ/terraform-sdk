@@ -23,7 +23,7 @@ public partial class AwsSecurityhubStandardsControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> DisabledReason
     {
-        get => GetArgument<TerraformValue<string>>("disabled_reason") ?? AsReference("disabled_reason");
+        get => GetArgument<TerraformValue<string>>("disabled_reason") ?? CreateReference("disabled_reason");
         set => SetArgument("disabled_reason", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSecurityhubStandardsControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSecurityhubStandardsControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,42 +59,42 @@ public partial class AwsSecurityhubStandardsControl(string name) : TerraformReso
     /// The control_id attribute.
     /// </summary>
     public TerraformValue<string> ControlId
-        => AsReference("control_id");
+        => CreateReference("control_id");
 
     /// <summary>
     /// The control_status_updated_at attribute.
     /// </summary>
     public TerraformValue<string> ControlStatusUpdatedAt
-        => AsReference("control_status_updated_at");
+        => CreateReference("control_status_updated_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The related_requirements attribute.
     /// </summary>
     public TerraformList<string> RelatedRequirements
-        => AsReference("related_requirements");
+        => CreateReference("related_requirements");
 
     /// <summary>
     /// The remediation_url attribute.
     /// </summary>
     public TerraformValue<string> RemediationUrl
-        => AsReference("remediation_url");
+        => CreateReference("remediation_url");
 
     /// <summary>
     /// The severity_rating attribute.
     /// </summary>
     public TerraformValue<string> SeverityRating
-        => AsReference("severity_rating");
+        => CreateReference("severity_rating");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     public TerraformValue<string> Title
-        => AsReference("title");
+        => CreateReference("title");
 
 }

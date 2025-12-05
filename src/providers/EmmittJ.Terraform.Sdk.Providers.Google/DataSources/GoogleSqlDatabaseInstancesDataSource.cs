@@ -22,7 +22,7 @@ public partial class GoogleSqlDatabaseInstancesDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,6 +75,6 @@ public partial class GoogleSqlDatabaseInstancesDataSource(string name) : Terrafo
     /// The instances attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Instances
-        => AsReference("instances");
+        => CreateReference("instances");
 
 }

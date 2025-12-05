@@ -13,7 +13,7 @@ public partial class GoogleBeyondcorpAppConnectorDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,13 +49,13 @@ public partial class GoogleBeyondcorpAppConnectorDataSource(string name) : Terra
     /// An arbitrary user-provided name for the AppConnector.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -65,25 +65,25 @@ public partial class GoogleBeyondcorpAppConnectorDataSource(string name) : Terra
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Principal information about the Identity of the AppConnector.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrincipalInfo
-        => AsReference("principal_info");
+        => CreateReference("principal_info");
 
     /// <summary>
     /// Represents the different states of a AppConnector.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
 }

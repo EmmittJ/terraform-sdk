@@ -13,7 +13,7 @@ public partial class AwsSpotDatafeedSubscriptionDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,12 +21,12 @@ public partial class AwsSpotDatafeedSubscriptionDataSource(string name) : Terraf
     /// The bucket attribute.
     /// </summary>
     public TerraformValue<string> Bucket
-        => AsReference("bucket");
+        => CreateReference("bucket");
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     public TerraformValue<string> Prefix
-        => AsReference("prefix");
+        => CreateReference("prefix");
 
 }

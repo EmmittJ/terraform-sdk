@@ -137,13 +137,13 @@ public class AzurermNginxDeploymentIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -290,7 +290,7 @@ public class AzurermNginxDeploymentWebApplicationFirewallBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }
 
@@ -342,7 +342,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -362,7 +362,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ManagedResourceGroup
     {
-        get => GetArgument<TerraformValue<string>>("managed_resource_group") ?? AsReference("managed_resource_group");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group") ?? CreateReference("managed_resource_group");
         set => SetArgument("managed_resource_group", value);
     }
 
@@ -409,19 +409,19 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// The dataplane_api_endpoint attribute.
     /// </summary>
     public TerraformValue<string> DataplaneApiEndpoint
-        => AsReference("dataplane_api_endpoint");
+        => CreateReference("dataplane_api_endpoint");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The nginx_version attribute.
     /// </summary>
     public TerraformValue<string> NginxVersion
-        => AsReference("nginx_version");
+        => CreateReference("nginx_version");
 
     /// <summary>
     /// AutoScaleProfile block (nesting mode: list).

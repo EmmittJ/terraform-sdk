@@ -216,7 +216,7 @@ public partial class GoogleAccessContextManagerAccessLevelCondition(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -293,7 +293,7 @@ public partial class GoogleAccessContextManagerAccessLevelCondition(string name)
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     public TerraformValue<string> AccessPolicyId
-        => AsReference("access_policy_id");
+        => CreateReference("access_policy_id");
 
     /// <summary>
     /// DevicePolicy block (nesting mode: list).

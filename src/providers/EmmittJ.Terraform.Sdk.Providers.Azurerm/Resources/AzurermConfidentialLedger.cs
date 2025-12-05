@@ -141,7 +141,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -198,13 +198,13 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     /// The identity_service_endpoint attribute.
     /// </summary>
     public TerraformValue<string> IdentityServiceEndpoint
-        => AsReference("identity_service_endpoint");
+        => CreateReference("identity_service_endpoint");
 
     /// <summary>
     /// The ledger_endpoint attribute.
     /// </summary>
     public TerraformValue<string> LedgerEndpoint
-        => AsReference("ledger_endpoint");
+        => CreateReference("ledger_endpoint");
 
     /// <summary>
     /// AzureadBasedServicePrincipal block (nesting mode: list).

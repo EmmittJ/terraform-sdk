@@ -121,7 +121,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     /// </summary>
     public TerraformValue<double> PredictiveScalingMaxCapacityBuffer
     {
-        get => GetArgument<TerraformValue<double>>("predictive_scaling_max_capacity_buffer") ?? AsReference("predictive_scaling_max_capacity_buffer");
+        get => GetArgument<TerraformValue<double>>("predictive_scaling_max_capacity_buffer") ?? CreateReference("predictive_scaling_max_capacity_buffer");
         set => SetArgument("predictive_scaling_max_capacity_buffer", value);
     }
 
@@ -494,7 +494,7 @@ public partial class AwsAutoscalingplansScalingPlan(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -513,7 +513,7 @@ public partial class AwsAutoscalingplansScalingPlan(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -521,7 +521,7 @@ public partial class AwsAutoscalingplansScalingPlan(string name) : TerraformReso
     /// The scaling_plan_version attribute.
     /// </summary>
     public TerraformValue<double> ScalingPlanVersion
-        => AsReference("scaling_plan_version");
+        => CreateReference("scaling_plan_version");
 
     /// <summary>
     /// ApplicationSource block (nesting mode: list).

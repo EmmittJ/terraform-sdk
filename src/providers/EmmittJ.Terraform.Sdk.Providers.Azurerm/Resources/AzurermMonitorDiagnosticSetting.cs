@@ -259,7 +259,7 @@ public partial class AzurermMonitorDiagnosticSetting(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -268,7 +268,7 @@ public partial class AzurermMonitorDiagnosticSetting(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> LogAnalyticsDestinationType
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_destination_type") ?? AsReference("log_analytics_destination_type");
+        get => GetArgument<TerraformValue<string>>("log_analytics_destination_type") ?? CreateReference("log_analytics_destination_type");
         set => SetArgument("log_analytics_destination_type", value);
     }
 

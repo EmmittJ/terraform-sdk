@@ -63,7 +63,7 @@ public partial class AzureadServicePrincipalCertificate(string name) : Terraform
     /// </summary>
     public TerraformValue<string> EndDate
     {
-        get => GetArgument<TerraformValue<string>>("end_date") ?? AsReference("end_date");
+        get => GetArgument<TerraformValue<string>>("end_date") ?? CreateReference("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzureadServicePrincipalCertificate(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzureadServicePrincipalCertificate(string name) : Terraform
     /// </summary>
     public TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id") ?? AsReference("key_id");
+        get => GetArgument<TerraformValue<string>>("key_id") ?? CreateReference("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzureadServicePrincipalCertificate(string name) : Terraform
     /// </summary>
     public TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date") ?? AsReference("start_date");
+        get => GetArgument<TerraformValue<string>>("start_date") ?? CreateReference("start_date");
         set => SetArgument("start_date", value);
     }
 

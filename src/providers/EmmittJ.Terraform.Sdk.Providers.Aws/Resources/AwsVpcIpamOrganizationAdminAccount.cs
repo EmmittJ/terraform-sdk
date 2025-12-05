@@ -23,7 +23,7 @@ public partial class AwsVpcIpamOrganizationAdminAccount(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,24 +31,24 @@ public partial class AwsVpcIpamOrganizationAdminAccount(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     public TerraformValue<string> ServicePrincipal
-        => AsReference("service_principal");
+        => CreateReference("service_principal");
 
 }

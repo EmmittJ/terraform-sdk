@@ -413,7 +413,7 @@ public partial class AzurermBackupPolicyVm(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -422,7 +422,7 @@ public partial class AzurermBackupPolicyVm(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<double> InstantRestoreRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("instant_restore_retention_days") ?? AsReference("instant_restore_retention_days");
+        get => GetArgument<TerraformValue<double>>("instant_restore_retention_days") ?? CreateReference("instant_restore_retention_days");
         set => SetArgument("instant_restore_retention_days", value);
     }
 

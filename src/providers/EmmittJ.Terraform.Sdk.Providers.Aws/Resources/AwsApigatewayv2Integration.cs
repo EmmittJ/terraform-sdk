@@ -125,7 +125,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double> TimeoutMilliseconds
     {
-        get => GetArgument<TerraformValue<double>>("timeout_milliseconds") ?? AsReference("timeout_milliseconds");
+        get => GetArgument<TerraformValue<double>>("timeout_milliseconds") ?? CreateReference("timeout_milliseconds");
         set => SetArgument("timeout_milliseconds", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// The integration_response_selection_expression attribute.
     /// </summary>
     public TerraformValue<string> IntegrationResponseSelectionExpression
-        => AsReference("integration_response_selection_expression");
+        => CreateReference("integration_response_selection_expression");
 
     /// <summary>
     /// ResponseParameters block (nesting mode: set).

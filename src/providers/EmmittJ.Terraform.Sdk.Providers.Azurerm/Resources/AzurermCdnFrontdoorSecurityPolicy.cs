@@ -115,7 +115,7 @@ public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock
     /// The active attribute.
     /// </summary>
     public TerraformValue<bool> Active
-        => AsReference("active");
+        => CreateReference("active");
 
     /// <summary>
     /// The cdn_frontdoor_domain_id attribute.
@@ -201,7 +201,7 @@ public partial class AzurermCdnFrontdoorSecurityPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

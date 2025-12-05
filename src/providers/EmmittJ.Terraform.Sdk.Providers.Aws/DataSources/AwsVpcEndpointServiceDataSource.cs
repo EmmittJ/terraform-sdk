@@ -70,7 +70,7 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name") ?? AsReference("service_name");
+        get => GetArgument<TerraformValue<string>>("service_name") ?? CreateReference("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> ServiceType
     {
-        get => GetArgument<TerraformValue<string>>("service_type") ?? AsReference("service_type");
+        get => GetArgument<TerraformValue<string>>("service_type") ?? CreateReference("service_type");
         set => SetArgument("service_type", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -123,80 +123,80 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// The acceptance_required attribute.
     /// </summary>
     public TerraformValue<bool> AcceptanceRequired
-        => AsReference("acceptance_required");
+        => CreateReference("acceptance_required");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The base_endpoint_dns_names attribute.
     /// </summary>
     public TerraformSet<string> BaseEndpointDnsNames
-        => AsReference("base_endpoint_dns_names");
+        => CreateReference("base_endpoint_dns_names");
 
     /// <summary>
     /// The manages_vpc_endpoints attribute.
     /// </summary>
     public TerraformValue<bool> ManagesVpcEndpoints
-        => AsReference("manages_vpc_endpoints");
+        => CreateReference("manages_vpc_endpoints");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The private_dns_name attribute.
     /// </summary>
     public TerraformValue<string> PrivateDnsName
-        => AsReference("private_dns_name");
+        => CreateReference("private_dns_name");
 
     /// <summary>
     /// The private_dns_names attribute.
     /// </summary>
     public TerraformSet<string> PrivateDnsNames
-        => AsReference("private_dns_names");
+        => CreateReference("private_dns_names");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Region
-        => AsReference("region");
+        => CreateReference("region");
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceId
-        => AsReference("service_id");
+        => CreateReference("service_id");
 
     /// <summary>
     /// The service_region attribute.
     /// </summary>
     public TerraformValue<string> ServiceRegion
-        => AsReference("service_region");
+        => CreateReference("service_region");
 
     /// <summary>
     /// The supported_ip_address_types attribute.
     /// </summary>
     public TerraformSet<string> SupportedIpAddressTypes
-        => AsReference("supported_ip_address_types");
+        => CreateReference("supported_ip_address_types");
 
     /// <summary>
     /// The vpc_endpoint_policy_supported attribute.
     /// </summary>
     public TerraformValue<bool> VpcEndpointPolicySupported
-        => AsReference("vpc_endpoint_policy_supported");
+        => CreateReference("vpc_endpoint_policy_supported");
 
     /// <summary>
     /// Filter block (nesting mode: set).

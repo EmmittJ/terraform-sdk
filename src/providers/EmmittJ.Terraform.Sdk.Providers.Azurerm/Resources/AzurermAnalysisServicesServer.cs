@@ -125,7 +125,7 @@ public partial class AzurermAnalysisServicesServer(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermAnalysisServicesServer(string name) : TerraformResou
     /// The server_full_name attribute.
     /// </summary>
     public TerraformValue<string> ServerFullName
-        => AsReference("server_full_name");
+        => CreateReference("server_full_name");
 
     /// <summary>
     /// Ipv4FirewallRule block (nesting mode: set).

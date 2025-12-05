@@ -54,7 +54,7 @@ public partial class AwsMainRouteTableAssociation(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsMainRouteTableAssociation(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsMainRouteTableAssociation(string name) : TerraformResour
     /// The original_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> OriginalRouteTableId
-        => AsReference("original_route_table_id");
+        => CreateReference("original_route_table_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

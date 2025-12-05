@@ -33,7 +33,7 @@ public partial class AwsAcmpcaPermission(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsAcmpcaPermission(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsAcmpcaPermission(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string> SourceAccount
     {
-        get => GetArgument<TerraformValue<string>>("source_account") ?? AsReference("source_account");
+        get => GetArgument<TerraformValue<string>>("source_account") ?? CreateReference("source_account");
         set => SetArgument("source_account", value);
     }
 
@@ -69,6 +69,6 @@ public partial class AwsAcmpcaPermission(string name) : TerraformResource("aws_a
     /// The policy attribute.
     /// </summary>
     public TerraformValue<string> Policy
-        => AsReference("policy");
+        => CreateReference("policy");
 
 }

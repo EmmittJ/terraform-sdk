@@ -36,7 +36,7 @@ public partial class AzurermMonitorActionGroupDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,79 +64,79 @@ public partial class AzurermMonitorActionGroupDataSource(string name) : Terrafor
     /// The arm_role_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ArmRoleReceiver
-        => AsReference("arm_role_receiver");
+        => CreateReference("arm_role_receiver");
 
     /// <summary>
     /// The automation_runbook_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutomationRunbookReceiver
-        => AsReference("automation_runbook_receiver");
+        => CreateReference("automation_runbook_receiver");
 
     /// <summary>
     /// The azure_app_push_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AzureAppPushReceiver
-        => AsReference("azure_app_push_receiver");
+        => CreateReference("azure_app_push_receiver");
 
     /// <summary>
     /// The azure_function_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AzureFunctionReceiver
-        => AsReference("azure_function_receiver");
+        => CreateReference("azure_function_receiver");
 
     /// <summary>
     /// The email_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EmailReceiver
-        => AsReference("email_receiver");
+        => CreateReference("email_receiver");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The event_hub_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EventHubReceiver
-        => AsReference("event_hub_receiver");
+        => CreateReference("event_hub_receiver");
 
     /// <summary>
     /// The itsm_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ItsmReceiver
-        => AsReference("itsm_receiver");
+        => CreateReference("itsm_receiver");
 
     /// <summary>
     /// The logic_app_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LogicAppReceiver
-        => AsReference("logic_app_receiver");
+        => CreateReference("logic_app_receiver");
 
     /// <summary>
     /// The short_name attribute.
     /// </summary>
     public TerraformValue<string> ShortName
-        => AsReference("short_name");
+        => CreateReference("short_name");
 
     /// <summary>
     /// The sms_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SmsReceiver
-        => AsReference("sms_receiver");
+        => CreateReference("sms_receiver");
 
     /// <summary>
     /// The voice_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VoiceReceiver
-        => AsReference("voice_receiver");
+        => CreateReference("voice_receiver");
 
     /// <summary>
     /// The webhook_receiver attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WebhookReceiver
-        => AsReference("webhook_receiver");
+        => CreateReference("webhook_receiver");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

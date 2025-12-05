@@ -63,7 +63,7 @@ public partial class AzurermHealthbot(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermHealthbot(string name) : TerraformResource("azurerm_
     /// The bot_management_portal_url attribute.
     /// </summary>
     public TerraformValue<string> BotManagementPortalUrl
-        => AsReference("bot_management_portal_url");
+        => CreateReference("bot_management_portal_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

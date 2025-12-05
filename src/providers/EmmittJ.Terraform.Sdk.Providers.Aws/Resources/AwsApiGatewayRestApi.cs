@@ -18,7 +18,7 @@ public class AwsApiGatewayRestApiEndpointConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? CreateReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsApiGatewayRestApiEndpointConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> VpcEndpointIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_endpoint_ids") ?? AsReference("vpc_endpoint_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_endpoint_ids") ?? CreateReference("vpc_endpoint_ids");
         set => SetArgument("vpc_endpoint_ids", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> ApiKeySource
     {
-        get => GetArgument<TerraformValue<string>>("api_key_source") ?? AsReference("api_key_source");
+        get => GetArgument<TerraformValue<string>>("api_key_source") ?? CreateReference("api_key_source");
         set => SetArgument("api_key_source", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformList<string> BinaryMediaTypes
     {
-        get => GetArgument<TerraformList<string>>("binary_media_types") ?? AsReference("binary_media_types");
+        get => GetArgument<TerraformList<string>>("binary_media_types") ?? CreateReference("binary_media_types");
         set => SetArgument("binary_media_types", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> DisableExecuteApiEndpoint
     {
-        get => GetArgument<TerraformValue<bool>>("disable_execute_api_endpoint") ?? AsReference("disable_execute_api_endpoint");
+        get => GetArgument<TerraformValue<bool>>("disable_execute_api_endpoint") ?? CreateReference("disable_execute_api_endpoint");
         set => SetArgument("disable_execute_api_endpoint", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> MinimumCompressionSize
     {
-        get => GetArgument<TerraformValue<string>>("minimum_compression_size") ?? AsReference("minimum_compression_size");
+        get => GetArgument<TerraformValue<string>>("minimum_compression_size") ?? CreateReference("minimum_compression_size");
         set => SetArgument("minimum_compression_size", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -190,25 +190,25 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionArn
-        => AsReference("execution_arn");
+        => CreateReference("execution_arn");
 
     /// <summary>
     /// The root_resource_id attribute.
     /// </summary>
     public TerraformValue<string> RootResourceId
-        => AsReference("root_resource_id");
+        => CreateReference("root_resource_id");
 
     /// <summary>
     /// EndpointConfiguration block (nesting mode: list).

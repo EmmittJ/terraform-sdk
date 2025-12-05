@@ -120,6 +120,25 @@ public ref struct TerraformInterpolatedStringHandler
     }
 
     /// <summary>
+    /// Appends a formatted TerraformBlock value, using its reference identifier.
+    /// Enables syntax like <c>Tf.Interpolate($"{variable}")</c> to produce <c>"${var.variable}"</c>.
+    /// </summary>
+    public void AppendFormatted(TerraformBlock value)
+    {
+        // Flush any pending builder content
+        if (_builder.Length > 0)
+        {
+            _parts.Add(_builder.ToString());
+            _formats.Add(null);
+            _builder.Clear();
+        }
+
+        // Use the block's reference identifier to create a reference expression
+        _parts.Add(value.ToReference());
+        _formats.Add(null);
+    }
+
+    /// <summary>
     /// Appends a formatted string value.
     /// </summary>
     public void AppendFormatted(string value)

@@ -63,7 +63,7 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> ConditionVersion
     {
-        get => GetArgument<TerraformValue<string>>("condition_version") ?? AsReference("condition_version");
+        get => GetArgument<TerraformValue<string>>("condition_version") ?? CreateReference("condition_version");
         set => SetArgument("condition_version", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> PrincipalType
     {
-        get => GetArgument<TerraformValue<string>>("principal_type") ?? AsReference("principal_type");
+        get => GetArgument<TerraformValue<string>>("principal_type") ?? CreateReference("principal_type");
         set => SetArgument("principal_type", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? AsReference("role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? CreateReference("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> RoleDefinitionName
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_name") ?? AsReference("role_definition_name");
+        get => GetArgument<TerraformValue<string>>("role_definition_name") ?? CreateReference("role_definition_name");
         set => SetArgument("role_definition_name", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool> SkipServicePrincipalAadCheck
     {
-        get => GetArgument<TerraformValue<bool>>("skip_service_principal_aad_check") ?? AsReference("skip_service_principal_aad_check");
+        get => GetArgument<TerraformValue<bool>>("skip_service_principal_aad_check") ?? CreateReference("skip_service_principal_aad_check");
         set => SetArgument("skip_service_principal_aad_check", value);
     }
 

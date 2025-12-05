@@ -13,7 +13,7 @@ public partial class AwsLambdaFunctionsDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsLambdaFunctionsDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -30,12 +30,12 @@ public partial class AwsLambdaFunctionsDataSource(string name) : TerraformDataSo
     /// The function_arns attribute.
     /// </summary>
     public TerraformList<string> FunctionArns
-        => AsReference("function_arns");
+        => CreateReference("function_arns");
 
     /// <summary>
     /// The function_names attribute.
     /// </summary>
     public TerraformList<string> FunctionNames
-        => AsReference("function_names");
+        => CreateReference("function_names");
 
 }

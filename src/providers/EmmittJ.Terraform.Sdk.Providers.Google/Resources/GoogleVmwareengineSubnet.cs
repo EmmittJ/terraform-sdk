@@ -54,7 +54,7 @@ public partial class GoogleVmwareengineSubnet(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,50 +97,50 @@ public partial class GoogleVmwareengineSubnet(string name) : TerraformResource("
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// DHCP address ranges.
     /// </summary>
     public TerraformList<TerraformMap<object>> DhcpAddressRanges
-        => AsReference("dhcp_address_ranges");
+        => CreateReference("dhcp_address_ranges");
 
     /// <summary>
     /// The canonical identifier of the logical router that this subnet is attached to.
     /// </summary>
     public TerraformValue<string> GatewayId
-        => AsReference("gateway_id");
+        => CreateReference("gateway_id");
 
     /// <summary>
     /// The IP address of the gateway of this subnet. Must fall within the IP prefix defined above.
     /// </summary>
     public TerraformValue<string> GatewayIp
-        => AsReference("gateway_ip");
+        => CreateReference("gateway_ip");
 
     /// <summary>
     /// Whether the NSX-T configuration in the backend follows the standard configuration supported by Google Cloud.
     /// If false, the subnet cannot be modified through Google Cloud, only through NSX-T directly.
     /// </summary>
     public TerraformValue<bool> StandardConfig
-        => AsReference("standard_config");
+        => CreateReference("standard_config");
 
     /// <summary>
     /// State of the subnet.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The type of the subnet.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -148,13 +148,13 @@ public partial class GoogleVmwareengineSubnet(string name) : TerraformResource("
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// VLAN ID of the VLAN on which the subnet is configured.
     /// </summary>
     public TerraformValue<double> VlanId
-        => AsReference("vlan_id");
+        => CreateReference("vlan_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

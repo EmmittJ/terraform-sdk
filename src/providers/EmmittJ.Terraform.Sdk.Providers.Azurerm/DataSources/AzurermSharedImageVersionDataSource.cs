@@ -46,7 +46,7 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,37 +102,37 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     /// The exclude_from_latest attribute.
     /// </summary>
     public TerraformValue<bool> ExcludeFromLatest
-        => AsReference("exclude_from_latest");
+        => CreateReference("exclude_from_latest");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The managed_image_id attribute.
     /// </summary>
     public TerraformValue<string> ManagedImageId
-        => AsReference("managed_image_id");
+        => CreateReference("managed_image_id");
 
     /// <summary>
     /// The os_disk_image_size_gb attribute.
     /// </summary>
     public TerraformValue<double> OsDiskImageSizeGb
-        => AsReference("os_disk_image_size_gb");
+        => CreateReference("os_disk_image_size_gb");
 
     /// <summary>
     /// The os_disk_snapshot_id attribute.
     /// </summary>
     public TerraformValue<string> OsDiskSnapshotId
-        => AsReference("os_disk_snapshot_id");
+        => CreateReference("os_disk_snapshot_id");
 
     /// <summary>
     /// The target_region attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TargetRegion
-        => AsReference("target_region");
+        => CreateReference("target_region");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

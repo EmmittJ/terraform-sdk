@@ -63,7 +63,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// Time the posture deployment was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// This is an output only optional field which will be filled in case when
@@ -143,7 +143,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// It denotes the desired posture to be deployed.
     /// </summary>
     public TerraformValue<string> DesiredPostureId
-        => AsReference("desired_posture_id");
+        => CreateReference("desired_posture_id");
 
     /// <summary>
     /// This is an output only optional field which will be filled in case when
@@ -151,13 +151,13 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// It denotes the desired posture revision_id to be deployed.
     /// </summary>
     public TerraformValue<string> DesiredPostureRevisionId
-        => AsReference("desired_posture_revision_id");
+        => CreateReference("desired_posture_revision_id");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// This is a output only optional field which will be filled in case where
@@ -166,32 +166,32 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// CREATE/UPDATE/DELETE methods.
     /// </summary>
     public TerraformValue<string> FailureMessage
-        => AsReference("failure_message");
+        => CreateReference("failure_message");
 
     /// <summary>
     /// Name of the posture deployment instance.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the posture deployment.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// State of the posture deployment. A posture deployment can be in the following terminal states:
     /// ACTIVE, CREATE_FAILED, UPDATE_FAILED, DELETE_FAILED.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Time the posture deployment was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

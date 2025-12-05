@@ -87,7 +87,7 @@ public partial class AwsVpcIpamResourceDiscovery(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsVpcIpamResourceDiscovery(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsVpcIpamResourceDiscovery(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -122,25 +122,25 @@ public partial class AwsVpcIpamResourceDiscovery(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The ipam_resource_discovery_region attribute.
     /// </summary>
     public TerraformValue<string> IpamResourceDiscoveryRegion
-        => AsReference("ipam_resource_discovery_region");
+        => CreateReference("ipam_resource_discovery_region");
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
     public TerraformValue<bool> IsDefault
-        => AsReference("is_default");
+        => CreateReference("is_default");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// OperatingRegions block (nesting mode: set).

@@ -572,7 +572,7 @@ public class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlockRe
     /// The resource_association_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceAssociationArn
-        => AsReference("resource_association_arn");
+        => CreateReference("resource_association_arn");
 
     /// <summary>
     /// The resource_configuration_arn attribute.
@@ -617,7 +617,7 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -645,7 +645,7 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -653,13 +653,13 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
     public TerraformValue<string> SecretArn
-        => AsReference("secret_arn");
+        => CreateReference("secret_arn");
 
     /// <summary>
     /// AuthParameters block (nesting mode: list).

@@ -70,7 +70,7 @@ public partial class AwsVpnGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> AmazonSideAsn
     {
-        get => GetArgument<TerraformValue<string>>("amazon_side_asn") ?? AsReference("amazon_side_asn");
+        get => GetArgument<TerraformValue<string>>("amazon_side_asn") ?? CreateReference("amazon_side_asn");
         set => SetArgument("amazon_side_asn", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsVpnGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> AttachedVpcId
     {
-        get => GetArgument<TerraformValue<string>>("attached_vpc_id") ?? AsReference("attached_vpc_id");
+        get => GetArgument<TerraformValue<string>>("attached_vpc_id") ?? CreateReference("attached_vpc_id");
         set => SetArgument("attached_vpc_id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsVpnGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsVpnGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsVpnGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsVpnGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsVpnGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsVpnGatewayDataSource(string name) : TerraformDataSource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Filter block (nesting mode: set).

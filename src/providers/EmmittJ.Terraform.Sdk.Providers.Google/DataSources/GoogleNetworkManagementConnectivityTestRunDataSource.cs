@@ -13,7 +13,7 @@ public partial class GoogleNetworkManagementConnectivityTestRunDataSource(string
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleNetworkManagementConnectivityTestRunDataSource(string
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -40,6 +40,6 @@ public partial class GoogleNetworkManagementConnectivityTestRunDataSource(string
     /// Connectivity test reachability details.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReachabilityDetails
-        => AsReference("reachability_details");
+        => CreateReference("reachability_details");
 
 }

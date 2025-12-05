@@ -54,7 +54,7 @@ public partial class AzurermDataShareDatasetKustoCluster(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,13 +92,13 @@ public partial class AzurermDataShareDatasetKustoCluster(string name) : Terrafor
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The kusto_cluster_location attribute.
     /// </summary>
     public TerraformValue<string> KustoClusterLocation
-        => AsReference("kusto_cluster_location");
+        => CreateReference("kusto_cluster_location");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

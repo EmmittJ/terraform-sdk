@@ -36,7 +36,7 @@ public partial class AzurermStaticWebAppDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,85 +64,85 @@ public partial class AzurermStaticWebAppDataSource(string name) : TerraformDataS
     /// The api_key attribute.
     /// </summary>
     public TerraformValue<string> ApiKey
-        => AsReference("api_key");
+        => CreateReference("api_key");
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
     public TerraformMap<string> AppSettings
-        => AsReference("app_settings");
+        => CreateReference("app_settings");
 
     /// <summary>
     /// The basic_auth attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BasicAuth
-        => AsReference("basic_auth");
+        => CreateReference("basic_auth");
 
     /// <summary>
     /// The configuration_file_changes_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ConfigurationFileChangesEnabled
-        => AsReference("configuration_file_changes_enabled");
+        => CreateReference("configuration_file_changes_enabled");
 
     /// <summary>
     /// The default_host_name attribute.
     /// </summary>
     public TerraformValue<string> DefaultHostName
-        => AsReference("default_host_name");
+        => CreateReference("default_host_name");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The preview_environments_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PreviewEnvironmentsEnabled
-        => AsReference("preview_environments_enabled");
+        => CreateReference("preview_environments_enabled");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// The repository_branch attribute.
     /// </summary>
     public TerraformValue<string> RepositoryBranch
-        => AsReference("repository_branch");
+        => CreateReference("repository_branch");
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
     public TerraformValue<string> RepositoryUrl
-        => AsReference("repository_url");
+        => CreateReference("repository_url");
 
     /// <summary>
     /// The sku_size attribute.
     /// </summary>
     public TerraformValue<string> SkuSize
-        => AsReference("sku_size");
+        => CreateReference("sku_size");
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
     public TerraformValue<string> SkuTier
-        => AsReference("sku_tier");
+        => CreateReference("sku_tier");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

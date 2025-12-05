@@ -97,7 +97,7 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -135,25 +135,25 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     /// The target_iqn attribute.
     /// </summary>
     public TerraformValue<string> TargetIqn
-        => AsReference("target_iqn");
+        => CreateReference("target_iqn");
 
     /// <summary>
     /// The target_portal_hostname attribute.
     /// </summary>
     public TerraformValue<string> TargetPortalHostname
-        => AsReference("target_portal_hostname");
+        => CreateReference("target_portal_hostname");
 
     /// <summary>
     /// The target_portal_port attribute.
     /// </summary>
     public TerraformValue<double> TargetPortalPort
-        => AsReference("target_portal_port");
+        => CreateReference("target_portal_port");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-        => AsReference("volume_id");
+        => CreateReference("volume_id");
 
     /// <summary>
     /// CreateSource block (nesting mode: list).

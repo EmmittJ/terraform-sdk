@@ -13,7 +13,7 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -60,104 +60,104 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// IAM_AUTH
     /// </summary>
     public TerraformValue<string> AuthorizationMode
-        => AsReference("authorization_mode");
+        => CreateReference("authorization_mode");
 
     /// <summary>
     /// The automated backup config for a instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutomatedBackupConfig
-        => AsReference("automated_backup_config");
+        => CreateReference("automated_backup_config");
 
     /// <summary>
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
     public TerraformList<string> AvailableMaintenanceVersions
-        => AsReference("available_maintenance_versions");
+        => CreateReference("available_maintenance_versions");
 
     /// <summary>
     /// The backup collection full resource name.
     /// Example: projects/{project}/locations/{location}/backupCollections/{collection}
     /// </summary>
     public TerraformValue<string> BackupCollection
-        => AsReference("backup_collection");
+        => CreateReference("backup_collection");
 
     /// <summary>
     /// Output only. Creation timestamp of the instance.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Cross instance replication config
     /// </summary>
     public TerraformList<TerraformMap<object>> CrossInstanceReplicationConfig
-        => AsReference("cross_instance_replication_config");
+        => CreateReference("cross_instance_replication_config");
 
     /// <summary>
     /// Optional. If set to true deletion of the instance will fail.
     /// </summary>
     public TerraformValue<bool> DeletionProtectionEnabled
-        => AsReference("deletion_protection_enabled");
+        => CreateReference("deletion_protection_enabled");
 
     /// <summary>
     /// Immutable. User inputs for the auto-created endpoints connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> DesiredAutoCreatedEndpoints
-        => AsReference("desired_auto_created_endpoints");
+        => CreateReference("desired_auto_created_endpoints");
 
     /// <summary>
     /// &#39;desired_psc_auto_connections&#39; is deprecated  Use &#39;desired_auto_created_endpoints&#39; instead &#39;terraform import&#39; will only work with desired_auto_created_endpoints&#39;.
     /// </summary>
     public TerraformList<TerraformMap<object>> DesiredPscAutoConnections
-        => AsReference("desired_psc_auto_connections");
+        => CreateReference("desired_psc_auto_connections");
 
     /// <summary>
     /// Deprecated. Output only. Endpoints clients can connect to the instance through.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiscoveryEndpoints
-        => AsReference("discovery_endpoints");
+        => CreateReference("discovery_endpoints");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
     public TerraformValue<string> EffectiveMaintenanceVersion
-        => AsReference("effective_maintenance_version");
+        => CreateReference("effective_maintenance_version");
 
     /// <summary>
     /// Endpoints for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoints
-        => AsReference("endpoints");
+        => CreateReference("endpoints");
 
     /// <summary>
     /// Optional. User-provided engine configurations for the instance.
     /// </summary>
     public TerraformMap<string> EngineConfigs
-        => AsReference("engine_configs");
+        => CreateReference("engine_configs");
 
     /// <summary>
     /// Optional. Engine version of the instance.
     /// </summary>
     public TerraformValue<string> EngineVersion
-        => AsReference("engine_version");
+        => CreateReference("engine_version");
 
     /// <summary>
     /// GCS source for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> GcsSource
-        => AsReference("gcs_source");
+        => CreateReference("gcs_source");
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster
     /// </summary>
     public TerraformValue<string> KmsKey
-        => AsReference("kms_key");
+        => CreateReference("kms_key");
 
     /// <summary>
     /// Optional. Labels to represent user-provided metadata. 
@@ -166,38 +166,38 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Maintenance policy for a cluster
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenancePolicy
-        => AsReference("maintenance_policy");
+        => CreateReference("maintenance_policy");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-        => AsReference("maintenance_schedule");
+        => CreateReference("maintenance_schedule");
 
     /// <summary>
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
     /// *Note*: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!
     /// </summary>
     public TerraformValue<string> MaintenanceVersion
-        => AsReference("maintenance_version");
+        => CreateReference("maintenance_version");
 
     /// <summary>
     /// Managed backup source for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedBackupSource
-        => AsReference("managed_backup_source");
+        => CreateReference("managed_backup_source");
 
     /// <summary>
     /// Instance&#39;s Certificate Authority. This field will only be populated if instance&#39;s transit_encryption_mode is SERVER_AUTHENTICATION
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedServerCa
-        => AsReference("managed_server_ca");
+        => CreateReference("managed_server_ca");
 
     /// <summary>
     /// Optional. cluster or cluster-disabled. 
@@ -206,20 +206,20 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     ///  CLUSTER_DISABLED Possible values: [&amp;quot;CLUSTER&amp;quot;, &amp;quot;CLUSTER_DISABLED&amp;quot;]
     /// </summary>
     public TerraformValue<string> Mode
-        => AsReference("mode");
+        => CreateReference("mode");
 
     /// <summary>
     /// Identifier. Unique name of the instance.
     /// Format: projects/{project}/locations/{location}/instances/{instance}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Represents configuration for nodes of the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodeConfig
-        => AsReference("node_config");
+        => CreateReference("node_config");
 
     /// <summary>
     /// Optional. Machine type for individual nodes of the instance. 
@@ -230,37 +230,37 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// STANDARD_SMALL
     /// </summary>
     public TerraformValue<string> NodeType
-        => AsReference("node_type");
+        => CreateReference("node_type");
 
     /// <summary>
     /// Represents persistence configuration for a instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> PersistenceConfig
-        => AsReference("persistence_config");
+        => CreateReference("persistence_config");
 
     /// <summary>
     /// Configuration of a service attachment of the cluster, for creating PSC connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscAttachmentDetails
-        => AsReference("psc_attachment_details");
+        => CreateReference("psc_attachment_details");
 
     /// <summary>
     /// Output only. User inputs and resource details of the auto-created PSC connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscAutoConnections
-        => AsReference("psc_auto_connections");
+        => CreateReference("psc_auto_connections");
 
     /// <summary>
     /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
     /// </summary>
     public TerraformValue<double> ReplicaCount
-        => AsReference("replica_count");
+        => CreateReference("replica_count");
 
     /// <summary>
     /// Required. Number of shards for the instance.
     /// </summary>
     public TerraformValue<double> ShardCount
-        => AsReference("shard_count");
+        => CreateReference("shard_count");
 
     /// <summary>
     /// Output only. Current state of the instance. 
@@ -271,20 +271,20 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// DELETING
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Additional information about the state of the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> StateInfo
-        => AsReference("state_info");
+        => CreateReference("state_info");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Optional. Immutable. In-transit encryption mode of the instance. 
@@ -293,24 +293,24 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// SERVER_AUTHENTICATION
     /// </summary>
     public TerraformValue<string> TransitEncryptionMode
-        => AsReference("transit_encryption_mode");
+        => CreateReference("transit_encryption_mode");
 
     /// <summary>
     /// Output only. System assigned, unique identifier for the instance.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. Latest update timestamp of the instance.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Zone distribution configuration for allocation of instance resources.
     /// </summary>
     public TerraformList<TerraformMap<object>> ZoneDistributionConfig
-        => AsReference("zone_distribution_config");
+        => CreateReference("zone_distribution_config");
 
 }

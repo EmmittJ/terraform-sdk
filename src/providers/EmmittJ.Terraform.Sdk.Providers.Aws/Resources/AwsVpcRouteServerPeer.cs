@@ -28,7 +28,7 @@ public class AwsVpcRouteServerPeerBgpOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PeerLivenessDetection
     {
-        get => GetArgument<TerraformValue<string>>("peer_liveness_detection") ?? AsReference("peer_liveness_detection");
+        get => GetArgument<TerraformValue<string>>("peer_liveness_detection") ?? CreateReference("peer_liveness_detection");
         set => SetArgument("peer_liveness_detection", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsVpcRouteServerPeer(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -115,49 +115,49 @@ public partial class AwsVpcRouteServerPeer(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint_eni_address attribute.
     /// </summary>
     public TerraformValue<string> EndpointEniAddress
-        => AsReference("endpoint_eni_address");
+        => CreateReference("endpoint_eni_address");
 
     /// <summary>
     /// The endpoint_eni_id attribute.
     /// </summary>
     public TerraformValue<string> EndpointEniId
-        => AsReference("endpoint_eni_id");
+        => CreateReference("endpoint_eni_id");
 
     /// <summary>
     /// The route_server_id attribute.
     /// </summary>
     public TerraformValue<string> RouteServerId
-        => AsReference("route_server_id");
+        => CreateReference("route_server_id");
 
     /// <summary>
     /// The route_server_peer_id attribute.
     /// </summary>
     public TerraformValue<string> RouteServerPeerId
-        => AsReference("route_server_peer_id");
+        => CreateReference("route_server_peer_id");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-        => AsReference("subnet_id");
+        => CreateReference("subnet_id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// BgpOptions block (nesting mode: list).

@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Output values support the depends_on meta-argument and precondition blocks.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/output"/></para>
 /// </remarks>
-public class TerraformOutput : TerraformBlock, ITerraformReferenceable, ITerraformHasDependsOn
+public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
 {
     /// <summary>
     /// Gets the output name.
@@ -28,6 +28,11 @@ public class TerraformOutput : TerraformBlock, ITerraformReferenceable, ITerrafo
     /// Gets the block labels (just the output name).
     /// </summary>
     public override string[] BlockLabels => [Name];
+
+    /// <summary>
+    /// Gets the Terraform reference identifier for this output (e.g., "output.id").
+    /// </summary>
+    public override string ReferenceIdentifier => $"output.{Name}";
 
     /// <summary>
     /// Initializes a new instance of TerraformOutput.
@@ -90,13 +95,6 @@ public class TerraformOutput : TerraformBlock, ITerraformReferenceable, ITerrafo
     }
 
     /// <summary>
-    /// Generates a reference to this output.
-    /// </summary>
-    /// <returns>A reference to this output.</returns>
-    public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"output.{Name}");
-
-    /// <summary>
     /// Adds a precondition block to this output.
     /// </summary>
     /// <param name="condition">The condition expression that must evaluate to true.</param>
@@ -114,15 +112,6 @@ public class TerraformOutput : TerraformBlock, ITerraformReferenceable, ITerrafo
         Preconditions = preconditions;
         return this;
     }
-
-    /// <summary>
-    /// Implicit conversion to TerraformExpression for natural reference usage.
-    /// Allows using outputs directly in expressions without calling AsReference().
-    /// </summary>
-    /// <param name="output">The output to convert.</param>
-    /// <returns>A TerraformExpression representing the output reference.</returns>
-    public static implicit operator TerraformExpression(TerraformOutput output)
-        => output.AsReference();
 
     // Meta-argument properties
 

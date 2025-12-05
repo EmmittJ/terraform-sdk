@@ -46,7 +46,7 @@ public partial class AzurermEventhubConsumerGroupDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermEventhubConsumerGroupDataSource(string name) : Terra
     /// The user_metadata attribute.
     /// </summary>
     public TerraformValue<string> UserMetadata
-        => AsReference("user_metadata");
+        => CreateReference("user_metadata");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -54,7 +54,7 @@ public partial class AzurermNetworkManagerStaticMember(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermNetworkManagerStaticMember(string name) : TerraformR
     /// The region attribute.
     /// </summary>
     public TerraformValue<string> Region
-        => AsReference("region");
+        => CreateReference("region");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

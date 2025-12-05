@@ -168,7 +168,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockDataCatalogConfigBlo
     /// </summary>
     public TerraformValue<string> Catalog
     {
-        get => GetArgument<TerraformValue<string>>("catalog") ?? AsReference("catalog");
+        get => GetArgument<TerraformValue<string>>("catalog") ?? CreateReference("catalog");
         set => SetArgument("catalog", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockDataCatalogConfigBlo
     /// </summary>
     public TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database") ?? AsReference("database");
+        get => GetArgument<TerraformValue<string>>("database") ?? CreateReference("database");
         set => SetArgument("database", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockDataCatalogConfigBlo
     /// </summary>
     public TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name") ?? AsReference("table_name");
+        get => GetArgument<TerraformValue<string>>("table_name") ?? CreateReference("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockS3StorageConfigBlock
     /// </summary>
     public TerraformValue<string> ResolvedOutputS3Uri
     {
-        get => GetArgument<TerraformValue<string>>("resolved_output_s3_uri") ?? AsReference("resolved_output_s3_uri");
+        get => GetArgument<TerraformValue<string>>("resolved_output_s3_uri") ?? CreateReference("resolved_output_s3_uri");
         set => SetArgument("resolved_output_s3_uri", value);
     }
 
@@ -373,7 +373,7 @@ public class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ThroughputMode
     {
-        get => GetArgument<TerraformValue<string>>("throughput_mode") ?? AsReference("throughput_mode");
+        get => GetArgument<TerraformValue<string>>("throughput_mode") ?? CreateReference("throughput_mode");
         set => SetArgument("throughput_mode", value);
     }
 
@@ -420,7 +420,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -439,7 +439,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -467,7 +467,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -475,7 +475,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// FeatureDefinition block (nesting mode: list).

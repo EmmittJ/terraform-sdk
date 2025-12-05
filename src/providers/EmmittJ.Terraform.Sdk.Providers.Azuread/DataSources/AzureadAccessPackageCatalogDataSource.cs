@@ -36,7 +36,7 @@ public partial class AzureadAccessPackageCatalogDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzureadAccessPackageCatalogDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzureadAccessPackageCatalogDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? CreateReference("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -62,19 +62,19 @@ public partial class AzureadAccessPackageCatalogDataSource(string name) : Terraf
     /// The description of the access package catalog
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Whether the access packages in this catalog can be requested by users outside the tenant
     /// </summary>
     public TerraformValue<bool> ExternallyVisible
-        => AsReference("externally_visible");
+        => CreateReference("externally_visible");
 
     /// <summary>
     /// Whether the access packages in this catalog are available for management
     /// </summary>
     public TerraformValue<bool> Published
-        => AsReference("published");
+        => CreateReference("published");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

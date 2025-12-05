@@ -17,13 +17,13 @@ public class AwsDynamodbTableDataSourceServerSideEncryptionBlock : TerraformBloc
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyArn
-        => AsReference("kms_key_arn");
+        => CreateReference("kms_key_arn");
 
 }
 
@@ -39,7 +39,7 @@ public partial class AwsDynamodbTableDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsDynamodbTableDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsDynamodbTableDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -75,121 +75,121 @@ public partial class AwsDynamodbTableDataSource(string name) : TerraformDataSour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The attribute attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Attribute
-        => AsReference("attribute");
+        => CreateReference("attribute");
 
     /// <summary>
     /// The billing_mode attribute.
     /// </summary>
     public TerraformValue<string> BillingMode
-        => AsReference("billing_mode");
+        => CreateReference("billing_mode");
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
     public TerraformValue<bool> DeletionProtectionEnabled
-        => AsReference("deletion_protection_enabled");
+        => CreateReference("deletion_protection_enabled");
 
     /// <summary>
     /// The global_secondary_index attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> GlobalSecondaryIndex
-        => AsReference("global_secondary_index");
+        => CreateReference("global_secondary_index");
 
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
     public TerraformValue<string> HashKey
-        => AsReference("hash_key");
+        => CreateReference("hash_key");
 
     /// <summary>
     /// The local_secondary_index attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LocalSecondaryIndex
-        => AsReference("local_secondary_index");
+        => CreateReference("local_secondary_index");
 
     /// <summary>
     /// The on_demand_throughput attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OnDemandThroughput
-        => AsReference("on_demand_throughput");
+        => CreateReference("on_demand_throughput");
 
     /// <summary>
     /// The point_in_time_recovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PointInTimeRecovery
-        => AsReference("point_in_time_recovery");
+        => CreateReference("point_in_time_recovery");
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
     public TerraformValue<string> RangeKey
-        => AsReference("range_key");
+        => CreateReference("range_key");
 
     /// <summary>
     /// The read_capacity attribute.
     /// </summary>
     public TerraformValue<double> ReadCapacity
-        => AsReference("read_capacity");
+        => CreateReference("read_capacity");
 
     /// <summary>
     /// The replica attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Replica
-        => AsReference("replica");
+        => CreateReference("replica");
 
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
     public TerraformValue<string> StreamArn
-        => AsReference("stream_arn");
+        => CreateReference("stream_arn");
 
     /// <summary>
     /// The stream_enabled attribute.
     /// </summary>
     public TerraformValue<bool> StreamEnabled
-        => AsReference("stream_enabled");
+        => CreateReference("stream_enabled");
 
     /// <summary>
     /// The stream_label attribute.
     /// </summary>
     public TerraformValue<string> StreamLabel
-        => AsReference("stream_label");
+        => CreateReference("stream_label");
 
     /// <summary>
     /// The stream_view_type attribute.
     /// </summary>
     public TerraformValue<string> StreamViewType
-        => AsReference("stream_view_type");
+        => CreateReference("stream_view_type");
 
     /// <summary>
     /// The table_class attribute.
     /// </summary>
     public TerraformValue<string> TableClass
-        => AsReference("table_class");
+        => CreateReference("table_class");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Ttl
-        => AsReference("ttl");
+        => CreateReference("ttl");
 
     /// <summary>
     /// The warm_throughput attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WarmThroughput
-        => AsReference("warm_throughput");
+        => CreateReference("warm_throughput");
 
     /// <summary>
     /// The write_capacity attribute.
     /// </summary>
     public TerraformValue<double> WriteCapacity
-        => AsReference("write_capacity");
+        => CreateReference("write_capacity");
 
     /// <summary>
     /// ServerSideEncryption block (nesting mode: list).

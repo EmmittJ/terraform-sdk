@@ -106,7 +106,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -133,13 +133,13 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted(string name)
     /// The primary_authorization_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAuthorizationKey
-        => AsReference("primary_authorization_key");
+        => CreateReference("primary_authorization_key");
 
     /// <summary>
     /// The secondary_authorization_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAuthorizationKey
-        => AsReference("secondary_authorization_key");
+        => CreateReference("secondary_authorization_key");
 
     /// <summary>
     /// RbacAuthorization block (nesting mode: set).

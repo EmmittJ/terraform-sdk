@@ -73,7 +73,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? CreateReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AwsAmi(string name) : TerraformResource("aws_ami", name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AwsAmi(string name) : TerraformResource("aws_ami", name)
     /// </summary>
     public TerraformValue<string> ImageLocation
     {
-        get => GetArgument<TerraformValue<string>>("image_location") ?? AsReference("image_location");
+        get => GetArgument<TerraformValue<string>>("image_location") ?? CreateReference("image_location");
         set => SetArgument("image_location", value);
     }
 
@@ -284,7 +284,7 @@ public partial class AwsAmi(string name) : TerraformResource("aws_ami", name)
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -320,7 +320,7 @@ public partial class AwsAmi(string name) : TerraformResource("aws_ami", name)
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -355,73 +355,73 @@ public partial class AwsAmi(string name) : TerraformResource("aws_ami", name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The hypervisor attribute.
     /// </summary>
     public TerraformValue<string> Hypervisor
-        => AsReference("hypervisor");
+        => CreateReference("hypervisor");
 
     /// <summary>
     /// The image_owner_alias attribute.
     /// </summary>
     public TerraformValue<string> ImageOwnerAlias
-        => AsReference("image_owner_alias");
+        => CreateReference("image_owner_alias");
 
     /// <summary>
     /// The image_type attribute.
     /// </summary>
     public TerraformValue<string> ImageType
-        => AsReference("image_type");
+        => CreateReference("image_type");
 
     /// <summary>
     /// The last_launched_time attribute.
     /// </summary>
     public TerraformValue<string> LastLaunchedTime
-        => AsReference("last_launched_time");
+        => CreateReference("last_launched_time");
 
     /// <summary>
     /// The manage_ebs_snapshots attribute.
     /// </summary>
     public TerraformValue<bool> ManageEbsSnapshots
-        => AsReference("manage_ebs_snapshots");
+        => CreateReference("manage_ebs_snapshots");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-        => AsReference("platform");
+        => CreateReference("platform");
 
     /// <summary>
     /// The platform_details attribute.
     /// </summary>
     public TerraformValue<string> PlatformDetails
-        => AsReference("platform_details");
+        => CreateReference("platform_details");
 
     /// <summary>
     /// The public attribute.
     /// </summary>
     public TerraformValue<bool> PublicAttribute
-        => AsReference("public");
+        => CreateReference("public");
 
     /// <summary>
     /// The root_snapshot_id attribute.
     /// </summary>
     public TerraformValue<string> RootSnapshotId
-        => AsReference("root_snapshot_id");
+        => CreateReference("root_snapshot_id");
 
     /// <summary>
     /// The usage_operation attribute.
     /// </summary>
     public TerraformValue<string> UsageOperation
-        => AsReference("usage_operation");
+        => CreateReference("usage_operation");
 
     /// <summary>
     /// EbsBlockDevice block (nesting mode: set).

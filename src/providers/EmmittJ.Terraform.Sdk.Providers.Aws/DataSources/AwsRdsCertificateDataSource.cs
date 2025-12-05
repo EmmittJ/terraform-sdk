@@ -22,7 +22,7 @@ public partial class AwsRdsCertificateDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsRdsCertificateDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -48,42 +48,42 @@ public partial class AwsRdsCertificateDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The certificate_type attribute.
     /// </summary>
     public TerraformValue<string> CertificateType
-        => AsReference("certificate_type");
+        => CreateReference("certificate_type");
 
     /// <summary>
     /// The customer_override attribute.
     /// </summary>
     public TerraformValue<bool> CustomerOverride
-        => AsReference("customer_override");
+        => CreateReference("customer_override");
 
     /// <summary>
     /// The customer_override_valid_till attribute.
     /// </summary>
     public TerraformValue<string> CustomerOverrideValidTill
-        => AsReference("customer_override_valid_till");
+        => CreateReference("customer_override_valid_till");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
     /// <summary>
     /// The valid_from attribute.
     /// </summary>
     public TerraformValue<string> ValidFrom
-        => AsReference("valid_from");
+        => CreateReference("valid_from");
 
     /// <summary>
     /// The valid_till attribute.
     /// </summary>
     public TerraformValue<string> ValidTill
-        => AsReference("valid_till");
+        => CreateReference("valid_till");
 
 }

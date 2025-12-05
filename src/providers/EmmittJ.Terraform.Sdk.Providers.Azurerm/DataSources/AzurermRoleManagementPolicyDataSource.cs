@@ -36,7 +36,7 @@ public partial class AzurermRoleManagementPolicyDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermRoleManagementPolicyDataSource(string name) : Terraf
     /// The activation rules of the policy
     /// </summary>
     public TerraformList<TerraformMap<object>> ActivationRules
-        => AsReference("activation_rules");
+        => CreateReference("activation_rules");
 
     /// <summary>
     /// The rules for active assignment of the policy
     /// </summary>
     public TerraformList<TerraformMap<object>> ActiveAssignmentRules
-        => AsReference("active_assignment_rules");
+        => CreateReference("active_assignment_rules");
 
     /// <summary>
     /// The Description of the policy
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The rules for eligible assignment of the policy
     /// </summary>
     public TerraformList<TerraformMap<object>> EligibleAssignmentRules
-        => AsReference("eligible_assignment_rules");
+        => CreateReference("eligible_assignment_rules");
 
     /// <summary>
     /// The name of the policy
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The notification rules of the policy
     /// </summary>
     public TerraformList<TerraformMap<object>> NotificationRules
-        => AsReference("notification_rules");
+        => CreateReference("notification_rules");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

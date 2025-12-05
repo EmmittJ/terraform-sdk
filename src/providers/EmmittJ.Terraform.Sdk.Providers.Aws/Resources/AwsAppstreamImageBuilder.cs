@@ -28,7 +28,7 @@ public class AwsAppstreamImageBuilderAccessEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VpceId
     {
-        get => GetArgument<TerraformValue<string>>("vpce_id") ?? AsReference("vpce_id");
+        get => GetArgument<TerraformValue<string>>("vpce_id") ?? CreateReference("vpce_id");
         set => SetArgument("vpce_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsAppstreamImageBuilderVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsAppstreamImageBuilderVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? CreateReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> AppstreamAgentVersion
     {
-        get => GetArgument<TerraformValue<string>>("appstream_agent_version") ?? AsReference("appstream_agent_version");
+        get => GetArgument<TerraformValue<string>>("appstream_agent_version") ?? CreateReference("appstream_agent_version");
         set => SetArgument("appstream_agent_version", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool> EnableDefaultInternetAccess
     {
-        get => GetArgument<TerraformValue<bool>>("enable_default_internet_access") ?? AsReference("enable_default_internet_access");
+        get => GetArgument<TerraformValue<bool>>("enable_default_internet_access") ?? CreateReference("enable_default_internet_access");
         set => SetArgument("enable_default_internet_access", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> IamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("iam_role_arn") ?? AsReference("iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("iam_role_arn") ?? CreateReference("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> ImageArn
     {
-        get => GetArgument<TerraformValue<string>>("image_arn") ?? AsReference("image_arn");
+        get => GetArgument<TerraformValue<string>>("image_arn") ?? CreateReference("image_arn");
         set => SetArgument("image_arn", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name") ?? AsReference("image_name");
+        get => GetArgument<TerraformValue<string>>("image_name") ?? CreateReference("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -228,19 +228,19 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// AccessEndpoint block (nesting mode: set).

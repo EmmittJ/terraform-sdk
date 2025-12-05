@@ -22,7 +22,7 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -86,36 +86,36 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-        => AsReference("protocol");
+        => CreateReference("protocol");
 
     /// <summary>
     /// The public_ports attribute.
     /// </summary>
     public TerraformList<double> PublicPorts
-        => AsReference("public_ports");
+        => CreateReference("public_ports");
 
     /// <summary>
     /// The support_code attribute.
     /// </summary>
     public TerraformValue<string> SupportCode
-        => AsReference("support_code");
+        => CreateReference("support_code");
 
 }

@@ -78,7 +78,7 @@ public partial class GoogleBackupDrManagementServer(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -107,7 +107,7 @@ public partial class GoogleBackupDrManagementServer(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -124,13 +124,13 @@ public partial class GoogleBackupDrManagementServer(string name) : TerraformReso
     /// The management console URI
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagementUri
-        => AsReference("management_uri");
+        => CreateReference("management_uri");
 
     /// <summary>
     /// The oauth2ClientId of management console.
     /// </summary>
     public TerraformValue<string> Oauth2ClientId
-        => AsReference("oauth2_client_id");
+        => CreateReference("oauth2_client_id");
 
     /// <summary>
     /// Networks block (nesting mode: list).

@@ -46,7 +46,7 @@ public partial class AzurermBatchPoolDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,139 +74,139 @@ public partial class AzurermBatchPoolDataSource(string name) : TerraformDataSour
     /// The auto_scale attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoScale
-        => AsReference("auto_scale");
+        => CreateReference("auto_scale");
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certificate
-        => AsReference("certificate");
+        => CreateReference("certificate");
 
     /// <summary>
     /// The container_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ContainerConfiguration
-        => AsReference("container_configuration");
+        => CreateReference("container_configuration");
 
     /// <summary>
     /// The data_disks attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataDisks
-        => AsReference("data_disks");
+        => CreateReference("data_disks");
 
     /// <summary>
     /// The disk_encryption attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiskEncryption
-        => AsReference("disk_encryption");
+        => CreateReference("disk_encryption");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The extensions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Extensions
-        => AsReference("extensions");
+        => CreateReference("extensions");
 
     /// <summary>
     /// The fixed_scale attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FixedScale
-        => AsReference("fixed_scale");
+        => CreateReference("fixed_scale");
 
     /// <summary>
     /// The inter_node_communication attribute.
     /// </summary>
     public TerraformValue<string> InterNodeCommunication
-        => AsReference("inter_node_communication");
+        => CreateReference("inter_node_communication");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     public TerraformValue<string> LicenseType
-        => AsReference("license_type");
+        => CreateReference("license_type");
 
     /// <summary>
     /// The max_tasks_per_node attribute.
     /// </summary>
     public TerraformValue<double> MaxTasksPerNode
-        => AsReference("max_tasks_per_node");
+        => CreateReference("max_tasks_per_node");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformMap<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// The mount attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Mount
-        => AsReference("mount");
+        => CreateReference("mount");
 
     /// <summary>
     /// The network_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkConfiguration
-        => AsReference("network_configuration");
+        => CreateReference("network_configuration");
 
     /// <summary>
     /// The node_agent_sku_id attribute.
     /// </summary>
     public TerraformValue<string> NodeAgentSkuId
-        => AsReference("node_agent_sku_id");
+        => CreateReference("node_agent_sku_id");
 
     /// <summary>
     /// The node_placement attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodePlacement
-        => AsReference("node_placement");
+        => CreateReference("node_placement");
 
     /// <summary>
     /// The os_disk_placement attribute.
     /// </summary>
     public TerraformValue<string> OsDiskPlacement
-        => AsReference("os_disk_placement");
+        => CreateReference("os_disk_placement");
 
     /// <summary>
     /// The start_task attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StartTask
-        => AsReference("start_task");
+        => CreateReference("start_task");
 
     /// <summary>
     /// The storage_image_reference attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageImageReference
-        => AsReference("storage_image_reference");
+        => CreateReference("storage_image_reference");
 
     /// <summary>
     /// The task_scheduling_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TaskSchedulingPolicy
-        => AsReference("task_scheduling_policy");
+        => CreateReference("task_scheduling_policy");
 
     /// <summary>
     /// The user_accounts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserAccounts
-        => AsReference("user_accounts");
+        => CreateReference("user_accounts");
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     public TerraformValue<string> VmSize
-        => AsReference("vm_size");
+        => CreateReference("vm_size");
 
     /// <summary>
     /// The windows attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Windows
-        => AsReference("windows");
+        => CreateReference("windows");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

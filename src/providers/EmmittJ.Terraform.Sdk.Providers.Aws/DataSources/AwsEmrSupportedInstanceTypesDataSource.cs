@@ -13,7 +13,7 @@ public partial class AwsEmrSupportedInstanceTypesDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,12 +31,12 @@ public partial class AwsEmrSupportedInstanceTypesDataSource(string name) : Terra
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The supported_instance_types attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SupportedInstanceTypes
-        => AsReference("supported_instance_types");
+        => CreateReference("supported_instance_types");
 
 }

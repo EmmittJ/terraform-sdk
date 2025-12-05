@@ -36,7 +36,7 @@ public partial class AzurermAvailabilitySetDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermAvailabilitySetDataSource(string name) : TerraformDa
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The managed attribute.
     /// </summary>
     public TerraformValue<bool> Managed
-        => AsReference("managed");
+        => CreateReference("managed");
 
     /// <summary>
     /// The platform_fault_domain_count attribute.
     /// </summary>
     public TerraformValue<double> PlatformFaultDomainCount
-        => AsReference("platform_fault_domain_count");
+        => CreateReference("platform_fault_domain_count");
 
     /// <summary>
     /// The platform_update_domain_count attribute.
     /// </summary>
     public TerraformValue<double> PlatformUpdateDomainCount
-        => AsReference("platform_update_domain_count");
+        => CreateReference("platform_update_domain_count");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

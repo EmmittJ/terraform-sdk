@@ -63,7 +63,7 @@ public partial class AzurermNetworkFunctionAzureTrafficCollector(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,13 +110,13 @@ public partial class AzurermNetworkFunctionAzureTrafficCollector(string name) : 
     /// The collector_policy_ids attribute.
     /// </summary>
     public TerraformList<string> CollectorPolicyIds
-        => AsReference("collector_policy_ids");
+        => CreateReference("collector_policy_ids");
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     public TerraformList<string> VirtualHubId
-        => AsReference("virtual_hub_id");
+        => CreateReference("virtual_hub_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

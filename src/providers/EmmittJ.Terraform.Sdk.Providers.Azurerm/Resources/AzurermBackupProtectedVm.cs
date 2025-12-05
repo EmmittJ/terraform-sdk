@@ -81,7 +81,7 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> ProtectionState
     {
-        get => GetArgument<TerraformValue<string>>("protection_state") ?? AsReference("protection_state");
+        get => GetArgument<TerraformValue<string>>("protection_state") ?? CreateReference("protection_state");
         set => SetArgument("protection_state", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> SourceVmId
     {
-        get => GetArgument<TerraformValue<string>>("source_vm_id") ?? AsReference("source_vm_id");
+        get => GetArgument<TerraformValue<string>>("source_vm_id") ?? CreateReference("source_vm_id");
         set => SetArgument("source_vm_id", value);
     }
 

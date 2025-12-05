@@ -54,7 +54,7 @@ public partial class AzureadServicePrincipalTokenSigningCertificate(string name)
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzureadServicePrincipalTokenSigningCertificate(string name)
     /// </summary>
     public TerraformValue<string> EndDate
     {
-        get => GetArgument<TerraformValue<string>>("end_date") ?? AsReference("end_date");
+        get => GetArgument<TerraformValue<string>>("end_date") ?? CreateReference("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzureadServicePrincipalTokenSigningCertificate(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -90,25 +90,25 @@ public partial class AzureadServicePrincipalTokenSigningCertificate(string name)
     /// A UUID used to uniquely identify the verify certificate.
     /// </summary>
     public TerraformValue<string> KeyId
-        => AsReference("key_id");
+        => CreateReference("key_id");
 
     /// <summary>
     /// The start date from which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
     /// </summary>
     public TerraformValue<string> StartDate
-        => AsReference("start_date");
+        => CreateReference("start_date");
 
     /// <summary>
     /// The thumbprint of the certificate.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
     /// <summary>
     /// The certificate data, which is PEM encoded but does not include the header/footer
     /// </summary>
     public TerraformValue<string> Value
-        => AsReference("value");
+        => CreateReference("value");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzurermApplicationGatewayDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,193 +64,193 @@ public partial class AzurermApplicationGatewayDataSource(string name) : Terrafor
     /// The authentication_certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AuthenticationCertificate
-        => AsReference("authentication_certificate");
+        => CreateReference("authentication_certificate");
 
     /// <summary>
     /// The autoscale_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoscaleConfiguration
-        => AsReference("autoscale_configuration");
+        => CreateReference("autoscale_configuration");
 
     /// <summary>
     /// The backend_address_pool attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BackendAddressPool
-        => AsReference("backend_address_pool");
+        => CreateReference("backend_address_pool");
 
     /// <summary>
     /// The backend_http_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BackendHttpSettings
-        => AsReference("backend_http_settings");
+        => CreateReference("backend_http_settings");
 
     /// <summary>
     /// The custom_error_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomErrorConfiguration
-        => AsReference("custom_error_configuration");
+        => CreateReference("custom_error_configuration");
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
     public TerraformValue<bool> FipsEnabled
-        => AsReference("fips_enabled");
+        => CreateReference("fips_enabled");
 
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
     public TerraformValue<string> FirewallPolicyId
-        => AsReference("firewall_policy_id");
+        => CreateReference("firewall_policy_id");
 
     /// <summary>
     /// The force_firewall_policy_association attribute.
     /// </summary>
     public TerraformValue<bool> ForceFirewallPolicyAssociation
-        => AsReference("force_firewall_policy_association");
+        => CreateReference("force_firewall_policy_association");
 
     /// <summary>
     /// The frontend_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FrontendIpConfiguration
-        => AsReference("frontend_ip_configuration");
+        => CreateReference("frontend_ip_configuration");
 
     /// <summary>
     /// The frontend_port attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FrontendPort
-        => AsReference("frontend_port");
+        => CreateReference("frontend_port");
 
     /// <summary>
     /// The gateway_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GatewayIpConfiguration
-        => AsReference("gateway_ip_configuration");
+        => CreateReference("gateway_ip_configuration");
 
     /// <summary>
     /// The global attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GlobalAttribute
-        => AsReference("global");
+        => CreateReference("global");
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
     public TerraformValue<bool> Http2Enabled
-        => AsReference("http2_enabled");
+        => CreateReference("http2_enabled");
 
     /// <summary>
     /// The http_listener attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HttpListener
-        => AsReference("http_listener");
+        => CreateReference("http_listener");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The private_endpoint_connection attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateEndpointConnection
-        => AsReference("private_endpoint_connection");
+        => CreateReference("private_endpoint_connection");
 
     /// <summary>
     /// The private_link_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateLinkConfiguration
-        => AsReference("private_link_configuration");
+        => CreateReference("private_link_configuration");
 
     /// <summary>
     /// The probe attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Probe
-        => AsReference("probe");
+        => CreateReference("probe");
 
     /// <summary>
     /// The redirect_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RedirectConfiguration
-        => AsReference("redirect_configuration");
+        => CreateReference("redirect_configuration");
 
     /// <summary>
     /// The request_routing_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequestRoutingRule
-        => AsReference("request_routing_rule");
+        => CreateReference("request_routing_rule");
 
     /// <summary>
     /// The rewrite_rule_set attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RewriteRuleSet
-        => AsReference("rewrite_rule_set");
+        => CreateReference("rewrite_rule_set");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The ssl_certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SslCertificate
-        => AsReference("ssl_certificate");
+        => CreateReference("ssl_certificate");
 
     /// <summary>
     /// The ssl_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SslPolicy
-        => AsReference("ssl_policy");
+        => CreateReference("ssl_policy");
 
     /// <summary>
     /// The ssl_profile attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SslProfile
-        => AsReference("ssl_profile");
+        => CreateReference("ssl_profile");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The trusted_client_certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrustedClientCertificate
-        => AsReference("trusted_client_certificate");
+        => CreateReference("trusted_client_certificate");
 
     /// <summary>
     /// The trusted_root_certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrustedRootCertificate
-        => AsReference("trusted_root_certificate");
+        => CreateReference("trusted_root_certificate");
 
     /// <summary>
     /// The url_path_map attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UrlPathMap
-        => AsReference("url_path_map");
+        => CreateReference("url_path_map");
 
     /// <summary>
     /// The waf_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WafConfiguration
-        => AsReference("waf_configuration");
+        => CreateReference("waf_configuration");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

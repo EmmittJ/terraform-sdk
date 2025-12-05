@@ -18,7 +18,7 @@ public class AwsBedrockGuardrailContentPolicyConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<TerraformMap<object>> TierConfig
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("tier_config") ?? AsReference("tier_config");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("tier_config") ?? CreateReference("tier_config");
         set => SetArgument("tier_config", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockPiiEntities
     /// </summary>
     public TerraformValue<string> InputAction
     {
-        get => GetArgument<TerraformValue<string>>("input_action") ?? AsReference("input_action");
+        get => GetArgument<TerraformValue<string>>("input_action") ?? CreateReference("input_action");
         set => SetArgument("input_action", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockPiiEntities
     /// </summary>
     public TerraformValue<bool> InputEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("input_enabled") ?? AsReference("input_enabled");
+        get => GetArgument<TerraformValue<bool>>("input_enabled") ?? CreateReference("input_enabled");
         set => SetArgument("input_enabled", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockPiiEntities
     /// </summary>
     public TerraformValue<string> OutputAction
     {
-        get => GetArgument<TerraformValue<string>>("output_action") ?? AsReference("output_action");
+        get => GetArgument<TerraformValue<string>>("output_action") ?? CreateReference("output_action");
         set => SetArgument("output_action", value);
     }
 
@@ -241,7 +241,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockPiiEntities
     /// </summary>
     public TerraformValue<bool> OutputEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("output_enabled") ?? AsReference("output_enabled");
+        get => GetArgument<TerraformValue<bool>>("output_enabled") ?? CreateReference("output_enabled");
         set => SetArgument("output_enabled", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockRegexesConf
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -292,7 +292,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockRegexesConf
     /// </summary>
     public TerraformValue<string> InputAction
     {
-        get => GetArgument<TerraformValue<string>>("input_action") ?? AsReference("input_action");
+        get => GetArgument<TerraformValue<string>>("input_action") ?? CreateReference("input_action");
         set => SetArgument("input_action", value);
     }
 
@@ -301,7 +301,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockRegexesConf
     /// </summary>
     public TerraformValue<bool> InputEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("input_enabled") ?? AsReference("input_enabled");
+        get => GetArgument<TerraformValue<bool>>("input_enabled") ?? CreateReference("input_enabled");
         set => SetArgument("input_enabled", value);
     }
 
@@ -320,7 +320,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockRegexesConf
     /// </summary>
     public TerraformValue<string> OutputAction
     {
-        get => GetArgument<TerraformValue<string>>("output_action") ?? AsReference("output_action");
+        get => GetArgument<TerraformValue<string>>("output_action") ?? CreateReference("output_action");
         set => SetArgument("output_action", value);
     }
 
@@ -329,7 +329,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockRegexesConf
     /// </summary>
     public TerraformValue<bool> OutputEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("output_enabled") ?? AsReference("output_enabled");
+        get => GetArgument<TerraformValue<bool>>("output_enabled") ?? CreateReference("output_enabled");
         set => SetArgument("output_enabled", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsBedrockGuardrailTopicPolicyConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<TerraformMap<object>> TierConfig
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("tier_config") ?? AsReference("tier_config");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("tier_config") ?? CreateReference("tier_config");
         set => SetArgument("tier_config", value);
     }
 
@@ -444,7 +444,7 @@ public class AwsBedrockGuardrailTopicPolicyConfigBlockTopicsConfigBlock : Terraf
     /// </summary>
     public TerraformList<string> Examples
     {
-        get => GetArgument<TerraformList<string>>("examples") ?? AsReference("examples");
+        get => GetArgument<TerraformList<string>>("examples") ?? CreateReference("examples");
         set => SetArgument("examples", value);
     }
 
@@ -652,7 +652,7 @@ public partial class AwsBedrockGuardrail(string name) : TerraformResource("aws_b
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -680,7 +680,7 @@ public partial class AwsBedrockGuardrail(string name) : TerraformResource("aws_b
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -697,37 +697,37 @@ public partial class AwsBedrockGuardrail(string name) : TerraformResource("aws_b
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The guardrail_arn attribute.
     /// </summary>
     public TerraformValue<string> GuardrailArn
-        => AsReference("guardrail_arn");
+        => CreateReference("guardrail_arn");
 
     /// <summary>
     /// The guardrail_id attribute.
     /// </summary>
     public TerraformValue<string> GuardrailId
-        => AsReference("guardrail_id");
+        => CreateReference("guardrail_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// ContentPolicyConfig block (nesting mode: list).

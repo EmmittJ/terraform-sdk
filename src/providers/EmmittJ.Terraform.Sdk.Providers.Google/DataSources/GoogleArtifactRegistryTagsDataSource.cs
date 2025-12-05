@@ -22,7 +22,7 @@ public partial class GoogleArtifactRegistryTagsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -69,6 +69,6 @@ public partial class GoogleArtifactRegistryTagsDataSource(string name) : Terrafo
     /// The tags attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
 }

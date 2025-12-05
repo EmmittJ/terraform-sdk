@@ -13,7 +13,7 @@ public partial class AwsBatchJobQueueDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsBatchJobQueueDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsBatchJobQueueDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,48 +49,48 @@ public partial class AwsBatchJobQueueDataSource(string name) : TerraformDataSour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The compute_environment_order attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ComputeEnvironmentOrder
-        => AsReference("compute_environment_order");
+        => CreateReference("compute_environment_order");
 
     /// <summary>
     /// The job_state_time_limit_action attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> JobStateTimeLimitAction
-        => AsReference("job_state_time_limit_action");
+        => CreateReference("job_state_time_limit_action");
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     public TerraformValue<double> Priority
-        => AsReference("priority");
+        => CreateReference("priority");
 
     /// <summary>
     /// The scheduling_policy_arn attribute.
     /// </summary>
     public TerraformValue<string> SchedulingPolicyArn
-        => AsReference("scheduling_policy_arn");
+        => CreateReference("scheduling_policy_arn");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
 }

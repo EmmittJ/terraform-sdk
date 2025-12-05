@@ -13,7 +13,7 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -77,72 +77,72 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformMap<string> Parameters
-        => AsReference("parameters");
+        => CreateReference("parameters");
 
     /// <summary>
     /// The partition_index attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PartitionIndex
-        => AsReference("partition_index");
+        => CreateReference("partition_index");
 
     /// <summary>
     /// The partition_keys attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PartitionKeys
-        => AsReference("partition_keys");
+        => CreateReference("partition_keys");
 
     /// <summary>
     /// The retention attribute.
     /// </summary>
     public TerraformValue<double> Retention
-        => AsReference("retention");
+        => CreateReference("retention");
 
     /// <summary>
     /// The storage_descriptor attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageDescriptor
-        => AsReference("storage_descriptor");
+        => CreateReference("storage_descriptor");
 
     /// <summary>
     /// The table_type attribute.
     /// </summary>
     public TerraformValue<string> TableType
-        => AsReference("table_type");
+        => CreateReference("table_type");
 
     /// <summary>
     /// The target_table attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TargetTable
-        => AsReference("target_table");
+        => CreateReference("target_table");
 
     /// <summary>
     /// The view_expanded_text attribute.
     /// </summary>
     public TerraformValue<string> ViewExpandedText
-        => AsReference("view_expanded_text");
+        => CreateReference("view_expanded_text");
 
     /// <summary>
     /// The view_original_text attribute.
     /// </summary>
     public TerraformValue<string> ViewOriginalText
-        => AsReference("view_original_text");
+        => CreateReference("view_original_text");
 
 }

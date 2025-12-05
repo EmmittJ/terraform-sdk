@@ -36,7 +36,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,37 +74,37 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourc
     /// The assignment_hash attribute.
     /// </summary>
     public TerraformValue<string> AssignmentHash
-        => AsReference("assignment_hash");
+        => CreateReference("assignment_hash");
 
     /// <summary>
     /// The compliance_status attribute.
     /// </summary>
     public TerraformValue<string> ComplianceStatus
-        => AsReference("compliance_status");
+        => CreateReference("compliance_status");
 
     /// <summary>
     /// The content_hash attribute.
     /// </summary>
     public TerraformValue<string> ContentHash
-        => AsReference("content_hash");
+        => CreateReference("content_hash");
 
     /// <summary>
     /// The content_uri attribute.
     /// </summary>
     public TerraformValue<string> ContentUri
-        => AsReference("content_uri");
+        => CreateReference("content_uri");
 
     /// <summary>
     /// The last_compliance_status_checked attribute.
     /// </summary>
     public TerraformValue<string> LastComplianceStatusChecked
-        => AsReference("last_compliance_status_checked");
+        => CreateReference("last_compliance_status_checked");
 
     /// <summary>
     /// The latest_report_id attribute.
     /// </summary>
     public TerraformValue<string> LatestReportId
-        => AsReference("latest_report_id");
+        => CreateReference("latest_report_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

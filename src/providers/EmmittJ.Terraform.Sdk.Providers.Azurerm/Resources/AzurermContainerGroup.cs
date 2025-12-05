@@ -18,7 +18,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> Commands
     {
-        get => GetArgument<TerraformList<string>>("commands") ?? AsReference("commands");
+        get => GetArgument<TerraformList<string>>("commands") ?? CreateReference("commands");
         set => SetArgument("commands", value);
     }
 
@@ -734,13 +734,13 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -822,7 +822,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> Commands
     {
-        get => GetArgument<TerraformList<string>>("commands") ?? AsReference("commands");
+        get => GetArgument<TerraformList<string>>("commands") ?? CreateReference("commands");
         set => SetArgument("commands", value);
     }
 
@@ -1125,7 +1125,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformSet<TerraformMap<object>> ExposedPort
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("exposed_port") ?? AsReference("exposed_port");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("exposed_port") ?? CreateReference("exposed_port");
         set => SetArgument("exposed_port", value);
     }
 
@@ -1134,7 +1134,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1191,7 +1191,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> NetworkProfileId
     {
-        get => GetArgument<TerraformValue<string>>("network_profile_id") ?? AsReference("network_profile_id");
+        get => GetArgument<TerraformValue<string>>("network_profile_id") ?? CreateReference("network_profile_id");
         set => SetArgument("network_profile_id", value);
     }
 
@@ -1273,13 +1273,13 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// Container block (nesting mode: list).

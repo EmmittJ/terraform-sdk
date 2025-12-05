@@ -23,7 +23,7 @@ public partial class GoogleApphubApplicationDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,38 +51,38 @@ public partial class GoogleApphubApplicationDataSource(string name) : TerraformD
     /// Consumer provided attributes.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attributes
-        => AsReference("attributes");
+        => CreateReference("attributes");
 
     /// <summary>
     /// Output only. Create time.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Optional. User-defined description of an Application.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Optional. User-defined name for the Application.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// Identifier. The resource name of an Application. Format:
     /// &amp;quot;projects/{host-project-id}/locations/{location}/applications/{application-id}&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Scope of an application.
     /// </summary>
     public TerraformList<TerraformMap<object>> Scope
-        => AsReference("scope");
+        => CreateReference("scope");
 
     /// <summary>
     /// Output only. Application state. 
@@ -93,18 +93,18 @@ public partial class GoogleApphubApplicationDataSource(string name) : TerraformD
     /// DELETING
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. A universally unique identifier (in UUID4 format) for the &#39;Application&#39;.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. Update time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

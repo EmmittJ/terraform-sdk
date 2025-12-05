@@ -22,7 +22,7 @@ public partial class AwsOdbDbSystemShapesDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -30,6 +30,6 @@ public partial class AwsOdbDbSystemShapesDataSource(string name) : TerraformData
     /// The list of shapes and their properties. Information about a hardware system model (shape) that&#39;s available for an Exadata infrastructure.The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbSystemShapes
-        => AsReference("db_system_shapes");
+        => CreateReference("db_system_shapes");
 
 }

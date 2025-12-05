@@ -17,7 +17,7 @@ public class GoogleBigqueryReservationAutoscaleBlock : TerraformBlock
     /// The slot capacity added to this reservation when autoscale happens. Will be between [0, max_slots].
     /// </summary>
     public TerraformValue<double> CurrentSlots
-        => AsReference("current_slots");
+        => CreateReference("current_slots");
 
     /// <summary>
     /// Number of slots to be scaled when needed.
@@ -92,7 +92,7 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Edition
     {
-        get => GetArgument<TerraformValue<string>>("edition") ?? AsReference("edition");
+        get => GetArgument<TerraformValue<string>>("edition") ?? CreateReference("edition");
         set => SetArgument("edition", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -174,14 +174,14 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// applied to this location.
     /// </summary>
     public TerraformValue<string> OriginalPrimaryLocation
-        => AsReference("original_primary_location");
+        => CreateReference("original_primary_location");
 
     /// <summary>
     /// The current location of the reservation&#39;s primary replica. This field is only set for
     /// reservations using the managed disaster recovery feature.
     /// </summary>
     public TerraformValue<string> PrimaryLocation
-        => AsReference("primary_location");
+        => CreateReference("primary_location");
 
     /// <summary>
     /// The Disaster Recovery(DR) replication status of the reservation. This is only available for
@@ -192,7 +192,7 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// operations on the reservation have succeeded.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReplicationStatus
-        => AsReference("replication_status");
+        => CreateReference("replication_status");
 
     /// <summary>
     /// Autoscale block (nesting mode: list).

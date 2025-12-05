@@ -84,7 +84,7 @@ public partial class AwsCloudwatchLogMetricFilter(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool> ApplyOnTransformedLogs
     {
-        get => GetArgument<TerraformValue<bool>>("apply_on_transformed_logs") ?? AsReference("apply_on_transformed_logs");
+        get => GetArgument<TerraformValue<bool>>("apply_on_transformed_logs") ?? CreateReference("apply_on_transformed_logs");
         set => SetArgument("apply_on_transformed_logs", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsCloudwatchLogMetricFilter(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsCloudwatchLogMetricFilter(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

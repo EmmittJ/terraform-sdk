@@ -13,7 +13,7 @@ public partial class AwsCloudformationStackDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCloudformationStackDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCloudformationStackDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,54 +49,54 @@ public partial class AwsCloudformationStackDataSource(string name) : TerraformDa
     /// The capabilities attribute.
     /// </summary>
     public TerraformSet<string> Capabilities
-        => AsReference("capabilities");
+        => CreateReference("capabilities");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The disable_rollback attribute.
     /// </summary>
     public TerraformValue<bool> DisableRollback
-        => AsReference("disable_rollback");
+        => CreateReference("disable_rollback");
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
     public TerraformValue<string> IamRoleArn
-        => AsReference("iam_role_arn");
+        => CreateReference("iam_role_arn");
 
     /// <summary>
     /// The notification_arns attribute.
     /// </summary>
     public TerraformSet<string> NotificationArns
-        => AsReference("notification_arns");
+        => CreateReference("notification_arns");
 
     /// <summary>
     /// The outputs attribute.
     /// </summary>
     public TerraformMap<string> Outputs
-        => AsReference("outputs");
+        => CreateReference("outputs");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformMap<string> Parameters
-        => AsReference("parameters");
+        => CreateReference("parameters");
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
     public TerraformValue<string> TemplateBody
-        => AsReference("template_body");
+        => CreateReference("template_body");
 
     /// <summary>
     /// The timeout_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> TimeoutInMinutes
-        => AsReference("timeout_in_minutes");
+        => CreateReference("timeout_in_minutes");
 
 }

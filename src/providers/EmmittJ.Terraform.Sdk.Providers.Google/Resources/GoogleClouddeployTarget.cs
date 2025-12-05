@@ -169,7 +169,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ArtifactStorage
     {
-        get => GetArgument<TerraformValue<string>>("artifact_storage") ?? AsReference("artifact_storage");
+        get => GetArgument<TerraformValue<string>>("artifact_storage") ?? CreateReference("artifact_storage");
         set => SetArgument("artifact_storage", value);
     }
 
@@ -178,7 +178,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ExecutionTimeout
     {
-        get => GetArgument<TerraformValue<string>>("execution_timeout") ?? AsReference("execution_timeout");
+        get => GetArgument<TerraformValue<string>>("execution_timeout") ?? CreateReference("execution_timeout");
         set => SetArgument("execution_timeout", value);
     }
 
@@ -187,7 +187,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -402,7 +402,7 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -443,7 +443,7 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -460,49 +460,49 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// Output only. Time at which the `Target` was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Output only. Resource id of the `Target`.
     /// </summary>
     public TerraformValue<string> TargetId
-        => AsReference("target_id");
+        => CreateReference("target_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. Unique identifier of the `Target`.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. Most recent time at which the `Target` was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// AnthosCluster block (nesting mode: list).

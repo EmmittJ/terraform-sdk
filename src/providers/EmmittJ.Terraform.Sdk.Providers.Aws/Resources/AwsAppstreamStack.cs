@@ -28,7 +28,7 @@ public class AwsAppstreamStackAccessEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VpceId
     {
-        get => GetArgument<TerraformValue<string>>("vpce_id") ?? AsReference("vpce_id");
+        get => GetArgument<TerraformValue<string>>("vpce_id") ?? CreateReference("vpce_id");
         set => SetArgument("vpce_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsAppstreamStackStorageConnectorsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> Domains
     {
-        get => GetArgument<TerraformList<string>>("domains") ?? AsReference("domains");
+        get => GetArgument<TerraformList<string>>("domains") ?? CreateReference("domains");
         set => SetArgument("domains", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsAppstreamStackStorageConnectorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ResourceIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("resource_identifier") ?? AsReference("resource_identifier");
+        get => GetArgument<TerraformValue<string>>("resource_identifier") ?? CreateReference("resource_identifier");
         set => SetArgument("resource_identifier", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// </summary>
     public TerraformSet<string> EmbedHostDomains
     {
-        get => GetArgument<TerraformSet<string>>("embed_host_domains") ?? AsReference("embed_host_domains");
+        get => GetArgument<TerraformSet<string>>("embed_host_domains") ?? CreateReference("embed_host_domains");
         set => SetArgument("embed_host_domains", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// </summary>
     public TerraformValue<string> FeedbackUrl
     {
-        get => GetArgument<TerraformValue<string>>("feedback_url") ?? AsReference("feedback_url");
+        get => GetArgument<TerraformValue<string>>("feedback_url") ?? CreateReference("feedback_url");
         set => SetArgument("feedback_url", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// </summary>
     public TerraformValue<string> RedirectUrl
     {
-        get => GetArgument<TerraformValue<string>>("redirect_url") ?? AsReference("redirect_url");
+        get => GetArgument<TerraformValue<string>>("redirect_url") ?? CreateReference("redirect_url");
         set => SetArgument("redirect_url", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -268,13 +268,13 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// AccessEndpoints block (nesting mode: set).

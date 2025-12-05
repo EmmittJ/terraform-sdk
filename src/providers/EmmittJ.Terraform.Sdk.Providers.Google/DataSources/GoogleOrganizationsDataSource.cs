@@ -22,7 +22,7 @@ public partial class GoogleOrganizationsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -30,6 +30,6 @@ public partial class GoogleOrganizationsDataSource(string name) : TerraformDataS
     /// The organizations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Organizations
-        => AsReference("organizations");
+        => CreateReference("organizations");
 
 }

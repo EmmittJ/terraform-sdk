@@ -36,7 +36,7 @@ public partial class AzurermCdnFrontdoorProfileDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermCdnFrontdoorProfileDataSource(string name) : Terrafo
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The log_scrubbing_rule attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LogScrubbingRule
-        => AsReference("log_scrubbing_rule");
+        => CreateReference("log_scrubbing_rule");
 
     /// <summary>
     /// The resource_guid attribute.
     /// </summary>
     public TerraformValue<string> ResourceGuid
-        => AsReference("resource_guid");
+        => CreateReference("resource_guid");
 
     /// <summary>
     /// The response_timeout_seconds attribute.
     /// </summary>
     public TerraformValue<double> ResponseTimeoutSeconds
-        => AsReference("response_timeout_seconds");
+        => CreateReference("response_timeout_seconds");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

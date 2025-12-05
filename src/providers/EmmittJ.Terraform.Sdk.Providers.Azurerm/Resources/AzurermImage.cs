@@ -18,7 +18,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> BlobUri
     {
-        get => GetArgument<TerraformValue<string>>("blob_uri") ?? AsReference("blob_uri");
+        get => GetArgument<TerraformValue<string>>("blob_uri") ?? CreateReference("blob_uri");
         set => SetArgument("blob_uri", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> SizeGb
     {
-        get => GetArgument<TerraformValue<double>>("size_gb") ?? AsReference("size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb") ?? CreateReference("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> BlobUri
     {
-        get => GetArgument<TerraformValue<string>>("blob_uri") ?? AsReference("blob_uri");
+        get => GetArgument<TerraformValue<string>>("blob_uri") ?? CreateReference("blob_uri");
         set => SetArgument("blob_uri", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ManagedDiskId
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_id") ?? AsReference("managed_disk_id");
+        get => GetArgument<TerraformValue<string>>("managed_disk_id") ?? CreateReference("managed_disk_id");
         set => SetArgument("managed_disk_id", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> SizeGb
     {
-        get => GetArgument<TerraformValue<double>>("size_gb") ?? AsReference("size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb") ?? CreateReference("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AzurermImage(string name) : TerraformResource("azurerm_imag
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

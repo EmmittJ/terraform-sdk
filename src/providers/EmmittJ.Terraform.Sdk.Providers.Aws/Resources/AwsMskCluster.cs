@@ -123,7 +123,7 @@ public class AwsMskClusterBrokerNodeGroupInfoBlockConnectivityInfoBlockPublicAcc
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsMskClusterBrokerNodeGroupInfoBlockConnectivityInfoBlockVpcConnec
     /// </summary>
     public TerraformValue<bool> Tls
     {
-        get => GetArgument<TerraformValue<bool>>("tls") ?? AsReference("tls");
+        get => GetArgument<TerraformValue<bool>>("tls") ?? CreateReference("tls");
         set => SetArgument("tls", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsMskClusterBrokerNodeGroupInfoBlockConnectivityInfoBlockVpcConnec
     /// </summary>
     public TerraformValue<bool> Iam
     {
-        get => GetArgument<TerraformValue<bool>>("iam") ?? AsReference("iam");
+        get => GetArgument<TerraformValue<bool>>("iam") ?? CreateReference("iam");
         set => SetArgument("iam", value);
     }
 
@@ -209,7 +209,7 @@ public class AwsMskClusterBrokerNodeGroupInfoBlockConnectivityInfoBlockVpcConnec
     /// </summary>
     public TerraformValue<bool> Scram
     {
-        get => GetArgument<TerraformValue<bool>>("scram") ?? AsReference("scram");
+        get => GetArgument<TerraformValue<bool>>("scram") ?? CreateReference("scram");
         set => SetArgument("scram", value);
     }
 
@@ -448,7 +448,7 @@ public class AwsMskClusterEncryptionInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EncryptionAtRestKmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("encryption_at_rest_kms_key_arn") ?? AsReference("encryption_at_rest_kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("encryption_at_rest_kms_key_arn") ?? CreateReference("encryption_at_rest_kms_key_arn");
         set => SetArgument("encryption_at_rest_kms_key_arn", value);
     }
 
@@ -848,7 +848,7 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -877,7 +877,7 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -886,7 +886,7 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     /// </summary>
     public TerraformValue<string> StorageMode
     {
-        get => GetArgument<TerraformValue<string>>("storage_mode") ?? AsReference("storage_mode");
+        get => GetArgument<TerraformValue<string>>("storage_mode") ?? CreateReference("storage_mode");
         set => SetArgument("storage_mode", value);
     }
 
@@ -904,7 +904,7 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -912,91 +912,91 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The bootstrap_brokers attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokers
-        => AsReference("bootstrap_brokers");
+        => CreateReference("bootstrap_brokers");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_iam attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersPublicSaslIam
-        => AsReference("bootstrap_brokers_public_sasl_iam");
+        => CreateReference("bootstrap_brokers_public_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_scram attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersPublicSaslScram
-        => AsReference("bootstrap_brokers_public_sasl_scram");
+        => CreateReference("bootstrap_brokers_public_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_public_tls attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersPublicTls
-        => AsReference("bootstrap_brokers_public_tls");
+        => CreateReference("bootstrap_brokers_public_tls");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersSaslIam
-        => AsReference("bootstrap_brokers_sasl_iam");
+        => CreateReference("bootstrap_brokers_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_scram attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersSaslScram
-        => AsReference("bootstrap_brokers_sasl_scram");
+        => CreateReference("bootstrap_brokers_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_tls attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersTls
-        => AsReference("bootstrap_brokers_tls");
+        => CreateReference("bootstrap_brokers_tls");
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_sasl_iam attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersVpcConnectivitySaslIam
-        => AsReference("bootstrap_brokers_vpc_connectivity_sasl_iam");
+        => CreateReference("bootstrap_brokers_vpc_connectivity_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_sasl_scram attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersVpcConnectivitySaslScram
-        => AsReference("bootstrap_brokers_vpc_connectivity_sasl_scram");
+        => CreateReference("bootstrap_brokers_vpc_connectivity_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_tls attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersVpcConnectivityTls
-        => AsReference("bootstrap_brokers_vpc_connectivity_tls");
+        => CreateReference("bootstrap_brokers_vpc_connectivity_tls");
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
     public TerraformValue<string> ClusterUuid
-        => AsReference("cluster_uuid");
+        => CreateReference("cluster_uuid");
 
     /// <summary>
     /// The current_version attribute.
     /// </summary>
     public TerraformValue<string> CurrentVersion
-        => AsReference("current_version");
+        => CreateReference("current_version");
 
     /// <summary>
     /// The zookeeper_connect_string attribute.
     /// </summary>
     public TerraformValue<string> ZookeeperConnectString
-        => AsReference("zookeeper_connect_string");
+        => CreateReference("zookeeper_connect_string");
 
     /// <summary>
     /// The zookeeper_connect_string_tls attribute.
     /// </summary>
     public TerraformValue<string> ZookeeperConnectStringTls
-        => AsReference("zookeeper_connect_string_tls");
+        => CreateReference("zookeeper_connect_string_tls");
 
     /// <summary>
     /// BrokerNodeGroupInfo block (nesting mode: list).

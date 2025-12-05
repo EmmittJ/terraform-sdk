@@ -73,7 +73,7 @@ public partial class AzurermBotChannelMsTeams(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool> CallingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("calling_enabled") ?? AsReference("calling_enabled");
+        get => GetArgument<TerraformValue<bool>>("calling_enabled") ?? CreateReference("calling_enabled");
         set => SetArgument("calling_enabled", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermBotChannelMsTeams(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> CallingWebHook
     {
-        get => GetArgument<TerraformValue<string>>("calling_web_hook") ?? AsReference("calling_web_hook");
+        get => GetArgument<TerraformValue<string>>("calling_web_hook") ?? CreateReference("calling_web_hook");
         set => SetArgument("calling_web_hook", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermBotChannelMsTeams(string name) : TerraformResource("
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableCalling
     {
-        get => GetArgument<TerraformValue<bool>>("enable_calling") ?? AsReference("enable_calling");
+        get => GetArgument<TerraformValue<bool>>("enable_calling") ?? CreateReference("enable_calling");
         set => SetArgument("enable_calling", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermBotChannelMsTeams(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

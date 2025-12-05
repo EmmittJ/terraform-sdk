@@ -156,7 +156,7 @@ public partial class GoogleBackupDrBackupVault(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -207,7 +207,7 @@ public partial class GoogleBackupDrBackupVault(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -215,49 +215,49 @@ public partial class GoogleBackupDrBackupVault(string name) : TerraformResource(
     /// Output only. The number of backups in this backup vault.
     /// </summary>
     public TerraformValue<string> BackupCount
-        => AsReference("backup_count");
+        => CreateReference("backup_count");
 
     /// <summary>
     /// Output only. The time when the instance was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. Set to true when there are no backups nested under this resource.
     /// </summary>
     public TerraformValue<bool> Deletable
-        => AsReference("deletable");
+        => CreateReference("deletable");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Optional. Server specified ETag for the backup vault resource to prevent simultaneous updates from overwiting each other.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Output only. Identifier. The resource name.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Service account used by the BackupVault Service for this BackupVault.  The user should grant this account permissions in their workload project to enable the service to run backups and restores there.
     /// </summary>
     public TerraformValue<string> ServiceAccount
-        => AsReference("service_account");
+        => CreateReference("service_account");
 
     /// <summary>
     /// Output only. The BackupVault resource instance state. 
@@ -269,32 +269,32 @@ public partial class GoogleBackupDrBackupVault(string name) : TerraformResource(
     ///  ERROR
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. Total size of the storage used by all backup resources.
     /// </summary>
     public TerraformValue<string> TotalStoredBytes
-        => AsReference("total_stored_bytes");
+        => CreateReference("total_stored_bytes");
 
     /// <summary>
     /// Output only. Output only Immutable after resource creation until resource deletion.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time when the instance was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

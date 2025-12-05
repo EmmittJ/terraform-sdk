@@ -13,7 +13,7 @@ public partial class AwsCloudfrontResponseHeadersPolicyDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCloudfrontResponseHeadersPolicyDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -30,48 +30,48 @@ public partial class AwsCloudfrontResponseHeadersPolicyDataSource(string name) :
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-        => AsReference("comment");
+        => CreateReference("comment");
 
     /// <summary>
     /// The cors_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CorsConfig
-        => AsReference("cors_config");
+        => CreateReference("cors_config");
 
     /// <summary>
     /// The custom_headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomHeadersConfig
-        => AsReference("custom_headers_config");
+        => CreateReference("custom_headers_config");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The remove_headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RemoveHeadersConfig
-        => AsReference("remove_headers_config");
+        => CreateReference("remove_headers_config");
 
     /// <summary>
     /// The security_headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecurityHeadersConfig
-        => AsReference("security_headers_config");
+        => CreateReference("security_headers_config");
 
     /// <summary>
     /// The server_timing_headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServerTimingHeadersConfig
-        => AsReference("server_timing_headers_config");
+        => CreateReference("server_timing_headers_config");
 
 }

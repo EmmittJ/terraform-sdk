@@ -73,7 +73,7 @@ public partial class AzurermLogAnalyticsLinkedStorageAccount(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermLogAnalyticsLinkedStorageAccount(string name) : Terr
     /// </summary>
     public TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id") ?? AsReference("workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id") ?? CreateReference("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermLogAnalyticsLinkedStorageAccount(string name) : Terr
     /// </summary>
     public TerraformValue<string> WorkspaceResourceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_resource_id") ?? AsReference("workspace_resource_id");
+        get => GetArgument<TerraformValue<string>>("workspace_resource_id") ?? CreateReference("workspace_resource_id");
         set => SetArgument("workspace_resource_id", value);
     }
 

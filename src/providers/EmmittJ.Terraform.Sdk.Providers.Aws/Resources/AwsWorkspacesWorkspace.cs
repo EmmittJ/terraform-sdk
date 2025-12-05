@@ -86,7 +86,7 @@ public class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> RunningModeAutoStopTimeoutInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("running_mode_auto_stop_timeout_in_minutes") ?? AsReference("running_mode_auto_stop_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("running_mode_auto_stop_timeout_in_minutes") ?? CreateReference("running_mode_auto_stop_timeout_in_minutes");
         set => SetArgument("running_mode_auto_stop_timeout_in_minutes", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsWorkspacesWorkspace(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsWorkspacesWorkspace(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AwsWorkspacesWorkspace(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -205,19 +205,19 @@ public partial class AwsWorkspacesWorkspace(string name) : TerraformResource("aw
     /// The computer_name attribute.
     /// </summary>
     public TerraformValue<string> ComputerName
-        => AsReference("computer_name");
+        => CreateReference("computer_name");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

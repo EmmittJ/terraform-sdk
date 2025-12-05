@@ -13,7 +13,7 @@ public partial class AwsSqsQueuesDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsSqsQueuesDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -39,6 +39,6 @@ public partial class AwsSqsQueuesDataSource(string name) : TerraformDataSource("
     /// The queue_urls attribute.
     /// </summary>
     public TerraformSet<string> QueueUrls
-        => AsReference("queue_urls");
+        => CreateReference("queue_urls");
 
 }

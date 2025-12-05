@@ -41,7 +41,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlo
     /// </summary>
     public TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action") ?? AsReference("action");
+        get => GetArgument<TerraformValue<string>>("action") ?? CreateReference("action");
         set => SetArgument("action", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlo
     /// </summary>
     public TerraformValue<string> GracePeriod
     {
-        get => GetArgument<TerraformValue<string>>("grace_period") ?? AsReference("grace_period");
+        get => GetArgument<TerraformValue<string>>("grace_period") ?? CreateReference("grace_period");
         set => SetArgument("grace_period", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
     /// </summary>
     public TerraformValue<double> Lun
     {
-        get => GetArgument<TerraformValue<double>>("lun") ?? AsReference("lun");
+        get => GetArgument<TerraformValue<double>>("lun") ?? CreateReference("lun");
         set => SetArgument("lun", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
     /// </summary>
     public TerraformValue<double> UltraSsdDiskIopsReadWrite
     {
-        get => GetArgument<TerraformValue<double>>("ultra_ssd_disk_iops_read_write") ?? AsReference("ultra_ssd_disk_iops_read_write");
+        get => GetArgument<TerraformValue<double>>("ultra_ssd_disk_iops_read_write") ?? CreateReference("ultra_ssd_disk_iops_read_write");
         set => SetArgument("ultra_ssd_disk_iops_read_write", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
     /// </summary>
     public TerraformValue<double> UltraSsdDiskMbpsReadWrite
     {
-        get => GetArgument<TerraformValue<double>>("ultra_ssd_disk_mbps_read_write") ?? AsReference("ultra_ssd_disk_mbps_read_write");
+        get => GetArgument<TerraformValue<double>>("ultra_ssd_disk_mbps_read_write") ?? CreateReference("ultra_ssd_disk_mbps_read_write");
         set => SetArgument("ultra_ssd_disk_mbps_read_write", value);
     }
 
@@ -581,7 +581,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlockIpCon
     /// </summary>
     public TerraformValue<double> IdleTimeoutInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("idle_timeout_in_minutes") ?? AsReference("idle_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("idle_timeout_in_minutes") ?? CreateReference("idle_timeout_in_minutes");
         set => SetArgument("idle_timeout_in_minutes", value);
     }
 
@@ -702,7 +702,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -847,7 +847,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockLinuxConfigu
     /// </summary>
     public TerraformValue<string> ComputerNamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("computer_name_prefix") ?? AsReference("computer_name_prefix");
+        get => GetArgument<TerraformValue<string>>("computer_name_prefix") ?? CreateReference("computer_name_prefix");
         set => SetArgument("computer_name_prefix", value);
     }
 
@@ -1034,7 +1034,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockWindowsConfi
     /// </summary>
     public TerraformValue<string> ComputerNamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("computer_name_prefix") ?? AsReference("computer_name_prefix");
+        get => GetArgument<TerraformValue<string>>("computer_name_prefix") ?? CreateReference("computer_name_prefix");
         set => SetArgument("computer_name_prefix", value);
     }
 
@@ -1639,7 +1639,7 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1648,7 +1648,7 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// </summary>
     public TerraformValue<double> Instances
     {
-        get => GetArgument<TerraformValue<double>>("instances") ?? AsReference("instances");
+        get => GetArgument<TerraformValue<double>>("instances") ?? CreateReference("instances");
         set => SetArgument("instances", value);
     }
 
@@ -1742,7 +1742,7 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// </summary>
     public TerraformValue<bool> SinglePlacementGroup
     {
-        get => GetArgument<TerraformValue<bool>>("single_placement_group") ?? AsReference("single_placement_group");
+        get => GetArgument<TerraformValue<bool>>("single_placement_group") ?? CreateReference("single_placement_group");
         set => SetArgument("single_placement_group", value);
     }
 
@@ -1813,7 +1813,7 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// The unique_id attribute.
     /// </summary>
     public TerraformValue<string> UniqueId
-        => AsReference("unique_id");
+        => CreateReference("unique_id");
 
     /// <summary>
     /// AdditionalCapabilities block (nesting mode: list).

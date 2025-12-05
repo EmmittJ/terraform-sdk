@@ -13,7 +13,7 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -53,50 +53,50 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored.
     /// </summary>
     public TerraformValue<string> ArtifactGcsUri
-        => AsReference("artifact_gcs_uri");
+        => CreateReference("artifact_gcs_uri");
 
     /// <summary>
     /// Output only. The time when the metastore service was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The database type that the Metastore service stores its data. Default value: &amp;quot;MYSQL&amp;quot; Possible values: [&amp;quot;MYSQL&amp;quot;, &amp;quot;SPANNER&amp;quot;]
     /// </summary>
     public TerraformValue<string> DatabaseType
-        => AsReference("database_type");
+        => CreateReference("database_type");
 
     /// <summary>
     /// Indicates if the dataproc metastore should be protected against accidental deletions.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Information used to configure the Dataproc Metastore service to encrypt
     /// customer data at rest.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionConfig
-        => AsReference("encryption_config");
+        => CreateReference("encryption_config");
 
     /// <summary>
     /// The URI of the endpoint used to access the metastore service.
     /// </summary>
     public TerraformValue<string> EndpointUri
-        => AsReference("endpoint_uri");
+        => CreateReference("endpoint_uri");
 
     /// <summary>
     /// Configuration information specific to running Hive metastore software as the metastore service.
     /// </summary>
     public TerraformList<TerraformMap<object>> HiveMetastoreConfig
-        => AsReference("hive_metastore_config");
+        => CreateReference("hive_metastore_config");
 
     /// <summary>
     /// User-defined labels for the metastore service.
@@ -105,7 +105,7 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The one hour maintenance window of the metastore service.
@@ -113,19 +113,19 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// Maintenance window is not needed for services with the &#39;SPANNER&#39; database type.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceWindow
-        => AsReference("maintenance_window");
+        => CreateReference("maintenance_window");
 
     /// <summary>
     /// The setting that defines how metastore metadata should be integrated with external services and systems.
     /// </summary>
     public TerraformList<TerraformMap<object>> MetadataIntegration
-        => AsReference("metadata_integration");
+        => CreateReference("metadata_integration");
 
     /// <summary>
     /// The relative resource name of the metastore service.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:
@@ -133,49 +133,49 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// &amp;quot;projects/{projectNumber}/global/networks/{network_id}&amp;quot;.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
     /// <summary>
     /// The configuration specifying the network settings for the Dataproc Metastore service.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkConfig
-        => AsReference("network_config");
+        => CreateReference("network_config");
 
     /// <summary>
     /// The TCP port at which the metastore service is reached. Default: 9083.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The release channel of the service. If unspecified, defaults to &#39;STABLE&#39;. Default value: &amp;quot;STABLE&amp;quot; Possible values: [&amp;quot;CANARY&amp;quot;, &amp;quot;STABLE&amp;quot;]
     /// </summary>
     public TerraformValue<string> ReleaseChannel
-        => AsReference("release_channel");
+        => CreateReference("release_channel");
 
     /// <summary>
     /// Represents the scaling configuration of a metastore service.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScalingConfig
-        => AsReference("scaling_config");
+        => CreateReference("scaling_config");
 
     /// <summary>
     /// The configuration of scheduled backup for the metastore service.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScheduledBackup
-        => AsReference("scheduled_backup");
+        => CreateReference("scheduled_backup");
 
     /// <summary>
     /// The current state of the metastore service.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Additional information about the current state of the metastore service, if available.
     /// </summary>
     public TerraformValue<string> StateMessage
-        => AsReference("state_message");
+        => CreateReference("state_message");
 
     /// <summary>
     /// A map of resource manager tags.
@@ -183,37 +183,37 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The configuration specifying telemetry settings for the Dataproc Metastore service. If unspecified defaults to JSON.
     /// </summary>
     public TerraformList<TerraformMap<object>> TelemetryConfig
-        => AsReference("telemetry_config");
+        => CreateReference("telemetry_config");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The tier of the service. Possible values: [&amp;quot;DEVELOPER&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
     public TerraformValue<string> Tier
-        => AsReference("tier");
+        => CreateReference("tier");
 
     /// <summary>
     /// The globally unique resource identifier of the metastore service.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time when the metastore service was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

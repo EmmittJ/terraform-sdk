@@ -36,7 +36,7 @@ public partial class AzurermLogAnalyticsWorkspaceDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermLogAnalyticsWorkspaceDataSource(string name) : Terra
     /// The daily_quota_gb attribute.
     /// </summary>
     public TerraformValue<double> DailyQuotaGb
-        => AsReference("daily_quota_gb");
+        => CreateReference("daily_quota_gb");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The primary_shared_key attribute.
     /// </summary>
     public TerraformValue<string> PrimarySharedKey
-        => AsReference("primary_shared_key");
+        => CreateReference("primary_shared_key");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     public TerraformValue<double> RetentionInDays
-        => AsReference("retention_in_days");
+        => CreateReference("retention_in_days");
 
     /// <summary>
     /// The secondary_shared_key attribute.
     /// </summary>
     public TerraformValue<string> SecondarySharedKey
-        => AsReference("secondary_shared_key");
+        => CreateReference("secondary_shared_key");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-        => AsReference("workspace_id");
+        => CreateReference("workspace_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -279,7 +279,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-        => AsReference("oauth_discovery");
+        => CreateReference("oauth_discovery");
 
 }
 
@@ -343,7 +343,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-        => AsReference("oauth_discovery");
+        => CreateReference("oauth_discovery");
 
 }
 
@@ -407,7 +407,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-        => AsReference("oauth_discovery");
+        => CreateReference("oauth_discovery");
 
 }
 
@@ -471,7 +471,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-        => AsReference("oauth_discovery");
+        => CreateReference("oauth_discovery");
 
 }
 
@@ -535,7 +535,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-        => AsReference("oauth_discovery");
+        => CreateReference("oauth_discovery");
 
 }
 
@@ -571,7 +571,7 @@ public partial class AwsBedrockagentcoreOauth2CredentialProvider(string name) : 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -579,13 +579,13 @@ public partial class AwsBedrockagentcoreOauth2CredentialProvider(string name) : 
     /// The client_secret_arn attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientSecretArn
-        => AsReference("client_secret_arn");
+        => CreateReference("client_secret_arn");
 
     /// <summary>
     /// The credential_provider_arn attribute.
     /// </summary>
     public TerraformValue<string> CredentialProviderArn
-        => AsReference("credential_provider_arn");
+        => CreateReference("credential_provider_arn");
 
     /// <summary>
     /// Oauth2ProviderConfig block (nesting mode: list).

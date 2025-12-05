@@ -36,7 +36,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformSet<string> AdditionalExperiments
     {
-        get => GetArgument<TerraformSet<string>>("additional_experiments") ?? AsReference("additional_experiments");
+        get => GetArgument<TerraformSet<string>>("additional_experiments") ?? CreateReference("additional_experiments");
         set => SetArgument("additional_experiments", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -228,31 +228,31 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The unique ID of this job.
     /// </summary>
     public TerraformValue<string> JobId
-        => AsReference("job_id");
+        => CreateReference("job_id");
 
     /// <summary>
     /// The current state of the resource, selected from the JobState enum.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The type of this job, selected from the JobType enum.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

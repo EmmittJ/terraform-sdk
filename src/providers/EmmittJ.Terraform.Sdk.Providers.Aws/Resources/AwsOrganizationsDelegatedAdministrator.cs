@@ -23,7 +23,7 @@ public partial class AwsOrganizationsDelegatedAdministrator(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,42 +41,42 @@ public partial class AwsOrganizationsDelegatedAdministrator(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The delegation_enabled_date attribute.
     /// </summary>
     public TerraformValue<string> DelegationEnabledDate
-        => AsReference("delegation_enabled_date");
+        => CreateReference("delegation_enabled_date");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The joined_method attribute.
     /// </summary>
     public TerraformValue<string> JoinedMethod
-        => AsReference("joined_method");
+        => CreateReference("joined_method");
 
     /// <summary>
     /// The joined_timestamp attribute.
     /// </summary>
     public TerraformValue<string> JoinedTimestamp
-        => AsReference("joined_timestamp");
+        => CreateReference("joined_timestamp");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

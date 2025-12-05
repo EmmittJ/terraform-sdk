@@ -79,7 +79,7 @@ public partial class AwsEc2SpotPriceDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsEc2SpotPriceDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,13 +105,13 @@ public partial class AwsEc2SpotPriceDataSource(string name) : TerraformDataSourc
     /// The spot_price attribute.
     /// </summary>
     public TerraformValue<string> SpotPrice
-        => AsReference("spot_price");
+        => CreateReference("spot_price");
 
     /// <summary>
     /// The spot_price_timestamp attribute.
     /// </summary>
     public TerraformValue<string> SpotPriceTimestamp
-        => AsReference("spot_price_timestamp");
+        => CreateReference("spot_price_timestamp");
 
     /// <summary>
     /// Filter block (nesting mode: set).

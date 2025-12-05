@@ -82,7 +82,7 @@ public partial class AzurermContainerAppCustomDomain(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermContainerAppCustomDomain(string name) : TerraformRes
     /// The container_app_environment_managed_certificate_id attribute.
     /// </summary>
     public TerraformValue<string> ContainerAppEnvironmentManagedCertificateId
-        => AsReference("container_app_environment_managed_certificate_id");
+        => CreateReference("container_app_environment_managed_certificate_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

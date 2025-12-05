@@ -13,7 +13,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> ApplyImmediately
     {
-        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? AsReference("apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? CreateReference("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> PreferredBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? AsReference("preferred_backup_window");
+        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? CreateReference("preferred_backup_window");
         set => SetArgument("preferred_backup_window", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? CreateReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -180,72 +180,72 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The ca_certificate_identifier attribute.
     /// </summary>
     public TerraformValue<string> CaCertificateIdentifier
-        => AsReference("ca_certificate_identifier");
+        => CreateReference("ca_certificate_identifier");
 
     /// <summary>
     /// The cpu_count attribute.
     /// </summary>
     public TerraformValue<double> CpuCount
-        => AsReference("cpu_count");
+        => CreateReference("cpu_count");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The disk_size attribute.
     /// </summary>
     public TerraformValue<double> DiskSize
-        => AsReference("disk_size");
+        => CreateReference("disk_size");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-        => AsReference("engine");
+        => CreateReference("engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-        => AsReference("engine_version");
+        => CreateReference("engine_version");
 
     /// <summary>
     /// The master_endpoint_address attribute.
     /// </summary>
     public TerraformValue<string> MasterEndpointAddress
-        => AsReference("master_endpoint_address");
+        => CreateReference("master_endpoint_address");
 
     /// <summary>
     /// The master_endpoint_port attribute.
     /// </summary>
     public TerraformValue<double> MasterEndpointPort
-        => AsReference("master_endpoint_port");
+        => CreateReference("master_endpoint_port");
 
     /// <summary>
     /// The ram_size attribute.
     /// </summary>
     public TerraformValue<double> RamSize
-        => AsReference("ram_size");
+        => CreateReference("ram_size");
 
     /// <summary>
     /// The secondary_availability_zone attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAvailabilityZone
-        => AsReference("secondary_availability_zone");
+        => CreateReference("secondary_availability_zone");
 
     /// <summary>
     /// The support_code attribute.
     /// </summary>
     public TerraformValue<string> SupportCode
-        => AsReference("support_code");
+        => CreateReference("support_code");
 
 }

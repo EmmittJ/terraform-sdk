@@ -217,7 +217,7 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -281,13 +281,13 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-        => AsReference("json");
+        => CreateReference("json");
 
     /// <summary>
     /// The minified_json attribute.
     /// </summary>
     public TerraformValue<string> MinifiedJson
-        => AsReference("minified_json");
+        => CreateReference("minified_json");
 
     /// <summary>
     /// Statement block (nesting mode: list).

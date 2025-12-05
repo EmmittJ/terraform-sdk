@@ -36,7 +36,7 @@ public partial class AzurermPrivateEndpointConnectionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,19 +64,19 @@ public partial class AzurermPrivateEndpointConnectionDataSource(string name) : T
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkInterface
-        => AsReference("network_interface");
+        => CreateReference("network_interface");
 
     /// <summary>
     /// The private_service_connection attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateServiceConnection
-        => AsReference("private_service_connection");
+        => CreateReference("private_service_connection");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

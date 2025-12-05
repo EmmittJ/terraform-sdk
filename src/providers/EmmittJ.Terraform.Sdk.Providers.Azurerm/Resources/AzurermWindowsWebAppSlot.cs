@@ -27,7 +27,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> AllowedExternalRedirectUrls
     {
-        get => GetArgument<TerraformList<string>>("allowed_external_redirect_urls") ?? AsReference("allowed_external_redirect_urls");
+        get => GetArgument<TerraformList<string>>("allowed_external_redirect_urls") ?? CreateReference("allowed_external_redirect_urls");
         set => SetArgument("allowed_external_redirect_urls", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DefaultProvider
     {
-        get => GetArgument<TerraformValue<string>>("default_provider") ?? AsReference("default_provider");
+        get => GetArgument<TerraformValue<string>>("default_provider") ?? CreateReference("default_provider");
         set => SetArgument("default_provider", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> RuntimeVersion
     {
-        get => GetArgument<TerraformValue<string>>("runtime_version") ?? AsReference("runtime_version");
+        get => GetArgument<TerraformValue<string>>("runtime_version") ?? CreateReference("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> UnauthenticatedClientAction
     {
-        get => GetArgument<TerraformValue<string>>("unauthenticated_client_action") ?? AsReference("unauthenticated_client_action");
+        get => GetArgument<TerraformValue<string>>("unauthenticated_client_action") ?? CreateReference("unauthenticated_client_action");
         set => SetArgument("unauthenticated_client_action", value);
     }
 
@@ -830,7 +830,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockAppleV2Block : Terraform
     /// The login_scopes attribute.
     /// </summary>
     public TerraformList<string> LoginScopes
-        => AsReference("login_scopes");
+        => CreateReference("login_scopes");
 
 }
 
@@ -872,19 +872,19 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockCustomOidcV2Block : Terr
     /// The endpoint to make the Authorisation Request.
     /// </summary>
     public TerraformValue<string> AuthorisationEndpoint
-        => AsReference("authorisation_endpoint");
+        => CreateReference("authorisation_endpoint");
 
     /// <summary>
     /// The endpoint that provides the keys necessary to validate the token.
     /// </summary>
     public TerraformValue<string> CertificationUri
-        => AsReference("certification_uri");
+        => CreateReference("certification_uri");
 
     /// <summary>
     /// The Client Credential Method used. Currently the only supported value is `ClientSecretPost`.
     /// </summary>
     public TerraformValue<string> ClientCredentialMethod
-        => AsReference("client_credential_method");
+        => CreateReference("client_credential_method");
 
     /// <summary>
     /// The ID of the Client to use to authenticate with this Custom OIDC.
@@ -900,13 +900,13 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockCustomOidcV2Block : Terr
     /// The App Setting name that contains the secret for this Custom OIDC Client.
     /// </summary>
     public TerraformValue<string> ClientSecretSettingName
-        => AsReference("client_secret_setting_name");
+        => CreateReference("client_secret_setting_name");
 
     /// <summary>
     /// The endpoint that issued the Token.
     /// </summary>
     public TerraformValue<string> IssuerEndpoint
-        => AsReference("issuer_endpoint");
+        => CreateReference("issuer_endpoint");
 
     /// <summary>
     /// The name of the Custom OIDC Authentication Provider.
@@ -950,7 +950,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockCustomOidcV2Block : Terr
     /// The endpoint used to request a Token.
     /// </summary>
     public TerraformValue<string> TokenEndpoint
-        => AsReference("token_endpoint");
+        => CreateReference("token_endpoint");
 
 }
 
@@ -990,7 +990,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockFacebookV2Block : Terraf
     /// </summary>
     public TerraformValue<string> GraphApiVersion
     {
-        get => GetArgument<TerraformValue<string>>("graph_api_version") ?? AsReference("graph_api_version");
+        get => GetArgument<TerraformValue<string>>("graph_api_version") ?? CreateReference("graph_api_version");
         set => SetArgument("graph_api_version", value);
     }
 
@@ -1394,7 +1394,7 @@ public class AzurermWindowsWebAppSlotBackupBlockScheduleBlock : TerraformBlock
     /// The time the backup was last attempted.
     /// </summary>
     public TerraformValue<string> LastExecutionTime
-        => AsReference("last_execution_time");
+        => CreateReference("last_execution_time");
 
     /// <summary>
     /// After how many days backups should be deleted.
@@ -1410,7 +1410,7 @@ public class AzurermWindowsWebAppSlotBackupBlockScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -1485,13 +1485,13 @@ public class AzurermWindowsWebAppSlotIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -1811,7 +1811,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> DefaultDocuments
     {
-        get => GetArgument<TerraformList<string>>("default_documents") ?? AsReference("default_documents");
+        get => GetArgument<TerraformList<string>>("default_documents") ?? CreateReference("default_documents");
         set => SetArgument("default_documents", value);
     }
 
@@ -1819,7 +1819,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// The detailed_error_logging_enabled attribute.
     /// </summary>
     public TerraformValue<bool> DetailedErrorLoggingEnabled
-        => AsReference("detailed_error_logging_enabled");
+        => CreateReference("detailed_error_logging_enabled");
 
     /// <summary>
     /// The ftps_state attribute.
@@ -1916,7 +1916,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> RemoteDebuggingVersion
     {
-        get => GetArgument<TerraformValue<string>>("remote_debugging_version") ?? AsReference("remote_debugging_version");
+        get => GetArgument<TerraformValue<string>>("remote_debugging_version") ?? CreateReference("remote_debugging_version");
         set => SetArgument("remote_debugging_version", value);
     }
 
@@ -1942,7 +1942,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// The scm_type attribute.
     /// </summary>
     public TerraformValue<string> ScmType
-        => AsReference("scm_type");
+        => CreateReference("scm_type");
 
     /// <summary>
     /// The scm_use_main_ip_restriction attribute.
@@ -1958,7 +1958,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Use32BitWorker
     {
-        get => GetArgument<TerraformValue<bool>>("use_32_bit_worker") ?? AsReference("use_32_bit_worker");
+        get => GetArgument<TerraformValue<bool>>("use_32_bit_worker") ?? CreateReference("use_32_bit_worker");
         set => SetArgument("use_32_bit_worker", value);
     }
 
@@ -1984,14 +1984,14 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// The windows_fx_version attribute.
     /// </summary>
     public TerraformValue<string> WindowsFxVersion
-        => AsReference("windows_fx_version");
+        => CreateReference("windows_fx_version");
 
     /// <summary>
     /// The worker_count attribute.
     /// </summary>
     public TerraformValue<double> WorkerCount
     {
-        get => GetArgument<TerraformValue<double>>("worker_count") ?? AsReference("worker_count");
+        get => GetArgument<TerraformValue<double>>("worker_count") ?? CreateReference("worker_count");
         set => SetArgument("worker_count", value);
     }
 
@@ -2079,7 +2079,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockApplicationStackBlock : Terr
     /// </summary>
     public TerraformValue<string> CurrentStack
     {
-        get => GetArgument<TerraformValue<string>>("current_stack") ?? AsReference("current_stack");
+        get => GetArgument<TerraformValue<string>>("current_stack") ?? CreateReference("current_stack");
         set => SetArgument("current_stack", value);
     }
 
@@ -2133,7 +2133,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockApplicationStackBlock : Terr
     /// </summary>
     public TerraformValue<string> DotnetVersion
     {
-        get => GetArgument<TerraformValue<string>>("dotnet_version") ?? AsReference("dotnet_version");
+        get => GetArgument<TerraformValue<string>>("dotnet_version") ?? CreateReference("dotnet_version");
         set => SetArgument("dotnet_version", value);
     }
 
@@ -2162,7 +2162,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockApplicationStackBlock : Terr
     /// </summary>
     public TerraformValue<bool> JavaEmbeddedServerEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("java_embedded_server_enabled") ?? AsReference("java_embedded_server_enabled");
+        get => GetArgument<TerraformValue<bool>>("java_embedded_server_enabled") ?? CreateReference("java_embedded_server_enabled");
         set => SetArgument("java_embedded_server_enabled", value);
     }
 
@@ -2189,7 +2189,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockApplicationStackBlock : Terr
     /// </summary>
     public TerraformValue<string> PhpVersion
     {
-        get => GetArgument<TerraformValue<string>>("php_version") ?? AsReference("php_version");
+        get => GetArgument<TerraformValue<string>>("php_version") ?? CreateReference("php_version");
         set => SetArgument("php_version", value);
     }
 
@@ -2278,7 +2278,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockActionBl
     /// </summary>
     public TerraformValue<string> MinimumProcessExecutionTime
     {
-        get => GetArgument<TerraformValue<string>>("minimum_process_execution_time") ?? AsReference("minimum_process_execution_time");
+        get => GetArgument<TerraformValue<string>>("minimum_process_execution_time") ?? CreateReference("minimum_process_execution_time");
         set => SetArgument("minimum_process_execution_time", value);
     }
 
@@ -2709,7 +2709,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockIpRestrictionBlock : Terrafo
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -2794,7 +2794,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockScmIpRestrictionBlock : Terr
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -3127,7 +3127,7 @@ public partial class AzurermWindowsWebAppSlot(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -3136,7 +3136,7 @@ public partial class AzurermWindowsWebAppSlot(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> KeyVaultReferenceIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_reference_identity_id") ?? AsReference("key_vault_reference_identity_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_reference_identity_id") ?? CreateReference("key_vault_reference_identity_id");
         set => SetArgument("key_vault_reference_identity_id", value);
     }
 
@@ -3209,7 +3209,7 @@ public partial class AzurermWindowsWebAppSlot(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> ZipDeployFile
     {
-        get => GetArgument<TerraformValue<string>>("zip_deploy_file") ?? AsReference("zip_deploy_file");
+        get => GetArgument<TerraformValue<string>>("zip_deploy_file") ?? CreateReference("zip_deploy_file");
         set => SetArgument("zip_deploy_file", value);
     }
 
@@ -3217,55 +3217,55 @@ public partial class AzurermWindowsWebAppSlot(string name) : TerraformResource("
     /// The custom_domain_verification_id attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-        => AsReference("custom_domain_verification_id");
+        => CreateReference("custom_domain_verification_id");
 
     /// <summary>
     /// The default_hostname attribute.
     /// </summary>
     public TerraformValue<string> DefaultHostname
-        => AsReference("default_hostname");
+        => CreateReference("default_hostname");
 
     /// <summary>
     /// The hosting_environment_id attribute.
     /// </summary>
     public TerraformValue<string> HostingEnvironmentId
-        => AsReference("hosting_environment_id");
+        => CreateReference("hosting_environment_id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The outbound_ip_address_list attribute.
     /// </summary>
     public TerraformList<string> OutboundIpAddressList
-        => AsReference("outbound_ip_address_list");
+        => CreateReference("outbound_ip_address_list");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> OutboundIpAddresses
-        => AsReference("outbound_ip_addresses");
+        => CreateReference("outbound_ip_addresses");
 
     /// <summary>
     /// The possible_outbound_ip_address_list attribute.
     /// </summary>
     public TerraformList<string> PossibleOutboundIpAddressList
-        => AsReference("possible_outbound_ip_address_list");
+        => CreateReference("possible_outbound_ip_address_list");
 
     /// <summary>
     /// The possible_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> PossibleOutboundIpAddresses
-        => AsReference("possible_outbound_ip_addresses");
+        => CreateReference("possible_outbound_ip_addresses");
 
     /// <summary>
     /// The site_credential attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteCredential
-        => AsReference("site_credential");
+        => CreateReference("site_credential");
 
     /// <summary>
     /// AuthSettings block (nesting mode: list).

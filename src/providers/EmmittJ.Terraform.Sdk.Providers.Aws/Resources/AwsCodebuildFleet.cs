@@ -18,7 +18,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Disk
     {
-        get => GetArgument<TerraformValue<double>>("disk") ?? AsReference("disk");
+        get => GetArgument<TerraformValue<double>>("disk") ?? CreateReference("disk");
         set => SetArgument("disk", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? CreateReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Memory
     {
-        get => GetArgument<TerraformValue<double>>("memory") ?? AsReference("memory");
+        get => GetArgument<TerraformValue<double>>("memory") ?? CreateReference("memory");
         set => SetArgument("memory", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Vcpu
     {
-        get => GetArgument<TerraformValue<double>>("vcpu") ?? AsReference("vcpu");
+        get => GetArgument<TerraformValue<double>>("vcpu") ?? CreateReference("vcpu");
         set => SetArgument("vcpu", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlock
     /// The desired_capacity attribute.
     /// </summary>
     public TerraformValue<double> DesiredCapacity
-        => AsReference("desired_capacity");
+        => CreateReference("desired_capacity");
 
     /// <summary>
     /// The max_capacity attribute.
@@ -252,7 +252,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     /// </summary>
     public TerraformValue<string> OverflowBehavior
     {
-        get => GetArgument<TerraformValue<string>>("overflow_behavior") ?? AsReference("overflow_behavior");
+        get => GetArgument<TerraformValue<string>>("overflow_behavior") ?? CreateReference("overflow_behavior");
         set => SetArgument("overflow_behavior", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -279,7 +279,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -287,31 +287,31 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created attribute.
     /// </summary>
     public TerraformValue<string> Created
-        => AsReference("created");
+        => CreateReference("created");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// ComputeConfiguration block (nesting mode: list).

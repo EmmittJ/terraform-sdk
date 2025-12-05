@@ -1246,7 +1246,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockClusterSelectorBlock : 
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -1505,7 +1505,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The map of port descriptions to URLs. Will only be populated if enable_http_port_access is true.
     /// </summary>
     public TerraformMap<string> HttpPorts
-        => AsReference("http_ports");
+        => CreateReference("http_ports");
 
 }
 
@@ -1525,7 +1525,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<bool> InternalIpOnly
     {
-        get => GetArgument<TerraformValue<bool>>("internal_ip_only") ?? AsReference("internal_ip_only");
+        get => GetArgument<TerraformValue<bool>>("internal_ip_only") ?? CreateReference("internal_ip_only");
         set => SetArgument("internal_ip_only", value);
     }
 
@@ -1597,7 +1597,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -1809,7 +1809,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The time when cluster became idle (most recent job finished) and became eligible for deletion due to idleness (see JSON representation of [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
     /// </summary>
     public TerraformValue<string> IdleStartTime
-        => AsReference("idle_start_time");
+        => CreateReference("idle_start_time");
 
 }
 
@@ -1837,13 +1837,13 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The list of instance names. Dataproc derives the names from `cluster_name`, `num_instances`, and the instance group.
     /// </summary>
     public TerraformList<string> InstanceNames
-        => AsReference("instance_names");
+        => CreateReference("instance_names");
 
     /// <summary>
     /// Output only. Specifies that this instance group contains preemptible instances.
     /// </summary>
     public TerraformValue<bool> IsPreemptible
-        => AsReference("is_preemptible");
+        => CreateReference("is_preemptible");
 
     /// <summary>
     /// Optional. The Compute Engine machine type used for cluster instances. A full URL, partial URI, or short name are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `n1-standard-2` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the machine type resource, for example, `n1-standard-2`.
@@ -1858,14 +1858,14 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The config for Compute Engine Instance Group Manager that manages this group. This is only used for preemptible instance groups.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedGroupConfig
-        => AsReference("managed_group_config");
+        => CreateReference("managed_group_config");
 
     /// <summary>
     /// Optional. Specifies the minimum cpu platform for the Instance Group. See [Dataproc -&amp;gt; Minimum CPU Platform](https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -1973,7 +1973,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? CreateReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2003,13 +2003,13 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The list of instance names. Dataproc derives the names from `cluster_name`, `num_instances`, and the instance group.
     /// </summary>
     public TerraformList<string> InstanceNames
-        => AsReference("instance_names");
+        => CreateReference("instance_names");
 
     /// <summary>
     /// Output only. Specifies that this instance group contains preemptible instances.
     /// </summary>
     public TerraformValue<bool> IsPreemptible
-        => AsReference("is_preemptible");
+        => CreateReference("is_preemptible");
 
     /// <summary>
     /// Optional. The Compute Engine machine type used for cluster instances. A full URL, partial URI, or short name are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `n1-standard-2` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the machine type resource, for example, `n1-standard-2`.
@@ -2024,14 +2024,14 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The config for Compute Engine Instance Group Manager that manages this group. This is only used for preemptible instance groups.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedGroupConfig
-        => AsReference("managed_group_config");
+        => CreateReference("managed_group_config");
 
     /// <summary>
     /// Optional. Specifies the minimum cpu platform for the Instance Group. See [Dataproc -&amp;gt; Minimum CPU Platform](https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -2139,7 +2139,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? CreateReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2380,13 +2380,13 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The list of instance names. Dataproc derives the names from `cluster_name`, `num_instances`, and the instance group.
     /// </summary>
     public TerraformList<string> InstanceNames
-        => AsReference("instance_names");
+        => CreateReference("instance_names");
 
     /// <summary>
     /// Output only. Specifies that this instance group contains preemptible instances.
     /// </summary>
     public TerraformValue<bool> IsPreemptible
-        => AsReference("is_preemptible");
+        => CreateReference("is_preemptible");
 
     /// <summary>
     /// Optional. The Compute Engine machine type used for cluster instances. A full URL, partial URI, or short name are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `n1-standard-2` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the machine type resource, for example, `n1-standard-2`.
@@ -2401,14 +2401,14 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The config for Compute Engine Instance Group Manager that manages this group. This is only used for preemptible instance groups.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedGroupConfig
-        => AsReference("managed_group_config");
+        => CreateReference("managed_group_config");
 
     /// <summary>
     /// Optional. Specifies the minimum cpu platform for the Instance Group. See [Dataproc -&amp;gt; Minimum CPU Platform](https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -2516,7 +2516,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? CreateReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2584,7 +2584,7 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2625,7 +2625,7 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -2635,7 +2635,7 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     [Obsolete("This property is deprecated.")]
     public TerraformValue<double> Version
     {
-        get => GetArgument<TerraformValue<double>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<double>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -2643,25 +2643,25 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     /// Output only. The time template was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. The time template was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// EncryptionConfig block (nesting mode: list).

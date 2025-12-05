@@ -17,7 +17,7 @@ public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : Terra
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The log_stream_arn attribute.
@@ -57,7 +57,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name_prefix attribute.
@@ -73,7 +73,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlock
     /// The stream_names attribute.
     /// </summary>
     public TerraformList<string> StreamNames
-        => AsReference("stream_names");
+        => CreateReference("stream_names");
 
     /// <summary>
     /// KinesisFirehose block (nesting mode: list).
@@ -221,7 +221,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockParallelismBlock : Terrafo
     /// </summary>
     public TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count") ?? AsReference("count");
+        get => GetArgument<TerraformValue<double>>("count") ?? CreateReference("count");
         set => SetArgument("count", value);
     }
 
@@ -391,7 +391,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockSchemaBlockRecordFormatBlo
     /// The record_format_type attribute.
     /// </summary>
     public TerraformValue<string> RecordFormatType
-        => AsReference("record_format_type");
+        => CreateReference("record_format_type");
 
     /// <summary>
     /// MappingParameters block (nesting mode: list).
@@ -510,7 +510,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockStartingPositionConfigurat
     /// </summary>
     public TerraformValue<string> StartingPosition
     {
-        get => GetArgument<TerraformValue<string>>("starting_position") ?? AsReference("starting_position");
+        get => GetArgument<TerraformValue<string>>("starting_position") ?? CreateReference("starting_position");
         set => SetArgument("starting_position", value);
     }
 
@@ -532,7 +532,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -727,7 +727,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock : Terraform
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The table_name attribute.
@@ -915,7 +915,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlockSchemaBlockR
     /// The record_format_type attribute.
     /// </summary>
     public TerraformValue<string> RecordFormatType
-        => AsReference("record_format_type");
+        => CreateReference("record_format_type");
 
     /// <summary>
     /// MappingParameters block (nesting mode: list).
@@ -1049,7 +1049,7 @@ public partial class AwsKinesisAnalyticsApplication(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1068,7 +1068,7 @@ public partial class AwsKinesisAnalyticsApplication(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1095,7 +1095,7 @@ public partial class AwsKinesisAnalyticsApplication(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1103,31 +1103,31 @@ public partial class AwsKinesisAnalyticsApplication(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The create_timestamp attribute.
     /// </summary>
     public TerraformValue<string> CreateTimestamp
-        => AsReference("create_timestamp");
+        => CreateReference("create_timestamp");
 
     /// <summary>
     /// The last_update_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastUpdateTimestamp
-        => AsReference("last_update_timestamp");
+        => CreateReference("last_update_timestamp");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// CloudwatchLoggingOptions block (nesting mode: list).

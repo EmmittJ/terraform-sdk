@@ -46,7 +46,7 @@ public partial class AzurermDevCenterGalleryDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermDevCenterGalleryDataSource(string name) : TerraformD
     /// The shared_gallery_id attribute.
     /// </summary>
     public TerraformValue<string> SharedGalleryId
-        => AsReference("shared_gallery_id");
+        => CreateReference("shared_gallery_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

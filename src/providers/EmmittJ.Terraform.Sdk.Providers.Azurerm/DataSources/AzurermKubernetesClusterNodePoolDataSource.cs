@@ -36,7 +36,7 @@ public partial class AzurermKubernetesClusterNodePoolDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,145 +74,145 @@ public partial class AzurermKubernetesClusterNodePoolDataSource(string name) : T
     /// The auto_scaling_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AutoScalingEnabled
-        => AsReference("auto_scaling_enabled");
+        => CreateReference("auto_scaling_enabled");
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
     public TerraformValue<string> EvictionPolicy
-        => AsReference("eviction_policy");
+        => CreateReference("eviction_policy");
 
     /// <summary>
     /// The gpu_driver attribute.
     /// </summary>
     public TerraformValue<string> GpuDriver
-        => AsReference("gpu_driver");
+        => CreateReference("gpu_driver");
 
     /// <summary>
     /// The max_count attribute.
     /// </summary>
     public TerraformValue<double> MaxCount
-        => AsReference("max_count");
+        => CreateReference("max_count");
 
     /// <summary>
     /// The max_pods attribute.
     /// </summary>
     public TerraformValue<double> MaxPods
-        => AsReference("max_pods");
+        => CreateReference("max_pods");
 
     /// <summary>
     /// The min_count attribute.
     /// </summary>
     public TerraformValue<double> MinCount
-        => AsReference("min_count");
+        => CreateReference("min_count");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     public TerraformValue<string> Mode
-        => AsReference("mode");
+        => CreateReference("mode");
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
     public TerraformValue<double> NodeCount
-        => AsReference("node_count");
+        => CreateReference("node_count");
 
     /// <summary>
     /// The node_labels attribute.
     /// </summary>
     public TerraformMap<string> NodeLabels
-        => AsReference("node_labels");
+        => CreateReference("node_labels");
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
     public TerraformValue<bool> NodePublicIpEnabled
-        => AsReference("node_public_ip_enabled");
+        => CreateReference("node_public_ip_enabled");
 
     /// <summary>
     /// The node_public_ip_prefix_id attribute.
     /// </summary>
     public TerraformValue<string> NodePublicIpPrefixId
-        => AsReference("node_public_ip_prefix_id");
+        => CreateReference("node_public_ip_prefix_id");
 
     /// <summary>
     /// The node_taints attribute.
     /// </summary>
     public TerraformList<string> NodeTaints
-        => AsReference("node_taints");
+        => CreateReference("node_taints");
 
     /// <summary>
     /// The orchestrator_version attribute.
     /// </summary>
     public TerraformValue<string> OrchestratorVersion
-        => AsReference("orchestrator_version");
+        => CreateReference("orchestrator_version");
 
     /// <summary>
     /// The os_disk_size_gb attribute.
     /// </summary>
     public TerraformValue<double> OsDiskSizeGb
-        => AsReference("os_disk_size_gb");
+        => CreateReference("os_disk_size_gb");
 
     /// <summary>
     /// The os_disk_type attribute.
     /// </summary>
     public TerraformValue<string> OsDiskType
-        => AsReference("os_disk_type");
+        => CreateReference("os_disk_type");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
     public TerraformValue<string> OsType
-        => AsReference("os_type");
+        => CreateReference("os_type");
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     public TerraformValue<string> Priority
-        => AsReference("priority");
+        => CreateReference("priority");
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
     public TerraformValue<string> ProximityPlacementGroupId
-        => AsReference("proximity_placement_group_id");
+        => CreateReference("proximity_placement_group_id");
 
     /// <summary>
     /// The spot_max_price attribute.
     /// </summary>
     public TerraformValue<double> SpotMaxPrice
-        => AsReference("spot_max_price");
+        => CreateReference("spot_max_price");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The upgrade_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UpgradeSettings
-        => AsReference("upgrade_settings");
+        => CreateReference("upgrade_settings");
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     public TerraformValue<string> VmSize
-        => AsReference("vm_size");
+        => CreateReference("vm_size");
 
     /// <summary>
     /// The vnet_subnet_id attribute.
     /// </summary>
     public TerraformValue<string> VnetSubnetId
-        => AsReference("vnet_subnet_id");
+        => CreateReference("vnet_subnet_id");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

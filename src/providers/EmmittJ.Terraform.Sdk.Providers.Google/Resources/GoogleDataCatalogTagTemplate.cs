@@ -18,7 +18,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> IsRequired
     {
-        get => GetArgument<TerraformValue<bool>>("is_required") ?? AsReference("is_required");
+        get => GetArgument<TerraformValue<bool>>("is_required") ?? CreateReference("is_required");
         set => SetArgument("is_required", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// The resource name of the tag template field in URL format. Example: projects/{project_id}/locations/{location}/tagTemplates/{tagTemplateId}/fields/{field}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The order of this field with respect to other fields in this tag template.
@@ -63,7 +63,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order") ?? AsReference("order");
+        get => GetArgument<TerraformValue<double>>("order") ?? CreateReference("order");
         set => SetArgument("order", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlockTypeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PrimitiveType
     {
-        get => GetArgument<TerraformValue<string>>("primitive_type") ?? AsReference("primitive_type");
+        get => GetArgument<TerraformValue<string>>("primitive_type") ?? CreateReference("primitive_type");
         set => SetArgument("primitive_type", value);
     }
 
@@ -235,7 +235,7 @@ public partial class GoogleDataCatalogTagTemplate(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -244,7 +244,7 @@ public partial class GoogleDataCatalogTagTemplate(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -253,7 +253,7 @@ public partial class GoogleDataCatalogTagTemplate(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -271,7 +271,7 @@ public partial class GoogleDataCatalogTagTemplate(string name) : TerraformResour
     /// The resource name of the tag template in URL format. Example: projects/{project_id}/locations/{location}/tagTemplates/{tagTemplateId}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Fields block (nesting mode: set).

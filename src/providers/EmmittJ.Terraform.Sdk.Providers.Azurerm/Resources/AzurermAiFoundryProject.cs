@@ -26,13 +26,13 @@ public class AzurermAiFoundryProjectIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -136,7 +136,7 @@ public partial class AzurermAiFoundryProject(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> HighBusinessImpactEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("high_business_impact_enabled") ?? AsReference("high_business_impact_enabled");
+        get => GetArgument<TerraformValue<bool>>("high_business_impact_enabled") ?? CreateReference("high_business_impact_enabled");
         set => SetArgument("high_business_impact_enabled", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermAiFoundryProject(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermAiFoundryProject(string name) : TerraformResource("a
     /// The project_id attribute.
     /// </summary>
     public TerraformValue<string> ProjectId
-        => AsReference("project_id");
+        => CreateReference("project_id");
 
     /// <summary>
     /// Identity block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermOracleAutonomousDatabaseDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,343 +64,343 @@ public partial class AzurermOracleAutonomousDatabaseDataSource(string name) : Te
     /// The actual_used_data_storage_size_in_tbs attribute.
     /// </summary>
     public TerraformValue<double> ActualUsedDataStorageSizeInTbs
-        => AsReference("actual_used_data_storage_size_in_tbs");
+        => CreateReference("actual_used_data_storage_size_in_tbs");
 
     /// <summary>
     /// The allocated_storage_size_in_tbs attribute.
     /// </summary>
     public TerraformValue<double> AllocatedStorageSizeInTbs
-        => AsReference("allocated_storage_size_in_tbs");
+        => CreateReference("allocated_storage_size_in_tbs");
 
     /// <summary>
     /// The allowed_ips attribute.
     /// </summary>
     public TerraformList<double> AllowedIps
-        => AsReference("allowed_ips");
+        => CreateReference("allowed_ips");
 
     /// <summary>
     /// The auto_scaling_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AutoScalingEnabled
-        => AsReference("auto_scaling_enabled");
+        => CreateReference("auto_scaling_enabled");
 
     /// <summary>
     /// The auto_scaling_for_storage_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AutoScalingForStorageEnabled
-        => AsReference("auto_scaling_for_storage_enabled");
+        => CreateReference("auto_scaling_for_storage_enabled");
 
     /// <summary>
     /// The autonomous_database_id attribute.
     /// </summary>
     public TerraformValue<string> AutonomousDatabaseId
-        => AsReference("autonomous_database_id");
+        => CreateReference("autonomous_database_id");
 
     /// <summary>
     /// The available_upgrade_versions attribute.
     /// </summary>
     public TerraformList<string> AvailableUpgradeVersions
-        => AsReference("available_upgrade_versions");
+        => CreateReference("available_upgrade_versions");
 
     /// <summary>
     /// The backup_retention_period_in_days attribute.
     /// </summary>
     public TerraformValue<double> BackupRetentionPeriodInDays
-        => AsReference("backup_retention_period_in_days");
+        => CreateReference("backup_retention_period_in_days");
 
     /// <summary>
     /// The character_set attribute.
     /// </summary>
     public TerraformValue<string> CharacterSet
-        => AsReference("character_set");
+        => CreateReference("character_set");
 
     /// <summary>
     /// The compute_count attribute.
     /// </summary>
     public TerraformValue<double> ComputeCount
-        => AsReference("compute_count");
+        => CreateReference("compute_count");
 
     /// <summary>
     /// The cpu_core_count attribute.
     /// </summary>
     public TerraformValue<double> CpuCoreCount
-        => AsReference("cpu_core_count");
+        => CreateReference("cpu_core_count");
 
     /// <summary>
     /// The data_storage_size_in_gbs attribute.
     /// </summary>
     public TerraformValue<double> DataStorageSizeInGbs
-        => AsReference("data_storage_size_in_gbs");
+        => CreateReference("data_storage_size_in_gbs");
 
     /// <summary>
     /// The data_storage_size_in_tbs attribute.
     /// </summary>
     public TerraformValue<double> DataStorageSizeInTbs
-        => AsReference("data_storage_size_in_tbs");
+        => CreateReference("data_storage_size_in_tbs");
 
     /// <summary>
     /// The db_node_storage_size_in_gbs attribute.
     /// </summary>
     public TerraformValue<double> DbNodeStorageSizeInGbs
-        => AsReference("db_node_storage_size_in_gbs");
+        => CreateReference("db_node_storage_size_in_gbs");
 
     /// <summary>
     /// The db_version attribute.
     /// </summary>
     public TerraformValue<string> DbVersion
-        => AsReference("db_version");
+        => CreateReference("db_version");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The failed_data_recovery_in_seconds attribute.
     /// </summary>
     public TerraformValue<double> FailedDataRecoveryInSeconds
-        => AsReference("failed_data_recovery_in_seconds");
+        => CreateReference("failed_data_recovery_in_seconds");
 
     /// <summary>
     /// The in_memory_area_in_gbs attribute.
     /// </summary>
     public TerraformValue<double> InMemoryAreaInGbs
-        => AsReference("in_memory_area_in_gbs");
+        => CreateReference("in_memory_area_in_gbs");
 
     /// <summary>
     /// The lifecycle_details attribute.
     /// </summary>
     public TerraformValue<string> LifecycleDetails
-        => AsReference("lifecycle_details");
+        => CreateReference("lifecycle_details");
 
     /// <summary>
     /// The local_adg_auto_failover_max_data_loss_limit attribute.
     /// </summary>
     public TerraformValue<double> LocalAdgAutoFailoverMaxDataLossLimit
-        => AsReference("local_adg_auto_failover_max_data_loss_limit");
+        => CreateReference("local_adg_auto_failover_max_data_loss_limit");
 
     /// <summary>
     /// The local_data_guard_enabled attribute.
     /// </summary>
     public TerraformValue<bool> LocalDataGuardEnabled
-        => AsReference("local_data_guard_enabled");
+        => CreateReference("local_data_guard_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The long_term_backup_schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LongTermBackupSchedule
-        => AsReference("long_term_backup_schedule");
+        => CreateReference("long_term_backup_schedule");
 
     /// <summary>
     /// The memory_per_oracle_compute_unit_in_gbs attribute.
     /// </summary>
     public TerraformValue<double> MemoryPerOracleComputeUnitInGbs
-        => AsReference("memory_per_oracle_compute_unit_in_gbs");
+        => CreateReference("memory_per_oracle_compute_unit_in_gbs");
 
     /// <summary>
     /// The mtls_connection_required attribute.
     /// </summary>
     public TerraformValue<bool> MtlsConnectionRequired
-        => AsReference("mtls_connection_required");
+        => CreateReference("mtls_connection_required");
 
     /// <summary>
     /// The national_character_set attribute.
     /// </summary>
     public TerraformValue<string> NationalCharacterSet
-        => AsReference("national_character_set");
+        => CreateReference("national_character_set");
 
     /// <summary>
     /// The next_long_term_backup_time_stamp attribute.
     /// </summary>
     public TerraformValue<string> NextLongTermBackupTimeStamp
-        => AsReference("next_long_term_backup_time_stamp");
+        => CreateReference("next_long_term_backup_time_stamp");
 
     /// <summary>
     /// The oci_url attribute.
     /// </summary>
     public TerraformValue<string> OciUrl
-        => AsReference("oci_url");
+        => CreateReference("oci_url");
 
     /// <summary>
     /// The ocid attribute.
     /// </summary>
     public TerraformValue<string> Ocid
-        => AsReference("ocid");
+        => CreateReference("ocid");
 
     /// <summary>
     /// The peer_db_id attribute.
     /// </summary>
     public TerraformValue<string> PeerDbId
-        => AsReference("peer_db_id");
+        => CreateReference("peer_db_id");
 
     /// <summary>
     /// The peer_db_ids attribute.
     /// </summary>
     public TerraformList<string> PeerDbIds
-        => AsReference("peer_db_ids");
+        => CreateReference("peer_db_ids");
 
     /// <summary>
     /// The preview attribute.
     /// </summary>
     public TerraformValue<bool> Preview
-        => AsReference("preview");
+        => CreateReference("preview");
 
     /// <summary>
     /// The preview_version_with_service_terms_accepted attribute.
     /// </summary>
     public TerraformValue<bool> PreviewVersionWithServiceTermsAccepted
-        => AsReference("preview_version_with_service_terms_accepted");
+        => CreateReference("preview_version_with_service_terms_accepted");
 
     /// <summary>
     /// The private_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrivateEndpoint
-        => AsReference("private_endpoint");
+        => CreateReference("private_endpoint");
 
     /// <summary>
     /// The private_endpoint_ip attribute.
     /// </summary>
     public TerraformValue<string> PrivateEndpointIp
-        => AsReference("private_endpoint_ip");
+        => CreateReference("private_endpoint_ip");
 
     /// <summary>
     /// The private_endpoint_label attribute.
     /// </summary>
     public TerraformValue<string> PrivateEndpointLabel
-        => AsReference("private_endpoint_label");
+        => CreateReference("private_endpoint_label");
 
     /// <summary>
     /// The provisionable_cpus attribute.
     /// </summary>
     public TerraformList<double> ProvisionableCpus
-        => AsReference("provisionable_cpus");
+        => CreateReference("provisionable_cpus");
 
     /// <summary>
     /// The remote_data_guard_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RemoteDataGuardEnabled
-        => AsReference("remote_data_guard_enabled");
+        => CreateReference("remote_data_guard_enabled");
 
     /// <summary>
     /// The service_console_url attribute.
     /// </summary>
     public TerraformValue<string> ServiceConsoleUrl
-        => AsReference("service_console_url");
+        => CreateReference("service_console_url");
 
     /// <summary>
     /// The sql_web_developer_url attribute.
     /// </summary>
     public TerraformValue<string> SqlWebDeveloperUrl
-        => AsReference("sql_web_developer_url");
+        => CreateReference("sql_web_developer_url");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-        => AsReference("subnet_id");
+        => CreateReference("subnet_id");
 
     /// <summary>
     /// The supported_regions_to_clone_to attribute.
     /// </summary>
     public TerraformList<string> SupportedRegionsToCloneTo
-        => AsReference("supported_regions_to_clone_to");
+        => CreateReference("supported_regions_to_clone_to");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
     public TerraformValue<string> TimeCreated
-        => AsReference("time_created");
+        => CreateReference("time_created");
 
     /// <summary>
     /// The time_data_guard_role_changed attribute.
     /// </summary>
     public TerraformValue<string> TimeDataGuardRoleChanged
-        => AsReference("time_data_guard_role_changed");
+        => CreateReference("time_data_guard_role_changed");
 
     /// <summary>
     /// The time_deletion_of_free_autonomous_database attribute.
     /// </summary>
     public TerraformValue<string> TimeDeletionOfFreeAutonomousDatabase
-        => AsReference("time_deletion_of_free_autonomous_database");
+        => CreateReference("time_deletion_of_free_autonomous_database");
 
     /// <summary>
     /// The time_local_data_guard_enabled_on attribute.
     /// </summary>
     public TerraformValue<string> TimeLocalDataGuardEnabledOn
-        => AsReference("time_local_data_guard_enabled_on");
+        => CreateReference("time_local_data_guard_enabled_on");
 
     /// <summary>
     /// The time_maintenance_begin attribute.
     /// </summary>
     public TerraformValue<string> TimeMaintenanceBegin
-        => AsReference("time_maintenance_begin");
+        => CreateReference("time_maintenance_begin");
 
     /// <summary>
     /// The time_maintenance_end attribute.
     /// </summary>
     public TerraformValue<string> TimeMaintenanceEnd
-        => AsReference("time_maintenance_end");
+        => CreateReference("time_maintenance_end");
 
     /// <summary>
     /// The time_of_last_failover attribute.
     /// </summary>
     public TerraformValue<string> TimeOfLastFailover
-        => AsReference("time_of_last_failover");
+        => CreateReference("time_of_last_failover");
 
     /// <summary>
     /// The time_of_last_refresh attribute.
     /// </summary>
     public TerraformValue<string> TimeOfLastRefresh
-        => AsReference("time_of_last_refresh");
+        => CreateReference("time_of_last_refresh");
 
     /// <summary>
     /// The time_of_last_refresh_point attribute.
     /// </summary>
     public TerraformValue<string> TimeOfLastRefreshPoint
-        => AsReference("time_of_last_refresh_point");
+        => CreateReference("time_of_last_refresh_point");
 
     /// <summary>
     /// The time_of_last_switchover attribute.
     /// </summary>
     public TerraformValue<string> TimeOfLastSwitchover
-        => AsReference("time_of_last_switchover");
+        => CreateReference("time_of_last_switchover");
 
     /// <summary>
     /// The time_reclamation_of_free_autonomous_database attribute.
     /// </summary>
     public TerraformValue<string> TimeReclamationOfFreeAutonomousDatabase
-        => AsReference("time_reclamation_of_free_autonomous_database");
+        => CreateReference("time_reclamation_of_free_autonomous_database");
 
     /// <summary>
     /// The used_data_storage_size_in_gbs attribute.
     /// </summary>
     public TerraformValue<double> UsedDataStorageSizeInGbs
-        => AsReference("used_data_storage_size_in_gbs");
+        => CreateReference("used_data_storage_size_in_gbs");
 
     /// <summary>
     /// The used_data_storage_size_in_tbs attribute.
     /// </summary>
     public TerraformValue<double> UsedDataStorageSizeInTbs
-        => AsReference("used_data_storage_size_in_tbs");
+        => CreateReference("used_data_storage_size_in_tbs");
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualNetworkId
-        => AsReference("virtual_network_id");
+        => CreateReference("virtual_network_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

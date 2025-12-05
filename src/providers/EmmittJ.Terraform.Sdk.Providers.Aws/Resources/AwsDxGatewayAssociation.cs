@@ -54,7 +54,7 @@ public partial class AwsDxGatewayAssociation(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string> AllowedPrefixes
     {
-        get => GetArgument<TerraformSet<string>>("allowed_prefixes") ?? AsReference("allowed_prefixes");
+        get => GetArgument<TerraformSet<string>>("allowed_prefixes") ?? CreateReference("allowed_prefixes");
         set => SetArgument("allowed_prefixes", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsDxGatewayAssociation(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> AssociatedGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("associated_gateway_id") ?? AsReference("associated_gateway_id");
+        get => GetArgument<TerraformValue<string>>("associated_gateway_id") ?? CreateReference("associated_gateway_id");
         set => SetArgument("associated_gateway_id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsDxGatewayAssociation(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> AssociatedGatewayOwnerAccountId
     {
-        get => GetArgument<TerraformValue<string>>("associated_gateway_owner_account_id") ?? AsReference("associated_gateway_owner_account_id");
+        get => GetArgument<TerraformValue<string>>("associated_gateway_owner_account_id") ?? CreateReference("associated_gateway_owner_account_id");
         set => SetArgument("associated_gateway_owner_account_id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsDxGatewayAssociation(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsDxGatewayAssociation(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -117,25 +117,25 @@ public partial class AwsDxGatewayAssociation(string name) : TerraformResource("a
     /// The associated_gateway_type attribute.
     /// </summary>
     public TerraformValue<string> AssociatedGatewayType
-        => AsReference("associated_gateway_type");
+        => CreateReference("associated_gateway_type");
 
     /// <summary>
     /// The dx_gateway_association_id attribute.
     /// </summary>
     public TerraformValue<string> DxGatewayAssociationId
-        => AsReference("dx_gateway_association_id");
+        => CreateReference("dx_gateway_association_id");
 
     /// <summary>
     /// The dx_gateway_owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> DxGatewayOwnerAccountId
-        => AsReference("dx_gateway_owner_account_id");
+        => CreateReference("dx_gateway_owner_account_id");
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayAttachmentId
-        => AsReference("transit_gateway_attachment_id");
+        => CreateReference("transit_gateway_attachment_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

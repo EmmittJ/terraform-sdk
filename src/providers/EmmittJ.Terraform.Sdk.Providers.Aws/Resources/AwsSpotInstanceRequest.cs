@@ -82,7 +82,7 @@ public class AwsSpotInstanceRequestCpuOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AmdSevSnp
     {
-        get => GetArgument<TerraformValue<string>>("amd_sev_snp") ?? AsReference("amd_sev_snp");
+        get => GetArgument<TerraformValue<string>>("amd_sev_snp") ?? CreateReference("amd_sev_snp");
         set => SetArgument("amd_sev_snp", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsSpotInstanceRequestCpuOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> CoreCount
     {
-        get => GetArgument<TerraformValue<double>>("core_count") ?? AsReference("core_count");
+        get => GetArgument<TerraformValue<double>>("core_count") ?? CreateReference("core_count");
         set => SetArgument("core_count", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsSpotInstanceRequestCpuOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ThreadsPerCore
     {
-        get => GetArgument<TerraformValue<double>>("threads_per_core") ?? AsReference("threads_per_core");
+        get => GetArgument<TerraformValue<double>>("threads_per_core") ?? CreateReference("threads_per_core");
         set => SetArgument("threads_per_core", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? CreateReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SnapshotId
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_id") ?? AsReference("snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id") ?? CreateReference("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -227,14 +227,14 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-        => AsReference("volume_id");
+        => CreateReference("volume_id");
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
     public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? CreateReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? CreateReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -266,7 +266,7 @@ public class AwsSpotInstanceRequestEnclaveOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -331,7 +331,7 @@ public class AwsSpotInstanceRequestLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -340,7 +340,7 @@ public class AwsSpotInstanceRequestLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -372,7 +372,7 @@ public class AwsSpotInstanceRequestMaintenanceOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AutoRecovery
     {
-        get => GetArgument<TerraformValue<string>>("auto_recovery") ?? AsReference("auto_recovery");
+        get => GetArgument<TerraformValue<string>>("auto_recovery") ?? CreateReference("auto_recovery");
         set => SetArgument("auto_recovery", value);
     }
 
@@ -413,7 +413,7 @@ public class AwsSpotInstanceRequestMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> HttpPutResponseHopLimit
     {
-        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit") ?? AsReference("http_put_response_hop_limit");
+        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit") ?? CreateReference("http_put_response_hop_limit");
         set => SetArgument("http_put_response_hop_limit", value);
     }
 
@@ -422,7 +422,7 @@ public class AwsSpotInstanceRequestMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> HttpTokens
     {
-        get => GetArgument<TerraformValue<string>>("http_tokens") ?? AsReference("http_tokens");
+        get => GetArgument<TerraformValue<string>>("http_tokens") ?? CreateReference("http_tokens");
         set => SetArgument("http_tokens", value);
     }
 
@@ -431,7 +431,7 @@ public class AwsSpotInstanceRequestMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> InstanceMetadataTags
     {
-        get => GetArgument<TerraformValue<string>>("instance_metadata_tags") ?? AsReference("instance_metadata_tags");
+        get => GetArgument<TerraformValue<string>>("instance_metadata_tags") ?? CreateReference("instance_metadata_tags");
         set => SetArgument("instance_metadata_tags", value);
     }
 
@@ -473,7 +473,7 @@ public class AwsSpotInstanceRequestNetworkInterfaceBlock : TerraformBlock
     /// The network_card_index attribute.
     /// </summary>
     public TerraformValue<double> NetworkCardIndex
-        => AsReference("network_card_index");
+        => CreateReference("network_card_index");
 
     /// <summary>
     /// The network_interface_id attribute.
@@ -504,7 +504,7 @@ public class AwsSpotInstanceRequestPrivateDnsNameOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> EnableResourceNameDnsARecord
     {
-        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_a_record") ?? AsReference("enable_resource_name_dns_a_record");
+        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_a_record") ?? CreateReference("enable_resource_name_dns_a_record");
         set => SetArgument("enable_resource_name_dns_a_record", value);
     }
 
@@ -513,7 +513,7 @@ public class AwsSpotInstanceRequestPrivateDnsNameOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> EnableResourceNameDnsAaaaRecord
     {
-        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_aaaa_record") ?? AsReference("enable_resource_name_dns_aaaa_record");
+        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_aaaa_record") ?? CreateReference("enable_resource_name_dns_aaaa_record");
         set => SetArgument("enable_resource_name_dns_aaaa_record", value);
     }
 
@@ -522,7 +522,7 @@ public class AwsSpotInstanceRequestPrivateDnsNameOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> HostnameType
     {
-        get => GetArgument<TerraformValue<string>>("hostname_type") ?? AsReference("hostname_type");
+        get => GetArgument<TerraformValue<string>>("hostname_type") ?? CreateReference("hostname_type");
         set => SetArgument("hostname_type", value);
     }
 
@@ -553,14 +553,14 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// The device_name attribute.
     /// </summary>
     public TerraformValue<string> DeviceName
-        => AsReference("device_name");
+        => CreateReference("device_name");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? CreateReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
@@ -569,7 +569,7 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -578,7 +578,7 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -596,7 +596,7 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -605,7 +605,7 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -613,14 +613,14 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-        => AsReference("volume_id");
+        => CreateReference("volume_id");
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
     public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? CreateReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
@@ -629,7 +629,7 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? CreateReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -688,7 +688,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Ami
     {
-        get => GetArgument<TerraformValue<string>>("ami") ?? AsReference("ami");
+        get => GetArgument<TerraformValue<string>>("ami") ?? CreateReference("ami");
         set => SetArgument("ami", value);
     }
 
@@ -697,7 +697,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool> AssociatePublicIpAddress
     {
-        get => GetArgument<TerraformValue<bool>>("associate_public_ip_address") ?? AsReference("associate_public_ip_address");
+        get => GetArgument<TerraformValue<bool>>("associate_public_ip_address") ?? CreateReference("associate_public_ip_address");
         set => SetArgument("associate_public_ip_address", value);
     }
 
@@ -706,7 +706,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? CreateReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -715,7 +715,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool> DisableApiStop
     {
-        get => GetArgument<TerraformValue<bool>>("disable_api_stop") ?? AsReference("disable_api_stop");
+        get => GetArgument<TerraformValue<bool>>("disable_api_stop") ?? CreateReference("disable_api_stop");
         set => SetArgument("disable_api_stop", value);
     }
 
@@ -724,7 +724,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool> DisableApiTermination
     {
-        get => GetArgument<TerraformValue<bool>>("disable_api_termination") ?? AsReference("disable_api_termination");
+        get => GetArgument<TerraformValue<bool>>("disable_api_termination") ?? CreateReference("disable_api_termination");
         set => SetArgument("disable_api_termination", value);
     }
 
@@ -733,7 +733,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool> EbsOptimized
     {
-        get => GetArgument<TerraformValue<bool>>("ebs_optimized") ?? AsReference("ebs_optimized");
+        get => GetArgument<TerraformValue<bool>>("ebs_optimized") ?? CreateReference("ebs_optimized");
         set => SetArgument("ebs_optimized", value);
     }
 
@@ -742,7 +742,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool> EnablePrimaryIpv6
     {
-        get => GetArgument<TerraformValue<bool>>("enable_primary_ipv6") ?? AsReference("enable_primary_ipv6");
+        get => GetArgument<TerraformValue<bool>>("enable_primary_ipv6") ?? CreateReference("enable_primary_ipv6");
         set => SetArgument("enable_primary_ipv6", value);
     }
 
@@ -778,7 +778,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> HostId
     {
-        get => GetArgument<TerraformValue<string>>("host_id") ?? AsReference("host_id");
+        get => GetArgument<TerraformValue<string>>("host_id") ?? CreateReference("host_id");
         set => SetArgument("host_id", value);
     }
 
@@ -787,7 +787,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> HostResourceGroupArn
     {
-        get => GetArgument<TerraformValue<string>>("host_resource_group_arn") ?? AsReference("host_resource_group_arn");
+        get => GetArgument<TerraformValue<string>>("host_resource_group_arn") ?? CreateReference("host_resource_group_arn");
         set => SetArgument("host_resource_group_arn", value);
     }
 
@@ -796,7 +796,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> IamInstanceProfile
     {
-        get => GetArgument<TerraformValue<string>>("iam_instance_profile") ?? AsReference("iam_instance_profile");
+        get => GetArgument<TerraformValue<string>>("iam_instance_profile") ?? CreateReference("iam_instance_profile");
         set => SetArgument("iam_instance_profile", value);
     }
 
@@ -805,7 +805,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -814,7 +814,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> InstanceInitiatedShutdownBehavior
     {
-        get => GetArgument<TerraformValue<string>>("instance_initiated_shutdown_behavior") ?? AsReference("instance_initiated_shutdown_behavior");
+        get => GetArgument<TerraformValue<string>>("instance_initiated_shutdown_behavior") ?? CreateReference("instance_initiated_shutdown_behavior");
         set => SetArgument("instance_initiated_shutdown_behavior", value);
     }
 
@@ -832,7 +832,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? CreateReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -841,7 +841,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double> Ipv6AddressCount
     {
-        get => GetArgument<TerraformValue<double>>("ipv6_address_count") ?? AsReference("ipv6_address_count");
+        get => GetArgument<TerraformValue<double>>("ipv6_address_count") ?? CreateReference("ipv6_address_count");
         set => SetArgument("ipv6_address_count", value);
     }
 
@@ -850,7 +850,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformList<string> Ipv6Addresses
     {
-        get => GetArgument<TerraformList<string>>("ipv6_addresses") ?? AsReference("ipv6_addresses");
+        get => GetArgument<TerraformList<string>>("ipv6_addresses") ?? CreateReference("ipv6_addresses");
         set => SetArgument("ipv6_addresses", value);
     }
 
@@ -859,7 +859,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> KeyName
     {
-        get => GetArgument<TerraformValue<string>>("key_name") ?? AsReference("key_name");
+        get => GetArgument<TerraformValue<string>>("key_name") ?? CreateReference("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -877,7 +877,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool> Monitoring
     {
-        get => GetArgument<TerraformValue<bool>>("monitoring") ?? AsReference("monitoring");
+        get => GetArgument<TerraformValue<bool>>("monitoring") ?? CreateReference("monitoring");
         set => SetArgument("monitoring", value);
     }
 
@@ -886,7 +886,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> PlacementGroup
     {
-        get => GetArgument<TerraformValue<string>>("placement_group") ?? AsReference("placement_group");
+        get => GetArgument<TerraformValue<string>>("placement_group") ?? CreateReference("placement_group");
         set => SetArgument("placement_group", value);
     }
 
@@ -895,7 +895,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> PlacementGroupId
     {
-        get => GetArgument<TerraformValue<string>>("placement_group_id") ?? AsReference("placement_group_id");
+        get => GetArgument<TerraformValue<string>>("placement_group_id") ?? CreateReference("placement_group_id");
         set => SetArgument("placement_group_id", value);
     }
 
@@ -904,7 +904,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double> PlacementPartitionNumber
     {
-        get => GetArgument<TerraformValue<double>>("placement_partition_number") ?? AsReference("placement_partition_number");
+        get => GetArgument<TerraformValue<double>>("placement_partition_number") ?? CreateReference("placement_partition_number");
         set => SetArgument("placement_partition_number", value);
     }
 
@@ -913,7 +913,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> PrivateIp
     {
-        get => GetArgument<TerraformValue<string>>("private_ip") ?? AsReference("private_ip");
+        get => GetArgument<TerraformValue<string>>("private_ip") ?? CreateReference("private_ip");
         set => SetArgument("private_ip", value);
     }
 
@@ -922,7 +922,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -931,7 +931,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string> SecondaryPrivateIps
     {
-        get => GetArgument<TerraformSet<string>>("secondary_private_ips") ?? AsReference("secondary_private_ips");
+        get => GetArgument<TerraformSet<string>>("secondary_private_ips") ?? CreateReference("secondary_private_ips");
         set => SetArgument("secondary_private_ips", value);
     }
 
@@ -940,7 +940,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups") ?? AsReference("security_groups");
+        get => GetArgument<TerraformSet<string>>("security_groups") ?? CreateReference("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -958,7 +958,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> SpotPrice
     {
-        get => GetArgument<TerraformValue<string>>("spot_price") ?? AsReference("spot_price");
+        get => GetArgument<TerraformValue<string>>("spot_price") ?? CreateReference("spot_price");
         set => SetArgument("spot_price", value);
     }
 
@@ -976,7 +976,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? CreateReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -994,7 +994,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1003,7 +1003,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Tenancy
     {
-        get => GetArgument<TerraformValue<string>>("tenancy") ?? AsReference("tenancy");
+        get => GetArgument<TerraformValue<string>>("tenancy") ?? CreateReference("tenancy");
         set => SetArgument("tenancy", value);
     }
 
@@ -1021,7 +1021,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> UserDataBase64
     {
-        get => GetArgument<TerraformValue<string>>("user_data_base64") ?? AsReference("user_data_base64");
+        get => GetArgument<TerraformValue<string>>("user_data_base64") ?? CreateReference("user_data_base64");
         set => SetArgument("user_data_base64", value);
     }
 
@@ -1039,7 +1039,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> ValidFrom
     {
-        get => GetArgument<TerraformValue<string>>("valid_from") ?? AsReference("valid_from");
+        get => GetArgument<TerraformValue<string>>("valid_from") ?? CreateReference("valid_from");
         set => SetArgument("valid_from", value);
     }
 
@@ -1048,7 +1048,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> ValidUntil
     {
-        get => GetArgument<TerraformValue<string>>("valid_until") ?? AsReference("valid_until");
+        get => GetArgument<TerraformValue<string>>("valid_until") ?? CreateReference("valid_until");
         set => SetArgument("valid_until", value);
     }
 
@@ -1066,7 +1066,7 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? CreateReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -1083,73 +1083,73 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The instance_state attribute.
     /// </summary>
     public TerraformValue<string> InstanceState
-        => AsReference("instance_state");
+        => CreateReference("instance_state");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-        => AsReference("outpost_arn");
+        => CreateReference("outpost_arn");
 
     /// <summary>
     /// The password_data attribute.
     /// </summary>
     public TerraformValue<string> PasswordData
-        => AsReference("password_data");
+        => CreateReference("password_data");
 
     /// <summary>
     /// The primary_network_interface attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrimaryNetworkInterface
-        => AsReference("primary_network_interface");
+        => CreateReference("primary_network_interface");
 
     /// <summary>
     /// The primary_network_interface_id attribute.
     /// </summary>
     public TerraformValue<string> PrimaryNetworkInterfaceId
-        => AsReference("primary_network_interface_id");
+        => CreateReference("primary_network_interface_id");
 
     /// <summary>
     /// The private_dns attribute.
     /// </summary>
     public TerraformValue<string> PrivateDns
-        => AsReference("private_dns");
+        => CreateReference("private_dns");
 
     /// <summary>
     /// The public_dns attribute.
     /// </summary>
     public TerraformValue<string> PublicDns
-        => AsReference("public_dns");
+        => CreateReference("public_dns");
 
     /// <summary>
     /// The public_ip attribute.
     /// </summary>
     public TerraformValue<string> PublicIp
-        => AsReference("public_ip");
+        => CreateReference("public_ip");
 
     /// <summary>
     /// The spot_bid_status attribute.
     /// </summary>
     public TerraformValue<string> SpotBidStatus
-        => AsReference("spot_bid_status");
+        => CreateReference("spot_bid_status");
 
     /// <summary>
     /// The spot_instance_id attribute.
     /// </summary>
     public TerraformValue<string> SpotInstanceId
-        => AsReference("spot_instance_id");
+        => CreateReference("spot_instance_id");
 
     /// <summary>
     /// The spot_request_state attribute.
     /// </summary>
     public TerraformValue<string> SpotRequestState
-        => AsReference("spot_request_state");
+        => CreateReference("spot_request_state");
 
     /// <summary>
     /// CapacityReservationSpecification block (nesting mode: list).

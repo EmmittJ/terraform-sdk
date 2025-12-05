@@ -22,7 +22,7 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// </summary>
     public TerraformValue<string> CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cidr_block") ?? AsReference("cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block") ?? CreateReference("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// </summary>
     public TerraformValue<bool> EnableDnsHostnames
     {
-        get => GetArgument<TerraformValue<bool>>("enable_dns_hostnames") ?? AsReference("enable_dns_hostnames");
+        get => GetArgument<TerraformValue<bool>>("enable_dns_hostnames") ?? CreateReference("enable_dns_hostnames");
         set => SetArgument("enable_dns_hostnames", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// </summary>
     public TerraformValue<bool> EnableNetworkAddressUsageMetrics
     {
-        get => GetArgument<TerraformValue<bool>>("enable_network_address_usage_metrics") ?? AsReference("enable_network_address_usage_metrics");
+        get => GetArgument<TerraformValue<bool>>("enable_network_address_usage_metrics") ?? CreateReference("enable_network_address_usage_metrics");
         set => SetArgument("enable_network_address_usage_metrics", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// </summary>
     public TerraformValue<string> Ipv6CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block") ?? AsReference("ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block") ?? CreateReference("ipv6_cidr_block");
         set => SetArgument("ipv6_cidr_block", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// </summary>
     public TerraformValue<string> Ipv6CidrBlockNetworkBorderGroup
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block_network_border_group") ?? AsReference("ipv6_cidr_block_network_border_group");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block_network_border_group") ?? CreateReference("ipv6_cidr_block_network_border_group");
         set => SetArgument("ipv6_cidr_block_network_border_group", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -156,48 +156,48 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The default_network_acl_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultNetworkAclId
-        => AsReference("default_network_acl_id");
+        => CreateReference("default_network_acl_id");
 
     /// <summary>
     /// The default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultRouteTableId
-        => AsReference("default_route_table_id");
+        => CreateReference("default_route_table_id");
 
     /// <summary>
     /// The default_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecurityGroupId
-        => AsReference("default_security_group_id");
+        => CreateReference("default_security_group_id");
 
     /// <summary>
     /// The dhcp_options_id attribute.
     /// </summary>
     public TerraformValue<string> DhcpOptionsId
-        => AsReference("dhcp_options_id");
+        => CreateReference("dhcp_options_id");
 
     /// <summary>
     /// The ipv6_association_id attribute.
     /// </summary>
     public TerraformValue<string> Ipv6AssociationId
-        => AsReference("ipv6_association_id");
+        => CreateReference("ipv6_association_id");
 
     /// <summary>
     /// The main_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> MainRouteTableId
-        => AsReference("main_route_table_id");
+        => CreateReference("main_route_table_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
 }

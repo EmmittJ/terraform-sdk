@@ -46,7 +46,7 @@ public partial class AzurermDevCenterProjectPoolDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermDevCenterProjectPoolDataSource(string name) : Terraf
     /// The dev_box_definition_name attribute.
     /// </summary>
     public TerraformValue<string> DevBoxDefinitionName
-        => AsReference("dev_box_definition_name");
+        => CreateReference("dev_box_definition_name");
 
     /// <summary>
     /// The dev_center_attached_network_name attribute.
     /// </summary>
     public TerraformValue<string> DevCenterAttachedNetworkName
-        => AsReference("dev_center_attached_network_name");
+        => CreateReference("dev_center_attached_network_name");
 
     /// <summary>
     /// The local_administrator_enabled attribute.
     /// </summary>
     public TerraformValue<bool> LocalAdministratorEnabled
-        => AsReference("local_administrator_enabled");
+        => CreateReference("local_administrator_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
     /// </summary>
     public TerraformValue<bool> SingleSignOnEnabled
-        => AsReference("single_sign_on_enabled");
+        => CreateReference("single_sign_on_enabled");
 
     /// <summary>
     /// The stop_on_disconnect_grace_period_minutes attribute.
     /// </summary>
     public TerraformValue<double> StopOnDisconnectGracePeriodMinutes
-        => AsReference("stop_on_disconnect_grace_period_minutes");
+        => CreateReference("stop_on_disconnect_grace_period_minutes");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

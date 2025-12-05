@@ -27,7 +27,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
     /// </summary>
     public TerraformValue<string> ContentHash
     {
-        get => GetArgument<TerraformValue<string>>("content_hash") ?? AsReference("content_hash");
+        get => GetArgument<TerraformValue<string>>("content_hash") ?? CreateReference("content_hash");
         set => SetArgument("content_hash", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
     /// </summary>
     public TerraformValue<string> ContentUri
     {
-        get => GetArgument<TerraformValue<string>>("content_uri") ?? AsReference("content_uri");
+        get => GetArgument<TerraformValue<string>>("content_uri") ?? CreateReference("content_uri");
         set => SetArgument("content_uri", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment(string n
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

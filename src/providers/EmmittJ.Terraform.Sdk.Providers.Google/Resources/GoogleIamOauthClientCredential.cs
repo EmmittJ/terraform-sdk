@@ -75,7 +75,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     /// mitigations](https://cloud.google.com/iam/docs/workforce-oauth-app#security)
     /// </summary>
     public TerraformValue<string> ClientSecret
-        => AsReference("client_secret");
+        => CreateReference("client_secret");
 
     /// <summary>
     /// Immutable. Identifier. The resource name of the OauthClientCredential.
@@ -139,7 +139,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     /// &#39;projects/{project}/locations/{location}/oauthClients/{oauth_client}/credentials/{credential}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

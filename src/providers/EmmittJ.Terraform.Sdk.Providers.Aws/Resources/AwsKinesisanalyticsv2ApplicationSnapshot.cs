@@ -55,7 +55,7 @@ public partial class AwsKinesisanalyticsv2ApplicationSnapshot(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsKinesisanalyticsv2ApplicationSnapshot(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -82,13 +82,13 @@ public partial class AwsKinesisanalyticsv2ApplicationSnapshot(string name) : Ter
     /// The application_version_id attribute.
     /// </summary>
     public TerraformValue<double> ApplicationVersionId
-        => AsReference("application_version_id");
+        => CreateReference("application_version_id");
 
     /// <summary>
     /// The snapshot_creation_timestamp attribute.
     /// </summary>
     public TerraformValue<string> SnapshotCreationTimestamp
-        => AsReference("snapshot_creation_timestamp");
+        => CreateReference("snapshot_creation_timestamp");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

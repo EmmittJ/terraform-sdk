@@ -17,19 +17,19 @@ public class AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssi
     /// The application_arn attribute.
     /// </summary>
     public TerraformValue<string> ApplicationArn
-        => AsReference("application_arn");
+        => CreateReference("application_arn");
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
     public TerraformValue<string> PrincipalType
-        => AsReference("principal_type");
+        => CreateReference("principal_type");
 
 }
 
@@ -75,7 +75,7 @@ public partial class AwsSsoadminPrincipalApplicationAssignmentsDataSource(string
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsSsoadminPrincipalApplicationAssignmentsDataSource(string
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// ApplicationAssignments block (nesting mode: list).

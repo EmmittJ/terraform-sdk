@@ -55,7 +55,7 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource(string name)
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource(string name)
     /// The resource_tag_mapping_list attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceTagMappingList
-        => AsReference("resource_tag_mapping_list");
+        => CreateReference("resource_tag_mapping_list");
 
     /// <summary>
     /// TagFilter block (nesting mode: list).

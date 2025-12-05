@@ -321,7 +321,7 @@ internal sealed class TerraformPublishingContext
             TerraformOutputReference outputRef => ResolveOutputReference(outputRef),
 
             ParameterResource param =>
-                GetOrCreateParameterVariable(param).AsReference(),
+                GetOrCreateParameterVariable(param).ToReference(),
 
             ContainerImageReference imageRef =>
                 ResolveContainerImageReference(imageRef),

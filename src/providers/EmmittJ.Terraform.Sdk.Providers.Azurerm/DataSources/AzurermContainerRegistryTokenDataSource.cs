@@ -46,7 +46,7 @@ public partial class AzurermContainerRegistryTokenDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,13 +74,13 @@ public partial class AzurermContainerRegistryTokenDataSource(string name) : Terr
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The scope_map_id attribute.
     /// </summary>
     public TerraformValue<string> ScopeMapId
-        => AsReference("scope_map_id");
+        => CreateReference("scope_map_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzurermHealthcareServiceDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,43 +74,43 @@ public partial class AzurermHealthcareServiceDataSource(string name) : Terraform
     /// The access_policy_object_ids attribute.
     /// </summary>
     public TerraformSet<string> AccessPolicyObjectIds
-        => AsReference("access_policy_object_ids");
+        => CreateReference("access_policy_object_ids");
 
     /// <summary>
     /// The authentication_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AuthenticationConfiguration
-        => AsReference("authentication_configuration");
+        => CreateReference("authentication_configuration");
 
     /// <summary>
     /// The cors_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CorsConfiguration
-        => AsReference("cors_configuration");
+        => CreateReference("cors_configuration");
 
     /// <summary>
     /// The cosmosdb_key_vault_key_versionless_id attribute.
     /// </summary>
     public TerraformValue<string> CosmosdbKeyVaultKeyVersionlessId
-        => AsReference("cosmosdb_key_vault_key_versionless_id");
+        => CreateReference("cosmosdb_key_vault_key_versionless_id");
 
     /// <summary>
     /// The cosmosdb_throughput attribute.
     /// </summary>
     public TerraformValue<double> CosmosdbThroughput
-        => AsReference("cosmosdb_throughput");
+        => CreateReference("cosmosdb_throughput");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

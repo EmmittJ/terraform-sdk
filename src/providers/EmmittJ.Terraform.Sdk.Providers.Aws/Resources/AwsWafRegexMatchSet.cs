@@ -92,7 +92,7 @@ public partial class AwsWafRegexMatchSet(string name) : TerraformResource("aws_w
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsWafRegexMatchSet(string name) : TerraformResource("aws_w
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// RegexMatchTuple block (nesting mode: set).

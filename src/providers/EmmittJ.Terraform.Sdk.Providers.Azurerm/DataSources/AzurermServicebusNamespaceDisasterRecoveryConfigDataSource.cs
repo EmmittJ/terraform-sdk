@@ -45,7 +45,7 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// </summary>
     public TerraformValue<string> NamespaceId
     {
-        get => GetArgument<TerraformValue<string>>("namespace_id") ?? AsReference("namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id") ?? CreateReference("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> NamespaceName
     {
-        get => GetArgument<TerraformValue<string>>("namespace_name") ?? AsReference("namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name") ?? CreateReference("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? AsReference("resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? CreateReference("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -92,31 +92,31 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// The default_primary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryKey
-        => AsReference("default_primary_key");
+        => CreateReference("default_primary_key");
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryKey
-        => AsReference("default_secondary_key");
+        => CreateReference("default_secondary_key");
 
     /// <summary>
     /// The partner_namespace_id attribute.
     /// </summary>
     public TerraformValue<string> PartnerNamespaceId
-        => AsReference("partner_namespace_id");
+        => CreateReference("partner_namespace_id");
 
     /// <summary>
     /// The primary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionStringAlias
-        => AsReference("primary_connection_string_alias");
+        => CreateReference("primary_connection_string_alias");
 
     /// <summary>
     /// The secondary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionStringAlias
-        => AsReference("secondary_connection_string_alias");
+        => CreateReference("secondary_connection_string_alias");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

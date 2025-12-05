@@ -63,7 +63,7 @@ public partial class GoogleNetworkConnectivityHub(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool> ExportPsc
     {
-        get => GetArgument<TerraformValue<bool>>("export_psc") ?? AsReference("export_psc");
+        get => GetArgument<TerraformValue<bool>>("export_psc") ?? CreateReference("export_psc");
         set => SetArgument("export_psc", value);
     }
 
@@ -72,7 +72,7 @@ public partial class GoogleNetworkConnectivityHub(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleNetworkConnectivityHub(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleNetworkConnectivityHub(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> PolicyMode
     {
-        get => GetArgument<TerraformValue<string>>("policy_mode") ?? AsReference("policy_mode");
+        get => GetArgument<TerraformValue<string>>("policy_mode") ?? CreateReference("policy_mode");
         set => SetArgument("policy_mode", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleNetworkConnectivityHub(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> PresetTopology
     {
-        get => GetArgument<TerraformValue<string>>("preset_topology") ?? AsReference("preset_topology");
+        get => GetArgument<TerraformValue<string>>("preset_topology") ?? CreateReference("preset_topology");
         set => SetArgument("preset_topology", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleNetworkConnectivityHub(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -128,44 +128,44 @@ public partial class GoogleNetworkConnectivityHub(string name) : TerraformResour
     /// Output only. The time the hub was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The VPC network associated with this hub&#39;s spokes. All of the VPN tunnels, VLAN attachments, and router appliance instances referenced by this hub&#39;s spokes must belong to this VPC network. This field is read-only. Network Connectivity Center automatically populates it based on the set of spokes attached to the hub.
     /// </summary>
     public TerraformList<TerraformMap<object>> RoutingVpcs
-        => AsReference("routing_vpcs");
+        => CreateReference("routing_vpcs");
 
     /// <summary>
     /// Output only. The current lifecycle state of this hub.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. The Google-generated UUID for the hub. This value is unique across all hub resources. If a hub is deleted and another with the same name is created, the new hub is assigned a different unique_id.
     /// </summary>
     public TerraformValue<string> UniqueId
-        => AsReference("unique_id");
+        => CreateReference("unique_id");
 
     /// <summary>
     /// Output only. The time the hub was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

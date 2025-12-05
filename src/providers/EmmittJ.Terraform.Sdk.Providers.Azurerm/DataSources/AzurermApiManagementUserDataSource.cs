@@ -46,7 +46,7 @@ public partial class AzurermApiManagementUserDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,31 +74,31 @@ public partial class AzurermApiManagementUserDataSource(string name) : Terraform
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
     public TerraformValue<string> FirstName
-        => AsReference("first_name");
+        => CreateReference("first_name");
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
     public TerraformValue<string> LastName
-        => AsReference("last_name");
+        => CreateReference("last_name");
 
     /// <summary>
     /// The note attribute.
     /// </summary>
     public TerraformValue<string> Note
-        => AsReference("note");
+        => CreateReference("note");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -83,7 +83,7 @@ public partial class AwsNetworkfirewallLoggingConfiguration(string name) : Terra
     /// </summary>
     public TerraformValue<bool> EnableMonitoringDashboard
     {
-        get => GetArgument<TerraformValue<bool>>("enable_monitoring_dashboard") ?? AsReference("enable_monitoring_dashboard");
+        get => GetArgument<TerraformValue<bool>>("enable_monitoring_dashboard") ?? CreateReference("enable_monitoring_dashboard");
         set => SetArgument("enable_monitoring_dashboard", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsNetworkfirewallLoggingConfiguration(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsNetworkfirewallLoggingConfiguration(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

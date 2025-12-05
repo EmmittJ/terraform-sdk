@@ -91,7 +91,7 @@ public class AwsBackupFrameworkControlBlockScopeBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> ComplianceResourceIds
     {
-        get => GetArgument<TerraformSet<string>>("compliance_resource_ids") ?? AsReference("compliance_resource_ids");
+        get => GetArgument<TerraformSet<string>>("compliance_resource_ids") ?? CreateReference("compliance_resource_ids");
         set => SetArgument("compliance_resource_ids", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsBackupFrameworkControlBlockScopeBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> ComplianceResourceTypes
     {
-        get => GetArgument<TerraformSet<string>>("compliance_resource_types") ?? AsReference("compliance_resource_types");
+        get => GetArgument<TerraformSet<string>>("compliance_resource_types") ?? CreateReference("compliance_resource_types");
         set => SetArgument("compliance_resource_types", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AwsBackupFramework(string name) : TerraformResource("aws_ba
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsBackupFramework(string name) : TerraformResource("aws_ba
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AwsBackupFramework(string name) : TerraformResource("aws_ba
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -222,25 +222,25 @@ public partial class AwsBackupFramework(string name) : TerraformResource("aws_ba
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The deployment_status attribute.
     /// </summary>
     public TerraformValue<string> DeploymentStatus
-        => AsReference("deployment_status");
+        => CreateReference("deployment_status");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Control block (nesting mode: set).

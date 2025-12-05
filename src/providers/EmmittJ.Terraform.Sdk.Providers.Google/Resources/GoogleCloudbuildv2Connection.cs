@@ -86,7 +86,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlockAuthorizerCred
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -115,7 +115,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlockReadAuthorizer
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -145,7 +145,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock : Terraf
     /// Output only. Version of the Bitbucket Data Center running on the &#39;host_uri&#39;.
     /// </summary>
     public TerraformValue<string> ServerVersion
-        => AsReference("server_version");
+        => CreateReference("server_version");
 
     /// <summary>
     /// SSL certificate to use for requests to the Bitbucket Data Center.
@@ -229,7 +229,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockAuthorize
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -258,7 +258,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockReadAutho
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -342,7 +342,7 @@ public class GoogleCloudbuildv2ConnectionGithubConfigBlockAuthorizerCredentialBl
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -474,7 +474,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> HostUri
     {
-        get => GetArgument<TerraformValue<string>>("host_uri") ?? AsReference("host_uri");
+        get => GetArgument<TerraformValue<string>>("host_uri") ?? CreateReference("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -482,7 +482,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBlock
     /// Output only. Version of the GitLab Enterprise server running on the &#39;host_uri&#39;.
     /// </summary>
     public TerraformValue<string> ServerVersion
-        => AsReference("server_version");
+        => CreateReference("server_version");
 
     /// <summary>
     /// SSL certificate to use for requests to GitLab Enterprise.
@@ -566,7 +566,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockAuthorizerCredentialBl
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -595,7 +595,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockReadAuthorizerCredenti
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -696,7 +696,7 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -725,7 +725,7 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -733,37 +733,37 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     /// Output only. Server assigned timestamp for when the connection was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Output only. Installation state of the Connection.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstallationState
-        => AsReference("installation_state");
+        => CreateReference("installation_state");
 
     /// <summary>
     /// Output only. Set to true when the connection is being set up or updated in the background.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Output only. Server assigned timestamp for when the connection was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// BitbucketCloudConfig block (nesting mode: list).

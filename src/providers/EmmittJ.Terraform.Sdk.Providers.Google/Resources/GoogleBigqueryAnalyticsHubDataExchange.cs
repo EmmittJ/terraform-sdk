@@ -133,7 +133,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// </summary>
     public TerraformValue<string> DiscoveryType
     {
-        get => GetArgument<TerraformValue<string>>("discovery_type") ?? AsReference("discovery_type");
+        get => GetArgument<TerraformValue<string>>("discovery_type") ?? CreateReference("discovery_type");
         set => SetArgument("discovery_type", value);
     }
 
@@ -170,7 +170,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -207,7 +207,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -215,14 +215,14 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// Number of listings contained in the data exchange.
     /// </summary>
     public TerraformValue<double> ListingCount
-        => AsReference("listing_count");
+        => CreateReference("listing_count");
 
     /// <summary>
     /// The resource name of the data exchange, for example:
     /// &amp;quot;projects/myproject/locations/US/dataExchanges/123&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// SharingEnvironmentConfig block (nesting mode: list).

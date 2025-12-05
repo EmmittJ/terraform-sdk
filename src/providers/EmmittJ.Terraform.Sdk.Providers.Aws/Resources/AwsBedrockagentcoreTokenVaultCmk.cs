@@ -46,7 +46,7 @@ public partial class AwsBedrockagentcoreTokenVaultCmk(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsBedrockagentcoreTokenVaultCmk(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> TokenVaultId
     {
-        get => GetArgument<TerraformValue<string>>("token_vault_id") ?? AsReference("token_vault_id");
+        get => GetArgument<TerraformValue<string>>("token_vault_id") ?? CreateReference("token_vault_id");
         set => SetArgument("token_vault_id", value);
     }
 

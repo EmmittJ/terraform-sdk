@@ -13,7 +13,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -53,43 +53,43 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// Any user with a Cloud Build Approver role for the project can approve a build.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApprovalConfig
-        => AsReference("approval_config");
+        => CreateReference("approval_config");
 
     /// <summary>
     /// BitbucketServerTriggerConfig describes the configuration of a trigger that creates a build whenever a Bitbucket Server event is received.
     /// </summary>
     public TerraformList<TerraformMap<object>> BitbucketServerTriggerConfig
-        => AsReference("bitbucket_server_trigger_config");
+        => CreateReference("bitbucket_server_trigger_config");
 
     /// <summary>
     /// Contents of the build template. Either a filename or build template must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> Build
-        => AsReference("build");
+        => CreateReference("build");
 
     /// <summary>
     /// Time when the trigger was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Human-readable description of the trigger.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Configuration for triggers that respond to Developer Connect events.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeveloperConnectEventConfig
-        => AsReference("developer_connect_event_config");
+        => CreateReference("developer_connect_event_config");
 
     /// <summary>
     /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
     /// </summary>
     public TerraformValue<bool> Disabled
-        => AsReference("disabled");
+        => CreateReference("disabled");
 
     /// <summary>
     /// Path, from the source root, to a file whose contents is used for the template.
@@ -97,19 +97,19 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
     /// </summary>
     public TerraformValue<string> Filename
-        => AsReference("filename");
+        => CreateReference("filename");
 
     /// <summary>
     /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
     /// </summary>
     public TerraformValue<string> Filter
-        => AsReference("filter");
+        => CreateReference("filter");
 
     /// <summary>
     /// The file source describing the local or remote Build template.
     /// </summary>
     public TerraformList<TerraformMap<object>> GitFileSource
-        => AsReference("git_file_source");
+        => CreateReference("git_file_source");
 
     /// <summary>
     /// Describes the configuration of a trigger that creates a build whenever a GitHub event is received.
@@ -117,7 +117,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; or &#39;webhook_config&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> Github
-        => AsReference("github");
+        => CreateReference("github");
 
     /// <summary>
     /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -131,7 +131,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// of the ignoredFiles globs, then we do not trigger a build.
     /// </summary>
     public TerraformList<string> IgnoredFiles
-        => AsReference("ignored_files");
+        => CreateReference("ignored_files");
 
     /// <summary>
     /// Build logs will be sent back to GitHub as part of the checkrun
@@ -139,7 +139,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// INCLUDE_BUILD_LOGS_WITH_STATUS Possible values: [&amp;quot;INCLUDE_BUILD_LOGS_UNSPECIFIED&amp;quot;, &amp;quot;INCLUDE_BUILD_LOGS_WITH_STATUS&amp;quot;]
     /// </summary>
     public TerraformValue<string> IncludeBuildLogs
-        => AsReference("include_build_logs");
+        => CreateReference("include_build_logs");
 
     /// <summary>
     /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -155,13 +155,13 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// a build.
     /// </summary>
     public TerraformList<string> IncludedFiles
-        => AsReference("included_files");
+        => CreateReference("included_files");
 
     /// <summary>
     /// Name of the trigger. Must be unique within the project.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// PubsubConfig describes the configuration of a trigger that creates
@@ -170,13 +170,13 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> PubsubConfig
-        => AsReference("pubsub_config");
+        => CreateReference("pubsub_config");
 
     /// <summary>
     /// The configuration of a trigger that creates a build whenever an event from Repo API is received.
     /// </summary>
     public TerraformList<TerraformMap<object>> RepositoryEventConfig
-        => AsReference("repository_event_config");
+        => CreateReference("repository_event_config");
 
     /// <summary>
     /// The service account used for all user-controlled operations including
@@ -188,7 +188,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
     /// </summary>
     public TerraformValue<string> ServiceAccount
-        => AsReference("service_account");
+        => CreateReference("service_account");
 
     /// <summary>
     /// The repo and ref of the repository from which to build.
@@ -199,19 +199,19 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceToBuild
-        => AsReference("source_to_build");
+        => CreateReference("source_to_build");
 
     /// <summary>
     /// Substitutions data for Build resource.
     /// </summary>
     public TerraformMap<string> Substitutions
-        => AsReference("substitutions");
+        => CreateReference("substitutions");
 
     /// <summary>
     /// Tags for annotation of a BuildTrigger
     /// </summary>
     public TerraformList<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Template describing the types of source changes to trigger a build.
@@ -223,7 +223,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39;, &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> TriggerTemplate
-        => AsReference("trigger_template");
+        => CreateReference("trigger_template");
 
     /// <summary>
     /// WebhookConfig describes the configuration of a trigger that creates
@@ -232,6 +232,6 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> WebhookConfig
-        => AsReference("webhook_config");
+        => CreateReference("webhook_config");
 
 }

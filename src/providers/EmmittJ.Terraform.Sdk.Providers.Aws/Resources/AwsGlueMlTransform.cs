@@ -160,7 +160,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<string> GlueVersion
     {
-        get => GetArgument<TerraformValue<string>>("glue_version") ?? AsReference("glue_version");
+        get => GetArgument<TerraformValue<string>>("glue_version") ?? CreateReference("glue_version");
         set => SetArgument("glue_version", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<double> MaxCapacity
     {
-        get => GetArgument<TerraformValue<double>>("max_capacity") ?? AsReference("max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity") ?? CreateReference("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -269,19 +269,19 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The label_count attribute.
     /// </summary>
     public TerraformValue<double> LabelCount
-        => AsReference("label_count");
+        => CreateReference("label_count");
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Schema
-        => AsReference("schema");
+        => CreateReference("schema");
 
     /// <summary>
     /// InputRecordTables block (nesting mode: list).

@@ -75,7 +75,7 @@ public partial class AwsCodecommitTrigger(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsCodecommitTrigger(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsCodecommitTrigger(string name) : TerraformResource("aws_
     /// The configuration_id attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationId
-        => AsReference("configuration_id");
+        => CreateReference("configuration_id");
 
     /// <summary>
     /// Trigger block (nesting mode: set).

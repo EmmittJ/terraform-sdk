@@ -47,7 +47,7 @@ public partial class AwsEc2NetworkInsightsPathDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsEc2NetworkInsightsPathDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> NetworkInsightsPathId
     {
-        get => GetArgument<TerraformValue<string>>("network_insights_path_id") ?? AsReference("network_insights_path_id");
+        get => GetArgument<TerraformValue<string>>("network_insights_path_id") ?? CreateReference("network_insights_path_id");
         set => SetArgument("network_insights_path_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsEc2NetworkInsightsPathDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsEc2NetworkInsightsPathDataSource(string name) : Terrafor
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -82,67 +82,67 @@ public partial class AwsEc2NetworkInsightsPathDataSource(string name) : Terrafor
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The destination attribute.
     /// </summary>
     public TerraformValue<string> Destination
-        => AsReference("destination");
+        => CreateReference("destination");
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
     public TerraformValue<string> DestinationArn
-        => AsReference("destination_arn");
+        => CreateReference("destination_arn");
 
     /// <summary>
     /// The destination_ip attribute.
     /// </summary>
     public TerraformValue<string> DestinationIp
-        => AsReference("destination_ip");
+        => CreateReference("destination_ip");
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
     public TerraformValue<double> DestinationPort
-        => AsReference("destination_port");
+        => CreateReference("destination_port");
 
     /// <summary>
     /// The filter_at_destination attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FilterAtDestination
-        => AsReference("filter_at_destination");
+        => CreateReference("filter_at_destination");
 
     /// <summary>
     /// The filter_at_source attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FilterAtSource
-        => AsReference("filter_at_source");
+        => CreateReference("filter_at_source");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-        => AsReference("protocol");
+        => CreateReference("protocol");
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     public TerraformValue<string> Source
-        => AsReference("source");
+        => CreateReference("source");
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceArn
-        => AsReference("source_arn");
+        => CreateReference("source_arn");
 
     /// <summary>
     /// The source_ip attribute.
     /// </summary>
     public TerraformValue<string> SourceIp
-        => AsReference("source_ip");
+        => CreateReference("source_ip");
 
     /// <summary>
     /// Filter block (nesting mode: set).

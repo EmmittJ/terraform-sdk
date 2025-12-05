@@ -101,7 +101,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> PrimaryKey
     {
-        get => GetArgument<TerraformValue<string>>("primary_key") ?? AsReference("primary_key");
+        get => GetArgument<TerraformValue<string>>("primary_key") ?? CreateReference("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> SecondaryKey
     {
-        get => GetArgument<TerraformValue<string>>("secondary_key") ?? AsReference("secondary_key");
+        get => GetArgument<TerraformValue<string>>("secondary_key") ?? CreateReference("secondary_key");
         set => SetArgument("secondary_key", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? CreateReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 

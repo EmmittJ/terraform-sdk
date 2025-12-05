@@ -153,7 +153,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -187,7 +187,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -202,7 +202,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double> PropagatedConnectionLimit
     {
-        get => GetArgument<TerraformValue<double>>("propagated_connection_limit") ?? AsReference("propagated_connection_limit");
+        get => GetArgument<TerraformValue<double>>("propagated_connection_limit") ?? CreateReference("propagated_connection_limit");
         set => SetArgument("propagated_connection_limit", value);
     }
 
@@ -214,7 +214,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool> ReconcileConnections
     {
-        get => GetArgument<TerraformValue<bool>>("reconcile_connections") ?? AsReference("reconcile_connections");
+        get => GetArgument<TerraformValue<bool>>("reconcile_connections") ?? CreateReference("reconcile_connections");
         set => SetArgument("reconcile_connections", value);
     }
 
@@ -223,7 +223,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -254,26 +254,26 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// attachment.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectedEndpoints
-        => AsReference("connected_endpoints");
+        => CreateReference("connected_endpoints");
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during
     /// updates of this resource.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// An 128-bit global unique ID of the PSC service attachment.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscServiceAttachmentId
-        => AsReference("psc_service_attachment_id");
+        => CreateReference("psc_service_attachment_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// ConsumerAcceptLists block (nesting mode: set).

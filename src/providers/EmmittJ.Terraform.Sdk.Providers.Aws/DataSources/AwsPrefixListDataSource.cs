@@ -70,7 +70,7 @@ public partial class AwsPrefixListDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsPrefixListDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsPrefixListDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsPrefixListDataSource(string name) : TerraformDataSource(
     /// The cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> CidrBlocks
-        => AsReference("cidr_blocks");
+        => CreateReference("cidr_blocks");
 
     /// <summary>
     /// Filter block (nesting mode: set).

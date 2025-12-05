@@ -13,7 +13,7 @@ public partial class GoogleSecretManagerRegionalSecretVersionAccessDataSource(st
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleSecretManagerRegionalSecretVersionAccessDataSource(st
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleSecretManagerRegionalSecretVersionAccessDataSource(st
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -59,7 +59,7 @@ public partial class GoogleSecretManagerRegionalSecretVersionAccessDataSource(st
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -67,12 +67,12 @@ public partial class GoogleSecretManagerRegionalSecretVersionAccessDataSource(st
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The secret_data attribute.
     /// </summary>
     public TerraformValue<string> SecretData
-        => AsReference("secret_data");
+        => CreateReference("secret_data");
 
 }

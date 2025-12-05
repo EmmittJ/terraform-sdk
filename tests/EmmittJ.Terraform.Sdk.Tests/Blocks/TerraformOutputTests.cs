@@ -40,7 +40,7 @@ public class TerraformOutputTests
 
         var output = new TerraformOutput("instance_id")
         {
-            Value = instance.AsReference("id"),
+            Value = instance["id"],
             Description = "The ID of the EC2 instance"
         };
 

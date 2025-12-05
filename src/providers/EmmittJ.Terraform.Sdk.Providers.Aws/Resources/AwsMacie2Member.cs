@@ -65,7 +65,7 @@ public partial class AwsMacie2Member(string name) : TerraformResource("aws_macie
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsMacie2Member(string name) : TerraformResource("aws_macie
     /// </summary>
     public TerraformValue<bool> Invite
     {
-        get => GetArgument<TerraformValue<bool>>("invite") ?? AsReference("invite");
+        get => GetArgument<TerraformValue<bool>>("invite") ?? CreateReference("invite");
         set => SetArgument("invite", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsMacie2Member(string name) : TerraformResource("aws_macie
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsMacie2Member(string name) : TerraformResource("aws_macie
     /// </summary>
     public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? CreateReference("status");
         set => SetArgument("status", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AwsMacie2Member(string name) : TerraformResource("aws_macie
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -136,37 +136,37 @@ public partial class AwsMacie2Member(string name) : TerraformResource("aws_macie
     /// The administrator_account_id attribute.
     /// </summary>
     public TerraformValue<string> AdministratorAccountId
-        => AsReference("administrator_account_id");
+        => CreateReference("administrator_account_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The invited_at attribute.
     /// </summary>
     public TerraformValue<string> InvitedAt
-        => AsReference("invited_at");
+        => CreateReference("invited_at");
 
     /// <summary>
     /// The master_account_id attribute.
     /// </summary>
     public TerraformValue<string> MasterAccountId
-        => AsReference("master_account_id");
+        => CreateReference("master_account_id");
 
     /// <summary>
     /// The relationship_status attribute.
     /// </summary>
     public TerraformValue<string> RelationshipStatus
-        => AsReference("relationship_status");
+        => CreateReference("relationship_status");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

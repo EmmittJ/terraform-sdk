@@ -54,7 +54,7 @@ public partial class AzurermSentinelDataConnectorThreatIntelligence(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSentinelDataConnectorThreatIntelligence(string name)
     /// </summary>
     public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? CreateReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

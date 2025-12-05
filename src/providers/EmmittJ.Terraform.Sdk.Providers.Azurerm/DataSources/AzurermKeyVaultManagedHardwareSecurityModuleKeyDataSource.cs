@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource(s
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource(s
     /// The curve attribute.
     /// </summary>
     public TerraformValue<string> Curve
-        => AsReference("curve");
+        => CreateReference("curve");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-        => AsReference("expiration_date");
+        => CreateReference("expiration_date");
 
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
     public TerraformList<string> KeyOpts
-        => AsReference("key_opts");
+        => CreateReference("key_opts");
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
     public TerraformValue<double> KeySize
-        => AsReference("key_size");
+        => CreateReference("key_size");
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
     public TerraformValue<string> KeyType
-        => AsReference("key_type");
+        => CreateReference("key_type");
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
     public TerraformValue<string> NotBeforeDate
-        => AsReference("not_before_date");
+        => CreateReference("not_before_date");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The versioned_id attribute.
     /// </summary>
     public TerraformValue<string> VersionedId
-        => AsReference("versioned_id");
+        => CreateReference("versioned_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

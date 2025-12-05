@@ -72,7 +72,7 @@ public partial class AzureadSynchronizationJob(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzureadSynchronizationJob(string name) : TerraformResource(
     /// The schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Schedule
-        => AsReference("schedule");
+        => CreateReference("schedule");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

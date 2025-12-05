@@ -47,7 +47,7 @@ public partial class AwsVpnConnectionDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsVpnConnectionDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> VpnConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("vpn_connection_id") ?? AsReference("vpn_connection_id");
+        get => GetArgument<TerraformValue<string>>("vpn_connection_id") ?? CreateReference("vpn_connection_id");
         set => SetArgument("vpn_connection_id", value);
     }
 
@@ -64,85 +64,85 @@ public partial class AwsVpnConnectionDataSource(string name) : TerraformDataSour
     /// The category attribute.
     /// </summary>
     public TerraformValue<string> Category
-        => AsReference("category");
+        => CreateReference("category");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
-        => AsReference("core_network_arn");
+        => CreateReference("core_network_arn");
 
     /// <summary>
     /// The core_network_attachment_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkAttachmentArn
-        => AsReference("core_network_attachment_arn");
+        => CreateReference("core_network_attachment_arn");
 
     /// <summary>
     /// The customer_gateway_configuration attribute.
     /// </summary>
     public TerraformValue<string> CustomerGatewayConfiguration
-        => AsReference("customer_gateway_configuration");
+        => CreateReference("customer_gateway_configuration");
 
     /// <summary>
     /// The customer_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> CustomerGatewayId
-        => AsReference("customer_gateway_id");
+        => CreateReference("customer_gateway_id");
 
     /// <summary>
     /// The gateway_association_state attribute.
     /// </summary>
     public TerraformValue<string> GatewayAssociationState
-        => AsReference("gateway_association_state");
+        => CreateReference("gateway_association_state");
 
     /// <summary>
     /// The pre_shared_key_arn attribute.
     /// </summary>
     public TerraformValue<string> PreSharedKeyArn
-        => AsReference("pre_shared_key_arn");
+        => CreateReference("pre_shared_key_arn");
 
     /// <summary>
     /// The routes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Routes
-        => AsReference("routes");
+        => CreateReference("routes");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayId
-        => AsReference("transit_gateway_id");
+        => CreateReference("transit_gateway_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The vgw_telemetries attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VgwTelemetries
-        => AsReference("vgw_telemetries");
+        => CreateReference("vgw_telemetries");
 
     /// <summary>
     /// The vpn_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> VpnGatewayId
-        => AsReference("vpn_gateway_id");
+        => CreateReference("vpn_gateway_id");
 
     /// <summary>
     /// Filter block (nesting mode: set).

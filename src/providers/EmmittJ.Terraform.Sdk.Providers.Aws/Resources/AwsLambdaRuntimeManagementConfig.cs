@@ -32,7 +32,7 @@ public partial class AwsLambdaRuntimeManagementConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,6 +58,6 @@ public partial class AwsLambdaRuntimeManagementConfig(string name) : TerraformRe
     /// The function_arn attribute.
     /// </summary>
     public TerraformValue<string> FunctionArn
-        => AsReference("function_arn");
+        => CreateReference("function_arn");
 
 }

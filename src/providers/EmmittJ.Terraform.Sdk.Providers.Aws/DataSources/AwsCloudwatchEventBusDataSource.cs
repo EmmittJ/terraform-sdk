@@ -13,7 +13,7 @@ public partial class AwsCloudwatchEventBusDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCloudwatchEventBusDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,30 +40,30 @@ public partial class AwsCloudwatchEventBusDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The dead_letter_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeadLetterConfig
-        => AsReference("dead_letter_config");
+        => CreateReference("dead_letter_config");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyIdentifier
-        => AsReference("kms_key_identifier");
+        => CreateReference("kms_key_identifier");
 
     /// <summary>
     /// The log_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LogConfig
-        => AsReference("log_config");
+        => CreateReference("log_config");
 
 }

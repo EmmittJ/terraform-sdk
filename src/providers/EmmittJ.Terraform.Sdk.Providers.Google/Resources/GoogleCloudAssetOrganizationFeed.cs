@@ -214,7 +214,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -232,7 +232,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     /// The format will be organizations/{organization_number}/feeds/{client-assigned_feed_identifier}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Condition block (nesting mode: list).

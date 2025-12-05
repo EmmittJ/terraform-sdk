@@ -23,7 +23,7 @@ public partial class AwsFsxOntapFileSystemDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsFsxOntapFileSystemDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -40,126 +40,126 @@ public partial class AwsFsxOntapFileSystemDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
     public TerraformValue<double> AutomaticBackupRetentionDays
-        => AsReference("automatic_backup_retention_days");
+        => CreateReference("automatic_backup_retention_days");
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
     public TerraformValue<string> DailyAutomaticBackupStartTime
-        => AsReference("daily_automatic_backup_start_time");
+        => CreateReference("daily_automatic_backup_start_time");
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
     public TerraformValue<string> DeploymentType
-        => AsReference("deployment_type");
+        => CreateReference("deployment_type");
 
     /// <summary>
     /// The disk_iops_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiskIopsConfiguration
-        => AsReference("disk_iops_configuration");
+        => CreateReference("disk_iops_configuration");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The endpoint_ip_address_range attribute.
     /// </summary>
     public TerraformValue<string> EndpointIpAddressRange
-        => AsReference("endpoint_ip_address_range");
+        => CreateReference("endpoint_ip_address_range");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoints
-        => AsReference("endpoints");
+        => CreateReference("endpoints");
 
     /// <summary>
     /// The ha_pairs attribute.
     /// </summary>
     public TerraformValue<double> HaPairs
-        => AsReference("ha_pairs");
+        => CreateReference("ha_pairs");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformList<string> NetworkInterfaceIds
-        => AsReference("network_interface_ids");
+        => CreateReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The preferred_subnet_id attribute.
     /// </summary>
     public TerraformValue<string> PreferredSubnetId
-        => AsReference("preferred_subnet_id");
+        => CreateReference("preferred_subnet_id");
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
     public TerraformSet<string> RouteTableIds
-        => AsReference("route_table_ids");
+        => CreateReference("route_table_ids");
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
     public TerraformValue<double> StorageCapacity
-        => AsReference("storage_capacity");
+        => CreateReference("storage_capacity");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     public TerraformValue<string> StorageType
-        => AsReference("storage_type");
+        => CreateReference("storage_type");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     public TerraformList<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
     public TerraformValue<double> ThroughputCapacity
-        => AsReference("throughput_capacity");
+        => CreateReference("throughput_capacity");
 
     /// <summary>
     /// The throughput_capacity_per_ha_pair attribute.
     /// </summary>
     public TerraformValue<double> ThroughputCapacityPerHaPair
-        => AsReference("throughput_capacity_per_ha_pair");
+        => CreateReference("throughput_capacity_per_ha_pair");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
     public TerraformValue<string> WeeklyMaintenanceStartTime
-        => AsReference("weekly_maintenance_start_time");
+        => CreateReference("weekly_maintenance_start_time");
 
 }

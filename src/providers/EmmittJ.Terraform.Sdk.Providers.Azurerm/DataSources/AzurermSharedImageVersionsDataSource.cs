@@ -46,7 +46,7 @@ public partial class AzurermSharedImageVersionsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSharedImageVersionsDataSource(string name) : Terrafo
     /// The images attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Images
-        => AsReference("images");
+        => CreateReference("images");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

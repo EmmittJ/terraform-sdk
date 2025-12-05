@@ -36,7 +36,7 @@ public partial class AzurermVirtualDesktopHostPoolDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,79 +64,79 @@ public partial class AzurermVirtualDesktopHostPoolDataSource(string name) : Terr
     /// The custom_rdp_properties attribute.
     /// </summary>
     public TerraformValue<string> CustomRdpProperties
-        => AsReference("custom_rdp_properties");
+        => CreateReference("custom_rdp_properties");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
     public TerraformValue<string> FriendlyName
-        => AsReference("friendly_name");
+        => CreateReference("friendly_name");
 
     /// <summary>
     /// The load_balancer_type attribute.
     /// </summary>
     public TerraformValue<string> LoadBalancerType
-        => AsReference("load_balancer_type");
+        => CreateReference("load_balancer_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The maximum_sessions_allowed attribute.
     /// </summary>
     public TerraformValue<double> MaximumSessionsAllowed
-        => AsReference("maximum_sessions_allowed");
+        => CreateReference("maximum_sessions_allowed");
 
     /// <summary>
     /// The personal_desktop_assignment_type attribute.
     /// </summary>
     public TerraformValue<string> PersonalDesktopAssignmentType
-        => AsReference("personal_desktop_assignment_type");
+        => CreateReference("personal_desktop_assignment_type");
 
     /// <summary>
     /// The preferred_app_group_type attribute.
     /// </summary>
     public TerraformValue<string> PreferredAppGroupType
-        => AsReference("preferred_app_group_type");
+        => CreateReference("preferred_app_group_type");
 
     /// <summary>
     /// The scheduled_agent_updates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScheduledAgentUpdates
-        => AsReference("scheduled_agent_updates");
+        => CreateReference("scheduled_agent_updates");
 
     /// <summary>
     /// The start_vm_on_connect attribute.
     /// </summary>
     public TerraformValue<bool> StartVmOnConnect
-        => AsReference("start_vm_on_connect");
+        => CreateReference("start_vm_on_connect");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The validate_environment attribute.
     /// </summary>
     public TerraformValue<bool> ValidateEnvironment
-        => AsReference("validate_environment");
+        => CreateReference("validate_environment");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

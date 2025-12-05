@@ -36,7 +36,7 @@ public partial class AzurermDataFactoryDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermDataFactoryDataSource(string name) : TerraformDataSo
     /// The github_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GithubConfiguration
-        => AsReference("github_configuration");
+        => CreateReference("github_configuration");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The vsts_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VstsConfiguration
-        => AsReference("vsts_configuration");
+        => CreateReference("vsts_configuration");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

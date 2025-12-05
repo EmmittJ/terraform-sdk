@@ -109,7 +109,7 @@ public partial class AwsDefaultSubnet(string name) : TerraformResource("aws_defa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsDefaultSubnet(string name) : TerraformResource("aws_defa
     /// </summary>
     public TerraformValue<string> Ipv6CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block") ?? AsReference("ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block") ?? CreateReference("ipv6_cidr_block");
         set => SetArgument("ipv6_cidr_block", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsDefaultSubnet(string name) : TerraformResource("aws_defa
     /// </summary>
     public TerraformValue<string> PrivateDnsHostnameTypeOnLaunch
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_hostname_type_on_launch") ?? AsReference("private_dns_hostname_type_on_launch");
+        get => GetArgument<TerraformValue<string>>("private_dns_hostname_type_on_launch") ?? CreateReference("private_dns_hostname_type_on_launch");
         set => SetArgument("private_dns_hostname_type_on_launch", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsDefaultSubnet(string name) : TerraformResource("aws_defa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsDefaultSubnet(string name) : TerraformResource("aws_defa
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -189,55 +189,55 @@ public partial class AwsDefaultSubnet(string name) : TerraformResource("aws_defa
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneId
-        => AsReference("availability_zone_id");
+        => CreateReference("availability_zone_id");
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
     public TerraformValue<string> CidrBlock
-        => AsReference("cidr_block");
+        => CreateReference("cidr_block");
 
     /// <summary>
     /// The enable_lni_at_device_index attribute.
     /// </summary>
     public TerraformValue<double> EnableLniAtDeviceIndex
-        => AsReference("enable_lni_at_device_index");
+        => CreateReference("enable_lni_at_device_index");
 
     /// <summary>
     /// The existing_default_subnet attribute.
     /// </summary>
     public TerraformValue<bool> ExistingDefaultSubnet
-        => AsReference("existing_default_subnet");
+        => CreateReference("existing_default_subnet");
 
     /// <summary>
     /// The ipv6_cidr_block_association_id attribute.
     /// </summary>
     public TerraformValue<string> Ipv6CidrBlockAssociationId
-        => AsReference("ipv6_cidr_block_association_id");
+        => CreateReference("ipv6_cidr_block_association_id");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-        => AsReference("outpost_arn");
+        => CreateReference("outpost_arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -72,7 +72,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -124,14 +124,14 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     /// https://iamscim.googleapis.com/{version}/{tenant_id}/
     /// </summary>
     public TerraformValue<string> BaseUri
-        => AsReference("base_uri");
+        => CreateReference("base_uri");
 
     /// <summary>
     /// Identifier. The resource name of the scim tenant.
     /// Format: &#39;locations/{location}/workforcePools/{workforce_pool}/providers/{workforce_pool_provider}/scimTenants/{scim_tenant_id}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The current state of the scim tenant.
@@ -141,7 +141,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     ///   deleted after approximately 30 days.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

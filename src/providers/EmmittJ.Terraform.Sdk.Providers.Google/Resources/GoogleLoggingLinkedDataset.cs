@@ -20,7 +20,7 @@ public class GoogleLoggingLinkedDatasetBigqueryDatasetBlock : TerraformBlock
     /// &amp;quot;bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET_ID]&amp;quot;
     /// </summary>
     public TerraformValue<string> DatasetId
-        => AsReference("dataset_id");
+        => CreateReference("dataset_id");
 
 }
 
@@ -87,7 +87,7 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent") ?? AsReference("parent");
+        get => GetArgument<TerraformValue<string>>("parent") ?? CreateReference("parent");
         set => SetArgument("parent", value);
     }
 
@@ -125,20 +125,20 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     /// and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. The linked dataset lifecycle state.
     /// </summary>
     public TerraformValue<string> LifecycleState
-        => AsReference("lifecycle_state");
+        => CreateReference("lifecycle_state");
 
     /// <summary>
     /// The resource name of the linked dataset. The name can have up to 100 characters. A valid link id
     /// (at the end of the link name) must only have alphanumeric characters and underscores within it.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// BigqueryDataset block (nesting mode: list).

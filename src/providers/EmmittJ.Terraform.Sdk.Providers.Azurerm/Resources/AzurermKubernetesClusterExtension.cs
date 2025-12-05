@@ -163,7 +163,7 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> ReleaseNamespace
     {
-        get => GetArgument<TerraformValue<string>>("release_namespace") ?? AsReference("release_namespace");
+        get => GetArgument<TerraformValue<string>>("release_namespace") ?? CreateReference("release_namespace");
         set => SetArgument("release_namespace", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> ReleaseTrain
     {
-        get => GetArgument<TerraformValue<string>>("release_train") ?? AsReference("release_train");
+        get => GetArgument<TerraformValue<string>>("release_train") ?? CreateReference("release_train");
         set => SetArgument("release_train", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> TargetNamespace
     {
-        get => GetArgument<TerraformValue<string>>("target_namespace") ?? AsReference("target_namespace");
+        get => GetArgument<TerraformValue<string>>("target_namespace") ?? CreateReference("target_namespace");
         set => SetArgument("target_namespace", value);
     }
 
@@ -217,13 +217,13 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     /// The aks_assigned_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AksAssignedIdentity
-        => AsReference("aks_assigned_identity");
+        => CreateReference("aks_assigned_identity");
 
     /// <summary>
     /// The current_version attribute.
     /// </summary>
     public TerraformValue<string> CurrentVersion
-        => AsReference("current_version");
+        => CreateReference("current_version");
 
     /// <summary>
     /// Plan block (nesting mode: list).

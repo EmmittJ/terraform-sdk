@@ -31,7 +31,7 @@ public partial class AwsCognitoUserPoolUiCustomization(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsCognitoUserPoolUiCustomization(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -67,24 +67,24 @@ public partial class AwsCognitoUserPoolUiCustomization(string name) : TerraformR
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-        => AsReference("creation_date");
+        => CreateReference("creation_date");
 
     /// <summary>
     /// The css_version attribute.
     /// </summary>
     public TerraformValue<string> CssVersion
-        => AsReference("css_version");
+        => CreateReference("css_version");
 
     /// <summary>
     /// The image_url attribute.
     /// </summary>
     public TerraformValue<string> ImageUrl
-        => AsReference("image_url");
+        => CreateReference("image_url");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-        => AsReference("last_modified_date");
+        => CreateReference("last_modified_date");
 
 }

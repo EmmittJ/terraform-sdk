@@ -22,7 +22,7 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool> DeleteAssociatedConditionalForwarder
     {
-        get => GetArgument<TerraformValue<bool>>("delete_associated_conditional_forwarder") ?? AsReference("delete_associated_conditional_forwarder");
+        get => GetArgument<TerraformValue<bool>>("delete_associated_conditional_forwarder") ?? CreateReference("delete_associated_conditional_forwarder");
         set => SetArgument("delete_associated_conditional_forwarder", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> SelectiveAuth
     {
-        get => GetArgument<TerraformValue<string>>("selective_auth") ?? AsReference("selective_auth");
+        get => GetArgument<TerraformValue<string>>("selective_auth") ?? CreateReference("selective_auth");
         set => SetArgument("selective_auth", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> TrustType
     {
-        get => GetArgument<TerraformValue<string>>("trust_type") ?? AsReference("trust_type");
+        get => GetArgument<TerraformValue<string>>("trust_type") ?? CreateReference("trust_type");
         set => SetArgument("trust_type", value);
     }
 
@@ -97,36 +97,36 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     /// The created_date_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedDateTime
-        => AsReference("created_date_time");
+        => CreateReference("created_date_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The last_updated_date_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDateTime
-        => AsReference("last_updated_date_time");
+        => CreateReference("last_updated_date_time");
 
     /// <summary>
     /// The state_last_updated_date_time attribute.
     /// </summary>
     public TerraformValue<string> StateLastUpdatedDateTime
-        => AsReference("state_last_updated_date_time");
+        => CreateReference("state_last_updated_date_time");
 
     /// <summary>
     /// The trust_state attribute.
     /// </summary>
     public TerraformValue<string> TrustState
-        => AsReference("trust_state");
+        => CreateReference("trust_state");
 
     /// <summary>
     /// The trust_state_reason attribute.
     /// </summary>
     public TerraformValue<string> TrustStateReason
-        => AsReference("trust_state_reason");
+        => CreateReference("trust_state_reason");
 
 }

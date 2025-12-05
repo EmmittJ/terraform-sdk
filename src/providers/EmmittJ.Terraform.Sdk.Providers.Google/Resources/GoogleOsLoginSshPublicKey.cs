@@ -63,7 +63,7 @@ public partial class GoogleOsLoginSshPublicKey(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleOsLoginSshPublicKey(string name) : TerraformResource(
     /// The SHA-256 fingerprint of the SSH public key.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

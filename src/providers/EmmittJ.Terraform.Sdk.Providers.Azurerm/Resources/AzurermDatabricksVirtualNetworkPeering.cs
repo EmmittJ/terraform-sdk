@@ -90,7 +90,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -157,13 +157,13 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     /// The address_space_prefixes attribute.
     /// </summary>
     public TerraformList<string> AddressSpacePrefixes
-        => AsReference("address_space_prefixes");
+        => CreateReference("address_space_prefixes");
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualNetworkId
-        => AsReference("virtual_network_id");
+        => CreateReference("virtual_network_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

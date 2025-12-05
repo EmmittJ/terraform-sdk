@@ -18,7 +18,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EndpointFilter
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_filter") ?? AsReference("endpoint_filter");
+        get => GetArgument<TerraformValue<string>>("endpoint_filter") ?? CreateReference("endpoint_filter");
         set => SetArgument("endpoint_filter", value);
     }
 
@@ -71,27 +71,27 @@ public class GoogleKmsEkmConnectionServiceResolversBlockServerCertificatesBlock 
     /// Output only. The issuer distinguished name in RFC 2253 format. Only present if parsed is true.
     /// </summary>
     public TerraformValue<string> Issuer
-        => AsReference("issuer");
+        => CreateReference("issuer");
 
     /// <summary>
     /// Output only. The certificate is not valid after this time. Only present if parsed is true.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> NotAfterTime
-        => AsReference("not_after_time");
+        => CreateReference("not_after_time");
 
     /// <summary>
     /// Output only. The certificate is not valid before this time. Only present if parsed is true.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> NotBeforeTime
-        => AsReference("not_before_time");
+        => CreateReference("not_before_time");
 
     /// <summary>
     /// Output only. True if the certificate was parsed successfully.
     /// </summary>
     public TerraformValue<bool> Parsed
-        => AsReference("parsed");
+        => CreateReference("parsed");
 
     /// <summary>
     /// Required. The raw certificate bytes in DER format. A base64-encoded string.
@@ -107,26 +107,26 @@ public class GoogleKmsEkmConnectionServiceResolversBlockServerCertificatesBlock 
     /// Output only. The certificate serial number as a hex string. Only present if parsed is true.
     /// </summary>
     public TerraformValue<string> SerialNumber
-        => AsReference("serial_number");
+        => CreateReference("serial_number");
 
     /// <summary>
     /// Output only. The SHA-256 certificate fingerprint as a hex string. Only present if parsed is true.
     /// </summary>
     public TerraformValue<string> Sha256Fingerprint
-        => AsReference("sha256_fingerprint");
+        => CreateReference("sha256_fingerprint");
 
     /// <summary>
     /// Output only. The subject distinguished name in RFC 2253 format. Only present if parsed is true.
     /// </summary>
     public TerraformValue<string> Subject
-        => AsReference("subject");
+        => CreateReference("subject");
 
     /// <summary>
     /// Output only. The subject Alternative DNS names. Only present if parsed is true.
     /// </summary>
     public TerraformList<string> SubjectAlternativeDnsNames
     {
-        get => GetArgument<TerraformList<string>>("subject_alternative_dns_names") ?? AsReference("subject_alternative_dns_names");
+        get => GetArgument<TerraformList<string>>("subject_alternative_dns_names") ?? CreateReference("subject_alternative_dns_names");
         set => SetArgument("subject_alternative_dns_names", value);
     }
 
@@ -185,7 +185,7 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> CryptoSpacePath
     {
-        get => GetArgument<TerraformValue<string>>("crypto_space_path") ?? AsReference("crypto_space_path");
+        get => GetArgument<TerraformValue<string>>("crypto_space_path") ?? CreateReference("crypto_space_path");
         set => SetArgument("crypto_space_path", value);
     }
 
@@ -194,7 +194,7 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? CreateReference("etag");
         set => SetArgument("etag", value);
     }
 
@@ -203,7 +203,7 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -242,7 +242,7 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -251,7 +251,7 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// ServiceResolvers block (nesting mode: list).

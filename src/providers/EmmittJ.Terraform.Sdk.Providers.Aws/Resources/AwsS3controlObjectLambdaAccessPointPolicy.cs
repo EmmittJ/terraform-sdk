@@ -13,7 +13,7 @@ public partial class AwsS3controlObjectLambdaAccessPointPolicy(string name) : Te
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsS3controlObjectLambdaAccessPointPolicy(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsS3controlObjectLambdaAccessPointPolicy(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,6 +59,6 @@ public partial class AwsS3controlObjectLambdaAccessPointPolicy(string name) : Te
     /// The has_public_access_policy attribute.
     /// </summary>
     public TerraformValue<bool> HasPublicAccessPolicy
-        => AsReference("has_public_access_policy");
+        => CreateReference("has_public_access_policy");
 
 }

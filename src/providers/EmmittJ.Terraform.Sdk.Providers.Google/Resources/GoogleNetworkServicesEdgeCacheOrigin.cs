@@ -378,7 +378,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -447,7 +447,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -456,7 +456,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -467,7 +467,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? CreateReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -493,7 +493,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// </summary>
     public TerraformList<string> RetryConditions
     {
-        get => GetArgument<TerraformList<string>>("retry_conditions") ?? AsReference("retry_conditions");
+        get => GetArgument<TerraformList<string>>("retry_conditions") ?? CreateReference("retry_conditions");
         set => SetArgument("retry_conditions", value);
     }
 
@@ -501,14 +501,14 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// AwsV4Authentication block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AwsLbTrustStoreRevocation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsLbTrustStoreRevocation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsLbTrustStoreRevocation(string name) : TerraformResource(
     /// The revocation_id attribute.
     /// </summary>
     public TerraformValue<double> RevocationId
-        => AsReference("revocation_id");
+        => CreateReference("revocation_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

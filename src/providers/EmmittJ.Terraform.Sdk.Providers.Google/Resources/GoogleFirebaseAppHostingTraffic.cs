@@ -36,7 +36,7 @@ public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : TerraformBlock
     /// If disabled is set, the time at which the rollouts were disabled.
     /// </summary>
     public TerraformValue<string> DisabledTime
-        => AsReference("disabled_time");
+        => CreateReference("disabled_time");
 
 }
 
@@ -162,7 +162,7 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -181,7 +181,7 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -189,27 +189,27 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     /// Time at which the backend was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Current state of traffic allocation for the backend.
     /// When setting &#39;target&#39;, this field may differ for some time until the desired state is reached.
     /// </summary>
     public TerraformList<TerraformMap<object>> Current
-        => AsReference("current");
+        => CreateReference("current");
 
     /// <summary>
     /// Time at which the backend was deleted.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Identifier. The resource name of the backend traffic config
@@ -219,19 +219,19 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}/traffic&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Time at which the backend was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// RolloutPolicy block (nesting mode: list).

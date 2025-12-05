@@ -106,7 +106,7 @@ public class AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock : Terrafor
     /// </summary>
     public TerraformValue<string> ReferenceId
     {
-        get => GetArgument<TerraformValue<string>>("reference_id") ?? AsReference("reference_id");
+        get => GetArgument<TerraformValue<string>>("reference_id") ?? CreateReference("reference_id");
         set => SetArgument("reference_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock : Terrafor
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AzurermPolicySetDefinition(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AzurermPolicySetDefinition(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformValue<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 

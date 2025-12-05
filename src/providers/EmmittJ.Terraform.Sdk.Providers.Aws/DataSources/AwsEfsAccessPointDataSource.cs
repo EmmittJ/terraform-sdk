@@ -23,7 +23,7 @@ public partial class AwsEfsAccessPointDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsEfsAccessPointDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsEfsAccessPointDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,36 +49,36 @@ public partial class AwsEfsAccessPointDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> FileSystemArn
-        => AsReference("file_system_arn");
+        => CreateReference("file_system_arn");
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
     public TerraformValue<string> FileSystemId
-        => AsReference("file_system_id");
+        => CreateReference("file_system_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The posix_user attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PosixUser
-        => AsReference("posix_user");
+        => CreateReference("posix_user");
 
     /// <summary>
     /// The root_directory attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RootDirectory
-        => AsReference("root_directory");
+        => CreateReference("root_directory");
 
 }

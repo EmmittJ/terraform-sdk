@@ -63,7 +63,7 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? CreateReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     /// The last_output_time attribute.
     /// </summary>
     public TerraformValue<string> LastOutputTime
-        => AsReference("last_output_time");
+        => CreateReference("last_output_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -45,7 +45,7 @@ public partial class AwsVpcIpv4CidrBlockAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cidr_block") ?? AsReference("cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block") ?? CreateReference("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsVpcIpv4CidrBlockAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsVpcIpv4CidrBlockAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

@@ -86,7 +86,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlockEbsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlockEbsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlockEbsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> VolumeInitializationRate
     {
-        get => GetArgument<TerraformValue<double>>("volume_initialization_rate") ?? AsReference("volume_initialization_rate");
+        get => GetArgument<TerraformValue<double>>("volume_initialization_rate") ?? CreateReference("volume_initialization_rate");
         set => SetArgument("volume_initialization_rate", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlockEbsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? CreateReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlockEbsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? CreateReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -438,7 +438,7 @@ public class AwsLaunchTemplateInstanceMarketOptionsBlockSpotOptionsBlock : Terra
     /// </summary>
     public TerraformValue<string> ValidUntil
     {
-        get => GetArgument<TerraformValue<string>>("valid_until") ?? AsReference("valid_until");
+        get => GetArgument<TerraformValue<string>>("valid_until") ?? CreateReference("valid_until");
         set => SetArgument("valid_until", value);
     }
 
@@ -1034,7 +1034,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> HttpEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("http_endpoint") ?? AsReference("http_endpoint");
+        get => GetArgument<TerraformValue<string>>("http_endpoint") ?? CreateReference("http_endpoint");
         set => SetArgument("http_endpoint", value);
     }
 
@@ -1043,7 +1043,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> HttpProtocolIpv6
     {
-        get => GetArgument<TerraformValue<string>>("http_protocol_ipv6") ?? AsReference("http_protocol_ipv6");
+        get => GetArgument<TerraformValue<string>>("http_protocol_ipv6") ?? CreateReference("http_protocol_ipv6");
         set => SetArgument("http_protocol_ipv6", value);
     }
 
@@ -1052,7 +1052,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> HttpPutResponseHopLimit
     {
-        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit") ?? AsReference("http_put_response_hop_limit");
+        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit") ?? CreateReference("http_put_response_hop_limit");
         set => SetArgument("http_put_response_hop_limit", value);
     }
 
@@ -1061,7 +1061,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> HttpTokens
     {
-        get => GetArgument<TerraformValue<string>>("http_tokens") ?? AsReference("http_tokens");
+        get => GetArgument<TerraformValue<string>>("http_tokens") ?? CreateReference("http_tokens");
         set => SetArgument("http_tokens", value);
     }
 
@@ -1070,7 +1070,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> InstanceMetadataTags
     {
-        get => GetArgument<TerraformValue<string>>("instance_metadata_tags") ?? AsReference("instance_metadata_tags");
+        get => GetArgument<TerraformValue<string>>("instance_metadata_tags") ?? CreateReference("instance_metadata_tags");
         set => SetArgument("instance_metadata_tags", value);
     }
 
@@ -1587,7 +1587,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<double> DefaultVersion
     {
-        get => GetArgument<TerraformValue<double>>("default_version") ?? AsReference("default_version");
+        get => GetArgument<TerraformValue<double>>("default_version") ?? CreateReference("default_version");
         set => SetArgument("default_version", value);
     }
 
@@ -1632,7 +1632,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1686,7 +1686,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -1695,7 +1695,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -1713,7 +1713,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1740,7 +1740,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1775,13 +1775,13 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The latest_version attribute.
     /// </summary>
     public TerraformValue<double> LatestVersion
-        => AsReference("latest_version");
+        => CreateReference("latest_version");
 
     /// <summary>
     /// BlockDeviceMappings block (nesting mode: list).

@@ -22,7 +22,7 @@ public partial class GoogleSecretManagerSecretVersionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleSecretManagerSecretVersionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -59,7 +59,7 @@ public partial class GoogleSecretManagerSecretVersionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -67,30 +67,30 @@ public partial class GoogleSecretManagerSecretVersionDataSource(string name) : T
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The destroy_time attribute.
     /// </summary>
     public TerraformValue<string> DestroyTime
-        => AsReference("destroy_time");
+        => CreateReference("destroy_time");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The secret_data attribute.
     /// </summary>
     public TerraformValue<string> SecretData
-        => AsReference("secret_data");
+        => CreateReference("secret_data");
 
 }

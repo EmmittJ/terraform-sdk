@@ -13,7 +13,7 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// A list of features enabled when the selected profile is CUSTOM. The
@@ -68,33 +68,33 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// *must not* be present when using any other profile.
     /// </summary>
     public TerraformSet<string> CustomFeatures
-        => AsReference("custom_features");
+        => CreateReference("custom_features");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The list of features enabled in the SSL policy.
     /// </summary>
     public TerraformSet<string> EnabledFeatures
-        => AsReference("enabled_features");
+        => CreateReference("enabled_features");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
     /// object. This field is used in optimistic locking.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The minimum version of SSL protocol that can be used by the clients
     /// to establish a connection with the load balancer. Default value: &amp;quot;TLS_1_0&amp;quot; Possible values: [&amp;quot;TLS_1_0&amp;quot;, &amp;quot;TLS_1_1&amp;quot;, &amp;quot;TLS_1_2&amp;quot;]
     /// </summary>
     public TerraformValue<string> MinTlsVersion
-        => AsReference("min_tls_version");
+        => CreateReference("min_tls_version");
 
     /// <summary>
     /// Profile specifies the set of SSL features that can be used by the
@@ -107,12 +107,12 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// &#39;CUSTOM&#39; is used, the &#39;custom_features&#39; attribute **must be set**. Default value: &amp;quot;COMPATIBLE&amp;quot; Possible values: [&amp;quot;COMPATIBLE&amp;quot;, &amp;quot;MODERN&amp;quot;, &amp;quot;RESTRICTED&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
     public TerraformValue<string> Profile
-        => AsReference("profile");
+        => CreateReference("profile");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
 }

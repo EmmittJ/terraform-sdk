@@ -108,7 +108,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name") ?? AsReference("cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name") ?? CreateReference("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double> DbNodeStorageSizeInGbs
     {
-        get => GetArgument<TerraformValue<double>>("db_node_storage_size_in_gbs") ?? AsReference("db_node_storage_size_in_gbs");
+        get => GetArgument<TerraformValue<double>>("db_node_storage_size_in_gbs") ?? CreateReference("db_node_storage_size_in_gbs");
         set => SetArgument("db_node_storage_size_in_gbs", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> IsLocalBackupEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("is_local_backup_enabled") ?? AsReference("is_local_backup_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_local_backup_enabled") ?? CreateReference("is_local_backup_enabled");
         set => SetArgument("is_local_backup_enabled", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool> IsSparseDiskgroupEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("is_sparse_diskgroup_enabled") ?? AsReference("is_sparse_diskgroup_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_sparse_diskgroup_enabled") ?? CreateReference("is_sparse_diskgroup_enabled");
         set => SetArgument("is_sparse_diskgroup_enabled", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> LicenseModel
     {
-        get => GetArgument<TerraformValue<string>>("license_model") ?? AsReference("license_model");
+        get => GetArgument<TerraformValue<string>>("license_model") ?? CreateReference("license_model");
         set => SetArgument("license_model", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double> MemorySizeInGbs
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_in_gbs") ?? AsReference("memory_size_in_gbs");
+        get => GetArgument<TerraformValue<double>>("memory_size_in_gbs") ?? CreateReference("memory_size_in_gbs");
         set => SetArgument("memory_size_in_gbs", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double> ScanListenerPortTcp
     {
-        get => GetArgument<TerraformValue<double>>("scan_listener_port_tcp") ?? AsReference("scan_listener_port_tcp");
+        get => GetArgument<TerraformValue<double>>("scan_listener_port_tcp") ?? CreateReference("scan_listener_port_tcp");
         set => SetArgument("scan_listener_port_tcp", value);
     }
 
@@ -269,7 +269,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Timezone
     {
-        get => GetArgument<TerraformValue<string>>("timezone") ?? AsReference("timezone");
+        get => GetArgument<TerraformValue<string>>("timezone") ?? CreateReference("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -277,157 +277,157 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
     /// </summary>
     public TerraformValue<string> ComputeModel
-        => AsReference("compute_model");
+        => CreateReference("compute_model");
 
     /// <summary>
     /// The timestamp when the VM cluster was created.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
     /// </summary>
     public TerraformValue<string> DiskRedundancy
-        => AsReference("disk_redundancy");
+        => CreateReference("disk_redundancy");
 
     /// <summary>
     /// The domain name associated with the VM cluster.
     /// </summary>
     public TerraformValue<string> Domain
-        => AsReference("domain");
+        => CreateReference("domain");
 
     /// <summary>
     /// A complete software version of Oracle Grid Infrastructure (GI).
     /// </summary>
     public TerraformValue<string> GiVersionComputed
-        => AsReference("gi_version_computed");
+        => CreateReference("gi_version_computed");
 
     /// <summary>
     /// The host name for the VM cluster. Constraints: - Can&#39;t be &amp;quot;localhost&amp;quot; or &amp;quot;hostname&amp;quot;. - Can&#39;t contain &amp;quot;-version&amp;quot;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
     /// </summary>
     public TerraformValue<string> HostnamePrefixComputed
-        => AsReference("hostname_prefix_computed");
+        => CreateReference("hostname_prefix_computed");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> IormConfigCache
-        => AsReference("iorm_config_cache");
+        => CreateReference("iorm_config_cache");
 
     /// <summary>
     /// The OCID of the most recent maintenance update history entry.
     /// </summary>
     public TerraformValue<string> LastUpdateHistoryEntryId
-        => AsReference("last_update_history_entry_id");
+        => CreateReference("last_update_history_entry_id");
 
     /// <summary>
     /// The listener port number configured on the VM cluster.
     /// </summary>
     public TerraformValue<double> ListenerPort
-        => AsReference("listener_port");
+        => CreateReference("listener_port");
 
     /// <summary>
     /// The total number of nodes in the VM cluster.
     /// </summary>
     public TerraformValue<double> NodeCount
-        => AsReference("node_count");
+        => CreateReference("node_count");
 
     /// <summary>
     /// The name of the OCI resource anchor associated with the VM cluster.
     /// </summary>
     public TerraformValue<string> OciResourceAnchorName
-        => AsReference("oci_resource_anchor_name");
+        => CreateReference("oci_resource_anchor_name");
 
     /// <summary>
     /// The HTTPS link to the VM cluster resource in OCI.
     /// </summary>
     public TerraformValue<string> OciUrl
-        => AsReference("oci_url");
+        => CreateReference("oci_url");
 
     /// <summary>
     /// The OCID (Oracle Cloud Identifier) of the VM cluster.
     /// </summary>
     public TerraformValue<string> Ocid
-        => AsReference("ocid");
+        => CreateReference("ocid");
 
     /// <summary>
     /// The percentage of progress made on the current operation for the VM cluster.
     /// </summary>
     public TerraformValue<double> PercentProgress
-        => AsReference("percent_progress");
+        => CreateReference("percent_progress");
 
     /// <summary>
     /// The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
     /// </summary>
     public TerraformValue<string> ScanDnsName
-        => AsReference("scan_dns_name");
+        => CreateReference("scan_dns_name");
 
     /// <summary>
     /// The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
     /// </summary>
     public TerraformValue<string> ScanDnsRecordId
-        => AsReference("scan_dns_record_id");
+        => CreateReference("scan_dns_record_id");
 
     /// <summary>
     /// The list of OCIDs for SCAN IP addresses associated with the VM cluster.
     /// </summary>
     public TerraformList<string> ScanIpIds
-        => AsReference("scan_ip_ids");
+        => CreateReference("scan_ip_ids");
 
     /// <summary>
     /// The hardware model name of the Exadata infrastructure running the VM cluster.
     /// </summary>
     public TerraformValue<string> Shape
-        => AsReference("shape");
+        => CreateReference("shape");
 
     /// <summary>
     /// The current lifecycle status of the VM cluster.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Additional information regarding the current status of the VM cluster.
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
     /// <summary>
     /// The local node storage allocated to the VM cluster, in gigabytes (GB).
     /// </summary>
     public TerraformValue<double> StorageSizeInGbs
-        => AsReference("storage_size_in_gbs");
+        => CreateReference("storage_size_in_gbs");
 
     /// <summary>
     /// The operating system version of the image chosen for the VM cluster.
     /// </summary>
     public TerraformValue<string> SystemVersion
-        => AsReference("system_version");
+        => CreateReference("system_version");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
     /// </summary>
     public TerraformList<string> VipIds
-        => AsReference("vip_ids");
+        => CreateReference("vip_ids");
 
     /// <summary>
     /// DataCollectionOptions block (nesting mode: list).

@@ -131,13 +131,13 @@ public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -282,7 +282,7 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -348,7 +348,7 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// Authentication block (nesting mode: list).

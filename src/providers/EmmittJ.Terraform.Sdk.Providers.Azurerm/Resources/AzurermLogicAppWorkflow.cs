@@ -248,13 +248,13 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -339,7 +339,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -440,31 +440,31 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// The access_endpoint attribute.
     /// </summary>
     public TerraformValue<string> AccessEndpoint
-        => AsReference("access_endpoint");
+        => CreateReference("access_endpoint");
 
     /// <summary>
     /// The connector_endpoint_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ConnectorEndpointIpAddresses
-        => AsReference("connector_endpoint_ip_addresses");
+        => CreateReference("connector_endpoint_ip_addresses");
 
     /// <summary>
     /// The connector_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ConnectorOutboundIpAddresses
-        => AsReference("connector_outbound_ip_addresses");
+        => CreateReference("connector_outbound_ip_addresses");
 
     /// <summary>
     /// The workflow_endpoint_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WorkflowEndpointIpAddresses
-        => AsReference("workflow_endpoint_ip_addresses");
+        => CreateReference("workflow_endpoint_ip_addresses");
 
     /// <summary>
     /// The workflow_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WorkflowOutboundIpAddresses
-        => AsReference("workflow_outbound_ip_addresses");
+        => CreateReference("workflow_outbound_ip_addresses");
 
     /// <summary>
     /// AccessControl block (nesting mode: list).

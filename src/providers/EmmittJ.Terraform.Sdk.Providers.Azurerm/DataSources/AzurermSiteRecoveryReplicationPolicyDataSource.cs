@@ -36,7 +36,7 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,13 +74,13 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource(string name)
     /// The application_consistent_snapshot_frequency_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> ApplicationConsistentSnapshotFrequencyInMinutes
-        => AsReference("application_consistent_snapshot_frequency_in_minutes");
+        => CreateReference("application_consistent_snapshot_frequency_in_minutes");
 
     /// <summary>
     /// The recovery_point_retention_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> RecoveryPointRetentionInMinutes
-        => AsReference("recovery_point_retention_in_minutes");
+        => CreateReference("recovery_point_retention_in_minutes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

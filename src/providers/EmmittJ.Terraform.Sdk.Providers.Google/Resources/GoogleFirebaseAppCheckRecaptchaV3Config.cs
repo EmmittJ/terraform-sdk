@@ -65,7 +65,7 @@ public partial class GoogleFirebaseAppCheckRecaptchaV3Config(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleFirebaseAppCheckRecaptchaV3Config(string name) : Terr
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -97,7 +97,7 @@ public partial class GoogleFirebaseAppCheckRecaptchaV3Config(string name) : Terr
     /// </summary>
     public TerraformValue<string> TokenTtl
     {
-        get => GetArgument<TerraformValue<string>>("token_ttl") ?? AsReference("token_ttl");
+        get => GetArgument<TerraformValue<string>>("token_ttl") ?? CreateReference("token_ttl");
         set => SetArgument("token_ttl", value);
     }
 
@@ -105,13 +105,13 @@ public partial class GoogleFirebaseAppCheckRecaptchaV3Config(string name) : Terr
     /// The relative resource name of the reCAPTCHA V3 configuration object
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Whether the siteSecret was previously set. Since we will never return the siteSecret field, this field is the only way to find out whether it was previously set.
     /// </summary>
     public TerraformValue<bool> SiteSecretSet
-        => AsReference("site_secret_set");
+        => CreateReference("site_secret_set");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

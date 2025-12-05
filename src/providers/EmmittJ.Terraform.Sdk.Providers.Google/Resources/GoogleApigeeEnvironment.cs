@@ -75,7 +75,7 @@ public class GoogleApigeeEnvironmentNodeConfigBlock : TerraformBlock
     /// all instances.
     /// </summary>
     public TerraformValue<string> CurrentAggregateNodeCount
-        => AsReference("current_aggregate_node_count");
+        => CreateReference("current_aggregate_node_count");
 
     /// <summary>
     /// The maximum total number of gateway nodes that the is reserved for all instances that
@@ -209,7 +209,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> ApiProxyType
     {
-        get => GetArgument<TerraformValue<string>>("api_proxy_type") ?? AsReference("api_proxy_type");
+        get => GetArgument<TerraformValue<string>>("api_proxy_type") ?? CreateReference("api_proxy_type");
         set => SetArgument("api_proxy_type", value);
     }
 
@@ -224,7 +224,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> DeploymentType
     {
-        get => GetArgument<TerraformValue<string>>("deployment_type") ?? AsReference("deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type") ?? CreateReference("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -260,7 +260,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -293,7 +293,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 

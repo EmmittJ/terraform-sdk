@@ -27,7 +27,7 @@ public class AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key") ?? AsReference("kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key") ?? CreateReference("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-        => AsReference("registry_id");
+        => CreateReference("registry_id");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).

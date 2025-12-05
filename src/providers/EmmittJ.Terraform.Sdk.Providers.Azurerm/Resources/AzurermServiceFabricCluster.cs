@@ -884,7 +884,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> ClusterCodeVersion
     {
-        get => GetArgument<TerraformValue<string>>("cluster_code_version") ?? AsReference("cluster_code_version");
+        get => GetArgument<TerraformValue<string>>("cluster_code_version") ?? CreateReference("cluster_code_version");
         set => SetArgument("cluster_code_version", value);
     }
 
@@ -893,7 +893,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -998,7 +998,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// The cluster_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ClusterEndpoint
-        => AsReference("cluster_endpoint");
+        => CreateReference("cluster_endpoint");
 
     /// <summary>
     /// AzureActiveDirectory block (nesting mode: list).

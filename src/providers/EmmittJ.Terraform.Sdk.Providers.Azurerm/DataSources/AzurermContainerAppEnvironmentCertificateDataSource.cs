@@ -46,7 +46,7 @@ public partial class AzurermContainerAppEnvironmentCertificateDataSource(string 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermContainerAppEnvironmentCertificateDataSource(string 
     /// The expiration date for the Certificate.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-        => AsReference("expiration_date");
+        => CreateReference("expiration_date");
 
     /// <summary>
     /// The date of issue for the Certificate.
     /// </summary>
     public TerraformValue<string> IssueDate
-        => AsReference("issue_date");
+        => CreateReference("issue_date");
 
     /// <summary>
     /// The Certificate Issuer.
     /// </summary>
     public TerraformValue<string> Issuer
-        => AsReference("issuer");
+        => CreateReference("issuer");
 
     /// <summary>
     /// The Subject Name for the Certificate.
     /// </summary>
     public TerraformValue<string> SubjectName
-        => AsReference("subject_name");
+        => CreateReference("subject_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The Thumbprint of the Certificate.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

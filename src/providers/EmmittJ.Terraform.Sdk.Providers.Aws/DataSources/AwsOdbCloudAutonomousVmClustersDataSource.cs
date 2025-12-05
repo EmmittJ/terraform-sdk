@@ -13,7 +13,7 @@ public partial class AwsOdbCloudAutonomousVmClustersDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,6 +21,6 @@ public partial class AwsOdbCloudAutonomousVmClustersDataSource(string name) : Te
     /// List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudAutonomousVmClusters
-        => AsReference("cloud_autonomous_vm_clusters");
+        => CreateReference("cloud_autonomous_vm_clusters");
 
 }

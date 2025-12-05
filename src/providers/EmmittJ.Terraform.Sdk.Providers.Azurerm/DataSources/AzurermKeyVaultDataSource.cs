@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,86 +64,86 @@ public partial class AzurermKeyVaultDataSource(string name) : TerraformDataSourc
     /// The access_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AccessPolicy
-        => AsReference("access_policy");
+        => CreateReference("access_policy");
 
     /// <summary>
     /// The enable_rbac_authorization attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableRbacAuthorization
-        => AsReference("enable_rbac_authorization");
+        => CreateReference("enable_rbac_authorization");
 
     /// <summary>
     /// The enabled_for_deployment attribute.
     /// </summary>
     public TerraformValue<bool> EnabledForDeployment
-        => AsReference("enabled_for_deployment");
+        => CreateReference("enabled_for_deployment");
 
     /// <summary>
     /// The enabled_for_disk_encryption attribute.
     /// </summary>
     public TerraformValue<bool> EnabledForDiskEncryption
-        => AsReference("enabled_for_disk_encryption");
+        => CreateReference("enabled_for_disk_encryption");
 
     /// <summary>
     /// The enabled_for_template_deployment attribute.
     /// </summary>
     public TerraformValue<bool> EnabledForTemplateDeployment
-        => AsReference("enabled_for_template_deployment");
+        => CreateReference("enabled_for_template_deployment");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The network_acls attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkAcls
-        => AsReference("network_acls");
+        => CreateReference("network_acls");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PurgeProtectionEnabled
-        => AsReference("purge_protection_enabled");
+        => CreateReference("purge_protection_enabled");
 
     /// <summary>
     /// The rbac_authorization_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RbacAuthorizationEnabled
-        => AsReference("rbac_authorization_enabled");
+        => CreateReference("rbac_authorization_enabled");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The vault_uri attribute.
     /// </summary>
     public TerraformValue<string> VaultUri
-        => AsReference("vault_uri");
+        => CreateReference("vault_uri");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

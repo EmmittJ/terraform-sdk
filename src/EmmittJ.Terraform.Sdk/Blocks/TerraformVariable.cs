@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// different Terraform configurations, making your module composable and reusable.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/variable"/></para>
 /// </remarks>
-public partial class TerraformVariable : TerraformBlock, ITerraformReferenceable
+public partial class TerraformVariable : TerraformBlock
 {
     /// <summary>
     /// Gets the name of the variable.
@@ -28,6 +28,11 @@ public partial class TerraformVariable : TerraformBlock, ITerraformReferenceable
     /// Gets the block labels (just the variable name).
     /// </summary>
     public override string[] BlockLabels => [Name];
+
+    /// <summary>
+    /// Gets the Terraform reference identifier for this variable (e.g., "var.region").
+    /// </summary>
+    public override string ReferenceIdentifier => $"var.{Name}";
 
     /// <summary>
     /// Initializes a new instance of TerraformVariable.
@@ -136,13 +141,6 @@ public partial class TerraformVariable : TerraformBlock, ITerraformReferenceable
     }
 
     /// <summary>
-    /// Generates a reference to this variable.
-    /// </summary>
-    /// <returns>A reference to this variable.</returns>
-    public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"var.{Name}");
-
-    /// <summary>
     /// Adds a validation block to this variable.
     /// </summary>
     /// <param name="condition">The condition expression that must evaluate to true.</param>
@@ -161,13 +159,5 @@ public partial class TerraformVariable : TerraformBlock, ITerraformReferenceable
         return this;
     }
 
-    /// <summary>
-    /// Implicit conversion to TerraformExpression for natural reference usage.
-    /// Allows using variables directly in expressions without calling AsReference().
-    /// </summary>
-    /// <param name="variable">The variable to convert.</param>
-    /// <returns>A TerraformExpression representing the variable reference.</returns>
-    public static implicit operator TerraformExpression(TerraformVariable variable)
-        => variable.AsReference();
 }
 

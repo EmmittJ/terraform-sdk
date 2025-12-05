@@ -201,13 +201,13 @@ public class AzurermContainerAppJobIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -484,7 +484,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlock : TerraformBlock
     /// The amount of ephemeral storage available to the Container App.
     /// </summary>
     public TerraformValue<string> EphemeralStorage
-        => AsReference("ephemeral_storage");
+        => CreateReference("ephemeral_storage");
 
     /// <summary>
     /// The image to use to create the container.
@@ -656,7 +656,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockLivenessProbeBlock
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -674,7 +674,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockLivenessProbeBlock
     /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
     /// </summary>
     public TerraformValue<double> TerminationGracePeriodSeconds
-        => AsReference("termination_grace_period_seconds");
+        => CreateReference("termination_grace_period_seconds");
 
     /// <summary>
     /// Time in seconds after which the probe times out. Possible values are between `1` an `240`. Defaults to `1`.
@@ -791,7 +791,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockReadinessProbeBloc
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -929,7 +929,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockStartupProbeBlock 
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -947,7 +947,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockStartupProbeBlock 
     /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
     /// </summary>
     public TerraformValue<double> TerminationGracePeriodSeconds
-        => AsReference("termination_grace_period_seconds");
+        => CreateReference("termination_grace_period_seconds");
 
     /// <summary>
     /// Time in seconds after which the probe times out. Possible values are between `1` an `240`. Defaults to `1`.
@@ -1096,7 +1096,7 @@ public class AzurermContainerAppJobTemplateBlockInitContainerBlock : TerraformBl
     /// The amount of ephemeral storage available to the Container App.
     /// </summary>
     public TerraformValue<string> EphemeralStorage
-        => AsReference("ephemeral_storage");
+        => CreateReference("ephemeral_storage");
 
     /// <summary>
     /// The image to use to create the container.
@@ -1352,7 +1352,7 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1427,13 +1427,13 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     /// The event_stream_endpoint attribute.
     /// </summary>
     public TerraformValue<string> EventStreamEndpoint
-        => AsReference("event_stream_endpoint");
+        => CreateReference("event_stream_endpoint");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> OutboundIpAddresses
-        => AsReference("outbound_ip_addresses");
+        => CreateReference("outbound_ip_addresses");
 
     /// <summary>
     /// EventTriggerConfig block (nesting mode: list).

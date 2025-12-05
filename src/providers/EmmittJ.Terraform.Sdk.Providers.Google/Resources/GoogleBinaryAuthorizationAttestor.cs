@@ -25,7 +25,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : Te
     /// different naming pattern.
     /// </summary>
     public TerraformValue<string> DelegationServiceAccountEmail
-        => AsReference("delegation_service_account_email");
+        => CreateReference("delegation_service_account_email");
 
     /// <summary>
     /// The resource name of a ATTESTATION_AUTHORITY Note, created by the
@@ -101,7 +101,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlockPubli
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -216,7 +216,7 @@ public partial class GoogleBinaryAuthorizationAttestor(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -235,7 +235,7 @@ public partial class GoogleBinaryAuthorizationAttestor(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 

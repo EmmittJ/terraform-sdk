@@ -528,7 +528,7 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -583,13 +583,13 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// The frontend_endpoint_ids attribute.
     /// </summary>
     public TerraformList<string> FrontendEndpointIds
-        => AsReference("frontend_endpoint_ids");
+        => CreateReference("frontend_endpoint_ids");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// CustomRule block (nesting mode: list).

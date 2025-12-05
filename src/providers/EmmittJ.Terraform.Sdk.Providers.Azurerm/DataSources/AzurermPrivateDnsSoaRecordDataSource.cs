@@ -36,7 +36,7 @@ public partial class AzurermPrivateDnsSoaRecordDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,61 +73,61 @@ public partial class AzurermPrivateDnsSoaRecordDataSource(string name) : Terrafo
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The expire_time attribute.
     /// </summary>
     public TerraformValue<double> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     public TerraformValue<string> HostName
-        => AsReference("host_name");
+        => CreateReference("host_name");
 
     /// <summary>
     /// The minimum_ttl attribute.
     /// </summary>
     public TerraformValue<double> MinimumTtl
-        => AsReference("minimum_ttl");
+        => CreateReference("minimum_ttl");
 
     /// <summary>
     /// The refresh_time attribute.
     /// </summary>
     public TerraformValue<double> RefreshTime
-        => AsReference("refresh_time");
+        => CreateReference("refresh_time");
 
     /// <summary>
     /// The retry_time attribute.
     /// </summary>
     public TerraformValue<double> RetryTime
-        => AsReference("retry_time");
+        => CreateReference("retry_time");
 
     /// <summary>
     /// The serial_number attribute.
     /// </summary>
     public TerraformValue<double> SerialNumber
-        => AsReference("serial_number");
+        => CreateReference("serial_number");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     public TerraformValue<double> Ttl
-        => AsReference("ttl");
+        => CreateReference("ttl");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

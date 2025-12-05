@@ -64,7 +64,7 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -127,31 +127,31 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     /// The cluster_certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClusterCertificates
-        => AsReference("cluster_certificates");
+        => CreateReference("cluster_certificates");
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterId
-        => AsReference("cluster_id");
+        => CreateReference("cluster_id");
 
     /// <summary>
     /// The cluster_state attribute.
     /// </summary>
     public TerraformValue<string> ClusterState
-        => AsReference("cluster_state");
+        => CreateReference("cluster_state");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupId
-        => AsReference("security_group_id");
+        => CreateReference("security_group_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

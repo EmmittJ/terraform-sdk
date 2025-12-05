@@ -1137,13 +1137,13 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -1306,7 +1306,7 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1362,7 +1362,7 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     /// The immutable_id attribute.
     /// </summary>
     public TerraformValue<string> ImmutableId
-        => AsReference("immutable_id");
+        => CreateReference("immutable_id");
 
     /// <summary>
     /// DataFlow block (nesting mode: list).

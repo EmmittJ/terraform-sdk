@@ -286,7 +286,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> AutoNetworkTier
     {
-        get => GetArgument<TerraformValue<string>>("auto_network_tier") ?? AsReference("auto_network_tier");
+        get => GetArgument<TerraformValue<string>>("auto_network_tier") ?? CreateReference("auto_network_tier");
         set => SetArgument("auto_network_tier", value);
     }
 
@@ -296,7 +296,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformSet<string> DrainNatIps
     {
-        get => GetArgument<TerraformSet<string>>("drain_nat_ips") ?? AsReference("drain_nat_ips");
+        get => GetArgument<TerraformSet<string>>("drain_nat_ips") ?? CreateReference("drain_nat_ips");
         set => SetArgument("drain_nat_ips", value);
     }
 
@@ -311,7 +311,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool> EnableDynamicPortAllocation
     {
-        get => GetArgument<TerraformValue<bool>>("enable_dynamic_port_allocation") ?? AsReference("enable_dynamic_port_allocation");
+        get => GetArgument<TerraformValue<bool>>("enable_dynamic_port_allocation") ?? CreateReference("enable_dynamic_port_allocation");
         set => SetArgument("enable_dynamic_port_allocation", value);
     }
 
@@ -321,7 +321,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool> EnableEndpointIndependentMapping
     {
-        get => GetArgument<TerraformValue<bool>>("enable_endpoint_independent_mapping") ?? AsReference("enable_endpoint_independent_mapping");
+        get => GetArgument<TerraformValue<bool>>("enable_endpoint_independent_mapping") ?? CreateReference("enable_endpoint_independent_mapping");
         set => SetArgument("enable_endpoint_independent_mapping", value);
     }
 
@@ -333,7 +333,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformList<string> EndpointTypes
     {
-        get => GetArgument<TerraformList<string>>("endpoint_types") ?? AsReference("endpoint_types");
+        get => GetArgument<TerraformList<string>>("endpoint_types") ?? CreateReference("endpoint_types");
         set => SetArgument("endpoint_types", value);
     }
 
@@ -351,7 +351,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -380,7 +380,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double> MinPortsPerVm
     {
-        get => GetArgument<TerraformValue<double>>("min_ports_per_vm") ?? AsReference("min_ports_per_vm");
+        get => GetArgument<TerraformValue<double>>("min_ports_per_vm") ?? CreateReference("min_ports_per_vm");
         set => SetArgument("min_ports_per_vm", value);
     }
 
@@ -415,7 +415,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformSet<string> NatIps
     {
-        get => GetArgument<TerraformSet<string>>("nat_ips") ?? AsReference("nat_ips");
+        get => GetArgument<TerraformSet<string>>("nat_ips") ?? CreateReference("nat_ips");
         set => SetArgument("nat_ips", value);
     }
 
@@ -424,7 +424,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -433,7 +433,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

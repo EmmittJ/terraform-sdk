@@ -123,7 +123,7 @@ public partial class GoogleNetappBackupVault(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> BackupVaultType
     {
-        get => GetArgument<TerraformValue<string>>("backup_vault_type") ?? AsReference("backup_vault_type");
+        get => GetArgument<TerraformValue<string>>("backup_vault_type") ?? CreateReference("backup_vault_type");
         set => SetArgument("backup_vault_type", value);
     }
 
@@ -141,7 +141,7 @@ public partial class GoogleNetappBackupVault(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -183,7 +183,7 @@ public partial class GoogleNetappBackupVault(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -191,44 +191,44 @@ public partial class GoogleNetappBackupVault(string name) : TerraformResource("g
     /// Create time of the backup vault. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Name of the Backup vault created in backup region.
     /// </summary>
     public TerraformValue<string> DestinationBackupVault
-        => AsReference("destination_backup_vault");
+        => CreateReference("destination_backup_vault");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Name of the Backup vault created in source region.
     /// </summary>
     public TerraformValue<string> SourceBackupVault
-        => AsReference("source_backup_vault");
+        => CreateReference("source_backup_vault");
 
     /// <summary>
     /// Region in which the backup vault is created.
     /// </summary>
     public TerraformValue<string> SourceRegion
-        => AsReference("source_region");
+        => CreateReference("source_region");
 
     /// <summary>
     /// The state of the Backup Vault.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// BackupRetentionPolicy block (nesting mode: list).

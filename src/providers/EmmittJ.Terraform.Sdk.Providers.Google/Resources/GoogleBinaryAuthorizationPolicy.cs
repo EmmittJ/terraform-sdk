@@ -204,7 +204,7 @@ public partial class GoogleBinaryAuthorizationPolicy(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> GlobalPolicyEvaluationMode
     {
-        get => GetArgument<TerraformValue<string>>("global_policy_evaluation_mode") ?? AsReference("global_policy_evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("global_policy_evaluation_mode") ?? CreateReference("global_policy_evaluation_mode");
         set => SetArgument("global_policy_evaluation_mode", value);
     }
 
@@ -213,7 +213,7 @@ public partial class GoogleBinaryAuthorizationPolicy(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -222,7 +222,7 @@ public partial class GoogleBinaryAuthorizationPolicy(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 

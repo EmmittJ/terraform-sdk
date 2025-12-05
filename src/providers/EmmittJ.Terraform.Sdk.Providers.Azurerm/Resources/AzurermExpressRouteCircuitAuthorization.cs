@@ -64,7 +64,7 @@ public partial class AzurermExpressRouteCircuitAuthorization(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,13 +92,13 @@ public partial class AzurermExpressRouteCircuitAuthorization(string name) : Terr
     /// The authorization_key attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationKey
-        => AsReference("authorization_key");
+        => CreateReference("authorization_key");
 
     /// <summary>
     /// The authorization_use_status attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationUseStatus
-        => AsReference("authorization_use_status");
+        => CreateReference("authorization_use_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

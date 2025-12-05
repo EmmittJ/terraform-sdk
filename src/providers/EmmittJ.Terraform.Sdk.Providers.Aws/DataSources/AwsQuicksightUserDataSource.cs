@@ -13,7 +13,7 @@ public partial class AwsQuicksightUserDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? CreateReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsQuicksightUserDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsQuicksightUserDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,42 +58,42 @@ public partial class AwsQuicksightUserDataSource(string name) : TerraformDataSou
     /// The active attribute.
     /// </summary>
     public TerraformValue<bool> Active
-        => AsReference("active");
+        => CreateReference("active");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The custom_permissions_name attribute.
     /// </summary>
     public TerraformValue<string> CustomPermissionsName
-        => AsReference("custom_permissions_name");
+        => CreateReference("custom_permissions_name");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
     public TerraformValue<string> IdentityType
-        => AsReference("identity_type");
+        => CreateReference("identity_type");
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The user_role attribute.
     /// </summary>
     public TerraformValue<string> UserRole
-        => AsReference("user_role");
+        => CreateReference("user_role");
 
 }

@@ -36,7 +36,7 @@ public partial class AzurermCdnFrontdoorCustomDomainDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,37 +74,37 @@ public partial class AzurermCdnFrontdoorCustomDomainDataSource(string name) : Te
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorProfileId
-        => AsReference("cdn_frontdoor_profile_id");
+        => CreateReference("cdn_frontdoor_profile_id");
 
     /// <summary>
     /// The dns_zone_id attribute.
     /// </summary>
     public TerraformValue<string> DnsZoneId
-        => AsReference("dns_zone_id");
+        => CreateReference("dns_zone_id");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-        => AsReference("expiration_date");
+        => CreateReference("expiration_date");
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     public TerraformValue<string> HostName
-        => AsReference("host_name");
+        => CreateReference("host_name");
 
     /// <summary>
     /// The tls attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Tls
-        => AsReference("tls");
+        => CreateReference("tls");
 
     /// <summary>
     /// The validation_token attribute.
     /// </summary>
     public TerraformValue<string> ValidationToken
-        => AsReference("validation_token");
+        => CreateReference("validation_token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

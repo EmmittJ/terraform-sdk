@@ -13,7 +13,7 @@ public partial class AwsShieldSubscription(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> AutoRenew
     {
-        get => GetArgument<TerraformValue<string>>("auto_renew") ?? AsReference("auto_renew");
+        get => GetArgument<TerraformValue<string>>("auto_renew") ?? CreateReference("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 
@@ -30,6 +30,6 @@ public partial class AwsShieldSubscription(string name) : TerraformResource("aws
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

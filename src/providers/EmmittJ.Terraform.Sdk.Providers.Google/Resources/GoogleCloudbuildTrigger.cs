@@ -506,7 +506,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockObjectsBlock : Terra
     /// Output only. Stores timing information for pushing all artifact objects.
     /// </summary>
     public TerraformList<TerraformMap<object>> Timing
-        => AsReference("timing");
+        => CreateReference("timing");
 
 }
 
@@ -1246,7 +1246,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : Terraform
     /// The type of DeveloperConnect GitRepositoryLink.
     /// </summary>
     public TerraformValue<string> GitRepositoryLinkType
-        => AsReference("git_repository_link_type");
+        => CreateReference("git_repository_link_type");
 
     /// <summary>
     /// PullRequest block (nesting mode: list).
@@ -1607,13 +1607,13 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     /// Only populated on get requests.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. Name of the subscription.
     /// </summary>
     public TerraformValue<string> Subscription
-        => AsReference("subscription");
+        => CreateReference("subscription");
 
     /// <summary>
     /// The name of the topic from which this subscription is receiving messages.
@@ -1933,7 +1933,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1985,7 +1985,7 @@ public class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlock
     /// Only populated on get requests.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -2039,7 +2039,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2105,7 +2105,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -2114,7 +2114,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -2155,13 +2155,13 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// Time when the trigger was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The unique identifier for the trigger.
     /// </summary>
     public TerraformValue<string> TriggerId
-        => AsReference("trigger_id");
+        => CreateReference("trigger_id");
 
     /// <summary>
     /// ApprovalConfig block (nesting mode: list).

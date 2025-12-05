@@ -50,7 +50,7 @@ public class GoogleBeyondcorpSecurityGatewayHubsBlockInternetGatewayBlock : Terr
     /// Output only. List of IP addresses assigned to the Cloud NAT.
     /// </summary>
     public TerraformList<string> AssignedIps
-        => AsReference("assigned_ips");
+        => CreateReference("assigned_ips");
 
 }
 
@@ -368,7 +368,7 @@ public partial class GoogleBeyondcorpSecurityGateway(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -387,7 +387,7 @@ public partial class GoogleBeyondcorpSecurityGateway(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -408,26 +408,26 @@ public partial class GoogleBeyondcorpSecurityGateway(string name) : TerraformRes
     /// Output only. Timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Service account used for operations that involve resources in consumer projects.
     /// </summary>
     public TerraformValue<string> DelegatingServiceAccount
-        => AsReference("delegating_service_account");
+        => CreateReference("delegating_service_account");
 
     /// <summary>
     /// Output only. IP addresses that will be used for establishing
     /// connection to the endpoints.
     /// </summary>
     public TerraformList<string> ExternalIps
-        => AsReference("external_ips");
+        => CreateReference("external_ips");
 
     /// <summary>
     /// Identifier. Name of the resource.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The operational state of the SecurityGateway.
@@ -441,13 +441,13 @@ public partial class GoogleBeyondcorpSecurityGateway(string name) : TerraformRes
     /// ERROR
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. Timestamp when the resource was last modified.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Hubs block (nesting mode: set).

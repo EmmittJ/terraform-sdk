@@ -43,12 +43,12 @@ public partial class AwsCloudfrontkeyvaluestoreKey(string name) : TerraformResou
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Total size of the Key Value Store in bytes.
     /// </summary>
     public TerraformValue<double> TotalSizeInBytes
-        => AsReference("total_size_in_bytes");
+        => CreateReference("total_size_in_bytes");
 
 }

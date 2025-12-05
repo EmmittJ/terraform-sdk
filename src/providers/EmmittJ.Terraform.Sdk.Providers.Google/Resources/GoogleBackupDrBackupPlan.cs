@@ -286,7 +286,7 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -314,7 +314,7 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -333,31 +333,31 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     /// The Google Cloud Platform Service Account to be used by the BackupVault for taking backups.
     /// </summary>
     public TerraformValue<string> BackupVaultServiceAccount
-        => AsReference("backup_vault_service_account");
+        => CreateReference("backup_vault_service_account");
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The name of backup plan resource created
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The list of all resource types to which the &#39;BackupPlan&#39; can be applied.
     /// </summary>
     public TerraformList<string> SupportedResourceTypes
-        => AsReference("supported_resource_types");
+        => CreateReference("supported_resource_types");
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// BackupRules block (nesting mode: list).

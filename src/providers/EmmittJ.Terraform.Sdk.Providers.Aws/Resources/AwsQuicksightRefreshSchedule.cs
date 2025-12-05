@@ -28,7 +28,7 @@ public class AwsQuicksightRefreshScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StartAfterDateTime
     {
-        get => GetArgument<TerraformValue<string>>("start_after_date_time") ?? AsReference("start_after_date_time");
+        get => GetArgument<TerraformValue<string>>("start_after_date_time") ?? CreateReference("start_after_date_time");
         set => SetArgument("start_after_date_time", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsQuicksightRefreshScheduleScheduleBlockScheduleFrequencyBlock : T
     /// </summary>
     public TerraformValue<string> TimeOfTheDay
     {
-        get => GetArgument<TerraformValue<string>>("time_of_the_day") ?? AsReference("time_of_the_day");
+        get => GetArgument<TerraformValue<string>>("time_of_the_day") ?? CreateReference("time_of_the_day");
         set => SetArgument("time_of_the_day", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsQuicksightRefreshScheduleScheduleBlockScheduleFrequencyBlock : T
     /// </summary>
     public TerraformValue<string> Timezone
     {
-        get => GetArgument<TerraformValue<string>>("timezone") ?? AsReference("timezone");
+        get => GetArgument<TerraformValue<string>>("timezone") ?? CreateReference("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? CreateReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -173,13 +173,13 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Schedule block (nesting mode: list).

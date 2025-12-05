@@ -113,7 +113,7 @@ public partial class AwsCloudfrontFieldLevelEncryptionProfile(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -131,19 +131,19 @@ public partial class AwsCloudfrontFieldLevelEncryptionProfile(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-        => AsReference("caller_reference");
+        => CreateReference("caller_reference");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// EncryptionEntities block (nesting mode: list).

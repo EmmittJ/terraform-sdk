@@ -13,7 +13,7 @@ public partial class GoogleSqlCaCertsDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleSqlCaCertsDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -40,12 +40,12 @@ public partial class GoogleSqlCaCertsDataSource(string name) : TerraformDataSour
     /// The active_version attribute.
     /// </summary>
     public TerraformValue<string> ActiveVersion
-        => AsReference("active_version");
+        => CreateReference("active_version");
 
     /// <summary>
     /// The certs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certs
-        => AsReference("certs");
+        => CreateReference("certs");
 
 }

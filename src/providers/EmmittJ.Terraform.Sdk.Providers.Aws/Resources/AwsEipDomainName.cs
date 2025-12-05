@@ -74,7 +74,7 @@ public partial class AwsEipDomainName(string name) : TerraformResource("aws_eip_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -82,13 +82,13 @@ public partial class AwsEipDomainName(string name) : TerraformResource("aws_eip_
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The ptr_record attribute.
     /// </summary>
     public TerraformValue<string> PtrRecord
-        => AsReference("ptr_record");
+        => CreateReference("ptr_record");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

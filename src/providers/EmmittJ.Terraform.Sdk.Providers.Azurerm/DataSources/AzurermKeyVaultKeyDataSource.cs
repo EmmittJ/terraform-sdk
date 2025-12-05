@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultKeyDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,91 +64,91 @@ public partial class AzurermKeyVaultKeyDataSource(string name) : TerraformDataSo
     /// The curve attribute.
     /// </summary>
     public TerraformValue<string> Curve
-        => AsReference("curve");
+        => CreateReference("curve");
 
     /// <summary>
     /// The e attribute.
     /// </summary>
     public TerraformValue<string> E
-        => AsReference("e");
+        => CreateReference("e");
 
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
     public TerraformList<string> KeyOpts
-        => AsReference("key_opts");
+        => CreateReference("key_opts");
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
     public TerraformValue<double> KeySize
-        => AsReference("key_size");
+        => CreateReference("key_size");
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
     public TerraformValue<string> KeyType
-        => AsReference("key_type");
+        => CreateReference("key_type");
 
     /// <summary>
     /// The n attribute.
     /// </summary>
     public TerraformValue<string> N
-        => AsReference("n");
+        => CreateReference("n");
 
     /// <summary>
     /// The public_key_openssh attribute.
     /// </summary>
     public TerraformValue<string> PublicKeyOpenssh
-        => AsReference("public_key_openssh");
+        => CreateReference("public_key_openssh");
 
     /// <summary>
     /// The public_key_pem attribute.
     /// </summary>
     public TerraformValue<string> PublicKeyPem
-        => AsReference("public_key_pem");
+        => CreateReference("public_key_pem");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-        => AsReference("resource_id");
+        => CreateReference("resource_id");
 
     /// <summary>
     /// The resource_versionless_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceVersionlessId
-        => AsReference("resource_versionless_id");
+        => CreateReference("resource_versionless_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
     public TerraformValue<string> VersionlessId
-        => AsReference("versionless_id");
+        => CreateReference("versionless_id");
 
     /// <summary>
     /// The x attribute.
     /// </summary>
     public TerraformValue<string> X
-        => AsReference("x");
+        => CreateReference("x");
 
     /// <summary>
     /// The y attribute.
     /// </summary>
     public TerraformValue<string> Y
-        => AsReference("y");
+        => CreateReference("y");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzureadApplicationTemplateDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzureadApplicationTemplateDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzureadApplicationTemplateDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? CreateReference("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -62,37 +62,37 @@ public partial class AzureadApplicationTemplateDataSource(string name) : Terrafo
     /// List of categories for this templated application
     /// </summary>
     public TerraformList<string> Categories
-        => AsReference("categories");
+        => CreateReference("categories");
 
     /// <summary>
     /// Home page URL of the templated application
     /// </summary>
     public TerraformValue<string> HomepageUrl
-        => AsReference("homepage_url");
+        => CreateReference("homepage_url");
 
     /// <summary>
     /// URL to retrieve the logo for this templated application
     /// </summary>
     public TerraformValue<string> LogoUrl
-        => AsReference("logo_url");
+        => CreateReference("logo_url");
 
     /// <summary>
     /// Name of the publisher for this templated application
     /// </summary>
     public TerraformValue<string> Publisher
-        => AsReference("publisher");
+        => CreateReference("publisher");
 
     /// <summary>
     /// The provisioning modes supported by this templated application
     /// </summary>
     public TerraformList<string> SupportedProvisioningTypes
-        => AsReference("supported_provisioning_types");
+        => CreateReference("supported_provisioning_types");
 
     /// <summary>
     /// The single sign on modes supported by this templated application
     /// </summary>
     public TerraformList<string> SupportedSingleSignOnModes
-        => AsReference("supported_single_sign_on_modes");
+        => CreateReference("supported_single_sign_on_modes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

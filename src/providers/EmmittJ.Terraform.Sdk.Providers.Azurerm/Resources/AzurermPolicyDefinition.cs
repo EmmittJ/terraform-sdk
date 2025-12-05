@@ -82,7 +82,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformValue<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     /// The role_definition_ids attribute.
     /// </summary>
     public TerraformList<string> RoleDefinitionIds
-        => AsReference("role_definition_ids");
+        => CreateReference("role_definition_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

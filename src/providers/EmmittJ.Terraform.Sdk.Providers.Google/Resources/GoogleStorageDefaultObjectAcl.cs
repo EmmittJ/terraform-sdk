@@ -23,7 +23,7 @@ public partial class GoogleStorageDefaultObjectAcl(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleStorageDefaultObjectAcl(string name) : TerraformResou
     /// </summary>
     public TerraformSet<string> RoleEntity
     {
-        get => GetArgument<TerraformSet<string>>("role_entity") ?? AsReference("role_entity");
+        get => GetArgument<TerraformSet<string>>("role_entity") ?? CreateReference("role_entity");
         set => SetArgument("role_entity", value);
     }
 

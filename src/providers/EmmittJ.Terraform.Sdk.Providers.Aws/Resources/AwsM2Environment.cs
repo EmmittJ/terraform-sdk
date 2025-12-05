@@ -204,7 +204,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? CreateReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformValue<bool> PubliclyAccessible
     {
-        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? AsReference("publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? CreateReference("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
@@ -269,7 +269,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? CreateReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -304,31 +304,31 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
     public TerraformValue<string> EnvironmentId
-        => AsReference("environment_id");
+        => CreateReference("environment_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The load_balancer_arn attribute.
     /// </summary>
     public TerraformValue<string> LoadBalancerArn
-        => AsReference("load_balancer_arn");
+        => CreateReference("load_balancer_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// HighAvailabilityConfig block (nesting mode: list).

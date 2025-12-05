@@ -36,7 +36,7 @@ public partial class AzurermResourcesDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermResourcesDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermResourcesDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? AsReference("resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? CreateReference("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermResourcesDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AzurermResourcesDataSource(string name) : TerraformDataSour
     /// The resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Resources
-        => AsReference("resources");
+        => CreateReference("resources");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

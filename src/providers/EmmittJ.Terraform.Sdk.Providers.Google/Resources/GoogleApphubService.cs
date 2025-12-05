@@ -295,7 +295,7 @@ public partial class GoogleApphubService(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -314,7 +314,7 @@ public partial class GoogleApphubService(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -332,45 +332,45 @@ public partial class GoogleApphubService(string name) : TerraformResource("googl
     /// Output only. Create time.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Identifier. The resource name of a Service. Format:
     /// &amp;quot;projects/{host-project-id}/locations/{location}/applications/{application-id}/services/{service-id}&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Properties of an underlying cloud resource that can comprise a Service.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceProperties
-        => AsReference("service_properties");
+        => CreateReference("service_properties");
 
     /// <summary>
     /// Reference to an underlying networking resource that can comprise a Service.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceReference
-        => AsReference("service_reference");
+        => CreateReference("service_reference");
 
     /// <summary>
     /// Output only. Service state. Possible values: STATE_UNSPECIFIED CREATING ACTIVE DELETING DETACHED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. A universally unique identifier (UUID) for the &#39;Service&#39; in the UUID4
     /// format.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. Update time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

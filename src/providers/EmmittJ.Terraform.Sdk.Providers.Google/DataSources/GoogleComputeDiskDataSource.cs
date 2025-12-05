@@ -13,7 +13,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -60,19 +60,19 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// The AccessMode is only valid for Hyperdisk disk types.
     /// </summary>
     public TerraformValue<string> AccessMode
-        => AsReference("access_mode");
+        => CreateReference("access_mode");
 
     /// <summary>
     /// The architecture of the disk. Values include &#39;X86_64&#39;, &#39;ARM64&#39;.
     /// </summary>
     public TerraformValue<string> Architecture
-        => AsReference("architecture");
+        => CreateReference("architecture");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> AsyncPrimaryDisk
-        => AsReference("async_primary_disk");
+        => CreateReference("async_primary_disk");
 
     /// <summary>
     /// If set to true, a snapshot of the disk will be created before it is destroyed.
@@ -80,26 +80,26 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// The name of the snapshot by default will be &#39;{{disk-name}}-YYYYMMDD-HHmm&#39;
     /// </summary>
     public TerraformValue<bool> CreateSnapshotBeforeDestroy
-        => AsReference("create_snapshot_before_destroy");
+        => CreateReference("create_snapshot_before_destroy");
 
     /// <summary>
     /// This will set a custom name prefix for the snapshot that&#39;s created when the disk is deleted.
     /// </summary>
     public TerraformValue<string> CreateSnapshotBeforeDestroyPrefix
-        => AsReference("create_snapshot_before_destroy_prefix");
+        => CreateReference("create_snapshot_before_destroy_prefix");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Encrypts the disk using a customer-supplied encryption key.
@@ -116,33 +116,33 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// you do not need to provide a key to use the disk later.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiskEncryptionKey
-        => AsReference("disk_encryption_key");
+        => CreateReference("disk_encryption_key");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> DiskId
-        => AsReference("disk_id");
+        => CreateReference("disk_id");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Whether this disk is using confidential compute mode.
     /// Note: Only supported on hyperdisk skus, disk_encryption_key is required when setting to true
     /// </summary>
     public TerraformValue<bool> EnableConfidentialCompute
-        => AsReference("enable_confidential_compute");
+        => CreateReference("enable_confidential_compute");
 
     /// <summary>
     /// A list of features to enable on the guest operating system.
     /// Applicable only for bootable disks.
     /// </summary>
     public TerraformSet<TerraformMap<object>> GuestOsFeatures
-        => AsReference("guest_os_features");
+        => CreateReference("guest_os_features");
 
     /// <summary>
     /// The image from which to initialize this disk. This can be
@@ -156,14 +156,14 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// These images can be referred by family name here.
     /// </summary>
     public TerraformValue<string> Image
-        => AsReference("image");
+        => CreateReference("image");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// Labels to apply to this disk.  A list of key-&amp;gt;value pairs.
@@ -173,31 +173,31 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Last attach timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> LastAttachTimestamp
-        => AsReference("last_attach_timestamp");
+        => CreateReference("last_attach_timestamp");
 
     /// <summary>
     /// Last detach timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> LastDetachTimestamp
-        => AsReference("last_detach_timestamp");
+        => CreateReference("last_detach_timestamp");
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
     public TerraformList<string> Licenses
-        => AsReference("licenses");
+        => CreateReference("licenses");
 
     /// <summary>
     /// Additional params passed with the request, but not persisted as part of resource payload
     /// </summary>
     public TerraformList<TerraformMap<object>> ParamsAttribute
-        => AsReference("params");
+        => CreateReference("params");
 
     /// <summary>
     /// Physical block size of the persistent disk, in bytes. If not present
@@ -207,7 +207,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// the supported values for the caller&#39;s project.
     /// </summary>
     public TerraformValue<double> PhysicalBlockSizeBytes
-        => AsReference("physical_block_size_bytes");
+        => CreateReference("physical_block_size_bytes");
 
     /// <summary>
     /// Indicates how many IOPS must be provisioned for the disk.
@@ -215,7 +215,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// allows for an update of IOPS every 4 hours. To update your hyperdisk more frequently, you&#39;ll need to manually delete and recreate it
     /// </summary>
     public TerraformValue<double> ProvisionedIops
-        => AsReference("provisioned_iops");
+        => CreateReference("provisioned_iops");
 
     /// <summary>
     /// Indicates how much Throughput must be provisioned for the disk.
@@ -223,13 +223,13 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// allows for an update of Throughput every 4 hours. To update your hyperdisk more frequently, you&#39;ll need to manually delete and recreate it
     /// </summary>
     public TerraformValue<double> ProvisionedThroughput
-        => AsReference("provisioned_throughput");
+        => CreateReference("provisioned_throughput");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Size of the persistent disk, specified in GB. You can specify this
@@ -247,7 +247,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// and recreating.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// The source snapshot used to create this disk. You can provide this as
@@ -261,7 +261,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// * &#39;snapshot&#39;
     /// </summary>
     public TerraformValue<string> Snapshot
-        => AsReference("snapshot");
+        => CreateReference("snapshot");
 
     /// <summary>
     /// The source disk used to create this disk. You can provide this as a partial or full URL to the resource.
@@ -275,7 +275,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// * regions/{region}/disks/{disk}
     /// </summary>
     public TerraformValue<string> SourceDisk
-        => AsReference("source_disk");
+        => CreateReference("source_disk");
 
     /// <summary>
     /// The ID value of the disk used to create this image. This value may
@@ -283,14 +283,14 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// or a previous instance of a given disk name.
     /// </summary>
     public TerraformValue<string> SourceDiskId
-        => AsReference("source_disk_id");
+        => CreateReference("source_disk_id");
 
     /// <summary>
     /// The customer-supplied encryption key of the source image. Required if
     /// the source image is protected by a customer-supplied encryption key.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceImageEncryptionKey
-        => AsReference("source_image_encryption_key");
+        => CreateReference("source_image_encryption_key");
 
     /// <summary>
     /// The ID value of the image used to create this disk. This value
@@ -300,7 +300,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// image ID would identify the exact version of the image that was used.
     /// </summary>
     public TerraformValue<string> SourceImageId
-        => AsReference("source_image_id");
+        => CreateReference("source_image_id");
 
     /// <summary>
     /// The source instant snapshot used to create this disk. You can provide this as a partial or full URL to the resource.
@@ -311,7 +311,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// * &#39;zones/zone/instantSnapshots/instantSnapshot&#39;
     /// </summary>
     public TerraformValue<string> SourceInstantSnapshot
-        => AsReference("source_instant_snapshot");
+        => CreateReference("source_instant_snapshot");
 
     /// <summary>
     /// The unique ID of the instant snapshot used to create this disk. This value identifies
@@ -321,7 +321,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// the exact version of the instant snapshot that was used.
     /// </summary>
     public TerraformValue<string> SourceInstantSnapshotId
-        => AsReference("source_instant_snapshot_id");
+        => CreateReference("source_instant_snapshot_id");
 
     /// <summary>
     /// The customer-supplied encryption key of the source snapshot. Required
@@ -329,7 +329,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// key.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceSnapshotEncryptionKey
-        => AsReference("source_snapshot_encryption_key");
+        => CreateReference("source_snapshot_encryption_key");
 
     /// <summary>
     /// The unique ID of the snapshot used to create this disk. This value
@@ -340,7 +340,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// used.
     /// </summary>
     public TerraformValue<string> SourceSnapshotId
-        => AsReference("source_snapshot_id");
+        => CreateReference("source_snapshot_id");
 
     /// <summary>
     /// The full Google Cloud Storage URI where the disk image is stored.
@@ -350,7 +350,7 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// To create many disks from a source storage object, use gcloud compute images import instead.
     /// </summary>
     public TerraformValue<string> SourceStorageObject
-        => AsReference("source_storage_object");
+        => CreateReference("source_storage_object");
 
     /// <summary>
     /// The URL or the name of the storage pool in which the new disk is created.
@@ -361,27 +361,27 @@ public partial class GoogleComputeDiskDataSource(string name) : TerraformDataSou
     /// * /{storagePool}
     /// </summary>
     public TerraformValue<string> StoragePool
-        => AsReference("storage_pool");
+        => CreateReference("storage_pool");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// URL of the disk type resource describing which disk type to use to
     /// create the disk. Provide this when creating the disk.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Links to the users of the disk (attached instances) in form:
     /// project/zones/zone/instances/instance
     /// </summary>
     public TerraformList<string> Users
-        => AsReference("users");
+        => CreateReference("users");
 
 }

@@ -87,7 +87,7 @@ public class AzurermMysqlFlexibleServerHighAvailabilityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StandbyAvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("standby_availability_zone") ?? AsReference("standby_availability_zone");
+        get => GetArgument<TerraformValue<string>>("standby_availability_zone") ?? CreateReference("standby_availability_zone");
         set => SetArgument("standby_availability_zone", value);
     }
 
@@ -203,7 +203,7 @@ public class AzurermMysqlFlexibleServerStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermMysqlFlexibleServerStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> SizeGb
     {
-        get => GetArgument<TerraformValue<double>>("size_gb") ?? AsReference("size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb") ?? CreateReference("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> AdministratorLogin
     {
-        get => GetArgument<TerraformValue<string>>("administrator_login") ?? AsReference("administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login") ?? CreateReference("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -361,7 +361,7 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -408,7 +408,7 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> PublicNetworkAccess
     {
-        get => GetArgument<TerraformValue<string>>("public_network_access") ?? AsReference("public_network_access");
+        get => GetArgument<TerraformValue<string>>("public_network_access") ?? CreateReference("public_network_access");
         set => SetArgument("public_network_access", value);
     }
 
@@ -417,7 +417,7 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> ReplicationRole
     {
-        get => GetArgument<TerraformValue<string>>("replication_role") ?? AsReference("replication_role");
+        get => GetArgument<TerraformValue<string>>("replication_role") ?? CreateReference("replication_role");
         set => SetArgument("replication_role", value);
     }
 
@@ -436,7 +436,7 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name") ?? AsReference("sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name") ?? CreateReference("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -463,7 +463,7 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -472,7 +472,7 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -480,19 +480,19 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// The replica_capacity attribute.
     /// </summary>
     public TerraformValue<double> ReplicaCapacity
-        => AsReference("replica_capacity");
+        => CreateReference("replica_capacity");
 
     /// <summary>
     /// CustomerManagedKey block (nesting mode: list).

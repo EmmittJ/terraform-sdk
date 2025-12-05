@@ -13,7 +13,7 @@ public partial class AwsDmsReplicationInstanceDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDmsReplicationInstanceDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsDmsReplicationInstanceDataSource(string name) : Terrafor
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,90 +49,90 @@ public partial class AwsDmsReplicationInstanceDataSource(string name) : Terrafor
     /// The allocated_storage attribute.
     /// </summary>
     public TerraformValue<double> AllocatedStorage
-        => AsReference("allocated_storage");
+        => CreateReference("allocated_storage");
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
     public TerraformValue<bool> AutoMinorVersionUpgrade
-        => AsReference("auto_minor_version_upgrade");
+        => CreateReference("auto_minor_version_upgrade");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-        => AsReference("engine_version");
+        => CreateReference("engine_version");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyArn
-        => AsReference("kms_key_arn");
+        => CreateReference("kms_key_arn");
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
     public TerraformValue<bool> MultiAz
-        => AsReference("multi_az");
+        => CreateReference("multi_az");
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
     public TerraformValue<string> NetworkType
-        => AsReference("network_type");
+        => CreateReference("network_type");
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
     public TerraformValue<string> PreferredMaintenanceWindow
-        => AsReference("preferred_maintenance_window");
+        => CreateReference("preferred_maintenance_window");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
     public TerraformValue<bool> PubliclyAccessible
-        => AsReference("publicly_accessible");
+        => CreateReference("publicly_accessible");
 
     /// <summary>
     /// The replication_instance_arn attribute.
     /// </summary>
     public TerraformValue<string> ReplicationInstanceArn
-        => AsReference("replication_instance_arn");
+        => CreateReference("replication_instance_arn");
 
     /// <summary>
     /// The replication_instance_class attribute.
     /// </summary>
     public TerraformValue<string> ReplicationInstanceClass
-        => AsReference("replication_instance_class");
+        => CreateReference("replication_instance_class");
 
     /// <summary>
     /// The replication_instance_private_ips attribute.
     /// </summary>
     public TerraformList<string> ReplicationInstancePrivateIps
-        => AsReference("replication_instance_private_ips");
+        => CreateReference("replication_instance_private_ips");
 
     /// <summary>
     /// The replication_instance_public_ips attribute.
     /// </summary>
     public TerraformList<string> ReplicationInstancePublicIps
-        => AsReference("replication_instance_public_ips");
+        => CreateReference("replication_instance_public_ips");
 
     /// <summary>
     /// The replication_subnet_group_id attribute.
     /// </summary>
     public TerraformValue<string> ReplicationSubnetGroupId
-        => AsReference("replication_subnet_group_id");
+        => CreateReference("replication_subnet_group_id");
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
-        => AsReference("vpc_security_group_ids");
+        => CreateReference("vpc_security_group_ids");
 
 }

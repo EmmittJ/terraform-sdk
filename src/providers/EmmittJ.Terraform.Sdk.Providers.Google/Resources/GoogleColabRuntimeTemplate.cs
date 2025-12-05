@@ -18,7 +18,7 @@ public class GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<string>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<string>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type") ?? AsReference("disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type") ?? CreateReference("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleColabRuntimeTemplateEucConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> EucDisabled
     {
-        get => GetArgument<TerraformValue<bool>>("euc_disabled") ?? AsReference("euc_disabled");
+        get => GetArgument<TerraformValue<bool>>("euc_disabled") ?? CreateReference("euc_disabled");
         set => SetArgument("euc_disabled", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleColabRuntimeTemplateIdleShutdownConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> IdleTimeout
     {
-        get => GetArgument<TerraformValue<string>>("idle_timeout") ?? AsReference("idle_timeout");
+        get => GetArgument<TerraformValue<string>>("idle_timeout") ?? CreateReference("idle_timeout");
         set => SetArgument("idle_timeout", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> AcceleratorCount
     {
-        get => GetArgument<TerraformValue<double>>("accelerator_count") ?? AsReference("accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count") ?? CreateReference("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -169,7 +169,7 @@ public class GoogleColabRuntimeTemplateNetworkSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleColabRuntimeTemplateShieldedVmConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> EnableSecureBoot
     {
-        get => GetArgument<TerraformValue<bool>>("enable_secure_boot") ?? AsReference("enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot") ?? CreateReference("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -333,7 +333,7 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -345,7 +345,7 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -364,7 +364,7 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -382,7 +382,7 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -390,14 +390,14 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// DataPersistentDiskSpec block (nesting mode: list).

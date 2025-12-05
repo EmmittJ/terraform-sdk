@@ -82,7 +82,7 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     /// The export_rule_id attribute.
     /// </summary>
     public TerraformValue<string> ExportRuleId
-        => AsReference("export_rule_id");
+        => CreateReference("export_rule_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

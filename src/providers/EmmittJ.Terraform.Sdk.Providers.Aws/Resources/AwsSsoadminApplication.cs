@@ -18,7 +18,7 @@ public class AwsSsoadminApplicationPortalOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Visibility
     {
-        get => GetArgument<TerraformValue<string>>("visibility") ?? AsReference("visibility");
+        get => GetArgument<TerraformValue<string>>("visibility") ?? CreateReference("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? CreateReference("status");
         set => SetArgument("status", value);
     }
 
@@ -151,33 +151,33 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     /// The application_account attribute.
     /// </summary>
     public TerraformValue<string> ApplicationAccount
-        => AsReference("application_account");
+        => CreateReference("application_account");
 
     /// <summary>
     /// The application_arn attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ApplicationArn
-        => AsReference("application_arn");
+        => CreateReference("application_arn");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// PortalOptions block (nesting mode: list).

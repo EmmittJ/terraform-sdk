@@ -31,12 +31,12 @@ public partial class AwsServicequotasTemplatesDataSource(string name) : Terrafor
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The templates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Templates
-        => AsReference("templates");
+        => CreateReference("templates");
 
 }

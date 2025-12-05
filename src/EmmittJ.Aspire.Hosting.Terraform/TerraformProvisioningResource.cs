@@ -978,10 +978,10 @@ public class TerraformProvisioningResource : Resource
         return value switch
         {
             string s => s,
-            EndpointReference ep => ResolveEndpointReference(ep).AsReference(),
+            EndpointReference ep => ResolveEndpointReference(ep).ToReference(),
             EndpointReferenceExpression epExpr => ResolveEndpointReferenceExpression(epExpr),
-            ParameterResource param => AddVariable(param).AsReference(),
-            TerraformOutputReference outputRef => AddVariable(outputRef).AsReference(),
+            ParameterResource param => AddVariable(param).ToReference(),
+            TerraformOutputReference outputRef => AddVariable(outputRef).ToReference(),
             ReferenceExpression expr => ResolveReferenceExpression(expr),
             _ => value?.ToString() ?? string.Empty
         };
@@ -1023,6 +1023,6 @@ public class TerraformProvisioningResource : Resource
             GetEndpointOutputName(expression.Endpoint),
             expression.Endpoint.Resource);
 
-        return AddVariable(outputRef).AsReference();
+        return AddVariable(outputRef).ToReference();
     }
 }

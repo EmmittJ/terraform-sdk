@@ -75,7 +75,7 @@ public partial class AwsBedrockProvisionedModelThroughput(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -93,19 +93,19 @@ public partial class AwsBedrockProvisionedModelThroughput(string name) : Terrafo
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The provisioned_model_arn attribute.
     /// </summary>
     public TerraformValue<string> ProvisionedModelArn
-        => AsReference("provisioned_model_arn");
+        => CreateReference("provisioned_model_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -349,7 +349,7 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockPolicycontrollerBlo
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -500,7 +500,7 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockPolicycontrollerBlo
     /// </summary>
     public TerraformValue<string> PodAffinity
     {
-        get => GetArgument<TerraformValue<string>>("pod_affinity") ?? AsReference("pod_affinity");
+        get => GetArgument<TerraformValue<string>>("pod_affinity") ?? CreateReference("pod_affinity");
         set => SetArgument("pod_affinity", value);
     }
 
@@ -509,7 +509,7 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockPolicycontrollerBlo
     /// </summary>
     public TerraformValue<double> ReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("replica_count") ?? AsReference("replica_count");
+        get => GetArgument<TerraformValue<double>>("replica_count") ?? CreateReference("replica_count");
         set => SetArgument("replica_count", value);
     }
 
@@ -694,7 +694,7 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockPolicycontrollerBlo
     /// </summary>
     public TerraformList<string> Backends
     {
-        get => GetArgument<TerraformList<string>>("backends") ?? AsReference("backends");
+        get => GetArgument<TerraformList<string>>("backends") ?? CreateReference("backends");
         set => SetArgument("backends", value);
     }
 
@@ -1198,7 +1198,7 @@ public partial class GoogleGkeHubFeature(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1238,7 +1238,7 @@ public partial class GoogleGkeHubFeature(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1246,44 +1246,44 @@ public partial class GoogleGkeHubFeature(string name) : TerraformResource("googl
     /// Output only. When the Feature resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. When the Feature resource was deleted.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// State of the Feature resource itself.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceState
-        => AsReference("resource_state");
+        => CreateReference("resource_state");
 
     /// <summary>
     /// Output only. The Hub-wide Feature state
     /// </summary>
     public TerraformList<TerraformMap<object>> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. When the Feature resource was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// FleetDefaultMemberConfig block (nesting mode: list).

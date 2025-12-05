@@ -420,7 +420,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -465,7 +465,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -501,7 +501,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// The task_arns attribute.
     /// </summary>
     public TerraformList<string> TaskArns
-        => AsReference("task_arns");
+        => CreateReference("task_arns");
 
     /// <summary>
     /// CapacityProviderStrategy block (nesting mode: set).

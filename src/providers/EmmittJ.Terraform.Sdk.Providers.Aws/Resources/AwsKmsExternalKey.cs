@@ -40,7 +40,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<string> KeySpec
     {
-        get => GetArgument<TerraformValue<string>>("key_spec") ?? AsReference("key_spec");
+        get => GetArgument<TerraformValue<string>>("key_spec") ?? CreateReference("key_spec");
         set => SetArgument("key_spec", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<string> KeyUsage
     {
-        get => GetArgument<TerraformValue<string>>("key_usage") ?? AsReference("key_usage");
+        get => GetArgument<TerraformValue<string>>("key_usage") ?? CreateReference("key_usage");
         set => SetArgument("key_usage", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<bool> MultiRegion
     {
-        get => GetArgument<TerraformValue<bool>>("multi_region") ?? AsReference("multi_region");
+        get => GetArgument<TerraformValue<bool>>("multi_region") ?? CreateReference("multi_region");
         set => SetArgument("multi_region", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -138,18 +138,18 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The expiration_model attribute.
     /// </summary>
     public TerraformValue<string> ExpirationModel
-        => AsReference("expiration_model");
+        => CreateReference("expiration_model");
 
     /// <summary>
     /// The key_state attribute.
     /// </summary>
     public TerraformValue<string> KeyState
-        => AsReference("key_state");
+        => CreateReference("key_state");
 
 }

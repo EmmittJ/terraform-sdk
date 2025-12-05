@@ -72,7 +72,7 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -137,25 +137,25 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     /// The configuration_access_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationAccessEndpoint
-        => AsReference("configuration_access_endpoint");
+        => CreateReference("configuration_access_endpoint");
 
     /// <summary>
     /// The immutable_id attribute.
     /// </summary>
     public TerraformValue<string> ImmutableId
-        => AsReference("immutable_id");
+        => CreateReference("immutable_id");
 
     /// <summary>
     /// The logs_ingestion_endpoint attribute.
     /// </summary>
     public TerraformValue<string> LogsIngestionEndpoint
-        => AsReference("logs_ingestion_endpoint");
+        => CreateReference("logs_ingestion_endpoint");
 
     /// <summary>
     /// The metrics_ingestion_endpoint attribute.
     /// </summary>
     public TerraformValue<string> MetricsIngestionEndpoint
-        => AsReference("metrics_ingestion_endpoint");
+        => CreateReference("metrics_ingestion_endpoint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

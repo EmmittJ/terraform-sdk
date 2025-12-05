@@ -64,7 +64,7 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -128,13 +128,13 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     /// The grant_id attribute.
     /// </summary>
     public TerraformValue<string> GrantId
-        => AsReference("grant_id");
+        => CreateReference("grant_id");
 
     /// <summary>
     /// The grant_token attribute.
     /// </summary>
     public TerraformValue<string> GrantToken
-        => AsReference("grant_token");
+        => CreateReference("grant_token");
 
     /// <summary>
     /// Constraints block (nesting mode: set).

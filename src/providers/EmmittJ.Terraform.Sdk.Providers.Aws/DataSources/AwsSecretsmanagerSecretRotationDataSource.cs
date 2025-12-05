@@ -13,7 +13,7 @@ public partial class AwsSecretsmanagerSecretRotationDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSecretsmanagerSecretRotationDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,18 +40,18 @@ public partial class AwsSecretsmanagerSecretRotationDataSource(string name) : Te
     /// The rotation_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RotationEnabled
-        => AsReference("rotation_enabled");
+        => CreateReference("rotation_enabled");
 
     /// <summary>
     /// The rotation_lambda_arn attribute.
     /// </summary>
     public TerraformValue<string> RotationLambdaArn
-        => AsReference("rotation_lambda_arn");
+        => CreateReference("rotation_lambda_arn");
 
     /// <summary>
     /// The rotation_rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RotationRules
-        => AsReference("rotation_rules");
+        => CreateReference("rotation_rules");
 
 }

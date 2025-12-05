@@ -23,7 +23,7 @@ public partial class GoogleOracleDatabaseDbNodesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,6 +50,6 @@ public partial class GoogleOracleDatabaseDbNodesDataSource(string name) : Terraf
     /// The db_nodes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbNodes
-        => AsReference("db_nodes");
+        => CreateReference("db_nodes");
 
 }

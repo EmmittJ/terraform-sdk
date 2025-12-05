@@ -13,7 +13,7 @@ public partial class AwsElbDataSource(string name) : TerraformDataSource("aws_el
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsElbDataSource(string name) : TerraformDataSource("aws_el
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsElbDataSource(string name) : TerraformDataSource("aws_el
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,108 +49,108 @@ public partial class AwsElbDataSource(string name) : TerraformDataSource("aws_el
     /// The access_logs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AccessLogs
-        => AsReference("access_logs");
+        => CreateReference("access_logs");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The connection_draining attribute.
     /// </summary>
     public TerraformValue<bool> ConnectionDraining
-        => AsReference("connection_draining");
+        => CreateReference("connection_draining");
 
     /// <summary>
     /// The connection_draining_timeout attribute.
     /// </summary>
     public TerraformValue<double> ConnectionDrainingTimeout
-        => AsReference("connection_draining_timeout");
+        => CreateReference("connection_draining_timeout");
 
     /// <summary>
     /// The cross_zone_load_balancing attribute.
     /// </summary>
     public TerraformValue<bool> CrossZoneLoadBalancing
-        => AsReference("cross_zone_load_balancing");
+        => CreateReference("cross_zone_load_balancing");
 
     /// <summary>
     /// The desync_mitigation_mode attribute.
     /// </summary>
     public TerraformValue<string> DesyncMitigationMode
-        => AsReference("desync_mitigation_mode");
+        => CreateReference("desync_mitigation_mode");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The health_check attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HealthCheck
-        => AsReference("health_check");
+        => CreateReference("health_check");
 
     /// <summary>
     /// The idle_timeout attribute.
     /// </summary>
     public TerraformValue<double> IdleTimeout
-        => AsReference("idle_timeout");
+        => CreateReference("idle_timeout");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     public TerraformSet<string> Instances
-        => AsReference("instances");
+        => CreateReference("instances");
 
     /// <summary>
     /// The internal attribute.
     /// </summary>
     public TerraformValue<bool> InternalAttribute
-        => AsReference("internal");
+        => CreateReference("internal");
 
     /// <summary>
     /// The listener attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Listener
-        => AsReference("listener");
+        => CreateReference("listener");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroups
-        => AsReference("security_groups");
+        => CreateReference("security_groups");
 
     /// <summary>
     /// The source_security_group attribute.
     /// </summary>
     public TerraformValue<string> SourceSecurityGroup
-        => AsReference("source_security_group");
+        => CreateReference("source_security_group");
 
     /// <summary>
     /// The source_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SourceSecurityGroupId
-        => AsReference("source_security_group_id");
+        => CreateReference("source_security_group_id");
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     public TerraformSet<string> Subnets
-        => AsReference("subnets");
+        => CreateReference("subnets");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     public TerraformValue<string> ZoneId
-        => AsReference("zone_id");
+        => CreateReference("zone_id");
 
 }

@@ -27,7 +27,7 @@ public class AwsImagebuilderImageRecipeBlockDeviceMappingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> NoDevice
     {
-        get => GetArgument<TerraformValue<bool>>("no_device") ?? AsReference("no_device");
+        get => GetArgument<TerraformValue<bool>>("no_device") ?? CreateReference("no_device");
         set => SetArgument("no_device", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -286,7 +286,7 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -304,7 +304,7 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -313,7 +313,7 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> UserDataBase64
     {
-        get => GetArgument<TerraformValue<string>>("user_data_base64") ?? AsReference("user_data_base64");
+        get => GetArgument<TerraformValue<string>>("user_data_base64") ?? CreateReference("user_data_base64");
         set => SetArgument("user_data_base64", value);
     }
 
@@ -340,25 +340,25 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-        => AsReference("date_created");
+        => CreateReference("date_created");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-        => AsReference("platform");
+        => CreateReference("platform");
 
     /// <summary>
     /// BlockDeviceMapping block (nesting mode: set).

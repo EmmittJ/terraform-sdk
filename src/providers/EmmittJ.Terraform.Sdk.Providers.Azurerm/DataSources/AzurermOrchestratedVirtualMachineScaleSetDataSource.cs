@@ -36,7 +36,7 @@ public partial class AzurermOrchestratedVirtualMachineScaleSetDataSource(string 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,19 +64,19 @@ public partial class AzurermOrchestratedVirtualMachineScaleSetDataSource(string 
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkInterface
-        => AsReference("network_interface");
+        => CreateReference("network_interface");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

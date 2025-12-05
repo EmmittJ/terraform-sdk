@@ -241,7 +241,7 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         var container = new AzurermContainerAppTemplateBlockContainerBlock
         {
             Name = NormalizedName,
-            Image = containerImageVar.AsReference(),
+            Image = containerImageVar.ToReference(),
             Cpu = 0.25,
             Memory = "0.5Gi"
         };
@@ -298,8 +298,8 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         var containerApp = new AzurermContainerApp(NormalizedName)
         {
             Name = NormalizedName,
-            ResourceGroupName = resourceGroupVar.AsReference(),
-            ContainerAppEnvironmentId = containerEnvIdVar.AsReference(),
+            ResourceGroupName = resourceGroupVar.ToReference(),
+            ContainerAppEnvironmentId = containerEnvIdVar.ToReference(),
             RevisionMode = "Single",
             Tags = tags,
             Template = [template],
@@ -308,15 +308,15 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
                 new AzurermContainerAppIdentityBlock
                 {
                     Type = "UserAssigned",
-                    IdentityIds = [managedIdentityIdVar.AsReference()]
+                    IdentityIds = [managedIdentityIdVar.ToReference()]
                 }
             ],
             Registry =
             [
                 new AzurermContainerAppRegistryBlock
                 {
-                    Server = registryEndpointVar.AsReference(),
-                    Identity = managedIdentityIdVar.AsReference()
+                    Server = registryEndpointVar.ToReference(),
+                    Identity = managedIdentityIdVar.ToReference()
                 }
             ]
         };
@@ -359,7 +359,7 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         {
             if (mapping.IsHttpIngress)
             {
-                var fqdn = containerApp.Ingress.Index(0, m => m.Fqdn);
+                var fqdn = containerApp.Ingress![0].Fqdn;
                 var scheme = mapping.Scheme;
                 infra.AddOutput($"{endpointName}{TerraformProvisioningResource.EndpointOutputNameSuffix}", Tf.Interpolate($"{scheme}://{fqdn}"));
             }

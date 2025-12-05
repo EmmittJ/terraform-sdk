@@ -27,7 +27,7 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PythonVersion
     {
-        get => GetArgument<TerraformValue<string>>("python_version") ?? AsReference("python_version");
+        get => GetArgument<TerraformValue<string>>("python_version") ?? CreateReference("python_version");
         set => SetArgument("python_version", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Runtime
     {
-        get => GetArgument<TerraformValue<string>>("runtime") ?? AsReference("runtime");
+        get => GetArgument<TerraformValue<string>>("runtime") ?? CreateReference("runtime");
         set => SetArgument("runtime", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<string> GlueVersion
     {
-        get => GetArgument<TerraformValue<string>>("glue_version") ?? AsReference("glue_version");
+        get => GetArgument<TerraformValue<string>>("glue_version") ?? CreateReference("glue_version");
         set => SetArgument("glue_version", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<string> JobMode
     {
-        get => GetArgument<TerraformValue<string>>("job_mode") ?? AsReference("job_mode");
+        get => GetArgument<TerraformValue<string>>("job_mode") ?? CreateReference("job_mode");
         set => SetArgument("job_mode", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<double> MaxCapacity
     {
-        get => GetArgument<TerraformValue<double>>("max_capacity") ?? AsReference("max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity") ?? CreateReference("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -314,7 +314,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<double> NumberOfWorkers
     {
-        get => GetArgument<TerraformValue<double>>("number_of_workers") ?? AsReference("number_of_workers");
+        get => GetArgument<TerraformValue<double>>("number_of_workers") ?? CreateReference("number_of_workers");
         set => SetArgument("number_of_workers", value);
     }
 
@@ -323,7 +323,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -360,7 +360,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -369,7 +369,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<double> Timeout
     {
-        get => GetArgument<TerraformValue<double>>("timeout") ?? AsReference("timeout");
+        get => GetArgument<TerraformValue<double>>("timeout") ?? CreateReference("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -378,7 +378,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<string> WorkerType
     {
-        get => GetArgument<TerraformValue<string>>("worker_type") ?? AsReference("worker_type");
+        get => GetArgument<TerraformValue<string>>("worker_type") ?? CreateReference("worker_type");
         set => SetArgument("worker_type", value);
     }
 
@@ -386,7 +386,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Command block (nesting mode: list).

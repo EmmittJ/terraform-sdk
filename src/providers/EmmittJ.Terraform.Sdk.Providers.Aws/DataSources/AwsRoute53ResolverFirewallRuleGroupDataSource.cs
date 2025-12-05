@@ -23,7 +23,7 @@ public partial class AwsRoute53ResolverFirewallRuleGroupDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRoute53ResolverFirewallRuleGroupDataSource(string name) 
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,60 +40,60 @@ public partial class AwsRoute53ResolverFirewallRuleGroupDataSource(string name) 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The creator_request_id attribute.
     /// </summary>
     public TerraformValue<string> CreatorRequestId
-        => AsReference("creator_request_id");
+        => CreateReference("creator_request_id");
 
     /// <summary>
     /// The modification_time attribute.
     /// </summary>
     public TerraformValue<string> ModificationTime
-        => AsReference("modification_time");
+        => CreateReference("modification_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The rule_count attribute.
     /// </summary>
     public TerraformValue<double> RuleCount
-        => AsReference("rule_count");
+        => CreateReference("rule_count");
 
     /// <summary>
     /// The share_status attribute.
     /// </summary>
     public TerraformValue<string> ShareStatus
-        => AsReference("share_status");
+        => CreateReference("share_status");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-        => AsReference("status_message");
+        => CreateReference("status_message");
 
 }

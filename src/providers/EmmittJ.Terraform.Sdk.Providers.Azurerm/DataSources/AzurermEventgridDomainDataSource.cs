@@ -36,7 +36,7 @@ public partial class AzurermEventgridDomainDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,67 +64,67 @@ public partial class AzurermEventgridDomainDataSource(string name) : TerraformDa
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The inbound_ip_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InboundIpRule
-        => AsReference("inbound_ip_rule");
+        => CreateReference("inbound_ip_rule");
 
     /// <summary>
     /// The input_mapping_default_values attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InputMappingDefaultValues
-        => AsReference("input_mapping_default_values");
+        => CreateReference("input_mapping_default_values");
 
     /// <summary>
     /// The input_mapping_fields attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InputMappingFields
-        => AsReference("input_mapping_fields");
+        => CreateReference("input_mapping_fields");
 
     /// <summary>
     /// The input_schema attribute.
     /// </summary>
     public TerraformValue<string> InputSchema
-        => AsReference("input_schema");
+        => CreateReference("input_schema");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-        => AsReference("primary_access_key");
+        => CreateReference("primary_access_key");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-        => AsReference("secondary_access_key");
+        => CreateReference("secondary_access_key");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

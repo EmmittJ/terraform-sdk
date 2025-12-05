@@ -82,7 +82,7 @@ public class TerraformStackTests
 
         var subnet = new TerraformResource("aws_subnet", "public")
         {
-            ["vpc_id"] = vpc.AsReference("id"),
+            ["vpc_id"] = vpc["id"],
             ["cidr_block"] = "10.0.1.0/24",
             ["availability_zone"] = "us-west-2a"
         };
@@ -91,7 +91,7 @@ public class TerraformStackTests
         {
             ["ami"] = "ami-12345678",
             ["instance_type"] = "t2.micro",
-            ["subnet_id"] = subnet.AsReference("id")
+            ["subnet_id"] = subnet["id"]
         };
 
         stack.Add(vpc);
@@ -125,7 +125,7 @@ public class TerraformStackTests
         var instance = new TerraformResource("aws_instance", "web")
         {
             ["ami"] = "ami-12345678",
-            ["instance_type"] = instanceType.AsReference(),
+            ["instance_type"] = instanceType.ToReference(),
             ["tags"] = new TerraformMap<object>
             {
                 ["Name"] = "Web Server"
@@ -134,13 +134,13 @@ public class TerraformStackTests
 
         var instanceId = new TerraformOutput("instance_id")
         {
-            Value = instance.AsReference("id"),
+            Value = instance["id"],
             Description = "The ID of the EC2 instance"
         };
 
         var instancePublicIp = new TerraformOutput("instance_public_ip")
         {
-            Value = instance.AsReference("public_ip"),
+            Value = instance["public_ip"],
             Description = "The public IP of the EC2 instance"
         };
 
@@ -174,13 +174,13 @@ public class TerraformStackTests
         // Internet Gateway
         var igw = new TerraformResource("aws_internet_gateway", "main")
         {
-            ["vpc_id"] = vpc.AsReference("id")
+            ["vpc_id"] = vpc["id"]
         };
 
         // Public Subnet
         var publicSubnet = new TerraformResource("aws_subnet", "public")
         {
-            ["vpc_id"] = vpc.AsReference("id"),
+            ["vpc_id"] = vpc["id"],
             ["cidr_block"] = "10.0.1.0/24",
             ["availability_zone"] = "us-west-2a",
             ["map_public_ip_on_launch"] = true,
@@ -189,22 +189,22 @@ public class TerraformStackTests
         // Route Table
         var routeTable = new TerraformResource("aws_route_table", "public")
         {
-            ["vpc_id"] = vpc.AsReference("id")
+            ["vpc_id"] = vpc["id"]
         };
 
         // Route
         var route = new TerraformResource("aws_route", "internet_access")
         {
-            ["route_table_id"] = routeTable.AsReference("id"),
+            ["route_table_id"] = routeTable["id"],
             ["destination_cidr_block"] = "0.0.0.0/0",
-            ["gateway_id"] = igw.AsReference("id")
+            ["gateway_id"] = igw["id"]
         };
 
         // Security Group
         var securityGroup = new TerraformResource("aws_security_group", "web")
         {
             ["name"] = "web-sg",
-            ["vpc_id"] = vpc.AsReference("id"),
+            ["vpc_id"] = vpc["id"],
             ["ingress"] = new TerraformList<TerraformMap<object>>(new[]
             {
                 new TerraformMap<object>
@@ -229,10 +229,10 @@ public class TerraformStackTests
         {
             ["ami"] = "ami-12345678",
             ["instance_type"] = "t2.micro",
-            ["subnet_id"] = publicSubnet.AsReference("id"),
+            ["subnet_id"] = publicSubnet["id"],
             ["vpc_security_group_ids"] = new TerraformList<object>
             {
-                (object)securityGroup.AsReference("id")
+                (object)securityGroup["id"]
             }
         };
 
@@ -291,8 +291,8 @@ public class TerraformStackTests
         var provider = new TerraformProvider("aws")
         {
             ["region"] = "us-west-2",
-            ["access_key"] = accessKey.AsReference(),
-            ["secret_key"] = secretKey.AsReference()
+            ["access_key"] = accessKey.ToReference(),
+            ["secret_key"] = secretKey.ToReference()
         };
 
         var instance = new TerraformResource("aws_instance", "web")
@@ -400,7 +400,7 @@ public class TerraformStackTests
 
         locals["common_tags"] = new TerraformMap<object>
         {
-            ["Environment"] = locals.AsReference("environment"),
+            ["Environment"] = locals["environment"],
             ["ManagedBy"] = "Terraform",
             ["Project"] = "MyApp"
         };
@@ -409,7 +409,7 @@ public class TerraformStackTests
         {
             ["ami"] = "ami-12345678",
             ["instance_type"] = "t2.micro",
-            ["tags"] = locals.AsReference("common_tags")
+            ["tags"] = locals["common_tags"]
         };
 
         stack.Add(locals);
@@ -446,7 +446,7 @@ public class TerraformStackTests
 
         var instance = new TerraformResource("aws_instance", "web")
         {
-            ["ami"] = ami.AsReference("id"),
+            ["ami"] = ami["id"],
             ["instance_type"] = "t2.micro"
         };
 
@@ -499,16 +499,16 @@ public class TerraformStackTests
         // Provider
         var provider = new TerraformProvider("aws")
         {
-            ["region"] = region.AsReference()
+            ["region"] = region.ToReference()
         };
 
         // Locals
         var locals = new TerraformLocals()
         {
-            ["name_prefix"] = Tf.Interpolate($"{environment.AsReference()}-myapp"),
+            ["name_prefix"] = Tf.Interpolate($"{environment.ToReference()}-myapp"),
             ["common_tags"] = new TerraformMap<object>
             {
-                ["Environment"] = environment.AsReference(),
+                ["Environment"] = environment.ToReference(),
                 ["ManagedBy"] = "Terraform"
             }
         };
@@ -524,20 +524,20 @@ public class TerraformStackTests
         {
             Source = "terraform-aws-modules/vpc/aws",
             Version = "5.1.0",
-            ["name"] = locals.AsReference("name_prefix"),
+            ["name"] = locals["name_prefix"],
             ["cidr"] = "10.0.0.0/16",
-            ["azs"] = availabilityZones.AsReference("names"),
+            ["azs"] = availabilityZones["names"],
             ["private_subnets"] = new TerraformList<string> { "10.0.1.0/24", "10.0.2.0/24" },
             ["public_subnets"] = new TerraformList<string> { "10.0.101.0/24", "10.0.102.0/24" },
             ["enable_nat_gateway"] = true,
-            ["tags"] = locals.AsReference("common_tags")
+            ["tags"] = locals["common_tags"]
         };
 
         // Resources
         var securityGroup = new TerraformResource("aws_security_group", "web")
         {
-            ["name"] = Tf.Interpolate($"{locals.AsReference("name_prefix")}-web"),
-            ["vpc_id"] = vpcModule.AsReference("vpc_id"),
+            ["name"] = Tf.Interpolate($"{locals["name_prefix"]}-web"),
+            ["vpc_id"] = vpcModule["vpc_id"],
             ["ingress"] = new TerraformList<TerraformMap<object>>
             {
                 new TerraformMap<object>
@@ -548,19 +548,19 @@ public class TerraformStackTests
                     ["cidr_blocks"] = new TerraformList<string> { "0.0.0.0/0" }
                 }
             },
-            ["tags"] = locals.AsReference("common_tags")
+            ["tags"] = locals["common_tags"]
         };
 
         // Outputs
         var vpcId = new TerraformOutput("vpc_id")
         {
-            Value = vpcModule.AsReference("vpc_id"),
+            Value = vpcModule["vpc_id"],
             Description = "The ID of the VPC"
         };
 
         var securityGroupId = new TerraformOutput("security_group_id")
         {
-            Value = securityGroup.AsReference("id"),
+            Value = securityGroup["id"],
             Description = "The ID of the security group"
         };
 
@@ -585,7 +585,7 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "implicit-conversions" };
 
-        // Variables can be used directly with .AsReference() or directly where full reference is needed
+        // Variables can be used directly with .ToReference() or directly where full reference is needed
         var region = new TerraformVariable("region")
         {
             Type = "string",
@@ -613,22 +613,22 @@ public class TerraformStackTests
 
         var subnet = new TerraformResource("aws_subnet", "public")
         {
-            // Resource attributes accessed via indexer: vpc.AsReference("id")
-            ["vpc_id"] = vpc.AsReference("id"),
+            // Resource attributes accessed via indexer: vpc["id"]
+            ["vpc_id"] = vpc["id"],
             ["cidr_block"] = "10.0.1.0/24"
         };
 
         var instance = new TerraformResource("aws_instance", "web")
         {
-            // Data source attributes: ami.AsReference("id")
-            ["ami"] = ami.AsReference("id"),
+            // Data source attributes: ami["id"]
+            ["ami"] = ami["id"],
             // Variable reference using implicit conversion
-            ["instance_type"] = instanceType.AsReference(),
-            // Resource attribute: subnet.AsReference("id")
-            ["subnet_id"] = subnet.AsReference("id"),
+            ["instance_type"] = instanceType.ToReference(),
+            // Resource attribute: subnet["id"]
+            ["subnet_id"] = subnet["id"],
             ["tags"] = new TerraformMap<object>
             {
-                ["Region"] = region.AsReference(),  // Variable reference
+                ["Region"] = region.ToReference(),  // Variable reference
                 ["Name"] = "Web Server"
             }
         };
@@ -636,7 +636,7 @@ public class TerraformStackTests
         // Outputs can reference resources naturally
         var instanceId = new TerraformOutput("instance_id")
         {
-            Value = instance.AsReference("id")
+            Value = instance["id"]
         };
 
         stack.Add(region);
@@ -783,7 +783,7 @@ public class TerraformStackTests
             {
                 Organization = "acme-corp",
                 Hostname = "app.terraform.io",
-                Token = tfcToken.AsReference(),
+                Token = tfcToken.ToReference(),
                 Workspaces = new CloudWorkspacesBlock
                 {
                     Name = "production-infrastructure",

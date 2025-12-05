@@ -18,21 +18,21 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// Exadata Infrastructure.
     /// </summary>
     public TerraformValue<double> ActivatedStorageCount
-        => AsReference("activated_storage_count");
+        => CreateReference("activated_storage_count");
 
     /// <summary>
     /// The requested number of additional storage servers for the Exadata
     /// Infrastructure.
     /// </summary>
     public TerraformValue<double> AdditionalStorageCount
-        => AsReference("additional_storage_count");
+        => CreateReference("additional_storage_count");
 
     /// <summary>
     /// The available storage can be allocated to the Exadata Infrastructure
     /// resource, in gigabytes (GB).
     /// </summary>
     public TerraformValue<double> AvailableStorageSizeGb
-        => AsReference("available_storage_size_gb");
+        => CreateReference("available_storage_size_gb");
 
     /// <summary>
     /// The number of compute servers for the Exadata Infrastructure.
@@ -47,101 +47,101 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// The number of enabled CPU cores.
     /// </summary>
     public TerraformValue<double> CpuCount
-        => AsReference("cpu_count");
+        => CreateReference("cpu_count");
 
     /// <summary>
     /// Size, in terabytes, of the DATA disk group.
     /// </summary>
     public TerraformValue<double> DataStorageSizeTb
-        => AsReference("data_storage_size_tb");
+        => CreateReference("data_storage_size_tb");
 
     /// <summary>
     /// The local node storage allocated in GBs.
     /// </summary>
     public TerraformValue<double> DbNodeStorageSizeGb
-        => AsReference("db_node_storage_size_gb");
+        => CreateReference("db_node_storage_size_gb");
 
     /// <summary>
     /// The software version of the database servers (dom0) in the Exadata
     /// Infrastructure.
     /// </summary>
     public TerraformValue<string> DbServerVersion
-        => AsReference("db_server_version");
+        => CreateReference("db_server_version");
 
     /// <summary>
     /// The total number of CPU cores available.
     /// </summary>
     public TerraformValue<double> MaxCpuCount
-        => AsReference("max_cpu_count");
+        => CreateReference("max_cpu_count");
 
     /// <summary>
     /// The total available DATA disk group size.
     /// </summary>
     public TerraformValue<double> MaxDataStorageTb
-        => AsReference("max_data_storage_tb");
+        => CreateReference("max_data_storage_tb");
 
     /// <summary>
     /// The total local node storage available in GBs.
     /// </summary>
     public TerraformValue<double> MaxDbNodeStorageSizeGb
-        => AsReference("max_db_node_storage_size_gb");
+        => CreateReference("max_db_node_storage_size_gb");
 
     /// <summary>
     /// The total memory available in GBs.
     /// </summary>
     public TerraformValue<double> MaxMemoryGb
-        => AsReference("max_memory_gb");
+        => CreateReference("max_memory_gb");
 
     /// <summary>
     /// The memory allocated in GBs.
     /// </summary>
     public TerraformValue<double> MemorySizeGb
-        => AsReference("memory_size_gb");
+        => CreateReference("memory_size_gb");
 
     /// <summary>
     /// The monthly software version of the database servers (dom0)
     /// in the Exadata Infrastructure. Example: 20.1.15
     /// </summary>
     public TerraformValue<string> MonthlyDbServerVersion
-        => AsReference("monthly_db_server_version");
+        => CreateReference("monthly_db_server_version");
 
     /// <summary>
     /// The monthly software version of the storage servers (cells)
     /// in the Exadata Infrastructure. Example: 20.1.15
     /// </summary>
     public TerraformValue<string> MonthlyStorageServerVersion
-        => AsReference("monthly_storage_server_version");
+        => CreateReference("monthly_storage_server_version");
 
     /// <summary>
     /// The OCID of the next maintenance run.
     /// </summary>
     public TerraformValue<string> NextMaintenanceRunId
-        => AsReference("next_maintenance_run_id");
+        => CreateReference("next_maintenance_run_id");
 
     /// <summary>
     /// The time when the next maintenance run will occur.
     /// </summary>
     public TerraformValue<string> NextMaintenanceRunTime
-        => AsReference("next_maintenance_run_time");
+        => CreateReference("next_maintenance_run_time");
 
     /// <summary>
     /// The time when the next security maintenance run will occur.
     /// </summary>
     public TerraformValue<string> NextSecurityMaintenanceRunTime
-        => AsReference("next_security_maintenance_run_time");
+        => CreateReference("next_security_maintenance_run_time");
 
     /// <summary>
     /// Deep link to the OCI console to view this resource.
     /// </summary>
     public TerraformValue<string> OciUrl
-        => AsReference("oci_url");
+        => CreateReference("oci_url");
 
     /// <summary>
     /// OCID of created infra.
     /// https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm#Oracle
     /// </summary>
     public TerraformValue<string> Ocid
-        => AsReference("ocid");
+        => CreateReference("ocid");
 
     /// <summary>
     /// The shape of the Exadata Infrastructure. The shape determines the
@@ -167,7 +167,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// MAINTENANCE_IN_PROGRESS
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The number of Cloud Exadata storage servers for the Exadata Infrastructure.
@@ -183,7 +183,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// Infrastructure.
     /// </summary>
     public TerraformValue<string> StorageServerVersion
-        => AsReference("storage_server_version");
+        => CreateReference("storage_server_version");
 
     /// <summary>
     /// The total storage allocated to the Exadata Infrastructure
@@ -191,7 +191,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformValue<double> TotalStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("total_storage_size_gb") ?? AsReference("total_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("total_storage_size_gb") ?? CreateReference("total_storage_size_gb");
         set => SetArgument("total_storage_size_gb", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// </summary>
     public TerraformValue<double> CustomActionTimeoutMins
     {
-        get => GetArgument<TerraformValue<double>>("custom_action_timeout_mins") ?? AsReference("custom_action_timeout_mins");
+        get => GetArgument<TerraformValue<double>>("custom_action_timeout_mins") ?? CreateReference("custom_action_timeout_mins");
         set => SetArgument("custom_action_timeout_mins", value);
     }
 
@@ -267,7 +267,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// </summary>
     public TerraformList<string> DaysOfWeek
     {
-        get => GetArgument<TerraformList<string>>("days_of_week") ?? AsReference("days_of_week");
+        get => GetArgument<TerraformList<string>>("days_of_week") ?? CreateReference("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -283,7 +283,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// </summary>
     public TerraformList<double> HoursOfDay
     {
-        get => GetArgument<TerraformList<double>>("hours_of_day") ?? AsReference("hours_of_day");
+        get => GetArgument<TerraformList<double>>("hours_of_day") ?? CreateReference("hours_of_day");
         set => SetArgument("hours_of_day", value);
     }
 
@@ -293,7 +293,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// </summary>
     public TerraformValue<bool> IsCustomActionTimeoutEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("is_custom_action_timeout_enabled") ?? AsReference("is_custom_action_timeout_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_custom_action_timeout_enabled") ?? CreateReference("is_custom_action_timeout_enabled");
         set => SetArgument("is_custom_action_timeout_enabled", value);
     }
 
@@ -303,7 +303,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// </summary>
     public TerraformValue<double> LeadTimeWeek
     {
-        get => GetArgument<TerraformValue<double>>("lead_time_week") ?? AsReference("lead_time_week");
+        get => GetArgument<TerraformValue<double>>("lead_time_week") ?? CreateReference("lead_time_week");
         set => SetArgument("lead_time_week", value);
     }
 
@@ -312,7 +312,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// </summary>
     public TerraformList<string> Months
     {
-        get => GetArgument<TerraformList<string>>("months") ?? AsReference("months");
+        get => GetArgument<TerraformList<string>>("months") ?? CreateReference("months");
         set => SetArgument("months", value);
     }
 
@@ -326,7 +326,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// </summary>
     public TerraformValue<string> PatchingMode
     {
-        get => GetArgument<TerraformValue<string>>("patching_mode") ?? AsReference("patching_mode");
+        get => GetArgument<TerraformValue<string>>("patching_mode") ?? CreateReference("patching_mode");
         set => SetArgument("patching_mode", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// </summary>
     public TerraformValue<string> Preference
     {
-        get => GetArgument<TerraformValue<string>>("preference") ?? AsReference("preference");
+        get => GetArgument<TerraformValue<string>>("preference") ?? CreateReference("preference");
         set => SetArgument("preference", value);
     }
 
@@ -350,7 +350,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// </summary>
     public TerraformList<double> WeeksOfMonth
     {
-        get => GetArgument<TerraformList<double>>("weeks_of_month") ?? AsReference("weeks_of_month");
+        get => GetArgument<TerraformList<double>>("weeks_of_month") ?? CreateReference("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 
@@ -440,7 +440,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructure(string name)
     /// </summary>
     public TerraformValue<string> GcpOracleZone
     {
-        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? AsReference("gcp_oracle_zone");
+        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? CreateReference("gcp_oracle_zone");
         set => SetArgument("gcp_oracle_zone", value);
     }
 
@@ -449,7 +449,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructure(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -480,7 +480,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructure(string name)
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -488,34 +488,34 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructure(string name)
     /// The date and time that the Exadata Infrastructure was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Entitlement ID of the private offer against which this infrastructure
     /// resource is provisioned.
     /// </summary>
     public TerraformValue<string> EntitlementId
-        => AsReference("entitlement_id");
+        => CreateReference("entitlement_id");
 
     /// <summary>
     /// Identifier. The name of the Exadata Infrastructure resource with the following format:
     /// projects/{project}/locations/{region}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Properties block (nesting mode: list).

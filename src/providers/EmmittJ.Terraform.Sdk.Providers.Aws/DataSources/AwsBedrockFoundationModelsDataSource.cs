@@ -49,7 +49,7 @@ public partial class AwsBedrockFoundationModelsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -57,12 +57,12 @@ public partial class AwsBedrockFoundationModelsDataSource(string name) : Terrafo
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The model_summaries attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ModelSummaries
-        => AsReference("model_summaries");
+        => CreateReference("model_summaries");
 
 }

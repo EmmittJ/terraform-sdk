@@ -46,7 +46,7 @@ public partial class AzurermDevCenterAttachedNetworkDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermDevCenterAttachedNetworkDataSource(string name) : Te
     /// The network_connection_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkConnectionId
-        => AsReference("network_connection_id");
+        => CreateReference("network_connection_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

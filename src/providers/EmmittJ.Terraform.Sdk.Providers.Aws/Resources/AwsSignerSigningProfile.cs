@@ -71,7 +71,7 @@ public partial class AwsSignerSigningProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsSignerSigningProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsSignerSigningProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsSignerSigningProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsSignerSigningProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -143,37 +143,37 @@ public partial class AwsSignerSigningProfile(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The platform_display_name attribute.
     /// </summary>
     public TerraformValue<string> PlatformDisplayName
-        => AsReference("platform_display_name");
+        => CreateReference("platform_display_name");
 
     /// <summary>
     /// The revocation_record attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RevocationRecord
-        => AsReference("revocation_record");
+        => CreateReference("revocation_record");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The version_arn attribute.
     /// </summary>
     public TerraformValue<string> VersionArn
-        => AsReference("version_arn");
+        => CreateReference("version_arn");
 
     /// <summary>
     /// SignatureValidityPeriod block (nesting mode: list).

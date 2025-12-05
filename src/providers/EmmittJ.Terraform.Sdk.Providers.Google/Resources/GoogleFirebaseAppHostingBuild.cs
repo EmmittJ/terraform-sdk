@@ -51,7 +51,7 @@ public class GoogleFirebaseAppHostingBuildSourceBlockCodebaseBlock : TerraformBl
     /// Currently assumes a Git user.
     /// </summary>
     public TerraformList<TerraformMap<object>> Author
-        => AsReference("author");
+        => CreateReference("author");
 
     /// <summary>
     /// The branch in the codebase to build from, using the latest commit.
@@ -75,26 +75,26 @@ public class GoogleFirebaseAppHostingBuildSourceBlockCodebaseBlock : TerraformBl
     /// The message of a codebase change.
     /// </summary>
     public TerraformValue<string> CommitMessage
-        => AsReference("commit_message");
+        => CreateReference("commit_message");
 
     /// <summary>
     /// The time the change was made.
     /// </summary>
     public TerraformValue<string> CommitTime
-        => AsReference("commit_time");
+        => CreateReference("commit_time");
 
     /// <summary>
     /// The human-friendly name to use for this Codebase when displaying a build.
     /// We use the first eight characters of the SHA-1 hash for GitHub.com.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The full SHA-1 hash of a Git commit, if available.
     /// </summary>
     public TerraformValue<string> Hash
-        => AsReference("hash");
+        => CreateReference("hash");
 
     /// <summary>
     /// A URI linking to the codebase on an hosting provider&#39;s website. May
@@ -102,7 +102,7 @@ public class GoogleFirebaseAppHostingBuildSourceBlockCodebaseBlock : TerraformBl
     /// existence in the linked repository.
     /// </summary>
     public TerraformValue<string> Uri
-        => AsReference("uri");
+        => CreateReference("uri");
 
 }
 
@@ -225,7 +225,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -257,7 +257,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -267,31 +267,31 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// process.
     /// </summary>
     public TerraformValue<string> BuildLogsUri
-        => AsReference("build_logs_uri");
+        => CreateReference("build_logs_uri");
 
     /// <summary>
     /// Time at which the build was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The environment name of the backend when this build was created.
     /// </summary>
     public TerraformValue<string> Environment
-        => AsReference("environment");
+        => CreateReference("environment");
 
     /// <summary>
     /// The &#39;Status&#39; type defines a logical error model that is suitable for
@@ -303,7 +303,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// [API Design Guide](https://cloud.google.com/apis/design/errors).
     /// </summary>
     public TerraformList<TerraformMap<object>> Error
-        => AsReference("error");
+        => CreateReference("error");
 
     /// <summary>
     /// The source of the error for the build, if in a &#39;FAILED&#39; state.
@@ -312,14 +312,14 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// CLOUD_RUN
     /// </summary>
     public TerraformValue<string> ErrorSource
-        => AsReference("error_source");
+        => CreateReference("error_source");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The Artifact Registry
@@ -330,7 +330,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// for this build.
     /// </summary>
     public TerraformValue<string> Image
-        => AsReference("image");
+        => CreateReference("image");
 
     /// <summary>
     /// Identifier. The resource name of the build.
@@ -340,7 +340,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}/builds/{buildId}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The state of the build.
@@ -352,26 +352,26 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// FAILED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Time at which the build was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Source block (nesting mode: list).

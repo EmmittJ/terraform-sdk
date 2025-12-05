@@ -385,7 +385,7 @@ public partial class GoogleDataLossPreventionStoredInfoType(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -411,7 +411,7 @@ public partial class GoogleDataLossPreventionStoredInfoType(string name) : Terra
     /// </summary>
     public TerraformValue<string> StoredInfoTypeId
     {
-        get => GetArgument<TerraformValue<string>>("stored_info_type_id") ?? AsReference("stored_info_type_id");
+        get => GetArgument<TerraformValue<string>>("stored_info_type_id") ?? CreateReference("stored_info_type_id");
         set => SetArgument("stored_info_type_id", value);
     }
 
@@ -419,7 +419,7 @@ public partial class GoogleDataLossPreventionStoredInfoType(string name) : Terra
     /// The resource name of the info type. Set by the server.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Dictionary block (nesting mode: list).

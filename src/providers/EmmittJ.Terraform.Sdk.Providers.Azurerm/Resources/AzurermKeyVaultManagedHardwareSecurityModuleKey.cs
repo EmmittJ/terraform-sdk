@@ -81,7 +81,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     /// The versioned_id attribute.
     /// </summary>
     public TerraformValue<string> VersionedId
-        => AsReference("versioned_id");
+        => CreateReference("versioned_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -23,7 +23,7 @@ public partial class AwsApiGatewayAuthorizerDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsApiGatewayAuthorizerDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,54 +50,54 @@ public partial class AwsApiGatewayAuthorizerDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The authorizer_credentials attribute.
     /// </summary>
     public TerraformValue<string> AuthorizerCredentials
-        => AsReference("authorizer_credentials");
+        => CreateReference("authorizer_credentials");
 
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
     public TerraformValue<double> AuthorizerResultTtlInSeconds
-        => AsReference("authorizer_result_ttl_in_seconds");
+        => CreateReference("authorizer_result_ttl_in_seconds");
 
     /// <summary>
     /// The authorizer_uri attribute.
     /// </summary>
     public TerraformValue<string> AuthorizerUri
-        => AsReference("authorizer_uri");
+        => CreateReference("authorizer_uri");
 
     /// <summary>
     /// The identity_source attribute.
     /// </summary>
     public TerraformValue<string> IdentitySource
-        => AsReference("identity_source");
+        => CreateReference("identity_source");
 
     /// <summary>
     /// The identity_validation_expression attribute.
     /// </summary>
     public TerraformValue<string> IdentityValidationExpression
-        => AsReference("identity_validation_expression");
+        => CreateReference("identity_validation_expression");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The provider_arns attribute.
     /// </summary>
     public TerraformList<string> ProviderArns
-        => AsReference("provider_arns");
+        => CreateReference("provider_arns");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

@@ -156,7 +156,7 @@ public partial class AwsEcrLifecyclePolicyDocumentDataSource(string name) : Terr
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-        => AsReference("json");
+        => CreateReference("json");
 
     /// <summary>
     /// Rule block (nesting mode: list).

@@ -91,7 +91,7 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> ParentId
     {
-        get => GetArgument<TerraformValue<string>>("parent_id") ?? AsReference("parent_id");
+        get => GetArgument<TerraformValue<string>>("parent_id") ?? CreateReference("parent_id");
         set => SetArgument("parent_id", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -145,38 +145,38 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The govcloud_id attribute.
     /// </summary>
     public TerraformValue<string> GovcloudId
-        => AsReference("govcloud_id");
+        => CreateReference("govcloud_id");
 
     /// <summary>
     /// The joined_method attribute.
     /// </summary>
     public TerraformValue<string> JoinedMethod
-        => AsReference("joined_method");
+        => CreateReference("joined_method");
 
     /// <summary>
     /// The joined_timestamp attribute.
     /// </summary>
     public TerraformValue<string> JoinedTimestamp
-        => AsReference("joined_timestamp");
+        => CreateReference("joined_timestamp");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -359,7 +359,7 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration(string name) :
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration") ?? AsReference("encryption_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration") ?? CreateReference("encryption_configuration");
         set => SetArgument("encryption_configuration", value);
     }
 
@@ -378,7 +378,7 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration(string name) :
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -395,49 +395,49 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration(string name) :
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The certificate_authority attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificateAuthority
-        => AsReference("certificate_authority");
+        => CreateReference("certificate_authority");
 
     /// <summary>
     /// The certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certificates
-        => AsReference("certificates");
+        => CreateReference("certificates");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The number_of_associations attribute.
     /// </summary>
     public TerraformValue<double> NumberOfAssociations
-        => AsReference("number_of_associations");
+        => CreateReference("number_of_associations");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The tls_inspection_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> TlsInspectionConfigurationId
-        => AsReference("tls_inspection_configuration_id");
+        => CreateReference("tls_inspection_configuration_id");
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
     public TerraformValue<string> UpdateToken
-        => AsReference("update_token");
+        => CreateReference("update_token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

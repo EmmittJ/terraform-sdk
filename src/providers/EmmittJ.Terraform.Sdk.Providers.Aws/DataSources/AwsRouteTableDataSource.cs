@@ -70,7 +70,7 @@ public partial class AwsRouteTableDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> GatewayId
     {
-        get => GetArgument<TerraformValue<string>>("gateway_id") ?? AsReference("gateway_id");
+        get => GetArgument<TerraformValue<string>>("gateway_id") ?? CreateReference("gateway_id");
         set => SetArgument("gateway_id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsRouteTableDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsRouteTableDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsRouteTableDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> RouteTableId
     {
-        get => GetArgument<TerraformValue<string>>("route_table_id") ?? AsReference("route_table_id");
+        get => GetArgument<TerraformValue<string>>("route_table_id") ?? CreateReference("route_table_id");
         set => SetArgument("route_table_id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsRouteTableDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? CreateReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsRouteTableDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsRouteTableDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id") ?? AsReference("vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id") ?? CreateReference("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -132,25 +132,25 @@ public partial class AwsRouteTableDataSource(string name) : TerraformDataSource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The associations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Associations
-        => AsReference("associations");
+        => CreateReference("associations");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The routes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Routes
-        => AsReference("routes");
+        => CreateReference("routes");
 
     /// <summary>
     /// Filter block (nesting mode: set).

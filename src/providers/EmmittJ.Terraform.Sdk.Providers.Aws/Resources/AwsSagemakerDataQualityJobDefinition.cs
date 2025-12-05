@@ -199,7 +199,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockBatchTr
     /// </summary>
     public TerraformValue<string> S3DataDistributionType
     {
-        get => GetArgument<TerraformValue<string>>("s3_data_distribution_type") ?? AsReference("s3_data_distribution_type");
+        get => GetArgument<TerraformValue<string>>("s3_data_distribution_type") ?? CreateReference("s3_data_distribution_type");
         set => SetArgument("s3_data_distribution_type", value);
     }
 
@@ -208,7 +208,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockBatchTr
     /// </summary>
     public TerraformValue<string> S3InputMode
     {
-        get => GetArgument<TerraformValue<string>>("s3_input_mode") ?? AsReference("s3_input_mode");
+        get => GetArgument<TerraformValue<string>>("s3_input_mode") ?? CreateReference("s3_input_mode");
         set => SetArgument("s3_input_mode", value);
     }
 
@@ -339,7 +339,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockEndpoin
     /// </summary>
     public TerraformValue<string> S3DataDistributionType
     {
-        get => GetArgument<TerraformValue<string>>("s3_data_distribution_type") ?? AsReference("s3_data_distribution_type");
+        get => GetArgument<TerraformValue<string>>("s3_data_distribution_type") ?? CreateReference("s3_data_distribution_type");
         set => SetArgument("s3_data_distribution_type", value);
     }
 
@@ -348,7 +348,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockEndpoin
     /// </summary>
     public TerraformValue<string> S3InputMode
     {
-        get => GetArgument<TerraformValue<string>>("s3_input_mode") ?? AsReference("s3_input_mode");
+        get => GetArgument<TerraformValue<string>>("s3_input_mode") ?? CreateReference("s3_input_mode");
         set => SetArgument("s3_input_mode", value);
     }
 
@@ -441,7 +441,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock
     /// </summary>
     public TerraformValue<string> S3UploadMode
     {
-        get => GetArgument<TerraformValue<string>>("s3_upload_mode") ?? AsReference("s3_upload_mode");
+        get => GetArgument<TerraformValue<string>>("s3_upload_mode") ?? CreateReference("s3_upload_mode");
         set => SetArgument("s3_upload_mode", value);
     }
 
@@ -628,7 +628,7 @@ public class AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock : Terraf
     /// </summary>
     public TerraformValue<double> MaxRuntimeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("max_runtime_in_seconds") ?? AsReference("max_runtime_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_runtime_in_seconds") ?? CreateReference("max_runtime_in_seconds");
         set => SetArgument("max_runtime_in_seconds", value);
     }
 
@@ -646,7 +646,7 @@ public partial class AwsSagemakerDataQualityJobDefinition(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -655,7 +655,7 @@ public partial class AwsSagemakerDataQualityJobDefinition(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -664,7 +664,7 @@ public partial class AwsSagemakerDataQualityJobDefinition(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -692,7 +692,7 @@ public partial class AwsSagemakerDataQualityJobDefinition(string name) : Terrafo
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -700,7 +700,7 @@ public partial class AwsSagemakerDataQualityJobDefinition(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// DataQualityAppSpecification block (nesting mode: list).

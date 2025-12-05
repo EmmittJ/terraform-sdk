@@ -13,7 +13,7 @@ public partial class GoogleProjectIamCustomRoleDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,36 +40,36 @@ public partial class GoogleProjectIamCustomRoleDataSource(string name) : Terrafo
     /// The current deleted state of the role.
     /// </summary>
     public TerraformValue<bool> Deleted
-        => AsReference("deleted");
+        => CreateReference("deleted");
 
     /// <summary>
     /// A human-readable description for the role.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The name of the role in the format projects/{{project}}/roles/{{role_id}}. Like id, this field can be used as a reference in other resources such as IAM role bindings.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.
     /// </summary>
     public TerraformSet<string> Permissions
-        => AsReference("permissions");
+        => CreateReference("permissions");
 
     /// <summary>
     /// The current launch stage of the role. Defaults to GA.
     /// </summary>
     public TerraformValue<string> Stage
-        => AsReference("stage");
+        => CreateReference("stage");
 
     /// <summary>
     /// A human-readable title for the role.
     /// </summary>
     public TerraformValue<string> Title
-        => AsReference("title");
+        => CreateReference("title");
 
 }

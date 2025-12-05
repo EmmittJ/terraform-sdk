@@ -36,7 +36,7 @@ public partial class AzurermMonitorDataCollectionEndpointDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermMonitorDataCollectionEndpointDataSource(string name)
     /// The configuration_access_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationAccessEndpoint
-        => AsReference("configuration_access_endpoint");
+        => CreateReference("configuration_access_endpoint");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The immutable_id attribute.
     /// </summary>
     public TerraformValue<string> ImmutableId
-        => AsReference("immutable_id");
+        => CreateReference("immutable_id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The logs_ingestion_endpoint attribute.
     /// </summary>
     public TerraformValue<string> LogsIngestionEndpoint
-        => AsReference("logs_ingestion_endpoint");
+        => CreateReference("logs_ingestion_endpoint");
 
     /// <summary>
     /// The metrics_ingestion_endpoint attribute.
     /// </summary>
     public TerraformValue<string> MetricsIngestionEndpoint
-        => AsReference("metrics_ingestion_endpoint");
+        => CreateReference("metrics_ingestion_endpoint");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

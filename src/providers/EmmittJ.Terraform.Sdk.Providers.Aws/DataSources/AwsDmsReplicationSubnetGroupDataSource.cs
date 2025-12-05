@@ -13,7 +13,7 @@ public partial class AwsDmsReplicationSubnetGroupDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDmsReplicationSubnetGroupDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsDmsReplicationSubnetGroupDataSource(string name) : Terra
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,30 +49,30 @@ public partial class AwsDmsReplicationSubnetGroupDataSource(string name) : Terra
     /// The replication_subnet_group_arn attribute.
     /// </summary>
     public TerraformValue<string> ReplicationSubnetGroupArn
-        => AsReference("replication_subnet_group_arn");
+        => CreateReference("replication_subnet_group_arn");
 
     /// <summary>
     /// The replication_subnet_group_description attribute.
     /// </summary>
     public TerraformValue<string> ReplicationSubnetGroupDescription
-        => AsReference("replication_subnet_group_description");
+        => CreateReference("replication_subnet_group_description");
 
     /// <summary>
     /// The subnet_group_status attribute.
     /// </summary>
     public TerraformValue<string> SubnetGroupStatus
-        => AsReference("subnet_group_status");
+        => CreateReference("subnet_group_status");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     public TerraformSet<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }

@@ -36,7 +36,7 @@ public partial class AzureadClientConfigDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -44,19 +44,19 @@ public partial class AzureadClientConfigDataSource(string name) : TerraformDataS
     /// The client ID (application ID) linked to the authenticated principal, or the application used for delegated authentication
     /// </summary>
     public TerraformValue<string> ClientId
-        => AsReference("client_id");
+        => CreateReference("client_id");
 
     /// <summary>
     /// The object ID of the authenticated principal
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// The tenant ID of the authenticated principal
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

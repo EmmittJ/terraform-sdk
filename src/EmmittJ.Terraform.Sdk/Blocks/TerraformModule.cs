@@ -14,7 +14,6 @@ namespace EmmittJ.Terraform.Sdk;
 /// </remarks>
 public class TerraformModule :
     TerraformBlock,
-    ITerraformNamedReferenceable,
     ITerraformHasDependsOn,
     ITerraformHasCount,
     ITerraformHasForEach,
@@ -34,6 +33,11 @@ public class TerraformModule :
     /// Gets the block labels (just the module name).
     /// </summary>
     public override string[] BlockLabels => [Name];
+
+    /// <summary>
+    /// Gets the Terraform reference identifier for this module (e.g., "module.vpc").
+    /// </summary>
+    public override string ReferenceIdentifier => $"module.{Name}";
 
     /// <summary>
     /// Initializes a new instance of TerraformModule.
@@ -63,30 +67,6 @@ public class TerraformModule :
         get => GetArgument<TerraformValue<string>?>("version");
         set => SetArgument("version", value);
     }
-
-    /// <summary>
-    /// Generates a reference to this module.
-    /// </summary>
-    /// <returns>A reference to this module.</returns>
-    public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"module.{Name}");
-
-    /// <summary>
-    /// Generates a reference to a module output.
-    /// </summary>
-    /// <param name="name">The name of the module output.</param>
-    /// <returns>A reference to the module output.</returns>
-    public override TerraformExpression AsReference(string name)
-        => TerraformExpression.Identifier($"module.{Name}.{name}");
-
-    /// <summary>
-    /// Implicit conversion to TerraformExpression for natural reference usage.
-    /// Allows using modules directly in expressions without calling AsReference().
-    /// </summary>
-    /// <param name="module">The module to convert.</param>
-    /// <returns>A TerraformExpression representing the module reference.</returns>
-    public static implicit operator TerraformExpression(TerraformModule module)
-        => module.AsReference();
 
     // Meta-argument properties
 

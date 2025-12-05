@@ -13,7 +13,7 @@ public partial class AwsWorkspacesImageDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsWorkspacesImageDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,30 +40,30 @@ public partial class AwsWorkspacesImageDataSource(string name) : TerraformDataSo
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The operating_system_type attribute.
     /// </summary>
     public TerraformValue<string> OperatingSystemType
-        => AsReference("operating_system_type");
+        => CreateReference("operating_system_type");
 
     /// <summary>
     /// The required_tenancy attribute.
     /// </summary>
     public TerraformValue<string> RequiredTenancy
-        => AsReference("required_tenancy");
+        => CreateReference("required_tenancy");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }

@@ -110,7 +110,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> EventgridEventSubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("eventgrid_event_subscription_id") ?? AsReference("eventgrid_event_subscription_id");
+        get => GetArgument<TerraformValue<string>>("eventgrid_event_subscription_id") ?? CreateReference("eventgrid_event_subscription_id");
         set => SetArgument("eventgrid_event_subscription_id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> EventgridResourceId
     {
-        get => GetArgument<TerraformValue<string>>("eventgrid_resource_id") ?? AsReference("eventgrid_resource_id");
+        get => GetArgument<TerraformValue<string>>("eventgrid_resource_id") ?? CreateReference("eventgrid_resource_id");
         set => SetArgument("eventgrid_resource_id", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> ManagedIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("managed_identity_id") ?? AsReference("managed_identity_id");
+        get => GetArgument<TerraformValue<string>>("managed_identity_id") ?? CreateReference("managed_identity_id");
         set => SetArgument("managed_identity_id", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ManagedIdentityResourceId
     {
-        get => GetArgument<TerraformValue<string>>("managed_identity_resource_id") ?? AsReference("managed_identity_resource_id");
+        get => GetArgument<TerraformValue<string>>("managed_identity_resource_id") ?? CreateReference("managed_identity_resource_id");
         set => SetArgument("managed_identity_resource_id", value);
     }
 

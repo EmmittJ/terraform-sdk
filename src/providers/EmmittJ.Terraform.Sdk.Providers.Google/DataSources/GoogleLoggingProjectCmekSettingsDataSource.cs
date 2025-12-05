@@ -13,7 +13,7 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,13 +50,13 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource(string name) : T
     /// 				This is a read-only field used to convey the specific configured CryptoKeyVersion of kms_key that has been configured. It will be populated in cases where the CMEK settings are bound to a single key version.
     /// </summary>
     public TerraformValue<string> KmsKeyVersionName
-        => AsReference("kms_key_version_name");
+        => CreateReference("kms_key_version_name");
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
@@ -64,6 +64,6 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource(string name) : T
     /// 				See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-        => AsReference("service_account_id");
+        => CreateReference("service_account_id");
 
 }

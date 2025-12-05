@@ -23,7 +23,7 @@ public partial class AwsNetworkInterfaceAttachment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsNetworkInterfaceAttachment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<double> NetworkCardIndex
     {
-        get => GetArgument<TerraformValue<double>>("network_card_index") ?? AsReference("network_card_index");
+        get => GetArgument<TerraformValue<double>>("network_card_index") ?? CreateReference("network_card_index");
         set => SetArgument("network_card_index", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsNetworkInterfaceAttachment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -69,12 +69,12 @@ public partial class AwsNetworkInterfaceAttachment(string name) : TerraformResou
     /// The attachment_id attribute.
     /// </summary>
     public TerraformValue<string> AttachmentId
-        => AsReference("attachment_id");
+        => CreateReference("attachment_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

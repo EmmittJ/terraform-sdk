@@ -17,7 +17,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// The data_repository_path attribute.
@@ -42,7 +42,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// The file_cache_id attribute.
     /// </summary>
     public TerraformValue<string> FileCacheId
-        => AsReference("file_cache_id");
+        => CreateReference("file_cache_id");
 
     /// <summary>
     /// The file_cache_path attribute.
@@ -58,32 +58,32 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// The file_system_id attribute.
     /// </summary>
     public TerraformValue<string> FileSystemId
-        => AsReference("file_system_id");
+        => CreateReference("file_system_id");
 
     /// <summary>
     /// The file_system_path attribute.
     /// </summary>
     public TerraformValue<string> FileSystemPath
-        => AsReference("file_system_path");
+        => CreateReference("file_system_path");
 
     /// <summary>
     /// The imported_file_chunk_size attribute.
     /// </summary>
     public TerraformValue<double> ImportedFileChunkSize
-        => AsReference("imported_file_chunk_size");
+        => CreateReference("imported_file_chunk_size");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-        => AsReference("resource_arn");
+        => CreateReference("resource_arn");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -156,13 +156,13 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     /// The log_configuration attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LogConfiguration
-        => AsReference("log_configuration");
+        => CreateReference("log_configuration");
 
     /// <summary>
     /// The mount_name attribute.
     /// </summary>
     public TerraformValue<string> MountName
-        => AsReference("mount_name");
+        => CreateReference("mount_name");
 
     /// <summary>
     /// The per_unit_storage_throughput attribute.
@@ -303,7 +303,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -321,7 +321,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -368,7 +368,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -376,43 +376,43 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The data_repository_association_ids attribute.
     /// </summary>
     public TerraformSet<string> DataRepositoryAssociationIds
-        => AsReference("data_repository_association_ids");
+        => CreateReference("data_repository_association_ids");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-        => AsReference("dns_name");
+        => CreateReference("dns_name");
 
     /// <summary>
     /// The file_cache_id attribute.
     /// </summary>
     public TerraformValue<string> FileCacheId
-        => AsReference("file_cache_id");
+        => CreateReference("file_cache_id");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformSet<string> NetworkInterfaceIds
-        => AsReference("network_interface_ids");
+        => CreateReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// DataRepositoryAssociation block (nesting mode: set).

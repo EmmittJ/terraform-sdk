@@ -338,7 +338,7 @@ public class GoogleIapSettingsAccessSettingsBlockWorkforceIdentitySettingsBlockO
     /// is returned by IAP when the settings are retrieved.
     /// </summary>
     public TerraformValue<string> ClientSecretSha256
-        => AsReference("client_secret_sha256");
+        => CreateReference("client_secret_sha256");
 
 }
 
@@ -562,7 +562,7 @@ public partial class GoogleIapSettings(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

@@ -53,19 +53,19 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// The minimum_tls_version attribute.
     /// </summary>
     public TerraformValue<string> MinimumTlsVersion
-        => AsReference("minimum_tls_version");
+        => CreateReference("minimum_tls_version");
 
     /// <summary>
     /// The provisioning_state attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningState
-        => AsReference("provisioning_state");
+        => CreateReference("provisioning_state");
 
     /// <summary>
     /// The provisioning_substate attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningSubstate
-        => AsReference("provisioning_substate");
+        => CreateReference("provisioning_substate");
 
 }
 
@@ -151,7 +151,7 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

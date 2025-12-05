@@ -58,14 +58,14 @@ public class AwsSesv2ConfigurationSetReputationOptionsBlock : TerraformBlock
     /// The last_fresh_start attribute.
     /// </summary>
     public TerraformValue<string> LastFreshStart
-        => AsReference("last_fresh_start");
+        => CreateReference("last_fresh_start");
 
     /// <summary>
     /// The reputation_metrics_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ReputationMetricsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("reputation_metrics_enabled") ?? AsReference("reputation_metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("reputation_metrics_enabled") ?? CreateReference("reputation_metrics_enabled");
         set => SetArgument("reputation_metrics_enabled", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsSesv2ConfigurationSetSendingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> SendingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sending_enabled") ?? AsReference("sending_enabled");
+        get => GetArgument<TerraformValue<bool>>("sending_enabled") ?? CreateReference("sending_enabled");
         set => SetArgument("sending_enabled", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsSesv2ConfigurationSet(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AwsSesv2ConfigurationSet(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AwsSesv2ConfigurationSet(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -285,7 +285,7 @@ public partial class AwsSesv2ConfigurationSet(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// DeliveryOptions block (nesting mode: list).

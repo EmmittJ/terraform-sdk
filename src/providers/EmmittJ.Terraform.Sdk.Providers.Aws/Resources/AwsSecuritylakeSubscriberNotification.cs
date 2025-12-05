@@ -118,7 +118,7 @@ public partial class AwsSecuritylakeSubscriberNotification(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -137,19 +137,19 @@ public partial class AwsSecuritylakeSubscriberNotification(string name) : Terraf
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> EndpointId
-        => AsReference("endpoint_id");
+        => CreateReference("endpoint_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The subscriber_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SubscriberEndpoint
-        => AsReference("subscriber_endpoint");
+        => CreateReference("subscriber_endpoint");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

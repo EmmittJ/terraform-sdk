@@ -52,7 +52,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> NonExistence
     {
-        get => GetArgument<TerraformValue<string>>("non_existence") ?? AsReference("non_existence");
+        get => GetArgument<TerraformValue<string>>("non_existence") ?? CreateReference("non_existence");
         set => SetArgument("non_existence", value);
     }
 
@@ -413,7 +413,7 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -446,7 +446,7 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -465,33 +465,33 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     /// This is in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Unique identifier for the resource; defined by the server.
     /// </summary>
     public TerraformValue<double> ManagedZoneId
-        => AsReference("managed_zone_id");
+        => CreateReference("managed_zone_id");
 
     /// <summary>
     /// Delegate your managed_zone to these virtual name servers;
     /// defined by the server
     /// </summary>
     public TerraformList<string> NameServers
-        => AsReference("name_servers");
+        => CreateReference("name_servers");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// CloudLoggingConfig block (nesting mode: list).

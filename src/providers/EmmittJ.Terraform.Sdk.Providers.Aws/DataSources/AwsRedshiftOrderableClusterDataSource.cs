@@ -13,7 +13,7 @@ public partial class AwsRedshiftOrderableClusterDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> ClusterType
     {
-        get => GetArgument<TerraformValue<string>>("cluster_type") ?? AsReference("cluster_type");
+        get => GetArgument<TerraformValue<string>>("cluster_type") ?? CreateReference("cluster_type");
         set => SetArgument("cluster_type", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsRedshiftOrderableClusterDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> ClusterVersion
     {
-        get => GetArgument<TerraformValue<string>>("cluster_version") ?? AsReference("cluster_version");
+        get => GetArgument<TerraformValue<string>>("cluster_version") ?? CreateReference("cluster_version");
         set => SetArgument("cluster_version", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsRedshiftOrderableClusterDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsRedshiftOrderableClusterDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type") ?? AsReference("node_type");
+        get => GetArgument<TerraformValue<string>>("node_type") ?? CreateReference("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsRedshiftOrderableClusterDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -66,6 +66,6 @@ public partial class AwsRedshiftOrderableClusterDataSource(string name) : Terraf
     /// The availability_zones attribute.
     /// </summary>
     public TerraformList<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
 }

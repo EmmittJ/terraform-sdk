@@ -73,7 +73,7 @@ public partial class AzurermGraphServicesAccount(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermGraphServicesAccount(string name) : TerraformResourc
     /// The billing_plan_id attribute.
     /// </summary>
     public TerraformValue<string> BillingPlanId
-        => AsReference("billing_plan_id");
+        => CreateReference("billing_plan_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

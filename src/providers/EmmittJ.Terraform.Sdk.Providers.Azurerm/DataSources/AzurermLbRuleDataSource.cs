@@ -36,7 +36,7 @@ public partial class AzurermLbRuleDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,81 +64,81 @@ public partial class AzurermLbRuleDataSource(string name) : TerraformDataSource(
     /// The backend_address_pool_id attribute.
     /// </summary>
     public TerraformValue<string> BackendAddressPoolId
-        => AsReference("backend_address_pool_id");
+        => CreateReference("backend_address_pool_id");
 
     /// <summary>
     /// The backend_port attribute.
     /// </summary>
     public TerraformValue<double> BackendPort
-        => AsReference("backend_port");
+        => CreateReference("backend_port");
 
     /// <summary>
     /// The disable_outbound_snat attribute.
     /// </summary>
     public TerraformValue<bool> DisableOutboundSnat
-        => AsReference("disable_outbound_snat");
+        => CreateReference("disable_outbound_snat");
 
     /// <summary>
     /// The enable_floating_ip attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableFloatingIp
-        => AsReference("enable_floating_ip");
+        => CreateReference("enable_floating_ip");
 
     /// <summary>
     /// The enable_tcp_reset attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableTcpReset
-        => AsReference("enable_tcp_reset");
+        => CreateReference("enable_tcp_reset");
 
     /// <summary>
     /// The floating_ip_enabled attribute.
     /// </summary>
     public TerraformValue<bool> FloatingIpEnabled
-        => AsReference("floating_ip_enabled");
+        => CreateReference("floating_ip_enabled");
 
     /// <summary>
     /// The frontend_ip_configuration_name attribute.
     /// </summary>
     public TerraformValue<string> FrontendIpConfigurationName
-        => AsReference("frontend_ip_configuration_name");
+        => CreateReference("frontend_ip_configuration_name");
 
     /// <summary>
     /// The frontend_port attribute.
     /// </summary>
     public TerraformValue<double> FrontendPort
-        => AsReference("frontend_port");
+        => CreateReference("frontend_port");
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> IdleTimeoutInMinutes
-        => AsReference("idle_timeout_in_minutes");
+        => CreateReference("idle_timeout_in_minutes");
 
     /// <summary>
     /// The load_distribution attribute.
     /// </summary>
     public TerraformValue<string> LoadDistribution
-        => AsReference("load_distribution");
+        => CreateReference("load_distribution");
 
     /// <summary>
     /// The probe_id attribute.
     /// </summary>
     public TerraformValue<string> ProbeId
-        => AsReference("probe_id");
+        => CreateReference("probe_id");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-        => AsReference("protocol");
+        => CreateReference("protocol");
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TcpResetEnabled
-        => AsReference("tcp_reset_enabled");
+        => CreateReference("tcp_reset_enabled");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

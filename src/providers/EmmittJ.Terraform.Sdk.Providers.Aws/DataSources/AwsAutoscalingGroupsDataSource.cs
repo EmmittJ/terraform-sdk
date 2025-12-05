@@ -47,7 +47,7 @@ public partial class AwsAutoscalingGroupsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsAutoscalingGroupsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformList<string> Names
     {
-        get => GetArgument<TerraformList<string>>("names") ?? AsReference("names");
+        get => GetArgument<TerraformList<string>>("names") ?? CreateReference("names");
         set => SetArgument("names", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsAutoscalingGroupsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsAutoscalingGroupsDataSource(string name) : TerraformData
     /// The arns attribute.
     /// </summary>
     public TerraformList<string> Arns
-        => AsReference("arns");
+        => CreateReference("arns");
 
     /// <summary>
     /// Filter block (nesting mode: set).

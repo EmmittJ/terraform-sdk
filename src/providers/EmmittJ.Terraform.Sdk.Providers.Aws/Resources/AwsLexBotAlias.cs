@@ -88,7 +88,7 @@ public class AwsLexBotAliasConversationLogsBlockLogSettingsBlock : TerraformBloc
     /// The resource_prefix attribute.
     /// </summary>
     public TerraformValue<string> ResourcePrefix
-        => AsReference("resource_prefix");
+        => CreateReference("resource_prefix");
 
 }
 
@@ -174,7 +174,7 @@ public partial class AwsLexBotAlias(string name) : TerraformResource("aws_lex_bo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AwsLexBotAlias(string name) : TerraformResource("aws_lex_bo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -201,25 +201,25 @@ public partial class AwsLexBotAlias(string name) : TerraformResource("aws_lex_bo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The checksum attribute.
     /// </summary>
     public TerraformValue<string> Checksum
-        => AsReference("checksum");
+        => CreateReference("checksum");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDate
-        => AsReference("last_updated_date");
+        => CreateReference("last_updated_date");
 
     /// <summary>
     /// ConversationLogs block (nesting mode: list).

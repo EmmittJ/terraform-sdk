@@ -36,7 +36,7 @@ public partial class AzurermSearchServiceDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermSearchServiceDataSource(string name) : TerraformData
     /// The customer_managed_key_encryption_compliance_status attribute.
     /// </summary>
     public TerraformValue<string> CustomerManagedKeyEncryptionComplianceStatus
-        => AsReference("customer_managed_key_encryption_compliance_status");
+        => CreateReference("customer_managed_key_encryption_compliance_status");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The partition_count attribute.
     /// </summary>
     public TerraformValue<double> PartitionCount
-        => AsReference("partition_count");
+        => CreateReference("partition_count");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// The query_keys attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QueryKeys
-        => AsReference("query_keys");
+        => CreateReference("query_keys");
 
     /// <summary>
     /// The replica_count attribute.
     /// </summary>
     public TerraformValue<double> ReplicaCount
-        => AsReference("replica_count");
+        => CreateReference("replica_count");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-        => AsReference("secondary_key");
+        => CreateReference("secondary_key");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

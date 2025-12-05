@@ -22,30 +22,30 @@ public partial class AwsCloudtrailOrganizationDelegatedAdminAccount(string name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     public TerraformValue<string> ServicePrincipal
-        => AsReference("service_principal");
+        => CreateReference("service_principal");
 
 }

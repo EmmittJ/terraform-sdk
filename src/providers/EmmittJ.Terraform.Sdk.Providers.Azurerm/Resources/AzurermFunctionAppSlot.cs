@@ -416,13 +416,13 @@ public class AzurermFunctionAppSlotIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -462,7 +462,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> AppScaleLimit
     {
-        get => GetArgument<TerraformValue<double>>("app_scale_limit") ?? AsReference("app_scale_limit");
+        get => GetArgument<TerraformValue<double>>("app_scale_limit") ?? CreateReference("app_scale_limit");
         set => SetArgument("app_scale_limit", value);
     }
 
@@ -489,7 +489,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ElasticInstanceMinimum
     {
-        get => GetArgument<TerraformValue<double>>("elastic_instance_minimum") ?? AsReference("elastic_instance_minimum");
+        get => GetArgument<TerraformValue<double>>("elastic_instance_minimum") ?? CreateReference("elastic_instance_minimum");
         set => SetArgument("elastic_instance_minimum", value);
     }
 
@@ -498,7 +498,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> FtpsState
     {
-        get => GetArgument<TerraformValue<string>>("ftps_state") ?? AsReference("ftps_state");
+        get => GetArgument<TerraformValue<string>>("ftps_state") ?? CreateReference("ftps_state");
         set => SetArgument("ftps_state", value);
     }
 
@@ -525,7 +525,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<TerraformMap<object>> IpRestriction
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("ip_restriction") ?? AsReference("ip_restriction");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("ip_restriction") ?? CreateReference("ip_restriction");
         set => SetArgument("ip_restriction", value);
     }
 
@@ -543,7 +543,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> LinuxFxVersion
     {
-        get => GetArgument<TerraformValue<string>>("linux_fx_version") ?? AsReference("linux_fx_version");
+        get => GetArgument<TerraformValue<string>>("linux_fx_version") ?? CreateReference("linux_fx_version");
         set => SetArgument("linux_fx_version", value);
     }
 
@@ -552,7 +552,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MinTlsVersion
     {
-        get => GetArgument<TerraformValue<string>>("min_tls_version") ?? AsReference("min_tls_version");
+        get => GetArgument<TerraformValue<string>>("min_tls_version") ?? CreateReference("min_tls_version");
         set => SetArgument("min_tls_version", value);
     }
 
@@ -561,7 +561,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> PreWarmedInstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("pre_warmed_instance_count") ?? AsReference("pre_warmed_instance_count");
+        get => GetArgument<TerraformValue<double>>("pre_warmed_instance_count") ?? CreateReference("pre_warmed_instance_count");
         set => SetArgument("pre_warmed_instance_count", value);
     }
 
@@ -579,7 +579,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<TerraformMap<object>> ScmIpRestriction
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("scm_ip_restriction") ?? AsReference("scm_ip_restriction");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("scm_ip_restriction") ?? CreateReference("scm_ip_restriction");
         set => SetArgument("scm_ip_restriction", value);
     }
 
@@ -588,7 +588,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScmType
     {
-        get => GetArgument<TerraformValue<string>>("scm_type") ?? AsReference("scm_type");
+        get => GetArgument<TerraformValue<string>>("scm_type") ?? CreateReference("scm_type");
         set => SetArgument("scm_type", value);
     }
 
@@ -615,7 +615,7 @@ public class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> VnetRouteAllEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("vnet_route_all_enabled") ?? AsReference("vnet_route_all_enabled");
+        get => GetArgument<TerraformValue<bool>>("vnet_route_all_enabled") ?? CreateReference("vnet_route_all_enabled");
         set => SetArgument("vnet_route_all_enabled", value);
     }
 
@@ -745,7 +745,7 @@ public partial class AzurermFunctionAppSlot(string name) : TerraformResource("az
     /// </summary>
     public TerraformMap<string> AppSettings
     {
-        get => GetArgument<TerraformMap<string>>("app_settings") ?? AsReference("app_settings");
+        get => GetArgument<TerraformMap<string>>("app_settings") ?? CreateReference("app_settings");
         set => SetArgument("app_settings", value);
     }
 
@@ -800,7 +800,7 @@ public partial class AzurermFunctionAppSlot(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -885,31 +885,31 @@ public partial class AzurermFunctionAppSlot(string name) : TerraformResource("az
     /// The default_hostname attribute.
     /// </summary>
     public TerraformValue<string> DefaultHostname
-        => AsReference("default_hostname");
+        => CreateReference("default_hostname");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> OutboundIpAddresses
-        => AsReference("outbound_ip_addresses");
+        => CreateReference("outbound_ip_addresses");
 
     /// <summary>
     /// The possible_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> PossibleOutboundIpAddresses
-        => AsReference("possible_outbound_ip_addresses");
+        => CreateReference("possible_outbound_ip_addresses");
 
     /// <summary>
     /// The site_credential attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteCredential
-        => AsReference("site_credential");
+        => CreateReference("site_credential");
 
     /// <summary>
     /// AuthSettings block (nesting mode: list).

@@ -142,7 +142,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -216,13 +216,13 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// The service_key attribute.
     /// </summary>
     public TerraformValue<string> ServiceKey
-        => AsReference("service_key");
+        => CreateReference("service_key");
 
     /// <summary>
     /// The service_provider_provisioning_state attribute.
     /// </summary>
     public TerraformValue<string> ServiceProviderProvisioningState
-        => AsReference("service_provider_provisioning_state");
+        => CreateReference("service_provider_provisioning_state");
 
     /// <summary>
     /// Sku block (nesting mode: list).

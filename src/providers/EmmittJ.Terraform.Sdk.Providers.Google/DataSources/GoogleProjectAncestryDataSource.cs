@@ -13,7 +13,7 @@ public partial class GoogleProjectAncestryDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -30,24 +30,24 @@ public partial class GoogleProjectAncestryDataSource(string name) : TerraformDat
     /// The ancestors attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Ancestors
-        => AsReference("ancestors");
+        => CreateReference("ancestors");
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     public TerraformValue<string> OrgId
-        => AsReference("org_id");
+        => CreateReference("org_id");
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
     public TerraformValue<string> ParentId
-        => AsReference("parent_id");
+        => CreateReference("parent_id");
 
     /// <summary>
     /// The parent_type attribute.
     /// </summary>
     public TerraformValue<string> ParentType
-        => AsReference("parent_type");
+        => CreateReference("parent_type");
 
 }

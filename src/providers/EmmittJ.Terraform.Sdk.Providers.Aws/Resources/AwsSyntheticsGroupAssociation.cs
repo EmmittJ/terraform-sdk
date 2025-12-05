@@ -33,7 +33,7 @@ public partial class AwsSyntheticsGroupAssociation(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsSyntheticsGroupAssociation(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,12 +50,12 @@ public partial class AwsSyntheticsGroupAssociation(string name) : TerraformResou
     /// The group_arn attribute.
     /// </summary>
     public TerraformValue<string> GroupArn
-        => AsReference("group_arn");
+        => CreateReference("group_arn");
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
     public TerraformValue<string> GroupId
-        => AsReference("group_id");
+        => CreateReference("group_id");
 
 }

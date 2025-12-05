@@ -80,7 +80,7 @@ public partial class GoogleHealthcareDataset(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleHealthcareDataset(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleHealthcareDataset(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone") ?? AsReference("time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone") ?? CreateReference("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleHealthcareDataset(string name) : TerraformResource("g
     /// The fully qualified name of this dataset
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// EncryptionSpec block (nesting mode: list).

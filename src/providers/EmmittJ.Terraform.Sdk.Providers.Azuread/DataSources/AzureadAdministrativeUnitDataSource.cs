@@ -63,7 +63,7 @@ public partial class AzureadAdministrativeUnitDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzureadAdministrativeUnitDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzureadAdministrativeUnitDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? CreateReference("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -89,19 +89,19 @@ public partial class AzureadAdministrativeUnitDataSource(string name) : Terrafor
     /// The description for the administrative unit
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// A list of object IDs of members who are be present in this administrative unit.
     /// </summary>
     public TerraformList<string> Members
-        => AsReference("members");
+        => CreateReference("members");
 
     /// <summary>
     /// Whether the administrative unit and its members are hidden or publicly viewable in the directory
     /// </summary>
     public TerraformValue<string> Visibility
-        => AsReference("visibility");
+        => CreateReference("visibility");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

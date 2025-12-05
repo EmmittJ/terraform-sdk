@@ -74,7 +74,7 @@ public partial class AzurermAppServiceCertificateBinding(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,19 +92,19 @@ public partial class AzurermAppServiceCertificateBinding(string name) : Terrafor
     /// The app_service_name attribute.
     /// </summary>
     public TerraformValue<string> AppServiceName
-        => AsReference("app_service_name");
+        => CreateReference("app_service_name");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

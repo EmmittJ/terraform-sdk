@@ -36,7 +36,7 @@ public partial class AzurermStorageSyncDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,19 +64,19 @@ public partial class AzurermStorageSyncDataSource(string name) : TerraformDataSo
     /// The incoming_traffic_policy attribute.
     /// </summary>
     public TerraformValue<string> IncomingTrafficPolicy
-        => AsReference("incoming_traffic_policy");
+        => CreateReference("incoming_traffic_policy");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

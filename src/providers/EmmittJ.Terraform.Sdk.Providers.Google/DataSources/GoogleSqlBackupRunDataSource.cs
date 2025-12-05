@@ -13,7 +13,7 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<double> BackupId
     {
-        get => GetArgument<TerraformValue<double>>("backup_id") ?? AsReference("backup_id");
+        get => GetArgument<TerraformValue<double>>("backup_id") ?? CreateReference("backup_id");
         set => SetArgument("backup_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -58,18 +58,18 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     /// Location of the backups.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The time the backup operation actually started in UTC timezone in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
     /// </summary>
     public TerraformValue<string> StartTime
-        => AsReference("start_time");
+        => CreateReference("start_time");
 
     /// <summary>
     /// The status of this run.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

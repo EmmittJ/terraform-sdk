@@ -36,7 +36,7 @@ public partial class AzurermSnapshotDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,55 +64,55 @@ public partial class AzurermSnapshotDataSource(string name) : TerraformDataSourc
     /// The creation_option attribute.
     /// </summary>
     public TerraformValue<string> CreationOption
-        => AsReference("creation_option");
+        => CreateReference("creation_option");
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
     public TerraformValue<double> DiskSizeGb
-        => AsReference("disk_size_gb");
+        => CreateReference("disk_size_gb");
 
     /// <summary>
     /// The encryption_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionSettings
-        => AsReference("encryption_settings");
+        => CreateReference("encryption_settings");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
     public TerraformValue<string> OsType
-        => AsReference("os_type");
+        => CreateReference("os_type");
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
     public TerraformValue<string> SourceResourceId
-        => AsReference("source_resource_id");
+        => CreateReference("source_resource_id");
 
     /// <summary>
     /// The source_uri attribute.
     /// </summary>
     public TerraformValue<string> SourceUri
-        => AsReference("source_uri");
+        => CreateReference("source_uri");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> StorageAccountId
-        => AsReference("storage_account_id");
+        => CreateReference("storage_account_id");
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
     public TerraformValue<string> TimeCreated
-        => AsReference("time_created");
+        => CreateReference("time_created");
 
     /// <summary>
     /// The trusted_launch_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TrustedLaunchEnabled
-        => AsReference("trusted_launch_enabled");
+        => CreateReference("trusted_launch_enabled");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -168,7 +168,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockControlPlaneNodePoo
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -892,7 +892,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockL
     /// </summary>
     public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? CreateReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -901,7 +901,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockL
     /// </summary>
     public TerraformValue<string> OperatingSystem
     {
-        get => GetArgument<TerraformValue<string>>("operating_system") ?? AsReference("operating_system");
+        get => GetArgument<TerraformValue<string>>("operating_system") ?? CreateReference("operating_system");
         set => SetArgument("operating_system", value);
     }
 
@@ -1242,7 +1242,7 @@ public class GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> LoginUser
     {
-        get => GetArgument<TerraformValue<string>>("login_user") ?? AsReference("login_user");
+        get => GetArgument<TerraformValue<string>>("login_user") ?? CreateReference("login_user");
         set => SetArgument("login_user", value);
     }
 
@@ -1265,7 +1265,7 @@ public class GoogleGkeonpremBareMetalClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ContainerRuntime
     {
-        get => GetArgument<TerraformValue<string>>("container_runtime") ?? AsReference("container_runtime");
+        get => GetArgument<TerraformValue<string>>("container_runtime") ?? CreateReference("container_runtime");
         set => SetArgument("container_runtime", value);
     }
 
@@ -1275,7 +1275,7 @@ public class GoogleGkeonpremBareMetalClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxPodsPerNode
     {
-        get => GetArgument<TerraformValue<double>>("max_pods_per_node") ?? AsReference("max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("max_pods_per_node") ?? CreateReference("max_pods_per_node");
         set => SetArgument("max_pods_per_node", value);
     }
 
@@ -1682,7 +1682,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1711,7 +1711,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1719,25 +1719,25 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// The IP address name of Bare Metal User Cluster&#39;s API server.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -1747,7 +1747,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// through optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Fleet related configuration.
@@ -1758,7 +1758,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// more details on Anthos multi-cluster capabilities using Fleets.
     /// </summary>
     public TerraformList<TerraformMap<object>> Fleet
-        => AsReference("fleet");
+        => CreateReference("fleet");
 
     /// <summary>
     /// The object name of the Bare Metal Cluster custom resource on the
@@ -1773,43 +1773,43 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// cluster controller logs.
     /// </summary>
     public TerraformValue<string> LocalName
-        => AsReference("local_name");
+        => CreateReference("local_name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the Bare Metal User Cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Specifies detailed cluster status.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The unique identifier of the Bare Metal User Cluster.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Specifies the security related settings for the Bare Metal User Cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValidationCheck
-        => AsReference("validation_check");
+        => CreateReference("validation_check");
 
     /// <summary>
     /// BinaryAuthorization block (nesting mode: list).

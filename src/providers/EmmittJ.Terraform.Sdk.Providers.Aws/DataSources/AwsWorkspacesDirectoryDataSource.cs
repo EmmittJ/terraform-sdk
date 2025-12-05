@@ -23,7 +23,7 @@ public partial class AwsWorkspacesDirectoryDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsWorkspacesDirectoryDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsWorkspacesDirectoryDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,120 +49,120 @@ public partial class AwsWorkspacesDirectoryDataSource(string name) : TerraformDa
     /// The active_directory_config attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ActiveDirectoryConfig
-        => AsReference("active_directory_config");
+        => CreateReference("active_directory_config");
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-        => AsReference("alias");
+        => CreateReference("alias");
 
     /// <summary>
     /// The certificate_based_auth_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificateBasedAuthProperties
-        => AsReference("certificate_based_auth_properties");
+        => CreateReference("certificate_based_auth_properties");
 
     /// <summary>
     /// The customer_user_name attribute.
     /// </summary>
     public TerraformValue<string> CustomerUserName
-        => AsReference("customer_user_name");
+        => CreateReference("customer_user_name");
 
     /// <summary>
     /// The directory_name attribute.
     /// </summary>
     public TerraformValue<string> DirectoryName
-        => AsReference("directory_name");
+        => CreateReference("directory_name");
 
     /// <summary>
     /// The directory_type attribute.
     /// </summary>
     public TerraformValue<string> DirectoryType
-        => AsReference("directory_type");
+        => CreateReference("directory_type");
 
     /// <summary>
     /// The dns_ip_addresses attribute.
     /// </summary>
     public TerraformSet<string> DnsIpAddresses
-        => AsReference("dns_ip_addresses");
+        => CreateReference("dns_ip_addresses");
 
     /// <summary>
     /// The iam_role_id attribute.
     /// </summary>
     public TerraformValue<string> IamRoleId
-        => AsReference("iam_role_id");
+        => CreateReference("iam_role_id");
 
     /// <summary>
     /// The ip_group_ids attribute.
     /// </summary>
     public TerraformSet<string> IpGroupIds
-        => AsReference("ip_group_ids");
+        => CreateReference("ip_group_ids");
 
     /// <summary>
     /// The registration_code attribute.
     /// </summary>
     public TerraformValue<string> RegistrationCode
-        => AsReference("registration_code");
+        => CreateReference("registration_code");
 
     /// <summary>
     /// The saml_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SamlProperties
-        => AsReference("saml_properties");
+        => CreateReference("saml_properties");
 
     /// <summary>
     /// The self_service_permissions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SelfServicePermissions
-        => AsReference("self_service_permissions");
+        => CreateReference("self_service_permissions");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     public TerraformSet<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The user_identity_type attribute.
     /// </summary>
     public TerraformValue<string> UserIdentityType
-        => AsReference("user_identity_type");
+        => CreateReference("user_identity_type");
 
     /// <summary>
     /// The workspace_access_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkspaceAccessProperties
-        => AsReference("workspace_access_properties");
+        => CreateReference("workspace_access_properties");
 
     /// <summary>
     /// The workspace_creation_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkspaceCreationProperties
-        => AsReference("workspace_creation_properties");
+        => CreateReference("workspace_creation_properties");
 
     /// <summary>
     /// The workspace_directory_description attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceDirectoryDescription
-        => AsReference("workspace_directory_description");
+        => CreateReference("workspace_directory_description");
 
     /// <summary>
     /// The workspace_directory_name attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceDirectoryName
-        => AsReference("workspace_directory_name");
+        => CreateReference("workspace_directory_name");
 
     /// <summary>
     /// The workspace_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceSecurityGroupId
-        => AsReference("workspace_security_group_id");
+        => CreateReference("workspace_security_group_id");
 
     /// <summary>
     /// The workspace_type attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceType
-        => AsReference("workspace_type");
+        => CreateReference("workspace_type");
 
 }

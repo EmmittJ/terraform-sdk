@@ -23,7 +23,7 @@ public partial class AwsOpensearchserverlessLifecyclePolicyDataSource(string nam
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,36 +41,36 @@ public partial class AwsOpensearchserverlessLifecyclePolicyDataSource(string nam
     /// The date the lifecycle policy was created.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// Description of the policy. Typically used to store information about the permissions defined in the policy.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The date the lifecycle policy was last modified.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-        => AsReference("last_modified_date");
+        => CreateReference("last_modified_date");
 
     /// <summary>
     /// JSON policy document to use as the content for the new policy.
     /// </summary>
     public TerraformValue<string> Policy
-        => AsReference("policy");
+        => CreateReference("policy");
 
     /// <summary>
     /// Version of the policy.
     /// </summary>
     public TerraformValue<string> PolicyVersion
-        => AsReference("policy_version");
+        => CreateReference("policy_version");
 
 }

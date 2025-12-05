@@ -196,7 +196,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     /// </summary>
     public TerraformList<string> CustomerContacts
     {
-        get => GetArgument<TerraformList<string>>("customer_contacts") ?? AsReference("customer_contacts");
+        get => GetArgument<TerraformList<string>>("customer_contacts") ?? CreateReference("customer_contacts");
         set => SetArgument("customer_contacts", value);
     }
 
@@ -245,7 +245,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

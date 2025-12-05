@@ -54,7 +54,7 @@ public partial class AzurermAdvisorSuppression(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermAdvisorSuppression(string name) : TerraformResource(
     /// The suppression_id attribute.
     /// </summary>
     public TerraformValue<string> SuppressionId
-        => AsReference("suppression_id");
+        => CreateReference("suppression_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

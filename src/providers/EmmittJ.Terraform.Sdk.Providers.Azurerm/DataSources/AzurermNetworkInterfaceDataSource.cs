@@ -36,7 +36,7 @@ public partial class AzurermNetworkInterfaceDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,79 +64,79 @@ public partial class AzurermNetworkInterfaceDataSource(string name) : TerraformD
     /// The accelerated_networking_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AcceleratedNetworkingEnabled
-        => AsReference("accelerated_networking_enabled");
+        => CreateReference("accelerated_networking_enabled");
 
     /// <summary>
     /// The applied_dns_servers attribute.
     /// </summary>
     public TerraformSet<string> AppliedDnsServers
-        => AsReference("applied_dns_servers");
+        => CreateReference("applied_dns_servers");
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     public TerraformSet<string> DnsServers
-        => AsReference("dns_servers");
+        => CreateReference("dns_servers");
 
     /// <summary>
     /// The internal_dns_name_label attribute.
     /// </summary>
     public TerraformValue<string> InternalDnsNameLabel
-        => AsReference("internal_dns_name_label");
+        => CreateReference("internal_dns_name_label");
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-        => AsReference("ip_configuration");
+        => CreateReference("ip_configuration");
 
     /// <summary>
     /// The ip_forwarding_enabled attribute.
     /// </summary>
     public TerraformValue<bool> IpForwardingEnabled
-        => AsReference("ip_forwarding_enabled");
+        => CreateReference("ip_forwarding_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The mac_address attribute.
     /// </summary>
     public TerraformValue<string> MacAddress
-        => AsReference("mac_address");
+        => CreateReference("mac_address");
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkSecurityGroupId
-        => AsReference("network_security_group_id");
+        => CreateReference("network_security_group_id");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-        => AsReference("private_ip_addresses");
+        => CreateReference("private_ip_addresses");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualMachineId
-        => AsReference("virtual_machine_id");
+        => CreateReference("virtual_machine_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

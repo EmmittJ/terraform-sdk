@@ -36,7 +36,7 @@ public partial class AzurermStorageContainerDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermStorageContainerDataSource(string name) : TerraformD
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -81,38 +81,38 @@ public partial class AzurermStorageContainerDataSource(string name) : TerraformD
     /// The container_access_type attribute.
     /// </summary>
     public TerraformValue<string> ContainerAccessType
-        => AsReference("container_access_type");
+        => CreateReference("container_access_type");
 
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
     public TerraformValue<string> DefaultEncryptionScope
-        => AsReference("default_encryption_scope");
+        => CreateReference("default_encryption_scope");
 
     /// <summary>
     /// The encryption_scope_override_enabled attribute.
     /// </summary>
     public TerraformValue<bool> EncryptionScopeOverrideEnabled
-        => AsReference("encryption_scope_override_enabled");
+        => CreateReference("encryption_scope_override_enabled");
 
     /// <summary>
     /// The has_immutability_policy attribute.
     /// </summary>
     public TerraformValue<bool> HasImmutabilityPolicy
-        => AsReference("has_immutability_policy");
+        => CreateReference("has_immutability_policy");
 
     /// <summary>
     /// The has_legal_hold attribute.
     /// </summary>
     public TerraformValue<bool> HasLegalHold
-        => AsReference("has_legal_hold");
+        => CreateReference("has_legal_hold");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -28,7 +28,7 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> InsiderRiskLevels
     {
-        get => GetArgument<TerraformValue<string>>("insider_risk_levels") ?? AsReference("insider_risk_levels");
+        get => GetArgument<TerraformValue<string>>("insider_risk_levels") ?? CreateReference("insider_risk_levels");
         set => SetArgument("insider_risk_levels", value);
     }
 
@@ -696,7 +696,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SignInFrequencyAuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("sign_in_frequency_authentication_type") ?? AsReference("sign_in_frequency_authentication_type");
+        get => GetArgument<TerraformValue<string>>("sign_in_frequency_authentication_type") ?? CreateReference("sign_in_frequency_authentication_type");
         set => SetArgument("sign_in_frequency_authentication_type", value);
     }
 
@@ -705,7 +705,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SignInFrequencyInterval
     {
-        get => GetArgument<TerraformValue<string>>("sign_in_frequency_interval") ?? AsReference("sign_in_frequency_interval");
+        get => GetArgument<TerraformValue<string>>("sign_in_frequency_interval") ?? CreateReference("sign_in_frequency_interval");
         set => SetArgument("sign_in_frequency_interval", value);
     }
 
@@ -792,7 +792,7 @@ public partial class AzureadConditionalAccessPolicy(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -810,7 +810,7 @@ public partial class AzureadConditionalAccessPolicy(string name) : TerraformReso
     /// The object ID of the policy
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// Conditions block (nesting mode: list).

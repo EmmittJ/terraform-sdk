@@ -107,7 +107,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -219,13 +219,13 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// The hsm_uri attribute.
     /// </summary>
     public TerraformValue<string> HsmUri
-        => AsReference("hsm_uri");
+        => CreateReference("hsm_uri");
 
     /// <summary>
     /// The security_domain_encrypted_data attribute.
     /// </summary>
     public TerraformValue<string> SecurityDomainEncryptedData
-        => AsReference("security_domain_encrypted_data");
+        => CreateReference("security_domain_encrypted_data");
 
     /// <summary>
     /// NetworkAcls block (nesting mode: list).

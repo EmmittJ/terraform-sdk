@@ -36,7 +36,7 @@ public partial class AzurermPolicySetDefinitionDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermPolicySetDefinitionDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermPolicySetDefinitionDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -71,43 +71,43 @@ public partial class AzurermPolicySetDefinitionDataSource(string name) : Terrafo
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformValue<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformValue<string> Parameters
-        => AsReference("parameters");
+        => CreateReference("parameters");
 
     /// <summary>
     /// The policy_definition_group attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PolicyDefinitionGroup
-        => AsReference("policy_definition_group");
+        => CreateReference("policy_definition_group");
 
     /// <summary>
     /// The policy_definition_reference attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PolicyDefinitionReference
-        => AsReference("policy_definition_reference");
+        => CreateReference("policy_definition_reference");
 
     /// <summary>
     /// The policy_definitions attribute.
     /// </summary>
     public TerraformValue<string> PolicyDefinitions
-        => AsReference("policy_definitions");
+        => CreateReference("policy_definitions");
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
     public TerraformValue<string> PolicyType
-        => AsReference("policy_type");
+        => CreateReference("policy_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

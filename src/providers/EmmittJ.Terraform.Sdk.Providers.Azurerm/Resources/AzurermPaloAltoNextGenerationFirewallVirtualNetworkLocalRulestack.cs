@@ -137,7 +137,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDn
     /// The azure_dns_servers attribute.
     /// </summary>
     public TerraformList<string> AzureDnsServers
-        => AsReference("azure_dns_servers");
+        => CreateReference("azure_dns_servers");
 
     /// <summary>
     /// The dns_servers attribute.
@@ -184,7 +184,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNe
     /// The egress_nat_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> EgressNatIpAddresses
-        => AsReference("egress_nat_ip_addresses");
+        => CreateReference("egress_nat_ip_addresses");
 
     /// <summary>
     /// The public_ip_address_ids attribute.
@@ -200,7 +200,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNe
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-        => AsReference("public_ip_addresses");
+        => CreateReference("public_ip_addresses");
 
     /// <summary>
     /// The trusted_address_ranges attribute.
@@ -241,7 +241,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNe
     /// The ip_of_trust_for_user_defined_routes attribute.
     /// </summary>
     public TerraformValue<string> IpOfTrustForUserDefinedRoutes
-        => AsReference("ip_of_trust_for_user_defined_routes");
+        => CreateReference("ip_of_trust_for_user_defined_routes");
 
     /// <summary>
     /// The trusted_subnet_id attribute.
@@ -335,7 +335,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRul
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

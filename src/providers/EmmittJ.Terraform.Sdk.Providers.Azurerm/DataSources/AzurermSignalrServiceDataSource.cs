@@ -36,7 +36,7 @@ public partial class AzurermSignalrServiceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,91 +64,91 @@ public partial class AzurermSignalrServiceDataSource(string name) : TerraformDat
     /// The aad_auth_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AadAuthEnabled
-        => AsReference("aad_auth_enabled");
+        => CreateReference("aad_auth_enabled");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
     public TerraformValue<bool> LocalAuthEnabled
-        => AsReference("local_auth_enabled");
+        => CreateReference("local_auth_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-        => AsReference("primary_access_key");
+        => CreateReference("primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-        => AsReference("primary_connection_string");
+        => CreateReference("primary_connection_string");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-        => AsReference("public_network_access_enabled");
+        => CreateReference("public_network_access_enabled");
 
     /// <summary>
     /// The public_port attribute.
     /// </summary>
     public TerraformValue<double> PublicPort
-        => AsReference("public_port");
+        => CreateReference("public_port");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-        => AsReference("secondary_access_key");
+        => CreateReference("secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-        => AsReference("secondary_connection_string");
+        => CreateReference("secondary_connection_string");
 
     /// <summary>
     /// The server_port attribute.
     /// </summary>
     public TerraformValue<double> ServerPort
-        => AsReference("server_port");
+        => CreateReference("server_port");
 
     /// <summary>
     /// The serverless_connection_timeout_in_seconds attribute.
     /// </summary>
     public TerraformValue<double> ServerlessConnectionTimeoutInSeconds
-        => AsReference("serverless_connection_timeout_in_seconds");
+        => CreateReference("serverless_connection_timeout_in_seconds");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The tls_client_cert_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TlsClientCertEnabled
-        => AsReference("tls_client_cert_enabled");
+        => CreateReference("tls_client_cert_enabled");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

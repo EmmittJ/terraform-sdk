@@ -36,7 +36,7 @@ public partial class AzurermOracleAdbsCharacterSetsDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermOracleAdbsCharacterSetsDataSource(string name) : Ter
     /// The character_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CharacterSets
-        => AsReference("character_sets");
+        => CreateReference("character_sets");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

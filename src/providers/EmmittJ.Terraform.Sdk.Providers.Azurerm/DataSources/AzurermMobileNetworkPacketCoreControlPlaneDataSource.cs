@@ -36,7 +36,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneDataSource(string
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,91 +64,91 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneDataSource(string
     /// The control_plane_access_ipv4_address attribute.
     /// </summary>
     public TerraformValue<string> ControlPlaneAccessIpv4Address
-        => AsReference("control_plane_access_ipv4_address");
+        => CreateReference("control_plane_access_ipv4_address");
 
     /// <summary>
     /// The control_plane_access_ipv4_gateway attribute.
     /// </summary>
     public TerraformValue<string> ControlPlaneAccessIpv4Gateway
-        => AsReference("control_plane_access_ipv4_gateway");
+        => CreateReference("control_plane_access_ipv4_gateway");
 
     /// <summary>
     /// The control_plane_access_ipv4_subnet attribute.
     /// </summary>
     public TerraformValue<string> ControlPlaneAccessIpv4Subnet
-        => AsReference("control_plane_access_ipv4_subnet");
+        => CreateReference("control_plane_access_ipv4_subnet");
 
     /// <summary>
     /// The control_plane_access_name attribute.
     /// </summary>
     public TerraformValue<string> ControlPlaneAccessName
-        => AsReference("control_plane_access_name");
+        => CreateReference("control_plane_access_name");
 
     /// <summary>
     /// The core_network_technology attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkTechnology
-        => AsReference("core_network_technology");
+        => CreateReference("core_network_technology");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The interoperability_settings_json attribute.
     /// </summary>
     public TerraformValue<string> InteroperabilitySettingsJson
-        => AsReference("interoperability_settings_json");
+        => CreateReference("interoperability_settings_json");
 
     /// <summary>
     /// The local_diagnostics_access attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LocalDiagnosticsAccess
-        => AsReference("local_diagnostics_access");
+        => CreateReference("local_diagnostics_access");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Platform
-        => AsReference("platform");
+        => CreateReference("platform");
 
     /// <summary>
     /// The site_ids attribute.
     /// </summary>
     public TerraformList<string> SiteIds
-        => AsReference("site_ids");
+        => CreateReference("site_ids");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The software_version attribute.
     /// </summary>
     public TerraformValue<string> SoftwareVersion
-        => AsReference("software_version");
+        => CreateReference("software_version");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The user_equipment_mtu_in_bytes attribute.
     /// </summary>
     public TerraformValue<double> UserEquipmentMtuInBytes
-        => AsReference("user_equipment_mtu_in_bytes");
+        => CreateReference("user_equipment_mtu_in_bytes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

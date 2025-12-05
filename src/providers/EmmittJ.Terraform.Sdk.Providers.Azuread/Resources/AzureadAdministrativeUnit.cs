@@ -91,7 +91,7 @@ public partial class AzureadAdministrativeUnit(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzureadAdministrativeUnit(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string> Members
     {
-        get => GetArgument<TerraformSet<string>>("members") ?? AsReference("members");
+        get => GetArgument<TerraformSet<string>>("members") ?? CreateReference("members");
         set => SetArgument("members", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzureadAdministrativeUnit(string name) : TerraformResource(
     /// The object ID of the administrative unit
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

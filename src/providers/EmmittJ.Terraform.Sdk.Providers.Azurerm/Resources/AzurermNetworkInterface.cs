@@ -18,7 +18,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> GatewayLoadBalancerFrontendIpConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_frontend_ip_configuration_id") ?? AsReference("gateway_load_balancer_frontend_ip_configuration_id");
+        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_frontend_ip_configuration_id") ?? CreateReference("gateway_load_balancer_frontend_ip_configuration_id");
         set => SetArgument("gateway_load_balancer_frontend_ip_configuration_id", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Primary
     {
-        get => GetArgument<TerraformValue<bool>>("primary") ?? AsReference("primary");
+        get => GetArgument<TerraformValue<bool>>("primary") ?? CreateReference("primary");
         set => SetArgument("primary", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? CreateReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -261,37 +261,37 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// The applied_dns_servers attribute.
     /// </summary>
     public TerraformList<string> AppliedDnsServers
-        => AsReference("applied_dns_servers");
+        => CreateReference("applied_dns_servers");
 
     /// <summary>
     /// The internal_domain_name_suffix attribute.
     /// </summary>
     public TerraformValue<string> InternalDomainNameSuffix
-        => AsReference("internal_domain_name_suffix");
+        => CreateReference("internal_domain_name_suffix");
 
     /// <summary>
     /// The mac_address attribute.
     /// </summary>
     public TerraformValue<string> MacAddress
-        => AsReference("mac_address");
+        => CreateReference("mac_address");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-        => AsReference("private_ip_addresses");
+        => CreateReference("private_ip_addresses");
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualMachineId
-        => AsReference("virtual_machine_id");
+        => CreateReference("virtual_machine_id");
 
     /// <summary>
     /// IpConfiguration block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermPrivateLinkServiceDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermPrivateLinkServiceDataSource(string name) : Terrafor
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-        => AsReference("alias");
+        => CreateReference("alias");
 
     /// <summary>
     /// The auto_approval_subscription_ids attribute.
     /// </summary>
     public TerraformList<string> AutoApprovalSubscriptionIds
-        => AsReference("auto_approval_subscription_ids");
+        => CreateReference("auto_approval_subscription_ids");
 
     /// <summary>
     /// The enable_proxy_protocol attribute.
     /// </summary>
     public TerraformValue<bool> EnableProxyProtocol
-        => AsReference("enable_proxy_protocol");
+        => CreateReference("enable_proxy_protocol");
 
     /// <summary>
     /// The load_balancer_frontend_ip_configuration_ids attribute.
     /// </summary>
     public TerraformList<string> LoadBalancerFrontendIpConfigurationIds
-        => AsReference("load_balancer_frontend_ip_configuration_ids");
+        => CreateReference("load_balancer_frontend_ip_configuration_ids");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The nat_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NatIpConfiguration
-        => AsReference("nat_ip_configuration");
+        => CreateReference("nat_ip_configuration");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The visibility_subscription_ids attribute.
     /// </summary>
     public TerraformList<string> VisibilitySubscriptionIds
-        => AsReference("visibility_subscription_ids");
+        => CreateReference("visibility_subscription_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<string> AmiType
     {
-        get => GetArgument<TerraformValue<string>>("ami_type") ?? AsReference("ami_type");
+        get => GetArgument<TerraformValue<string>>("ami_type") ?? CreateReference("ami_type");
         set => SetArgument("ami_type", value);
     }
 
@@ -279,7 +279,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<string> CapacityType
     {
-        get => GetArgument<TerraformValue<string>>("capacity_type") ?? AsReference("capacity_type");
+        get => GetArgument<TerraformValue<string>>("capacity_type") ?? CreateReference("capacity_type");
         set => SetArgument("capacity_type", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<double> DiskSize
     {
-        get => GetArgument<TerraformValue<double>>("disk_size") ?? AsReference("disk_size");
+        get => GetArgument<TerraformValue<double>>("disk_size") ?? CreateReference("disk_size");
         set => SetArgument("disk_size", value);
     }
 
@@ -316,7 +316,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformList<string> InstanceTypes
     {
-        get => GetArgument<TerraformList<string>>("instance_types") ?? AsReference("instance_types");
+        get => GetArgument<TerraformList<string>>("instance_types") ?? CreateReference("instance_types");
         set => SetArgument("instance_types", value);
     }
 
@@ -343,7 +343,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<string> NodeGroupName
     {
-        get => GetArgument<TerraformValue<string>>("node_group_name") ?? AsReference("node_group_name");
+        get => GetArgument<TerraformValue<string>>("node_group_name") ?? CreateReference("node_group_name");
         set => SetArgument("node_group_name", value);
     }
 
@@ -352,7 +352,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<string> NodeGroupNamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("node_group_name_prefix") ?? AsReference("node_group_name_prefix");
+        get => GetArgument<TerraformValue<string>>("node_group_name_prefix") ?? CreateReference("node_group_name_prefix");
         set => SetArgument("node_group_name_prefix", value);
     }
 
@@ -371,7 +371,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -380,7 +380,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<string> ReleaseVersion
     {
-        get => GetArgument<TerraformValue<string>>("release_version") ?? AsReference("release_version");
+        get => GetArgument<TerraformValue<string>>("release_version") ?? CreateReference("release_version");
         set => SetArgument("release_version", value);
     }
 
@@ -408,7 +408,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -417,7 +417,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -425,19 +425,19 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Resources
-        => AsReference("resources");
+        => CreateReference("resources");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// LaunchTemplate block (nesting mode: list).

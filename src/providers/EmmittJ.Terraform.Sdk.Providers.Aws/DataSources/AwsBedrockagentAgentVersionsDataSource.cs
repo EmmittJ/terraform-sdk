@@ -17,37 +17,37 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : 
     /// The agent_name attribute.
     /// </summary>
     public TerraformValue<string> AgentName
-        => AsReference("agent_name");
+        => CreateReference("agent_name");
 
     /// <summary>
     /// The agent_status attribute.
     /// </summary>
     public TerraformValue<string> AgentStatus
-        => AsReference("agent_status");
+        => CreateReference("agent_status");
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
     public TerraformValue<string> AgentVersion
-        => AsReference("agent_version");
+        => CreateReference("agent_version");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
     /// <summary>
     /// GuardrailConfiguration block (nesting mode: list).
@@ -75,13 +75,13 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlockGua
     /// The guardrail_identifier attribute.
     /// </summary>
     public TerraformValue<string> GuardrailIdentifier
-        => AsReference("guardrail_identifier");
+        => CreateReference("guardrail_identifier");
 
     /// <summary>
     /// The guardrail_version attribute.
     /// </summary>
     public TerraformValue<string> GuardrailVersion
-        => AsReference("guardrail_version");
+        => CreateReference("guardrail_version");
 
 }
 
@@ -107,7 +107,7 @@ public partial class AwsBedrockagentAgentVersionsDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

@@ -54,7 +54,7 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// </summary>
     public TerraformValue<bool> Authorized
     {
-        get => GetArgument<TerraformValue<bool>>("authorized") ?? AsReference("authorized");
+        get => GetArgument<TerraformValue<bool>>("authorized") ?? CreateReference("authorized");
         set => SetArgument("authorized", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// </summary>
     public TerraformValue<string> LatencyMode
     {
-        get => GetArgument<TerraformValue<string>>("latency_mode") ?? AsReference("latency_mode");
+        get => GetArgument<TerraformValue<string>>("latency_mode") ?? CreateReference("latency_mode");
         set => SetArgument("latency_mode", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// </summary>
     public TerraformValue<string> RecordingConfigurationArn
     {
-        get => GetArgument<TerraformValue<string>>("recording_configuration_arn") ?? AsReference("recording_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("recording_configuration_arn") ?? CreateReference("recording_configuration_arn");
         set => SetArgument("recording_configuration_arn", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// </summary>
     public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? CreateReference("type");
         set => SetArgument("type", value);
     }
 
@@ -134,19 +134,19 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The ingest_endpoint attribute.
     /// </summary>
     public TerraformValue<string> IngestEndpoint
-        => AsReference("ingest_endpoint");
+        => CreateReference("ingest_endpoint");
 
     /// <summary>
     /// The playback_url attribute.
     /// </summary>
     public TerraformValue<string> PlaybackUrl
-        => AsReference("playback_url");
+        => CreateReference("playback_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

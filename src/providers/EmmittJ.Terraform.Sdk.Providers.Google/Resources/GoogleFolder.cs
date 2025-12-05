@@ -82,7 +82,7 @@ public partial class GoogleFolder(string name) : TerraformResource("google_folde
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -109,37 +109,37 @@ public partial class GoogleFolder(string name) : TerraformResource("google_folde
     /// A list of capabilities that are configured for this folder.
     /// </summary>
     public TerraformList<string> ConfiguredCapabilities
-        => AsReference("configured_capabilities");
+        => CreateReference("configured_capabilities");
 
     /// <summary>
     /// Timestamp when the Folder was created. Assigned by the server. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The folder id from the name &amp;quot;folders/{folder_id}&amp;quot;
     /// </summary>
     public TerraformValue<string> FolderId
-        => AsReference("folder_id");
+        => CreateReference("folder_id");
 
     /// <summary>
     /// The lifecycle state of the folder such as ACTIVE or DELETE_REQUESTED.
     /// </summary>
     public TerraformValue<string> LifecycleState
-        => AsReference("lifecycle_state");
+        => CreateReference("lifecycle_state");
 
     /// <summary>
     /// The Management Project associated with the folder&#39;s configured capabilities.
     /// </summary>
     public TerraformValue<string> ManagementProject
-        => AsReference("management_project");
+        => CreateReference("management_project");
 
     /// <summary>
     /// The resource name of the Folder. Its format is folders/{folder_id}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

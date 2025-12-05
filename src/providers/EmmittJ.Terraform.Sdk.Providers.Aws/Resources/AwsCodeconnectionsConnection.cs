@@ -73,7 +73,7 @@ public partial class AwsCodeconnectionsConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> ProviderType
     {
-        get => GetArgument<TerraformValue<string>>("provider_type") ?? AsReference("provider_type");
+        get => GetArgument<TerraformValue<string>>("provider_type") ?? CreateReference("provider_type");
         set => SetArgument("provider_type", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsCodeconnectionsConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -99,32 +99,32 @@ public partial class AwsCodeconnectionsConnection(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The connection_status attribute.
     /// </summary>
     public TerraformValue<string> ConnectionStatus
-        => AsReference("connection_status");
+        => CreateReference("connection_status");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

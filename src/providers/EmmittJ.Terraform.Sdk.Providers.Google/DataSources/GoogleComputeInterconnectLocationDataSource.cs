@@ -13,7 +13,7 @@ public partial class GoogleComputeInterconnectLocationDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleComputeInterconnectLocationDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -40,60 +40,60 @@ public partial class GoogleComputeInterconnectLocationDataSource(string name) : 
     /// The address attribute.
     /// </summary>
     public TerraformValue<string> Address
-        => AsReference("address");
+        => CreateReference("address");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The city attribute.
     /// </summary>
     public TerraformValue<string> City
-        => AsReference("city");
+        => CreateReference("city");
 
     /// <summary>
     /// The continent attribute.
     /// </summary>
     public TerraformValue<string> Continent
-        => AsReference("continent");
+        => CreateReference("continent");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The facility_provider attribute.
     /// </summary>
     public TerraformValue<string> FacilityProvider
-        => AsReference("facility_provider");
+        => CreateReference("facility_provider");
 
     /// <summary>
     /// The facility_provider_facility_id attribute.
     /// </summary>
     public TerraformValue<string> FacilityProviderFacilityId
-        => AsReference("facility_provider_facility_id");
+        => CreateReference("facility_provider_facility_id");
 
     /// <summary>
     /// The peeringdb_facility_id attribute.
     /// </summary>
     public TerraformValue<string> PeeringdbFacilityId
-        => AsReference("peeringdb_facility_id");
+        => CreateReference("peeringdb_facility_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

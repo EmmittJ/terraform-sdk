@@ -32,7 +32,7 @@ public partial class AwsCognitoUserPoolDomain(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCognitoUserPoolDomain(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> ManagedLoginVersion
     {
-        get => GetArgument<TerraformValue<double>>("managed_login_version") ?? AsReference("managed_login_version");
+        get => GetArgument<TerraformValue<double>>("managed_login_version") ?? CreateReference("managed_login_version");
         set => SetArgument("managed_login_version", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsCognitoUserPoolDomain(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -68,36 +68,36 @@ public partial class AwsCognitoUserPoolDomain(string name) : TerraformResource("
     /// The aws_account_id attribute.
     /// </summary>
     public TerraformValue<string> AwsAccountId
-        => AsReference("aws_account_id");
+        => CreateReference("aws_account_id");
 
     /// <summary>
     /// The cloudfront_distribution attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontDistribution
-        => AsReference("cloudfront_distribution");
+        => CreateReference("cloudfront_distribution");
 
     /// <summary>
     /// The cloudfront_distribution_arn attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontDistributionArn
-        => AsReference("cloudfront_distribution_arn");
+        => CreateReference("cloudfront_distribution_arn");
 
     /// <summary>
     /// The cloudfront_distribution_zone_id attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontDistributionZoneId
-        => AsReference("cloudfront_distribution_zone_id");
+        => CreateReference("cloudfront_distribution_zone_id");
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
     public TerraformValue<string> S3Bucket
-        => AsReference("s3_bucket");
+        => CreateReference("s3_bucket");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

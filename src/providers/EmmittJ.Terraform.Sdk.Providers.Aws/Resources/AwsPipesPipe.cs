@@ -344,7 +344,7 @@ public class AwsPipesPipeSourceParametersBlockActivemqBrokerParametersBlock : Te
     /// </summary>
     public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? CreateReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -353,7 +353,7 @@ public class AwsPipesPipeSourceParametersBlockActivemqBrokerParametersBlock : Te
     /// </summary>
     public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? CreateReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -421,7 +421,7 @@ public class AwsPipesPipeSourceParametersBlockDynamodbStreamParametersBlock : Te
     /// </summary>
     public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? CreateReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -430,7 +430,7 @@ public class AwsPipesPipeSourceParametersBlockDynamodbStreamParametersBlock : Te
     /// </summary>
     public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? CreateReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -439,7 +439,7 @@ public class AwsPipesPipeSourceParametersBlockDynamodbStreamParametersBlock : Te
     /// </summary>
     public TerraformValue<double> MaximumRecordAgeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds") ?? AsReference("maximum_record_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds") ?? CreateReference("maximum_record_age_in_seconds");
         set => SetArgument("maximum_record_age_in_seconds", value);
     }
 
@@ -466,7 +466,7 @@ public class AwsPipesPipeSourceParametersBlockDynamodbStreamParametersBlock : Te
     /// </summary>
     public TerraformValue<double> ParallelizationFactor
     {
-        get => GetArgument<TerraformValue<double>>("parallelization_factor") ?? AsReference("parallelization_factor");
+        get => GetArgument<TerraformValue<double>>("parallelization_factor") ?? CreateReference("parallelization_factor");
         set => SetArgument("parallelization_factor", value);
     }
 
@@ -576,7 +576,7 @@ public class AwsPipesPipeSourceParametersBlockKinesisStreamParametersBlock : Ter
     /// </summary>
     public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? CreateReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -585,7 +585,7 @@ public class AwsPipesPipeSourceParametersBlockKinesisStreamParametersBlock : Ter
     /// </summary>
     public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? CreateReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -594,7 +594,7 @@ public class AwsPipesPipeSourceParametersBlockKinesisStreamParametersBlock : Ter
     /// </summary>
     public TerraformValue<double> MaximumRecordAgeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds") ?? AsReference("maximum_record_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds") ?? CreateReference("maximum_record_age_in_seconds");
         set => SetArgument("maximum_record_age_in_seconds", value);
     }
 
@@ -621,7 +621,7 @@ public class AwsPipesPipeSourceParametersBlockKinesisStreamParametersBlock : Ter
     /// </summary>
     public TerraformValue<double> ParallelizationFactor
     {
-        get => GetArgument<TerraformValue<double>>("parallelization_factor") ?? AsReference("parallelization_factor");
+        get => GetArgument<TerraformValue<double>>("parallelization_factor") ?? CreateReference("parallelization_factor");
         set => SetArgument("parallelization_factor", value);
     }
 
@@ -694,7 +694,7 @@ public class AwsPipesPipeSourceParametersBlockManagedStreamingKafkaParametersBlo
     /// </summary>
     public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? CreateReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -712,7 +712,7 @@ public class AwsPipesPipeSourceParametersBlockManagedStreamingKafkaParametersBlo
     /// </summary>
     public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? CreateReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -794,7 +794,7 @@ public class AwsPipesPipeSourceParametersBlockRabbitmqBrokerParametersBlock : Te
     /// </summary>
     public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? CreateReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -803,7 +803,7 @@ public class AwsPipesPipeSourceParametersBlockRabbitmqBrokerParametersBlock : Te
     /// </summary>
     public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? CreateReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -889,7 +889,7 @@ public class AwsPipesPipeSourceParametersBlockSelfManagedKafkaParametersBlock : 
     /// </summary>
     public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? CreateReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -907,7 +907,7 @@ public class AwsPipesPipeSourceParametersBlockSelfManagedKafkaParametersBlock : 
     /// </summary>
     public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? CreateReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -1057,7 +1057,7 @@ public class AwsPipesPipeSourceParametersBlockSqsQueueParametersBlock : Terrafor
     /// </summary>
     public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? CreateReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -1066,7 +1066,7 @@ public class AwsPipesPipeSourceParametersBlockSqsQueueParametersBlock : Terrafor
     /// </summary>
     public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? CreateReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -2542,7 +2542,7 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2560,7 +2560,7 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -2569,7 +2569,7 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -2578,7 +2578,7 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -2616,7 +2616,7 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -2634,7 +2634,7 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// EnrichmentParameters block (nesting mode: list).

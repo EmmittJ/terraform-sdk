@@ -13,7 +13,7 @@ public partial class GoogleContainerAzureVersionsDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -39,12 +39,12 @@ public partial class GoogleContainerAzureVersionsDataSource(string name) : Terra
     /// The supported_regions attribute.
     /// </summary>
     public TerraformList<string> SupportedRegions
-        => AsReference("supported_regions");
+        => CreateReference("supported_regions");
 
     /// <summary>
     /// The valid_versions attribute.
     /// </summary>
     public TerraformList<string> ValidVersions
-        => AsReference("valid_versions");
+        => CreateReference("valid_versions");
 
 }

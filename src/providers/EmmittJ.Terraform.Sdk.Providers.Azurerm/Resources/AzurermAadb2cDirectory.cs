@@ -63,7 +63,7 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? CreateReference("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -138,19 +138,19 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
     /// </summary>
     public TerraformValue<string> BillingType
-        => AsReference("billing_type");
+        => CreateReference("billing_type");
 
     /// <summary>
     /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
     /// </summary>
     public TerraformValue<string> EffectiveStartDate
-        => AsReference("effective_start_date");
+        => CreateReference("effective_start_date");
 
     /// <summary>
     /// The Tenant ID for the B2C tenant.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

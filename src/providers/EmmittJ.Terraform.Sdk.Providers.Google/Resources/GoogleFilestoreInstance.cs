@@ -215,7 +215,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     /// A list of IPv4 or IPv6 addresses.
     /// </summary>
     public TerraformList<string> IpAddresses
-        => AsReference("ip_addresses");
+        => CreateReference("ip_addresses");
 
     /// <summary>
     /// IP versions for which the instance has
@@ -245,7 +245,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ReservedIpRange
     {
-        get => GetArgument<TerraformValue<string>>("reserved_ip_range") ?? AsReference("reserved_ip_range");
+        get => GetArgument<TerraformValue<string>>("reserved_ip_range") ?? CreateReference("reserved_ip_range");
         set => SetArgument("reserved_ip_range", value);
     }
 
@@ -449,7 +449,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -480,7 +480,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -499,7 +499,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -549,7 +549,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -557,33 +557,33 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Output only fields for replication configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveReplication
-        => AsReference("effective_replication");
+        => CreateReference("effective_replication");
 
     /// <summary>
     /// Server-specified ETag for the instance resource to prevent
     /// simultaneous updates from overwriting each other.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// FileShares block (nesting mode: list).

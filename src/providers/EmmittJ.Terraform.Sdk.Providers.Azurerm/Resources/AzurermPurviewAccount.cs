@@ -26,13 +26,13 @@ public class AzurermPurviewAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -108,7 +108,7 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> ManagedResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("managed_resource_group_name") ?? AsReference("managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name") ?? CreateReference("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -182,43 +182,43 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     /// The atlas_kafka_endpoint_primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> AtlasKafkaEndpointPrimaryConnectionString
-        => AsReference("atlas_kafka_endpoint_primary_connection_string");
+        => CreateReference("atlas_kafka_endpoint_primary_connection_string");
 
     /// <summary>
     /// The atlas_kafka_endpoint_secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> AtlasKafkaEndpointSecondaryConnectionString
-        => AsReference("atlas_kafka_endpoint_secondary_connection_string");
+        => CreateReference("atlas_kafka_endpoint_secondary_connection_string");
 
     /// <summary>
     /// The aws_external_id attribute.
     /// </summary>
     public TerraformValue<string> AwsExternalId
-        => AsReference("aws_external_id");
+        => CreateReference("aws_external_id");
 
     /// <summary>
     /// The catalog_endpoint attribute.
     /// </summary>
     public TerraformValue<string> CatalogEndpoint
-        => AsReference("catalog_endpoint");
+        => CreateReference("catalog_endpoint");
 
     /// <summary>
     /// The guardian_endpoint attribute.
     /// </summary>
     public TerraformValue<string> GuardianEndpoint
-        => AsReference("guardian_endpoint");
+        => CreateReference("guardian_endpoint");
 
     /// <summary>
     /// The managed_resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedResources
-        => AsReference("managed_resources");
+        => CreateReference("managed_resources");
 
     /// <summary>
     /// The scan_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ScanEndpoint
-        => AsReference("scan_endpoint");
+        => CreateReference("scan_endpoint");
 
     /// <summary>
     /// Identity block (nesting mode: list).

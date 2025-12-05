@@ -23,7 +23,7 @@ public partial class GoogleComposerUserWorkloadsConfigMapDataSource(string name)
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -60,6 +60,6 @@ public partial class GoogleComposerUserWorkloadsConfigMapDataSource(string name)
     /// For details see: https://kubernetes.io/docs/concepts/configuration/configmap/
     /// </summary>
     public TerraformMap<string> Data
-        => AsReference("data");
+        => CreateReference("data");
 
 }

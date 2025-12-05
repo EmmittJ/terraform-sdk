@@ -223,7 +223,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -326,7 +326,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// The outputs attribute.
     /// </summary>
     public TerraformValue<string> Outputs
-        => AsReference("outputs");
+        => CreateReference("outputs");
 
     /// <summary>
     /// Container block (nesting mode: list).

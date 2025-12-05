@@ -45,7 +45,7 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> CacheNamespace
     {
-        get => GetArgument<TerraformValue<string>>("cache_namespace") ?? AsReference("cache_namespace");
+        get => GetArgument<TerraformValue<string>>("cache_namespace") ?? CreateReference("cache_namespace");
         set => SetArgument("cache_namespace", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> PassthroughBehavior
     {
-        get => GetArgument<TerraformValue<string>>("passthrough_behavior") ?? AsReference("passthrough_behavior");
+        get => GetArgument<TerraformValue<string>>("passthrough_behavior") ?? CreateReference("passthrough_behavior");
         set => SetArgument("passthrough_behavior", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

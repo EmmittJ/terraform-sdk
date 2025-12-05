@@ -52,7 +52,7 @@ public class AzurermCdnFrontdoorSecretSecretBlockCustomerCertificateBlock : Terr
     /// The subject_alternative_names attribute.
     /// </summary>
     public TerraformList<string> SubjectAlternativeNames
-        => AsReference("subject_alternative_names");
+        => CreateReference("subject_alternative_names");
 
 }
 
@@ -119,7 +119,7 @@ public partial class AzurermCdnFrontdoorSecret(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermCdnFrontdoorSecret(string name) : TerraformResource(
     /// The cdn_frontdoor_profile_name attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorProfileName
-        => AsReference("cdn_frontdoor_profile_name");
+        => CreateReference("cdn_frontdoor_profile_name");
 
     /// <summary>
     /// Secret block (nesting mode: list).

@@ -63,7 +63,7 @@ public partial class GoogleVmwareengineNetwork(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleVmwareengineNetwork(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -112,26 +112,26 @@ public partial class GoogleVmwareengineNetwork(string name) : TerraformResource(
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Checksum that may be sent on update and delete requests to ensure that the user-provided value is up to date befor
     /// The server computes checksums based on the value of other fields in the request.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// State of the VMware Engine network.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Last update time of this resource.
@@ -139,14 +139,14 @@ public partial class GoogleVmwareengineNetwork(string name) : TerraformResource(
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// VMware Engine service VPC networks that provide connectivity from a private cloud to customer projects,
     /// the internet, and other Google Cloud services.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpcNetworks
-        => AsReference("vpc_networks");
+        => CreateReference("vpc_networks");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -148,7 +148,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> EndpointLocation
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_location") ?? AsReference("endpoint_location");
+        get => GetArgument<TerraformValue<string>>("endpoint_location") ?? CreateReference("endpoint_location");
         set => SetArgument("endpoint_location", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// </summary>
     public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? CreateReference("priority");
         set => SetArgument("priority", value);
     }
 

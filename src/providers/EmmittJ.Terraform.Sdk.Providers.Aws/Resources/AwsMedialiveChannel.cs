@@ -314,7 +314,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<string> AudioType
     {
-        get => GetArgument<TerraformValue<string>>("audio_type") ?? AsReference("audio_type");
+        get => GetArgument<TerraformValue<string>>("audio_type") ?? CreateReference("audio_type");
         set => SetArgument("audio_type", value);
     }
 
@@ -323,7 +323,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<string> AudioTypeControl
     {
-        get => GetArgument<TerraformValue<string>>("audio_type_control") ?? AsReference("audio_type_control");
+        get => GetArgument<TerraformValue<string>>("audio_type_control") ?? CreateReference("audio_type_control");
         set => SetArgument("audio_type_control", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code") ?? AsReference("language_code");
+        get => GetArgument<TerraformValue<string>>("language_code") ?? CreateReference("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -341,7 +341,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<string> LanguageCodeControl
     {
-        get => GetArgument<TerraformValue<string>>("language_code_control") ?? AsReference("language_code_control");
+        get => GetArgument<TerraformValue<string>>("language_code_control") ?? CreateReference("language_code_control");
         set => SetArgument("language_code_control", value);
     }
 
@@ -360,7 +360,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<string> StreamName
     {
-        get => GetArgument<TerraformValue<string>>("stream_name") ?? AsReference("stream_name");
+        get => GetArgument<TerraformValue<string>>("stream_name") ?? CreateReference("stream_name");
         set => SetArgument("stream_name", value);
     }
 
@@ -422,7 +422,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioN
     /// </summary>
     public TerraformValue<string> Algorithm
     {
-        get => GetArgument<TerraformValue<string>>("algorithm") ?? AsReference("algorithm");
+        get => GetArgument<TerraformValue<string>>("algorithm") ?? CreateReference("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -431,7 +431,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioN
     /// </summary>
     public TerraformValue<string> AlgorithmControl
     {
-        get => GetArgument<TerraformValue<string>>("algorithm_control") ?? AsReference("algorithm_control");
+        get => GetArgument<TerraformValue<string>>("algorithm_control") ?? CreateReference("algorithm_control");
         set => SetArgument("algorithm_control", value);
     }
 
@@ -440,7 +440,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioN
     /// </summary>
     public TerraformValue<double> TargetLkfs
     {
-        get => GetArgument<TerraformValue<double>>("target_lkfs") ?? AsReference("target_lkfs");
+        get => GetArgument<TerraformValue<double>>("target_lkfs") ?? CreateReference("target_lkfs");
         set => SetArgument("target_lkfs", value);
     }
 
@@ -485,7 +485,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioW
     /// </summary>
     public TerraformValue<string> NielsenDistributionType
     {
-        get => GetArgument<TerraformValue<string>>("nielsen_distribution_type") ?? AsReference("nielsen_distribution_type");
+        get => GetArgument<TerraformValue<string>>("nielsen_distribution_type") ?? CreateReference("nielsen_distribution_type");
         set => SetArgument("nielsen_distribution_type", value);
     }
 
@@ -685,7 +685,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? CreateReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
@@ -694,7 +694,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? CreateReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
@@ -703,7 +703,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> InputType
     {
-        get => GetArgument<TerraformValue<string>>("input_type") ?? AsReference("input_type");
+        get => GetArgument<TerraformValue<string>>("input_type") ?? CreateReference("input_type");
         set => SetArgument("input_type", value);
     }
 
@@ -712,7 +712,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile") ?? AsReference("profile");
+        get => GetArgument<TerraformValue<string>>("profile") ?? CreateReference("profile");
         set => SetArgument("profile", value);
     }
 
@@ -721,7 +721,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> RateControlMode
     {
-        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? AsReference("rate_control_mode");
+        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? CreateReference("rate_control_mode");
         set => SetArgument("rate_control_mode", value);
     }
 
@@ -730,7 +730,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> RawFormat
     {
-        get => GetArgument<TerraformValue<string>>("raw_format") ?? AsReference("raw_format");
+        get => GetArgument<TerraformValue<string>>("raw_format") ?? CreateReference("raw_format");
         set => SetArgument("raw_format", value);
     }
 
@@ -739,7 +739,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> SampleRate
     {
-        get => GetArgument<TerraformValue<double>>("sample_rate") ?? AsReference("sample_rate");
+        get => GetArgument<TerraformValue<double>>("sample_rate") ?? CreateReference("sample_rate");
         set => SetArgument("sample_rate", value);
     }
 
@@ -748,7 +748,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> Spec
     {
-        get => GetArgument<TerraformValue<string>>("spec") ?? AsReference("spec");
+        get => GetArgument<TerraformValue<string>>("spec") ?? CreateReference("spec");
         set => SetArgument("spec", value);
     }
 
@@ -757,7 +757,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> VbrQuality
     {
-        get => GetArgument<TerraformValue<string>>("vbr_quality") ?? AsReference("vbr_quality");
+        get => GetArgument<TerraformValue<string>>("vbr_quality") ?? CreateReference("vbr_quality");
         set => SetArgument("vbr_quality", value);
     }
 
@@ -779,7 +779,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? CreateReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
@@ -788,7 +788,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> BitstreamMode
     {
-        get => GetArgument<TerraformValue<string>>("bitstream_mode") ?? AsReference("bitstream_mode");
+        get => GetArgument<TerraformValue<string>>("bitstream_mode") ?? CreateReference("bitstream_mode");
         set => SetArgument("bitstream_mode", value);
     }
 
@@ -797,7 +797,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? CreateReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
@@ -806,7 +806,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Dialnorm
     {
-        get => GetArgument<TerraformValue<double>>("dialnorm") ?? AsReference("dialnorm");
+        get => GetArgument<TerraformValue<double>>("dialnorm") ?? CreateReference("dialnorm");
         set => SetArgument("dialnorm", value);
     }
 
@@ -815,7 +815,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> DrcProfile
     {
-        get => GetArgument<TerraformValue<string>>("drc_profile") ?? AsReference("drc_profile");
+        get => GetArgument<TerraformValue<string>>("drc_profile") ?? CreateReference("drc_profile");
         set => SetArgument("drc_profile", value);
     }
 
@@ -824,7 +824,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> LfeFilter
     {
-        get => GetArgument<TerraformValue<string>>("lfe_filter") ?? AsReference("lfe_filter");
+        get => GetArgument<TerraformValue<string>>("lfe_filter") ?? CreateReference("lfe_filter");
         set => SetArgument("lfe_filter", value);
     }
 
@@ -833,7 +833,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> MetadataControl
     {
-        get => GetArgument<TerraformValue<string>>("metadata_control") ?? AsReference("metadata_control");
+        get => GetArgument<TerraformValue<string>>("metadata_control") ?? CreateReference("metadata_control");
         set => SetArgument("metadata_control", value);
     }
 
@@ -855,7 +855,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? CreateReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
@@ -864,7 +864,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? CreateReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
@@ -873,7 +873,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Dialnorm
     {
-        get => GetArgument<TerraformValue<double>>("dialnorm") ?? AsReference("dialnorm");
+        get => GetArgument<TerraformValue<double>>("dialnorm") ?? CreateReference("dialnorm");
         set => SetArgument("dialnorm", value);
     }
 
@@ -882,7 +882,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> DrcLine
     {
-        get => GetArgument<TerraformValue<string>>("drc_line") ?? AsReference("drc_line");
+        get => GetArgument<TerraformValue<string>>("drc_line") ?? CreateReference("drc_line");
         set => SetArgument("drc_line", value);
     }
 
@@ -891,7 +891,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> DrcRf
     {
-        get => GetArgument<TerraformValue<string>>("drc_rf") ?? AsReference("drc_rf");
+        get => GetArgument<TerraformValue<string>>("drc_rf") ?? CreateReference("drc_rf");
         set => SetArgument("drc_rf", value);
     }
 
@@ -900,7 +900,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> HeightTrim
     {
-        get => GetArgument<TerraformValue<double>>("height_trim") ?? AsReference("height_trim");
+        get => GetArgument<TerraformValue<double>>("height_trim") ?? CreateReference("height_trim");
         set => SetArgument("height_trim", value);
     }
 
@@ -909,7 +909,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> SurroundTrim
     {
-        get => GetArgument<TerraformValue<double>>("surround_trim") ?? AsReference("surround_trim");
+        get => GetArgument<TerraformValue<double>>("surround_trim") ?? CreateReference("surround_trim");
         set => SetArgument("surround_trim", value);
     }
 
@@ -931,7 +931,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> AttenuationControl
     {
-        get => GetArgument<TerraformValue<string>>("attenuation_control") ?? AsReference("attenuation_control");
+        get => GetArgument<TerraformValue<string>>("attenuation_control") ?? CreateReference("attenuation_control");
         set => SetArgument("attenuation_control", value);
     }
 
@@ -940,7 +940,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? CreateReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
@@ -949,7 +949,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> BitstreamMode
     {
-        get => GetArgument<TerraformValue<string>>("bitstream_mode") ?? AsReference("bitstream_mode");
+        get => GetArgument<TerraformValue<string>>("bitstream_mode") ?? CreateReference("bitstream_mode");
         set => SetArgument("bitstream_mode", value);
     }
 
@@ -958,7 +958,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? CreateReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
@@ -967,7 +967,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> DcFilter
     {
-        get => GetArgument<TerraformValue<string>>("dc_filter") ?? AsReference("dc_filter");
+        get => GetArgument<TerraformValue<string>>("dc_filter") ?? CreateReference("dc_filter");
         set => SetArgument("dc_filter", value);
     }
 
@@ -976,7 +976,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Dialnorm
     {
-        get => GetArgument<TerraformValue<double>>("dialnorm") ?? AsReference("dialnorm");
+        get => GetArgument<TerraformValue<double>>("dialnorm") ?? CreateReference("dialnorm");
         set => SetArgument("dialnorm", value);
     }
 
@@ -985,7 +985,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> DrcLine
     {
-        get => GetArgument<TerraformValue<string>>("drc_line") ?? AsReference("drc_line");
+        get => GetArgument<TerraformValue<string>>("drc_line") ?? CreateReference("drc_line");
         set => SetArgument("drc_line", value);
     }
 
@@ -994,7 +994,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> DrcRf
     {
-        get => GetArgument<TerraformValue<string>>("drc_rf") ?? AsReference("drc_rf");
+        get => GetArgument<TerraformValue<string>>("drc_rf") ?? CreateReference("drc_rf");
         set => SetArgument("drc_rf", value);
     }
 
@@ -1003,7 +1003,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> LfeControl
     {
-        get => GetArgument<TerraformValue<string>>("lfe_control") ?? AsReference("lfe_control");
+        get => GetArgument<TerraformValue<string>>("lfe_control") ?? CreateReference("lfe_control");
         set => SetArgument("lfe_control", value);
     }
 
@@ -1012,7 +1012,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> LfeFilter
     {
-        get => GetArgument<TerraformValue<string>>("lfe_filter") ?? AsReference("lfe_filter");
+        get => GetArgument<TerraformValue<string>>("lfe_filter") ?? CreateReference("lfe_filter");
         set => SetArgument("lfe_filter", value);
     }
 
@@ -1021,7 +1021,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> LoRoCenterMixLevel
     {
-        get => GetArgument<TerraformValue<double>>("lo_ro_center_mix_level") ?? AsReference("lo_ro_center_mix_level");
+        get => GetArgument<TerraformValue<double>>("lo_ro_center_mix_level") ?? CreateReference("lo_ro_center_mix_level");
         set => SetArgument("lo_ro_center_mix_level", value);
     }
 
@@ -1030,7 +1030,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> LoRoSurroundMixLevel
     {
-        get => GetArgument<TerraformValue<double>>("lo_ro_surround_mix_level") ?? AsReference("lo_ro_surround_mix_level");
+        get => GetArgument<TerraformValue<double>>("lo_ro_surround_mix_level") ?? CreateReference("lo_ro_surround_mix_level");
         set => SetArgument("lo_ro_surround_mix_level", value);
     }
 
@@ -1039,7 +1039,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> LtRtCenterMixLevel
     {
-        get => GetArgument<TerraformValue<double>>("lt_rt_center_mix_level") ?? AsReference("lt_rt_center_mix_level");
+        get => GetArgument<TerraformValue<double>>("lt_rt_center_mix_level") ?? CreateReference("lt_rt_center_mix_level");
         set => SetArgument("lt_rt_center_mix_level", value);
     }
 
@@ -1048,7 +1048,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> LtRtSurroundMixLevel
     {
-        get => GetArgument<TerraformValue<double>>("lt_rt_surround_mix_level") ?? AsReference("lt_rt_surround_mix_level");
+        get => GetArgument<TerraformValue<double>>("lt_rt_surround_mix_level") ?? CreateReference("lt_rt_surround_mix_level");
         set => SetArgument("lt_rt_surround_mix_level", value);
     }
 
@@ -1057,7 +1057,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> MetadataControl
     {
-        get => GetArgument<TerraformValue<string>>("metadata_control") ?? AsReference("metadata_control");
+        get => GetArgument<TerraformValue<string>>("metadata_control") ?? CreateReference("metadata_control");
         set => SetArgument("metadata_control", value);
     }
 
@@ -1066,7 +1066,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> PassthroughControl
     {
-        get => GetArgument<TerraformValue<string>>("passthrough_control") ?? AsReference("passthrough_control");
+        get => GetArgument<TerraformValue<string>>("passthrough_control") ?? CreateReference("passthrough_control");
         set => SetArgument("passthrough_control", value);
     }
 
@@ -1075,7 +1075,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> PhaseControl
     {
-        get => GetArgument<TerraformValue<string>>("phase_control") ?? AsReference("phase_control");
+        get => GetArgument<TerraformValue<string>>("phase_control") ?? CreateReference("phase_control");
         set => SetArgument("phase_control", value);
     }
 
@@ -1084,7 +1084,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> StereoDownmix
     {
-        get => GetArgument<TerraformValue<string>>("stereo_downmix") ?? AsReference("stereo_downmix");
+        get => GetArgument<TerraformValue<string>>("stereo_downmix") ?? CreateReference("stereo_downmix");
         set => SetArgument("stereo_downmix", value);
     }
 
@@ -1093,7 +1093,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> SurroundExMode
     {
-        get => GetArgument<TerraformValue<string>>("surround_ex_mode") ?? AsReference("surround_ex_mode");
+        get => GetArgument<TerraformValue<string>>("surround_ex_mode") ?? CreateReference("surround_ex_mode");
         set => SetArgument("surround_ex_mode", value);
     }
 
@@ -1102,7 +1102,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> SurroundMode
     {
-        get => GetArgument<TerraformValue<string>>("surround_mode") ?? AsReference("surround_mode");
+        get => GetArgument<TerraformValue<string>>("surround_mode") ?? CreateReference("surround_mode");
         set => SetArgument("surround_mode", value);
     }
 
@@ -1124,7 +1124,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? CreateReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
@@ -1133,7 +1133,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? CreateReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
@@ -1142,7 +1142,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> SampleRate
     {
-        get => GetArgument<TerraformValue<double>>("sample_rate") ?? AsReference("sample_rate");
+        get => GetArgument<TerraformValue<double>>("sample_rate") ?? CreateReference("sample_rate");
         set => SetArgument("sample_rate", value);
     }
 
@@ -1177,7 +1177,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> BitDepth
     {
-        get => GetArgument<TerraformValue<double>>("bit_depth") ?? AsReference("bit_depth");
+        get => GetArgument<TerraformValue<double>>("bit_depth") ?? CreateReference("bit_depth");
         set => SetArgument("bit_depth", value);
     }
 
@@ -1186,7 +1186,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? CreateReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
@@ -1195,7 +1195,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> SampleRate
     {
-        get => GetArgument<TerraformValue<double>>("sample_rate") ?? AsReference("sample_rate");
+        get => GetArgument<TerraformValue<double>>("sample_rate") ?? CreateReference("sample_rate");
         set => SetArgument("sample_rate", value);
     }
 
@@ -1217,7 +1217,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockRemixS
     /// </summary>
     public TerraformValue<double> ChannelsIn
     {
-        get => GetArgument<TerraformValue<double>>("channels_in") ?? AsReference("channels_in");
+        get => GetArgument<TerraformValue<double>>("channels_in") ?? CreateReference("channels_in");
         set => SetArgument("channels_in", value);
     }
 
@@ -1226,7 +1226,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockRemixS
     /// </summary>
     public TerraformValue<double> ChannelsOut
     {
-        get => GetArgument<TerraformValue<double>>("channels_out") ?? AsReference("channels_out");
+        get => GetArgument<TerraformValue<double>>("channels_out") ?? CreateReference("channels_out");
         set => SetArgument("channels_out", value);
     }
 
@@ -1328,7 +1328,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAvailBlankingBlock : Terrafo
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -1360,7 +1360,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAvailBlankingBlockAvailBlank
     /// </summary>
     public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? CreateReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -1379,7 +1379,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAvailBlankingBlockAvailBlank
     /// </summary>
     public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? CreateReference("username");
         set => SetArgument("username", value);
     }
 
@@ -1796,7 +1796,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// </summary>
     public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? CreateReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -1815,7 +1815,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// </summary>
     public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? CreateReference("username");
         set => SetArgument("username", value);
     }
 
@@ -1891,7 +1891,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// </summary>
     public TerraformValue<string> FontSize
     {
-        get => GetArgument<TerraformValue<string>>("font_size") ?? AsReference("font_size");
+        get => GetArgument<TerraformValue<string>>("font_size") ?? CreateReference("font_size");
         set => SetArgument("font_size", value);
     }
 
@@ -2004,7 +2004,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// </summary>
     public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? CreateReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -2023,7 +2023,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// </summary>
     public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? CreateReference("username");
         set => SetArgument("username", value);
     }
 
@@ -2072,7 +2072,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// </summary>
     public TerraformValue<string> StyleControl
     {
-        get => GetArgument<TerraformValue<string>>("style_control") ?? AsReference("style_control");
+        get => GetArgument<TerraformValue<string>>("style_control") ?? CreateReference("style_control");
         set => SetArgument("style_control", value);
     }
 
@@ -2358,7 +2358,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockGlobalConfigurationBlockInpu
     /// </summary>
     public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? CreateReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -2377,7 +2377,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockGlobalConfigurationBlockInpu
     /// </summary>
     public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? CreateReference("username");
         set => SetArgument("username", value);
     }
 
@@ -2857,7 +2857,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformList<string> AdMarkers
     {
-        get => GetArgument<TerraformList<string>>("ad_markers") ?? AsReference("ad_markers");
+        get => GetArgument<TerraformList<string>>("ad_markers") ?? CreateReference("ad_markers");
         set => SetArgument("ad_markers", value);
     }
 
@@ -2866,7 +2866,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> BaseUrlContent
     {
-        get => GetArgument<TerraformValue<string>>("base_url_content") ?? AsReference("base_url_content");
+        get => GetArgument<TerraformValue<string>>("base_url_content") ?? CreateReference("base_url_content");
         set => SetArgument("base_url_content", value);
     }
 
@@ -2875,7 +2875,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> BaseUrlContent1
     {
-        get => GetArgument<TerraformValue<string>>("base_url_content1") ?? AsReference("base_url_content1");
+        get => GetArgument<TerraformValue<string>>("base_url_content1") ?? CreateReference("base_url_content1");
         set => SetArgument("base_url_content1", value);
     }
 
@@ -2884,7 +2884,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> BaseUrlManifest
     {
-        get => GetArgument<TerraformValue<string>>("base_url_manifest") ?? AsReference("base_url_manifest");
+        get => GetArgument<TerraformValue<string>>("base_url_manifest") ?? CreateReference("base_url_manifest");
         set => SetArgument("base_url_manifest", value);
     }
 
@@ -2893,7 +2893,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> BaseUrlManifest1
     {
-        get => GetArgument<TerraformValue<string>>("base_url_manifest1") ?? AsReference("base_url_manifest1");
+        get => GetArgument<TerraformValue<string>>("base_url_manifest1") ?? CreateReference("base_url_manifest1");
         set => SetArgument("base_url_manifest1", value);
     }
 
@@ -2902,7 +2902,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> CaptionLanguageSetting
     {
-        get => GetArgument<TerraformValue<string>>("caption_language_setting") ?? AsReference("caption_language_setting");
+        get => GetArgument<TerraformValue<string>>("caption_language_setting") ?? CreateReference("caption_language_setting");
         set => SetArgument("caption_language_setting", value);
     }
 
@@ -2911,7 +2911,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> ClientCache
     {
-        get => GetArgument<TerraformValue<string>>("client_cache") ?? AsReference("client_cache");
+        get => GetArgument<TerraformValue<string>>("client_cache") ?? CreateReference("client_cache");
         set => SetArgument("client_cache", value);
     }
 
@@ -2920,7 +2920,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> CodecSpecification
     {
-        get => GetArgument<TerraformValue<string>>("codec_specification") ?? AsReference("codec_specification");
+        get => GetArgument<TerraformValue<string>>("codec_specification") ?? CreateReference("codec_specification");
         set => SetArgument("codec_specification", value);
     }
 
@@ -2929,7 +2929,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> ConstantIv
     {
-        get => GetArgument<TerraformValue<string>>("constant_iv") ?? AsReference("constant_iv");
+        get => GetArgument<TerraformValue<string>>("constant_iv") ?? CreateReference("constant_iv");
         set => SetArgument("constant_iv", value);
     }
 
@@ -2938,7 +2938,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> DirectoryStructure
     {
-        get => GetArgument<TerraformValue<string>>("directory_structure") ?? AsReference("directory_structure");
+        get => GetArgument<TerraformValue<string>>("directory_structure") ?? CreateReference("directory_structure");
         set => SetArgument("directory_structure", value);
     }
 
@@ -2947,7 +2947,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> DiscontinuityTags
     {
-        get => GetArgument<TerraformValue<string>>("discontinuity_tags") ?? AsReference("discontinuity_tags");
+        get => GetArgument<TerraformValue<string>>("discontinuity_tags") ?? CreateReference("discontinuity_tags");
         set => SetArgument("discontinuity_tags", value);
     }
 
@@ -2956,7 +2956,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> EncryptionType
     {
-        get => GetArgument<TerraformValue<string>>("encryption_type") ?? AsReference("encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type") ?? CreateReference("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
@@ -2965,7 +2965,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> HlsId3SegmentTagging
     {
-        get => GetArgument<TerraformValue<string>>("hls_id3_segment_tagging") ?? AsReference("hls_id3_segment_tagging");
+        get => GetArgument<TerraformValue<string>>("hls_id3_segment_tagging") ?? CreateReference("hls_id3_segment_tagging");
         set => SetArgument("hls_id3_segment_tagging", value);
     }
 
@@ -2974,7 +2974,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> IframeOnlyPlaylists
     {
-        get => GetArgument<TerraformValue<string>>("iframe_only_playlists") ?? AsReference("iframe_only_playlists");
+        get => GetArgument<TerraformValue<string>>("iframe_only_playlists") ?? CreateReference("iframe_only_playlists");
         set => SetArgument("iframe_only_playlists", value);
     }
 
@@ -2983,7 +2983,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> IncompleteSegmentBehavior
     {
-        get => GetArgument<TerraformValue<string>>("incomplete_segment_behavior") ?? AsReference("incomplete_segment_behavior");
+        get => GetArgument<TerraformValue<string>>("incomplete_segment_behavior") ?? CreateReference("incomplete_segment_behavior");
         set => SetArgument("incomplete_segment_behavior", value);
     }
 
@@ -2992,7 +2992,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> IndexNSegments
     {
-        get => GetArgument<TerraformValue<double>>("index_n_segments") ?? AsReference("index_n_segments");
+        get => GetArgument<TerraformValue<double>>("index_n_segments") ?? CreateReference("index_n_segments");
         set => SetArgument("index_n_segments", value);
     }
 
@@ -3001,7 +3001,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> InputLossAction
     {
-        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? AsReference("input_loss_action");
+        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? CreateReference("input_loss_action");
         set => SetArgument("input_loss_action", value);
     }
 
@@ -3010,7 +3010,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> IvInManifest
     {
-        get => GetArgument<TerraformValue<string>>("iv_in_manifest") ?? AsReference("iv_in_manifest");
+        get => GetArgument<TerraformValue<string>>("iv_in_manifest") ?? CreateReference("iv_in_manifest");
         set => SetArgument("iv_in_manifest", value);
     }
 
@@ -3019,7 +3019,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> IvSource
     {
-        get => GetArgument<TerraformValue<string>>("iv_source") ?? AsReference("iv_source");
+        get => GetArgument<TerraformValue<string>>("iv_source") ?? CreateReference("iv_source");
         set => SetArgument("iv_source", value);
     }
 
@@ -3028,7 +3028,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> KeepSegments
     {
-        get => GetArgument<TerraformValue<double>>("keep_segments") ?? AsReference("keep_segments");
+        get => GetArgument<TerraformValue<double>>("keep_segments") ?? CreateReference("keep_segments");
         set => SetArgument("keep_segments", value);
     }
 
@@ -3037,7 +3037,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> KeyFormat
     {
-        get => GetArgument<TerraformValue<string>>("key_format") ?? AsReference("key_format");
+        get => GetArgument<TerraformValue<string>>("key_format") ?? CreateReference("key_format");
         set => SetArgument("key_format", value);
     }
 
@@ -3046,7 +3046,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> KeyFormatVersions
     {
-        get => GetArgument<TerraformValue<string>>("key_format_versions") ?? AsReference("key_format_versions");
+        get => GetArgument<TerraformValue<string>>("key_format_versions") ?? CreateReference("key_format_versions");
         set => SetArgument("key_format_versions", value);
     }
 
@@ -3055,7 +3055,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> ManifestCompression
     {
-        get => GetArgument<TerraformValue<string>>("manifest_compression") ?? AsReference("manifest_compression");
+        get => GetArgument<TerraformValue<string>>("manifest_compression") ?? CreateReference("manifest_compression");
         set => SetArgument("manifest_compression", value);
     }
 
@@ -3064,7 +3064,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> ManifestDurationFormat
     {
-        get => GetArgument<TerraformValue<string>>("manifest_duration_format") ?? AsReference("manifest_duration_format");
+        get => GetArgument<TerraformValue<string>>("manifest_duration_format") ?? CreateReference("manifest_duration_format");
         set => SetArgument("manifest_duration_format", value);
     }
 
@@ -3073,7 +3073,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> MinSegmentLength
     {
-        get => GetArgument<TerraformValue<double>>("min_segment_length") ?? AsReference("min_segment_length");
+        get => GetArgument<TerraformValue<double>>("min_segment_length") ?? CreateReference("min_segment_length");
         set => SetArgument("min_segment_length", value);
     }
 
@@ -3082,7 +3082,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -3091,7 +3091,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> OutputSelection
     {
-        get => GetArgument<TerraformValue<string>>("output_selection") ?? AsReference("output_selection");
+        get => GetArgument<TerraformValue<string>>("output_selection") ?? CreateReference("output_selection");
         set => SetArgument("output_selection", value);
     }
 
@@ -3100,7 +3100,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> ProgramDateTime
     {
-        get => GetArgument<TerraformValue<string>>("program_date_time") ?? AsReference("program_date_time");
+        get => GetArgument<TerraformValue<string>>("program_date_time") ?? CreateReference("program_date_time");
         set => SetArgument("program_date_time", value);
     }
 
@@ -3109,7 +3109,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> ProgramDateTimeClock
     {
-        get => GetArgument<TerraformValue<string>>("program_date_time_clock") ?? AsReference("program_date_time_clock");
+        get => GetArgument<TerraformValue<string>>("program_date_time_clock") ?? CreateReference("program_date_time_clock");
         set => SetArgument("program_date_time_clock", value);
     }
 
@@ -3118,7 +3118,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> ProgramDateTimePeriod
     {
-        get => GetArgument<TerraformValue<double>>("program_date_time_period") ?? AsReference("program_date_time_period");
+        get => GetArgument<TerraformValue<double>>("program_date_time_period") ?? CreateReference("program_date_time_period");
         set => SetArgument("program_date_time_period", value);
     }
 
@@ -3127,7 +3127,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> RedundantManifest
     {
-        get => GetArgument<TerraformValue<string>>("redundant_manifest") ?? AsReference("redundant_manifest");
+        get => GetArgument<TerraformValue<string>>("redundant_manifest") ?? CreateReference("redundant_manifest");
         set => SetArgument("redundant_manifest", value);
     }
 
@@ -3136,7 +3136,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> SegmentLength
     {
-        get => GetArgument<TerraformValue<double>>("segment_length") ?? AsReference("segment_length");
+        get => GetArgument<TerraformValue<double>>("segment_length") ?? CreateReference("segment_length");
         set => SetArgument("segment_length", value);
     }
 
@@ -3145,7 +3145,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> SegmentsPerSubdirectory
     {
-        get => GetArgument<TerraformValue<double>>("segments_per_subdirectory") ?? AsReference("segments_per_subdirectory");
+        get => GetArgument<TerraformValue<double>>("segments_per_subdirectory") ?? CreateReference("segments_per_subdirectory");
         set => SetArgument("segments_per_subdirectory", value);
     }
 
@@ -3154,7 +3154,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> StreamInfResolution
     {
-        get => GetArgument<TerraformValue<string>>("stream_inf_resolution") ?? AsReference("stream_inf_resolution");
+        get => GetArgument<TerraformValue<string>>("stream_inf_resolution") ?? CreateReference("stream_inf_resolution");
         set => SetArgument("stream_inf_resolution", value);
     }
 
@@ -3163,7 +3163,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> TimedMetadataId3Frame
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_id3_frame") ?? AsReference("timed_metadata_id3_frame");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_id3_frame") ?? CreateReference("timed_metadata_id3_frame");
         set => SetArgument("timed_metadata_id3_frame", value);
     }
 
@@ -3172,7 +3172,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> TimedMetadataId3Period
     {
-        get => GetArgument<TerraformValue<double>>("timed_metadata_id3_period") ?? AsReference("timed_metadata_id3_period");
+        get => GetArgument<TerraformValue<double>>("timed_metadata_id3_period") ?? CreateReference("timed_metadata_id3_period");
         set => SetArgument("timed_metadata_id3_period", value);
     }
 
@@ -3181,7 +3181,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> TimestampDeltaMilliseconds
     {
-        get => GetArgument<TerraformValue<double>>("timestamp_delta_milliseconds") ?? AsReference("timestamp_delta_milliseconds");
+        get => GetArgument<TerraformValue<double>>("timestamp_delta_milliseconds") ?? CreateReference("timestamp_delta_milliseconds");
         set => SetArgument("timestamp_delta_milliseconds", value);
     }
 
@@ -3190,7 +3190,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> TsFileMode
     {
-        get => GetArgument<TerraformValue<string>>("ts_file_mode") ?? AsReference("ts_file_mode");
+        get => GetArgument<TerraformValue<string>>("ts_file_mode") ?? CreateReference("ts_file_mode");
         set => SetArgument("ts_file_mode", value);
     }
 
@@ -3401,7 +3401,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> HttpTransferMode
     {
-        get => GetArgument<TerraformValue<string>>("http_transfer_mode") ?? AsReference("http_transfer_mode");
+        get => GetArgument<TerraformValue<string>>("http_transfer_mode") ?? CreateReference("http_transfer_mode");
         set => SetArgument("http_transfer_mode", value);
     }
 
@@ -3428,7 +3428,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> Salt
     {
-        get => GetArgument<TerraformValue<string>>("salt") ?? AsReference("salt");
+        get => GetArgument<TerraformValue<string>>("salt") ?? CreateReference("salt");
         set => SetArgument("salt", value);
     }
 
@@ -3437,7 +3437,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> Token
     {
-        get => GetArgument<TerraformValue<string>>("token") ?? AsReference("token");
+        get => GetArgument<TerraformValue<string>>("token") ?? CreateReference("token");
         set => SetArgument("token", value);
     }
 
@@ -3526,7 +3526,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> MediaStoreStorageClass
     {
-        get => GetArgument<TerraformValue<string>>("media_store_storage_class") ?? AsReference("media_store_storage_class");
+        get => GetArgument<TerraformValue<string>>("media_store_storage_class") ?? CreateReference("media_store_storage_class");
         set => SetArgument("media_store_storage_class", value);
     }
 
@@ -3606,7 +3606,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> HttpTransferMode
     {
-        get => GetArgument<TerraformValue<string>>("http_transfer_mode") ?? AsReference("http_transfer_mode");
+        get => GetArgument<TerraformValue<string>>("http_transfer_mode") ?? CreateReference("http_transfer_mode");
         set => SetArgument("http_transfer_mode", value);
     }
 
@@ -3701,7 +3701,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? CreateReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -3720,7 +3720,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? CreateReference("username");
         set => SetArgument("username", value);
     }
 
@@ -3791,7 +3791,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> AcquisitionPointId
     {
-        get => GetArgument<TerraformValue<string>>("acquisition_point_id") ?? AsReference("acquisition_point_id");
+        get => GetArgument<TerraformValue<string>>("acquisition_point_id") ?? CreateReference("acquisition_point_id");
         set => SetArgument("acquisition_point_id", value);
     }
 
@@ -3800,7 +3800,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> AudioOnlyTimecodeControl
     {
-        get => GetArgument<TerraformValue<string>>("audio_only_timecode_control") ?? AsReference("audio_only_timecode_control");
+        get => GetArgument<TerraformValue<string>>("audio_only_timecode_control") ?? CreateReference("audio_only_timecode_control");
         set => SetArgument("audio_only_timecode_control", value);
     }
 
@@ -3809,7 +3809,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> CertificateMode
     {
-        get => GetArgument<TerraformValue<string>>("certificate_mode") ?? AsReference("certificate_mode");
+        get => GetArgument<TerraformValue<string>>("certificate_mode") ?? CreateReference("certificate_mode");
         set => SetArgument("certificate_mode", value);
     }
 
@@ -3818,7 +3818,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> ConnectionRetryInterval
     {
-        get => GetArgument<TerraformValue<double>>("connection_retry_interval") ?? AsReference("connection_retry_interval");
+        get => GetArgument<TerraformValue<double>>("connection_retry_interval") ?? CreateReference("connection_retry_interval");
         set => SetArgument("connection_retry_interval", value);
     }
 
@@ -3827,7 +3827,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> EventId
     {
-        get => GetArgument<TerraformValue<string>>("event_id") ?? AsReference("event_id");
+        get => GetArgument<TerraformValue<string>>("event_id") ?? CreateReference("event_id");
         set => SetArgument("event_id", value);
     }
 
@@ -3836,7 +3836,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> EventIdMode
     {
-        get => GetArgument<TerraformValue<string>>("event_id_mode") ?? AsReference("event_id_mode");
+        get => GetArgument<TerraformValue<string>>("event_id_mode") ?? CreateReference("event_id_mode");
         set => SetArgument("event_id_mode", value);
     }
 
@@ -3845,7 +3845,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> EventStopBehavior
     {
-        get => GetArgument<TerraformValue<string>>("event_stop_behavior") ?? AsReference("event_stop_behavior");
+        get => GetArgument<TerraformValue<string>>("event_stop_behavior") ?? CreateReference("event_stop_behavior");
         set => SetArgument("event_stop_behavior", value);
     }
 
@@ -3863,7 +3863,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> FragmentLength
     {
-        get => GetArgument<TerraformValue<double>>("fragment_length") ?? AsReference("fragment_length");
+        get => GetArgument<TerraformValue<double>>("fragment_length") ?? CreateReference("fragment_length");
         set => SetArgument("fragment_length", value);
     }
 
@@ -3872,7 +3872,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> InputLossAction
     {
-        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? AsReference("input_loss_action");
+        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? CreateReference("input_loss_action");
         set => SetArgument("input_loss_action", value);
     }
 
@@ -3899,7 +3899,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> SegmentationMode
     {
-        get => GetArgument<TerraformValue<string>>("segmentation_mode") ?? AsReference("segmentation_mode");
+        get => GetArgument<TerraformValue<string>>("segmentation_mode") ?? CreateReference("segmentation_mode");
         set => SetArgument("segmentation_mode", value);
     }
 
@@ -3908,7 +3908,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> SendDelayMs
     {
-        get => GetArgument<TerraformValue<double>>("send_delay_ms") ?? AsReference("send_delay_ms");
+        get => GetArgument<TerraformValue<double>>("send_delay_ms") ?? CreateReference("send_delay_ms");
         set => SetArgument("send_delay_ms", value);
     }
 
@@ -3917,7 +3917,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> SparseTrackType
     {
-        get => GetArgument<TerraformValue<string>>("sparse_track_type") ?? AsReference("sparse_track_type");
+        get => GetArgument<TerraformValue<string>>("sparse_track_type") ?? CreateReference("sparse_track_type");
         set => SetArgument("sparse_track_type", value);
     }
 
@@ -3926,7 +3926,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> StreamManifestBehavior
     {
-        get => GetArgument<TerraformValue<string>>("stream_manifest_behavior") ?? AsReference("stream_manifest_behavior");
+        get => GetArgument<TerraformValue<string>>("stream_manifest_behavior") ?? CreateReference("stream_manifest_behavior");
         set => SetArgument("stream_manifest_behavior", value);
     }
 
@@ -3935,7 +3935,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> TimestampOffset
     {
-        get => GetArgument<TerraformValue<string>>("timestamp_offset") ?? AsReference("timestamp_offset");
+        get => GetArgument<TerraformValue<string>>("timestamp_offset") ?? CreateReference("timestamp_offset");
         set => SetArgument("timestamp_offset", value);
     }
 
@@ -3944,7 +3944,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> TimestampOffsetMode
     {
-        get => GetArgument<TerraformValue<string>>("timestamp_offset_mode") ?? AsReference("timestamp_offset_mode");
+        get => GetArgument<TerraformValue<string>>("timestamp_offset_mode") ?? CreateReference("timestamp_offset_mode");
         set => SetArgument("timestamp_offset_mode", value);
     }
 
@@ -4024,7 +4024,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> AuthenticationScheme
     {
-        get => GetArgument<TerraformValue<string>>("authentication_scheme") ?? AsReference("authentication_scheme");
+        get => GetArgument<TerraformValue<string>>("authentication_scheme") ?? CreateReference("authentication_scheme");
         set => SetArgument("authentication_scheme", value);
     }
 
@@ -4033,7 +4033,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> CacheFullBehavior
     {
-        get => GetArgument<TerraformValue<string>>("cache_full_behavior") ?? AsReference("cache_full_behavior");
+        get => GetArgument<TerraformValue<string>>("cache_full_behavior") ?? CreateReference("cache_full_behavior");
         set => SetArgument("cache_full_behavior", value);
     }
 
@@ -4042,7 +4042,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> CacheLength
     {
-        get => GetArgument<TerraformValue<double>>("cache_length") ?? AsReference("cache_length");
+        get => GetArgument<TerraformValue<double>>("cache_length") ?? CreateReference("cache_length");
         set => SetArgument("cache_length", value);
     }
 
@@ -4051,7 +4051,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> CaptionData
     {
-        get => GetArgument<TerraformValue<string>>("caption_data") ?? AsReference("caption_data");
+        get => GetArgument<TerraformValue<string>>("caption_data") ?? CreateReference("caption_data");
         set => SetArgument("caption_data", value);
     }
 
@@ -4060,7 +4060,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> InputLossAction
     {
-        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? AsReference("input_loss_action");
+        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? CreateReference("input_loss_action");
         set => SetArgument("input_loss_action", value);
     }
 
@@ -4091,7 +4091,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> InputLossAction
     {
-        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? AsReference("input_loss_action");
+        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? CreateReference("input_loss_action");
         set => SetArgument("input_loss_action", value);
     }
 
@@ -4100,7 +4100,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<string> TimedMetadataId3Frame
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_id3_frame") ?? AsReference("timed_metadata_id3_frame");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_id3_frame") ?? CreateReference("timed_metadata_id3_frame");
         set => SetArgument("timed_metadata_id3_frame", value);
     }
 
@@ -4109,7 +4109,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// </summary>
     public TerraformValue<double> TimedMetadataId3Period
     {
-        get => GetArgument<TerraformValue<double>>("timed_metadata_id3_period") ?? AsReference("timed_metadata_id3_period");
+        get => GetArgument<TerraformValue<double>>("timed_metadata_id3_period") ?? CreateReference("timed_metadata_id3_period");
         set => SetArgument("timed_metadata_id3_period", value);
     }
 
@@ -4140,7 +4140,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformSet<string> CaptionDescriptionNames
     {
-        get => GetArgument<TerraformSet<string>>("caption_description_names") ?? AsReference("caption_description_names");
+        get => GetArgument<TerraformSet<string>>("caption_description_names") ?? CreateReference("caption_description_names");
         set => SetArgument("caption_description_names", value);
     }
 
@@ -4360,7 +4360,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AbsentInputAudioBehavior
     {
-        get => GetArgument<TerraformValue<string>>("absent_input_audio_behavior") ?? AsReference("absent_input_audio_behavior");
+        get => GetArgument<TerraformValue<string>>("absent_input_audio_behavior") ?? CreateReference("absent_input_audio_behavior");
         set => SetArgument("absent_input_audio_behavior", value);
     }
 
@@ -4378,7 +4378,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AribCaptionsPid
     {
-        get => GetArgument<TerraformValue<string>>("arib_captions_pid") ?? AsReference("arib_captions_pid");
+        get => GetArgument<TerraformValue<string>>("arib_captions_pid") ?? CreateReference("arib_captions_pid");
         set => SetArgument("arib_captions_pid", value);
     }
 
@@ -4414,7 +4414,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AudioPids
     {
-        get => GetArgument<TerraformValue<string>>("audio_pids") ?? AsReference("audio_pids");
+        get => GetArgument<TerraformValue<string>>("audio_pids") ?? CreateReference("audio_pids");
         set => SetArgument("audio_pids", value);
     }
 
@@ -4459,7 +4459,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> DvbSubPids
     {
-        get => GetArgument<TerraformValue<string>>("dvb_sub_pids") ?? AsReference("dvb_sub_pids");
+        get => GetArgument<TerraformValue<string>>("dvb_sub_pids") ?? CreateReference("dvb_sub_pids");
         set => SetArgument("dvb_sub_pids", value);
     }
 
@@ -4468,7 +4468,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> DvbTeletextPid
     {
-        get => GetArgument<TerraformValue<string>>("dvb_teletext_pid") ?? AsReference("dvb_teletext_pid");
+        get => GetArgument<TerraformValue<string>>("dvb_teletext_pid") ?? CreateReference("dvb_teletext_pid");
         set => SetArgument("dvb_teletext_pid", value);
     }
 
@@ -4531,7 +4531,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> EtvPlatformPid
     {
-        get => GetArgument<TerraformValue<string>>("etv_platform_pid") ?? AsReference("etv_platform_pid");
+        get => GetArgument<TerraformValue<string>>("etv_platform_pid") ?? CreateReference("etv_platform_pid");
         set => SetArgument("etv_platform_pid", value);
     }
 
@@ -4540,7 +4540,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> EtvSignalPid
     {
-        get => GetArgument<TerraformValue<string>>("etv_signal_pid") ?? AsReference("etv_signal_pid");
+        get => GetArgument<TerraformValue<string>>("etv_signal_pid") ?? CreateReference("etv_signal_pid");
         set => SetArgument("etv_signal_pid", value);
     }
 
@@ -4567,7 +4567,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> KlvDataPids
     {
-        get => GetArgument<TerraformValue<string>>("klv_data_pids") ?? AsReference("klv_data_pids");
+        get => GetArgument<TerraformValue<string>>("klv_data_pids") ?? CreateReference("klv_data_pids");
         set => SetArgument("klv_data_pids", value);
     }
 
@@ -4639,7 +4639,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> PmtPid
     {
-        get => GetArgument<TerraformValue<string>>("pmt_pid") ?? AsReference("pmt_pid");
+        get => GetArgument<TerraformValue<string>>("pmt_pid") ?? CreateReference("pmt_pid");
         set => SetArgument("pmt_pid", value);
     }
 
@@ -4666,7 +4666,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> Scte27Pids
     {
-        get => GetArgument<TerraformValue<string>>("scte27_pids") ?? AsReference("scte27_pids");
+        get => GetArgument<TerraformValue<string>>("scte27_pids") ?? CreateReference("scte27_pids");
         set => SetArgument("scte27_pids", value);
     }
 
@@ -4684,7 +4684,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> Scte35Pid
     {
-        get => GetArgument<TerraformValue<string>>("scte35_pid") ?? AsReference("scte35_pid");
+        get => GetArgument<TerraformValue<string>>("scte35_pid") ?? CreateReference("scte35_pid");
         set => SetArgument("scte35_pid", value);
     }
 
@@ -4729,7 +4729,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> TimedMetadataPid
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_pid") ?? AsReference("timed_metadata_pid");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_pid") ?? CreateReference("timed_metadata_pid");
         set => SetArgument("timed_metadata_pid", value);
     }
 
@@ -4747,7 +4747,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> VideoPid
     {
-        get => GetArgument<TerraformValue<string>>("video_pid") ?? AsReference("video_pid");
+        get => GetArgument<TerraformValue<string>>("video_pid") ?? CreateReference("video_pid");
         set => SetArgument("video_pid", value);
     }
 
@@ -4925,7 +4925,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> NameModifier
     {
-        get => GetArgument<TerraformValue<string>>("name_modifier") ?? AsReference("name_modifier");
+        get => GetArgument<TerraformValue<string>>("name_modifier") ?? CreateReference("name_modifier");
         set => SetArgument("name_modifier", value);
     }
 
@@ -4947,7 +4947,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> H265PackagingType
     {
-        get => GetArgument<TerraformValue<string>>("h265_packaging_type") ?? AsReference("h265_packaging_type");
+        get => GetArgument<TerraformValue<string>>("h265_packaging_type") ?? CreateReference("h265_packaging_type");
         set => SetArgument("h265_packaging_type", value);
     }
 
@@ -4956,7 +4956,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> NameModifier
     {
-        get => GetArgument<TerraformValue<string>>("name_modifier") ?? AsReference("name_modifier");
+        get => GetArgument<TerraformValue<string>>("name_modifier") ?? CreateReference("name_modifier");
         set => SetArgument("name_modifier", value);
     }
 
@@ -4965,7 +4965,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> SegmentModifier
     {
-        get => GetArgument<TerraformValue<string>>("segment_modifier") ?? AsReference("segment_modifier");
+        get => GetArgument<TerraformValue<string>>("segment_modifier") ?? CreateReference("segment_modifier");
         set => SetArgument("segment_modifier", value);
     }
 
@@ -5053,7 +5053,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AudioGroupId
     {
-        get => GetArgument<TerraformValue<string>>("audio_group_id") ?? AsReference("audio_group_id");
+        get => GetArgument<TerraformValue<string>>("audio_group_id") ?? CreateReference("audio_group_id");
         set => SetArgument("audio_group_id", value);
     }
 
@@ -5062,7 +5062,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AudioTrackType
     {
-        get => GetArgument<TerraformValue<string>>("audio_track_type") ?? AsReference("audio_track_type");
+        get => GetArgument<TerraformValue<string>>("audio_track_type") ?? CreateReference("audio_track_type");
         set => SetArgument("audio_track_type", value);
     }
 
@@ -5071,7 +5071,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> SegmentType
     {
-        get => GetArgument<TerraformValue<string>>("segment_type") ?? AsReference("segment_type");
+        get => GetArgument<TerraformValue<string>>("segment_type") ?? CreateReference("segment_type");
         set => SetArgument("segment_type", value);
     }
 
@@ -5103,7 +5103,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? CreateReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -5122,7 +5122,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? CreateReference("username");
         set => SetArgument("username", value);
     }
 
@@ -5144,7 +5144,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AudioRenditionSets
     {
-        get => GetArgument<TerraformValue<string>>("audio_rendition_sets") ?? AsReference("audio_rendition_sets");
+        get => GetArgument<TerraformValue<string>>("audio_rendition_sets") ?? CreateReference("audio_rendition_sets");
         set => SetArgument("audio_rendition_sets", value);
     }
 
@@ -5153,7 +5153,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> NielsenId3Behavior
     {
-        get => GetArgument<TerraformValue<string>>("nielsen_id3_behavior") ?? AsReference("nielsen_id3_behavior");
+        get => GetArgument<TerraformValue<string>>("nielsen_id3_behavior") ?? CreateReference("nielsen_id3_behavior");
         set => SetArgument("nielsen_id3_behavior", value);
     }
 
@@ -5162,7 +5162,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> TimedMetadataBehavior
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_behavior") ?? AsReference("timed_metadata_behavior");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_behavior") ?? CreateReference("timed_metadata_behavior");
         set => SetArgument("timed_metadata_behavior", value);
     }
 
@@ -5197,7 +5197,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AudioRenditionSets
     {
-        get => GetArgument<TerraformValue<string>>("audio_rendition_sets") ?? AsReference("audio_rendition_sets");
+        get => GetArgument<TerraformValue<string>>("audio_rendition_sets") ?? CreateReference("audio_rendition_sets");
         set => SetArgument("audio_rendition_sets", value);
     }
 
@@ -5232,7 +5232,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> AudioFramesPerPes
     {
-        get => GetArgument<TerraformValue<double>>("audio_frames_per_pes") ?? AsReference("audio_frames_per_pes");
+        get => GetArgument<TerraformValue<double>>("audio_frames_per_pes") ?? CreateReference("audio_frames_per_pes");
         set => SetArgument("audio_frames_per_pes", value);
     }
 
@@ -5241,7 +5241,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AudioPids
     {
-        get => GetArgument<TerraformValue<string>>("audio_pids") ?? AsReference("audio_pids");
+        get => GetArgument<TerraformValue<string>>("audio_pids") ?? CreateReference("audio_pids");
         set => SetArgument("audio_pids", value);
     }
 
@@ -5250,7 +5250,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> EcmPid
     {
-        get => GetArgument<TerraformValue<string>>("ecm_pid") ?? AsReference("ecm_pid");
+        get => GetArgument<TerraformValue<string>>("ecm_pid") ?? CreateReference("ecm_pid");
         set => SetArgument("ecm_pid", value);
     }
 
@@ -5259,7 +5259,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> NielsenId3Behavior
     {
-        get => GetArgument<TerraformValue<string>>("nielsen_id3_behavior") ?? AsReference("nielsen_id3_behavior");
+        get => GetArgument<TerraformValue<string>>("nielsen_id3_behavior") ?? CreateReference("nielsen_id3_behavior");
         set => SetArgument("nielsen_id3_behavior", value);
     }
 
@@ -5268,7 +5268,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> PatInterval
     {
-        get => GetArgument<TerraformValue<double>>("pat_interval") ?? AsReference("pat_interval");
+        get => GetArgument<TerraformValue<double>>("pat_interval") ?? CreateReference("pat_interval");
         set => SetArgument("pat_interval", value);
     }
 
@@ -5277,7 +5277,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> PcrControl
     {
-        get => GetArgument<TerraformValue<string>>("pcr_control") ?? AsReference("pcr_control");
+        get => GetArgument<TerraformValue<string>>("pcr_control") ?? CreateReference("pcr_control");
         set => SetArgument("pcr_control", value);
     }
 
@@ -5286,7 +5286,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> PcrPeriod
     {
-        get => GetArgument<TerraformValue<double>>("pcr_period") ?? AsReference("pcr_period");
+        get => GetArgument<TerraformValue<double>>("pcr_period") ?? CreateReference("pcr_period");
         set => SetArgument("pcr_period", value);
     }
 
@@ -5295,7 +5295,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> PcrPid
     {
-        get => GetArgument<TerraformValue<string>>("pcr_pid") ?? AsReference("pcr_pid");
+        get => GetArgument<TerraformValue<string>>("pcr_pid") ?? CreateReference("pcr_pid");
         set => SetArgument("pcr_pid", value);
     }
 
@@ -5304,7 +5304,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> PmtInterval
     {
-        get => GetArgument<TerraformValue<double>>("pmt_interval") ?? AsReference("pmt_interval");
+        get => GetArgument<TerraformValue<double>>("pmt_interval") ?? CreateReference("pmt_interval");
         set => SetArgument("pmt_interval", value);
     }
 
@@ -5313,7 +5313,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> PmtPid
     {
-        get => GetArgument<TerraformValue<string>>("pmt_pid") ?? AsReference("pmt_pid");
+        get => GetArgument<TerraformValue<string>>("pmt_pid") ?? CreateReference("pmt_pid");
         set => SetArgument("pmt_pid", value);
     }
 
@@ -5322,7 +5322,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> ProgramNum
     {
-        get => GetArgument<TerraformValue<double>>("program_num") ?? AsReference("program_num");
+        get => GetArgument<TerraformValue<double>>("program_num") ?? CreateReference("program_num");
         set => SetArgument("program_num", value);
     }
 
@@ -5331,7 +5331,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> Scte35Behavior
     {
-        get => GetArgument<TerraformValue<string>>("scte35_behavior") ?? AsReference("scte35_behavior");
+        get => GetArgument<TerraformValue<string>>("scte35_behavior") ?? CreateReference("scte35_behavior");
         set => SetArgument("scte35_behavior", value);
     }
 
@@ -5340,7 +5340,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> Scte35Pid
     {
-        get => GetArgument<TerraformValue<string>>("scte35_pid") ?? AsReference("scte35_pid");
+        get => GetArgument<TerraformValue<string>>("scte35_pid") ?? CreateReference("scte35_pid");
         set => SetArgument("scte35_pid", value);
     }
 
@@ -5349,7 +5349,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> TimedMetadataBehavior
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_behavior") ?? AsReference("timed_metadata_behavior");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_behavior") ?? CreateReference("timed_metadata_behavior");
         set => SetArgument("timed_metadata_behavior", value);
     }
 
@@ -5358,7 +5358,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> TimedMetadataPid
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_pid") ?? AsReference("timed_metadata_pid");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_pid") ?? CreateReference("timed_metadata_pid");
         set => SetArgument("timed_metadata_pid", value);
     }
 
@@ -5367,7 +5367,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> TransportStreamId
     {
-        get => GetArgument<TerraformValue<double>>("transport_stream_id") ?? AsReference("transport_stream_id");
+        get => GetArgument<TerraformValue<double>>("transport_stream_id") ?? CreateReference("transport_stream_id");
         set => SetArgument("transport_stream_id", value);
     }
 
@@ -5376,7 +5376,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> VideoPid
     {
-        get => GetArgument<TerraformValue<string>>("video_pid") ?? AsReference("video_pid");
+        get => GetArgument<TerraformValue<string>>("video_pid") ?? CreateReference("video_pid");
         set => SetArgument("video_pid", value);
     }
 
@@ -5411,7 +5411,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> H265PackagingType
     {
-        get => GetArgument<TerraformValue<string>>("h265_packaging_type") ?? AsReference("h265_packaging_type");
+        get => GetArgument<TerraformValue<string>>("h265_packaging_type") ?? CreateReference("h265_packaging_type");
         set => SetArgument("h265_packaging_type", value);
     }
 
@@ -5420,7 +5420,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> NameModifier
     {
-        get => GetArgument<TerraformValue<string>>("name_modifier") ?? AsReference("name_modifier");
+        get => GetArgument<TerraformValue<string>>("name_modifier") ?? CreateReference("name_modifier");
         set => SetArgument("name_modifier", value);
     }
 
@@ -5491,7 +5491,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> CertificateMode
     {
-        get => GetArgument<TerraformValue<string>>("certificate_mode") ?? AsReference("certificate_mode");
+        get => GetArgument<TerraformValue<string>>("certificate_mode") ?? CreateReference("certificate_mode");
         set => SetArgument("certificate_mode", value);
     }
 
@@ -5500,7 +5500,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> ConnectionRetryInterval
     {
-        get => GetArgument<TerraformValue<double>>("connection_retry_interval") ?? AsReference("connection_retry_interval");
+        get => GetArgument<TerraformValue<double>>("connection_retry_interval") ?? CreateReference("connection_retry_interval");
         set => SetArgument("connection_retry_interval", value);
     }
 
@@ -5509,7 +5509,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> NumRetries
     {
-        get => GetArgument<TerraformValue<double>>("num_retries") ?? AsReference("num_retries");
+        get => GetArgument<TerraformValue<double>>("num_retries") ?? CreateReference("num_retries");
         set => SetArgument("num_retries", value);
     }
 
@@ -5567,7 +5567,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> BufferMsec
     {
-        get => GetArgument<TerraformValue<double>>("buffer_msec") ?? AsReference("buffer_msec");
+        get => GetArgument<TerraformValue<double>>("buffer_msec") ?? CreateReference("buffer_msec");
         set => SetArgument("buffer_msec", value);
     }
 
@@ -5648,7 +5648,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AbsentInputAudioBehavior
     {
-        get => GetArgument<TerraformValue<string>>("absent_input_audio_behavior") ?? AsReference("absent_input_audio_behavior");
+        get => GetArgument<TerraformValue<string>>("absent_input_audio_behavior") ?? CreateReference("absent_input_audio_behavior");
         set => SetArgument("absent_input_audio_behavior", value);
     }
 
@@ -5666,7 +5666,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AribCaptionsPid
     {
-        get => GetArgument<TerraformValue<string>>("arib_captions_pid") ?? AsReference("arib_captions_pid");
+        get => GetArgument<TerraformValue<string>>("arib_captions_pid") ?? CreateReference("arib_captions_pid");
         set => SetArgument("arib_captions_pid", value);
     }
 
@@ -5702,7 +5702,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> AudioPids
     {
-        get => GetArgument<TerraformValue<string>>("audio_pids") ?? AsReference("audio_pids");
+        get => GetArgument<TerraformValue<string>>("audio_pids") ?? CreateReference("audio_pids");
         set => SetArgument("audio_pids", value);
     }
 
@@ -5747,7 +5747,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> DvbSubPids
     {
-        get => GetArgument<TerraformValue<string>>("dvb_sub_pids") ?? AsReference("dvb_sub_pids");
+        get => GetArgument<TerraformValue<string>>("dvb_sub_pids") ?? CreateReference("dvb_sub_pids");
         set => SetArgument("dvb_sub_pids", value);
     }
 
@@ -5756,7 +5756,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> DvbTeletextPid
     {
-        get => GetArgument<TerraformValue<string>>("dvb_teletext_pid") ?? AsReference("dvb_teletext_pid");
+        get => GetArgument<TerraformValue<string>>("dvb_teletext_pid") ?? CreateReference("dvb_teletext_pid");
         set => SetArgument("dvb_teletext_pid", value);
     }
 
@@ -5819,7 +5819,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> EtvPlatformPid
     {
-        get => GetArgument<TerraformValue<string>>("etv_platform_pid") ?? AsReference("etv_platform_pid");
+        get => GetArgument<TerraformValue<string>>("etv_platform_pid") ?? CreateReference("etv_platform_pid");
         set => SetArgument("etv_platform_pid", value);
     }
 
@@ -5828,7 +5828,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> EtvSignalPid
     {
-        get => GetArgument<TerraformValue<string>>("etv_signal_pid") ?? AsReference("etv_signal_pid");
+        get => GetArgument<TerraformValue<string>>("etv_signal_pid") ?? CreateReference("etv_signal_pid");
         set => SetArgument("etv_signal_pid", value);
     }
 
@@ -5855,7 +5855,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> KlvDataPids
     {
-        get => GetArgument<TerraformValue<string>>("klv_data_pids") ?? AsReference("klv_data_pids");
+        get => GetArgument<TerraformValue<string>>("klv_data_pids") ?? CreateReference("klv_data_pids");
         set => SetArgument("klv_data_pids", value);
     }
 
@@ -5927,7 +5927,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> PmtPid
     {
-        get => GetArgument<TerraformValue<string>>("pmt_pid") ?? AsReference("pmt_pid");
+        get => GetArgument<TerraformValue<string>>("pmt_pid") ?? CreateReference("pmt_pid");
         set => SetArgument("pmt_pid", value);
     }
 
@@ -5954,7 +5954,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> Scte27Pids
     {
-        get => GetArgument<TerraformValue<string>>("scte27_pids") ?? AsReference("scte27_pids");
+        get => GetArgument<TerraformValue<string>>("scte27_pids") ?? CreateReference("scte27_pids");
         set => SetArgument("scte27_pids", value);
     }
 
@@ -5972,7 +5972,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> Scte35Pid
     {
-        get => GetArgument<TerraformValue<string>>("scte35_pid") ?? AsReference("scte35_pid");
+        get => GetArgument<TerraformValue<string>>("scte35_pid") ?? CreateReference("scte35_pid");
         set => SetArgument("scte35_pid", value);
     }
 
@@ -6017,7 +6017,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> TimedMetadataPid
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_pid") ?? AsReference("timed_metadata_pid");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_pid") ?? CreateReference("timed_metadata_pid");
         set => SetArgument("timed_metadata_pid", value);
     }
 
@@ -6035,7 +6035,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> VideoPid
     {
-        get => GetArgument<TerraformValue<string>>("video_pid") ?? AsReference("video_pid");
+        get => GetArgument<TerraformValue<string>>("video_pid") ?? CreateReference("video_pid");
         set => SetArgument("video_pid", value);
     }
 
@@ -6223,7 +6223,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> ColumnDepth
     {
-        get => GetArgument<TerraformValue<double>>("column_depth") ?? AsReference("column_depth");
+        get => GetArgument<TerraformValue<double>>("column_depth") ?? CreateReference("column_depth");
         set => SetArgument("column_depth", value);
     }
 
@@ -6232,7 +6232,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<string> IncludeFec
     {
-        get => GetArgument<TerraformValue<string>>("include_fec") ?? AsReference("include_fec");
+        get => GetArgument<TerraformValue<string>>("include_fec") ?? CreateReference("include_fec");
         set => SetArgument("include_fec", value);
     }
 
@@ -6241,7 +6241,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// </summary>
     public TerraformValue<double> RowLength
     {
-        get => GetArgument<TerraformValue<double>>("row_length") ?? AsReference("row_length");
+        get => GetArgument<TerraformValue<double>>("row_length") ?? CreateReference("row_length");
         set => SetArgument("row_length", value);
     }
 
@@ -6273,7 +6273,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockTimecodeConfigBlock : Terraf
     /// </summary>
     public TerraformValue<double> SyncThreshold
     {
-        get => GetArgument<TerraformValue<double>>("sync_threshold") ?? AsReference("sync_threshold");
+        get => GetArgument<TerraformValue<double>>("sync_threshold") ?? CreateReference("sync_threshold");
         set => SetArgument("sync_threshold", value);
     }
 
@@ -6295,7 +6295,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<double> Height
     {
-        get => GetArgument<TerraformValue<double>>("height") ?? AsReference("height");
+        get => GetArgument<TerraformValue<double>>("height") ?? CreateReference("height");
         set => SetArgument("height", value);
     }
 
@@ -6314,7 +6314,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<string> RespondToAfd
     {
-        get => GetArgument<TerraformValue<string>>("respond_to_afd") ?? AsReference("respond_to_afd");
+        get => GetArgument<TerraformValue<string>>("respond_to_afd") ?? CreateReference("respond_to_afd");
         set => SetArgument("respond_to_afd", value);
     }
 
@@ -6323,7 +6323,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<string> ScalingBehavior
     {
-        get => GetArgument<TerraformValue<string>>("scaling_behavior") ?? AsReference("scaling_behavior");
+        get => GetArgument<TerraformValue<string>>("scaling_behavior") ?? CreateReference("scaling_behavior");
         set => SetArgument("scaling_behavior", value);
     }
 
@@ -6332,7 +6332,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<double> Sharpness
     {
-        get => GetArgument<TerraformValue<double>>("sharpness") ?? AsReference("sharpness");
+        get => GetArgument<TerraformValue<double>>("sharpness") ?? CreateReference("sharpness");
         set => SetArgument("sharpness", value);
     }
 
@@ -6341,7 +6341,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlock : Ter
     /// </summary>
     public TerraformValue<double> Width
     {
-        get => GetArgument<TerraformValue<double>>("width") ?? AsReference("width");
+        get => GetArgument<TerraformValue<double>>("width") ?? CreateReference("width");
         set => SetArgument("width", value);
     }
 
@@ -6416,7 +6416,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> CaptureInterval
     {
-        get => GetArgument<TerraformValue<double>>("capture_interval") ?? AsReference("capture_interval");
+        get => GetArgument<TerraformValue<double>>("capture_interval") ?? CreateReference("capture_interval");
         set => SetArgument("capture_interval", value);
     }
 
@@ -6425,7 +6425,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> CaptureIntervalUnits
     {
-        get => GetArgument<TerraformValue<string>>("capture_interval_units") ?? AsReference("capture_interval_units");
+        get => GetArgument<TerraformValue<string>>("capture_interval_units") ?? CreateReference("capture_interval_units");
         set => SetArgument("capture_interval_units", value);
     }
 
@@ -6447,7 +6447,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> AdaptiveQuantization
     {
-        get => GetArgument<TerraformValue<string>>("adaptive_quantization") ?? AsReference("adaptive_quantization");
+        get => GetArgument<TerraformValue<string>>("adaptive_quantization") ?? CreateReference("adaptive_quantization");
         set => SetArgument("adaptive_quantization", value);
     }
 
@@ -6456,7 +6456,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> AfdSignaling
     {
-        get => GetArgument<TerraformValue<string>>("afd_signaling") ?? AsReference("afd_signaling");
+        get => GetArgument<TerraformValue<string>>("afd_signaling") ?? CreateReference("afd_signaling");
         set => SetArgument("afd_signaling", value);
     }
 
@@ -6465,7 +6465,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? CreateReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
@@ -6474,7 +6474,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> BufFillPct
     {
-        get => GetArgument<TerraformValue<double>>("buf_fill_pct") ?? AsReference("buf_fill_pct");
+        get => GetArgument<TerraformValue<double>>("buf_fill_pct") ?? CreateReference("buf_fill_pct");
         set => SetArgument("buf_fill_pct", value);
     }
 
@@ -6483,7 +6483,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> BufSize
     {
-        get => GetArgument<TerraformValue<double>>("buf_size") ?? AsReference("buf_size");
+        get => GetArgument<TerraformValue<double>>("buf_size") ?? CreateReference("buf_size");
         set => SetArgument("buf_size", value);
     }
 
@@ -6492,7 +6492,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> ColorMetadata
     {
-        get => GetArgument<TerraformValue<string>>("color_metadata") ?? AsReference("color_metadata");
+        get => GetArgument<TerraformValue<string>>("color_metadata") ?? CreateReference("color_metadata");
         set => SetArgument("color_metadata", value);
     }
 
@@ -6501,7 +6501,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> EntropyEncoding
     {
-        get => GetArgument<TerraformValue<string>>("entropy_encoding") ?? AsReference("entropy_encoding");
+        get => GetArgument<TerraformValue<string>>("entropy_encoding") ?? CreateReference("entropy_encoding");
         set => SetArgument("entropy_encoding", value);
     }
 
@@ -6510,7 +6510,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> FixedAfd
     {
-        get => GetArgument<TerraformValue<string>>("fixed_afd") ?? AsReference("fixed_afd");
+        get => GetArgument<TerraformValue<string>>("fixed_afd") ?? CreateReference("fixed_afd");
         set => SetArgument("fixed_afd", value);
     }
 
@@ -6519,7 +6519,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> FlickerAq
     {
-        get => GetArgument<TerraformValue<string>>("flicker_aq") ?? AsReference("flicker_aq");
+        get => GetArgument<TerraformValue<string>>("flicker_aq") ?? CreateReference("flicker_aq");
         set => SetArgument("flicker_aq", value);
     }
 
@@ -6528,7 +6528,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> ForceFieldPictures
     {
-        get => GetArgument<TerraformValue<string>>("force_field_pictures") ?? AsReference("force_field_pictures");
+        get => GetArgument<TerraformValue<string>>("force_field_pictures") ?? CreateReference("force_field_pictures");
         set => SetArgument("force_field_pictures", value);
     }
 
@@ -6537,7 +6537,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> FramerateControl
     {
-        get => GetArgument<TerraformValue<string>>("framerate_control") ?? AsReference("framerate_control");
+        get => GetArgument<TerraformValue<string>>("framerate_control") ?? CreateReference("framerate_control");
         set => SetArgument("framerate_control", value);
     }
 
@@ -6546,7 +6546,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> FramerateDenominator
     {
-        get => GetArgument<TerraformValue<double>>("framerate_denominator") ?? AsReference("framerate_denominator");
+        get => GetArgument<TerraformValue<double>>("framerate_denominator") ?? CreateReference("framerate_denominator");
         set => SetArgument("framerate_denominator", value);
     }
 
@@ -6555,7 +6555,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> FramerateNumerator
     {
-        get => GetArgument<TerraformValue<double>>("framerate_numerator") ?? AsReference("framerate_numerator");
+        get => GetArgument<TerraformValue<double>>("framerate_numerator") ?? CreateReference("framerate_numerator");
         set => SetArgument("framerate_numerator", value);
     }
 
@@ -6564,7 +6564,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> GopBReference
     {
-        get => GetArgument<TerraformValue<string>>("gop_b_reference") ?? AsReference("gop_b_reference");
+        get => GetArgument<TerraformValue<string>>("gop_b_reference") ?? CreateReference("gop_b_reference");
         set => SetArgument("gop_b_reference", value);
     }
 
@@ -6573,7 +6573,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> GopClosedCadence
     {
-        get => GetArgument<TerraformValue<double>>("gop_closed_cadence") ?? AsReference("gop_closed_cadence");
+        get => GetArgument<TerraformValue<double>>("gop_closed_cadence") ?? CreateReference("gop_closed_cadence");
         set => SetArgument("gop_closed_cadence", value);
     }
 
@@ -6582,7 +6582,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> GopNumBFrames
     {
-        get => GetArgument<TerraformValue<double>>("gop_num_b_frames") ?? AsReference("gop_num_b_frames");
+        get => GetArgument<TerraformValue<double>>("gop_num_b_frames") ?? CreateReference("gop_num_b_frames");
         set => SetArgument("gop_num_b_frames", value);
     }
 
@@ -6591,7 +6591,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> GopSize
     {
-        get => GetArgument<TerraformValue<double>>("gop_size") ?? AsReference("gop_size");
+        get => GetArgument<TerraformValue<double>>("gop_size") ?? CreateReference("gop_size");
         set => SetArgument("gop_size", value);
     }
 
@@ -6600,7 +6600,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> GopSizeUnits
     {
-        get => GetArgument<TerraformValue<string>>("gop_size_units") ?? AsReference("gop_size_units");
+        get => GetArgument<TerraformValue<string>>("gop_size_units") ?? CreateReference("gop_size_units");
         set => SetArgument("gop_size_units", value);
     }
 
@@ -6609,7 +6609,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> Level
     {
-        get => GetArgument<TerraformValue<string>>("level") ?? AsReference("level");
+        get => GetArgument<TerraformValue<string>>("level") ?? CreateReference("level");
         set => SetArgument("level", value);
     }
 
@@ -6618,7 +6618,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> LookAheadRateControl
     {
-        get => GetArgument<TerraformValue<string>>("look_ahead_rate_control") ?? AsReference("look_ahead_rate_control");
+        get => GetArgument<TerraformValue<string>>("look_ahead_rate_control") ?? CreateReference("look_ahead_rate_control");
         set => SetArgument("look_ahead_rate_control", value);
     }
 
@@ -6627,7 +6627,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> MaxBitrate
     {
-        get => GetArgument<TerraformValue<double>>("max_bitrate") ?? AsReference("max_bitrate");
+        get => GetArgument<TerraformValue<double>>("max_bitrate") ?? CreateReference("max_bitrate");
         set => SetArgument("max_bitrate", value);
     }
 
@@ -6636,7 +6636,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> MinIInterval
     {
-        get => GetArgument<TerraformValue<double>>("min_i_interval") ?? AsReference("min_i_interval");
+        get => GetArgument<TerraformValue<double>>("min_i_interval") ?? CreateReference("min_i_interval");
         set => SetArgument("min_i_interval", value);
     }
 
@@ -6645,7 +6645,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> NumRefFrames
     {
-        get => GetArgument<TerraformValue<double>>("num_ref_frames") ?? AsReference("num_ref_frames");
+        get => GetArgument<TerraformValue<double>>("num_ref_frames") ?? CreateReference("num_ref_frames");
         set => SetArgument("num_ref_frames", value);
     }
 
@@ -6654,7 +6654,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> ParControl
     {
-        get => GetArgument<TerraformValue<string>>("par_control") ?? AsReference("par_control");
+        get => GetArgument<TerraformValue<string>>("par_control") ?? CreateReference("par_control");
         set => SetArgument("par_control", value);
     }
 
@@ -6663,7 +6663,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> ParDenominator
     {
-        get => GetArgument<TerraformValue<double>>("par_denominator") ?? AsReference("par_denominator");
+        get => GetArgument<TerraformValue<double>>("par_denominator") ?? CreateReference("par_denominator");
         set => SetArgument("par_denominator", value);
     }
 
@@ -6672,7 +6672,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> ParNumerator
     {
-        get => GetArgument<TerraformValue<double>>("par_numerator") ?? AsReference("par_numerator");
+        get => GetArgument<TerraformValue<double>>("par_numerator") ?? CreateReference("par_numerator");
         set => SetArgument("par_numerator", value);
     }
 
@@ -6681,7 +6681,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile") ?? AsReference("profile");
+        get => GetArgument<TerraformValue<string>>("profile") ?? CreateReference("profile");
         set => SetArgument("profile", value);
     }
 
@@ -6690,7 +6690,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> QualityLevel
     {
-        get => GetArgument<TerraformValue<string>>("quality_level") ?? AsReference("quality_level");
+        get => GetArgument<TerraformValue<string>>("quality_level") ?? CreateReference("quality_level");
         set => SetArgument("quality_level", value);
     }
 
@@ -6699,7 +6699,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> QvbrQualityLevel
     {
-        get => GetArgument<TerraformValue<double>>("qvbr_quality_level") ?? AsReference("qvbr_quality_level");
+        get => GetArgument<TerraformValue<double>>("qvbr_quality_level") ?? CreateReference("qvbr_quality_level");
         set => SetArgument("qvbr_quality_level", value);
     }
 
@@ -6708,7 +6708,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> RateControlMode
     {
-        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? AsReference("rate_control_mode");
+        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? CreateReference("rate_control_mode");
         set => SetArgument("rate_control_mode", value);
     }
 
@@ -6717,7 +6717,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> ScanType
     {
-        get => GetArgument<TerraformValue<string>>("scan_type") ?? AsReference("scan_type");
+        get => GetArgument<TerraformValue<string>>("scan_type") ?? CreateReference("scan_type");
         set => SetArgument("scan_type", value);
     }
 
@@ -6726,7 +6726,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> SceneChangeDetect
     {
-        get => GetArgument<TerraformValue<string>>("scene_change_detect") ?? AsReference("scene_change_detect");
+        get => GetArgument<TerraformValue<string>>("scene_change_detect") ?? CreateReference("scene_change_detect");
         set => SetArgument("scene_change_detect", value);
     }
 
@@ -6735,7 +6735,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Slices
     {
-        get => GetArgument<TerraformValue<double>>("slices") ?? AsReference("slices");
+        get => GetArgument<TerraformValue<double>>("slices") ?? CreateReference("slices");
         set => SetArgument("slices", value);
     }
 
@@ -6744,7 +6744,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<double> Softness
     {
-        get => GetArgument<TerraformValue<double>>("softness") ?? AsReference("softness");
+        get => GetArgument<TerraformValue<double>>("softness") ?? CreateReference("softness");
         set => SetArgument("softness", value);
     }
 
@@ -6753,7 +6753,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> SpatialAq
     {
-        get => GetArgument<TerraformValue<string>>("spatial_aq") ?? AsReference("spatial_aq");
+        get => GetArgument<TerraformValue<string>>("spatial_aq") ?? CreateReference("spatial_aq");
         set => SetArgument("spatial_aq", value);
     }
 
@@ -6762,7 +6762,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> SubgopLength
     {
-        get => GetArgument<TerraformValue<string>>("subgop_length") ?? AsReference("subgop_length");
+        get => GetArgument<TerraformValue<string>>("subgop_length") ?? CreateReference("subgop_length");
         set => SetArgument("subgop_length", value);
     }
 
@@ -6771,7 +6771,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> Syntax
     {
-        get => GetArgument<TerraformValue<string>>("syntax") ?? AsReference("syntax");
+        get => GetArgument<TerraformValue<string>>("syntax") ?? CreateReference("syntax");
         set => SetArgument("syntax", value);
     }
 
@@ -6780,7 +6780,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> TemporalAq
     {
-        get => GetArgument<TerraformValue<string>>("temporal_aq") ?? AsReference("temporal_aq");
+        get => GetArgument<TerraformValue<string>>("temporal_aq") ?? CreateReference("temporal_aq");
         set => SetArgument("temporal_aq", value);
     }
 
@@ -6789,7 +6789,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> TimecodeInsertion
     {
-        get => GetArgument<TerraformValue<string>>("timecode_insertion") ?? AsReference("timecode_insertion");
+        get => GetArgument<TerraformValue<string>>("timecode_insertion") ?? CreateReference("timecode_insertion");
         set => SetArgument("timecode_insertion", value);
     }
 
@@ -6875,7 +6875,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> AdaptiveQuantization
     {
-        get => GetArgument<TerraformValue<string>>("adaptive_quantization") ?? AsReference("adaptive_quantization");
+        get => GetArgument<TerraformValue<string>>("adaptive_quantization") ?? CreateReference("adaptive_quantization");
         set => SetArgument("adaptive_quantization", value);
     }
 
@@ -6884,7 +6884,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> AfdSignaling
     {
-        get => GetArgument<TerraformValue<string>>("afd_signaling") ?? AsReference("afd_signaling");
+        get => GetArgument<TerraformValue<string>>("afd_signaling") ?? CreateReference("afd_signaling");
         set => SetArgument("afd_signaling", value);
     }
 
@@ -6893,7 +6893,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> AlternativeTransferFunction
     {
-        get => GetArgument<TerraformValue<string>>("alternative_transfer_function") ?? AsReference("alternative_transfer_function");
+        get => GetArgument<TerraformValue<string>>("alternative_transfer_function") ?? CreateReference("alternative_transfer_function");
         set => SetArgument("alternative_transfer_function", value);
     }
 
@@ -6921,7 +6921,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> ColorMetadata
     {
-        get => GetArgument<TerraformValue<string>>("color_metadata") ?? AsReference("color_metadata");
+        get => GetArgument<TerraformValue<string>>("color_metadata") ?? CreateReference("color_metadata");
         set => SetArgument("color_metadata", value);
     }
 
@@ -6930,7 +6930,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> FixedAfd
     {
-        get => GetArgument<TerraformValue<string>>("fixed_afd") ?? AsReference("fixed_afd");
+        get => GetArgument<TerraformValue<string>>("fixed_afd") ?? CreateReference("fixed_afd");
         set => SetArgument("fixed_afd", value);
     }
 
@@ -6939,7 +6939,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> FlickerAq
     {
-        get => GetArgument<TerraformValue<string>>("flicker_aq") ?? AsReference("flicker_aq");
+        get => GetArgument<TerraformValue<string>>("flicker_aq") ?? CreateReference("flicker_aq");
         set => SetArgument("flicker_aq", value);
     }
 
@@ -6986,7 +6986,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> GopSizeUnits
     {
-        get => GetArgument<TerraformValue<string>>("gop_size_units") ?? AsReference("gop_size_units");
+        get => GetArgument<TerraformValue<string>>("gop_size_units") ?? CreateReference("gop_size_units");
         set => SetArgument("gop_size_units", value);
     }
 
@@ -6995,7 +6995,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> Level
     {
-        get => GetArgument<TerraformValue<string>>("level") ?? AsReference("level");
+        get => GetArgument<TerraformValue<string>>("level") ?? CreateReference("level");
         set => SetArgument("level", value);
     }
 
@@ -7004,7 +7004,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> LookAheadRateControl
     {
-        get => GetArgument<TerraformValue<string>>("look_ahead_rate_control") ?? AsReference("look_ahead_rate_control");
+        get => GetArgument<TerraformValue<string>>("look_ahead_rate_control") ?? CreateReference("look_ahead_rate_control");
         set => SetArgument("look_ahead_rate_control", value);
     }
 
@@ -7040,7 +7040,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> MvOverPictureBoundaries
     {
-        get => GetArgument<TerraformValue<string>>("mv_over_picture_boundaries") ?? AsReference("mv_over_picture_boundaries");
+        get => GetArgument<TerraformValue<string>>("mv_over_picture_boundaries") ?? CreateReference("mv_over_picture_boundaries");
         set => SetArgument("mv_over_picture_boundaries", value);
     }
 
@@ -7049,7 +7049,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> MvTemporalPredictor
     {
-        get => GetArgument<TerraformValue<string>>("mv_temporal_predictor") ?? AsReference("mv_temporal_predictor");
+        get => GetArgument<TerraformValue<string>>("mv_temporal_predictor") ?? CreateReference("mv_temporal_predictor");
         set => SetArgument("mv_temporal_predictor", value);
     }
 
@@ -7076,7 +7076,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile") ?? AsReference("profile");
+        get => GetArgument<TerraformValue<string>>("profile") ?? CreateReference("profile");
         set => SetArgument("profile", value);
     }
 
@@ -7094,7 +7094,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> RateControlMode
     {
-        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? AsReference("rate_control_mode");
+        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? CreateReference("rate_control_mode");
         set => SetArgument("rate_control_mode", value);
     }
 
@@ -7103,7 +7103,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> ScanType
     {
-        get => GetArgument<TerraformValue<string>>("scan_type") ?? AsReference("scan_type");
+        get => GetArgument<TerraformValue<string>>("scan_type") ?? CreateReference("scan_type");
         set => SetArgument("scan_type", value);
     }
 
@@ -7112,7 +7112,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> SceneChangeDetect
     {
-        get => GetArgument<TerraformValue<string>>("scene_change_detect") ?? AsReference("scene_change_detect");
+        get => GetArgument<TerraformValue<string>>("scene_change_detect") ?? CreateReference("scene_change_detect");
         set => SetArgument("scene_change_detect", value);
     }
 
@@ -7130,7 +7130,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? CreateReference("tier");
         set => SetArgument("tier", value);
     }
 
@@ -7148,7 +7148,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> TilePadding
     {
-        get => GetArgument<TerraformValue<string>>("tile_padding") ?? AsReference("tile_padding");
+        get => GetArgument<TerraformValue<string>>("tile_padding") ?? CreateReference("tile_padding");
         set => SetArgument("tile_padding", value);
     }
 
@@ -7166,7 +7166,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> TimecodeInsertion
     {
-        get => GetArgument<TerraformValue<string>>("timecode_insertion") ?? AsReference("timecode_insertion");
+        get => GetArgument<TerraformValue<string>>("timecode_insertion") ?? CreateReference("timecode_insertion");
         set => SetArgument("timecode_insertion", value);
     }
 
@@ -7175,7 +7175,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> TreeblockSize
     {
-        get => GetArgument<TerraformValue<string>>("treeblock_size") ?? AsReference("treeblock_size");
+        get => GetArgument<TerraformValue<string>>("treeblock_size") ?? CreateReference("treeblock_size");
         set => SetArgument("treeblock_size", value);
     }
 
@@ -7427,7 +7427,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix") ?? AsReference("prefix");
+        get => GetArgument<TerraformValue<string>>("prefix") ?? CreateReference("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -7436,7 +7436,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> TimecodeBurninFontSize
     {
-        get => GetArgument<TerraformValue<string>>("timecode_burnin_font_size") ?? AsReference("timecode_burnin_font_size");
+        get => GetArgument<TerraformValue<string>>("timecode_burnin_font_size") ?? CreateReference("timecode_burnin_font_size");
         set => SetArgument("timecode_burnin_font_size", value);
     }
 
@@ -7445,7 +7445,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// </summary>
     public TerraformValue<string> TimecodeBurninPosition
     {
-        get => GetArgument<TerraformValue<string>>("timecode_burnin_position") ?? AsReference("timecode_burnin_position");
+        get => GetArgument<TerraformValue<string>>("timecode_burnin_position") ?? CreateReference("timecode_burnin_position");
         set => SetArgument("timecode_burnin_position", value);
     }
 
@@ -7749,7 +7749,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlock : Terraf
     /// </summary>
     public TerraformValue<string> InputFilter
     {
-        get => GetArgument<TerraformValue<string>>("input_filter") ?? AsReference("input_filter");
+        get => GetArgument<TerraformValue<string>>("input_filter") ?? CreateReference("input_filter");
         set => SetArgument("input_filter", value);
     }
 
@@ -8709,13 +8709,13 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformSet<string> NetworkInterfaceIds
-        => AsReference("network_interface_ids");
+        => CreateReference("network_interface_ids");
 
     /// <summary>
     /// The public_address_allocation_ids attribute.
@@ -8732,7 +8732,7 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? CreateReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -8770,7 +8770,7 @@ public partial class AwsMedialiveChannel(string name) : TerraformResource("aws_m
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -8779,7 +8779,7 @@ public partial class AwsMedialiveChannel(string name) : TerraformResource("aws_m
     /// </summary>
     public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? CreateReference("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -8798,7 +8798,7 @@ public partial class AwsMedialiveChannel(string name) : TerraformResource("aws_m
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -8834,7 +8834,7 @@ public partial class AwsMedialiveChannel(string name) : TerraformResource("aws_m
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -8842,13 +8842,13 @@ public partial class AwsMedialiveChannel(string name) : TerraformResource("aws_m
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The channel_id attribute.
     /// </summary>
     public TerraformValue<string> ChannelId
-        => AsReference("channel_id");
+        => CreateReference("channel_id");
 
     /// <summary>
     /// CdiInputSpecification block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermKubernetesServiceVersionsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,19 +72,19 @@ public partial class AzurermKubernetesServiceVersionsDataSource(string name) : T
     /// The default_version attribute.
     /// </summary>
     public TerraformValue<string> DefaultVersion
-        => AsReference("default_version");
+        => CreateReference("default_version");
 
     /// <summary>
     /// The latest_version attribute.
     /// </summary>
     public TerraformValue<string> LatestVersion
-        => AsReference("latest_version");
+        => CreateReference("latest_version");
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
     public TerraformList<string> Versions
-        => AsReference("versions");
+        => CreateReference("versions");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

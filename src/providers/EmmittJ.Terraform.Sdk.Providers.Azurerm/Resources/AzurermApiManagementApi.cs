@@ -323,7 +323,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> ApiType
     {
-        get => GetArgument<TerraformValue<string>>("api_type") ?? AsReference("api_type");
+        get => GetArgument<TerraformValue<string>>("api_type") ?? CreateReference("api_type");
         set => SetArgument("api_type", value);
     }
 
@@ -341,7 +341,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -350,7 +350,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -369,7 +369,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -378,7 +378,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string> Protocols
     {
-        get => GetArgument<TerraformSet<string>>("protocols") ?? AsReference("protocols");
+        get => GetArgument<TerraformSet<string>>("protocols") ?? CreateReference("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -416,7 +416,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> ServiceUrl
     {
-        get => GetArgument<TerraformValue<string>>("service_url") ?? AsReference("service_url");
+        get => GetArgument<TerraformValue<string>>("service_url") ?? CreateReference("service_url");
         set => SetArgument("service_url", value);
     }
 
@@ -452,7 +452,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -470,7 +470,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> VersionSetId
     {
-        get => GetArgument<TerraformValue<string>>("version_set_id") ?? AsReference("version_set_id");
+        get => GetArgument<TerraformValue<string>>("version_set_id") ?? CreateReference("version_set_id");
         set => SetArgument("version_set_id", value);
     }
 
@@ -478,13 +478,13 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// The is_current attribute.
     /// </summary>
     public TerraformValue<bool> IsCurrent
-        => AsReference("is_current");
+        => CreateReference("is_current");
 
     /// <summary>
     /// The is_online attribute.
     /// </summary>
     public TerraformValue<bool> IsOnline
-        => AsReference("is_online");
+        => CreateReference("is_online");
 
     /// <summary>
     /// Contact block (nesting mode: list).

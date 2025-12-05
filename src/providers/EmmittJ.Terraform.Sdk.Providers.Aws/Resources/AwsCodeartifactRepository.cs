@@ -27,13 +27,13 @@ public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
     /// The package_format attribute.
     /// </summary>
     public TerraformValue<string> PackageFormat
-        => AsReference("package_format");
+        => CreateReference("package_format");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }
 
@@ -92,7 +92,7 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> DomainOwner
     {
-        get => GetArgument<TerraformValue<string>>("domain_owner") ?? AsReference("domain_owner");
+        get => GetArgument<TerraformValue<string>>("domain_owner") ?? CreateReference("domain_owner");
         set => SetArgument("domain_owner", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -146,13 +146,13 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     /// The administrator_account attribute.
     /// </summary>
     public TerraformValue<string> AdministratorAccount
-        => AsReference("administrator_account");
+        => CreateReference("administrator_account");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// ExternalConnections block (nesting mode: list).

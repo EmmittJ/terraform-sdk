@@ -83,7 +83,7 @@ public partial class AzurermVirtualDesktopHostPoolRegistrationInfo(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermVirtualDesktopHostPoolRegistrationInfo(string name) 
     /// The token attribute.
     /// </summary>
     public TerraformValue<string> Token
-        => AsReference("token");
+        => CreateReference("token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

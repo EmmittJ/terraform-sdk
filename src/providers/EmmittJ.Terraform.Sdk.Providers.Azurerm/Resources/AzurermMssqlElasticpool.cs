@@ -150,7 +150,7 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> EnclaveType
     {
-        get => GetArgument<TerraformValue<string>>("enclave_type") ?? AsReference("enclave_type");
+        get => GetArgument<TerraformValue<string>>("enclave_type") ?? CreateReference("enclave_type");
         set => SetArgument("enclave_type", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> LicenseType
     {
-        get => GetArgument<TerraformValue<string>>("license_type") ?? AsReference("license_type");
+        get => GetArgument<TerraformValue<string>>("license_type") ?? CreateReference("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double> MaxSizeBytes
     {
-        get => GetArgument<TerraformValue<double>>("max_size_bytes") ?? AsReference("max_size_bytes");
+        get => GetArgument<TerraformValue<double>>("max_size_bytes") ?? CreateReference("max_size_bytes");
         set => SetArgument("max_size_bytes", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double> MaxSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("max_size_gb") ?? AsReference("max_size_gb");
+        get => GetArgument<TerraformValue<double>>("max_size_gb") ?? CreateReference("max_size_gb");
         set => SetArgument("max_size_gb", value);
     }
 

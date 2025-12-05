@@ -18,7 +18,7 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Ip
     {
-        get => GetArgument<TerraformValue<string>>("ip") ?? AsReference("ip");
+        get => GetArgument<TerraformValue<string>>("ip") ?? CreateReference("ip");
         set => SetArgument("ip", value);
     }
 
@@ -26,14 +26,14 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     /// The ip_id attribute.
     /// </summary>
     public TerraformValue<string> IpId
-        => AsReference("ip_id");
+        => CreateReference("ip_id");
 
     /// <summary>
     /// The ipv6 attribute.
     /// </summary>
     public TerraformValue<string> Ipv6
     {
-        get => GetArgument<TerraformValue<string>>("ipv6") ?? AsReference("ipv6");
+        get => GetArgument<TerraformValue<string>>("ipv6") ?? CreateReference("ipv6");
         set => SetArgument("ipv6", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string> Protocols
     {
-        get => GetArgument<TerraformSet<string>>("protocols") ?? AsReference("protocols");
+        get => GetArgument<TerraformSet<string>>("protocols") ?? CreateReference("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> ResolverEndpointType
     {
-        get => GetArgument<TerraformValue<string>>("resolver_endpoint_type") ?? AsReference("resolver_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("resolver_endpoint_type") ?? CreateReference("resolver_endpoint_type");
         set => SetArgument("resolver_endpoint_type", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -184,13 +184,13 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The host_vpc_id attribute.
     /// </summary>
     public TerraformValue<string> HostVpcId
-        => AsReference("host_vpc_id");
+        => CreateReference("host_vpc_id");
 
     /// <summary>
     /// IpAddress block (nesting mode: set).

@@ -21,7 +21,7 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// method, a DataStore is automatically created for each source entity.
     /// </summary>
     public TerraformValue<string> DataStore
-        => AsReference("data_store");
+        => CreateReference("data_store");
 
     /// <summary>
     /// The name of the entity. Supported values by data source:
@@ -174,7 +174,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -248,7 +248,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -292,14 +292,14 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// &#39;INITIALIZATION_FAILED&#39;, &#39;UPDATING&#39;.
     /// </summary>
     public TerraformValue<string> ActionState
-        => AsReference("action_state");
+        => CreateReference("action_state");
 
     /// <summary>
     /// User actions that must be completed before the connector can start syncing data.
     /// The possible values can be: &#39;ALLOWLIST_STATIC_IP&#39;, &#39;ALLOWLIST_IN_SERVICE_ATTACHMENT&#39;.
     /// </summary>
     public TerraformList<string> BlockingReasons
-        => AsReference("blocking_reasons");
+        => CreateReference("blocking_reasons");
 
     /// <summary>
     /// The type of connector. Each source can only map to one type.
@@ -310,25 +310,25 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// &#39;NATIVE_CLOUD_IDENTITY&#39;, &#39;THIRD_PARTY_FEDERATED&#39;, &#39;THIRD_PARTY_EUA&#39;, &#39;GCNV&#39;.
     /// </summary>
     public TerraformValue<string> ConnectorType
-        => AsReference("connector_type");
+        => CreateReference("connector_type");
 
     /// <summary>
     /// Timestamp when the DataConnector was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The errors from initialization or from the latest connector run.
     /// </summary>
     public TerraformList<TerraformMap<object>> Errors
-        => AsReference("errors");
+        => CreateReference("errors");
 
     /// <summary>
     /// For periodic connectors only, the last time a data sync was completed.
     /// </summary>
     public TerraformValue<string> LastSyncTime
-        => AsReference("last_sync_time");
+        => CreateReference("last_sync_time");
 
     /// <summary>
     /// The most recent timestamp when this [DataConnector][] was paused,
@@ -340,21 +340,21 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// triggered.
     /// </summary>
     public TerraformValue<string> LatestPauseTime
-        => AsReference("latest_pause_time");
+        => CreateReference("latest_pause_time");
 
     /// <summary>
     /// The full resource name of the Data Connector.
     /// Format: &#39;projects/*/locations/*/collections/*/dataConnector&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The tenant project ID associated with private connectivity connectors.
     /// This project must be allowlisted by in order for the connector to function.
     /// </summary>
     public TerraformValue<string> PrivateConnectivityProjectId
-        => AsReference("private_connectivity_project_id");
+        => CreateReference("private_connectivity_project_id");
 
     /// <summary>
     /// The real-time sync state. The possible values can be:
@@ -362,7 +362,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// &#39;INITIALIZATION_FAILED&#39;, &#39;UPDATING&#39;.
     /// </summary>
     public TerraformValue<string> RealtimeState
-        => AsReference("realtime_state");
+        => CreateReference("realtime_state");
 
     /// <summary>
     /// The state of connector. The possible value can be:
@@ -370,19 +370,19 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// &#39;INITIALIZATION_FAILED&#39;, &#39;UPDATING&#39;.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The static IP addresses used by this connector.
     /// </summary>
     public TerraformList<string> StaticIpAddresses
-        => AsReference("static_ip_addresses");
+        => CreateReference("static_ip_addresses");
 
     /// <summary>
     /// Timestamp when the DataConnector was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Entities block (nesting mode: list).

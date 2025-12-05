@@ -26,7 +26,7 @@ public class GoogleVmwareengineNetworkPolicyExternalIpBlock : TerraformBlock
     /// State of the service. New values may be added to this enum when appropriate.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -55,7 +55,7 @@ public class GoogleVmwareengineNetworkPolicyInternetAccessBlock : TerraformBlock
     /// State of the service. New values may be added to this enum when appropriate.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -133,7 +133,7 @@ public partial class GoogleVmwareengineNetworkPolicy(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleVmwareengineNetworkPolicy(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -186,13 +186,13 @@ public partial class GoogleVmwareengineNetworkPolicy(string name) : TerraformRes
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -200,14 +200,14 @@ public partial class GoogleVmwareengineNetworkPolicy(string name) : TerraformRes
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// The canonical name of the VMware Engine network in the form:
     /// projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId}
     /// </summary>
     public TerraformValue<string> VmwareEngineNetworkCanonical
-        => AsReference("vmware_engine_network_canonical");
+        => CreateReference("vmware_engine_network_canonical");
 
     /// <summary>
     /// ExternalIp block (nesting mode: list).

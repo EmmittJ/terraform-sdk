@@ -23,7 +23,7 @@ public partial class AwsCodeartifactDomain(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> EncryptionKey
     {
-        get => GetArgument<TerraformValue<string>>("encryption_key") ?? AsReference("encryption_key");
+        get => GetArgument<TerraformValue<string>>("encryption_key") ?? CreateReference("encryption_key");
         set => SetArgument("encryption_key", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCodeartifactDomain(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCodeartifactDomain(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsCodeartifactDomain(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -67,36 +67,36 @@ public partial class AwsCodeartifactDomain(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The asset_size_bytes attribute.
     /// </summary>
     public TerraformValue<string> AssetSizeBytes
-        => AsReference("asset_size_bytes");
+        => CreateReference("asset_size_bytes");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The repository_count attribute.
     /// </summary>
     public TerraformValue<double> RepositoryCount
-        => AsReference("repository_count");
+        => CreateReference("repository_count");
 
     /// <summary>
     /// The s3_bucket_arn attribute.
     /// </summary>
     public TerraformValue<string> S3BucketArn
-        => AsReference("s3_bucket_arn");
+        => CreateReference("s3_bucket_arn");
 
 }

@@ -214,7 +214,7 @@ public partial class AwsRbinRule(string name) : TerraformResource("aws_rbin_rule
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AwsRbinRule(string name) : TerraformResource("aws_rbin_rule
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AwsRbinRule(string name) : TerraformResource("aws_rbin_rule
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -259,31 +259,31 @@ public partial class AwsRbinRule(string name) : TerraformResource("aws_rbin_rule
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The lock_end_time attribute.
     /// </summary>
     public TerraformValue<string> LockEndTime
-        => AsReference("lock_end_time");
+        => CreateReference("lock_end_time");
 
     /// <summary>
     /// The lock_state attribute.
     /// </summary>
     public TerraformValue<string> LockState
-        => AsReference("lock_state");
+        => CreateReference("lock_state");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// ExcludeResourceTags block (nesting mode: set).

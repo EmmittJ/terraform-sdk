@@ -111,7 +111,7 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> RollbackOnDisable
     {
-        get => GetArgument<TerraformValue<string>>("rollback_on_disable") ?? AsReference("rollback_on_disable");
+        get => GetArgument<TerraformValue<string>>("rollback_on_disable") ?? CreateReference("rollback_on_disable");
         set => SetArgument("rollback_on_disable", value);
     }
 
@@ -336,7 +336,7 @@ public class AwsElasticsearchDomainClusterConfigBlockColdStorageOptionsBlock : T
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -470,7 +470,7 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TlsSecurityPolicy
     {
-        get => GetArgument<TerraformValue<string>>("tls_security_policy") ?? AsReference("tls_security_policy");
+        get => GetArgument<TerraformValue<string>>("tls_security_policy") ?? CreateReference("tls_security_policy");
         set => SetArgument("tls_security_policy", value);
     }
 
@@ -503,7 +503,7 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? CreateReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -512,7 +512,7 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -530,7 +530,7 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? CreateReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -563,7 +563,7 @@ public class AwsElasticsearchDomainEncryptAtRestBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -717,7 +717,7 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-        => AsReference("availability_zones");
+        => CreateReference("availability_zones");
 
     /// <summary>
     /// The security_group_ids attribute.
@@ -741,7 +741,7 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }
 
@@ -757,7 +757,7 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> AccessPolicies
     {
-        get => GetArgument<TerraformValue<string>>("access_policies") ?? AsReference("access_policies");
+        get => GetArgument<TerraformValue<string>>("access_policies") ?? CreateReference("access_policies");
         set => SetArgument("access_policies", value);
     }
 
@@ -766,7 +766,7 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> AdvancedOptions
     {
-        get => GetArgument<TerraformMap<string>>("advanced_options") ?? AsReference("advanced_options");
+        get => GetArgument<TerraformMap<string>>("advanced_options") ?? CreateReference("advanced_options");
         set => SetArgument("advanced_options", value);
     }
 
@@ -794,7 +794,7 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -803,7 +803,7 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -821,7 +821,7 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -829,25 +829,25 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
     public TerraformValue<string> DomainId
-        => AsReference("domain_id");
+        => CreateReference("domain_id");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The kibana_endpoint attribute.
     /// </summary>
     public TerraformValue<string> KibanaEndpoint
-        => AsReference("kibana_endpoint");
+        => CreateReference("kibana_endpoint");
 
     /// <summary>
     /// AdvancedSecurityOptions block (nesting mode: list).

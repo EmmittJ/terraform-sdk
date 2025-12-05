@@ -146,7 +146,7 @@ public class TerraformResourceTests
 
         var subnet = new TerraformResource("aws_subnet", "public")
         {
-            ["vpc_id"] = vpc.AsReference("id"),
+            ["vpc_id"] = vpc["id"],
             ["cidr_block"] = "10.0.1.0/24"
         };
         stack.Add(subnet);
@@ -171,7 +171,7 @@ public class TerraformResourceTests
         var subnet = new TerraformResource("aws_subnet", "public")
         {
             // Using implicit conversion - vpc is automatically converted to TerraformExpression
-            ["vpc_id"] = vpc.AsReference("id"),
+            ["vpc_id"] = vpc["id"],
             ["cidr_block"] = "10.0.1.0/24"
         };
         stack.Add(subnet);
@@ -181,7 +181,7 @@ public class TerraformResourceTests
             ["ami"] = "ami-12345678",
             ["instance_type"] = "t2.micro",
             // Implicit conversion allows direct block assignment for simple references
-            ["subnet_id"] = subnet.AsReference("id")
+            ["subnet_id"] = subnet["id"]
         };
         stack.Add(instance);
 

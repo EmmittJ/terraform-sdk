@@ -54,7 +54,7 @@ public class AwsS3BucketLoggingTargetGrantBlockGranteeBlock : TerraformBlock
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The email_address attribute.
@@ -196,7 +196,7 @@ public partial class AwsS3BucketLogging(string name) : TerraformResource("aws_s3
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsS3BucketLogging(string name) : TerraformResource("aws_s3
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

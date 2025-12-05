@@ -23,7 +23,7 @@ public partial class AwsEcrPullThroughCacheRuleDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsEcrPullThroughCacheRuleDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,30 +40,30 @@ public partial class AwsEcrPullThroughCacheRuleDataSource(string name) : Terrafo
     /// The credential_arn attribute.
     /// </summary>
     public TerraformValue<string> CredentialArn
-        => AsReference("credential_arn");
+        => CreateReference("credential_arn");
 
     /// <summary>
     /// The custom_role_arn attribute.
     /// </summary>
     public TerraformValue<string> CustomRoleArn
-        => AsReference("custom_role_arn");
+        => CreateReference("custom_role_arn");
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-        => AsReference("registry_id");
+        => CreateReference("registry_id");
 
     /// <summary>
     /// The upstream_registry_url attribute.
     /// </summary>
     public TerraformValue<string> UpstreamRegistryUrl
-        => AsReference("upstream_registry_url");
+        => CreateReference("upstream_registry_url");
 
     /// <summary>
     /// The upstream_repository_prefix attribute.
     /// </summary>
     public TerraformValue<string> UpstreamRepositoryPrefix
-        => AsReference("upstream_repository_prefix");
+        => CreateReference("upstream_repository_prefix");
 
 }

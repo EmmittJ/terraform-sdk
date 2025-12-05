@@ -18,7 +18,7 @@ public class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlo
     /// </summary>
     public TerraformValue<string> MinimumInstanceMetadataServiceVersion
     {
-        get => GetArgument<TerraformValue<string>>("minimum_instance_metadata_service_version") ?? AsReference("minimum_instance_metadata_service_version");
+        get => GetArgument<TerraformValue<string>>("minimum_instance_metadata_service_version") ?? CreateReference("minimum_instance_metadata_service_version");
         set => SetArgument("minimum_instance_metadata_service_version", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> PlatformIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("platform_identifier") ?? AsReference("platform_identifier");
+        get => GetArgument<TerraformValue<string>>("platform_identifier") ?? CreateReference("platform_identifier");
         set => SetArgument("platform_identifier", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups") ?? AsReference("security_groups");
+        get => GetArgument<TerraformSet<string>>("security_groups") ?? CreateReference("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -191,19 +191,19 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
-        => AsReference("network_interface_id");
+        => CreateReference("network_interface_id");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// InstanceMetadataServiceConfiguration block (nesting mode: list).

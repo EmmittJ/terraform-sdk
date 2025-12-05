@@ -36,7 +36,7 @@ public partial class AzurermManagedDisksDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermManagedDisksDataSource(string name) : TerraformDataS
     /// The disk attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Disk
-        => AsReference("disk");
+        => CreateReference("disk");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

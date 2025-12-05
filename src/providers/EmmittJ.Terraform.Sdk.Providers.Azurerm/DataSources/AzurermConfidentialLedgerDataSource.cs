@@ -36,7 +36,7 @@ public partial class AzurermConfidentialLedgerDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermConfidentialLedgerDataSource(string name) : Terrafor
     /// The azuread_based_service_principal attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AzureadBasedServicePrincipal
-        => AsReference("azuread_based_service_principal");
+        => CreateReference("azuread_based_service_principal");
 
     /// <summary>
     /// The certificate_based_security_principal attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificateBasedSecurityPrincipal
-        => AsReference("certificate_based_security_principal");
+        => CreateReference("certificate_based_security_principal");
 
     /// <summary>
     /// The identity_service_endpoint attribute.
     /// </summary>
     public TerraformValue<string> IdentityServiceEndpoint
-        => AsReference("identity_service_endpoint");
+        => CreateReference("identity_service_endpoint");
 
     /// <summary>
     /// The ledger_endpoint attribute.
     /// </summary>
     public TerraformValue<string> LedgerEndpoint
-        => AsReference("ledger_endpoint");
+        => CreateReference("ledger_endpoint");
 
     /// <summary>
     /// The ledger_type attribute.
     /// </summary>
     public TerraformValue<string> LedgerType
-        => AsReference("ledger_type");
+        => CreateReference("ledger_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -36,7 +36,7 @@ public partial class AzurermNatGatewayDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermNatGatewayDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformList<string> PublicIpAddressIds
     {
-        get => GetArgument<TerraformList<string>>("public_ip_address_ids") ?? AsReference("public_ip_address_ids");
+        get => GetArgument<TerraformList<string>>("public_ip_address_ids") ?? CreateReference("public_ip_address_ids");
         set => SetArgument("public_ip_address_ids", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermNatGatewayDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformList<string> PublicIpPrefixIds
     {
-        get => GetArgument<TerraformList<string>>("public_ip_prefix_ids") ?? AsReference("public_ip_prefix_ids");
+        get => GetArgument<TerraformList<string>>("public_ip_prefix_ids") ?? CreateReference("public_ip_prefix_ids");
         set => SetArgument("public_ip_prefix_ids", value);
     }
 
@@ -82,37 +82,37 @@ public partial class AzurermNatGatewayDataSource(string name) : TerraformDataSou
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> IdleTimeoutInMinutes
-        => AsReference("idle_timeout_in_minutes");
+        => CreateReference("idle_timeout_in_minutes");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The resource_guid attribute.
     /// </summary>
     public TerraformValue<string> ResourceGuid
-        => AsReference("resource_guid");
+        => CreateReference("resource_guid");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

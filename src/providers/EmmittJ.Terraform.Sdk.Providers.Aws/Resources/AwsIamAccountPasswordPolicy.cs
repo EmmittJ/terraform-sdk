@@ -22,7 +22,7 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool> HardExpiry
     {
-        get => GetArgument<TerraformValue<bool>>("hard_expiry") ?? AsReference("hard_expiry");
+        get => GetArgument<TerraformValue<bool>>("hard_expiry") ?? CreateReference("hard_expiry");
         set => SetArgument("hard_expiry", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> MaxPasswordAge
     {
-        get => GetArgument<TerraformValue<double>>("max_password_age") ?? AsReference("max_password_age");
+        get => GetArgument<TerraformValue<double>>("max_password_age") ?? CreateReference("max_password_age");
         set => SetArgument("max_password_age", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> PasswordReusePrevention
     {
-        get => GetArgument<TerraformValue<double>>("password_reuse_prevention") ?? AsReference("password_reuse_prevention");
+        get => GetArgument<TerraformValue<double>>("password_reuse_prevention") ?? CreateReference("password_reuse_prevention");
         set => SetArgument("password_reuse_prevention", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool> RequireLowercaseCharacters
     {
-        get => GetArgument<TerraformValue<bool>>("require_lowercase_characters") ?? AsReference("require_lowercase_characters");
+        get => GetArgument<TerraformValue<bool>>("require_lowercase_characters") ?? CreateReference("require_lowercase_characters");
         set => SetArgument("require_lowercase_characters", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool> RequireNumbers
     {
-        get => GetArgument<TerraformValue<bool>>("require_numbers") ?? AsReference("require_numbers");
+        get => GetArgument<TerraformValue<bool>>("require_numbers") ?? CreateReference("require_numbers");
         set => SetArgument("require_numbers", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool> RequireSymbols
     {
-        get => GetArgument<TerraformValue<bool>>("require_symbols") ?? AsReference("require_symbols");
+        get => GetArgument<TerraformValue<bool>>("require_symbols") ?? CreateReference("require_symbols");
         set => SetArgument("require_symbols", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool> RequireUppercaseCharacters
     {
-        get => GetArgument<TerraformValue<bool>>("require_uppercase_characters") ?? AsReference("require_uppercase_characters");
+        get => GetArgument<TerraformValue<bool>>("require_uppercase_characters") ?? CreateReference("require_uppercase_characters");
         set => SetArgument("require_uppercase_characters", value);
     }
 
@@ -102,6 +102,6 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// The expire_passwords attribute.
     /// </summary>
     public TerraformValue<bool> ExpirePasswords
-        => AsReference("expire_passwords");
+        => CreateReference("expire_passwords");
 
 }

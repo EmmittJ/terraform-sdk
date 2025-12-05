@@ -555,7 +555,7 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -577,7 +577,7 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -598,7 +598,7 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformList<string> Licenses
     {
-        get => GetArgument<TerraformList<string>>("licenses") ?? AsReference("licenses");
+        get => GetArgument<TerraformList<string>>("licenses") ?? CreateReference("licenses");
         set => SetArgument("licenses", value);
     }
 
@@ -623,7 +623,7 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -677,7 +677,7 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformList<string> StorageLocations
     {
-        get => GetArgument<TerraformList<string>>("storage_locations") ?? AsReference("storage_locations");
+        get => GetArgument<TerraformList<string>>("storage_locations") ?? CreateReference("storage_locations");
         set => SetArgument("storage_locations", value);
     }
 
@@ -686,39 +686,39 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// bytes).
     /// </summary>
     public TerraformValue<double> ArchiveSizeBytes
-        => AsReference("archive_size_bytes");
+        => CreateReference("archive_size_bytes");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource. Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// GuestOsFeatures block (nesting mode: set).

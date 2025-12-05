@@ -36,7 +36,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource(string na
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource(string na
     /// The registration_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RegistrationEnabled
-        => AsReference("registration_enabled");
+        => CreateReference("registration_enabled");
 
     /// <summary>
     /// The resolution_policy attribute.
     /// </summary>
     public TerraformValue<string> ResolutionPolicy
-        => AsReference("resolution_policy");
+        => CreateReference("resolution_policy");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualNetworkId
-        => AsReference("virtual_network_id");
+        => CreateReference("virtual_network_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -17,31 +17,31 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     /// The domain_controller_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> DomainControllerIpAddresses
-        => AsReference("domain_controller_ip_addresses");
+        => CreateReference("domain_controller_ip_addresses");
 
     /// <summary>
     /// The external_access_ip_address attribute.
     /// </summary>
     public TerraformValue<string> ExternalAccessIpAddress
-        => AsReference("external_access_ip_address");
+        => CreateReference("external_access_ip_address");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The service_status attribute.
     /// </summary>
     public TerraformValue<string> ServiceStatus
-        => AsReference("service_status");
+        => CreateReference("service_status");
 
     /// <summary>
     /// The subnet_id attribute.
@@ -112,13 +112,13 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     /// The certificate_expiry attribute.
     /// </summary>
     public TerraformValue<string> CertificateExpiry
-        => AsReference("certificate_expiry");
+        => CreateReference("certificate_expiry");
 
     /// <summary>
     /// The certificate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> CertificateThumbprint
-        => AsReference("certificate_thumbprint");
+        => CreateReference("certificate_thumbprint");
 
     /// <summary>
     /// The enabled attribute.
@@ -163,7 +163,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     /// The public_certificate attribute.
     /// </summary>
     public TerraformValue<string> PublicCertificate
-        => AsReference("public_certificate");
+        => CreateReference("public_certificate");
 
 }
 
@@ -334,7 +334,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -391,31 +391,31 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// The deployment_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentId
-        => AsReference("deployment_id");
+        => CreateReference("deployment_id");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-        => AsReference("resource_id");
+        => CreateReference("resource_id");
 
     /// <summary>
     /// The sync_owner attribute.
     /// </summary>
     public TerraformValue<string> SyncOwner
-        => AsReference("sync_owner");
+        => CreateReference("sync_owner");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// InitialReplicaSet block (nesting mode: list).

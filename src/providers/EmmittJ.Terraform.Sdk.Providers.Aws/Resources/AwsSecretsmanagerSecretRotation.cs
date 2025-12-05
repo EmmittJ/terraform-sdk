@@ -54,7 +54,7 @@ public partial class AwsSecretsmanagerSecretRotation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsSecretsmanagerSecretRotation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsSecretsmanagerSecretRotation(string name) : TerraformRes
     /// The rotation_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RotationEnabled
-        => AsReference("rotation_enabled");
+        => CreateReference("rotation_enabled");
 
     /// <summary>
     /// RotationRules block (nesting mode: list).

@@ -13,7 +13,7 @@ public partial class GoogleStorageControlProjectIntelligenceConfigDataSource(str
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,30 +31,30 @@ public partial class GoogleStorageControlProjectIntelligenceConfigDataSource(str
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, TRIAL, DISABLED and STANDARD.
     /// </summary>
     public TerraformValue<string> EditionConfig
-        => AsReference("edition_config");
+        => CreateReference("edition_config");
 
     /// <summary>
     /// The Intelligence config that is effective for the resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveIntelligenceConfig
-        => AsReference("effective_intelligence_config");
+        => CreateReference("effective_intelligence_config");
 
     /// <summary>
     /// Filter over location and bucket using include or exclude semantics. Resources that match the include or exclude filter are exclusively included or excluded from the Storage Intelligence plan.
     /// </summary>
     public TerraformList<TerraformMap<object>> Filter
-        => AsReference("filter");
+        => CreateReference("filter");
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrialConfig
-        => AsReference("trial_config");
+        => CreateReference("trial_config");
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

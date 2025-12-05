@@ -93,7 +93,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformList<string> ConsumerAcceptList
     {
-        get => GetArgument<TerraformList<string>>("consumer_accept_list") ?? AsReference("consumer_accept_list");
+        get => GetArgument<TerraformList<string>>("consumer_accept_list") ?? CreateReference("consumer_accept_list");
         set => SetArgument("consumer_accept_list", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -186,7 +186,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> PeeringCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("peering_cidr_range") ?? AsReference("peering_cidr_range");
+        get => GetArgument<TerraformValue<string>>("peering_cidr_range") ?? CreateReference("peering_cidr_range");
         set => SetArgument("peering_cidr_range", value);
     }
 
@@ -194,13 +194,13 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// Output only. Hostname or IP address of the exposed Apigee endpoint used by clients to connect to the service.
     /// </summary>
     public TerraformValue<string> Host
-        => AsReference("host");
+        => CreateReference("host");
 
     /// <summary>
     /// Output only. Port number of the exposed Apigee endpoint.
     /// </summary>
     public TerraformValue<string> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// Output only. Resource name of the service attachment created for the instance in
@@ -208,7 +208,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// forward traffic to this service attachment using the PSC endpoints.
     /// </summary>
     public TerraformValue<string> ServiceAttachment
-        => AsReference("service_attachment");
+        => CreateReference("service_attachment");
 
     /// <summary>
     /// AccessLoggingConfig block (nesting mode: list).

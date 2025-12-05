@@ -23,7 +23,7 @@ public partial class AwsTransferConnectorDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,54 +31,54 @@ public partial class AwsTransferConnectorDataSource(string name) : TerraformData
     /// The access_role attribute.
     /// </summary>
     public TerraformValue<string> AccessRole
-        => AsReference("access_role");
+        => CreateReference("access_role");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The as2_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> As2Config
-        => AsReference("as2_config");
+        => CreateReference("as2_config");
 
     /// <summary>
     /// The logging_role attribute.
     /// </summary>
     public TerraformValue<string> LoggingRole
-        => AsReference("logging_role");
+        => CreateReference("logging_role");
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
     public TerraformValue<string> SecurityPolicyName
-        => AsReference("security_policy_name");
+        => CreateReference("security_policy_name");
 
     /// <summary>
     /// The service_managed_egress_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ServiceManagedEgressIpAddresses
-        => AsReference("service_managed_egress_ip_addresses");
+        => CreateReference("service_managed_egress_ip_addresses");
 
     /// <summary>
     /// The sftp_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SftpConfig
-        => AsReference("sftp_config");
+        => CreateReference("sftp_config");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
 }

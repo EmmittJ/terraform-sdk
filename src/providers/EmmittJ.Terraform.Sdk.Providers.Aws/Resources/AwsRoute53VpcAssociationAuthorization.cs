@@ -54,7 +54,7 @@ public partial class AwsRoute53VpcAssociationAuthorization(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsRoute53VpcAssociationAuthorization(string name) : Terraf
     /// </summary>
     public TerraformValue<string> VpcRegion
     {
-        get => GetArgument<TerraformValue<string>>("vpc_region") ?? AsReference("vpc_region");
+        get => GetArgument<TerraformValue<string>>("vpc_region") ?? CreateReference("vpc_region");
         set => SetArgument("vpc_region", value);
     }
 

@@ -13,7 +13,7 @@ public partial class AwsSignerSigningJobDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSignerSigningJobDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,90 +40,90 @@ public partial class AwsSignerSigningJobDataSource(string name) : TerraformDataS
     /// The completed_at attribute.
     /// </summary>
     public TerraformValue<string> CompletedAt
-        => AsReference("completed_at");
+        => CreateReference("completed_at");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The job_invoker attribute.
     /// </summary>
     public TerraformValue<string> JobInvoker
-        => AsReference("job_invoker");
+        => CreateReference("job_invoker");
 
     /// <summary>
     /// The job_owner attribute.
     /// </summary>
     public TerraformValue<string> JobOwner
-        => AsReference("job_owner");
+        => CreateReference("job_owner");
 
     /// <summary>
     /// The platform_display_name attribute.
     /// </summary>
     public TerraformValue<string> PlatformDisplayName
-        => AsReference("platform_display_name");
+        => CreateReference("platform_display_name");
 
     /// <summary>
     /// The platform_id attribute.
     /// </summary>
     public TerraformValue<string> PlatformId
-        => AsReference("platform_id");
+        => CreateReference("platform_id");
 
     /// <summary>
     /// The profile_name attribute.
     /// </summary>
     public TerraformValue<string> ProfileName
-        => AsReference("profile_name");
+        => CreateReference("profile_name");
 
     /// <summary>
     /// The profile_version attribute.
     /// </summary>
     public TerraformValue<string> ProfileVersion
-        => AsReference("profile_version");
+        => CreateReference("profile_version");
 
     /// <summary>
     /// The requested_by attribute.
     /// </summary>
     public TerraformValue<string> RequestedBy
-        => AsReference("requested_by");
+        => CreateReference("requested_by");
 
     /// <summary>
     /// The revocation_record attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RevocationRecord
-        => AsReference("revocation_record");
+        => CreateReference("revocation_record");
 
     /// <summary>
     /// The signature_expires_at attribute.
     /// </summary>
     public TerraformValue<string> SignatureExpiresAt
-        => AsReference("signature_expires_at");
+        => CreateReference("signature_expires_at");
 
     /// <summary>
     /// The signed_object attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SignedObject
-        => AsReference("signed_object");
+        => CreateReference("signed_object");
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Source
-        => AsReference("source");
+        => CreateReference("source");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     public TerraformValue<string> StatusReason
-        => AsReference("status_reason");
+        => CreateReference("status_reason");
 
 }

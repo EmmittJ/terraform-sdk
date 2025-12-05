@@ -88,7 +88,7 @@ public partial class GoogleStorageBucketAccessControl(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,13 +105,13 @@ public partial class GoogleStorageBucketAccessControl(string name) : TerraformRe
     /// The domain associated with the entity.
     /// </summary>
     public TerraformValue<string> Domain
-        => AsReference("domain");
+        => CreateReference("domain");
 
     /// <summary>
     /// The email address associated with the entity.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -732,7 +732,7 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -759,7 +759,7 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -787,7 +787,7 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> TargetId
     {
-        get => GetArgument<TerraformValue<string>>("target_id") ?? AsReference("target_id");
+        get => GetArgument<TerraformValue<string>>("target_id") ?? CreateReference("target_id");
         set => SetArgument("target_id", value);
     }
 

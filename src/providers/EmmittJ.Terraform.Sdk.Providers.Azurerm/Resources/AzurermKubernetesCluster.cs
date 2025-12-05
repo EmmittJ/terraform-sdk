@@ -17,7 +17,7 @@ public class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformBlock
     /// The connector_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectorIdentity
-        => AsReference("connector_identity");
+        => CreateReference("connector_identity");
 
     /// <summary>
     /// The subnet_name attribute.
@@ -116,7 +116,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EmptyBulkDeleteMax
     {
-        get => GetArgument<TerraformValue<string>>("empty_bulk_delete_max") ?? AsReference("empty_bulk_delete_max");
+        get => GetArgument<TerraformValue<string>>("empty_bulk_delete_max") ?? CreateReference("empty_bulk_delete_max");
         set => SetArgument("empty_bulk_delete_max", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MaxGracefulTerminationSec
     {
-        get => GetArgument<TerraformValue<string>>("max_graceful_termination_sec") ?? AsReference("max_graceful_termination_sec");
+        get => GetArgument<TerraformValue<string>>("max_graceful_termination_sec") ?? CreateReference("max_graceful_termination_sec");
         set => SetArgument("max_graceful_termination_sec", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> NewPodScaleUpDelay
     {
-        get => GetArgument<TerraformValue<string>>("new_pod_scale_up_delay") ?? AsReference("new_pod_scale_up_delay");
+        get => GetArgument<TerraformValue<string>>("new_pod_scale_up_delay") ?? CreateReference("new_pod_scale_up_delay");
         set => SetArgument("new_pod_scale_up_delay", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScaleDownDelayAfterAdd
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_add") ?? AsReference("scale_down_delay_after_add");
+        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_add") ?? CreateReference("scale_down_delay_after_add");
         set => SetArgument("scale_down_delay_after_add", value);
     }
 
@@ -197,7 +197,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScaleDownDelayAfterDelete
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_delete") ?? AsReference("scale_down_delay_after_delete");
+        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_delete") ?? CreateReference("scale_down_delay_after_delete");
         set => SetArgument("scale_down_delay_after_delete", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScaleDownDelayAfterFailure
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_failure") ?? AsReference("scale_down_delay_after_failure");
+        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_failure") ?? CreateReference("scale_down_delay_after_failure");
         set => SetArgument("scale_down_delay_after_failure", value);
     }
 
@@ -215,7 +215,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScaleDownUnneeded
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_unneeded") ?? AsReference("scale_down_unneeded");
+        get => GetArgument<TerraformValue<string>>("scale_down_unneeded") ?? CreateReference("scale_down_unneeded");
         set => SetArgument("scale_down_unneeded", value);
     }
 
@@ -224,7 +224,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScaleDownUnready
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_unready") ?? AsReference("scale_down_unready");
+        get => GetArgument<TerraformValue<string>>("scale_down_unready") ?? CreateReference("scale_down_unready");
         set => SetArgument("scale_down_unready", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScaleDownUtilizationThreshold
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_utilization_threshold") ?? AsReference("scale_down_utilization_threshold");
+        get => GetArgument<TerraformValue<string>>("scale_down_utilization_threshold") ?? CreateReference("scale_down_utilization_threshold");
         set => SetArgument("scale_down_utilization_threshold", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ScanInterval
     {
-        get => GetArgument<TerraformValue<string>>("scan_interval") ?? AsReference("scan_interval");
+        get => GetArgument<TerraformValue<string>>("scan_interval") ?? CreateReference("scan_interval");
         set => SetArgument("scan_interval", value);
     }
 
@@ -301,7 +301,7 @@ public class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlB
     /// </summary>
     public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? CreateReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -443,7 +443,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KubeletDiskType
     {
-        get => GetArgument<TerraformValue<string>>("kubelet_disk_type") ?? AsReference("kubelet_disk_type");
+        get => GetArgument<TerraformValue<string>>("kubelet_disk_type") ?? CreateReference("kubelet_disk_type");
         set => SetArgument("kubelet_disk_type", value);
     }
 
@@ -461,7 +461,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxPods
     {
-        get => GetArgument<TerraformValue<double>>("max_pods") ?? AsReference("max_pods");
+        get => GetArgument<TerraformValue<double>>("max_pods") ?? CreateReference("max_pods");
         set => SetArgument("max_pods", value);
     }
 
@@ -489,7 +489,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? CreateReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -498,7 +498,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string> NodeLabels
     {
-        get => GetArgument<TerraformMap<string>>("node_labels") ?? AsReference("node_labels");
+        get => GetArgument<TerraformMap<string>>("node_labels") ?? CreateReference("node_labels");
         set => SetArgument("node_labels", value);
     }
 
@@ -534,7 +534,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OrchestratorVersion
     {
-        get => GetArgument<TerraformValue<string>>("orchestrator_version") ?? AsReference("orchestrator_version");
+        get => GetArgument<TerraformValue<string>>("orchestrator_version") ?? CreateReference("orchestrator_version");
         set => SetArgument("orchestrator_version", value);
     }
 
@@ -543,7 +543,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> OsDiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("os_disk_size_gb") ?? AsReference("os_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("os_disk_size_gb") ?? CreateReference("os_disk_size_gb");
         set => SetArgument("os_disk_size_gb", value);
     }
 
@@ -561,7 +561,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OsSku
     {
-        get => GetArgument<TerraformValue<string>>("os_sku") ?? AsReference("os_sku");
+        get => GetArgument<TerraformValue<string>>("os_sku") ?? CreateReference("os_sku");
         set => SetArgument("os_sku", value);
     }
 
@@ -642,7 +642,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> VmSize
     {
-        get => GetArgument<TerraformValue<string>>("vm_size") ?? AsReference("vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size") ?? CreateReference("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -660,7 +660,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> WorkloadRuntime
     {
-        get => GetArgument<TerraformValue<string>>("workload_runtime") ?? AsReference("workload_runtime");
+        get => GetArgument<TerraformValue<string>>("workload_runtime") ?? CreateReference("workload_runtime");
         set => SetArgument("workload_runtime", value);
     }
 
@@ -843,7 +843,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlock : Te
     /// </summary>
     public TerraformValue<string> TransparentHugePage
     {
-        get => GetArgument<TerraformValue<string>>("transparent_huge_page") ?? AsReference("transparent_huge_page");
+        get => GetArgument<TerraformValue<string>>("transparent_huge_page") ?? CreateReference("transparent_huge_page");
         set => SetArgument("transparent_huge_page", value);
     }
 
@@ -862,7 +862,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlock : Te
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> TransparentHugePageEnabled
     {
-        get => GetArgument<TerraformValue<string>>("transparent_huge_page_enabled") ?? AsReference("transparent_huge_page_enabled");
+        get => GetArgument<TerraformValue<string>>("transparent_huge_page_enabled") ?? CreateReference("transparent_huge_page_enabled");
         set => SetArgument("transparent_huge_page_enabled", value);
     }
 
@@ -1348,13 +1348,13 @@ public class AzurermKubernetesClusterIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -1384,7 +1384,7 @@ public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformB
     /// The effective_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> EffectiveGatewayId
-        => AsReference("effective_gateway_id");
+        => CreateReference("effective_gateway_id");
 
     /// <summary>
     /// The gateway_id attribute.
@@ -1408,7 +1408,7 @@ public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformB
     /// The ingress_application_gateway_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IngressApplicationGatewayIdentity
-        => AsReference("ingress_application_gateway_identity");
+        => CreateReference("ingress_application_gateway_identity");
 
     /// <summary>
     /// The subnet_cidr attribute.
@@ -1479,7 +1479,7 @@ public class AzurermKubernetesClusterKeyVaultSecretsProviderBlock : TerraformBlo
     /// The secret_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecretIdentity
-        => AsReference("secret_identity");
+        => CreateReference("secret_identity");
 
     /// <summary>
     /// The secret_rotation_enabled attribute.
@@ -1518,7 +1518,7 @@ public class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id") ?? AsReference("client_id");
+        get => GetArgument<TerraformValue<string>>("client_id") ?? CreateReference("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1527,7 +1527,7 @@ public class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? CreateReference("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -1536,7 +1536,7 @@ public class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> UserAssignedIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id") ?? AsReference("user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id") ?? CreateReference("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -1765,7 +1765,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     /// </summary>
     public TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date") ?? AsReference("start_date");
+        get => GetArgument<TerraformValue<string>>("start_date") ?? CreateReference("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -1905,7 +1905,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date") ?? AsReference("start_date");
+        get => GetArgument<TerraformValue<string>>("start_date") ?? CreateReference("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -2053,7 +2053,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> DnsServiceIp
     {
-        get => GetArgument<TerraformValue<string>>("dns_service_ip") ?? AsReference("dns_service_ip");
+        get => GetArgument<TerraformValue<string>>("dns_service_ip") ?? CreateReference("dns_service_ip");
         set => SetArgument("dns_service_ip", value);
     }
 
@@ -2062,7 +2062,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> IpVersions
     {
-        get => GetArgument<TerraformList<string>>("ip_versions") ?? AsReference("ip_versions");
+        get => GetArgument<TerraformList<string>>("ip_versions") ?? CreateReference("ip_versions");
         set => SetArgument("ip_versions", value);
     }
 
@@ -2089,7 +2089,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> NetworkMode
     {
-        get => GetArgument<TerraformValue<string>>("network_mode") ?? AsReference("network_mode");
+        get => GetArgument<TerraformValue<string>>("network_mode") ?? CreateReference("network_mode");
         set => SetArgument("network_mode", value);
     }
 
@@ -2117,7 +2117,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> NetworkPolicy
     {
-        get => GetArgument<TerraformValue<string>>("network_policy") ?? AsReference("network_policy");
+        get => GetArgument<TerraformValue<string>>("network_policy") ?? CreateReference("network_policy");
         set => SetArgument("network_policy", value);
     }
 
@@ -2135,7 +2135,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PodCidr
     {
-        get => GetArgument<TerraformValue<string>>("pod_cidr") ?? AsReference("pod_cidr");
+        get => GetArgument<TerraformValue<string>>("pod_cidr") ?? CreateReference("pod_cidr");
         set => SetArgument("pod_cidr", value);
     }
 
@@ -2144,7 +2144,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> PodCidrs
     {
-        get => GetArgument<TerraformList<string>>("pod_cidrs") ?? AsReference("pod_cidrs");
+        get => GetArgument<TerraformList<string>>("pod_cidrs") ?? CreateReference("pod_cidrs");
         set => SetArgument("pod_cidrs", value);
     }
 
@@ -2153,7 +2153,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceCidr
     {
-        get => GetArgument<TerraformValue<string>>("service_cidr") ?? AsReference("service_cidr");
+        get => GetArgument<TerraformValue<string>>("service_cidr") ?? CreateReference("service_cidr");
         set => SetArgument("service_cidr", value);
     }
 
@@ -2162,7 +2162,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> ServiceCidrs
     {
-        get => GetArgument<TerraformList<string>>("service_cidrs") ?? AsReference("service_cidrs");
+        get => GetArgument<TerraformList<string>>("service_cidrs") ?? CreateReference("service_cidrs");
         set => SetArgument("service_cidrs", value);
     }
 
@@ -2253,7 +2253,7 @@ public class AzurermKubernetesClusterNetworkProfileBlockLoadBalancerProfileBlock
     /// The effective_outbound_ips attribute.
     /// </summary>
     public TerraformSet<string> EffectiveOutboundIps
-        => AsReference("effective_outbound_ips");
+        => CreateReference("effective_outbound_ips");
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
@@ -2269,7 +2269,7 @@ public class AzurermKubernetesClusterNetworkProfileBlockLoadBalancerProfileBlock
     /// </summary>
     public TerraformValue<double> ManagedOutboundIpCount
     {
-        get => GetArgument<TerraformValue<double>>("managed_outbound_ip_count") ?? AsReference("managed_outbound_ip_count");
+        get => GetArgument<TerraformValue<double>>("managed_outbound_ip_count") ?? CreateReference("managed_outbound_ip_count");
         set => SetArgument("managed_outbound_ip_count", value);
     }
 
@@ -2278,7 +2278,7 @@ public class AzurermKubernetesClusterNetworkProfileBlockLoadBalancerProfileBlock
     /// </summary>
     public TerraformValue<double> ManagedOutboundIpv6Count
     {
-        get => GetArgument<TerraformValue<double>>("managed_outbound_ipv6_count") ?? AsReference("managed_outbound_ipv6_count");
+        get => GetArgument<TerraformValue<double>>("managed_outbound_ipv6_count") ?? CreateReference("managed_outbound_ipv6_count");
         set => SetArgument("managed_outbound_ipv6_count", value);
     }
 
@@ -2326,7 +2326,7 @@ public class AzurermKubernetesClusterNetworkProfileBlockNatGatewayProfileBlock :
     /// The effective_outbound_ips attribute.
     /// </summary>
     public TerraformSet<string> EffectiveOutboundIps
-        => AsReference("effective_outbound_ips");
+        => CreateReference("effective_outbound_ips");
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
@@ -2342,7 +2342,7 @@ public class AzurermKubernetesClusterNetworkProfileBlockNatGatewayProfileBlock :
     /// </summary>
     public TerraformValue<double> ManagedOutboundIpCount
     {
-        get => GetArgument<TerraformValue<double>>("managed_outbound_ip_count") ?? AsReference("managed_outbound_ip_count");
+        get => GetArgument<TerraformValue<double>>("managed_outbound_ip_count") ?? CreateReference("managed_outbound_ip_count");
         set => SetArgument("managed_outbound_ip_count", value);
     }
 
@@ -2383,7 +2383,7 @@ public class AzurermKubernetesClusterOmsAgentBlock : TerraformBlock
     /// The oms_agent_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OmsAgentIdentity
-        => AsReference("oms_agent_identity");
+        => CreateReference("oms_agent_identity");
 
 }
 
@@ -2714,7 +2714,7 @@ public class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlock
     /// The web_app_routing_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WebAppRoutingIdentity
-        => AsReference("web_app_routing_identity");
+        => CreateReference("web_app_routing_identity");
 
 }
 
@@ -2938,7 +2938,7 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2965,7 +2965,7 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> KubernetesVersion
     {
-        get => GetArgument<TerraformValue<string>>("kubernetes_version") ?? AsReference("kubernetes_version");
+        get => GetArgument<TerraformValue<string>>("kubernetes_version") ?? CreateReference("kubernetes_version");
         set => SetArgument("kubernetes_version", value);
     }
 
@@ -3012,7 +3012,7 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> NodeResourceGroup
     {
-        get => GetArgument<TerraformValue<string>>("node_resource_group") ?? AsReference("node_resource_group");
+        get => GetArgument<TerraformValue<string>>("node_resource_group") ?? CreateReference("node_resource_group");
         set => SetArgument("node_resource_group", value);
     }
 
@@ -3057,7 +3057,7 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> PrivateDnsZoneId
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_zone_id") ?? AsReference("private_dns_zone_id");
+        get => GetArgument<TerraformValue<string>>("private_dns_zone_id") ?? CreateReference("private_dns_zone_id");
         set => SetArgument("private_dns_zone_id", value);
     }
 
@@ -3129,67 +3129,67 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     /// The current_kubernetes_version attribute.
     /// </summary>
     public TerraformValue<string> CurrentKubernetesVersion
-        => AsReference("current_kubernetes_version");
+        => CreateReference("current_kubernetes_version");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The http_application_routing_zone_name attribute.
     /// </summary>
     public TerraformValue<string> HttpApplicationRoutingZoneName
-        => AsReference("http_application_routing_zone_name");
+        => CreateReference("http_application_routing_zone_name");
 
     /// <summary>
     /// The kube_admin_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> KubeAdminConfig
-        => AsReference("kube_admin_config");
+        => CreateReference("kube_admin_config");
 
     /// <summary>
     /// The kube_admin_config_raw attribute.
     /// </summary>
     public TerraformValue<string> KubeAdminConfigRaw
-        => AsReference("kube_admin_config_raw");
+        => CreateReference("kube_admin_config_raw");
 
     /// <summary>
     /// The kube_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> KubeConfig
-        => AsReference("kube_config");
+        => CreateReference("kube_config");
 
     /// <summary>
     /// The kube_config_raw attribute.
     /// </summary>
     public TerraformValue<string> KubeConfigRaw
-        => AsReference("kube_config_raw");
+        => CreateReference("kube_config_raw");
 
     /// <summary>
     /// The node_resource_group_id attribute.
     /// </summary>
     public TerraformValue<string> NodeResourceGroupId
-        => AsReference("node_resource_group_id");
+        => CreateReference("node_resource_group_id");
 
     /// <summary>
     /// The oidc_issuer_url attribute.
     /// </summary>
     public TerraformValue<string> OidcIssuerUrl
-        => AsReference("oidc_issuer_url");
+        => CreateReference("oidc_issuer_url");
 
     /// <summary>
     /// The portal_fqdn attribute.
     /// </summary>
     public TerraformValue<string> PortalFqdn
-        => AsReference("portal_fqdn");
+        => CreateReference("portal_fqdn");
 
     /// <summary>
     /// The private_fqdn attribute.
     /// </summary>
     public TerraformValue<string> PrivateFqdn
-        => AsReference("private_fqdn");
+        => CreateReference("private_fqdn");
 
     /// <summary>
     /// AciConnectorLinux block (nesting mode: list).

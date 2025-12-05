@@ -994,7 +994,7 @@ public partial class GoogleComputeRegionSecurityPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1014,7 +1014,7 @@ public partial class GoogleComputeRegionSecurityPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1024,7 +1024,7 @@ public partial class GoogleComputeRegionSecurityPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1046,25 +1046,25 @@ public partial class GoogleComputeRegionSecurityPolicy(string name) : TerraformR
     /// updates of this resource.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> PolicyId
-        => AsReference("policy_id");
+        => CreateReference("policy_id");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
     public TerraformValue<string> SelfLinkWithPolicyId
-        => AsReference("self_link_with_policy_id");
+        => CreateReference("self_link_with_policy_id");
 
     /// <summary>
     /// AdvancedOptionsConfig block (nesting mode: list).

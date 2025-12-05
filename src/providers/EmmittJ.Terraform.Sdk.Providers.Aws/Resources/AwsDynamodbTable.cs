@@ -100,7 +100,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ReadCapacity
     {
-        get => GetArgument<TerraformValue<double>>("read_capacity") ?? AsReference("read_capacity");
+        get => GetArgument<TerraformValue<double>>("read_capacity") ?? CreateReference("read_capacity");
         set => SetArgument("read_capacity", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> WriteCapacity
     {
-        get => GetArgument<TerraformValue<double>>("write_capacity") ?? AsReference("write_capacity");
+        get => GetArgument<TerraformValue<double>>("write_capacity") ?? CreateReference("write_capacity");
         set => SetArgument("write_capacity", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlockOnDemandThroughputBlock : 
     /// </summary>
     public TerraformValue<double> MaxReadRequestUnits
     {
-        get => GetArgument<TerraformValue<double>>("max_read_request_units") ?? AsReference("max_read_request_units");
+        get => GetArgument<TerraformValue<double>>("max_read_request_units") ?? CreateReference("max_read_request_units");
         set => SetArgument("max_read_request_units", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlockOnDemandThroughputBlock : 
     /// </summary>
     public TerraformValue<double> MaxWriteRequestUnits
     {
-        get => GetArgument<TerraformValue<double>>("max_write_request_units") ?? AsReference("max_write_request_units");
+        get => GetArgument<TerraformValue<double>>("max_write_request_units") ?? CreateReference("max_write_request_units");
         set => SetArgument("max_write_request_units", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlockWarmThroughputBlock : Terr
     /// </summary>
     public TerraformValue<double> ReadUnitsPerSecond
     {
-        get => GetArgument<TerraformValue<double>>("read_units_per_second") ?? AsReference("read_units_per_second");
+        get => GetArgument<TerraformValue<double>>("read_units_per_second") ?? CreateReference("read_units_per_second");
         set => SetArgument("read_units_per_second", value);
     }
 
@@ -191,7 +191,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlockWarmThroughputBlock : Terr
     /// </summary>
     public TerraformValue<double> WriteUnitsPerSecond
     {
-        get => GetArgument<TerraformValue<double>>("write_units_per_second") ?? AsReference("write_units_per_second");
+        get => GetArgument<TerraformValue<double>>("write_units_per_second") ?? CreateReference("write_units_per_second");
         set => SetArgument("write_units_per_second", value);
     }
 
@@ -418,7 +418,7 @@ public class AwsDynamodbTableOnDemandThroughputBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxReadRequestUnits
     {
-        get => GetArgument<TerraformValue<double>>("max_read_request_units") ?? AsReference("max_read_request_units");
+        get => GetArgument<TerraformValue<double>>("max_read_request_units") ?? CreateReference("max_read_request_units");
         set => SetArgument("max_read_request_units", value);
     }
 
@@ -427,7 +427,7 @@ public class AwsDynamodbTableOnDemandThroughputBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxWriteRequestUnits
     {
-        get => GetArgument<TerraformValue<double>>("max_write_request_units") ?? AsReference("max_write_request_units");
+        get => GetArgument<TerraformValue<double>>("max_write_request_units") ?? CreateReference("max_write_request_units");
         set => SetArgument("max_write_request_units", value);
     }
 
@@ -460,7 +460,7 @@ public class AwsDynamodbTablePointInTimeRecoveryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> RecoveryPeriodInDays
     {
-        get => GetArgument<TerraformValue<double>>("recovery_period_in_days") ?? AsReference("recovery_period_in_days");
+        get => GetArgument<TerraformValue<double>>("recovery_period_in_days") ?? CreateReference("recovery_period_in_days");
         set => SetArgument("recovery_period_in_days", value);
     }
 
@@ -482,7 +482,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The consistency_mode attribute.
@@ -498,7 +498,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> DeletionProtectionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled") ?? AsReference("deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled") ?? CreateReference("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
@@ -507,7 +507,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? CreateReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -543,13 +543,13 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// The stream_arn attribute.
     /// </summary>
     public TerraformValue<string> StreamArn
-        => AsReference("stream_arn");
+        => CreateReference("stream_arn");
 
     /// <summary>
     /// The stream_label attribute.
     /// </summary>
     public TerraformValue<string> StreamLabel
-        => AsReference("stream_label");
+        => CreateReference("stream_label");
 
 }
 
@@ -580,7 +580,7 @@ public class AwsDynamodbTableServerSideEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? CreateReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -676,7 +676,7 @@ public class AwsDynamodbTableWarmThroughputBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ReadUnitsPerSecond
     {
-        get => GetArgument<TerraformValue<double>>("read_units_per_second") ?? AsReference("read_units_per_second");
+        get => GetArgument<TerraformValue<double>>("read_units_per_second") ?? CreateReference("read_units_per_second");
         set => SetArgument("read_units_per_second", value);
     }
 
@@ -685,7 +685,7 @@ public class AwsDynamodbTableWarmThroughputBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> WriteUnitsPerSecond
     {
-        get => GetArgument<TerraformValue<double>>("write_units_per_second") ?? AsReference("write_units_per_second");
+        get => GetArgument<TerraformValue<double>>("write_units_per_second") ?? CreateReference("write_units_per_second");
         set => SetArgument("write_units_per_second", value);
     }
 
@@ -721,7 +721,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string> HashKey
     {
-        get => GetArgument<TerraformValue<string>>("hash_key") ?? AsReference("hash_key");
+        get => GetArgument<TerraformValue<string>>("hash_key") ?? CreateReference("hash_key");
         set => SetArgument("hash_key", value);
     }
 
@@ -730,7 +730,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -758,7 +758,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<double> ReadCapacity
     {
-        get => GetArgument<TerraformValue<double>>("read_capacity") ?? AsReference("read_capacity");
+        get => GetArgument<TerraformValue<double>>("read_capacity") ?? CreateReference("read_capacity");
         set => SetArgument("read_capacity", value);
     }
 
@@ -767,7 +767,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -821,7 +821,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string> StreamViewType
     {
-        get => GetArgument<TerraformValue<string>>("stream_view_type") ?? AsReference("stream_view_type");
+        get => GetArgument<TerraformValue<string>>("stream_view_type") ?? CreateReference("stream_view_type");
         set => SetArgument("stream_view_type", value);
     }
 
@@ -848,7 +848,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -857,7 +857,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<double> WriteCapacity
     {
-        get => GetArgument<TerraformValue<double>>("write_capacity") ?? AsReference("write_capacity");
+        get => GetArgument<TerraformValue<double>>("write_capacity") ?? CreateReference("write_capacity");
         set => SetArgument("write_capacity", value);
     }
 
@@ -865,19 +865,19 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
     public TerraformValue<string> StreamArn
-        => AsReference("stream_arn");
+        => CreateReference("stream_arn");
 
     /// <summary>
     /// The stream_label attribute.
     /// </summary>
     public TerraformValue<string> StreamLabel
-        => AsReference("stream_label");
+        => CreateReference("stream_label");
 
     /// <summary>
     /// Attribute block (nesting mode: set).

@@ -64,7 +64,7 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,61 +101,61 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     /// The digest_algorithm_mnemonic attribute.
     /// </summary>
     public TerraformValue<string> DigestAlgorithmMnemonic
-        => AsReference("digest_algorithm_mnemonic");
+        => CreateReference("digest_algorithm_mnemonic");
 
     /// <summary>
     /// The digest_algorithm_type attribute.
     /// </summary>
     public TerraformValue<double> DigestAlgorithmType
-        => AsReference("digest_algorithm_type");
+        => CreateReference("digest_algorithm_type");
 
     /// <summary>
     /// The digest_value attribute.
     /// </summary>
     public TerraformValue<string> DigestValue
-        => AsReference("digest_value");
+        => CreateReference("digest_value");
 
     /// <summary>
     /// The dnskey_record attribute.
     /// </summary>
     public TerraformValue<string> DnskeyRecord
-        => AsReference("dnskey_record");
+        => CreateReference("dnskey_record");
 
     /// <summary>
     /// The ds_record attribute.
     /// </summary>
     public TerraformValue<string> DsRecord
-        => AsReference("ds_record");
+        => CreateReference("ds_record");
 
     /// <summary>
     /// The flag attribute.
     /// </summary>
     public TerraformValue<double> Flag
-        => AsReference("flag");
+        => CreateReference("flag");
 
     /// <summary>
     /// The key_tag attribute.
     /// </summary>
     public TerraformValue<double> KeyTag
-        => AsReference("key_tag");
+        => CreateReference("key_tag");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
     /// <summary>
     /// The signing_algorithm_mnemonic attribute.
     /// </summary>
     public TerraformValue<string> SigningAlgorithmMnemonic
-        => AsReference("signing_algorithm_mnemonic");
+        => CreateReference("signing_algorithm_mnemonic");
 
     /// <summary>
     /// The signing_algorithm_type attribute.
     /// </summary>
     public TerraformValue<double> SigningAlgorithmType
-        => AsReference("signing_algorithm_type");
+        => CreateReference("signing_algorithm_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

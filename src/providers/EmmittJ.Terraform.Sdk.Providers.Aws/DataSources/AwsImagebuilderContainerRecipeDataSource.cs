@@ -23,7 +23,7 @@ public partial class AwsImagebuilderContainerRecipeDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsImagebuilderContainerRecipeDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsImagebuilderContainerRecipeDataSource(string name) : Ter
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,90 +49,90 @@ public partial class AwsImagebuilderContainerRecipeDataSource(string name) : Ter
     /// The component attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Component
-        => AsReference("component");
+        => CreateReference("component");
 
     /// <summary>
     /// The container_type attribute.
     /// </summary>
     public TerraformValue<string> ContainerType
-        => AsReference("container_type");
+        => CreateReference("container_type");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-        => AsReference("date_created");
+        => CreateReference("date_created");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The dockerfile_template_data attribute.
     /// </summary>
     public TerraformValue<string> DockerfileTemplateData
-        => AsReference("dockerfile_template_data");
+        => CreateReference("dockerfile_template_data");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-        => AsReference("encrypted");
+        => CreateReference("encrypted");
 
     /// <summary>
     /// The instance_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceConfiguration
-        => AsReference("instance_configuration");
+        => CreateReference("instance_configuration");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The parent_image attribute.
     /// </summary>
     public TerraformValue<string> ParentImage
-        => AsReference("parent_image");
+        => CreateReference("parent_image");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-        => AsReference("platform");
+        => CreateReference("platform");
 
     /// <summary>
     /// The target_repository attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TargetRepository
-        => AsReference("target_repository");
+        => CreateReference("target_repository");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
     public TerraformValue<string> WorkingDirectory
-        => AsReference("working_directory");
+        => CreateReference("working_directory");
 
 }

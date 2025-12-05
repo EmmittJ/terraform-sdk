@@ -13,7 +13,7 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> QuotaCode
     {
-        get => GetArgument<TerraformValue<string>>("quota_code") ?? AsReference("quota_code");
+        get => GetArgument<TerraformValue<string>>("quota_code") ?? CreateReference("quota_code");
         set => SetArgument("quota_code", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> QuotaName
     {
-        get => GetArgument<TerraformValue<string>>("quota_name") ?? AsReference("quota_name");
+        get => GetArgument<TerraformValue<string>>("quota_name") ?? CreateReference("quota_name");
         set => SetArgument("quota_name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,42 +58,42 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     /// The adjustable attribute.
     /// </summary>
     public TerraformValue<bool> Adjustable
-        => AsReference("adjustable");
+        => CreateReference("adjustable");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The default_value attribute.
     /// </summary>
     public TerraformValue<double> DefaultValue
-        => AsReference("default_value");
+        => CreateReference("default_value");
 
     /// <summary>
     /// The global_quota attribute.
     /// </summary>
     public TerraformValue<bool> GlobalQuota
-        => AsReference("global_quota");
+        => CreateReference("global_quota");
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceName
-        => AsReference("service_name");
+        => CreateReference("service_name");
 
     /// <summary>
     /// The usage_metric attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UsageMetric
-        => AsReference("usage_metric");
+        => CreateReference("usage_metric");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-        => AsReference("value");
+        => CreateReference("value");
 
 }

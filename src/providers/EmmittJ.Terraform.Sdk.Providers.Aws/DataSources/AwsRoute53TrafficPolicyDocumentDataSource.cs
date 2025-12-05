@@ -510,7 +510,7 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -554,7 +554,7 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSource(string name) : Te
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-        => AsReference("json");
+        => CreateReference("json");
 
     /// <summary>
     /// Endpoint block (nesting mode: set).

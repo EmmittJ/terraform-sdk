@@ -82,7 +82,7 @@ public class AwsLakeformationPermissionsDataSourceDataLocationBlock : TerraformB
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsLakeformationPermissionsDataSourceDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsLakeformationPermissionsDataSourceLfTagBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsLakeformationPermissionsDataSourceLfTagPolicyBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsLakeformationPermissionsDataSourceTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -278,7 +278,7 @@ public class AwsLakeformationPermissionsDataSourceTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsLakeformationPermissionsDataSourceTableWithColumnsBlock : Terraf
     /// </summary>
     public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? CreateReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -393,7 +393,7 @@ public partial class AwsLakeformationPermissionsDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -412,7 +412,7 @@ public partial class AwsLakeformationPermissionsDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -420,13 +420,13 @@ public partial class AwsLakeformationPermissionsDataSource(string name) : Terraf
     /// The permissions attribute.
     /// </summary>
     public TerraformList<string> Permissions
-        => AsReference("permissions");
+        => CreateReference("permissions");
 
     /// <summary>
     /// The permissions_with_grant_option attribute.
     /// </summary>
     public TerraformList<string> PermissionsWithGrantOption
-        => AsReference("permissions_with_grant_option");
+        => CreateReference("permissions_with_grant_option");
 
     /// <summary>
     /// DataCellsFilter block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxThroughput
     {
-        get => GetArgument<TerraformValue<double>>("max_throughput") ?? AsReference("max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput") ?? CreateReference("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> ExcludedPaths
     {
-        get => GetArgument<TerraformSet<string>>("excluded_paths") ?? AsReference("excluded_paths");
+        get => GetArgument<TerraformSet<string>>("excluded_paths") ?? CreateReference("excluded_paths");
         set => SetArgument("excluded_paths", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> IncludedPaths
     {
-        get => GetArgument<TerraformSet<string>>("included_paths") ?? AsReference("included_paths");
+        get => GetArgument<TerraformSet<string>>("included_paths") ?? CreateReference("included_paths");
         set => SetArgument("included_paths", value);
     }
 
@@ -218,7 +218,7 @@ public class AzurermCosmosdbGremlinGraphIndexPolicyBlockSpatialIndexBlock : Terr
     /// The types attribute.
     /// </summary>
     public TerraformSet<string> Types
-        => AsReference("types");
+        => CreateReference("types");
 
 }
 
@@ -346,7 +346,7 @@ public partial class AzurermCosmosdbGremlinGraph(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -394,7 +394,7 @@ public partial class AzurermCosmosdbGremlinGraph(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 

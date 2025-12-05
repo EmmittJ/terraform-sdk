@@ -64,7 +64,7 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> JobScheduleId
     {
-        get => GetArgument<TerraformValue<string>>("job_schedule_id") ?? AsReference("job_schedule_id");
+        get => GetArgument<TerraformValue<string>>("job_schedule_id") ?? CreateReference("job_schedule_id");
         set => SetArgument("job_schedule_id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

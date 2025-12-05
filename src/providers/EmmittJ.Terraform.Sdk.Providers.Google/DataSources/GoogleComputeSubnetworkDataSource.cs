@@ -13,7 +13,7 @@ public partial class GoogleComputeSubnetworkDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleComputeSubnetworkDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleComputeSubnetworkDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleComputeSubnetworkDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> SelfLink
     {
-        get => GetArgument<TerraformValue<string>>("self_link") ?? AsReference("self_link");
+        get => GetArgument<TerraformValue<string>>("self_link") ?? CreateReference("self_link");
         set => SetArgument("self_link", value);
     }
 
@@ -57,66 +57,66 @@ public partial class GoogleComputeSubnetworkDataSource(string name) : TerraformD
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The external_ipv6_prefix attribute.
     /// </summary>
     public TerraformValue<string> ExternalIpv6Prefix
-        => AsReference("external_ipv6_prefix");
+        => CreateReference("external_ipv6_prefix");
 
     /// <summary>
     /// The gateway_address attribute.
     /// </summary>
     public TerraformValue<string> GatewayAddress
-        => AsReference("gateway_address");
+        => CreateReference("gateway_address");
 
     /// <summary>
     /// The internal_ipv6_prefix attribute.
     /// </summary>
     public TerraformValue<string> InternalIpv6Prefix
-        => AsReference("internal_ipv6_prefix");
+        => CreateReference("internal_ipv6_prefix");
 
     /// <summary>
     /// The ip_cidr_range attribute.
     /// </summary>
     public TerraformValue<string> IpCidrRange
-        => AsReference("ip_cidr_range");
+        => CreateReference("ip_cidr_range");
 
     /// <summary>
     /// The ipv6_access_type attribute.
     /// </summary>
     public TerraformValue<string> Ipv6AccessType
-        => AsReference("ipv6_access_type");
+        => CreateReference("ipv6_access_type");
 
     /// <summary>
     /// The network attribute.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
     /// <summary>
     /// The private_ip_google_access attribute.
     /// </summary>
     public TerraformValue<bool> PrivateIpGoogleAccess
-        => AsReference("private_ip_google_access");
+        => CreateReference("private_ip_google_access");
 
     /// <summary>
     /// The secondary_ip_range attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecondaryIpRange
-        => AsReference("secondary_ip_range");
+        => CreateReference("secondary_ip_range");
 
     /// <summary>
     /// The stack_type attribute.
     /// </summary>
     public TerraformValue<string> StackType
-        => AsReference("stack_type");
+        => CreateReference("stack_type");
 
     /// <summary>
     /// The subnetwork_id attribute.
     /// </summary>
     public TerraformValue<double> SubnetworkId
-        => AsReference("subnetwork_id");
+        => CreateReference("subnetwork_id");
 
 }

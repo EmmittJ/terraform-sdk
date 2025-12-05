@@ -36,7 +36,7 @@ public partial class AzurermMapsAccountDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,25 +73,25 @@ public partial class AzurermMapsAccountDataSource(string name) : TerraformDataSo
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-        => AsReference("primary_access_key");
+        => CreateReference("primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-        => AsReference("secondary_access_key");
+        => CreateReference("secondary_access_key");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The x_ms_client_id attribute.
     /// </summary>
     public TerraformValue<string> XMsClientId
-        => AsReference("x_ms_client_id");
+        => CreateReference("x_ms_client_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

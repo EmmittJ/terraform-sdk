@@ -72,7 +72,7 @@ public class GoogleComputeRegionDiskDiskEncryptionKeyBlock : TerraformBlock
     /// encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> Sha256
-        => AsReference("sha256");
+        => CreateReference("sha256");
 
 }
 
@@ -127,7 +127,7 @@ public class GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock : Terraform
     /// encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> Sha256
-        => AsReference("sha256");
+        => CreateReference("sha256");
 
 }
 
@@ -189,7 +189,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> AccessMode
     {
-        get => GetArgument<TerraformValue<string>>("access_mode") ?? AsReference("access_mode");
+        get => GetArgument<TerraformValue<string>>("access_mode") ?? CreateReference("access_mode");
         set => SetArgument("access_mode", value);
     }
 
@@ -228,7 +228,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -250,7 +250,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string> Licenses
     {
-        get => GetArgument<TerraformList<string>>("licenses") ?? AsReference("licenses");
+        get => GetArgument<TerraformList<string>>("licenses") ?? CreateReference("licenses");
         set => SetArgument("licenses", value);
     }
 
@@ -279,7 +279,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double> PhysicalBlockSizeBytes
     {
-        get => GetArgument<TerraformValue<double>>("physical_block_size_bytes") ?? AsReference("physical_block_size_bytes");
+        get => GetArgument<TerraformValue<double>>("physical_block_size_bytes") ?? CreateReference("physical_block_size_bytes");
         set => SetArgument("physical_block_size_bytes", value);
     }
 
@@ -288,7 +288,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -299,7 +299,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double> ProvisionedIops
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? AsReference("provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? CreateReference("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
@@ -309,7 +309,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double> ProvisionedThroughput
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? AsReference("provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? CreateReference("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
@@ -318,7 +318,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -344,7 +344,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? CreateReference("size");
         set => SetArgument("size", value);
     }
 
@@ -395,44 +395,44 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> DiskId
-        => AsReference("disk_id");
+        => CreateReference("disk_id");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// Last attach timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> LastAttachTimestamp
-        => AsReference("last_attach_timestamp");
+        => CreateReference("last_attach_timestamp");
 
     /// <summary>
     /// Last detach timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> LastDetachTimestamp
-        => AsReference("last_detach_timestamp");
+        => CreateReference("last_detach_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The ID value of the disk used to create this image. This value may
@@ -440,7 +440,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// or a previous instance of a given disk name.
     /// </summary>
     public TerraformValue<string> SourceDiskId
-        => AsReference("source_disk_id");
+        => CreateReference("source_disk_id");
 
     /// <summary>
     /// The unique ID of the snapshot used to create this disk. This value
@@ -451,21 +451,21 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// used.
     /// </summary>
     public TerraformValue<string> SourceSnapshotId
-        => AsReference("source_snapshot_id");
+        => CreateReference("source_snapshot_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Links to the users of the disk (attached instances) in form:
     /// project/zones/zone/instances/instance
     /// </summary>
     public TerraformList<string> Users
-        => AsReference("users");
+        => CreateReference("users");
 
     /// <summary>
     /// AsyncPrimaryDisk block (nesting mode: list).

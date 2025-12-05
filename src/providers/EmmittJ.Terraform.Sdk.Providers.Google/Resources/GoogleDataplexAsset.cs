@@ -178,7 +178,7 @@ public class GoogleDataplexAssetResourceSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ReadAccessMode
     {
-        get => GetArgument<TerraformValue<string>>("read_access_mode") ?? AsReference("read_access_mode");
+        get => GetArgument<TerraformValue<string>>("read_access_mode") ?? CreateReference("read_access_mode");
         set => SetArgument("read_access_mode", value);
     }
 
@@ -275,7 +275,7 @@ public partial class GoogleDataplexAsset(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -326,7 +326,7 @@ public partial class GoogleDataplexAsset(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -334,55 +334,55 @@ public partial class GoogleDataplexAsset(string name) : TerraformResource("googl
     /// Output only. The time when the asset was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. Status of the discovery feature applied to data referenced by this asset.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiscoveryStatus
-        => AsReference("discovery_status");
+        => CreateReference("discovery_status");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Output only. Status of the resource referenced by this asset.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceStatus
-        => AsReference("resource_status");
+        => CreateReference("resource_status");
 
     /// <summary>
     /// Output only. Status of the security policy applied to resource referenced by this asset.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecurityStatus
-        => AsReference("security_status");
+        => CreateReference("security_status");
 
     /// <summary>
     /// Output only. Current state of the asset. Possible values: STATE_UNSPECIFIED, ACTIVE, CREATING, DELETING, ACTION_REQUIRED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. System generated globally unique ID for the asset. This ID will be different if the asset is deleted and re-created with the same name.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time when the asset was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// DiscoverySpec block (nesting mode: list).

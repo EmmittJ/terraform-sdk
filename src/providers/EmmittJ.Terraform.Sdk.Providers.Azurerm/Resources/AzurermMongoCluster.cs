@@ -108,7 +108,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// The connection_strings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionStrings
-        => AsReference("connection_strings");
+        => CreateReference("connection_strings");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

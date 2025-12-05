@@ -24,7 +24,7 @@ public partial class GoogleKmsSecretCiphertextDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,6 +42,6 @@ public partial class GoogleKmsSecretCiphertextDataSource(string name) : Terrafor
     /// The ciphertext attribute.
     /// </summary>
     public TerraformValue<string> Ciphertext
-        => AsReference("ciphertext");
+        => CreateReference("ciphertext");
 
 }

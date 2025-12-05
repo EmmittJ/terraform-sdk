@@ -65,7 +65,7 @@ public partial class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig(string name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig(string name
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig(string name
     /// </summary>
     public TerraformValue<string> TokenTtl
     {
-        get => GetArgument<TerraformValue<string>>("token_ttl") ?? AsReference("token_ttl");
+        get => GetArgument<TerraformValue<string>>("token_ttl") ?? CreateReference("token_ttl");
         set => SetArgument("token_ttl", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig(string name
     /// The relative resource name of the reCAPTCHA Enterprise configuration object
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -51,6 +51,31 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     }
 
     /// <summary>
+    /// Copy constructor for creating a copy of an existing set.
+    /// Used by <see cref="WithLineage"/> to create copies with lineage attached.
+    /// </summary>
+    /// <param name="other">The set to copy.</param>
+    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
+    private TerraformSet(TerraformSet<T> other, bool isCopy)
+        : base()
+    {
+        _ = isCopy; // Marker parameter for disambiguation
+        _elements = new List<TerraformValue<T>>(other._elements);
+    }
+
+    /// <summary>
+    /// Creates a copy of this set with the specified lineage attached.
+    /// </summary>
+    /// <param name="lineage">The lineage to attach to the copy.</param>
+    /// <returns>A new <see cref="TerraformSet{T}"/> with the specified lineage.</returns>
+    public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
+    {
+        var copy = new TerraformSet<T>(this, isCopy: true);
+        copy.Lineage = lineage;
+        return copy;
+    }
+
+    /// <summary>
     /// Override resolution to handle nested TerraformValue&lt;T&gt; elements.
     /// If elements are TerraformBlocks, returns them directly as multiple blocks.
     /// Otherwise wraps elements in a set expression.
@@ -91,6 +116,60 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     public void Add(TerraformValue<T> value)
     {
         _elements.Add(value);
+    }
+
+    /// <summary>
+    /// Gets the element at the specified index with lineage attached.
+    /// When this set has lineage, the returned element will have extended lineage
+    /// that includes the index (e.g., "resource.identity_ids[0]").
+    /// For value types, returns a COPY with lineage attached.
+    /// For blocks, sets lineage directly (blocks resolve their own content, lineage is for references).
+    /// </summary>
+    /// <remarks>
+    /// Note: Sets are unordered in Terraform, so index-based access should be used
+    /// carefully. This is primarily useful for accessing elements in generated code
+    /// where the order is known at definition time.
+    /// </remarks>
+    /// <param name="index">The zero-based index of the element to get.</param>
+    /// <returns>The element at the specified index with lineage attached.</returns>
+    public T this[int index]
+    {
+        get
+        {
+            if (index < 0 || index >= _elements.Count)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index), $"Index {index} is out of range. Set has {_elements.Count} elements.");
+            }
+
+            var element = _elements[index];
+
+            // If the element is a lazy value wrapping an original T, get the original
+            T? result = element switch
+            {
+                TerraformLazyValue<T> { Original: T original } => original,
+                T directValue => directValue,
+                _ => default
+            };
+
+            // If this set has lineage, attach it to the element
+            if (Lineage is not null && result is ITerraformValue terraformValue)
+            {
+                var lineageForIndex = Lineage.WithIndex(index);
+
+                // For blocks, set lineage directly (blocks resolve their own content, lineage is for reference building)
+                // For other values, return a COPY with lineage to preserve original for source rendering
+                if (result is TerraformBlock block)
+                {
+                    block.Lineage = lineageForIndex;
+                    return result;
+                }
+
+                return (T)terraformValue.WithLineage(lineageForIndex);
+            }
+
+            return result ?? throw new InvalidOperationException(
+                $"Cannot retrieve element at index {index}. The element was not stored as type {typeof(T).Name}.");
+        }
     }
 
     // Implicit conversions - enforce uniqueness with Distinct()
@@ -152,8 +231,36 @@ internal sealed class TerraformLazySet<T> : TerraformSet<T>
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
+    /// <summary>
+    /// Copy constructor for creating a copy with lineage.
+    /// </summary>
+    /// <param name="other">The set to copy.</param>
+    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
+    private TerraformLazySet(TerraformLazySet<T> other, bool isCopy)
+        : base()
+    {
+        _ = isCopy; // Marker parameter for disambiguation
+        _producer = other._producer;
+    }
+
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
+        // Check lineage first - if present, resolve to reference
+        if (Lineage is not null)
+        {
+            return [Lineage.BuildExpression()];
+        }
+
         return _producer(context);
+    }
+
+    /// <summary>
+    /// Creates a copy of this lazy set with the specified lineage attached.
+    /// </summary>
+    public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
+    {
+        var copy = new TerraformLazySet<T>(this, isCopy: true);
+        copy.Lineage = lineage;
+        return copy;
     }
 }

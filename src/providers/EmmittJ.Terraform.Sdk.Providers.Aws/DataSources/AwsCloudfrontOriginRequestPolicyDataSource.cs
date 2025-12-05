@@ -30,36 +30,36 @@ public partial class AwsCloudfrontOriginRequestPolicyDataSource(string name) : T
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-        => AsReference("comment");
+        => CreateReference("comment");
 
     /// <summary>
     /// The cookies_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CookiesConfig
-        => AsReference("cookies_config");
+        => CreateReference("cookies_config");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HeadersConfig
-        => AsReference("headers_config");
+        => CreateReference("headers_config");
 
     /// <summary>
     /// The query_strings_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QueryStringsConfig
-        => AsReference("query_strings_config");
+        => CreateReference("query_strings_config");
 
 }

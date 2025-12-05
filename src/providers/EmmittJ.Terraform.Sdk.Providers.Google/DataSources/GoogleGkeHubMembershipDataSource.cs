@@ -13,7 +13,7 @@ public partial class GoogleGkeHubMembershipDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -53,19 +53,19 @@ public partial class GoogleGkeHubMembershipDataSource(string name) : TerraformDa
     /// https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
     /// </summary>
     public TerraformList<TerraformMap<object>> Authority
-        => AsReference("authority");
+        => CreateReference("authority");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// If this Membership is a Kubernetes API server hosted on GKE, this is a self link to its GCP resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// Labels to apply to this membership.
@@ -75,19 +75,19 @@ public partial class GoogleGkeHubMembershipDataSource(string name) : TerraformDa
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The unique identifier of the membership.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
 }

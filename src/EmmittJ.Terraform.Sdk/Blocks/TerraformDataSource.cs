@@ -14,7 +14,6 @@ namespace EmmittJ.Terraform.Sdk;
 /// </remarks>
 public class TerraformDataSource :
     TerraformBlock,
-    ITerraformNamedReferenceable,
     ITerraformHasDependsOn,
     ITerraformHasProvider,
     ITerraformHasCount,
@@ -41,6 +40,11 @@ public class TerraformDataSource :
     public override string[] BlockLabels => [DataSourceType, DataSourceName];
 
     /// <summary>
+    /// Gets the Terraform reference identifier for this data source (e.g., "data.aws_ami.ubuntu").
+    /// </summary>
+    public override string ReferenceIdentifier => $"data.{DataSourceType}.{DataSourceName}";
+
+    /// <summary>
     /// Initializes a new instance of TerraformDataSource.
     /// </summary>
     /// <param name="type">The data source type (e.g., "aws_ami").</param>
@@ -50,30 +54,6 @@ public class TerraformDataSource :
         DataSourceType = type ?? throw new ArgumentNullException(nameof(type));
         DataSourceName = name ?? throw new ArgumentNullException(nameof(name));
     }
-
-    /// <summary>
-    /// Generates a reference to this data source.
-    /// </summary>
-    /// <returns>A reference to this data source.</returns>
-    public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"data.{DataSourceType}.{DataSourceName}");
-
-    /// <summary>
-    /// Generates a reference to a data output.
-    /// </summary>
-    /// <param name="name">The name of the data output.</param>
-    /// <returns>A reference to the data output.</returns>
-    public override TerraformExpression AsReference(string name)
-        => TerraformExpression.Identifier($"data.{DataSourceType}.{DataSourceName}.{name}");
-
-    /// <summary>
-    /// Implicit conversion to TerraformExpression for natural reference usage.
-    /// Allows using data sources directly in expressions without calling AsReference().
-    /// </summary>
-    /// <param name="dataSource">The data source to convert.</param>
-    /// <returns>A TerraformExpression representing the data source reference.</returns>
-    public static implicit operator TerraformExpression(TerraformDataSource dataSource)
-        => dataSource.AsReference();
 
     // Meta-argument properties
 

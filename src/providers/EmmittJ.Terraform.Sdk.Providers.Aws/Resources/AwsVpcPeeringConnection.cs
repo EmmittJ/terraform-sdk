@@ -109,7 +109,7 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> PeerOwnerId
     {
-        get => GetArgument<TerraformValue<string>>("peer_owner_id") ?? AsReference("peer_owner_id");
+        get => GetArgument<TerraformValue<string>>("peer_owner_id") ?? CreateReference("peer_owner_id");
         set => SetArgument("peer_owner_id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> PeerRegion
     {
-        get => GetArgument<TerraformValue<string>>("peer_region") ?? AsReference("peer_region");
+        get => GetArgument<TerraformValue<string>>("peer_region") ?? CreateReference("peer_region");
         set => SetArgument("peer_region", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     /// The accept_status attribute.
     /// </summary>
     public TerraformValue<string> AcceptStatus
-        => AsReference("accept_status");
+        => CreateReference("accept_status");
 
     /// <summary>
     /// Accepter block (nesting mode: list).

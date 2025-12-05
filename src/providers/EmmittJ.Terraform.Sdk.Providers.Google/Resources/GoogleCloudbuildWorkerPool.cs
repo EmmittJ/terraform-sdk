@@ -152,7 +152,7 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> NoExternalIp
     {
-        get => GetArgument<TerraformValue<bool>>("no_external_ip") ?? AsReference("no_external_ip");
+        get => GetArgument<TerraformValue<bool>>("no_external_ip") ?? CreateReference("no_external_ip");
         set => SetArgument("no_external_ip", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -220,7 +220,7 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -228,37 +228,37 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     /// Output only. Time at which the request to create the `WorkerPool` was received.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. Time at which the request to delete the `WorkerPool` was received.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// Output only. `WorkerPool` state. Possible values: STATE_UNSPECIFIED, PENDING, APPROVED, REJECTED, CANCELLED
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. A unique identifier for the `WorkerPool`.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. Time at which the request to update the `WorkerPool` was received.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// NetworkConfig block (nesting mode: list).

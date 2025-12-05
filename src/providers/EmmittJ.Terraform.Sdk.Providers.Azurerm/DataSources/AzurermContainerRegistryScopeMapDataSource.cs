@@ -46,7 +46,7 @@ public partial class AzurermContainerRegistryScopeMapDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,13 +74,13 @@ public partial class AzurermContainerRegistryScopeMapDataSource(string name) : T
     /// The actions attribute.
     /// </summary>
     public TerraformList<string> Actions
-        => AsReference("actions");
+        => CreateReference("actions");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermSpringCloudContainerDeploymentQuotaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Cpu
     {
-        get => GetArgument<TerraformValue<string>>("cpu") ?? AsReference("cpu");
+        get => GetArgument<TerraformValue<string>>("cpu") ?? CreateReference("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudContainerDeploymentQuotaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Memory
     {
-        get => GetArgument<TerraformValue<string>>("memory") ?? AsReference("memory");
+        get => GetArgument<TerraformValue<string>>("memory") ?? CreateReference("memory");
         set => SetArgument("memory", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AzurermSpringCloudContainerDeployment(string name) : Terraf
     /// </summary>
     public TerraformValue<string> AddonJson
     {
-        get => GetArgument<TerraformValue<string>>("addon_json") ?? AsReference("addon_json");
+        get => GetArgument<TerraformValue<string>>("addon_json") ?? CreateReference("addon_json");
         set => SetArgument("addon_json", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermSpringCloudContainerDeployment(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

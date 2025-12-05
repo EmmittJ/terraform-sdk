@@ -600,7 +600,7 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -619,7 +619,7 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -637,7 +637,7 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// </summary>
     public TerraformSet<string> ResourceSetIds
     {
-        get => GetArgument<TerraformSet<string>>("resource_set_ids") ?? AsReference("resource_set_ids");
+        get => GetArgument<TerraformSet<string>>("resource_set_ids") ?? CreateReference("resource_set_ids");
         set => SetArgument("resource_set_ids", value);
     }
 
@@ -646,7 +646,7 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// </summary>
     public TerraformValue<string> ResourceTagLogicalOperator
     {
-        get => GetArgument<TerraformValue<string>>("resource_tag_logical_operator") ?? AsReference("resource_tag_logical_operator");
+        get => GetArgument<TerraformValue<string>>("resource_tag_logical_operator") ?? CreateReference("resource_tag_logical_operator");
         set => SetArgument("resource_tag_logical_operator", value);
     }
 
@@ -664,7 +664,7 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type") ?? AsReference("resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type") ?? CreateReference("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -673,7 +673,7 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// </summary>
     public TerraformSet<string> ResourceTypeList
     {
-        get => GetArgument<TerraformSet<string>>("resource_type_list") ?? AsReference("resource_type_list");
+        get => GetArgument<TerraformSet<string>>("resource_type_list") ?? CreateReference("resource_type_list");
         set => SetArgument("resource_type_list", value);
     }
 
@@ -691,7 +691,7 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -699,13 +699,13 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The policy_update_token attribute.
     /// </summary>
     public TerraformValue<string> PolicyUpdateToken
-        => AsReference("policy_update_token");
+        => CreateReference("policy_update_token");
 
     /// <summary>
     /// ExcludeMap block (nesting mode: list).

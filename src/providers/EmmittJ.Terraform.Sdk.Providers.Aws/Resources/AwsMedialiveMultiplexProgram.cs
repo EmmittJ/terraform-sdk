@@ -102,7 +102,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlockVideoSetti
     /// </summary>
     public TerraformValue<double> ConstantBitrate
     {
-        get => GetArgument<TerraformValue<double>>("constant_bitrate") ?? AsReference("constant_bitrate");
+        get => GetArgument<TerraformValue<double>>("constant_bitrate") ?? CreateReference("constant_bitrate");
         set => SetArgument("constant_bitrate", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlockVideoSetti
     /// </summary>
     public TerraformValue<double> MaximumBitrate
     {
-        get => GetArgument<TerraformValue<double>>("maximum_bitrate") ?? AsReference("maximum_bitrate");
+        get => GetArgument<TerraformValue<double>>("maximum_bitrate") ?? CreateReference("maximum_bitrate");
         set => SetArgument("maximum_bitrate", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlockVideoSetti
     /// </summary>
     public TerraformValue<double> MinimumBitrate
     {
-        get => GetArgument<TerraformValue<double>>("minimum_bitrate") ?? AsReference("minimum_bitrate");
+        get => GetArgument<TerraformValue<double>>("minimum_bitrate") ?? CreateReference("minimum_bitrate");
         set => SetArgument("minimum_bitrate", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlockVideoSetti
     /// </summary>
     public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? CreateReference("priority");
         set => SetArgument("priority", value);
     }
 
@@ -212,7 +212,7 @@ public partial class AwsMedialiveMultiplexProgram(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AwsMedialiveMultiplexProgram(string name) : TerraformResour
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// MultiplexProgramSettings block (nesting mode: list).

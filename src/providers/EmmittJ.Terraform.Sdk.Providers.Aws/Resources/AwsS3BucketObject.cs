@@ -34,7 +34,7 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// </summary>
     public TerraformValue<bool> BucketKeyEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("bucket_key_enabled") ?? AsReference("bucket_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("bucket_key_enabled") ?? CreateReference("bucket_key_enabled");
         set => SetArgument("bucket_key_enabled", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// </summary>
     public TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type") ?? AsReference("content_type");
+        get => GetArgument<TerraformValue<string>>("content_type") ?? CreateReference("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// </summary>
     public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? CreateReference("etag");
         set => SetArgument("etag", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// </summary>
     public TerraformValue<string> ServerSideEncryption
     {
-        get => GetArgument<TerraformValue<string>>("server_side_encryption") ?? AsReference("server_side_encryption");
+        get => GetArgument<TerraformValue<string>>("server_side_encryption") ?? CreateReference("server_side_encryption");
         set => SetArgument("server_side_encryption", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// </summary>
     public TerraformValue<string> StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("storage_class") ?? AsReference("storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class") ?? CreateReference("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -260,12 +260,12 @@ public partial class AwsS3BucketObject(string name) : TerraformResource("aws_s3_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     public TerraformValue<string> VersionId
-        => AsReference("version_id");
+        => CreateReference("version_id");
 
 }

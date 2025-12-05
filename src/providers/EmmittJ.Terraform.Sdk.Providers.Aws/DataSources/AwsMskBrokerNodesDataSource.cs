@@ -23,7 +23,7 @@ public partial class AwsMskBrokerNodesDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsMskBrokerNodesDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,6 +40,6 @@ public partial class AwsMskBrokerNodesDataSource(string name) : TerraformDataSou
     /// The node_info_list attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodeInfoList
-        => AsReference("node_info_list");
+        => CreateReference("node_info_list");
 
 }

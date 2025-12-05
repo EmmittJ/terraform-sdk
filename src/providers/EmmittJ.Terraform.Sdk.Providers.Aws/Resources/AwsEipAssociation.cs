@@ -13,7 +13,7 @@ public partial class AwsEipAssociation(string name) : TerraformResource("aws_eip
     /// </summary>
     public TerraformValue<string> AllocationId
     {
-        get => GetArgument<TerraformValue<string>>("allocation_id") ?? AsReference("allocation_id");
+        get => GetArgument<TerraformValue<string>>("allocation_id") ?? CreateReference("allocation_id");
         set => SetArgument("allocation_id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsEipAssociation(string name) : TerraformResource("aws_eip
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsEipAssociation(string name) : TerraformResource("aws_eip
     /// </summary>
     public TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id") ?? AsReference("instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id") ?? CreateReference("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsEipAssociation(string name) : TerraformResource("aws_eip
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
     {
-        get => GetArgument<TerraformValue<string>>("network_interface_id") ?? AsReference("network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id") ?? CreateReference("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsEipAssociation(string name) : TerraformResource("aws_eip
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? CreateReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsEipAssociation(string name) : TerraformResource("aws_eip
     /// </summary>
     public TerraformValue<string> PublicIp
     {
-        get => GetArgument<TerraformValue<string>>("public_ip") ?? AsReference("public_ip");
+        get => GetArgument<TerraformValue<string>>("public_ip") ?? CreateReference("public_ip");
         set => SetArgument("public_ip", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsEipAssociation(string name) : TerraformResource("aws_eip
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

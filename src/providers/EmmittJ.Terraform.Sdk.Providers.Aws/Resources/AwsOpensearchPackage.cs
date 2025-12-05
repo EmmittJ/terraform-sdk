@@ -56,7 +56,7 @@ public partial class AwsOpensearchPackage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsOpensearchPackage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -102,13 +102,13 @@ public partial class AwsOpensearchPackage(string name) : TerraformResource("aws_
     /// The available_package_version attribute.
     /// </summary>
     public TerraformValue<string> AvailablePackageVersion
-        => AsReference("available_package_version");
+        => CreateReference("available_package_version");
 
     /// <summary>
     /// The package_id attribute.
     /// </summary>
     public TerraformValue<string> PackageId
-        => AsReference("package_id");
+        => CreateReference("package_id");
 
     /// <summary>
     /// PackageSource block (nesting mode: list).

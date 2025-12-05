@@ -13,7 +13,7 @@ public partial class GoogleComputeNetworksDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -30,12 +30,12 @@ public partial class GoogleComputeNetworksDataSource(string name) : TerraformDat
     /// The networks attribute.
     /// </summary>
     public TerraformList<string> Networks
-        => AsReference("networks");
+        => CreateReference("networks");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
 }

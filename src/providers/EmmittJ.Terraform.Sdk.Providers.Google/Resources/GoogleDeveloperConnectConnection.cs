@@ -90,7 +90,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlockAuthorizer
     /// Output only. The username associated with this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -121,7 +121,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlockReadAuthor
     /// Output only. The username associated with this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -151,7 +151,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : Te
     /// Output only. Version of the Bitbucket Data Center server running on the &#39;host_uri&#39;.
     /// </summary>
     public TerraformValue<string> ServerVersion
-        => AsReference("server_version");
+        => CreateReference("server_version");
 
     /// <summary>
     /// Optional. SSL certificate authority to trust when making requests to Bitbucket Data
@@ -240,7 +240,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlockAutho
     /// Output only. The username associated with this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -271,7 +271,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlockReadA
     /// Output only. The username associated with this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -343,7 +343,7 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AppInstallationId
     {
-        get => GetArgument<TerraformValue<string>>("app_installation_id") ?? AsReference("app_installation_id");
+        get => GetArgument<TerraformValue<string>>("app_installation_id") ?? CreateReference("app_installation_id");
         set => SetArgument("app_installation_id", value);
     }
 
@@ -367,7 +367,7 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlock : TerraformBlock
     /// with this GitHubConfig.
     /// </summary>
     public TerraformValue<string> InstallationUri
-        => AsReference("installation_uri");
+        => CreateReference("installation_uri");
 
     /// <summary>
     /// AuthorizerCredential block (nesting mode: list).
@@ -407,7 +407,7 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlockAuthorizerCredenti
     /// Output only. The username associated with this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -445,7 +445,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// Output only. The URL-friendly name of the GitHub App.
     /// </summary>
     public TerraformValue<string> AppSlug
-        => AsReference("app_slug");
+        => CreateReference("app_slug");
 
     /// <summary>
     /// Required. The URI of the GitHub Enterprise host this connection is for.
@@ -462,7 +462,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// with this GitHubEnterpriseConfig.
     /// </summary>
     public TerraformValue<string> InstallationUri
-        => AsReference("installation_uri");
+        => CreateReference("installation_uri");
 
     /// <summary>
     /// Optional. SecretManager resource containing the private key of the GitHub App,
@@ -478,7 +478,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// Output only. GitHub Enterprise version installed at the host_uri.
     /// </summary>
     public TerraformValue<string> ServerVersion
-        => AsReference("server_version");
+        => CreateReference("server_version");
 
     /// <summary>
     /// Optional. SSL certificate to use for requests to GitHub Enterprise.
@@ -615,7 +615,7 @@ public class GoogleDeveloperConnectConnectionGitlabConfigBlockAuthorizerCredenti
     /// Output only. The username associated with this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -646,7 +646,7 @@ public class GoogleDeveloperConnectConnectionGitlabConfigBlockReadAuthorizerCred
     /// Output only. The username associated with this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -676,7 +676,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : Terra
     /// Output only. Version of the GitLab Enterprise server running on the &#39;host_uri&#39;.
     /// </summary>
     public TerraformValue<string> ServerVersion
-        => AsReference("server_version");
+        => CreateReference("server_version");
 
     /// <summary>
     /// Optional. SSL Certificate Authority certificate to use for requests to GitLab
@@ -765,7 +765,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlockAuthoriz
     /// Output only. The username associated with this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -796,7 +796,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlockReadAuth
     /// Output only. The username associated with this token.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
 }
 
@@ -924,7 +924,7 @@ public partial class GoogleDeveloperConnectConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -955,7 +955,7 @@ public partial class GoogleDeveloperConnectConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -963,25 +963,25 @@ public partial class GoogleDeveloperConnectConnection(string name) : TerraformRe
     /// Output only. [Output only] Create timestamp
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. [Output only] Delete timestamp
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Describes stage and necessary actions to be taken by the
@@ -989,40 +989,40 @@ public partial class GoogleDeveloperConnectConnection(string name) : TerraformRe
     /// based connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstallationState
-        => AsReference("installation_state");
+        => CreateReference("installation_state");
 
     /// <summary>
     /// Identifier. The resource name of the connection, in the format
     /// &#39;projects/{project}/locations/{location}/connections/{connection_id}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. Set to true when the connection is being set up or updated in the
     /// background.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. A system-assigned unique identifier for a the GitRepositoryLink.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. [Output only] Update timestamp
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// BitbucketCloudConfig block (nesting mode: list).

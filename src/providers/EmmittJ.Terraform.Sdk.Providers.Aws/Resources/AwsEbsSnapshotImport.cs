@@ -27,7 +27,7 @@ public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> UploadEnd
     {
-        get => GetArgument<TerraformValue<string>>("upload_end") ?? AsReference("upload_end");
+        get => GetArgument<TerraformValue<string>>("upload_end") ?? CreateReference("upload_end");
         set => SetArgument("upload_end", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> UploadSize
     {
-        get => GetArgument<TerraformValue<double>>("upload_size") ?? AsReference("upload_size");
+        get => GetArgument<TerraformValue<double>>("upload_size") ?? CreateReference("upload_size");
         set => SetArgument("upload_size", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> UploadStart
     {
-        get => GetArgument<TerraformValue<string>>("upload_start") ?? AsReference("upload_start");
+        get => GetArgument<TerraformValue<string>>("upload_start") ?? CreateReference("upload_start");
         set => SetArgument("upload_start", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> StorageTier
     {
-        get => GetArgument<TerraformValue<string>>("storage_tier") ?? AsReference("storage_tier");
+        get => GetArgument<TerraformValue<string>>("storage_tier") ?? CreateReference("storage_tier");
         set => SetArgument("storage_tier", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -278,43 +278,43 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The data_encryption_key_id attribute.
     /// </summary>
     public TerraformValue<string> DataEncryptionKeyId
-        => AsReference("data_encryption_key_id");
+        => CreateReference("data_encryption_key_id");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-        => AsReference("outpost_arn");
+        => CreateReference("outpost_arn");
 
     /// <summary>
     /// The owner_alias attribute.
     /// </summary>
     public TerraformValue<string> OwnerAlias
-        => AsReference("owner_alias");
+        => CreateReference("owner_alias");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-        => AsReference("volume_id");
+        => CreateReference("volume_id");
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
     public TerraformValue<double> VolumeSize
-        => AsReference("volume_size");
+        => CreateReference("volume_size");
 
     /// <summary>
     /// ClientData block (nesting mode: list).

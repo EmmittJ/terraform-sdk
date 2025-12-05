@@ -36,7 +36,7 @@ public partial class AzurermResourceGroupDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,19 +54,19 @@ public partial class AzurermResourceGroupDataSource(string name) : TerraformData
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The managed_by attribute.
     /// </summary>
     public TerraformValue<string> ManagedBy
-        => AsReference("managed_by");
+        => CreateReference("managed_by");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

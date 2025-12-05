@@ -63,7 +63,7 @@ public partial class AzurermManagementGroup(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermManagementGroup(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermManagementGroup(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermManagementGroup(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> ParentManagementGroupId
     {
-        get => GetArgument<TerraformValue<string>>("parent_management_group_id") ?? AsReference("parent_management_group_id");
+        get => GetArgument<TerraformValue<string>>("parent_management_group_id") ?? CreateReference("parent_management_group_id");
         set => SetArgument("parent_management_group_id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermManagementGroup(string name) : TerraformResource("az
     /// </summary>
     public TerraformSet<string> SubscriptionIds
     {
-        get => GetArgument<TerraformSet<string>>("subscription_ids") ?? AsReference("subscription_ids");
+        get => GetArgument<TerraformSet<string>>("subscription_ids") ?? CreateReference("subscription_ids");
         set => SetArgument("subscription_ids", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AzurermManagementGroup(string name) : TerraformResource("az
     /// The tenant_scoped_id attribute.
     /// </summary>
     public TerraformValue<string> TenantScopedId
-        => AsReference("tenant_scoped_id");
+        => CreateReference("tenant_scoped_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

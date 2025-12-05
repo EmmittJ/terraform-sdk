@@ -27,31 +27,31 @@ public class AwsWorkspaceswebTrustStoreCertificateBlock : TerraformBlock
     /// The issuer attribute.
     /// </summary>
     public TerraformValue<string> Issuer
-        => AsReference("issuer");
+        => CreateReference("issuer");
 
     /// <summary>
     /// The not_valid_after attribute.
     /// </summary>
     public TerraformValue<string> NotValidAfter
-        => AsReference("not_valid_after");
+        => CreateReference("not_valid_after");
 
     /// <summary>
     /// The not_valid_before attribute.
     /// </summary>
     public TerraformValue<string> NotValidBefore
-        => AsReference("not_valid_before");
+        => CreateReference("not_valid_before");
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-        => AsReference("subject");
+        => CreateReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-        => AsReference("thumbprint");
+        => CreateReference("thumbprint");
 
 }
 
@@ -67,7 +67,7 @@ public partial class AwsWorkspaceswebTrustStore(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -84,19 +84,19 @@ public partial class AwsWorkspaceswebTrustStore(string name) : TerraformResource
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-        => AsReference("associated_portal_arns");
+        => CreateReference("associated_portal_arns");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
     public TerraformValue<string> TrustStoreArn
-        => AsReference("trust_store_arn");
+        => CreateReference("trust_store_arn");
 
     /// <summary>
     /// Certificate block (nesting mode: set).

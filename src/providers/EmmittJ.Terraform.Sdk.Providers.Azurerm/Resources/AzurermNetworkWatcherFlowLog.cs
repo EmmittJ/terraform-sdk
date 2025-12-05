@@ -170,7 +170,7 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> NetworkSecurityGroupId
     {
-        get => GetArgument<TerraformValue<string>>("network_security_group_id") ?? AsReference("network_security_group_id");
+        get => GetArgument<TerraformValue<string>>("network_security_group_id") ?? CreateReference("network_security_group_id");
         set => SetArgument("network_security_group_id", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> TargetResourceId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_id") ?? AsReference("target_resource_id");
+        get => GetArgument<TerraformValue<string>>("target_resource_id") ?? CreateReference("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

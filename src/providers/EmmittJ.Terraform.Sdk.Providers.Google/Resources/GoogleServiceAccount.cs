@@ -82,7 +82,7 @@ public partial class GoogleServiceAccount(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class GoogleServiceAccount(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -99,25 +99,25 @@ public partial class GoogleServiceAccount(string name) : TerraformResource("goog
     /// The e-mail address of the service account. This value should be referenced from any google_iam_policy data sources that would grant the service account privileges.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The Identity of the service account in the form &#39;serviceAccount:{email}&#39;. This value is often used to refer to the service account in order to grant IAM permissions.
     /// </summary>
     public TerraformValue<string> Member
-        => AsReference("member");
+        => CreateReference("member");
 
     /// <summary>
     /// The fully-qualified name of the service account.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The unique id of the service account.
     /// </summary>
     public TerraformValue<string> UniqueId
-        => AsReference("unique_id");
+        => CreateReference("unique_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

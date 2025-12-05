@@ -18,7 +18,7 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string> Accounts
     {
-        get => GetArgument<TerraformSet<string>>("accounts") ?? AsReference("accounts");
+        get => GetArgument<TerraformSet<string>>("accounts") ?? CreateReference("accounts");
         set => SetArgument("accounts", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SourceVersion
     {
-        get => GetArgument<TerraformValue<string>>("source_version") ?? AsReference("source_version");
+        get => GetArgument<TerraformValue<string>>("source_version") ?? CreateReference("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsSecuritylakeAwsLogSource(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsSecuritylakeAwsLogSource(string name) : TerraformResourc
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Source block (nesting mode: list).

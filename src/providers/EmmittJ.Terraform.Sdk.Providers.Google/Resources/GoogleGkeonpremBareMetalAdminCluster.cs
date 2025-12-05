@@ -850,7 +850,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -879,7 +879,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -887,25 +887,25 @@ public partial class GoogleGkeonpremBareMetalAdminCluster(string name) : Terrafo
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// The IP address name of Bare Metal Admin Cluster&#39;s API server.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -915,7 +915,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster(string name) : Terrafo
     /// through optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Fleet related configuration.
@@ -926,7 +926,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster(string name) : Terrafo
     /// more details on Anthos multi-cluster capabilities using Fleets.
     /// </summary>
     public TerraformList<TerraformMap<object>> Fleet
-        => AsReference("fleet");
+        => CreateReference("fleet");
 
     /// <summary>
     /// The object name of the Bare Metal Admin Cluster custom resource on the
@@ -941,43 +941,43 @@ public partial class GoogleGkeonpremBareMetalAdminCluster(string name) : Terrafo
     /// cluster controller logs.
     /// </summary>
     public TerraformValue<string> LocalName
-        => AsReference("local_name");
+        => CreateReference("local_name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the Bare Metal Admin Cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Specifies detailed cluster status.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The unique identifier of the Bare Metal Admin Cluster.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Specifies the security related settings for the Bare Metal Admin Cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValidationCheck
-        => AsReference("validation_check");
+        => CreateReference("validation_check");
 
     /// <summary>
     /// ClusterOperations block (nesting mode: list).

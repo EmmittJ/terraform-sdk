@@ -78,7 +78,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EncryptionKeySource
     {
-        get => GetArgument<TerraformValue<string>>("encryption_key_source") ?? AsReference("encryption_key_source");
+        get => GetArgument<TerraformValue<string>>("encryption_key_source") ?? CreateReference("encryption_key_source");
         set => SetArgument("encryption_key_source", value);
     }
 
@@ -86,14 +86,14 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The key_vault_private_endpoint_id attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultPrivateEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_private_endpoint_id") ?? AsReference("key_vault_private_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_private_endpoint_id") ?? CreateReference("key_vault_private_endpoint_id");
         set => SetArgument("key_vault_private_endpoint_id", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     /// The mount_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> MountIpAddresses
-        => AsReference("mount_ip_addresses");
+        => CreateReference("mount_ip_addresses");
 
     /// <summary>
     /// The name attribute.
@@ -118,7 +118,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> NetworkFeatures
     {
-        get => GetArgument<TerraformValue<string>>("network_features") ?? AsReference("network_features");
+        get => GetArgument<TerraformValue<string>>("network_features") ?? CreateReference("network_features");
         set => SetArgument("network_features", value);
     }
 
@@ -471,7 +471,7 @@ public partial class AzurermNetappVolumeGroupOracle(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

@@ -205,7 +205,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> DeepLinkAllowed
     {
-        get => GetArgument<TerraformValue<string>>("deep_link_allowed") ?? AsReference("deep_link_allowed");
+        get => GetArgument<TerraformValue<string>>("deep_link_allowed") ?? CreateReference("deep_link_allowed");
         set => SetArgument("deep_link_allowed", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -289,19 +289,19 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-        => AsReference("associated_portal_arns");
+        => CreateReference("associated_portal_arns");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The user_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> UserSettingsArn
-        => AsReference("user_settings_arn");
+        => CreateReference("user_settings_arn");
 
     /// <summary>
     /// CookieSynchronizationConfiguration block (nesting mode: list).

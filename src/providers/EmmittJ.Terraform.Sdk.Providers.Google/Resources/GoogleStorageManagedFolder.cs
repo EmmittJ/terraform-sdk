@@ -76,7 +76,7 @@ public partial class GoogleStorageManagedFolder(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -95,25 +95,25 @@ public partial class GoogleStorageManagedFolder(string name) : TerraformResource
     /// The timestamp at which this managed folder was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The metadata generation of the managed folder.
     /// </summary>
     public TerraformValue<string> Metageneration
-        => AsReference("metageneration");
+        => CreateReference("metageneration");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The timestamp at which this managed folder was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

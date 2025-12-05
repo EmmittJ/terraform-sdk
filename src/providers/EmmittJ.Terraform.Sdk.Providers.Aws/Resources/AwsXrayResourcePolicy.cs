@@ -42,7 +42,7 @@ public partial class AwsXrayResourcePolicy(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> PolicyRevisionId
     {
-        get => GetArgument<TerraformValue<string>>("policy_revision_id") ?? AsReference("policy_revision_id");
+        get => GetArgument<TerraformValue<string>>("policy_revision_id") ?? CreateReference("policy_revision_id");
         set => SetArgument("policy_revision_id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsXrayResourcePolicy(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -59,6 +59,6 @@ public partial class AwsXrayResourcePolicy(string name) : TerraformResource("aws
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-        => AsReference("last_updated_time");
+        => CreateReference("last_updated_time");
 
 }

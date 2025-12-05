@@ -126,7 +126,7 @@ public partial class AzurermMssqlManagedInstanceStartStopSchedule(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -153,13 +153,13 @@ public partial class AzurermMssqlManagedInstanceStartStopSchedule(string name) :
     /// The next_execution_time attribute.
     /// </summary>
     public TerraformValue<string> NextExecutionTime
-        => AsReference("next_execution_time");
+        => CreateReference("next_execution_time");
 
     /// <summary>
     /// The next_run_action attribute.
     /// </summary>
     public TerraformValue<string> NextRunAction
-        => AsReference("next_run_action");
+        => CreateReference("next_run_action");
 
     /// <summary>
     /// Schedule block (nesting mode: list).

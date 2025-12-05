@@ -17,25 +17,25 @@ public class AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock : T
     /// Group attribute for this SAML integration.
     /// </summary>
     public TerraformValue<string> GroupAttribute
-        => AsReference("group_attribute");
+        => CreateReference("group_attribute");
 
     /// <summary>
     /// The XML IdP metadata file generated from your identity provider.
     /// </summary>
     public TerraformValue<string> Metadata
-        => AsReference("metadata");
+        => CreateReference("metadata");
 
     /// <summary>
     /// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
     /// </summary>
     public TerraformValue<double> SessionTimeout
-        => AsReference("session_timeout");
+        => CreateReference("session_timeout");
 
     /// <summary>
     /// User attribute for this SAML integration.
     /// </summary>
     public TerraformValue<string> UserAttribute
-        => AsReference("user_attribute");
+        => CreateReference("user_attribute");
 
 }
 
@@ -61,7 +61,7 @@ public partial class AwsOpensearchserverlessSecurityConfigDataSource(string name
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -69,31 +69,31 @@ public partial class AwsOpensearchserverlessSecurityConfigDataSource(string name
     /// The version of the security configuration.
     /// </summary>
     public TerraformValue<string> ConfigVersion
-        => AsReference("config_version");
+        => CreateReference("config_version");
 
     /// <summary>
     /// The date the configuration was created.
     /// </summary>
     public TerraformValue<string> CreatedDate
-        => AsReference("created_date");
+        => CreateReference("created_date");
 
     /// <summary>
     /// The description of the security configuration.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The date the configuration was last modified.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-        => AsReference("last_modified_date");
+        => CreateReference("last_modified_date");
 
     /// <summary>
     /// The type of security configuration.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// SamlOptions block (nesting mode: list).

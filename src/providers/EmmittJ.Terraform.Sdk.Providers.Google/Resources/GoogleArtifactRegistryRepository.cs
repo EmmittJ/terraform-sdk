@@ -861,13 +861,13 @@ public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : 
     /// This field returns whether scanning is active for this repository.
     /// </summary>
     public TerraformValue<string> EnablementState
-        => AsReference("enablement_state");
+        => CreateReference("enablement_state");
 
     /// <summary>
     /// This provides an explanation for the state of scanning on this repository.
     /// </summary>
     public TerraformValue<string> EnablementStateReason
-        => AsReference("enablement_state_reason");
+        => CreateReference("enablement_state_reason");
 
 }
 
@@ -915,7 +915,7 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -958,7 +958,7 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? CreateReference("location");
         set => SetArgument("location", value);
     }
 
@@ -976,7 +976,7 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -995,39 +995,39 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// The time when the repository was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The name of the repository, for example:
     /// &amp;quot;repo1&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The repository endpoint, for example: us-docker.pkg.dev/my-proj/my-repo.
     /// </summary>
     public TerraformValue<string> RegistryUri
-        => AsReference("registry_uri");
+        => CreateReference("registry_uri");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// CleanupPolicies block (nesting mode: set).

@@ -63,7 +63,7 @@ public partial class AzurermMonitorWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,19 +119,19 @@ public partial class AzurermMonitorWorkspace(string name) : TerraformResource("a
     /// The default_data_collection_endpoint_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultDataCollectionEndpointId
-        => AsReference("default_data_collection_endpoint_id");
+        => CreateReference("default_data_collection_endpoint_id");
 
     /// <summary>
     /// The default_data_collection_rule_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultDataCollectionRuleId
-        => AsReference("default_data_collection_rule_id");
+        => CreateReference("default_data_collection_rule_id");
 
     /// <summary>
     /// The query_endpoint attribute.
     /// </summary>
     public TerraformValue<string> QueryEndpoint
-        => AsReference("query_endpoint");
+        => CreateReference("query_endpoint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

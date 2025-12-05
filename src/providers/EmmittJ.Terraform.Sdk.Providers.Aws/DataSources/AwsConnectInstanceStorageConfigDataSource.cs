@@ -23,7 +23,7 @@ public partial class AwsConnectInstanceStorageConfigDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsConnectInstanceStorageConfigDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,6 +60,6 @@ public partial class AwsConnectInstanceStorageConfigDataSource(string name) : Te
     /// The storage_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageConfig
-        => AsReference("storage_config");
+        => CreateReference("storage_config");
 
 }

@@ -88,7 +88,7 @@ public partial class AwsSecurityhubOrganizationConfiguration(string name) : Terr
     /// </summary>
     public TerraformValue<string> AutoEnableStandards
     {
-        get => GetArgument<TerraformValue<string>>("auto_enable_standards") ?? AsReference("auto_enable_standards");
+        get => GetArgument<TerraformValue<string>>("auto_enable_standards") ?? CreateReference("auto_enable_standards");
         set => SetArgument("auto_enable_standards", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsSecurityhubOrganizationConfiguration(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsSecurityhubOrganizationConfiguration(string name) : Terr
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

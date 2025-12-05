@@ -13,7 +13,7 @@ public partial class GoogleSourcerepoRepositoryDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,25 +41,25 @@ public partial class GoogleSourcerepoRepositoryDataSource(string name) : Terrafo
     /// If set to true, skip repository creation if a repository with the same name already exists.
     /// </summary>
     public TerraformValue<bool> CreateIgnoreAlreadyExists
-        => AsReference("create_ignore_already_exists");
+        => CreateReference("create_ignore_already_exists");
 
     /// <summary>
     /// How this repository publishes a change in the repository through Cloud Pub/Sub.
     /// Keyed by the topic names.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PubsubConfigs
-        => AsReference("pubsub_configs");
+        => CreateReference("pubsub_configs");
 
     /// <summary>
     /// The disk usage of the repo, in bytes.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// URL to clone the repository from Google Cloud Source Repositories.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
 }

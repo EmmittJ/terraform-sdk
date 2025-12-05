@@ -46,7 +46,7 @@ public partial class AzurermDataShareDatasetBlobStorageDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermDataShareDatasetBlobStorageDataSource(string name) :
     /// The container_name attribute.
     /// </summary>
     public TerraformValue<string> ContainerName
-        => AsReference("container_name");
+        => CreateReference("container_name");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
     public TerraformValue<string> FilePath
-        => AsReference("file_path");
+        => CreateReference("file_path");
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
     public TerraformValue<string> FolderPath
-        => AsReference("folder_path");
+        => CreateReference("folder_path");
 
     /// <summary>
     /// The storage_account attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageAccount
-        => AsReference("storage_account");
+        => CreateReference("storage_account");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

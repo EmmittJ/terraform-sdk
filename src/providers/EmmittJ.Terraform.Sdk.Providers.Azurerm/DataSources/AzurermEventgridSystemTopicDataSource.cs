@@ -36,7 +36,7 @@ public partial class AzurermEventgridSystemTopicDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermEventgridSystemTopicDataSource(string name) : Terraf
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The metric_arm_resource_id attribute.
     /// </summary>
     public TerraformValue<string> MetricArmResourceId
-        => AsReference("metric_arm_resource_id");
+        => CreateReference("metric_arm_resource_id");
 
     /// <summary>
     /// The metric_resource_id attribute.
     /// </summary>
     public TerraformValue<string> MetricResourceId
-        => AsReference("metric_resource_id");
+        => CreateReference("metric_resource_id");
 
     /// <summary>
     /// The source_arm_resource_id attribute.
     /// </summary>
     public TerraformValue<string> SourceArmResourceId
-        => AsReference("source_arm_resource_id");
+        => CreateReference("source_arm_resource_id");
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
     public TerraformValue<string> SourceResourceId
-        => AsReference("source_resource_id");
+        => CreateReference("source_resource_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The topic_type attribute.
     /// </summary>
     public TerraformValue<string> TopicType
-        => AsReference("topic_type");
+        => CreateReference("topic_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

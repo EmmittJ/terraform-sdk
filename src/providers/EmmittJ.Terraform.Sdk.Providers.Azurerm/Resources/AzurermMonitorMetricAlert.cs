@@ -453,7 +453,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -510,7 +510,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> TargetResourceLocation
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_location") ?? AsReference("target_resource_location");
+        get => GetArgument<TerraformValue<string>>("target_resource_location") ?? CreateReference("target_resource_location");
         set => SetArgument("target_resource_location", value);
     }
 
@@ -519,7 +519,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> TargetResourceType
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_type") ?? AsReference("target_resource_type");
+        get => GetArgument<TerraformValue<string>>("target_resource_type") ?? CreateReference("target_resource_type");
         set => SetArgument("target_resource_type", value);
     }
 

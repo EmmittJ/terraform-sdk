@@ -218,7 +218,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -292,7 +292,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// DnsConfig block (nesting mode: list).

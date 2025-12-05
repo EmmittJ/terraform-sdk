@@ -437,7 +437,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AfterConnectScript
     {
-        get => GetArgument<TerraformValue<string>>("after_connect_script") ?? AsReference("after_connect_script");
+        get => GetArgument<TerraformValue<string>>("after_connect_script") ?? CreateReference("after_connect_script");
         set => SetArgument("after_connect_script", value);
     }
 
@@ -446,7 +446,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AuthenticationMethod
     {
-        get => GetArgument<TerraformValue<string>>("authentication_method") ?? AsReference("authentication_method");
+        get => GetArgument<TerraformValue<string>>("authentication_method") ?? CreateReference("authentication_method");
         set => SetArgument("authentication_method", value);
     }
 
@@ -455,7 +455,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> CleanSourceMetadataOnMismatch
     {
-        get => GetArgument<TerraformValue<bool>>("clean_source_metadata_on_mismatch") ?? AsReference("clean_source_metadata_on_mismatch");
+        get => GetArgument<TerraformValue<bool>>("clean_source_metadata_on_mismatch") ?? CreateReference("clean_source_metadata_on_mismatch");
         set => SetArgument("clean_source_metadata_on_mismatch", value);
     }
 
@@ -464,7 +464,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> EventsPollInterval
     {
-        get => GetArgument<TerraformValue<double>>("events_poll_interval") ?? AsReference("events_poll_interval");
+        get => GetArgument<TerraformValue<double>>("events_poll_interval") ?? CreateReference("events_poll_interval");
         set => SetArgument("events_poll_interval", value);
     }
 
@@ -473,7 +473,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ExecuteTimeout
     {
-        get => GetArgument<TerraformValue<double>>("execute_timeout") ?? AsReference("execute_timeout");
+        get => GetArgument<TerraformValue<double>>("execute_timeout") ?? CreateReference("execute_timeout");
         set => SetArgument("execute_timeout", value);
     }
 
@@ -482,7 +482,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxFileSize
     {
-        get => GetArgument<TerraformValue<double>>("max_file_size") ?? AsReference("max_file_size");
+        get => GetArgument<TerraformValue<double>>("max_file_size") ?? CreateReference("max_file_size");
         set => SetArgument("max_file_size", value);
     }
 
@@ -491,7 +491,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ParallelLoadThreads
     {
-        get => GetArgument<TerraformValue<double>>("parallel_load_threads") ?? AsReference("parallel_load_threads");
+        get => GetArgument<TerraformValue<double>>("parallel_load_threads") ?? CreateReference("parallel_load_threads");
         set => SetArgument("parallel_load_threads", value);
     }
 
@@ -500,7 +500,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServerTimezone
     {
-        get => GetArgument<TerraformValue<string>>("server_timezone") ?? AsReference("server_timezone");
+        get => GetArgument<TerraformValue<string>>("server_timezone") ?? CreateReference("server_timezone");
         set => SetArgument("server_timezone", value);
     }
 
@@ -509,7 +509,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceAccessRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("service_access_role_arn") ?? AsReference("service_access_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_access_role_arn") ?? CreateReference("service_access_role_arn");
         set => SetArgument("service_access_role_arn", value);
     }
 
@@ -518,7 +518,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TargetDbType
     {
-        get => GetArgument<TerraformValue<string>>("target_db_type") ?? AsReference("target_db_type");
+        get => GetArgument<TerraformValue<string>>("target_db_type") ?? CreateReference("target_db_type");
         set => SetArgument("target_db_type", value);
     }
 
@@ -541,7 +541,7 @@ public class AwsDmsEndpointOracleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AuthenticationMethod
     {
-        get => GetArgument<TerraformValue<string>>("authentication_method") ?? AsReference("authentication_method");
+        get => GetArgument<TerraformValue<string>>("authentication_method") ?? CreateReference("authentication_method");
         set => SetArgument("authentication_method", value);
     }
 
@@ -573,7 +573,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AuthenticationMethod
     {
-        get => GetArgument<TerraformValue<string>>("authentication_method") ?? AsReference("authentication_method");
+        get => GetArgument<TerraformValue<string>>("authentication_method") ?? CreateReference("authentication_method");
         set => SetArgument("authentication_method", value);
     }
 
@@ -906,7 +906,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// </summary>
     public TerraformValue<string> CertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("certificate_arn") ?? AsReference("certificate_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_arn") ?? CreateReference("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
@@ -954,7 +954,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// </summary>
     public TerraformValue<string> ExtraConnectionAttributes
     {
-        get => GetArgument<TerraformValue<string>>("extra_connection_attributes") ?? AsReference("extra_connection_attributes");
+        get => GetArgument<TerraformValue<string>>("extra_connection_attributes") ?? CreateReference("extra_connection_attributes");
         set => SetArgument("extra_connection_attributes", value);
     }
 
@@ -963,7 +963,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -972,7 +972,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// </summary>
     public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? CreateReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -1008,7 +1008,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1053,7 +1053,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// </summary>
     public TerraformValue<string> SslMode
     {
-        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? AsReference("ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? CreateReference("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -1071,7 +1071,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1088,7 +1088,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// The endpoint_arn attribute.
     /// </summary>
     public TerraformValue<string> EndpointArn
-        => AsReference("endpoint_arn");
+        => CreateReference("endpoint_arn");
 
     /// <summary>
     /// ElasticsearchSettings block (nesting mode: list).

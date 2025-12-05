@@ -72,7 +72,7 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// </summary>
     public TerraformValue<bool> MultiRegion
     {
-        get => GetArgument<TerraformValue<bool>>("multi_region") ?? AsReference("multi_region");
+        get => GetArgument<TerraformValue<bool>>("multi_region") ?? CreateReference("multi_region");
         set => SetArgument("multi_region", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// </summary>
     public TerraformValue<double> RotationPeriodInDays
     {
-        get => GetArgument<TerraformValue<double>>("rotation_period_in_days") ?? AsReference("rotation_period_in_days");
+        get => GetArgument<TerraformValue<double>>("rotation_period_in_days") ?? CreateReference("rotation_period_in_days");
         set => SetArgument("rotation_period_in_days", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -179,13 +179,13 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
     public TerraformValue<string> KeyId
-        => AsReference("key_id");
+        => CreateReference("key_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

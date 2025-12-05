@@ -36,7 +36,7 @@ public partial class AzurermVirtualNetworkGatewayConnectionDataSource(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,133 +64,133 @@ public partial class AzurermVirtualNetworkGatewayConnectionDataSource(string nam
     /// The authorization_key attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationKey
-        => AsReference("authorization_key");
+        => CreateReference("authorization_key");
 
     /// <summary>
     /// The connection_protocol attribute.
     /// </summary>
     public TerraformValue<string> ConnectionProtocol
-        => AsReference("connection_protocol");
+        => CreateReference("connection_protocol");
 
     /// <summary>
     /// The dpd_timeout_seconds attribute.
     /// </summary>
     public TerraformValue<double> DpdTimeoutSeconds
-        => AsReference("dpd_timeout_seconds");
+        => CreateReference("dpd_timeout_seconds");
 
     /// <summary>
     /// The egress_bytes_transferred attribute.
     /// </summary>
     public TerraformValue<double> EgressBytesTransferred
-        => AsReference("egress_bytes_transferred");
+        => CreateReference("egress_bytes_transferred");
 
     /// <summary>
     /// The enable_bgp attribute.
     /// </summary>
     public TerraformValue<bool> EnableBgp
-        => AsReference("enable_bgp");
+        => CreateReference("enable_bgp");
 
     /// <summary>
     /// The express_route_circuit_id attribute.
     /// </summary>
     public TerraformValue<string> ExpressRouteCircuitId
-        => AsReference("express_route_circuit_id");
+        => CreateReference("express_route_circuit_id");
 
     /// <summary>
     /// The express_route_gateway_bypass attribute.
     /// </summary>
     public TerraformValue<bool> ExpressRouteGatewayBypass
-        => AsReference("express_route_gateway_bypass");
+        => CreateReference("express_route_gateway_bypass");
 
     /// <summary>
     /// The ingress_bytes_transferred attribute.
     /// </summary>
     public TerraformValue<double> IngressBytesTransferred
-        => AsReference("ingress_bytes_transferred");
+        => CreateReference("ingress_bytes_transferred");
 
     /// <summary>
     /// The ipsec_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpsecPolicy
-        => AsReference("ipsec_policy");
+        => CreateReference("ipsec_policy");
 
     /// <summary>
     /// The local_azure_ip_address_enabled attribute.
     /// </summary>
     public TerraformValue<bool> LocalAzureIpAddressEnabled
-        => AsReference("local_azure_ip_address_enabled");
+        => CreateReference("local_azure_ip_address_enabled");
 
     /// <summary>
     /// The local_network_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> LocalNetworkGatewayId
-        => AsReference("local_network_gateway_id");
+        => CreateReference("local_network_gateway_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The peer_virtual_network_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> PeerVirtualNetworkGatewayId
-        => AsReference("peer_virtual_network_gateway_id");
+        => CreateReference("peer_virtual_network_gateway_id");
 
     /// <summary>
     /// The private_link_fast_path_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PrivateLinkFastPathEnabled
-        => AsReference("private_link_fast_path_enabled");
+        => CreateReference("private_link_fast_path_enabled");
 
     /// <summary>
     /// The resource_guid attribute.
     /// </summary>
     public TerraformValue<string> ResourceGuid
-        => AsReference("resource_guid");
+        => CreateReference("resource_guid");
 
     /// <summary>
     /// The routing_weight attribute.
     /// </summary>
     public TerraformValue<double> RoutingWeight
-        => AsReference("routing_weight");
+        => CreateReference("routing_weight");
 
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
     public TerraformValue<string> SharedKey
-        => AsReference("shared_key");
+        => CreateReference("shared_key");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The traffic_selector_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrafficSelectorPolicy
-        => AsReference("traffic_selector_policy");
+        => CreateReference("traffic_selector_policy");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The use_policy_based_traffic_selectors attribute.
     /// </summary>
     public TerraformValue<bool> UsePolicyBasedTrafficSelectors
-        => AsReference("use_policy_based_traffic_selectors");
+        => CreateReference("use_policy_based_traffic_selectors");
 
     /// <summary>
     /// The virtual_network_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualNetworkGatewayId
-        => AsReference("virtual_network_gateway_id");
+        => CreateReference("virtual_network_gateway_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class AwsKinesisStreamDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsKinesisStreamDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsKinesisStreamDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,60 +49,60 @@ public partial class AwsKinesisStreamDataSource(string name) : TerraformDataSour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The closed_shards attribute.
     /// </summary>
     public TerraformSet<string> ClosedShards
-        => AsReference("closed_shards");
+        => CreateReference("closed_shards");
 
     /// <summary>
     /// The creation_timestamp attribute.
     /// </summary>
     public TerraformValue<double> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     public TerraformValue<string> EncryptionType
-        => AsReference("encryption_type");
+        => CreateReference("encryption_type");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The open_shards attribute.
     /// </summary>
     public TerraformSet<string> OpenShards
-        => AsReference("open_shards");
+        => CreateReference("open_shards");
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
     public TerraformValue<double> RetentionPeriod
-        => AsReference("retention_period");
+        => CreateReference("retention_period");
 
     /// <summary>
     /// The shard_level_metrics attribute.
     /// </summary>
     public TerraformSet<string> ShardLevelMetrics
-        => AsReference("shard_level_metrics");
+        => CreateReference("shard_level_metrics");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The stream_mode_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StreamModeDetails
-        => AsReference("stream_mode_details");
+        => CreateReference("stream_mode_details");
 
 }

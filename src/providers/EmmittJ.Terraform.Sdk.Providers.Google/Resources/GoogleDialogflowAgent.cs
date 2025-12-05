@@ -59,7 +59,7 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> ApiVersion
     {
-        get => GetArgument<TerraformValue<string>>("api_version") ?? AsReference("api_version");
+        get => GetArgument<TerraformValue<string>>("api_version") ?? CreateReference("api_version");
         set => SetArgument("api_version", value);
     }
 
@@ -131,7 +131,7 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> MatchMode
     {
-        get => GetArgument<TerraformValue<string>>("match_mode") ?? AsReference("match_mode");
+        get => GetArgument<TerraformValue<string>>("match_mode") ?? CreateReference("match_mode");
         set => SetArgument("match_mode", value);
     }
 
@@ -153,7 +153,7 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -196,7 +196,7 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     /// the [avatarUri] field can be used.
     /// </summary>
     public TerraformValue<string> AvatarUriBackend
-        => AsReference("avatar_uri_backend");
+        => CreateReference("avatar_uri_backend");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

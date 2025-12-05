@@ -13,7 +13,7 @@ public partial class AwsDevopsguruResourceCollectionDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,18 +31,18 @@ public partial class AwsDevopsguruResourceCollectionDataSource(string name) : Te
     /// The cloudformation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Cloudformation
-        => AsReference("cloudformation");
+        => CreateReference("cloudformation");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
 }

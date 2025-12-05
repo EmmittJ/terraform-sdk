@@ -13,7 +13,7 @@ public partial class AwsWorkspacesWorkspaceDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> DirectoryId
     {
-        get => GetArgument<TerraformValue<string>>("directory_id") ?? AsReference("directory_id");
+        get => GetArgument<TerraformValue<string>>("directory_id") ?? CreateReference("directory_id");
         set => SetArgument("directory_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsWorkspacesWorkspaceDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsWorkspacesWorkspaceDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsWorkspacesWorkspaceDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsWorkspacesWorkspaceDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name") ?? AsReference("user_name");
+        get => GetArgument<TerraformValue<string>>("user_name") ?? CreateReference("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsWorkspacesWorkspaceDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id") ?? AsReference("workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id") ?? CreateReference("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -66,48 +66,48 @@ public partial class AwsWorkspacesWorkspaceDataSource(string name) : TerraformDa
     /// The bundle_id attribute.
     /// </summary>
     public TerraformValue<string> BundleId
-        => AsReference("bundle_id");
+        => CreateReference("bundle_id");
 
     /// <summary>
     /// The computer_name attribute.
     /// </summary>
     public TerraformValue<string> ComputerName
-        => AsReference("computer_name");
+        => CreateReference("computer_name");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The root_volume_encryption_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RootVolumeEncryptionEnabled
-        => AsReference("root_volume_encryption_enabled");
+        => CreateReference("root_volume_encryption_enabled");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The user_volume_encryption_enabled attribute.
     /// </summary>
     public TerraformValue<bool> UserVolumeEncryptionEnabled
-        => AsReference("user_volume_encryption_enabled");
+        => CreateReference("user_volume_encryption_enabled");
 
     /// <summary>
     /// The volume_encryption_key attribute.
     /// </summary>
     public TerraformValue<string> VolumeEncryptionKey
-        => AsReference("volume_encryption_key");
+        => CreateReference("volume_encryption_key");
 
     /// <summary>
     /// The workspace_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkspaceProperties
-        => AsReference("workspace_properties");
+        => CreateReference("workspace_properties");
 
 }

@@ -100,7 +100,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -207,25 +207,25 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// The Client ID (also called Application ID)
     /// </summary>
     public TerraformValue<string> ClientId
-        => AsReference("client_id");
+        => CreateReference("client_id");
 
     /// <summary>
     /// If the application has been disabled by Microsoft, this shows the status or reason
     /// </summary>
     public TerraformValue<string> DisabledByMicrosoft
-        => AsReference("disabled_by_microsoft");
+        => CreateReference("disabled_by_microsoft");
 
     /// <summary>
     /// The object ID of the application within the tenant
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// The verified publisher domain for the application
     /// </summary>
     public TerraformValue<string> PublisherDomain
-        => AsReference("publisher_domain");
+        => CreateReference("publisher_domain");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

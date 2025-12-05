@@ -111,7 +111,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<double> InstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("instance_count") ?? AsReference("instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count") ?? CreateReference("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -156,13 +156,13 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// The running_instance_count attribute.
     /// </summary>
     public TerraformValue<double> RunningInstanceCount
-        => AsReference("running_instance_count");
+        => CreateReference("running_instance_count");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// EbsConfig block (nesting mode: set).

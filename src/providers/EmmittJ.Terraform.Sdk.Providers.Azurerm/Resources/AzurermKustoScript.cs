@@ -82,7 +82,7 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> ForceAnUpdateWhenValueChanged
     {
-        get => GetArgument<TerraformValue<string>>("force_an_update_when_value_changed") ?? AsReference("force_an_update_when_value_changed");
+        get => GetArgument<TerraformValue<string>>("force_an_update_when_value_changed") ?? CreateReference("force_an_update_when_value_changed");
         set => SetArgument("force_an_update_when_value_changed", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

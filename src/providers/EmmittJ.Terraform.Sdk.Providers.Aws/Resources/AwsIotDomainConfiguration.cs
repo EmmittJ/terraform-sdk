@@ -50,7 +50,7 @@ public class AwsIotDomainConfigurationTlsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SecurityPolicy
     {
-        get => GetArgument<TerraformValue<string>>("security_policy") ?? AsReference("security_policy");
+        get => GetArgument<TerraformValue<string>>("security_policy") ?? CreateReference("security_policy");
         set => SetArgument("security_policy", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> ApplicationProtocol
     {
-        get => GetArgument<TerraformValue<string>>("application_protocol") ?? AsReference("application_protocol");
+        get => GetArgument<TerraformValue<string>>("application_protocol") ?? CreateReference("application_protocol");
         set => SetArgument("application_protocol", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> AuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("authentication_type") ?? AsReference("authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type") ?? CreateReference("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name") ?? AsReference("domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name") ?? CreateReference("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -176,13 +176,13 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The domain_type attribute.
     /// </summary>
     public TerraformValue<string> DomainType
-        => AsReference("domain_type");
+        => CreateReference("domain_type");
 
     /// <summary>
     /// AuthorizerConfig block (nesting mode: list).

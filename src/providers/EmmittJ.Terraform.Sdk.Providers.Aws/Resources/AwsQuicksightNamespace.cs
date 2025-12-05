@@ -45,7 +45,7 @@ public partial class AwsQuicksightNamespace(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? CreateReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsQuicksightNamespace(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> IdentityStore
     {
-        get => GetArgument<TerraformValue<string>>("identity_store") ?? AsReference("identity_store");
+        get => GetArgument<TerraformValue<string>>("identity_store") ?? CreateReference("identity_store");
         set => SetArgument("identity_store", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsQuicksightNamespace(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -90,31 +90,31 @@ public partial class AwsQuicksightNamespace(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The capacity_region attribute.
     /// </summary>
     public TerraformValue<string> CapacityRegion
-        => AsReference("capacity_region");
+        => CreateReference("capacity_region");
 
     /// <summary>
     /// The creation_status attribute.
     /// </summary>
     public TerraformValue<string> CreationStatus
-        => AsReference("creation_status");
+        => CreateReference("creation_status");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

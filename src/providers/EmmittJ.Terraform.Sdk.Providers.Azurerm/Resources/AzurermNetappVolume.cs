@@ -246,7 +246,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> Protocol
     {
-        get => GetArgument<TerraformList<string>>("protocol") ?? AsReference("protocol");
+        get => GetArgument<TerraformList<string>>("protocol") ?? CreateReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -256,7 +256,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformList<string> ProtocolsEnabled
     {
-        get => GetArgument<TerraformList<string>>("protocols_enabled") ?? AsReference("protocols_enabled");
+        get => GetArgument<TerraformList<string>>("protocols_enabled") ?? CreateReference("protocols_enabled");
         set => SetArgument("protocols_enabled", value);
     }
 
@@ -398,7 +398,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> EncryptionKeySource
     {
-        get => GetArgument<TerraformValue<string>>("encryption_key_source") ?? AsReference("encryption_key_source");
+        get => GetArgument<TerraformValue<string>>("encryption_key_source") ?? CreateReference("encryption_key_source");
         set => SetArgument("encryption_key_source", value);
     }
 
@@ -407,7 +407,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -425,7 +425,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> KeyVaultPrivateEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_private_endpoint_id") ?? AsReference("key_vault_private_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_private_endpoint_id") ?? CreateReference("key_vault_private_endpoint_id");
         set => SetArgument("key_vault_private_endpoint_id", value);
     }
 
@@ -463,7 +463,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> NetworkFeatures
     {
-        get => GetArgument<TerraformValue<string>>("network_features") ?? AsReference("network_features");
+        get => GetArgument<TerraformValue<string>>("network_features") ?? CreateReference("network_features");
         set => SetArgument("network_features", value);
     }
 
@@ -482,7 +482,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformSet<string> Protocols
     {
-        get => GetArgument<TerraformSet<string>>("protocols") ?? AsReference("protocols");
+        get => GetArgument<TerraformSet<string>>("protocols") ?? CreateReference("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -501,7 +501,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> SecurityStyle
     {
-        get => GetArgument<TerraformValue<string>>("security_style") ?? AsReference("security_style");
+        get => GetArgument<TerraformValue<string>>("security_style") ?? CreateReference("security_style");
         set => SetArgument("security_style", value);
     }
 
@@ -594,7 +594,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<double> ThroughputInMibps
     {
-        get => GetArgument<TerraformValue<double>>("throughput_in_mibps") ?? AsReference("throughput_in_mibps");
+        get => GetArgument<TerraformValue<double>>("throughput_in_mibps") ?? CreateReference("throughput_in_mibps");
         set => SetArgument("throughput_in_mibps", value);
     }
 
@@ -621,7 +621,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// The mount_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> MountIpAddresses
-        => AsReference("mount_ip_addresses");
+        => CreateReference("mount_ip_addresses");
 
     /// <summary>
     /// CoolAccess block (nesting mode: list).

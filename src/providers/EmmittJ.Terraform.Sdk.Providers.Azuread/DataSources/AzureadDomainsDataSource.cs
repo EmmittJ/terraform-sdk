@@ -45,7 +45,7 @@ public partial class AzureadDomainsDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AzureadDomainsDataSource(string name) : TerraformDataSource
     /// A list of tenant domains
     /// </summary>
     public TerraformList<TerraformMap<object>> Domains
-        => AsReference("domains");
+        => CreateReference("domains");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

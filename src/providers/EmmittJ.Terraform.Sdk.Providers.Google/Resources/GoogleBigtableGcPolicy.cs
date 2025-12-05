@@ -19,7 +19,7 @@ public class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<double> Days
     {
-        get => GetArgument<TerraformValue<double>>("days") ?? AsReference("days");
+        get => GetArgument<TerraformValue<double>>("days") ?? CreateReference("days");
         set => SetArgument("days", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration") ?? AsReference("duration");
+        get => GetArgument<TerraformValue<string>>("duration") ?? CreateReference("duration");
         set => SetArgument("duration", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -172,7 +172,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 

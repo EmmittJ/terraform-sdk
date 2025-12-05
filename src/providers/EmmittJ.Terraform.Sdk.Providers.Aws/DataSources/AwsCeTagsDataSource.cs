@@ -760,7 +760,7 @@ public partial class AwsCeTagsDataSource(string name) : TerraformDataSource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -786,7 +786,7 @@ public partial class AwsCeTagsDataSource(string name) : TerraformDataSource("aws
     /// The tags attribute.
     /// </summary>
     public TerraformSet<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Filter block (nesting mode: list).

@@ -72,7 +72,7 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// </summary>
     public TerraformValue<string> PrivateIp
     {
-        get => GetArgument<TerraformValue<string>>("private_ip") ?? AsReference("private_ip");
+        get => GetArgument<TerraformValue<string>>("private_ip") ?? CreateReference("private_ip");
         set => SetArgument("private_ip", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// </summary>
     public TerraformSet<string> SecondaryAllocationIds
     {
-        get => GetArgument<TerraformSet<string>>("secondary_allocation_ids") ?? AsReference("secondary_allocation_ids");
+        get => GetArgument<TerraformSet<string>>("secondary_allocation_ids") ?? CreateReference("secondary_allocation_ids");
         set => SetArgument("secondary_allocation_ids", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// </summary>
     public TerraformValue<double> SecondaryPrivateIpAddressCount
     {
-        get => GetArgument<TerraformValue<double>>("secondary_private_ip_address_count") ?? AsReference("secondary_private_ip_address_count");
+        get => GetArgument<TerraformValue<double>>("secondary_private_ip_address_count") ?? CreateReference("secondary_private_ip_address_count");
         set => SetArgument("secondary_private_ip_address_count", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// </summary>
     public TerraformSet<string> SecondaryPrivateIpAddresses
     {
-        get => GetArgument<TerraformSet<string>>("secondary_private_ip_addresses") ?? AsReference("secondary_private_ip_addresses");
+        get => GetArgument<TerraformSet<string>>("secondary_private_ip_addresses") ?? CreateReference("secondary_private_ip_addresses");
         set => SetArgument("secondary_private_ip_addresses", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -153,19 +153,19 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
-        => AsReference("network_interface_id");
+        => CreateReference("network_interface_id");
 
     /// <summary>
     /// The public_ip attribute.
     /// </summary>
     public TerraformValue<string> PublicIp
-        => AsReference("public_ip");
+        => CreateReference("public_ip");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

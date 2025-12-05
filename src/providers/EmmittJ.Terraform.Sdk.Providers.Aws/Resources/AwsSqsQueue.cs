@@ -63,7 +63,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<string> DeduplicationScope
     {
-        get => GetArgument<TerraformValue<string>>("deduplication_scope") ?? AsReference("deduplication_scope");
+        get => GetArgument<TerraformValue<string>>("deduplication_scope") ?? CreateReference("deduplication_scope");
         set => SetArgument("deduplication_scope", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<string> FifoThroughputLimit
     {
-        get => GetArgument<TerraformValue<string>>("fifo_throughput_limit") ?? AsReference("fifo_throughput_limit");
+        get => GetArgument<TerraformValue<string>>("fifo_throughput_limit") ?? CreateReference("fifo_throughput_limit");
         set => SetArgument("fifo_throughput_limit", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<double> KmsDataKeyReusePeriodSeconds
     {
-        get => GetArgument<TerraformValue<double>>("kms_data_key_reuse_period_seconds") ?? AsReference("kms_data_key_reuse_period_seconds");
+        get => GetArgument<TerraformValue<double>>("kms_data_key_reuse_period_seconds") ?? CreateReference("kms_data_key_reuse_period_seconds");
         set => SetArgument("kms_data_key_reuse_period_seconds", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? CreateReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<string> RedriveAllowPolicy
     {
-        get => GetArgument<TerraformValue<string>>("redrive_allow_policy") ?? AsReference("redrive_allow_policy");
+        get => GetArgument<TerraformValue<string>>("redrive_allow_policy") ?? CreateReference("redrive_allow_policy");
         set => SetArgument("redrive_allow_policy", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<string> RedrivePolicy
     {
-        get => GetArgument<TerraformValue<string>>("redrive_policy") ?? AsReference("redrive_policy");
+        get => GetArgument<TerraformValue<string>>("redrive_policy") ?? CreateReference("redrive_policy");
         set => SetArgument("redrive_policy", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -207,7 +207,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformValue<bool> SqsManagedSseEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sqs_managed_sse_enabled") ?? AsReference("sqs_managed_sse_enabled");
+        get => GetArgument<TerraformValue<bool>>("sqs_managed_sse_enabled") ?? CreateReference("sqs_managed_sse_enabled");
         set => SetArgument("sqs_managed_sse_enabled", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -242,13 +242,13 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

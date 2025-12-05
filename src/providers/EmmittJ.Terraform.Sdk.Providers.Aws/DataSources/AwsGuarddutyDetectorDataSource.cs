@@ -13,7 +13,7 @@ public partial class AwsGuarddutyDetectorDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsGuarddutyDetectorDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsGuarddutyDetectorDataSource(string name) : TerraformData
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -39,30 +39,30 @@ public partial class AwsGuarddutyDetectorDataSource(string name) : TerraformData
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The features attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Features
-        => AsReference("features");
+        => CreateReference("features");
 
     /// <summary>
     /// The finding_publishing_frequency attribute.
     /// </summary>
     public TerraformValue<string> FindingPublishingFrequency
-        => AsReference("finding_publishing_frequency");
+        => CreateReference("finding_publishing_frequency");
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
     public TerraformValue<string> ServiceRoleArn
-        => AsReference("service_role_arn");
+        => CreateReference("service_role_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

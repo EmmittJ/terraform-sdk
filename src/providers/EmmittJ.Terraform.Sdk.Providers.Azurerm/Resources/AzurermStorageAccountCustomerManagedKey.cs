@@ -72,7 +72,7 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     /// </summary>
     public TerraformValue<string> KeyVaultUri
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_uri") ?? AsReference("key_vault_uri");
+        get => GetArgument<TerraformValue<string>>("key_vault_uri") ?? CreateReference("key_vault_uri");
         set => SetArgument("key_vault_uri", value);
     }
 

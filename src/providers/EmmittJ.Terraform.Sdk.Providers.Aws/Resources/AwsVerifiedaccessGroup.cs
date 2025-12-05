@@ -45,7 +45,7 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? CreateReference("description");
         set => SetArgument("description", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -108,37 +108,37 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The deletion_time attribute.
     /// </summary>
     public TerraformValue<string> DeletionTime
-        => AsReference("deletion_time");
+        => CreateReference("deletion_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-        => AsReference("last_updated_time");
+        => CreateReference("last_updated_time");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The verifiedaccess_group_arn attribute.
     /// </summary>
     public TerraformValue<string> VerifiedaccessGroupArn
-        => AsReference("verifiedaccess_group_arn");
+        => CreateReference("verifiedaccess_group_arn");
 
     /// <summary>
     /// The verifiedaccess_group_id attribute.
     /// </summary>
     public TerraformValue<string> VerifiedaccessGroupId
-        => AsReference("verifiedaccess_group_id");
+        => CreateReference("verifiedaccess_group_id");
 
     /// <summary>
     /// SseConfiguration block (nesting mode: list).

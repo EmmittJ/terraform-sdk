@@ -17,7 +17,7 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The use_in_virtual_machine_creation attribute.
@@ -173,7 +173,7 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     /// The unique_identifier attribute.
     /// </summary>
     public TerraformValue<string> UniqueIdentifier
-        => AsReference("unique_identifier");
+        => CreateReference("unique_identifier");
 
     /// <summary>
     /// Subnet block (nesting mode: list).

@@ -23,7 +23,7 @@ public partial class GoogleFolderIamPolicyDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,12 +31,12 @@ public partial class GoogleFolderIamPolicyDataSource(string name) : TerraformDat
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-        => AsReference("policy_data");
+        => CreateReference("policy_data");
 
 }

@@ -13,7 +13,7 @@ public partial class AwsDefaultSecurityGroup(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<TerraformMap<object>> Egress
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("egress") ?? AsReference("egress");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("egress") ?? CreateReference("egress");
         set => SetArgument("egress", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDefaultSecurityGroup(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsDefaultSecurityGroup(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<TerraformMap<object>> Ingress
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("ingress") ?? AsReference("ingress");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("ingress") ?? CreateReference("ingress");
         set => SetArgument("ingress", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsDefaultSecurityGroup(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsDefaultSecurityGroup(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsDefaultSecurityGroup(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id") ?? AsReference("vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id") ?? CreateReference("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -84,30 +84,30 @@ public partial class AwsDefaultSecurityGroup(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     public TerraformValue<string> NamePrefix
-        => AsReference("name_prefix");
+        => CreateReference("name_prefix");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
 }

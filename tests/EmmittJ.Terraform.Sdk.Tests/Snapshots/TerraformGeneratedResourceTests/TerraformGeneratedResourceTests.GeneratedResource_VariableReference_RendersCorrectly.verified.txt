@@ -1,0 +1,4 @@
+﻿resource "test_resource_group" "rg" {
+  location = var.location
+  name     = "my-rg"
+}

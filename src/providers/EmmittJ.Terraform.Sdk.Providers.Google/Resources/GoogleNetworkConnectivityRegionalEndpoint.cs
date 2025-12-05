@@ -66,7 +66,7 @@ public partial class GoogleNetworkConnectivityRegionalEndpoint(string name) : Te
     /// </summary>
     public TerraformValue<string> Address
     {
-        get => GetArgument<TerraformValue<string>>("address") ?? AsReference("address");
+        get => GetArgument<TerraformValue<string>>("address") ?? CreateReference("address");
         set => SetArgument("address", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleNetworkConnectivityRegionalEndpoint(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -126,7 +126,7 @@ public partial class GoogleNetworkConnectivityRegionalEndpoint(string name) : Te
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -135,7 +135,7 @@ public partial class GoogleNetworkConnectivityRegionalEndpoint(string name) : Te
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -144,7 +144,7 @@ public partial class GoogleNetworkConnectivityRegionalEndpoint(string name) : Te
     /// </summary>
     public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? CreateReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -162,32 +162,32 @@ public partial class GoogleNetworkConnectivityRegionalEndpoint(string name) : Te
     /// Time when the RegionalEndpoint was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The resource reference of the PSC Forwarding Rule created on behalf of the customer. Format: &#39;//compute.googleapis.com/projects/{project}/regions/{region}/forwardingRules/{forwarding_rule_name}&#39;
     /// </summary>
     public TerraformValue<string> PscForwardingRule
-        => AsReference("psc_forwarding_rule");
+        => CreateReference("psc_forwarding_rule");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Time when the RegionalEndpoint was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

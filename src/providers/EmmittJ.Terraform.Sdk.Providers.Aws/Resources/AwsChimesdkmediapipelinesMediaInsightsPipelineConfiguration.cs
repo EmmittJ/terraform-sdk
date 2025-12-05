@@ -574,7 +574,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     /// </summary>
     public TerraformValue<bool> Disabled
     {
-        get => GetArgument<TerraformValue<bool>>("disabled") ?? AsReference("disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled") ?? CreateReference("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -695,7 +695,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     /// </summary>
     public TerraformValue<bool> Negate
     {
-        get => GetArgument<TerraformValue<bool>>("negate") ?? AsReference("negate");
+        get => GetArgument<TerraformValue<bool>>("negate") ?? CreateReference("negate");
         set => SetArgument("negate", value);
     }
 
@@ -817,7 +817,7 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -845,7 +845,7 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -853,13 +853,13 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Elements block (nesting mode: list).

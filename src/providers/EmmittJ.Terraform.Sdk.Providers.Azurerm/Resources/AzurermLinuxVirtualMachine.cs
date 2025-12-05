@@ -184,13 +184,13 @@ public class AzurermLinuxVirtualMachineIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -240,7 +240,7 @@ public class AzurermLinuxVirtualMachineOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -248,14 +248,14 @@ public class AzurermLinuxVirtualMachineOsDiskBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -282,7 +282,7 @@ public class AzurermLinuxVirtualMachineOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StorageAccountType
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_type") ?? AsReference("storage_account_type");
+        get => GetArgument<TerraformValue<string>>("storage_account_type") ?? CreateReference("storage_account_type");
         set => SetArgument("storage_account_type", value);
     }
 
@@ -632,7 +632,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool> AllowExtensionOperations
     {
-        get => GetArgument<TerraformValue<bool>>("allow_extension_operations") ?? AsReference("allow_extension_operations");
+        get => GetArgument<TerraformValue<bool>>("allow_extension_operations") ?? CreateReference("allow_extension_operations");
         set => SetArgument("allow_extension_operations", value);
     }
 
@@ -668,7 +668,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> ComputerName
     {
-        get => GetArgument<TerraformValue<string>>("computer_name") ?? AsReference("computer_name");
+        get => GetArgument<TerraformValue<string>>("computer_name") ?? CreateReference("computer_name");
         set => SetArgument("computer_name", value);
     }
 
@@ -704,7 +704,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool> DisablePasswordAuthentication
     {
-        get => GetArgument<TerraformValue<bool>>("disable_password_authentication") ?? AsReference("disable_password_authentication");
+        get => GetArgument<TerraformValue<bool>>("disable_password_authentication") ?? CreateReference("disable_password_authentication");
         set => SetArgument("disable_password_authentication", value);
     }
 
@@ -713,7 +713,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> DiskControllerType
     {
-        get => GetArgument<TerraformValue<string>>("disk_controller_type") ?? AsReference("disk_controller_type");
+        get => GetArgument<TerraformValue<string>>("disk_controller_type") ?? CreateReference("disk_controller_type");
         set => SetArgument("disk_controller_type", value);
     }
 
@@ -758,7 +758,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -815,7 +815,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> OsManagedDiskId
     {
-        get => GetArgument<TerraformValue<string>>("os_managed_disk_id") ?? AsReference("os_managed_disk_id");
+        get => GetArgument<TerraformValue<string>>("os_managed_disk_id") ?? CreateReference("os_managed_disk_id");
         set => SetArgument("os_managed_disk_id", value);
     }
 
@@ -824,7 +824,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> PatchAssessmentMode
     {
-        get => GetArgument<TerraformValue<string>>("patch_assessment_mode") ?? AsReference("patch_assessment_mode");
+        get => GetArgument<TerraformValue<string>>("patch_assessment_mode") ?? CreateReference("patch_assessment_mode");
         set => SetArgument("patch_assessment_mode", value);
     }
 
@@ -833,7 +833,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> PatchMode
     {
-        get => GetArgument<TerraformValue<string>>("patch_mode") ?? AsReference("patch_mode");
+        get => GetArgument<TerraformValue<string>>("patch_mode") ?? CreateReference("patch_mode");
         set => SetArgument("patch_mode", value);
     }
 
@@ -860,7 +860,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool> ProvisionVmAgent
     {
-        get => GetArgument<TerraformValue<bool>>("provision_vm_agent") ?? AsReference("provision_vm_agent");
+        get => GetArgument<TerraformValue<bool>>("provision_vm_agent") ?? CreateReference("provision_vm_agent");
         set => SetArgument("provision_vm_agent", value);
     }
 
@@ -953,7 +953,7 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> VmAgentPlatformUpdatesEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("vm_agent_platform_updates_enabled") ?? AsReference("vm_agent_platform_updates_enabled");
+        get => GetArgument<TerraformValue<bool>>("vm_agent_platform_updates_enabled") ?? CreateReference("vm_agent_platform_updates_enabled");
         set => SetArgument("vm_agent_platform_updates_enabled", value);
     }
 
@@ -979,31 +979,31 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-        => AsReference("private_ip_addresses");
+        => CreateReference("private_ip_addresses");
 
     /// <summary>
     /// The public_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-        => AsReference("public_ip_address");
+        => CreateReference("public_ip_address");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-        => AsReference("public_ip_addresses");
+        => CreateReference("public_ip_addresses");
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualMachineId
-        => AsReference("virtual_machine_id");
+        => CreateReference("virtual_machine_id");
 
     /// <summary>
     /// AdditionalCapabilities block (nesting mode: list).

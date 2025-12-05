@@ -17,14 +17,14 @@ public class GoogleDataprocClusterClusterConfigBlock : TerraformBlock
     ///  The name of the cloud storage bucket ultimately used to house the staging data for the cluster. If staging_bucket is specified, it will contain this value, otherwise it will be the auto generated name.
     /// </summary>
     public TerraformValue<string> Bucket
-        => AsReference("bucket");
+        => CreateReference("bucket");
 
     /// <summary>
     /// Specifies the tier of the cluster created.
     /// </summary>
     public TerraformValue<string> ClusterTier
     {
-        get => GetArgument<TerraformValue<string>>("cluster_tier") ?? AsReference("cluster_tier");
+        get => GetArgument<TerraformValue<string>>("cluster_tier") ?? CreateReference("cluster_tier");
         set => SetArgument("cluster_tier", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleDataprocClusterClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TempBucket
     {
-        get => GetArgument<TerraformValue<string>>("temp_bucket") ?? AsReference("temp_bucket");
+        get => GetArgument<TerraformValue<string>>("temp_bucket") ?? CreateReference("temp_bucket");
         set => SetArgument("temp_bucket", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlock : T
     /// </summary>
     public TerraformValue<string> NodeGroupId
     {
-        get => GetArgument<TerraformValue<string>>("node_group_id") ?? AsReference("node_group_id");
+        get => GetArgument<TerraformValue<string>>("node_group_id") ?? CreateReference("node_group_id");
         set => SetArgument("node_group_id", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// The Node group resource name.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Node group roles.
@@ -297,14 +297,14 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// List of auxiliary node group instance names which have been assigned to the cluster.
     /// </summary>
     public TerraformList<string> InstanceNames
-        => AsReference("instance_names");
+        => CreateReference("instance_names");
 
     /// <summary>
     /// The name of a Google Compute Engine machine type to create for the master
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -313,7 +313,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -322,7 +322,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// </summary>
     public TerraformValue<double> NumInstances
     {
-        get => GetArgument<TerraformValue<double>>("num_instances") ?? AsReference("num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances") ?? CreateReference("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// </summary>
     public TerraformValue<double> BootDiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb") ?? AsReference("boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb") ?? CreateReference("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -423,7 +423,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// </summary>
     public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? CreateReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -534,7 +534,7 @@ public class GoogleDataprocClusterClusterConfigBlockEndpointConfigBlock : Terraf
     /// The map of port descriptions to URLs. Will only be populated if enable_http_port_access is true.
     /// </summary>
     public TerraformMap<string> HttpPorts
-        => AsReference("http_ports");
+        => CreateReference("http_ports");
 
 }
 
@@ -563,7 +563,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlock : Terr
     /// </summary>
     public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? CreateReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -572,7 +572,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlock : Terr
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -590,7 +590,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlock : Terr
     /// </summary>
     public TerraformSet<string> ServiceAccountScopes
     {
-        get => GetArgument<TerraformSet<string>>("service_account_scopes") ?? AsReference("service_account_scopes");
+        get => GetArgument<TerraformSet<string>>("service_account_scopes") ?? CreateReference("service_account_scopes");
         set => SetArgument("service_account_scopes", value);
     }
 
@@ -617,7 +617,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlock : Terr
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -853,7 +853,7 @@ public class GoogleDataprocClusterClusterConfigBlockLifecycleConfigBlock : Terra
     /// Time when the cluster became idle (most recent job finished) and became eligible for deletion due to idleness.
     /// </summary>
     public TerraformValue<string> IdleStartTime
-        => AsReference("idle_start_time");
+        => CreateReference("idle_start_time");
 
 }
 
@@ -873,7 +873,7 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<string> ImageUri
     {
-        get => GetArgument<TerraformValue<string>>("image_uri") ?? AsReference("image_uri");
+        get => GetArgument<TerraformValue<string>>("image_uri") ?? CreateReference("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -881,14 +881,14 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlock : Terrafor
     /// List of master instance names which have been assigned to the cluster.
     /// </summary>
     public TerraformList<string> InstanceNames
-        => AsReference("instance_names");
+        => CreateReference("instance_names");
 
     /// <summary>
     /// The name of a Google Compute Engine machine type to create for the master
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -897,7 +897,7 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -906,7 +906,7 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<double> NumInstances
     {
-        get => GetArgument<TerraformValue<double>>("num_instances") ?? AsReference("num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances") ?? CreateReference("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -980,7 +980,7 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlockDiskConfigB
     /// </summary>
     public TerraformValue<double> BootDiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb") ?? AsReference("boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb") ?? CreateReference("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -1007,7 +1007,7 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlockDiskConfigB
     /// </summary>
     public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? CreateReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -1051,14 +1051,14 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// List of preemptible instance names which have been assigned to the cluster.
     /// </summary>
     public TerraformList<string> InstanceNames
-        => AsReference("instance_names");
+        => CreateReference("instance_names");
 
     /// <summary>
     /// Specifies the number of preemptible nodes to create. Defaults to 0.
     /// </summary>
     public TerraformValue<double> NumInstances
     {
-        get => GetArgument<TerraformValue<double>>("num_instances") ?? AsReference("num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances") ?? CreateReference("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -1109,7 +1109,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// </summary>
     public TerraformValue<double> BootDiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb") ?? AsReference("boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb") ?? CreateReference("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -1136,7 +1136,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// </summary>
     public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? CreateReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -1157,7 +1157,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// A list of instance selection results in the group.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceSelectionResults
-        => AsReference("instance_selection_results");
+        => CreateReference("instance_selection_results");
 
     /// <summary>
     /// InstanceSelectionList block (nesting mode: list).
@@ -1196,7 +1196,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// </summary>
     public TerraformList<string> MachineTypes
     {
-        get => GetArgument<TerraformList<string>>("machine_types") ?? AsReference("machine_types");
+        get => GetArgument<TerraformList<string>>("machine_types") ?? CreateReference("machine_types");
         set => SetArgument("machine_types", value);
     }
 
@@ -1205,7 +1205,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// </summary>
     public TerraformValue<double> Rank
     {
-        get => GetArgument<TerraformValue<double>>("rank") ?? AsReference("rank");
+        get => GetArgument<TerraformValue<double>>("rank") ?? CreateReference("rank");
         set => SetArgument("rank", value);
     }
 
@@ -1467,7 +1467,7 @@ public class GoogleDataprocClusterClusterConfigBlockSoftwareConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string> ImageVersion
     {
-        get => GetArgument<TerraformValue<string>>("image_version") ?? AsReference("image_version");
+        get => GetArgument<TerraformValue<string>>("image_version") ?? CreateReference("image_version");
         set => SetArgument("image_version", value);
     }
 
@@ -1493,7 +1493,7 @@ public class GoogleDataprocClusterClusterConfigBlockSoftwareConfigBlock : Terraf
     /// A list of the properties used to set the daemon config files. This will include any values supplied by the user via cluster_config.software_config.override_properties
     /// </summary>
     public TerraformMap<string> Properties
-        => AsReference("properties");
+        => CreateReference("properties");
 
 }
 
@@ -1513,7 +1513,7 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<string> ImageUri
     {
-        get => GetArgument<TerraformValue<string>>("image_uri") ?? AsReference("image_uri");
+        get => GetArgument<TerraformValue<string>>("image_uri") ?? CreateReference("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -1521,14 +1521,14 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlock : Terrafor
     /// List of master/worker instance names which have been assigned to the cluster.
     /// </summary>
     public TerraformList<string> InstanceNames
-        => AsReference("instance_names");
+        => CreateReference("instance_names");
 
     /// <summary>
     /// The name of a Google Compute Engine machine type to create for the master/worker
     /// </summary>
     public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? CreateReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -1537,7 +1537,7 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? CreateReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -1546,7 +1546,7 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<double> MinNumInstances
     {
-        get => GetArgument<TerraformValue<double>>("min_num_instances") ?? AsReference("min_num_instances");
+        get => GetArgument<TerraformValue<double>>("min_num_instances") ?? CreateReference("min_num_instances");
         set => SetArgument("min_num_instances", value);
     }
 
@@ -1555,7 +1555,7 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<double> NumInstances
     {
-        get => GetArgument<TerraformValue<double>>("num_instances") ?? AsReference("num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances") ?? CreateReference("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -1629,7 +1629,7 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlockDiskConfigB
     /// </summary>
     public TerraformValue<double> BootDiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb") ?? AsReference("boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb") ?? CreateReference("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -1656,7 +1656,7 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlockDiskConfigB
     /// </summary>
     public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? CreateReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2103,7 +2103,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformMap<string> Properties
     {
-        get => GetArgument<TerraformMap<string>>("properties") ?? AsReference("properties");
+        get => GetArgument<TerraformMap<string>>("properties") ?? CreateReference("properties");
         set => SetArgument("properties", value);
     }
 
@@ -2130,7 +2130,7 @@ public partial class GoogleDataprocCluster(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2161,7 +2161,7 @@ public partial class GoogleDataprocCluster(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -2178,13 +2178,13 @@ public partial class GoogleDataprocCluster(string name) : TerraformResource("goo
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// ClusterConfig block (nesting mode: list).

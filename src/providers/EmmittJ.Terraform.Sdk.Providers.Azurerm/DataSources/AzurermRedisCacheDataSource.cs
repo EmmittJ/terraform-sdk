@@ -36,7 +36,7 @@ public partial class AzurermRedisCacheDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,127 +64,127 @@ public partial class AzurermRedisCacheDataSource(string name) : TerraformDataSou
     /// The access_keys_authentication_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AccessKeysAuthenticationEnabled
-        => AsReference("access_keys_authentication_enabled");
+        => CreateReference("access_keys_authentication_enabled");
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
     public TerraformValue<double> Capacity
-        => AsReference("capacity");
+        => CreateReference("capacity");
 
     /// <summary>
     /// The family attribute.
     /// </summary>
     public TerraformValue<string> Family
-        => AsReference("family");
+        => CreateReference("family");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
     public TerraformValue<string> MinimumTlsVersion
-        => AsReference("minimum_tls_version");
+        => CreateReference("minimum_tls_version");
 
     /// <summary>
     /// The non_ssl_port_enabled attribute.
     /// </summary>
     public TerraformValue<bool> NonSslPortEnabled
-        => AsReference("non_ssl_port_enabled");
+        => CreateReference("non_ssl_port_enabled");
 
     /// <summary>
     /// The patch_schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PatchSchedule
-        => AsReference("patch_schedule");
+        => CreateReference("patch_schedule");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-        => AsReference("primary_access_key");
+        => CreateReference("primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-        => AsReference("primary_connection_string");
+        => CreateReference("primary_connection_string");
 
     /// <summary>
     /// The private_static_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateStaticIpAddress
-        => AsReference("private_static_ip_address");
+        => CreateReference("private_static_ip_address");
 
     /// <summary>
     /// The redis_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RedisConfiguration
-        => AsReference("redis_configuration");
+        => CreateReference("redis_configuration");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-        => AsReference("secondary_access_key");
+        => CreateReference("secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-        => AsReference("secondary_connection_string");
+        => CreateReference("secondary_connection_string");
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
     public TerraformValue<double> ShardCount
-        => AsReference("shard_count");
+        => CreateReference("shard_count");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The ssl_port attribute.
     /// </summary>
     public TerraformValue<double> SslPort
-        => AsReference("ssl_port");
+        => CreateReference("ssl_port");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-        => AsReference("subnet_id");
+        => CreateReference("subnet_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

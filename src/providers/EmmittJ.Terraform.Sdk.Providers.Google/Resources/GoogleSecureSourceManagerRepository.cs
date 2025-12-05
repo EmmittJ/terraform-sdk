@@ -132,7 +132,7 @@ public partial class GoogleSecureSourceManagerRepository(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -161,7 +161,7 @@ public partial class GoogleSecureSourceManagerRepository(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -179,31 +179,31 @@ public partial class GoogleSecureSourceManagerRepository(string name) : Terrafor
     /// Time the repository was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The resource name for the Repository.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Unique identifier of the repository.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Time the repository was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// URIs for the repository.
     /// </summary>
     public TerraformList<TerraformMap<object>> Uris
-        => AsReference("uris");
+        => CreateReference("uris");
 
     /// <summary>
     /// InitialConfig block (nesting mode: list).

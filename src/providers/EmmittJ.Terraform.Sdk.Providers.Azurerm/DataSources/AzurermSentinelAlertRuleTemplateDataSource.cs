@@ -36,7 +36,7 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -72,19 +72,19 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource(string name) : T
     /// The nrt_template attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NrtTemplate
-        => AsReference("nrt_template");
+        => CreateReference("nrt_template");
 
     /// <summary>
     /// The scheduled_template attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScheduledTemplate
-        => AsReference("scheduled_template");
+        => CreateReference("scheduled_template");
 
     /// <summary>
     /// The security_incident_template attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecurityIncidentTemplate
-        => AsReference("security_incident_template");
+        => CreateReference("security_incident_template");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

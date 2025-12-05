@@ -28,7 +28,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> IncludeSecrets
     {
-        get => GetArgument<TerraformValue<bool>>("include_secrets") ?? AsReference("include_secrets");
+        get => GetArgument<TerraformValue<bool>>("include_secrets") ?? CreateReference("include_secrets");
         set => SetArgument("include_secrets", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> IncludeVolumeData
     {
-        get => GetArgument<TerraformValue<bool>>("include_volume_data") ?? AsReference("include_volume_data");
+        get => GetArgument<TerraformValue<bool>>("include_volume_data") ?? CreateReference("include_volume_data");
         set => SetArgument("include_volume_data", value);
     }
 
@@ -287,7 +287,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Paused
     {
-        get => GetArgument<TerraformValue<bool>>("paused") ?? AsReference("paused");
+        get => GetArgument<TerraformValue<bool>>("paused") ?? CreateReference("paused");
         set => SetArgument("paused", value);
     }
 
@@ -544,7 +544,7 @@ public class GoogleGkeBackupBackupPlanRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> BackupDeleteLockDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_delete_lock_days") ?? AsReference("backup_delete_lock_days");
+        get => GetArgument<TerraformValue<double>>("backup_delete_lock_days") ?? CreateReference("backup_delete_lock_days");
         set => SetArgument("backup_delete_lock_days", value);
     }
 
@@ -564,7 +564,7 @@ public class GoogleGkeBackupBackupPlanRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> BackupRetainDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_retain_days") ?? AsReference("backup_retain_days");
+        get => GetArgument<TerraformValue<double>>("backup_retain_days") ?? CreateReference("backup_retain_days");
         set => SetArgument("backup_retain_days", value);
     }
 
@@ -575,7 +575,7 @@ public class GoogleGkeBackupBackupPlanRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> Locked
     {
-        get => GetArgument<TerraformValue<bool>>("locked") ?? AsReference("locked");
+        get => GetArgument<TerraformValue<bool>>("locked") ?? CreateReference("locked");
         set => SetArgument("locked", value);
     }
 
@@ -647,7 +647,7 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool> Deactivated
     {
-        get => GetArgument<TerraformValue<bool>>("deactivated") ?? AsReference("deactivated");
+        get => GetArgument<TerraformValue<bool>>("deactivated") ?? CreateReference("deactivated");
         set => SetArgument("deactivated", value);
     }
 
@@ -665,7 +665,7 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -709,7 +709,7 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -717,7 +717,7 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// etag is used for optimistic concurrency control as a way to help prevent simultaneous
@@ -728,38 +728,38 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// backupPlans.delete to ensure that their change will be applied to the same version of the resource.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The number of Kubernetes Pods backed up in the last successful Backup created via this BackupPlan.
     /// </summary>
     public TerraformValue<double> ProtectedPodCount
-        => AsReference("protected_pod_count");
+        => CreateReference("protected_pod_count");
 
     /// <summary>
     /// The State of the BackupPlan.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Detailed description of why BackupPlan is in its current state.
     /// </summary>
     public TerraformValue<string> StateReason
-        => AsReference("state_reason");
+        => CreateReference("state_reason");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Server generated, unique identifier of UUID format.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// BackupConfig block (nesting mode: list).

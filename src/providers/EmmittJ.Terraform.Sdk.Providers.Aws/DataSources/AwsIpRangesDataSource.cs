@@ -13,7 +13,7 @@ public partial class AwsIpRangesDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,24 +49,24 @@ public partial class AwsIpRangesDataSource(string name) : TerraformDataSource("a
     /// The cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> CidrBlocks
-        => AsReference("cidr_blocks");
+        => CreateReference("cidr_blocks");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-        => AsReference("create_date");
+        => CreateReference("create_date");
 
     /// <summary>
     /// The ipv6_cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> Ipv6CidrBlocks
-        => AsReference("ipv6_cidr_blocks");
+        => CreateReference("ipv6_cidr_blocks");
 
     /// <summary>
     /// The sync_token attribute.
     /// </summary>
     public TerraformValue<double> SyncToken
-        => AsReference("sync_token");
+        => CreateReference("sync_token");
 
 }

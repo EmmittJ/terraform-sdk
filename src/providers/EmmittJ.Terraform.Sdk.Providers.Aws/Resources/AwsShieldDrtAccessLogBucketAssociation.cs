@@ -64,7 +64,7 @@ public partial class AwsShieldDrtAccessLogBucketAssociation(string name) : Terra
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

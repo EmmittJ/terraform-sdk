@@ -23,7 +23,7 @@ public partial class AwsSignerSigningProfilePermission(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsSignerSigningProfilePermission(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> ProfileVersion
     {
-        get => GetArgument<TerraformValue<string>>("profile_version") ?? AsReference("profile_version");
+        get => GetArgument<TerraformValue<string>>("profile_version") ?? CreateReference("profile_version");
         set => SetArgument("profile_version", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsSignerSigningProfilePermission(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsSignerSigningProfilePermission(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> StatementId
     {
-        get => GetArgument<TerraformValue<string>>("statement_id") ?? AsReference("statement_id");
+        get => GetArgument<TerraformValue<string>>("statement_id") ?? CreateReference("statement_id");
         set => SetArgument("statement_id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsSignerSigningProfilePermission(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> StatementIdPrefix
     {
-        get => GetArgument<TerraformValue<string>>("statement_id_prefix") ?? AsReference("statement_id_prefix");
+        get => GetArgument<TerraformValue<string>>("statement_id_prefix") ?? CreateReference("statement_id_prefix");
         set => SetArgument("statement_id_prefix", value);
     }
 

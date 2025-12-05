@@ -13,7 +13,7 @@ public partial class AwsKmsAliasDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsKmsAliasDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,18 +40,18 @@ public partial class AwsKmsAliasDataSource(string name) : TerraformDataSource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The target_key_arn attribute.
     /// </summary>
     public TerraformValue<string> TargetKeyArn
-        => AsReference("target_key_arn");
+        => CreateReference("target_key_arn");
 
     /// <summary>
     /// The target_key_id attribute.
     /// </summary>
     public TerraformValue<string> TargetKeyId
-        => AsReference("target_key_id");
+        => CreateReference("target_key_id");
 
 }

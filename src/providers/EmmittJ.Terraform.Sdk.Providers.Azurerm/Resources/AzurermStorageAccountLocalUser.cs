@@ -210,7 +210,7 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -256,13 +256,13 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     /// The password attribute.
     /// </summary>
     public TerraformValue<string> Password
-        => AsReference("password");
+        => CreateReference("password");
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
     public TerraformValue<string> Sid
-        => AsReference("sid");
+        => CreateReference("sid");
 
     /// <summary>
     /// PermissionScope block (nesting mode: list).

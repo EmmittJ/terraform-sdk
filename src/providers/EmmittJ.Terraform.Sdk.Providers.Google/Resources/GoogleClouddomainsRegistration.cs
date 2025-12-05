@@ -682,7 +682,7 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string> PreferredRenewalMethod
     {
-        get => GetArgument<TerraformValue<string>>("preferred_renewal_method") ?? AsReference("preferred_renewal_method");
+        get => GetArgument<TerraformValue<string>>("preferred_renewal_method") ?? CreateReference("preferred_renewal_method");
         set => SetArgument("preferred_renewal_method", value);
     }
 
@@ -693,14 +693,14 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// renewalMethod is automatically updated to preferredRenewalMethod in a few hours.
     /// </summary>
     public TerraformValue<string> RenewalMethod
-        => AsReference("renewal_method");
+        => CreateReference("renewal_method");
 
     /// <summary>
     /// Controls whether the domain can be transferred to another registrar. Values are UNLOCKED or LOCKED.
     /// </summary>
     public TerraformValue<string> TransferLockState
     {
-        get => GetArgument<TerraformValue<string>>("transfer_lock_state") ?? AsReference("transfer_lock_state");
+        get => GetArgument<TerraformValue<string>>("transfer_lock_state") ?? CreateReference("transfer_lock_state");
         set => SetArgument("transfer_lock_state", value);
     }
 
@@ -819,7 +819,7 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -850,7 +850,7 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -858,56 +858,56 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     /// Output only. Time at which the automation was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Output only. Time at which the automation was updated.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// Output only. The set of issues with the Registration that require attention.
     /// </summary>
     public TerraformList<string> Issues
-        => AsReference("issues");
+        => CreateReference("issues");
 
     /// <summary>
     /// Output only. Name of the Registration resource, in the format projects/*/locations/*/registrations/&amp;lt;domain_name&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The reason the domain registration failed. Only set for domains in REGISTRATION_FAILED state.
     /// </summary>
     public TerraformValue<string> RegisterFailureReason
-        => AsReference("register_failure_reason");
+        => CreateReference("register_failure_reason");
 
     /// <summary>
     /// Output only. The current state of the Registration.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Output only. Set of options for the contactSettings.privacy field that this Registration supports.
     /// </summary>
     public TerraformList<string> SupportedPrivacy
-        => AsReference("supported_privacy");
+        => CreateReference("supported_privacy");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// ContactSettings block (nesting mode: list).

@@ -17,7 +17,7 @@ public class AwsOpensearchOutboundConnectionConnectionPropertiesBlock : Terrafor
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// CrossClusterSearch block (nesting mode: list).
@@ -204,7 +204,7 @@ public partial class AwsOpensearchOutboundConnection(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> ConnectionMode
     {
-        get => GetArgument<TerraformValue<string>>("connection_mode") ?? AsReference("connection_mode");
+        get => GetArgument<TerraformValue<string>>("connection_mode") ?? CreateReference("connection_mode");
         set => SetArgument("connection_mode", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AwsOpensearchOutboundConnection(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -222,7 +222,7 @@ public partial class AwsOpensearchOutboundConnection(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AwsOpensearchOutboundConnection(string name) : TerraformRes
     /// The connection_status attribute.
     /// </summary>
     public TerraformValue<string> ConnectionStatus
-        => AsReference("connection_status");
+        => CreateReference("connection_status");
 
     /// <summary>
     /// ConnectionProperties block (nesting mode: list).

@@ -42,7 +42,7 @@ public partial class AwsAuditmanagerAssessmentDelegation(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -70,18 +70,18 @@ public partial class AwsAuditmanagerAssessmentDelegation(string name) : Terrafor
     /// The delegation_id attribute.
     /// </summary>
     public TerraformValue<string> DelegationId
-        => AsReference("delegation_id");
+        => CreateReference("delegation_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

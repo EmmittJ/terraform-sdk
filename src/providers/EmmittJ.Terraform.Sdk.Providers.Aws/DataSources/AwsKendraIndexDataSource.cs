@@ -23,7 +23,7 @@ public partial class AwsKendraIndexDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsKendraIndexDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -40,96 +40,96 @@ public partial class AwsKendraIndexDataSource(string name) : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The capacity_units attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CapacityUnits
-        => AsReference("capacity_units");
+        => CreateReference("capacity_units");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The document_metadata_configuration_updates attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> DocumentMetadataConfigurationUpdates
-        => AsReference("document_metadata_configuration_updates");
+        => CreateReference("document_metadata_configuration_updates");
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
     public TerraformValue<string> Edition
-        => AsReference("edition");
+        => CreateReference("edition");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-        => AsReference("error_message");
+        => CreateReference("error_message");
 
     /// <summary>
     /// The index_statistics attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IndexStatistics
-        => AsReference("index_statistics");
+        => CreateReference("index_statistics");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-        => AsReference("role_arn");
+        => CreateReference("role_arn");
 
     /// <summary>
     /// The server_side_encryption_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServerSideEncryptionConfiguration
-        => AsReference("server_side_encryption_configuration");
+        => CreateReference("server_side_encryption_configuration");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
     /// <summary>
     /// The user_context_policy attribute.
     /// </summary>
     public TerraformValue<string> UserContextPolicy
-        => AsReference("user_context_policy");
+        => CreateReference("user_context_policy");
 
     /// <summary>
     /// The user_group_resolution_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserGroupResolutionConfiguration
-        => AsReference("user_group_resolution_configuration");
+        => CreateReference("user_group_resolution_configuration");
 
     /// <summary>
     /// The user_token_configurations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserTokenConfigurations
-        => AsReference("user_token_configurations");
+        => CreateReference("user_token_configurations");
 
 }

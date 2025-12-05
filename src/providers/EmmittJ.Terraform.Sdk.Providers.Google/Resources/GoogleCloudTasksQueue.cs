@@ -17,7 +17,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlock
     /// The host that the task is sent to.
     /// </summary>
     public TerraformValue<string> Host
-        => AsReference("host");
+        => CreateReference("host");
 
     /// <summary>
     /// App instance.
@@ -74,7 +74,7 @@ public class GoogleCloudTasksQueueHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> HttpMethod
     {
-        get => GetArgument<TerraformValue<string>>("http_method") ?? AsReference("http_method");
+        get => GetArgument<TerraformValue<string>>("http_method") ?? CreateReference("http_method");
         set => SetArgument("http_method", value);
     }
 
@@ -195,7 +195,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockOauthTokenBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope") ?? AsReference("scope");
+        get => GetArgument<TerraformValue<string>>("scope") ?? CreateReference("scope");
         set => SetArgument("scope", value);
     }
 
@@ -229,7 +229,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockOidcTokenBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Audience
     {
-        get => GetArgument<TerraformValue<string>>("audience") ?? AsReference("audience");
+        get => GetArgument<TerraformValue<string>>("audience") ?? CreateReference("audience");
         set => SetArgument("audience", value);
     }
 
@@ -293,7 +293,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> Scheme
     {
-        get => GetArgument<TerraformValue<string>>("scheme") ?? AsReference("scheme");
+        get => GetArgument<TerraformValue<string>>("scheme") ?? CreateReference("scheme");
         set => SetArgument("scheme", value);
     }
 
@@ -304,7 +304,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string> UriOverrideEnforceMode
     {
-        get => GetArgument<TerraformValue<string>>("uri_override_enforce_mode") ?? AsReference("uri_override_enforce_mode");
+        get => GetArgument<TerraformValue<string>>("uri_override_enforce_mode") ?? CreateReference("uri_override_enforce_mode");
         set => SetArgument("uri_override_enforce_mode", value);
     }
 
@@ -346,7 +346,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlockPathOverrideBlo
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -368,7 +368,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlockQueryOverrideBl
     /// </summary>
     public TerraformValue<string> QueryParams
     {
-        get => GetArgument<TerraformValue<string>>("query_params") ?? AsReference("query_params");
+        get => GetArgument<TerraformValue<string>>("query_params") ?? CreateReference("query_params");
         set => SetArgument("query_params", value);
     }
 
@@ -395,7 +395,7 @@ public class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlock
     /// resource usage when many tasks are enqueued in a short period of time.
     /// </summary>
     public TerraformValue<double> MaxBurstSize
-        => AsReference("max_burst_size");
+        => CreateReference("max_burst_size");
 
     /// <summary>
     /// The maximum number of concurrent tasks that Cloud Tasks allows to
@@ -405,7 +405,7 @@ public class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxConcurrentDispatches
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_dispatches") ?? AsReference("max_concurrent_dispatches");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_dispatches") ?? CreateReference("max_concurrent_dispatches");
         set => SetArgument("max_concurrent_dispatches", value);
     }
 
@@ -416,7 +416,7 @@ public class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxDispatchesPerSecond
     {
-        get => GetArgument<TerraformValue<double>>("max_dispatches_per_second") ?? AsReference("max_dispatches_per_second");
+        get => GetArgument<TerraformValue<double>>("max_dispatches_per_second") ?? CreateReference("max_dispatches_per_second");
         set => SetArgument("max_dispatches_per_second", value);
     }
 
@@ -448,7 +448,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxAttempts
     {
-        get => GetArgument<TerraformValue<double>>("max_attempts") ?? AsReference("max_attempts");
+        get => GetArgument<TerraformValue<double>>("max_attempts") ?? CreateReference("max_attempts");
         set => SetArgument("max_attempts", value);
     }
 
@@ -459,7 +459,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MaxBackoff
     {
-        get => GetArgument<TerraformValue<string>>("max_backoff") ?? AsReference("max_backoff");
+        get => GetArgument<TerraformValue<string>>("max_backoff") ?? CreateReference("max_backoff");
         set => SetArgument("max_backoff", value);
     }
 
@@ -472,7 +472,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxDoublings
     {
-        get => GetArgument<TerraformValue<double>>("max_doublings") ?? AsReference("max_doublings");
+        get => GetArgument<TerraformValue<double>>("max_doublings") ?? CreateReference("max_doublings");
         set => SetArgument("max_doublings", value);
     }
 
@@ -487,7 +487,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MaxRetryDuration
     {
-        get => GetArgument<TerraformValue<string>>("max_retry_duration") ?? AsReference("max_retry_duration");
+        get => GetArgument<TerraformValue<string>>("max_retry_duration") ?? CreateReference("max_retry_duration");
         set => SetArgument("max_retry_duration", value);
     }
 
@@ -498,7 +498,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MinBackoff
     {
-        get => GetArgument<TerraformValue<string>>("min_backoff") ?? AsReference("min_backoff");
+        get => GetArgument<TerraformValue<string>>("min_backoff") ?? CreateReference("min_backoff");
         set => SetArgument("min_backoff", value);
     }
 
@@ -595,7 +595,7 @@ public partial class GoogleCloudTasksQueue(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -624,7 +624,7 @@ public partial class GoogleCloudTasksQueue(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -632,7 +632,7 @@ public partial class GoogleCloudTasksQueue(string name) : TerraformResource("goo
     /// The current state of the queue.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// AppEngineRoutingOverride block (nesting mode: list).

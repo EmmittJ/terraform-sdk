@@ -32,7 +32,7 @@ public partial class GoogleIamTestablePermissionsDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,6 +49,6 @@ public partial class GoogleIamTestablePermissionsDataSource(string name) : Terra
     /// The permissions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Permissions
-        => AsReference("permissions");
+        => CreateReference("permissions");
 
 }

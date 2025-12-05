@@ -13,7 +13,7 @@ public partial class AwsNetworkAcl(string name) : TerraformResource("aws_network
     /// </summary>
     public TerraformSet<TerraformMap<object>> Egress
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("egress") ?? AsReference("egress");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("egress") ?? CreateReference("egress");
         set => SetArgument("egress", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsNetworkAcl(string name) : TerraformResource("aws_network
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsNetworkAcl(string name) : TerraformResource("aws_network
     /// </summary>
     public TerraformSet<TerraformMap<object>> Ingress
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("ingress") ?? AsReference("ingress");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("ingress") ?? CreateReference("ingress");
         set => SetArgument("ingress", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsNetworkAcl(string name) : TerraformResource("aws_network
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsNetworkAcl(string name) : TerraformResource("aws_network
     /// </summary>
     public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? CreateReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsNetworkAcl(string name) : TerraformResource("aws_network
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -85,12 +85,12 @@ public partial class AwsNetworkAcl(string name) : TerraformResource("aws_network
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-        => AsReference("owner_id");
+        => CreateReference("owner_id");
 
 }

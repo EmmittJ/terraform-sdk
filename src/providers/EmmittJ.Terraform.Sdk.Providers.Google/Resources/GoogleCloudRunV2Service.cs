@@ -103,7 +103,7 @@ public class GoogleCloudRunV2ServiceBuildConfigBlock : TerraformBlock
     /// The Cloud Build name of the latest successful deployment of the function.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Service account to be used for building the container. The format of this field is &#39;projects/{projectId}/serviceAccounts/{serviceAccountEmail}&#39;.
@@ -150,7 +150,7 @@ public class GoogleCloudRunV2ServiceMultiRegionSettingsBlock : TerraformBlock
     /// System-generated unique id for the multi-region Service.
     /// </summary>
     public TerraformValue<string> MultiRegionId
-        => AsReference("multi_region_id");
+        => CreateReference("multi_region_id");
 
     /// <summary>
     /// The list of regions to deploy the multi-region Service.
@@ -294,7 +294,7 @@ public class GoogleCloudRunV2ServiceTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxInstanceRequestConcurrency
     {
-        get => GetArgument<TerraformValue<double>>("max_instance_request_concurrency") ?? AsReference("max_instance_request_concurrency");
+        get => GetArgument<TerraformValue<double>>("max_instance_request_concurrency") ?? CreateReference("max_instance_request_concurrency");
         set => SetArgument("max_instance_request_concurrency", value);
     }
 
@@ -312,7 +312,7 @@ public class GoogleCloudRunV2ServiceTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -332,7 +332,7 @@ public class GoogleCloudRunV2ServiceTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Timeout
     {
-        get => GetArgument<TerraformValue<string>>("timeout") ?? AsReference("timeout");
+        get => GetArgument<TerraformValue<string>>("timeout") ?? CreateReference("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -419,7 +419,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlock : TerraformBloc
     /// The build info of the container image.
     /// </summary>
     public TerraformList<TerraformMap<object>> BuildInfo
-        => AsReference("build_info");
+        => CreateReference("build_info");
 
     /// <summary>
     /// Entrypoint array. Not executed within a shell. The docker image&#39;s ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
@@ -720,7 +720,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockLivenessProbeBlo
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -763,7 +763,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockLivenessProbeBlo
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -860,7 +860,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockPortsBlock : Ter
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -892,7 +892,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockResourcesBlock :
     /// </summary>
     public TerraformMap<string> Limits
     {
-        get => GetArgument<TerraformMap<string>>("limits") ?? AsReference("limits");
+        get => GetArgument<TerraformMap<string>>("limits") ?? CreateReference("limits");
         set => SetArgument("limits", value);
     }
 
@@ -1003,7 +1003,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockStartupProbeBloc
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1046,7 +1046,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockStartupProbeBloc
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1110,7 +1110,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockStartupProbeBloc
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1530,7 +1530,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockVpcAccessBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Egress
     {
-        get => GetArgument<TerraformValue<string>>("egress") ?? AsReference("egress");
+        get => GetArgument<TerraformValue<string>>("egress") ?? CreateReference("egress");
         set => SetArgument("egress", value);
     }
 
@@ -1563,7 +1563,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockVpcAccessBlockNetworkInterfaces
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -1574,7 +1574,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockVpcAccessBlockNetworkInterfaces
     /// </summary>
     public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? CreateReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -1647,7 +1647,7 @@ public class GoogleCloudRunV2ServiceTrafficBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Percent
     {
-        get => GetArgument<TerraformValue<double>>("percent") ?? AsReference("percent");
+        get => GetArgument<TerraformValue<double>>("percent") ?? CreateReference("percent");
         set => SetArgument("percent", value);
     }
 
@@ -1769,7 +1769,7 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1778,7 +1778,7 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Ingress
     {
-        get => GetArgument<TerraformValue<string>>("ingress") ?? AsReference("ingress");
+        get => GetArgument<TerraformValue<string>>("ingress") ?? CreateReference("ingress");
         set => SetArgument("ingress", value);
     }
 
@@ -1815,7 +1815,7 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> LaunchStage
     {
-        get => GetArgument<TerraformValue<string>>("launch_stage") ?? AsReference("launch_stage");
+        get => GetArgument<TerraformValue<string>>("launch_stage") ?? CreateReference("launch_stage");
         set => SetArgument("launch_stage", value);
     }
 
@@ -1844,7 +1844,7 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1852,79 +1852,79 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Service does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> Conditions
-        => AsReference("conditions");
+        => CreateReference("conditions");
 
     /// <summary>
     /// The creation time.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
     public TerraformValue<string> Creator
-        => AsReference("creator");
+        => CreateReference("creator");
 
     /// <summary>
     /// The deletion time.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     public TerraformValue<string> Generation
-        => AsReference("generation");
+        => CreateReference("generation");
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
     public TerraformValue<string> LastModifier
-        => AsReference("last_modifier");
+        => CreateReference("last_modifier");
 
     /// <summary>
     /// Name of the last created revision. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformValue<string> LatestCreatedRevision
-        => AsReference("latest_created_revision");
+        => CreateReference("latest_created_revision");
 
     /// <summary>
     /// Name of the latest revision that is serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformValue<string> LatestReadyRevision
-        => AsReference("latest_ready_revision");
+        => CreateReference("latest_ready_revision");
 
     /// <summary>
     /// The generation of this Service currently serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     public TerraformValue<string> ObservedGeneration
-        => AsReference("observed_generation");
+        => CreateReference("observed_generation");
 
     /// <summary>
     /// Returns true if the Service is currently being acted upon by the system to bring it into the desired state.
@@ -1936,50 +1936,50 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     /// If reconciliation failed, trafficStatuses, observedGeneration, and latestReadyRevision will have the state of the last serving revision, or empty for newly created Services. Additional information on the failure can be found in terminalCondition and conditions.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The Condition of this Service, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> TerminalCondition
-        => AsReference("terminal_condition");
+        => CreateReference("terminal_condition");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Detailed status information for corresponding traffic targets. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrafficStatuses
-        => AsReference("traffic_statuses");
+        => CreateReference("traffic_statuses");
 
     /// <summary>
     /// Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// The main URI in which this Service is serving traffic.
     /// </summary>
     public TerraformValue<string> Uri
-        => AsReference("uri");
+        => CreateReference("uri");
 
     /// <summary>
     /// All URLs serving traffic for this Service.
     /// </summary>
     public TerraformList<string> Urls
-        => AsReference("urls");
+        => CreateReference("urls");
 
     /// <summary>
     /// BinaryAuthorization block (nesting mode: list).

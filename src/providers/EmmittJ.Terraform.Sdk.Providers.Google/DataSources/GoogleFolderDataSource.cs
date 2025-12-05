@@ -23,7 +23,7 @@ public partial class GoogleFolderDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -40,60 +40,60 @@ public partial class GoogleFolderDataSource(string name) : TerraformDataSource("
     /// The configured_capabilities attribute.
     /// </summary>
     public TerraformList<string> ConfiguredCapabilities
-        => AsReference("configured_capabilities");
+        => CreateReference("configured_capabilities");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The folder_id attribute.
     /// </summary>
     public TerraformValue<string> FolderId
-        => AsReference("folder_id");
+        => CreateReference("folder_id");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     public TerraformValue<string> LifecycleState
-        => AsReference("lifecycle_state");
+        => CreateReference("lifecycle_state");
 
     /// <summary>
     /// The management_project attribute.
     /// </summary>
     public TerraformValue<string> ManagementProject
-        => AsReference("management_project");
+        => CreateReference("management_project");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
     public TerraformValue<string> Organization
-        => AsReference("organization");
+        => CreateReference("organization");
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
     public TerraformValue<string> Parent
-        => AsReference("parent");
+        => CreateReference("parent");
 
 }

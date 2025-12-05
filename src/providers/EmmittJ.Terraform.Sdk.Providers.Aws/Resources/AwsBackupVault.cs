@@ -45,7 +45,7 @@ public partial class AwsBackupVault(string name) : TerraformResource("aws_backup
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsBackupVault(string name) : TerraformResource("aws_backup
     /// </summary>
     public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? CreateReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsBackupVault(string name) : TerraformResource("aws_backup
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsBackupVault(string name) : TerraformResource("aws_backup
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -99,13 +99,13 @@ public partial class AwsBackupVault(string name) : TerraformResource("aws_backup
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The recovery_points attribute.
     /// </summary>
     public TerraformValue<double> RecoveryPoints
-        => AsReference("recovery_points");
+        => CreateReference("recovery_points");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

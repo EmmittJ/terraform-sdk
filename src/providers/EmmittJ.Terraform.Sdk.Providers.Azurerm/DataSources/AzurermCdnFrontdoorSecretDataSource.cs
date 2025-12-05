@@ -36,7 +36,7 @@ public partial class AzurermCdnFrontdoorSecretDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,13 +74,13 @@ public partial class AzurermCdnFrontdoorSecretDataSource(string name) : Terrafor
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorProfileId
-        => AsReference("cdn_frontdoor_profile_id");
+        => CreateReference("cdn_frontdoor_profile_id");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Secret
-        => AsReference("secret");
+        => CreateReference("secret");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

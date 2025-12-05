@@ -397,7 +397,7 @@ public class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationB
     /// </summary>
     public TerraformSet<string> EventFilter
     {
-        get => GetArgument<TerraformSet<string>>("event_filter") ?? AsReference("event_filter");
+        get => GetArgument<TerraformSet<string>>("event_filter") ?? CreateReference("event_filter");
         set => SetArgument("event_filter", value);
     }
 
@@ -492,7 +492,7 @@ public partial class AwsCognitoRiskConfiguration(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -501,7 +501,7 @@ public partial class AwsCognitoRiskConfiguration(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

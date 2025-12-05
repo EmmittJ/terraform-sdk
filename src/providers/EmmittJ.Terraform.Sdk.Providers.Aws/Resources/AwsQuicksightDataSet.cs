@@ -117,7 +117,7 @@ public class AwsQuicksightDataSetDataSetUsageConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> DisableUseAsDirectQuerySource
     {
-        get => GetArgument<TerraformValue<bool>>("disable_use_as_direct_query_source") ?? AsReference("disable_use_as_direct_query_source");
+        get => GetArgument<TerraformValue<bool>>("disable_use_as_direct_query_source") ?? CreateReference("disable_use_as_direct_query_source");
         set => SetArgument("disable_use_as_direct_query_source", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsQuicksightDataSetDataSetUsageConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> DisableUseAsImportedSource
     {
-        get => GetArgument<TerraformValue<bool>>("disable_use_as_imported_source") ?? AsReference("disable_use_as_imported_source");
+        get => GetArgument<TerraformValue<bool>>("disable_use_as_imported_source") ?? CreateReference("disable_use_as_imported_source");
         set => SetArgument("disable_use_as_imported_source", value);
     }
 
@@ -340,7 +340,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockCastColu
     /// </summary>
     public TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format") ?? AsReference("format");
+        get => GetArgument<TerraformValue<string>>("format") ?? CreateReference("format");
         set => SetArgument("format", value);
     }
 
@@ -556,7 +556,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockTagColum
     /// </summary>
     public TerraformValue<string> ColumnGeographicRole
     {
-        get => GetArgument<TerraformValue<string>>("column_geographic_role") ?? AsReference("column_geographic_role");
+        get => GetArgument<TerraformValue<string>>("column_geographic_role") ?? CreateReference("column_geographic_role");
         set => SetArgument("column_geographic_role", value);
     }
 
@@ -588,7 +588,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockTagColum
     /// </summary>
     public TerraformValue<string> Text
     {
-        get => GetArgument<TerraformValue<string>>("text") ?? AsReference("text");
+        get => GetArgument<TerraformValue<string>>("text") ?? CreateReference("text");
         set => SetArgument("text", value);
     }
 
@@ -643,7 +643,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> DataSetArn
     {
-        get => GetArgument<TerraformValue<string>>("data_set_arn") ?? AsReference("data_set_arn");
+        get => GetArgument<TerraformValue<string>>("data_set_arn") ?? CreateReference("data_set_arn");
         set => SetArgument("data_set_arn", value);
     }
 
@@ -652,7 +652,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string> PhysicalTableId
     {
-        get => GetArgument<TerraformValue<string>>("physical_table_id") ?? AsReference("physical_table_id");
+        get => GetArgument<TerraformValue<string>>("physical_table_id") ?? CreateReference("physical_table_id");
         set => SetArgument("physical_table_id", value);
     }
 
@@ -757,7 +757,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlockJoinInstructionB
     /// </summary>
     public TerraformValue<bool> UniqueKey
     {
-        get => GetArgument<TerraformValue<bool>>("unique_key") ?? AsReference("unique_key");
+        get => GetArgument<TerraformValue<bool>>("unique_key") ?? CreateReference("unique_key");
         set => SetArgument("unique_key", value);
     }
 
@@ -779,7 +779,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlockJoinInstructionB
     /// </summary>
     public TerraformValue<bool> UniqueKey
     {
-        get => GetArgument<TerraformValue<bool>>("unique_key") ?? AsReference("unique_key");
+        get => GetArgument<TerraformValue<bool>>("unique_key") ?? CreateReference("unique_key");
         set => SetArgument("unique_key", value);
     }
 
@@ -1154,7 +1154,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockS3SourceBlockUploadSetting
     /// </summary>
     public TerraformValue<bool> ContainsHeader
     {
-        get => GetArgument<TerraformValue<bool>>("contains_header") ?? AsReference("contains_header");
+        get => GetArgument<TerraformValue<bool>>("contains_header") ?? CreateReference("contains_header");
         set => SetArgument("contains_header", value);
     }
 
@@ -1163,7 +1163,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockS3SourceBlockUploadSetting
     /// </summary>
     public TerraformValue<string> Delimiter
     {
-        get => GetArgument<TerraformValue<string>>("delimiter") ?? AsReference("delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter") ?? CreateReference("delimiter");
         set => SetArgument("delimiter", value);
     }
 
@@ -1172,7 +1172,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockS3SourceBlockUploadSetting
     /// </summary>
     public TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format") ?? AsReference("format");
+        get => GetArgument<TerraformValue<string>>("format") ?? CreateReference("format");
         set => SetArgument("format", value);
     }
 
@@ -1181,7 +1181,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockS3SourceBlockUploadSetting
     /// </summary>
     public TerraformValue<double> StartFromRow
     {
-        get => GetArgument<TerraformValue<double>>("start_from_row") ?? AsReference("start_from_row");
+        get => GetArgument<TerraformValue<double>>("start_from_row") ?? CreateReference("start_from_row");
         set => SetArgument("start_from_row", value);
     }
 
@@ -1190,7 +1190,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockS3SourceBlockUploadSetting
     /// </summary>
     public TerraformValue<string> TextQualifier
     {
-        get => GetArgument<TerraformValue<string>>("text_qualifier") ?? AsReference("text_qualifier");
+        get => GetArgument<TerraformValue<string>>("text_qualifier") ?? CreateReference("text_qualifier");
         set => SetArgument("text_qualifier", value);
     }
 
@@ -1478,7 +1478,7 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? CreateReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -1497,7 +1497,7 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1526,7 +1526,7 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1544,7 +1544,7 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1552,13 +1552,13 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The output_columns attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OutputColumns
-        => AsReference("output_columns");
+        => CreateReference("output_columns");
 
     /// <summary>
     /// ColumnGroups block (nesting mode: list).

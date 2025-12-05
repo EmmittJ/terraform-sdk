@@ -78,7 +78,7 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// </summary>
     public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? CreateReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// </summary>
     public TerraformValue<string> Ttl
     {
-        get => GetArgument<TerraformValue<string>>("ttl") ?? AsReference("ttl");
+        get => GetArgument<TerraformValue<string>>("ttl") ?? CreateReference("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -313,7 +313,7 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// A mapping of property names to values, which are used to configure workload execution.
     /// </summary>
     public TerraformMap<string> EffectiveProperties
-        => AsReference("effective_properties");
+        => CreateReference("effective_properties");
 
     /// <summary>
     /// A mapping of property names to values, which are used to configure workload execution.
@@ -329,7 +329,7 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -594,7 +594,7 @@ public partial class GoogleDataprocBatch(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -625,7 +625,7 @@ public partial class GoogleDataprocBatch(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -633,74 +633,74 @@ public partial class GoogleDataprocBatch(string name) : TerraformResource("googl
     /// The time when the batch was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The email address of the user who created the batch.
     /// </summary>
     public TerraformValue<string> Creator
-        => AsReference("creator");
+        => CreateReference("creator");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The resource name of the batch.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The resource name of the operation associated with this batch.
     /// </summary>
     public TerraformValue<string> Operation
-        => AsReference("operation");
+        => CreateReference("operation");
 
     /// <summary>
     /// Runtime information about batch execution.
     /// </summary>
     public TerraformList<TerraformMap<object>> RuntimeInfo
-        => AsReference("runtime_info");
+        => CreateReference("runtime_info");
 
     /// <summary>
     /// The state of the batch. For possible values, see the [API documentation](https://cloud.google.com/dataproc-serverless/docs/reference/rest/v1/projects.locations.batches#State).
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Historical state information for the batch.
     /// </summary>
     public TerraformList<TerraformMap<object>> StateHistory
-        => AsReference("state_history");
+        => CreateReference("state_history");
 
     /// <summary>
     /// Batch state details, such as a failure description if the state is FAILED.
     /// </summary>
     public TerraformValue<string> StateMessage
-        => AsReference("state_message");
+        => CreateReference("state_message");
 
     /// <summary>
     /// Batch state details, such as a failure description if the state is FAILED.
     /// </summary>
     public TerraformValue<string> StateTime
-        => AsReference("state_time");
+        => CreateReference("state_time");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// A batch UUID (Unique Universal Identifier). The service generates this value when it creates the batch.
     /// </summary>
     public TerraformValue<string> Uuid
-        => AsReference("uuid");
+        => CreateReference("uuid");
 
     /// <summary>
     /// EnvironmentConfig block (nesting mode: list).

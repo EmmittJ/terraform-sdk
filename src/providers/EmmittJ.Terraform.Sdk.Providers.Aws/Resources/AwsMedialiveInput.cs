@@ -203,7 +203,7 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -240,7 +240,7 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     /// </summary>
     public TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn") ?? AsReference("role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn") ?? CreateReference("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -258,7 +258,7 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -276,31 +276,31 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The attached_channels attribute.
     /// </summary>
     public TerraformList<string> AttachedChannels
-        => AsReference("attached_channels");
+        => CreateReference("attached_channels");
 
     /// <summary>
     /// The input_class attribute.
     /// </summary>
     public TerraformValue<string> InputClass
-        => AsReference("input_class");
+        => CreateReference("input_class");
 
     /// <summary>
     /// The input_partner_ids attribute.
     /// </summary>
     public TerraformList<string> InputPartnerIds
-        => AsReference("input_partner_ids");
+        => CreateReference("input_partner_ids");
 
     /// <summary>
     /// The input_source_type attribute.
     /// </summary>
     public TerraformValue<string> InputSourceType
-        => AsReference("input_source_type");
+        => CreateReference("input_source_type");
 
     /// <summary>
     /// Destinations block (nesting mode: set).

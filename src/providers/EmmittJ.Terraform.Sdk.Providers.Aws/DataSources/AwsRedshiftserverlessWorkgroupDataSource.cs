@@ -13,7 +13,7 @@ public partial class AwsRedshiftserverlessWorkgroupDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsRedshiftserverlessWorkgroupDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,54 +40,54 @@ public partial class AwsRedshiftserverlessWorkgroupDataSource(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The enhanced_vpc_routing attribute.
     /// </summary>
     public TerraformValue<bool> EnhancedVpcRouting
-        => AsReference("enhanced_vpc_routing");
+        => CreateReference("enhanced_vpc_routing");
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     public TerraformValue<string> NamespaceName
-        => AsReference("namespace_name");
+        => CreateReference("namespace_name");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
     public TerraformValue<bool> PubliclyAccessible
-        => AsReference("publicly_accessible");
+        => CreateReference("publicly_accessible");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
-        => AsReference("security_group_ids");
+        => CreateReference("security_group_ids");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     public TerraformSet<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The track_name attribute.
     /// </summary>
     public TerraformValue<string> TrackName
-        => AsReference("track_name");
+        => CreateReference("track_name");
 
     /// <summary>
     /// The workgroup_id attribute.
     /// </summary>
     public TerraformValue<string> WorkgroupId
-        => AsReference("workgroup_id");
+        => CreateReference("workgroup_id");
 
 }

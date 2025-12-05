@@ -13,7 +13,7 @@ public partial class GoogleStorageTransferProjectServiceAccountDataSource(string
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleStorageTransferProjectServiceAccountDataSource(string
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -30,18 +30,18 @@ public partial class GoogleStorageTransferProjectServiceAccountDataSource(string
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-        => AsReference("email");
+        => CreateReference("email");
 
     /// <summary>
     /// The member attribute.
     /// </summary>
     public TerraformValue<string> Member
-        => AsReference("member");
+        => CreateReference("member");
 
     /// <summary>
     /// The subject_id attribute.
     /// </summary>
     public TerraformValue<string> SubjectId
-        => AsReference("subject_id");
+        => CreateReference("subject_id");
 
 }

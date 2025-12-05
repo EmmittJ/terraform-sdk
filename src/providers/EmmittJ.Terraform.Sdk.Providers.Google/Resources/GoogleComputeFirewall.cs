@@ -202,7 +202,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformSet<string> DestinationRanges
     {
-        get => GetArgument<TerraformSet<string>>("destination_ranges") ?? AsReference("destination_ranges");
+        get => GetArgument<TerraformSet<string>>("destination_ranges") ?? CreateReference("destination_ranges");
         set => SetArgument("destination_ranges", value);
     }
 
@@ -213,7 +213,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction") ?? AsReference("direction");
+        get => GetArgument<TerraformValue<string>>("direction") ?? CreateReference("direction");
         set => SetArgument("direction", value);
     }
 
@@ -235,7 +235,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableLogging
     {
-        get => GetArgument<TerraformValue<bool>>("enable_logging") ?? AsReference("enable_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_logging") ?? CreateReference("enable_logging");
         set => SetArgument("enable_logging", value);
     }
 
@@ -244,7 +244,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -293,7 +293,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -382,13 +382,13 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Allow block (nesting mode: set).

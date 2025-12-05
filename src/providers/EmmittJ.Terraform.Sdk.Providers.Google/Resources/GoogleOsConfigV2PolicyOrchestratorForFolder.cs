@@ -66,13 +66,13 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBloc
     /// of &#39;true&#39; for this field.
     /// </summary>
     public TerraformValue<bool> Baseline
-        => AsReference("baseline");
+        => CreateReference("baseline");
 
     /// <summary>
     /// Indicates that this revision deletes the OS policy assignment.
     /// </summary>
     public TerraformValue<bool> Deleted
-        => AsReference("deleted");
+        => CreateReference("deleted");
 
     /// <summary>
     /// OS policy assignment description.
@@ -89,7 +89,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBloc
     /// If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Resource name.
@@ -112,13 +112,13 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBloc
     /// * CANCELLING
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The timestamp that the revision was created.
     /// </summary>
     public TerraformValue<string> RevisionCreateTime
-        => AsReference("revision_create_time");
+        => CreateReference("revision_create_time");
 
     /// <summary>
     /// The assignment revision ID
@@ -126,7 +126,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBloc
     /// assignment
     /// </summary>
     public TerraformValue<string> RevisionId
-        => AsReference("revision_id");
+        => CreateReference("revision_id");
 
     /// <summary>
     /// OS policy assignment rollout state
@@ -137,13 +137,13 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBloc
     /// SUCCEEDED
     /// </summary>
     public TerraformValue<string> RolloutState
-        => AsReference("rollout_state");
+        => CreateReference("rollout_state");
 
     /// <summary>
     /// Server generated unique id for the OS policy assignment resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// InstanceFilter block (nesting mode: list).
@@ -2384,7 +2384,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2437,13 +2437,13 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder(string name) : 
     /// Timestamp when the policy orchestrator resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -2451,7 +2451,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder(string name) : 
     /// client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Identifier. In form of
@@ -2460,33 +2460,33 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder(string name) : 
     /// * &#39;projects/{project_id_or_number}/locations/global/policyOrchestrators/{orchestrator_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Describes the state of the orchestration process.
     /// </summary>
     public TerraformList<TerraformMap<object>> OrchestrationState
-        => AsReference("orchestration_state");
+        => CreateReference("orchestration_state");
 
     /// <summary>
     /// Set to true, if the there are ongoing changes being applied by the
     /// orchestrator.
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Timestamp when the policy orchestrator resource was last modified.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// OrchestratedResource block (nesting mode: list).

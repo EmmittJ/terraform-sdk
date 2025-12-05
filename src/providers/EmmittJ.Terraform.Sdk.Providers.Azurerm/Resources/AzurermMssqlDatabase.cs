@@ -144,7 +144,7 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> MonthlyRetention
     {
-        get => GetArgument<TerraformValue<string>>("monthly_retention") ?? AsReference("monthly_retention");
+        get => GetArgument<TerraformValue<string>>("monthly_retention") ?? CreateReference("monthly_retention");
         set => SetArgument("monthly_retention", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> WeekOfYear
     {
-        get => GetArgument<TerraformValue<double>>("week_of_year") ?? AsReference("week_of_year");
+        get => GetArgument<TerraformValue<double>>("week_of_year") ?? CreateReference("week_of_year");
         set => SetArgument("week_of_year", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> WeeklyRetention
     {
-        get => GetArgument<TerraformValue<string>>("weekly_retention") ?? AsReference("weekly_retention");
+        get => GetArgument<TerraformValue<string>>("weekly_retention") ?? CreateReference("weekly_retention");
         set => SetArgument("weekly_retention", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> YearlyRetention
     {
-        get => GetArgument<TerraformValue<string>>("yearly_retention") ?? AsReference("yearly_retention");
+        get => GetArgument<TerraformValue<string>>("yearly_retention") ?? CreateReference("yearly_retention");
         set => SetArgument("yearly_retention", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> BackupIntervalInHours
     {
-        get => GetArgument<TerraformValue<double>>("backup_interval_in_hours") ?? AsReference("backup_interval_in_hours");
+        get => GetArgument<TerraformValue<double>>("backup_interval_in_hours") ?? CreateReference("backup_interval_in_hours");
         set => SetArgument("backup_interval_in_hours", value);
     }
 
@@ -349,7 +349,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<double> AutoPauseDelayInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("auto_pause_delay_in_minutes") ?? AsReference("auto_pause_delay_in_minutes");
+        get => GetArgument<TerraformValue<double>>("auto_pause_delay_in_minutes") ?? CreateReference("auto_pause_delay_in_minutes");
         set => SetArgument("auto_pause_delay_in_minutes", value);
     }
 
@@ -358,7 +358,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> Collation
     {
-        get => GetArgument<TerraformValue<string>>("collation") ?? AsReference("collation");
+        get => GetArgument<TerraformValue<string>>("collation") ?? CreateReference("collation");
         set => SetArgument("collation", value);
     }
 
@@ -376,7 +376,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> CreationSourceDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("creation_source_database_id") ?? AsReference("creation_source_database_id");
+        get => GetArgument<TerraformValue<string>>("creation_source_database_id") ?? CreateReference("creation_source_database_id");
         set => SetArgument("creation_source_database_id", value);
     }
 
@@ -394,7 +394,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> EnclaveType
     {
-        get => GetArgument<TerraformValue<string>>("enclave_type") ?? AsReference("enclave_type");
+        get => GetArgument<TerraformValue<string>>("enclave_type") ?? CreateReference("enclave_type");
         set => SetArgument("enclave_type", value);
     }
 
@@ -412,7 +412,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -421,7 +421,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<bool> LedgerEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("ledger_enabled") ?? AsReference("ledger_enabled");
+        get => GetArgument<TerraformValue<bool>>("ledger_enabled") ?? CreateReference("ledger_enabled");
         set => SetArgument("ledger_enabled", value);
     }
 
@@ -430,7 +430,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> LicenseType
     {
-        get => GetArgument<TerraformValue<string>>("license_type") ?? AsReference("license_type");
+        get => GetArgument<TerraformValue<string>>("license_type") ?? CreateReference("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -439,7 +439,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> MaintenanceConfigurationName
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_configuration_name") ?? AsReference("maintenance_configuration_name");
+        get => GetArgument<TerraformValue<string>>("maintenance_configuration_name") ?? CreateReference("maintenance_configuration_name");
         set => SetArgument("maintenance_configuration_name", value);
     }
 
@@ -448,7 +448,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<double> MaxSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("max_size_gb") ?? AsReference("max_size_gb");
+        get => GetArgument<TerraformValue<double>>("max_size_gb") ?? CreateReference("max_size_gb");
         set => SetArgument("max_size_gb", value);
     }
 
@@ -457,7 +457,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<double> MinCapacity
     {
-        get => GetArgument<TerraformValue<double>>("min_capacity") ?? AsReference("min_capacity");
+        get => GetArgument<TerraformValue<double>>("min_capacity") ?? CreateReference("min_capacity");
         set => SetArgument("min_capacity", value);
     }
 
@@ -476,7 +476,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<double> ReadReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("read_replica_count") ?? AsReference("read_replica_count");
+        get => GetArgument<TerraformValue<double>>("read_replica_count") ?? CreateReference("read_replica_count");
         set => SetArgument("read_replica_count", value);
     }
 
@@ -485,7 +485,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<bool> ReadScale
     {
-        get => GetArgument<TerraformValue<bool>>("read_scale") ?? AsReference("read_scale");
+        get => GetArgument<TerraformValue<bool>>("read_scale") ?? CreateReference("read_scale");
         set => SetArgument("read_scale", value);
     }
 
@@ -530,7 +530,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> RestorePointInTime
     {
-        get => GetArgument<TerraformValue<string>>("restore_point_in_time") ?? AsReference("restore_point_in_time");
+        get => GetArgument<TerraformValue<string>>("restore_point_in_time") ?? CreateReference("restore_point_in_time");
         set => SetArgument("restore_point_in_time", value);
     }
 
@@ -539,7 +539,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> SampleName
     {
-        get => GetArgument<TerraformValue<string>>("sample_name") ?? AsReference("sample_name");
+        get => GetArgument<TerraformValue<string>>("sample_name") ?? CreateReference("sample_name");
         set => SetArgument("sample_name", value);
     }
 
@@ -548,7 +548,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> SecondaryType
     {
-        get => GetArgument<TerraformValue<string>>("secondary_type") ?? AsReference("secondary_type");
+        get => GetArgument<TerraformValue<string>>("secondary_type") ?? CreateReference("secondary_type");
         set => SetArgument("secondary_type", value);
     }
 
@@ -567,7 +567,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name") ?? AsReference("sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name") ?? CreateReference("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -621,7 +621,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<bool> ZoneRedundant
     {
-        get => GetArgument<TerraformValue<bool>>("zone_redundant") ?? AsReference("zone_redundant");
+        get => GetArgument<TerraformValue<bool>>("zone_redundant") ?? CreateReference("zone_redundant");
         set => SetArgument("zone_redundant", value);
     }
 

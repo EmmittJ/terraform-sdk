@@ -36,7 +36,7 @@ public partial class AzurermConsumptionBudgetResourceGroupDataSource(string name
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermConsumptionBudgetResourceGroupDataSource(string name
     /// The amount attribute.
     /// </summary>
     public TerraformValue<double> Amount
-        => AsReference("amount");
+        => CreateReference("amount");
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Filter
-        => AsReference("filter");
+        => CreateReference("filter");
 
     /// <summary>
     /// The notification attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Notification
-        => AsReference("notification");
+        => CreateReference("notification");
 
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
     public TerraformValue<string> TimeGrain
-        => AsReference("time_grain");
+        => CreateReference("time_grain");
 
     /// <summary>
     /// The time_period attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TimePeriod
-        => AsReference("time_period");
+        => CreateReference("time_period");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

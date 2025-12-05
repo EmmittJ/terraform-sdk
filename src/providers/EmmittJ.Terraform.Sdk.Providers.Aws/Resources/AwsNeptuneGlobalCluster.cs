@@ -63,7 +63,7 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine") ?? AsReference("engine");
+        get => GetArgument<TerraformValue<string>>("engine") ?? CreateReference("engine");
         set => SetArgument("engine", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> SourceDbClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("source_db_cluster_identifier") ?? AsReference("source_db_cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("source_db_cluster_identifier") ?? CreateReference("source_db_cluster_identifier");
         set => SetArgument("source_db_cluster_identifier", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool> StorageEncrypted
     {
-        get => GetArgument<TerraformValue<bool>>("storage_encrypted") ?? AsReference("storage_encrypted");
+        get => GetArgument<TerraformValue<bool>>("storage_encrypted") ?? CreateReference("storage_encrypted");
         set => SetArgument("storage_encrypted", value);
     }
 
@@ -126,25 +126,25 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The global_cluster_members attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> GlobalClusterMembers
-        => AsReference("global_cluster_members");
+        => CreateReference("global_cluster_members");
 
     /// <summary>
     /// The global_cluster_resource_id attribute.
     /// </summary>
     public TerraformValue<string> GlobalClusterResourceId
-        => AsReference("global_cluster_resource_id");
+        => CreateReference("global_cluster_resource_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -17,31 +17,31 @@ public class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlock
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
     /// <summary>
     /// CreateS3DataAccessFromS3Bucket block (nesting mode: list).
@@ -87,13 +87,13 @@ public class AwsDataexchangeRevisionAssetsAssetBlockCreateS3DataAccessFromS3Buck
     /// The access_point_alias attribute.
     /// </summary>
     public TerraformValue<string> AccessPointAlias
-        => AsReference("access_point_alias");
+        => CreateReference("access_point_alias");
 
     /// <summary>
     /// The access_point_arn attribute.
     /// </summary>
     public TerraformValue<string> AccessPointArn
-        => AsReference("access_point_arn");
+        => CreateReference("access_point_arn");
 
     /// <summary>
     /// AssetSource block (nesting mode: list).
@@ -311,7 +311,7 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool> Finalized
     {
-        get => GetArgument<TerraformValue<bool>>("finalized") ?? AsReference("finalized");
+        get => GetArgument<TerraformValue<bool>>("finalized") ?? CreateReference("finalized");
         set => SetArgument("finalized", value);
     }
 
@@ -329,7 +329,7 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -346,31 +346,31 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
     /// <summary>
     /// Asset block (nesting mode: set).

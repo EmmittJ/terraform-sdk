@@ -46,13 +46,13 @@
 {{#IsOptionalAndComputed}}
     public {{{PropertyWrapper}}} {{Name}}
     {
-        get => GetArgument<{{{PropertyWrapper}}}>("{{TerraformName}}") ?? AsReference("{{TerraformName}}");
+        get => GetArgument<{{{PropertyWrapper}}}>("{{TerraformName}}") ?? CreateReference("{{TerraformName}}");
         set => SetArgument("{{TerraformName}}", value);
     }
 
 {{/IsOptionalAndComputed}}
 {{#IsComputedAttribute}}
     public {{{PropertyWrapper}}} {{Name}}
-        => AsReference("{{TerraformName}}");
+        => CreateReference("{{TerraformName}}");
 
 {{/IsComputedAttribute}}

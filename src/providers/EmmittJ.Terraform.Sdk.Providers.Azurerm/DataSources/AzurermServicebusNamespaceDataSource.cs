@@ -36,7 +36,7 @@ public partial class AzurermServicebusNamespaceDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,61 +64,61 @@ public partial class AzurermServicebusNamespaceDataSource(string name) : Terrafo
     /// The capacity attribute.
     /// </summary>
     public TerraformValue<double> Capacity
-        => AsReference("capacity");
+        => CreateReference("capacity");
 
     /// <summary>
     /// The default_primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryConnectionString
-        => AsReference("default_primary_connection_string");
+        => CreateReference("default_primary_connection_string");
 
     /// <summary>
     /// The default_primary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryKey
-        => AsReference("default_primary_key");
+        => CreateReference("default_primary_key");
 
     /// <summary>
     /// The default_secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryConnectionString
-        => AsReference("default_secondary_connection_string");
+        => CreateReference("default_secondary_connection_string");
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryKey
-        => AsReference("default_secondary_key");
+        => CreateReference("default_secondary_key");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The premium_messaging_partitions attribute.
     /// </summary>
     public TerraformValue<double> PremiumMessagingPartitions
-        => AsReference("premium_messaging_partitions");
+        => CreateReference("premium_messaging_partitions");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -21,7 +21,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> EnforcementVersion
     {
-        get => GetArgument<TerraformValue<string>>("enforcement_version") ?? AsReference("enforcement_version");
+        get => GetArgument<TerraformValue<string>>("enforcement_version") ?? CreateReference("enforcement_version");
         set => SetArgument("enforcement_version", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -204,38 +204,38 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     /// Output only. The time when the principal access boundary policy was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// The etag for the principal access boundary. If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Identifier. The resource name of the principal access boundary policy.  The following format is supported:
     ///  &#39;organizations/{organization_id}/locations/{location}/principalAccessBoundaryPolicies/{policy_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Output only. The globally unique ID of the principal access boundary policy.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Output only. The time when the principal access boundary policy was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Details block (nesting mode: list).

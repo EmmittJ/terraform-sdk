@@ -49,7 +49,7 @@ public partial class AwsEksClusterVersionsDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -66,6 +66,6 @@ public partial class AwsEksClusterVersionsDataSource(string name) : TerraformDat
     /// The cluster_versions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClusterVersions
-        => AsReference("cluster_versions");
+        => CreateReference("cluster_versions");
 
 }

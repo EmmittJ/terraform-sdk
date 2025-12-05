@@ -130,7 +130,7 @@ public partial class GoogleSccV2FolderSccBigQueryExport(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -149,14 +149,14 @@ public partial class GoogleSccV2FolderSccBigQueryExport(string name) : Terraform
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Email address of the user who last edited the BigQuery export.
     /// This field is set by the server and will be ignored if provided on export creation or update.
     /// </summary>
     public TerraformValue<string> MostRecentEditor
-        => AsReference("most_recent_editor");
+        => CreateReference("most_recent_editor");
 
     /// <summary>
     /// The resource name of this export, in the format
@@ -164,13 +164,13 @@ public partial class GoogleSccV2FolderSccBigQueryExport(string name) : Terraform
     /// This field is provided in responses, and is ignored when provided in create requests.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The service account that needs permission to create table and upload data to the BigQuery dataset.
     /// </summary>
     public TerraformValue<string> Principal
-        => AsReference("principal");
+        => CreateReference("principal");
 
     /// <summary>
     /// The most recent time at which the BigQuery export was updated. This field is set by the server and will be ignored if provided on export creation or update.
@@ -178,7 +178,7 @@ public partial class GoogleSccV2FolderSccBigQueryExport(string name) : Terraform
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

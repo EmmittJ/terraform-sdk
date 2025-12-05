@@ -46,7 +46,7 @@ public partial class AzurermCosmosdbSqlRoleDefinitionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AzurermCosmosdbSqlRoleDefinitionDataSource(string name) : T
     /// The assignable_scopes attribute.
     /// </summary>
     public TerraformSet<string> AssignableScopes
-        => AsReference("assignable_scopes");
+        => CreateReference("assignable_scopes");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Permissions
-        => AsReference("permissions");
+        => CreateReference("permissions");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

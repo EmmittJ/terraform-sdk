@@ -13,7 +13,7 @@ public partial class GoogleKmsKeyHandlesDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,6 +55,6 @@ public partial class GoogleKmsKeyHandlesDataSource(string name) : TerraformDataS
     /// A list of all the retrieved key handles
     /// </summary>
     public TerraformList<TerraformMap<object>> KeyHandles
-        => AsReference("key_handles");
+        => CreateReference("key_handles");
 
 }

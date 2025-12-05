@@ -37,7 +37,7 @@ public partial class AzurermFunctionAppDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,91 +74,91 @@ public partial class AzurermFunctionAppDataSource(string name) : TerraformDataSo
     /// The app_service_plan_id attribute.
     /// </summary>
     public TerraformValue<string> AppServicePlanId
-        => AsReference("app_service_plan_id");
+        => CreateReference("app_service_plan_id");
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
     public TerraformMap<string> AppSettings
-        => AsReference("app_settings");
+        => CreateReference("app_settings");
 
     /// <summary>
     /// The client_cert_mode attribute.
     /// </summary>
     public TerraformValue<string> ClientCertMode
-        => AsReference("client_cert_mode");
+        => CreateReference("client_cert_mode");
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionString
-        => AsReference("connection_string");
+        => CreateReference("connection_string");
 
     /// <summary>
     /// The custom_domain_verification_id attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-        => AsReference("custom_domain_verification_id");
+        => CreateReference("custom_domain_verification_id");
 
     /// <summary>
     /// The default_hostname attribute.
     /// </summary>
     public TerraformValue<string> DefaultHostname
-        => AsReference("default_hostname");
+        => CreateReference("default_hostname");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
     public TerraformValue<string> OsType
-        => AsReference("os_type");
+        => CreateReference("os_type");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> OutboundIpAddresses
-        => AsReference("outbound_ip_addresses");
+        => CreateReference("outbound_ip_addresses");
 
     /// <summary>
     /// The possible_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> PossibleOutboundIpAddresses
-        => AsReference("possible_outbound_ip_addresses");
+        => CreateReference("possible_outbound_ip_addresses");
 
     /// <summary>
     /// The site_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteConfig
-        => AsReference("site_config");
+        => CreateReference("site_config");
 
     /// <summary>
     /// The site_credential attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteCredential
-        => AsReference("site_credential");
+        => CreateReference("site_credential");
 
     /// <summary>
     /// The source_control attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceControl
-        => AsReference("source_control");
+        => CreateReference("source_control");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

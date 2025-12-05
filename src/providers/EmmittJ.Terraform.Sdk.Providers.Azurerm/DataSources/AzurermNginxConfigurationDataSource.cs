@@ -36,7 +36,7 @@ public partial class AzurermNginxConfigurationDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,25 +54,25 @@ public partial class AzurermNginxConfigurationDataSource(string name) : Terrafor
     /// The config_file attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ConfigFile
-        => AsReference("config_file");
+        => CreateReference("config_file");
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
     public TerraformValue<string> PackageData
-        => AsReference("package_data");
+        => CreateReference("package_data");
 
     /// <summary>
     /// The protected_file attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ProtectedFile
-        => AsReference("protected_file");
+        => CreateReference("protected_file");
 
     /// <summary>
     /// The root_file attribute.
     /// </summary>
     public TerraformValue<string> RootFile
-        => AsReference("root_file");
+        => CreateReference("root_file");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

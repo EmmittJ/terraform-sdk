@@ -72,7 +72,7 @@ public partial class AzurermRouteTable(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermRouteTable(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformSet<TerraformMap<object>> Route
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("route") ?? AsReference("route");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("route") ?? CreateReference("route");
         set => SetArgument("route", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermRouteTable(string name) : TerraformResource("azurerm
     /// The subnets attribute.
     /// </summary>
     public TerraformSet<string> Subnets
-        => AsReference("subnets");
+        => CreateReference("subnets");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

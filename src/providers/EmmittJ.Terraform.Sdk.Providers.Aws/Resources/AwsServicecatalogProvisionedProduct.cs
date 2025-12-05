@@ -182,7 +182,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> PathId
     {
-        get => GetArgument<TerraformValue<string>>("path_id") ?? AsReference("path_id");
+        get => GetArgument<TerraformValue<string>>("path_id") ?? CreateReference("path_id");
         set => SetArgument("path_id", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> ProductId
     {
-        get => GetArgument<TerraformValue<string>>("product_id") ?? AsReference("product_id");
+        get => GetArgument<TerraformValue<string>>("product_id") ?? CreateReference("product_id");
         set => SetArgument("product_id", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> ProvisioningArtifactId
     {
-        get => GetArgument<TerraformValue<string>>("provisioning_artifact_id") ?? AsReference("provisioning_artifact_id");
+        get => GetArgument<TerraformValue<string>>("provisioning_artifact_id") ?? CreateReference("provisioning_artifact_id");
         set => SetArgument("provisioning_artifact_id", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -300,7 +300,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -308,67 +308,67 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cloudwatch_dashboard_names attribute.
     /// </summary>
     public TerraformSet<string> CloudwatchDashboardNames
-        => AsReference("cloudwatch_dashboard_names");
+        => CreateReference("cloudwatch_dashboard_names");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-        => AsReference("created_time");
+        => CreateReference("created_time");
 
     /// <summary>
     /// The last_provisioning_record_id attribute.
     /// </summary>
     public TerraformValue<string> LastProvisioningRecordId
-        => AsReference("last_provisioning_record_id");
+        => CreateReference("last_provisioning_record_id");
 
     /// <summary>
     /// The last_record_id attribute.
     /// </summary>
     public TerraformValue<string> LastRecordId
-        => AsReference("last_record_id");
+        => CreateReference("last_record_id");
 
     /// <summary>
     /// The last_successful_provisioning_record_id attribute.
     /// </summary>
     public TerraformValue<string> LastSuccessfulProvisioningRecordId
-        => AsReference("last_successful_provisioning_record_id");
+        => CreateReference("last_successful_provisioning_record_id");
 
     /// <summary>
     /// The launch_role_arn attribute.
     /// </summary>
     public TerraformValue<string> LaunchRoleArn
-        => AsReference("launch_role_arn");
+        => CreateReference("launch_role_arn");
 
     /// <summary>
     /// The outputs attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Outputs
-        => AsReference("outputs");
+        => CreateReference("outputs");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-        => AsReference("status_message");
+        => CreateReference("status_message");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// ProvisioningParameters block (nesting mode: list).

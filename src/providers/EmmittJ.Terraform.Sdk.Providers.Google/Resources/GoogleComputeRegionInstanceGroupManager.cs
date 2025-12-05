@@ -215,7 +215,7 @@ public class GoogleComputeRegionInstanceGroupManagerStandbyPolicyBlock : Terrafo
     /// </summary>
     public TerraformValue<double> InitialDelaySec
     {
-        get => GetArgument<TerraformValue<double>>("initial_delay_sec") ?? AsReference("initial_delay_sec");
+        get => GetArgument<TerraformValue<double>>("initial_delay_sec") ?? CreateReference("initial_delay_sec");
         set => SetArgument("initial_delay_sec", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleComputeRegionInstanceGroupManagerStandbyPolicyBlock : Terrafo
     /// </summary>
     public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? CreateReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -394,7 +394,7 @@ public class GoogleComputeRegionInstanceGroupManagerUpdatePolicyBlock : Terrafor
     /// </summary>
     public TerraformValue<double> MaxSurgeFixed
     {
-        get => GetArgument<TerraformValue<double>>("max_surge_fixed") ?? AsReference("max_surge_fixed");
+        get => GetArgument<TerraformValue<double>>("max_surge_fixed") ?? CreateReference("max_surge_fixed");
         set => SetArgument("max_surge_fixed", value);
     }
 
@@ -412,7 +412,7 @@ public class GoogleComputeRegionInstanceGroupManagerUpdatePolicyBlock : Terrafor
     /// </summary>
     public TerraformValue<double> MaxUnavailableFixed
     {
-        get => GetArgument<TerraformValue<double>>("max_unavailable_fixed") ?? AsReference("max_unavailable_fixed");
+        get => GetArgument<TerraformValue<double>>("max_unavailable_fixed") ?? CreateReference("max_unavailable_fixed");
         set => SetArgument("max_unavailable_fixed", value);
     }
 
@@ -570,7 +570,7 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// </summary>
     public TerraformValue<string> DistributionPolicyTargetShape
     {
-        get => GetArgument<TerraformValue<string>>("distribution_policy_target_shape") ?? AsReference("distribution_policy_target_shape");
+        get => GetArgument<TerraformValue<string>>("distribution_policy_target_shape") ?? CreateReference("distribution_policy_target_shape");
         set => SetArgument("distribution_policy_target_shape", value);
     }
 
@@ -579,7 +579,7 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// </summary>
     public TerraformSet<string> DistributionPolicyZones
     {
-        get => GetArgument<TerraformSet<string>>("distribution_policy_zones") ?? AsReference("distribution_policy_zones");
+        get => GetArgument<TerraformSet<string>>("distribution_policy_zones") ?? CreateReference("distribution_policy_zones");
         set => SetArgument("distribution_policy_zones", value);
     }
 
@@ -588,7 +588,7 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -616,7 +616,7 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -625,7 +625,7 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -643,7 +643,7 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// </summary>
     public TerraformValue<double> TargetSize
     {
-        get => GetArgument<TerraformValue<double>>("target_size") ?? AsReference("target_size");
+        get => GetArgument<TerraformValue<double>>("target_size") ?? CreateReference("target_size");
         set => SetArgument("target_size", value);
     }
 
@@ -652,7 +652,7 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// </summary>
     public TerraformValue<double> TargetStoppedSize
     {
-        get => GetArgument<TerraformValue<double>>("target_stopped_size") ?? AsReference("target_stopped_size");
+        get => GetArgument<TerraformValue<double>>("target_stopped_size") ?? CreateReference("target_stopped_size");
         set => SetArgument("target_stopped_size", value);
     }
 
@@ -661,7 +661,7 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// </summary>
     public TerraformValue<double> TargetSuspendedSize
     {
-        get => GetArgument<TerraformValue<double>>("target_suspended_size") ?? AsReference("target_suspended_size");
+        get => GetArgument<TerraformValue<double>>("target_suspended_size") ?? CreateReference("target_suspended_size");
         set => SetArgument("target_suspended_size", value);
     }
 
@@ -687,37 +687,37 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// The fingerprint of the instance group manager.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The full URL of the instance group created by the manager.
     /// </summary>
     public TerraformValue<string> InstanceGroup
-        => AsReference("instance_group");
+        => CreateReference("instance_group");
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> InstanceGroupManagerId
-        => AsReference("instance_group_manager_id");
+        => CreateReference("instance_group_manager_id");
 
     /// <summary>
     /// The URL of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The status of this managed instance group.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// AllInstancesConfig block (nesting mode: list).

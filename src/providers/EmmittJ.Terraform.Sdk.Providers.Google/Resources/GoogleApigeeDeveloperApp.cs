@@ -95,7 +95,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> AppFamily
     {
-        get => GetArgument<TerraformValue<string>>("app_family") ?? AsReference("app_family");
+        get => GetArgument<TerraformValue<string>>("app_family") ?? CreateReference("app_family");
         set => SetArgument("app_family", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -179,7 +179,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? CreateReference("status");
         set => SetArgument("status", value);
     }
 
@@ -188,32 +188,32 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// automatically generated on app creation. appId is a UUID.
     /// </summary>
     public TerraformValue<string> AppId
-        => AsReference("app_id");
+        => CreateReference("app_id");
 
     /// <summary>
     /// Time at which the developer was created in milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// Output only. Set of credentials for the developer app consisting of
     /// the consumer key/secret pairs associated with the API products.
     /// </summary>
     public TerraformList<TerraformMap<object>> Credentials
-        => AsReference("credentials");
+        => CreateReference("credentials");
 
     /// <summary>
     /// ID of the developer.
     /// </summary>
     public TerraformValue<string> DeveloperId
-        => AsReference("developer_id");
+        => CreateReference("developer_id");
 
     /// <summary>
     /// Time at which the developer was last modified in milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> LastModifiedAt
-        => AsReference("last_modified_at");
+        => CreateReference("last_modified_at");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

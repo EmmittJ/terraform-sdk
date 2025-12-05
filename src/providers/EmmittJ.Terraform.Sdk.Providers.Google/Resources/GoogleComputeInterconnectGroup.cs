@@ -120,7 +120,7 @@ public partial class GoogleComputeInterconnectGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleComputeInterconnectGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -154,20 +154,20 @@ public partial class GoogleComputeInterconnectGroup(string name) : TerraformReso
     /// resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Configured
-        => AsReference("configured");
+        => CreateReference("configured");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// An analysis of the physical layout of Interconnects in this
     /// group. Every Interconnect in the group is shown once in this structure.
     /// </summary>
     public TerraformList<TerraformMap<object>> PhysicalStructure
-        => AsReference("physical_structure");
+        => CreateReference("physical_structure");
 
     /// <summary>
     /// Intent block (nesting mode: list).

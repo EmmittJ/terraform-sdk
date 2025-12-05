@@ -36,7 +36,7 @@ public partial class AzurermDevCenterProjectDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,43 +64,43 @@ public partial class AzurermDevCenterProjectDataSource(string name) : TerraformD
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The dev_center_id attribute.
     /// </summary>
     public TerraformValue<string> DevCenterId
-        => AsReference("dev_center_id");
+        => CreateReference("dev_center_id");
 
     /// <summary>
     /// The dev_center_uri attribute.
     /// </summary>
     public TerraformValue<string> DevCenterUri
-        => AsReference("dev_center_uri");
+        => CreateReference("dev_center_uri");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The maximum_dev_boxes_per_user attribute.
     /// </summary>
     public TerraformValue<double> MaximumDevBoxesPerUser
-        => AsReference("maximum_dev_boxes_per_user");
+        => CreateReference("maximum_dev_boxes_per_user");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

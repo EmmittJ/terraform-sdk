@@ -23,7 +23,7 @@ public partial class AwsLambdaCodeSigningConfigDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLambdaCodeSigningConfigDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,30 +40,30 @@ public partial class AwsLambdaCodeSigningConfigDataSource(string name) : Terrafo
     /// The allowed_publishers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AllowedPublishers
-        => AsReference("allowed_publishers");
+        => CreateReference("allowed_publishers");
 
     /// <summary>
     /// The config_id attribute.
     /// </summary>
     public TerraformValue<string> ConfigId
-        => AsReference("config_id");
+        => CreateReference("config_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
     /// <summary>
     /// The policies attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Policies
-        => AsReference("policies");
+        => CreateReference("policies");
 
 }

@@ -107,7 +107,7 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> CustomKeyStoreType
     {
-        get => GetArgument<TerraformValue<string>>("custom_key_store_type") ?? AsReference("custom_key_store_type");
+        get => GetArgument<TerraformValue<string>>("custom_key_store_type") ?? CreateReference("custom_key_store_type");
         set => SetArgument("custom_key_store_type", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

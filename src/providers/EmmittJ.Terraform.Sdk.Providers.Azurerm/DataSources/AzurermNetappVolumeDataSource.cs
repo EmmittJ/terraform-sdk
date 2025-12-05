@@ -46,7 +46,7 @@ public partial class AzurermNetappVolumeDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,103 +93,103 @@ public partial class AzurermNetappVolumeDataSource(string name) : TerraformDataS
     /// The accept grow capacity pool for short term clone split property.
     /// </summary>
     public TerraformValue<string> AcceptGrowCapacityPoolForShortTermCloneSplit
-        => AsReference("accept_grow_capacity_pool_for_short_term_clone_split");
+        => CreateReference("accept_grow_capacity_pool_for_short_term_clone_split");
 
     /// <summary>
     /// The data_protection_backup_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataProtectionBackupPolicy
-        => AsReference("data_protection_backup_policy");
+        => CreateReference("data_protection_backup_policy");
 
     /// <summary>
     /// The data_protection_replication attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataProtectionReplication
-        => AsReference("data_protection_replication");
+        => CreateReference("data_protection_replication");
 
     /// <summary>
     /// The encryption_key_source attribute.
     /// </summary>
     public TerraformValue<string> EncryptionKeySource
-        => AsReference("encryption_key_source");
+        => CreateReference("encryption_key_source");
 
     /// <summary>
     /// The key_vault_private_endpoint_id attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultPrivateEndpointId
-        => AsReference("key_vault_private_endpoint_id");
+        => CreateReference("key_vault_private_endpoint_id");
 
     /// <summary>
     /// The large_volume_enabled attribute.
     /// </summary>
     public TerraformValue<bool> LargeVolumeEnabled
-        => AsReference("large_volume_enabled");
+        => CreateReference("large_volume_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The mount_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> MountIpAddresses
-        => AsReference("mount_ip_addresses");
+        => CreateReference("mount_ip_addresses");
 
     /// <summary>
     /// The network_features attribute.
     /// </summary>
     public TerraformValue<string> NetworkFeatures
-        => AsReference("network_features");
+        => CreateReference("network_features");
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
     public TerraformList<string> Protocols
-        => AsReference("protocols");
+        => CreateReference("protocols");
 
     /// <summary>
     /// The service_level attribute.
     /// </summary>
     public TerraformValue<string> ServiceLevel
-        => AsReference("service_level");
+        => CreateReference("service_level");
 
     /// <summary>
     /// The smb_access_based_enumeration_enabled attribute.
     /// </summary>
     public TerraformValue<bool> SmbAccessBasedEnumerationEnabled
-        => AsReference("smb_access_based_enumeration_enabled");
+        => CreateReference("smb_access_based_enumeration_enabled");
 
     /// <summary>
     /// The smb_non_browsable_enabled attribute.
     /// </summary>
     public TerraformValue<bool> SmbNonBrowsableEnabled
-        => AsReference("smb_non_browsable_enabled");
+        => CreateReference("smb_non_browsable_enabled");
 
     /// <summary>
     /// The storage_quota_in_gb attribute.
     /// </summary>
     public TerraformValue<double> StorageQuotaInGb
-        => AsReference("storage_quota_in_gb");
+        => CreateReference("storage_quota_in_gb");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-        => AsReference("subnet_id");
+        => CreateReference("subnet_id");
 
     /// <summary>
     /// The volume_path attribute.
     /// </summary>
     public TerraformValue<string> VolumePath
-        => AsReference("volume_path");
+        => CreateReference("volume_path");
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
     public TerraformValue<string> Zone
-        => AsReference("zone");
+        => CreateReference("zone");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

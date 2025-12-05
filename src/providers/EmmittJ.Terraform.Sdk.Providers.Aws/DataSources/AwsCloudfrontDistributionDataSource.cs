@@ -23,7 +23,7 @@ public partial class AwsCloudfrontDistributionDataSource(string name) : Terrafor
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -31,66 +31,66 @@ public partial class AwsCloudfrontDistributionDataSource(string name) : Terrafor
     /// The aliases attribute.
     /// </summary>
     public TerraformSet<string> Aliases
-        => AsReference("aliases");
+        => CreateReference("aliases");
 
     /// <summary>
     /// The anycast_ip_list_id attribute.
     /// </summary>
     public TerraformValue<string> AnycastIpListId
-        => AsReference("anycast_ip_list_id");
+        => CreateReference("anycast_ip_list_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-        => AsReference("domain_name");
+        => CreateReference("domain_name");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-        => AsReference("enabled");
+        => CreateReference("enabled");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-        => AsReference("hosted_zone_id");
+        => CreateReference("hosted_zone_id");
 
     /// <summary>
     /// The in_progress_validation_batches attribute.
     /// </summary>
     public TerraformValue<double> InProgressValidationBatches
-        => AsReference("in_progress_validation_batches");
+        => CreateReference("in_progress_validation_batches");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-        => AsReference("last_modified_time");
+        => CreateReference("last_modified_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The web_acl_id attribute.
     /// </summary>
     public TerraformValue<string> WebAclId
-        => AsReference("web_acl_id");
+        => CreateReference("web_acl_id");
 
 }

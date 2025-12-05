@@ -33,7 +33,7 @@ public partial class AwsGrafanaWorkspaceServiceAccount(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,12 +51,12 @@ public partial class AwsGrafanaWorkspaceServiceAccount(string name) : TerraformR
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-        => AsReference("service_account_id");
+        => CreateReference("service_account_id");
 
 }

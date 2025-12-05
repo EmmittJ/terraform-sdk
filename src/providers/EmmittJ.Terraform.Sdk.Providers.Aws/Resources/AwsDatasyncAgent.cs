@@ -36,7 +36,7 @@ public partial class AwsDatasyncAgent(string name) : TerraformResource("aws_data
     /// </summary>
     public TerraformValue<string> ActivationKey
     {
-        get => GetArgument<TerraformValue<string>>("activation_key") ?? AsReference("activation_key");
+        get => GetArgument<TerraformValue<string>>("activation_key") ?? CreateReference("activation_key");
         set => SetArgument("activation_key", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsDatasyncAgent(string name) : TerraformResource("aws_data
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsDatasyncAgent(string name) : TerraformResource("aws_data
     /// </summary>
     public TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address") ?? AsReference("ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address") ?? CreateReference("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsDatasyncAgent(string name) : TerraformResource("aws_data
     /// </summary>
     public TerraformValue<string> PrivateLinkEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("private_link_endpoint") ?? AsReference("private_link_endpoint");
+        get => GetArgument<TerraformValue<string>>("private_link_endpoint") ?? CreateReference("private_link_endpoint");
         set => SetArgument("private_link_endpoint", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsDatasyncAgent(string name) : TerraformResource("aws_data
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsDatasyncAgent(string name) : TerraformResource("aws_data
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsDatasyncAgent(string name) : TerraformResource("aws_data
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

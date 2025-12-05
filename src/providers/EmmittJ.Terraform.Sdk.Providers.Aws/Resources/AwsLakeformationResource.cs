@@ -23,7 +23,7 @@ public partial class AwsLakeformationResource(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool> HybridAccessEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("hybrid_access_enabled") ?? AsReference("hybrid_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("hybrid_access_enabled") ?? CreateReference("hybrid_access_enabled");
         set => SetArgument("hybrid_access_enabled", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLakeformationResource(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsLakeformationResource(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsLakeformationResource(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn") ?? AsReference("role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn") ?? CreateReference("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsLakeformationResource(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool> WithFederation
     {
-        get => GetArgument<TerraformValue<bool>>("with_federation") ?? AsReference("with_federation");
+        get => GetArgument<TerraformValue<bool>>("with_federation") ?? CreateReference("with_federation");
         set => SetArgument("with_federation", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsLakeformationResource(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool> WithPrivilegedAccess
     {
-        get => GetArgument<TerraformValue<bool>>("with_privileged_access") ?? AsReference("with_privileged_access");
+        get => GetArgument<TerraformValue<bool>>("with_privileged_access") ?? CreateReference("with_privileged_access");
         set => SetArgument("with_privileged_access", value);
     }
 
@@ -85,6 +85,6 @@ public partial class AwsLakeformationResource(string name) : TerraformResource("
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-        => AsReference("last_modified");
+        => CreateReference("last_modified");
 
 }

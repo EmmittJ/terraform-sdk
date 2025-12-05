@@ -18,7 +18,7 @@ public class AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxThroughput
     {
-        get => GetArgument<TerraformValue<double>>("max_throughput") ?? AsReference("max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput") ?? CreateReference("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AzurermCosmosdbMongoDatabase(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermCosmosdbMongoDatabase(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? CreateReference("throughput");
         set => SetArgument("throughput", value);
     }
 

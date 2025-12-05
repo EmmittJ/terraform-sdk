@@ -54,7 +54,7 @@ public partial class AzurermMarketplaceAgreement(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,13 +92,13 @@ public partial class AzurermMarketplaceAgreement(string name) : TerraformResourc
     /// The license_text_link attribute.
     /// </summary>
     public TerraformValue<string> LicenseTextLink
-        => AsReference("license_text_link");
+        => CreateReference("license_text_link");
 
     /// <summary>
     /// The privacy_policy_link attribute.
     /// </summary>
     public TerraformValue<string> PrivacyPolicyLink
-        => AsReference("privacy_policy_link");
+        => CreateReference("privacy_policy_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

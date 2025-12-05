@@ -60,7 +60,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -203,30 +203,30 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The associated_resources attribute.
     /// </summary>
     public TerraformList<string> AssociatedResources
-        => AsReference("associated_resources");
+        => CreateReference("associated_resources");
 
     /// <summary>
     /// The custom_domains attribute.
     /// </summary>
     public TerraformList<string> CustomDomains
-        => AsReference("custom_domains");
+        => CreateReference("custom_domains");
 
     /// <summary>
     /// The destination_branch attribute.
     /// </summary>
     public TerraformValue<string> DestinationBranch
-        => AsReference("destination_branch");
+        => CreateReference("destination_branch");
 
     /// <summary>
     /// The source_branch attribute.
     /// </summary>
     public TerraformValue<string> SourceBranch
-        => AsReference("source_branch");
+        => CreateReference("source_branch");
 
 }

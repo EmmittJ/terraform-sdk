@@ -46,7 +46,7 @@ public partial class AzurermNetappPoolDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,37 +74,37 @@ public partial class AzurermNetappPoolDataSource(string name) : TerraformDataSou
     /// The cool_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> CoolAccessEnabled
-        => AsReference("cool_access_enabled");
+        => CreateReference("cool_access_enabled");
 
     /// <summary>
     /// The custom_throughput_mibps attribute.
     /// </summary>
     public TerraformValue<double> CustomThroughputMibps
-        => AsReference("custom_throughput_mibps");
+        => CreateReference("custom_throughput_mibps");
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     public TerraformValue<string> EncryptionType
-        => AsReference("encryption_type");
+        => CreateReference("encryption_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The service_level attribute.
     /// </summary>
     public TerraformValue<string> ServiceLevel
-        => AsReference("service_level");
+        => CreateReference("service_level");
 
     /// <summary>
     /// The size_in_tb attribute.
     /// </summary>
     public TerraformValue<double> SizeInTb
-        => AsReference("size_in_tb");
+        => CreateReference("size_in_tb");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -99,7 +99,7 @@ public partial class AzurermIothubEndpointEventhub(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermIothubEndpointEventhub(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? CreateReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 

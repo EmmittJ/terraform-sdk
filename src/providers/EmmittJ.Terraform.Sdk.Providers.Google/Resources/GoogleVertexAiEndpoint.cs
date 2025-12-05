@@ -146,19 +146,19 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlockPscAutomation
     /// Error message if the PSC service automation failed.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-        => AsReference("error_message");
+        => CreateReference("error_message");
 
     /// <summary>
     /// Forwarding rule created by the PSC service automation.
     /// </summary>
     public TerraformValue<string> ForwardingRule
-        => AsReference("forwarding_rule");
+        => CreateReference("forwarding_rule");
 
     /// <summary>
     /// IP address rule created by the PSC service automation.
     /// </summary>
     public TerraformValue<string> IpAddress
-        => AsReference("ip_address");
+        => CreateReference("ip_address");
 
     /// <summary>
     /// The full name of the Google Compute Engine [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks). [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/get): projects/{project}/global/networks/{network}.
@@ -184,7 +184,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlockPscAutomation
     /// The state of the PSC service automation.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }
 
@@ -269,7 +269,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -319,7 +319,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -343,7 +343,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string> TrafficSplit
     {
-        get => GetArgument<TerraformValue<string>>("traffic_split") ?? AsReference("traffic_split");
+        get => GetArgument<TerraformValue<string>>("traffic_split") ?? CreateReference("traffic_split");
         set => SetArgument("traffic_split", value);
     }
 
@@ -351,50 +351,50 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// Output only. Timestamp when this Endpoint was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Format: &#39;https://{endpointId}.{region}-{projectNumber}.prediction.vertexai.goog&#39;.
     /// </summary>
     public TerraformValue<string> DedicatedEndpointDns
-        => AsReference("dedicated_endpoint_dns");
+        => CreateReference("dedicated_endpoint_dns");
 
     /// <summary>
     /// Output only. The models deployed in this Endpoint. To add or remove DeployedModels use EndpointService.DeployModel and EndpointService.UndeployModel respectively. Models can also be deployed and undeployed using the [Cloud Console](https://console.cloud.google.com/vertex-ai/).
     /// </summary>
     public TerraformList<TerraformMap<object>> DeployedModels
-        => AsReference("deployed_models");
+        => CreateReference("deployed_models");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates. If not set, a blind &amp;quot;overwrite&amp;quot; update happens.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by CreateModelDeploymentMonitoringJob. Format: &#39;projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{model_deployment_monitoring_job}&#39;
     /// </summary>
     public TerraformValue<string> ModelDeploymentMonitoringJob
-        => AsReference("model_deployment_monitoring_job");
+        => CreateReference("model_deployment_monitoring_job");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. Timestamp when this Endpoint was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// EncryptionSpec block (nesting mode: list).

@@ -91,7 +91,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine") ?? AsReference("engine");
+        get => GetArgument<TerraformValue<string>>("engine") ?? CreateReference("engine");
         set => SetArgument("engine", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? CreateReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> MaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_window") ?? AsReference("maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window") ?? CreateReference("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> ParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_group_name") ?? AsReference("parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("parameter_group_name") ?? CreateReference("parameter_group_name");
         set => SetArgument("parameter_group_name", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? CreateReference("port");
         set => SetArgument("port", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<double> SnapshotRetentionLimit
     {
-        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit") ?? AsReference("snapshot_retention_limit");
+        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit") ?? CreateReference("snapshot_retention_limit");
         set => SetArgument("snapshot_retention_limit", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> SnapshotWindow
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_window") ?? AsReference("snapshot_window");
+        get => GetArgument<TerraformValue<string>>("snapshot_window") ?? CreateReference("snapshot_window");
         set => SetArgument("snapshot_window", value);
     }
 
@@ -281,7 +281,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string> SubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("subnet_group_name") ?? AsReference("subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("subnet_group_name") ?? CreateReference("subnet_group_name");
         set => SetArgument("subnet_group_name", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -316,25 +316,25 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClusterEndpoint
-        => AsReference("cluster_endpoint");
+        => CreateReference("cluster_endpoint");
 
     /// <summary>
     /// The engine_patch_version attribute.
     /// </summary>
     public TerraformValue<string> EnginePatchVersion
-        => AsReference("engine_patch_version");
+        => CreateReference("engine_patch_version");
 
     /// <summary>
     /// The shards attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Shards
-        => AsReference("shards");
+        => CreateReference("shards");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

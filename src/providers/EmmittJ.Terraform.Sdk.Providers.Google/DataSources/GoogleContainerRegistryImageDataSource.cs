@@ -23,7 +23,7 @@ public partial class GoogleContainerRegistryImageDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleContainerRegistryImageDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -68,6 +68,6 @@ public partial class GoogleContainerRegistryImageDataSource(string name) : Terra
     /// The image_url attribute.
     /// </summary>
     public TerraformValue<string> ImageUrl
-        => AsReference("image_url");
+        => CreateReference("image_url");
 
 }

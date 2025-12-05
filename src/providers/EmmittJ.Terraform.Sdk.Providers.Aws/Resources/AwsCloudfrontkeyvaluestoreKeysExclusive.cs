@@ -57,7 +57,7 @@ public partial class AwsCloudfrontkeyvaluestoreKeysExclusive(string name) : Terr
     /// </summary>
     public TerraformValue<double> MaxBatchSize
     {
-        get => GetArgument<TerraformValue<double>>("max_batch_size") ?? AsReference("max_batch_size");
+        get => GetArgument<TerraformValue<double>>("max_batch_size") ?? CreateReference("max_batch_size");
         set => SetArgument("max_batch_size", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsCloudfrontkeyvaluestoreKeysExclusive(string name) : Terr
     /// Total size of the Key Value Store in bytes.
     /// </summary>
     public TerraformValue<double> TotalSizeInBytes
-        => AsReference("total_size_in_bytes");
+        => CreateReference("total_size_in_bytes");
 
     /// <summary>
     /// ResourceKeyValuePair block (nesting mode: set).

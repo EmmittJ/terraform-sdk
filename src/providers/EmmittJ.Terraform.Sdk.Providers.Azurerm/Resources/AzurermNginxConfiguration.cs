@@ -61,7 +61,7 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     /// The content_hash attribute.
     /// </summary>
     public TerraformValue<string> ContentHash
-        => AsReference("content_hash");
+        => CreateReference("content_hash");
 
     /// <summary>
     /// The virtual_path attribute.
@@ -137,7 +137,7 @@ public partial class AzurermNginxConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

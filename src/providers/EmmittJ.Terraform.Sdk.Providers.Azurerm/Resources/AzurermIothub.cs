@@ -117,7 +117,7 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// </summary>
     public TerraformList<string> EndpointNames
     {
-        get => GetArgument<TerraformList<string>>("endpoint_names") ?? AsReference("endpoint_names");
+        get => GetArgument<TerraformList<string>>("endpoint_names") ?? CreateReference("endpoint_names");
         set => SetArgument("endpoint_names", value);
     }
 
@@ -254,13 +254,13 @@ public class AzurermIothubIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -453,7 +453,7 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoint
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("endpoint") ?? AsReference("endpoint");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("endpoint") ?? CreateReference("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -462,7 +462,7 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// </summary>
     public TerraformList<TerraformMap<object>> Enrichment
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("enrichment") ?? AsReference("enrichment");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("enrichment") ?? CreateReference("enrichment");
         set => SetArgument("enrichment", value);
     }
 
@@ -489,7 +489,7 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -555,7 +555,7 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// </summary>
     public TerraformList<TerraformMap<object>> Route
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("route") ?? AsReference("route");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("route") ?? CreateReference("route");
         set => SetArgument("route", value);
     }
 
@@ -572,49 +572,49 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// The event_hub_events_endpoint attribute.
     /// </summary>
     public TerraformValue<string> EventHubEventsEndpoint
-        => AsReference("event_hub_events_endpoint");
+        => CreateReference("event_hub_events_endpoint");
 
     /// <summary>
     /// The event_hub_events_namespace attribute.
     /// </summary>
     public TerraformValue<string> EventHubEventsNamespace
-        => AsReference("event_hub_events_namespace");
+        => CreateReference("event_hub_events_namespace");
 
     /// <summary>
     /// The event_hub_events_path attribute.
     /// </summary>
     public TerraformValue<string> EventHubEventsPath
-        => AsReference("event_hub_events_path");
+        => CreateReference("event_hub_events_path");
 
     /// <summary>
     /// The event_hub_operations_endpoint attribute.
     /// </summary>
     public TerraformValue<string> EventHubOperationsEndpoint
-        => AsReference("event_hub_operations_endpoint");
+        => CreateReference("event_hub_operations_endpoint");
 
     /// <summary>
     /// The event_hub_operations_path attribute.
     /// </summary>
     public TerraformValue<string> EventHubOperationsPath
-        => AsReference("event_hub_operations_path");
+        => CreateReference("event_hub_operations_path");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// The shared_access_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SharedAccessPolicy
-        => AsReference("shared_access_policy");
+        => CreateReference("shared_access_policy");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// CloudToDevice block (nesting mode: list).

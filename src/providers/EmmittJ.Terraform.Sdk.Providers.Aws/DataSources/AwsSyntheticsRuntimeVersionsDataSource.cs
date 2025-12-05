@@ -13,7 +13,7 @@ public partial class AwsSyntheticsRuntimeVersionsDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -21,12 +21,12 @@ public partial class AwsSyntheticsRuntimeVersionsDataSource(string name) : Terra
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The runtime_versions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RuntimeVersions
-        => AsReference("runtime_versions");
+        => CreateReference("runtime_versions");
 
 }

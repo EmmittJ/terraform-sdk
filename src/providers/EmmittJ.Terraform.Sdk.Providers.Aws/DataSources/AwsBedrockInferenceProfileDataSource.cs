@@ -23,7 +23,7 @@ public partial class AwsBedrockInferenceProfileDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,48 +31,48 @@ public partial class AwsBedrockInferenceProfileDataSource(string name) : Terrafo
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The inference_profile_arn attribute.
     /// </summary>
     public TerraformValue<string> InferenceProfileArn
-        => AsReference("inference_profile_arn");
+        => CreateReference("inference_profile_arn");
 
     /// <summary>
     /// The inference_profile_name attribute.
     /// </summary>
     public TerraformValue<string> InferenceProfileName
-        => AsReference("inference_profile_name");
+        => CreateReference("inference_profile_name");
 
     /// <summary>
     /// The models attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Models
-        => AsReference("models");
+        => CreateReference("models");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
 }

@@ -35,7 +35,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : 
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The source_name attribute.
@@ -220,7 +220,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformValue<string> Extension
     {
-        get => GetArgument<TerraformValue<string>>("extension") ?? AsReference("extension");
+        get => GetArgument<TerraformValue<string>>("extension") ?? CreateReference("extension");
         set => SetArgument("extension", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -350,49 +350,49 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// The created_on attribute.
     /// </summary>
     public TerraformValue<string> CreatedOn
-        => AsReference("created_on");
+        => CreateReference("created_on");
 
     /// <summary>
     /// The defanged attribute.
     /// </summary>
     public TerraformValue<bool> Defanged
-        => AsReference("defanged");
+        => CreateReference("defanged");
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
     public TerraformValue<string> ExternalId
-        => AsReference("external_id");
+        => CreateReference("external_id");
 
     /// <summary>
     /// The external_last_updated_time_utc attribute.
     /// </summary>
     public TerraformValue<string> ExternalLastUpdatedTimeUtc
-        => AsReference("external_last_updated_time_utc");
+        => CreateReference("external_last_updated_time_utc");
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
     public TerraformValue<string> Guid
-        => AsReference("guid");
+        => CreateReference("guid");
 
     /// <summary>
     /// The indicator_type attribute.
     /// </summary>
     public TerraformList<string> IndicatorType
-        => AsReference("indicator_type");
+        => CreateReference("indicator_type");
 
     /// <summary>
     /// The last_updated_time_utc attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTimeUtc
-        => AsReference("last_updated_time_utc");
+        => CreateReference("last_updated_time_utc");
 
     /// <summary>
     /// The parsed_pattern attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ParsedPattern
-        => AsReference("parsed_pattern");
+        => CreateReference("parsed_pattern");
 
     /// <summary>
     /// ExternalReference block (nesting mode: list).

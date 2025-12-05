@@ -45,7 +45,7 @@ public class AwsLbTargetGroupHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Matcher
     {
-        get => GetArgument<TerraformValue<string>>("matcher") ?? AsReference("matcher");
+        get => GetArgument<TerraformValue<string>>("matcher") ?? CreateReference("matcher");
         set => SetArgument("matcher", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsLbTargetGroupHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? CreateReference("path");
         set => SetArgument("path", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsLbTargetGroupHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> Timeout
     {
-        get => GetArgument<TerraformValue<double>>("timeout") ?? AsReference("timeout");
+        get => GetArgument<TerraformValue<double>>("timeout") ?? CreateReference("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -322,7 +322,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<bool> ConnectionTermination
     {
-        get => GetArgument<TerraformValue<bool>>("connection_termination") ?? AsReference("connection_termination");
+        get => GetArgument<TerraformValue<bool>>("connection_termination") ?? CreateReference("connection_termination");
         set => SetArgument("connection_termination", value);
     }
 
@@ -340,7 +340,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -349,7 +349,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? CreateReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -367,7 +367,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> LoadBalancingAlgorithmType
     {
-        get => GetArgument<TerraformValue<string>>("load_balancing_algorithm_type") ?? AsReference("load_balancing_algorithm_type");
+        get => GetArgument<TerraformValue<string>>("load_balancing_algorithm_type") ?? CreateReference("load_balancing_algorithm_type");
         set => SetArgument("load_balancing_algorithm_type", value);
     }
 
@@ -376,7 +376,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> LoadBalancingAnomalyMitigation
     {
-        get => GetArgument<TerraformValue<string>>("load_balancing_anomaly_mitigation") ?? AsReference("load_balancing_anomaly_mitigation");
+        get => GetArgument<TerraformValue<string>>("load_balancing_anomaly_mitigation") ?? CreateReference("load_balancing_anomaly_mitigation");
         set => SetArgument("load_balancing_anomaly_mitigation", value);
     }
 
@@ -385,7 +385,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> LoadBalancingCrossZoneEnabled
     {
-        get => GetArgument<TerraformValue<string>>("load_balancing_cross_zone_enabled") ?? AsReference("load_balancing_cross_zone_enabled");
+        get => GetArgument<TerraformValue<string>>("load_balancing_cross_zone_enabled") ?? CreateReference("load_balancing_cross_zone_enabled");
         set => SetArgument("load_balancing_cross_zone_enabled", value);
     }
 
@@ -394,7 +394,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -403,7 +403,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? CreateReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -421,7 +421,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> PreserveClientIp
     {
-        get => GetArgument<TerraformValue<string>>("preserve_client_ip") ?? AsReference("preserve_client_ip");
+        get => GetArgument<TerraformValue<string>>("preserve_client_ip") ?? CreateReference("preserve_client_ip");
         set => SetArgument("preserve_client_ip", value);
     }
 
@@ -439,7 +439,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> ProtocolVersion
     {
-        get => GetArgument<TerraformValue<string>>("protocol_version") ?? AsReference("protocol_version");
+        get => GetArgument<TerraformValue<string>>("protocol_version") ?? CreateReference("protocol_version");
         set => SetArgument("protocol_version", value);
     }
 
@@ -457,7 +457,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -484,7 +484,7 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -510,19 +510,19 @@ public partial class AwsLbTargetGroup(string name) : TerraformResource("aws_lb_t
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The arn_suffix attribute.
     /// </summary>
     public TerraformValue<string> ArnSuffix
-        => AsReference("arn_suffix");
+        => CreateReference("arn_suffix");
 
     /// <summary>
     /// The load_balancer_arns attribute.
     /// </summary>
     public TerraformSet<string> LoadBalancerArns
-        => AsReference("load_balancer_arns");
+        => CreateReference("load_balancer_arns");
 
     /// <summary>
     /// HealthCheck block (nesting mode: list).

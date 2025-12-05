@@ -88,7 +88,7 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> AgentVersion
     {
-        get => GetArgument<TerraformValue<string>>("agent_version") ?? AsReference("agent_version");
+        get => GetArgument<TerraformValue<string>>("agent_version") ?? CreateReference("agent_version");
         set => SetArgument("agent_version", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool> PrepareAgent
     {
-        get => GetArgument<TerraformValue<bool>>("prepare_agent") ?? AsReference("prepare_agent");
+        get => GetArgument<TerraformValue<bool>>("prepare_agent") ?? CreateReference("prepare_agent");
         set => SetArgument("prepare_agent", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> RelayConversationHistory
     {
-        get => GetArgument<TerraformValue<string>>("relay_conversation_history") ?? AsReference("relay_conversation_history");
+        get => GetArgument<TerraformValue<string>>("relay_conversation_history") ?? CreateReference("relay_conversation_history");
         set => SetArgument("relay_conversation_history", value);
     }
 
@@ -143,13 +143,13 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     /// The collaborator_id attribute.
     /// </summary>
     public TerraformValue<string> CollaboratorId
-        => AsReference("collaborator_id");
+        => CreateReference("collaborator_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// AgentDescriptor block (nesting mode: list).

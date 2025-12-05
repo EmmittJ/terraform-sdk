@@ -70,7 +70,7 @@ public partial class AwsEc2TransitGatewayRouteTableDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEc2TransitGatewayRouteTableDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsEc2TransitGatewayRouteTableDataSource(string name) : Ter
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -96,25 +96,25 @@ public partial class AwsEc2TransitGatewayRouteTableDataSource(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The default_association_route_table attribute.
     /// </summary>
     public TerraformValue<bool> DefaultAssociationRouteTable
-        => AsReference("default_association_route_table");
+        => CreateReference("default_association_route_table");
 
     /// <summary>
     /// The default_propagation_route_table attribute.
     /// </summary>
     public TerraformValue<bool> DefaultPropagationRouteTable
-        => AsReference("default_propagation_route_table");
+        => CreateReference("default_propagation_route_table");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayId
-        => AsReference("transit_gateway_id");
+        => CreateReference("transit_gateway_id");
 
     /// <summary>
     /// Filter block (nesting mode: set).

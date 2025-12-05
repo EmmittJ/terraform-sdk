@@ -178,7 +178,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -276,7 +276,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -320,58 +320,58 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// ports and MACsec isn&#39;t supported and enabling MACsec fails).
     /// </summary>
     public TerraformList<string> AvailableFeatures
-        => AsReference("available_features");
+        => CreateReference("available_features");
 
     /// <summary>
     /// A list of CircuitInfo objects, that describe the individual circuits in this LAG.
     /// </summary>
     public TerraformList<TerraformMap<object>> CircuitInfos
-        => AsReference("circuit_infos");
+        => CreateReference("circuit_infos");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// A list of outages expected for this Interconnect.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExpectedOutages
-        => AsReference("expected_outages");
+        => CreateReference("expected_outages");
 
     /// <summary>
     /// IP address configured on the Google side of the Interconnect link.
     /// This can be used only for ping tests.
     /// </summary>
     public TerraformValue<string> GoogleIpAddress
-        => AsReference("google_ip_address");
+        => CreateReference("google_ip_address");
 
     /// <summary>
     /// Google reference ID to be used when raising support tickets with Google or otherwise to debug
     /// backend connectivity issues.
     /// </summary>
     public TerraformValue<string> GoogleReferenceId
-        => AsReference("google_reference_id");
+        => CreateReference("google_reference_id");
 
     /// <summary>
     /// A list of the URLs of all InterconnectAttachments configured to use this Interconnect.
     /// </summary>
     public TerraformList<string> InterconnectAttachments
-        => AsReference("interconnect_attachments");
+        => CreateReference("interconnect_attachments");
 
     /// <summary>
     /// URLs of InterconnectGroups that include this Interconnect.
     /// Order is arbitrary and items are unique.
     /// </summary>
     public TerraformSet<string> InterconnectGroups
-        => AsReference("interconnect_groups");
+        => CreateReference("interconnect_groups");
 
     /// <summary>
     /// A fingerprint for the labels being applied to this Interconnect, which is essentially a hash
@@ -381,7 +381,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// otherwise the request will fail with error 412 conditionNotMet.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-        => AsReference("label_fingerprint");
+        => CreateReference("label_fingerprint");
 
     /// <summary>
     /// The current status of this Interconnect&#39;s functionality, which can take one of the following:
@@ -393,7 +393,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     ///   attachments may be provisioned or updated on this Interconnect.
     /// </summary>
     public TerraformValue<string> OperationalStatus
-        => AsReference("operational_status");
+        => CreateReference("operational_status");
 
     /// <summary>
     /// IP address configured on the customer side of the Interconnect link.
@@ -401,19 +401,19 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// This can be used only for ping tests.
     /// </summary>
     public TerraformValue<string> PeerIpAddress
-        => AsReference("peer_ip_address");
+        => CreateReference("peer_ip_address");
 
     /// <summary>
     /// Number of links actually provisioned in this interconnect.
     /// </summary>
     public TerraformValue<double> ProvisionedLinkCount
-        => AsReference("provisioned_link_count");
+        => CreateReference("provisioned_link_count");
 
     /// <summary>
     /// Reserved for future use.
     /// </summary>
     public TerraformValue<bool> SatisfiesPzs
-        => AsReference("satisfies_pzs");
+        => CreateReference("satisfies_pzs");
 
     /// <summary>
     /// The current state of Interconnect functionality, which can take one of the following values:
@@ -425,14 +425,14 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     ///    be provisioned or updated on this Interconnect.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Macsec block (nesting mode: list).

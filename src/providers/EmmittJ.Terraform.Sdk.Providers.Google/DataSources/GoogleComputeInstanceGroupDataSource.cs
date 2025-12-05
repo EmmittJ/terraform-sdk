@@ -13,7 +13,7 @@ public partial class GoogleComputeInstanceGroupDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleComputeInstanceGroupDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleComputeInstanceGroupDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> SelfLink
     {
-        get => GetArgument<TerraformValue<string>>("self_link") ?? AsReference("self_link");
+        get => GetArgument<TerraformValue<string>>("self_link") ?? CreateReference("self_link");
         set => SetArgument("self_link", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleComputeInstanceGroupDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -57,30 +57,30 @@ public partial class GoogleComputeInstanceGroupDataSource(string name) : Terrafo
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     public TerraformSet<string> Instances
-        => AsReference("instances");
+        => CreateReference("instances");
 
     /// <summary>
     /// The named_port attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NamedPort
-        => AsReference("named_port");
+        => CreateReference("named_port");
 
     /// <summary>
     /// The network attribute.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
 }

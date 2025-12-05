@@ -23,7 +23,7 @@ public partial class AwsServerlessapplicationrepositoryApplicationDataSource(str
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsServerlessapplicationrepositoryApplicationDataSource(str
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsServerlessapplicationrepositoryApplicationDataSource(str
     /// </summary>
     public TerraformValue<string> SemanticVersion
     {
-        get => GetArgument<TerraformValue<string>>("semantic_version") ?? AsReference("semantic_version");
+        get => GetArgument<TerraformValue<string>>("semantic_version") ?? CreateReference("semantic_version");
         set => SetArgument("semantic_version", value);
     }
 
@@ -49,24 +49,24 @@ public partial class AwsServerlessapplicationrepositoryApplicationDataSource(str
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The required_capabilities attribute.
     /// </summary>
     public TerraformSet<string> RequiredCapabilities
-        => AsReference("required_capabilities");
+        => CreateReference("required_capabilities");
 
     /// <summary>
     /// The source_code_url attribute.
     /// </summary>
     public TerraformValue<string> SourceCodeUrl
-        => AsReference("source_code_url");
+        => CreateReference("source_code_url");
 
     /// <summary>
     /// The template_url attribute.
     /// </summary>
     public TerraformValue<string> TemplateUrl
-        => AsReference("template_url");
+        => CreateReference("template_url");
 
 }

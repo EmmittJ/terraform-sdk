@@ -54,7 +54,7 @@ public partial class AwsRdsIntegration(string name) : TerraformResource("aws_rds
     /// </summary>
     public TerraformValue<string> DataFilter
     {
-        get => GetArgument<TerraformValue<string>>("data_filter") ?? AsReference("data_filter");
+        get => GetArgument<TerraformValue<string>>("data_filter") ?? CreateReference("data_filter");
         set => SetArgument("data_filter", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsRdsIntegration(string name) : TerraformResource("aws_rds
     /// </summary>
     public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? CreateReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsRdsIntegration(string name) : TerraformResource("aws_rds
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -119,20 +119,20 @@ public partial class AwsRdsIntegration(string name) : TerraformResource("aws_rds
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

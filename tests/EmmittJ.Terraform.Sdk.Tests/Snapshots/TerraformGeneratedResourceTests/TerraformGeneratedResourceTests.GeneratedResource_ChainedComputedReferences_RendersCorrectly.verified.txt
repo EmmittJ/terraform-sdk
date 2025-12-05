@@ -1,0 +1,4 @@
+﻿resource "test_sentinel" "sentinel" {
+  name         = "my-sentinel"
+  workspace_id = test_log_analytics.law.workspace_id
+}

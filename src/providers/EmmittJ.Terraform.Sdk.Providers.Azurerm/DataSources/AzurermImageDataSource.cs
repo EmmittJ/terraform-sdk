@@ -36,7 +36,7 @@ public partial class AzurermImageDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -81,31 +81,31 @@ public partial class AzurermImageDataSource(string name) : TerraformDataSource("
     /// The data_disk attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataDisk
-        => AsReference("data_disk");
+        => CreateReference("data_disk");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The os_disk attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OsDisk
-        => AsReference("os_disk");
+        => CreateReference("os_disk");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The zone_resilient attribute.
     /// </summary>
     public TerraformValue<bool> ZoneResilient
-        => AsReference("zone_resilient");
+        => CreateReference("zone_resilient");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

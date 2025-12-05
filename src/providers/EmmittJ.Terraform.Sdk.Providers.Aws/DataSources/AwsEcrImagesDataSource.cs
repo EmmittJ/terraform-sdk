@@ -13,7 +13,7 @@ public partial class AwsEcrImagesDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,6 +40,6 @@ public partial class AwsEcrImagesDataSource(string name) : TerraformDataSource("
     /// The image_ids attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ImageIds
-        => AsReference("image_ids");
+        => CreateReference("image_ids");
 
 }

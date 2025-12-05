@@ -26,13 +26,13 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -71,19 +71,19 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// The connector_type attribute.
     /// </summary>
     public TerraformValue<string> ConnectorType
-        => AsReference("connector_type");
+        => CreateReference("connector_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The interface_name attribute.
     /// </summary>
     public TerraformValue<string> InterfaceName
-        => AsReference("interface_name");
+        => CreateReference("interface_name");
 
     /// <summary>
     /// The macsec_cak_keyvault_secret_id attribute.
@@ -125,19 +125,19 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// The patch_panel_id attribute.
     /// </summary>
     public TerraformValue<string> PatchPanelId
-        => AsReference("patch_panel_id");
+        => CreateReference("patch_panel_id");
 
     /// <summary>
     /// The rack_id attribute.
     /// </summary>
     public TerraformValue<string> RackId
-        => AsReference("rack_id");
+        => CreateReference("rack_id");
 
     /// <summary>
     /// The router_name attribute.
     /// </summary>
     public TerraformValue<string> RouterName
-        => AsReference("router_name");
+        => CreateReference("router_name");
 
 }
 
@@ -166,19 +166,19 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// The connector_type attribute.
     /// </summary>
     public TerraformValue<string> ConnectorType
-        => AsReference("connector_type");
+        => CreateReference("connector_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The interface_name attribute.
     /// </summary>
     public TerraformValue<string> InterfaceName
-        => AsReference("interface_name");
+        => CreateReference("interface_name");
 
     /// <summary>
     /// The macsec_cak_keyvault_secret_id attribute.
@@ -220,19 +220,19 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// The patch_panel_id attribute.
     /// </summary>
     public TerraformValue<string> PatchPanelId
-        => AsReference("patch_panel_id");
+        => CreateReference("patch_panel_id");
 
     /// <summary>
     /// The rack_id attribute.
     /// </summary>
     public TerraformValue<string> RackId
-        => AsReference("rack_id");
+        => CreateReference("rack_id");
 
     /// <summary>
     /// The router_name attribute.
     /// </summary>
     public TerraformValue<string> RouterName
-        => AsReference("router_name");
+        => CreateReference("router_name");
 
 }
 
@@ -327,7 +327,7 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -384,19 +384,19 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     /// The ethertype attribute.
     /// </summary>
     public TerraformValue<string> Ethertype
-        => AsReference("ethertype");
+        => CreateReference("ethertype");
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
     public TerraformValue<string> Guid
-        => AsReference("guid");
+        => CreateReference("guid");
 
     /// <summary>
     /// The mtu attribute.
     /// </summary>
     public TerraformValue<string> Mtu
-        => AsReference("mtu");
+        => CreateReference("mtu");
 
     /// <summary>
     /// Identity block (nesting mode: list).

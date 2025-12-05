@@ -66,7 +66,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     /// </summary>
     public TerraformValue<bool> ExportSubnetRoutesWithPublicIp
     {
-        get => GetArgument<TerraformValue<bool>>("export_subnet_routes_with_public_ip") ?? AsReference("export_subnet_routes_with_public_ip");
+        get => GetArgument<TerraformValue<bool>>("export_subnet_routes_with_public_ip") ?? CreateReference("export_subnet_routes_with_public_ip");
         set => SetArgument("export_subnet_routes_with_public_ip", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     /// </summary>
     public TerraformValue<bool> ImportSubnetRoutesWithPublicIp
     {
-        get => GetArgument<TerraformValue<bool>>("import_subnet_routes_with_public_ip") ?? AsReference("import_subnet_routes_with_public_ip");
+        get => GetArgument<TerraformValue<bool>>("import_subnet_routes_with_public_ip") ?? CreateReference("import_subnet_routes_with_public_ip");
         set => SetArgument("import_subnet_routes_with_public_ip", value);
     }
 
@@ -125,7 +125,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> GatewayLoadBalancerFrontendIpConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_frontend_ip_configuration_id") ?? AsReference("gateway_load_balancer_frontend_ip_configuration_id");
+        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_frontend_ip_configuration_id") ?? CreateReference("gateway_load_balancer_frontend_ip_configuration_id");
         set => SetArgument("gateway_load_balancer_frontend_ip_configuration_id", value);
     }
 
@@ -26,19 +26,19 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The inbound_nat_rules attribute.
     /// </summary>
     public TerraformSet<string> InboundNatRules
-        => AsReference("inbound_nat_rules");
+        => CreateReference("inbound_nat_rules");
 
     /// <summary>
     /// The load_balancer_rules attribute.
     /// </summary>
     public TerraformSet<string> LoadBalancerRules
-        => AsReference("load_balancer_rules");
+        => CreateReference("load_balancer_rules");
 
     /// <summary>
     /// The name attribute.
@@ -54,14 +54,14 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// The outbound_rules attribute.
     /// </summary>
     public TerraformSet<string> OutboundRules
-        => AsReference("outbound_rules");
+        => CreateReference("outbound_rules");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? CreateReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PrivateIpAddressAllocation
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address_allocation") ?? AsReference("private_ip_address_allocation");
+        get => GetArgument<TerraformValue<string>>("private_ip_address_allocation") ?? CreateReference("private_ip_address_allocation");
         set => SetArgument("private_ip_address_allocation", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PrivateIpAddressVersion
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address_version") ?? AsReference("private_ip_address_version");
+        get => GetArgument<TerraformValue<string>>("private_ip_address_version") ?? CreateReference("private_ip_address_version");
         set => SetArgument("private_ip_address_version", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> PublicIpPrefixId
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_prefix_id") ?? AsReference("public_ip_prefix_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_prefix_id") ?? CreateReference("public_ip_prefix_id");
         set => SetArgument("public_ip_prefix_id", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     /// </summary>
     public TerraformValue<string> PublicIpAddressId
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_address_id") ?? AsReference("public_ip_address_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_address_id") ?? CreateReference("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 
@@ -258,7 +258,7 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     /// </summary>
     public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? CreateReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -275,13 +275,13 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-        => AsReference("private_ip_addresses");
+        => CreateReference("private_ip_addresses");
 
     /// <summary>
     /// FrontendIpConfiguration block (nesting mode: list).

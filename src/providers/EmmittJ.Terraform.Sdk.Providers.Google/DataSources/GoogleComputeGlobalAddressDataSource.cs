@@ -13,7 +13,7 @@ public partial class GoogleComputeGlobalAddressDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleComputeGlobalAddressDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -40,60 +40,60 @@ public partial class GoogleComputeGlobalAddressDataSource(string name) : Terrafo
     /// The address attribute.
     /// </summary>
     public TerraformValue<string> Address
-        => AsReference("address");
+        => CreateReference("address");
 
     /// <summary>
     /// The address_type attribute.
     /// </summary>
     public TerraformValue<string> AddressType
-        => AsReference("address_type");
+        => CreateReference("address_type");
 
     /// <summary>
     /// The network attribute.
     /// </summary>
     public TerraformValue<string> Network
-        => AsReference("network");
+        => CreateReference("network");
 
     /// <summary>
     /// The network_tier attribute.
     /// </summary>
     public TerraformValue<string> NetworkTier
-        => AsReference("network_tier");
+        => CreateReference("network_tier");
 
     /// <summary>
     /// The prefix_length attribute.
     /// </summary>
     public TerraformValue<double> PrefixLength
-        => AsReference("prefix_length");
+        => CreateReference("prefix_length");
 
     /// <summary>
     /// The purpose attribute.
     /// </summary>
     public TerraformValue<string> Purpose
-        => AsReference("purpose");
+        => CreateReference("purpose");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The subnetwork attribute.
     /// </summary>
     public TerraformValue<string> Subnetwork
-        => AsReference("subnetwork");
+        => CreateReference("subnetwork");
 
     /// <summary>
     /// The users attribute.
     /// </summary>
     public TerraformValue<string> Users
-        => AsReference("users");
+        => CreateReference("users");
 
 }

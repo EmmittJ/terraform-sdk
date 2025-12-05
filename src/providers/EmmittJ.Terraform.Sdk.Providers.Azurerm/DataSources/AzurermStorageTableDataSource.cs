@@ -55,19 +55,19 @@ public partial class AzurermStorageTableDataSource(string name) : TerraformDataS
     /// The acl attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Acl
-        => AsReference("acl");
+        => CreateReference("acl");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

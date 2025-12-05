@@ -26,7 +26,7 @@ public class GoogleSecureSourceManagerInstancePrivateConfigBlock : TerraformBloc
     /// Service Attachment for HTTP, resource is in the format of &#39;projects/{project}/regions/{region}/serviceAttachments/{service_attachment}&#39;.
     /// </summary>
     public TerraformValue<string> HttpServiceAttachment
-        => AsReference("http_service_attachment");
+        => CreateReference("http_service_attachment");
 
     /// <summary>
     /// &#39;Indicate if it&#39;s private instance.&#39;
@@ -42,7 +42,7 @@ public class GoogleSecureSourceManagerInstancePrivateConfigBlock : TerraformBloc
     /// Service Attachment for SSH, resource is in the format of &#39;projects/{project}/regions/{region}/serviceAttachments/{service_attachment}&#39;.
     /// </summary>
     public TerraformValue<string> SshServiceAttachment
-        => AsReference("ssh_service_attachment");
+        => CreateReference("ssh_service_attachment");
 
 }
 
@@ -139,7 +139,7 @@ public partial class GoogleSecureSourceManagerInstance(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -190,7 +190,7 @@ public partial class GoogleSecureSourceManagerInstance(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -198,50 +198,50 @@ public partial class GoogleSecureSourceManagerInstance(string name) : TerraformR
     /// Time the Instance was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// A list of hostnames for this instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> HostConfig
-        => AsReference("host_config");
+        => CreateReference("host_config");
 
     /// <summary>
     /// The resource name for the Instance.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The current state of the Instance.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Provides information about the current instance state.
     /// </summary>
     public TerraformValue<string> StateNote
-        => AsReference("state_note");
+        => CreateReference("state_note");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// PrivateConfig block (nesting mode: list).

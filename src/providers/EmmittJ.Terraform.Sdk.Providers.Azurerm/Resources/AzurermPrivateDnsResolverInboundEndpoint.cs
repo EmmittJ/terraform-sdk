@@ -18,7 +18,7 @@ public class AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock : Ter
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? CreateReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzurermPrivateDnsResolverInboundEndpoint(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

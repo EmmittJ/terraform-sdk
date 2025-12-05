@@ -36,7 +36,7 @@ public partial class AzurermArcResourceBridgeApplianceDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,37 +64,37 @@ public partial class AzurermArcResourceBridgeApplianceDataSource(string name) : 
     /// The distro attribute.
     /// </summary>
     public TerraformValue<string> Distro
-        => AsReference("distro");
+        => CreateReference("distro");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The infrastructure_provider attribute.
     /// </summary>
     public TerraformValue<string> InfrastructureProvider
-        => AsReference("infrastructure_provider");
+        => CreateReference("infrastructure_provider");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The public_key_base64 attribute.
     /// </summary>
     public TerraformValue<string> PublicKeyBase64
-        => AsReference("public_key_base64");
+        => CreateReference("public_key_base64");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

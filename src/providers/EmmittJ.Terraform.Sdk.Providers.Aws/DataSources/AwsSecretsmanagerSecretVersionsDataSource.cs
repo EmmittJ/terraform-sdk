@@ -22,7 +22,7 @@ public partial class AwsSecretsmanagerSecretVersionsDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,18 +40,18 @@ public partial class AwsSecretsmanagerSecretVersionsDataSource(string name) : Te
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Versions
-        => AsReference("versions");
+        => CreateReference("versions");
 
 }

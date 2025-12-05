@@ -809,7 +809,7 @@ public class AzurermHdinsightKafkaClusterRolesBlockKafkaManagementNodeBlock : Te
     /// The username attribute.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
     /// <summary>
     /// The virtual_network_id attribute.
@@ -1414,7 +1414,7 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1480,19 +1480,19 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// The https_endpoint attribute.
     /// </summary>
     public TerraformValue<string> HttpsEndpoint
-        => AsReference("https_endpoint");
+        => CreateReference("https_endpoint");
 
     /// <summary>
     /// The kafka_rest_proxy_endpoint attribute.
     /// </summary>
     public TerraformValue<string> KafkaRestProxyEndpoint
-        => AsReference("kafka_rest_proxy_endpoint");
+        => CreateReference("kafka_rest_proxy_endpoint");
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SshEndpoint
-        => AsReference("ssh_endpoint");
+        => CreateReference("ssh_endpoint");
 
     /// <summary>
     /// ComponentVersion block (nesting mode: list).

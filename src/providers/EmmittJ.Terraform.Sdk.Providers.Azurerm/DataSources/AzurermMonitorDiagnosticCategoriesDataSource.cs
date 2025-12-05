@@ -36,7 +36,7 @@ public partial class AzurermMonitorDiagnosticCategoriesDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,19 +54,19 @@ public partial class AzurermMonitorDiagnosticCategoriesDataSource(string name) :
     /// The log_category_groups attribute.
     /// </summary>
     public TerraformSet<string> LogCategoryGroups
-        => AsReference("log_category_groups");
+        => CreateReference("log_category_groups");
 
     /// <summary>
     /// The log_category_types attribute.
     /// </summary>
     public TerraformSet<string> LogCategoryTypes
-        => AsReference("log_category_types");
+        => CreateReference("log_category_types");
 
     /// <summary>
     /// The metrics attribute.
     /// </summary>
     public TerraformSet<string> Metrics
-        => AsReference("metrics");
+        => CreateReference("metrics");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

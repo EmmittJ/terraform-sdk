@@ -49,7 +49,7 @@ public class AwsLightsailContainerServicePrivateRegistryAccessBlockEcrImagePulle
     /// The principal_arn attribute.
     /// </summary>
     public TerraformValue<string> PrincipalArn
-        => AsReference("principal_arn");
+        => CreateReference("principal_arn");
 
 }
 
@@ -165,7 +165,7 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -239,55 +239,55 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The power_id attribute.
     /// </summary>
     public TerraformValue<string> PowerId
-        => AsReference("power_id");
+        => CreateReference("power_id");
 
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
     public TerraformValue<string> PrincipalArn
-        => AsReference("principal_arn");
+        => CreateReference("principal_arn");
 
     /// <summary>
     /// The private_domain_name attribute.
     /// </summary>
     public TerraformValue<string> PrivateDomainName
-        => AsReference("private_domain_name");
+        => CreateReference("private_domain_name");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-        => AsReference("resource_type");
+        => CreateReference("resource_type");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// PrivateRegistryAccess block (nesting mode: list).

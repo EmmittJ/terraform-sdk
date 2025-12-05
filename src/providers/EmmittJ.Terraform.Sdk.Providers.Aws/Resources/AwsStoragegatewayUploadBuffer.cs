@@ -13,7 +13,7 @@ public partial class AwsStoragegatewayUploadBuffer(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> DiskId
     {
-        get => GetArgument<TerraformValue<string>>("disk_id") ?? AsReference("disk_id");
+        get => GetArgument<TerraformValue<string>>("disk_id") ?? CreateReference("disk_id");
         set => SetArgument("disk_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsStoragegatewayUploadBuffer(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> DiskPath
     {
-        get => GetArgument<TerraformValue<string>>("disk_path") ?? AsReference("disk_path");
+        get => GetArgument<TerraformValue<string>>("disk_path") ?? CreateReference("disk_path");
         set => SetArgument("disk_path", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsStoragegatewayUploadBuffer(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsStoragegatewayUploadBuffer(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 

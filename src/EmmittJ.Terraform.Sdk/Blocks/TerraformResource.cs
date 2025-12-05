@@ -13,7 +13,6 @@ namespace EmmittJ.Terraform.Sdk;
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/resource"/></para>
 /// </remarks>
 public class TerraformResource : TerraformBlock,
-    ITerraformNamedReferenceable,
     ITerraformHasCount,
     ITerraformHasForEach,
     ITerraformHasDependsOn,
@@ -41,6 +40,11 @@ public class TerraformResource : TerraformBlock,
     public override string[] BlockLabels => [ResourceType, ResourceName];
 
     /// <summary>
+    /// Gets the Terraform reference identifier for this resource (e.g., "aws_vpc.main").
+    /// </summary>
+    public override string ReferenceIdentifier => $"{ResourceType}.{ResourceName}";
+
+    /// <summary>
     /// Initializes a new instance of TerraformResource.
     /// </summary>
     /// <param name="type">The resource type (e.g., "aws_vpc").</param>
@@ -50,39 +54,6 @@ public class TerraformResource : TerraformBlock,
         ResourceType = type ?? throw new ArgumentNullException(nameof(type));
         ResourceName = name ?? throw new ArgumentNullException(nameof(name));
     }
-
-    /// <summary>
-    /// Generates a reference to this resource.
-    /// </summary>
-    /// <returns>A reference to this resource.</returns>
-    public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"{ResourceType}.{ResourceName}");
-
-    /// <summary>
-    /// Creates a reference to a specific attribute of this resource.
-    /// </summary>
-    /// <param name="name">The attribute name (e.g., "id", "arn", "name").</param>
-    /// <returns>A reference expression like <c>aws_vpc.main.id</c>.</returns>
-    /// <example>
-    /// <code>
-    /// var vpc = new TerraformResource("aws_vpc", "main");
-    /// var subnet = new TerraformResource("aws_subnet", "public")
-    /// {
-    ///     ["vpc_id"] = vpc.AsReference("id")  // Resolves to: aws_vpc.main.id
-    /// };
-    /// </code>
-    /// </example>
-    public override TerraformExpression AsReference(string name)
-        => AsReference().Member(name);
-
-    /// <summary>
-    /// Implicit conversion to TerraformExpression for natural reference usage.
-    /// Allows using resources directly in expressions without calling AsReference().
-    /// </summary>
-    /// <param name="resource">The resource to convert.</param>
-    /// <returns>A TerraformExpression representing the resource reference.</returns>
-    public static implicit operator TerraformExpression(TerraformResource resource)
-        => resource.AsReference();
 
     // Meta-argument properties
 

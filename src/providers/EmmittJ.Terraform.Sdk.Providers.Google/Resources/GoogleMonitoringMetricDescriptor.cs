@@ -146,7 +146,7 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -174,7 +174,7 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -230,13 +230,13 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     /// If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be associated with one of the monitored resource types listed here. This field allows time series to be associated with the intersection of this metric type and the monitored resource types in this list.
     /// </summary>
     public TerraformSet<string> MonitoredResourceTypes
-        => AsReference("monitored_resource_types");
+        => CreateReference("monitored_resource_types");
 
     /// <summary>
     /// The resource name of the metric descriptor.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Labels block (nesting mode: set).

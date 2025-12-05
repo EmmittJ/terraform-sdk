@@ -36,7 +36,7 @@ public partial class AzurermEventhubDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,13 +74,13 @@ public partial class AzurermEventhubDataSource(string name) : TerraformDataSourc
     /// The partition_count attribute.
     /// </summary>
     public TerraformValue<double> PartitionCount
-        => AsReference("partition_count");
+        => CreateReference("partition_count");
 
     /// <summary>
     /// The partition_ids attribute.
     /// </summary>
     public TerraformList<string> PartitionIds
-        => AsReference("partition_ids");
+        => CreateReference("partition_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

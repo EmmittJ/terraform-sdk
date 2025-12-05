@@ -19,7 +19,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CacheMode
     {
-        get => GetArgument<TerraformValue<string>>("cache_mode") ?? AsReference("cache_mode");
+        get => GetArgument<TerraformValue<string>>("cache_mode") ?? CreateReference("cache_mode");
         set => SetArgument("cache_mode", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ClientTtl
     {
-        get => GetArgument<TerraformValue<double>>("client_ttl") ?? AsReference("client_ttl");
+        get => GetArgument<TerraformValue<double>>("client_ttl") ?? CreateReference("client_ttl");
         set => SetArgument("client_ttl", value);
     }
 
@@ -40,7 +40,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DefaultTtl
     {
-        get => GetArgument<TerraformValue<double>>("default_ttl") ?? AsReference("default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl") ?? CreateReference("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> MaxTtl
     {
-        get => GetArgument<TerraformValue<double>>("max_ttl") ?? AsReference("max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl") ?? CreateReference("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> NegativeCaching
     {
-        get => GetArgument<TerraformValue<bool>>("negative_caching") ?? AsReference("negative_caching");
+        get => GetArgument<TerraformValue<bool>>("negative_caching") ?? CreateReference("negative_caching");
         set => SetArgument("negative_caching", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> ServeWhileStale
     {
-        get => GetArgument<TerraformValue<double>>("serve_while_stale") ?? AsReference("serve_while_stale");
+        get => GetArgument<TerraformValue<double>>("serve_while_stale") ?? CreateReference("serve_while_stale");
         set => SetArgument("serve_while_stale", value);
     }
 
@@ -352,7 +352,7 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -388,7 +388,7 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -396,13 +396,13 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// CdnPolicy block (nesting mode: list).

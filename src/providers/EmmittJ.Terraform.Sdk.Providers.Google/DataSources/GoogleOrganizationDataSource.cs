@@ -13,7 +13,7 @@ public partial class GoogleOrganizationDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain") ?? AsReference("domain");
+        get => GetArgument<TerraformValue<string>>("domain") ?? CreateReference("domain");
         set => SetArgument("domain", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleOrganizationDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -39,30 +39,30 @@ public partial class GoogleOrganizationDataSource(string name) : TerraformDataSo
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The directory_customer_id attribute.
     /// </summary>
     public TerraformValue<string> DirectoryCustomerId
-        => AsReference("directory_customer_id");
+        => CreateReference("directory_customer_id");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     public TerraformValue<string> LifecycleState
-        => AsReference("lifecycle_state");
+        => CreateReference("lifecycle_state");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     public TerraformValue<string> OrgId
-        => AsReference("org_id");
+        => CreateReference("org_id");
 
 }

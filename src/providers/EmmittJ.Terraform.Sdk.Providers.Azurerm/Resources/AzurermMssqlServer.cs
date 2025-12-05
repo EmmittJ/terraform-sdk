@@ -18,7 +18,7 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool> AzureadAuthenticationOnly
     {
-        get => GetArgument<TerraformValue<bool>>("azuread_authentication_only") ?? AsReference("azuread_authentication_only");
+        get => GetArgument<TerraformValue<bool>>("azuread_authentication_only") ?? CreateReference("azuread_authentication_only");
         set => SetArgument("azuread_authentication_only", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? CreateReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -78,13 +78,13 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -160,7 +160,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> AdministratorLogin
     {
-        get => GetArgument<TerraformValue<string>>("administrator_login") ?? AsReference("administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login") ?? CreateReference("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string> PrimaryUserAssignedIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("primary_user_assigned_identity_id") ?? AsReference("primary_user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("primary_user_assigned_identity_id") ?? CreateReference("primary_user_assigned_identity_id");
         set => SetArgument("primary_user_assigned_identity_id", value);
     }
 
@@ -316,13 +316,13 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// The fully_qualified_domain_name attribute.
     /// </summary>
     public TerraformValue<string> FullyQualifiedDomainName
-        => AsReference("fully_qualified_domain_name");
+        => CreateReference("fully_qualified_domain_name");
 
     /// <summary>
     /// The restorable_dropped_database_ids attribute.
     /// </summary>
     public TerraformList<string> RestorableDroppedDatabaseIds
-        => AsReference("restorable_dropped_database_ids");
+        => CreateReference("restorable_dropped_database_ids");
 
     /// <summary>
     /// AzureadAdministrator block (nesting mode: list).

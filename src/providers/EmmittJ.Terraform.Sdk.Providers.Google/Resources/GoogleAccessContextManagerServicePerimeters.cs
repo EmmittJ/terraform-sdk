@@ -17,7 +17,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// Time the AccessPolicy was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Description of the ServicePerimeter and its use. Does not affect
@@ -79,7 +79,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// Time the AccessPolicy was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists
@@ -1407,7 +1407,7 @@ public partial class GoogleAccessContextManagerServicePerimeters(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

@@ -216,7 +216,7 @@ public partial class AwsFsxS3AccessPointAttachment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -234,13 +234,13 @@ public partial class AwsFsxS3AccessPointAttachment(string name) : TerraformResou
     /// The s3_access_point_alias attribute.
     /// </summary>
     public TerraformValue<string> S3AccessPointAlias
-        => AsReference("s3_access_point_alias");
+        => CreateReference("s3_access_point_alias");
 
     /// <summary>
     /// The s3_access_point_arn attribute.
     /// </summary>
     public TerraformValue<string> S3AccessPointArn
-        => AsReference("s3_access_point_arn");
+        => CreateReference("s3_access_point_arn");
 
     /// <summary>
     /// OpenzfsConfiguration block (nesting mode: list).

@@ -56,7 +56,7 @@ public partial class GoogleIapBrand(string name) : TerraformResource("google_iap
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleIapBrand(string name) : TerraformResource("google_iap
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -90,13 +90,13 @@ public partial class GoogleIapBrand(string name) : TerraformResource("google_iap
     /// brand can be created per project.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Whether the brand is only intended for usage inside the GSuite organization only.
     /// </summary>
     public TerraformValue<bool> OrgInternalOnly
-        => AsReference("org_internal_only");
+        => CreateReference("org_internal_only");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

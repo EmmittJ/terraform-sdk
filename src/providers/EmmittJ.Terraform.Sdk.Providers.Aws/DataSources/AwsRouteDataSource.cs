@@ -36,7 +36,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> CarrierGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("carrier_gateway_id") ?? AsReference("carrier_gateway_id");
+        get => GetArgument<TerraformValue<string>>("carrier_gateway_id") ?? CreateReference("carrier_gateway_id");
         set => SetArgument("carrier_gateway_id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
     {
-        get => GetArgument<TerraformValue<string>>("core_network_arn") ?? AsReference("core_network_arn");
+        get => GetArgument<TerraformValue<string>>("core_network_arn") ?? CreateReference("core_network_arn");
         set => SetArgument("core_network_arn", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> DestinationCidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("destination_cidr_block") ?? AsReference("destination_cidr_block");
+        get => GetArgument<TerraformValue<string>>("destination_cidr_block") ?? CreateReference("destination_cidr_block");
         set => SetArgument("destination_cidr_block", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> DestinationIpv6CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("destination_ipv6_cidr_block") ?? AsReference("destination_ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("destination_ipv6_cidr_block") ?? CreateReference("destination_ipv6_cidr_block");
         set => SetArgument("destination_ipv6_cidr_block", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> DestinationPrefixListId
     {
-        get => GetArgument<TerraformValue<string>>("destination_prefix_list_id") ?? AsReference("destination_prefix_list_id");
+        get => GetArgument<TerraformValue<string>>("destination_prefix_list_id") ?? CreateReference("destination_prefix_list_id");
         set => SetArgument("destination_prefix_list_id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> EgressOnlyGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("egress_only_gateway_id") ?? AsReference("egress_only_gateway_id");
+        get => GetArgument<TerraformValue<string>>("egress_only_gateway_id") ?? CreateReference("egress_only_gateway_id");
         set => SetArgument("egress_only_gateway_id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> GatewayId
     {
-        get => GetArgument<TerraformValue<string>>("gateway_id") ?? AsReference("gateway_id");
+        get => GetArgument<TerraformValue<string>>("gateway_id") ?? CreateReference("gateway_id");
         set => SetArgument("gateway_id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id") ?? AsReference("instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id") ?? CreateReference("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> LocalGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("local_gateway_id") ?? AsReference("local_gateway_id");
+        get => GetArgument<TerraformValue<string>>("local_gateway_id") ?? CreateReference("local_gateway_id");
         set => SetArgument("local_gateway_id", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> NatGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("nat_gateway_id") ?? AsReference("nat_gateway_id");
+        get => GetArgument<TerraformValue<string>>("nat_gateway_id") ?? CreateReference("nat_gateway_id");
         set => SetArgument("nat_gateway_id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
     {
-        get => GetArgument<TerraformValue<string>>("network_interface_id") ?? AsReference("network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id") ?? CreateReference("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> TransitGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("transit_gateway_id") ?? AsReference("transit_gateway_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_id") ?? CreateReference("transit_gateway_id");
         set => SetArgument("transit_gateway_id", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// </summary>
     public TerraformValue<string> VpcPeeringConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_peering_connection_id") ?? AsReference("vpc_peering_connection_id");
+        get => GetArgument<TerraformValue<string>>("vpc_peering_connection_id") ?? CreateReference("vpc_peering_connection_id");
         set => SetArgument("vpc_peering_connection_id", value);
     }
 

@@ -154,7 +154,7 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -183,7 +183,7 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -191,80 +191,80 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     /// Commercial info metadata for this subscription. This is set if this is a commercial subscription i.e. if this subscription was created from subscribing to a commercial listing.
     /// </summary>
     public TerraformList<TerraformMap<object>> CommercialInfo
-        => AsReference("commercial_info");
+        => CreateReference("commercial_info");
 
     /// <summary>
     /// Timestamp when the subscription was created.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// Timestamp when the subscription was last modified.
     /// </summary>
     public TerraformValue<string> LastModifyTime
-        => AsReference("last_modify_time");
+        => CreateReference("last_modify_time");
 
     /// <summary>
     /// Output only. Map of listing resource names to associated linked resource,
     /// e.g. projects/123/locations/US/dataExchanges/456/listings/789 -&amp;gt; projects/123/datasets/my_dataset
     /// </summary>
     public TerraformSet<TerraformMap<object>> LinkedDatasetMap
-        => AsReference("linked_dataset_map");
+        => CreateReference("linked_dataset_map");
 
     /// <summary>
     /// Output only. Linked resources created in the subscription. Only contains values if state = STATE_ACTIVE.
     /// </summary>
     public TerraformList<TerraformMap<object>> LinkedResources
-        => AsReference("linked_resources");
+        => CreateReference("linked_resources");
 
     /// <summary>
     /// Output only. By default, false. If true, the Subscriber agreed to the email sharing mandate that is enabled for Listing.
     /// </summary>
     public TerraformValue<bool> LogLinkedDatasetQueryUserEmail
-        => AsReference("log_linked_dataset_query_user_email");
+        => CreateReference("log_linked_dataset_query_user_email");
 
     /// <summary>
     /// The resource name of the subscription. e.g. &amp;quot;projects/myproject/locations/US/subscriptions/123&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Display name of the project of this subscription.
     /// </summary>
     public TerraformValue<string> OrganizationDisplayName
-        => AsReference("organization_display_name");
+        => CreateReference("organization_display_name");
 
     /// <summary>
     /// Organization of the project this subscription belongs to.
     /// </summary>
     public TerraformValue<string> OrganizationId
-        => AsReference("organization_id");
+        => CreateReference("organization_id");
 
     /// <summary>
     /// Listing shared asset type.
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-        => AsReference("resource_type");
+        => CreateReference("resource_type");
 
     /// <summary>
     /// Current state of the subscription.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Email of the subscriber.
     /// </summary>
     public TerraformValue<string> SubscriberContact
-        => AsReference("subscriber_contact");
+        => CreateReference("subscriber_contact");
 
     /// <summary>
     /// The subscription id used to reference the subscription.
     /// </summary>
     public TerraformValue<string> SubscriptionId
-        => AsReference("subscription_id");
+        => CreateReference("subscription_id");
 
     /// <summary>
     /// DestinationDataset block (nesting mode: list).

@@ -50,13 +50,13 @@ public class AzurermDashboardGrafanaIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -260,7 +260,7 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -334,19 +334,19 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The grafana_version attribute.
     /// </summary>
     public TerraformValue<string> GrafanaVersion
-        => AsReference("grafana_version");
+        => CreateReference("grafana_version");
 
     /// <summary>
     /// The outbound_ip attribute.
     /// </summary>
     public TerraformList<string> OutboundIp
-        => AsReference("outbound_ip");
+        => CreateReference("outbound_ip");
 
     /// <summary>
     /// AzureMonitorWorkspaceIntegrations block (nesting mode: list).

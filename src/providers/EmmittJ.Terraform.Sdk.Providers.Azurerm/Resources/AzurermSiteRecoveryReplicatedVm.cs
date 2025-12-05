@@ -63,7 +63,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// </summary>
     public TerraformSet<TerraformMap<object>> ManagedDisk
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("managed_disk") ?? AsReference("managed_disk");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("managed_disk") ?? CreateReference("managed_disk");
         set => SetArgument("managed_disk", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// </summary>
     public TerraformSet<TerraformMap<object>> NetworkInterface
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("network_interface") ?? AsReference("network_interface");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("network_interface") ?? CreateReference("network_interface");
         set => SetArgument("network_interface", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> TargetNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("target_network_id") ?? AsReference("target_network_id");
+        get => GetArgument<TerraformValue<string>>("target_network_id") ?? CreateReference("target_network_id");
         set => SetArgument("target_network_id", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> TargetVirtualMachineSize
     {
-        get => GetArgument<TerraformValue<string>>("target_virtual_machine_size") ?? AsReference("target_virtual_machine_size");
+        get => GetArgument<TerraformValue<string>>("target_virtual_machine_size") ?? CreateReference("target_virtual_machine_size");
         set => SetArgument("target_virtual_machine_size", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> TestNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("test_network_id") ?? AsReference("test_network_id");
+        get => GetArgument<TerraformValue<string>>("test_network_id") ?? CreateReference("test_network_id");
         set => SetArgument("test_network_id", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// </summary>
     public TerraformSet<TerraformMap<object>> UnmanagedDisk
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("unmanaged_disk") ?? AsReference("unmanaged_disk");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("unmanaged_disk") ?? CreateReference("unmanaged_disk");
         set => SetArgument("unmanaged_disk", value);
     }
 

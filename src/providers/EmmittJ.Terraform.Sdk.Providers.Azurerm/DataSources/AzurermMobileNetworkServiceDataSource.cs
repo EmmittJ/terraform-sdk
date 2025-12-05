@@ -36,7 +36,7 @@ public partial class AzurermMobileNetworkServiceDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermMobileNetworkServiceDataSource(string name) : Terraf
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The pcc_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PccRule
-        => AsReference("pcc_rule");
+        => CreateReference("pcc_rule");
 
     /// <summary>
     /// The service_precedence attribute.
     /// </summary>
     public TerraformValue<double> ServicePrecedence
-        => AsReference("service_precedence");
+        => CreateReference("service_precedence");
 
     /// <summary>
     /// The service_qos_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceQosPolicy
-        => AsReference("service_qos_policy");
+        => CreateReference("service_qos_policy");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

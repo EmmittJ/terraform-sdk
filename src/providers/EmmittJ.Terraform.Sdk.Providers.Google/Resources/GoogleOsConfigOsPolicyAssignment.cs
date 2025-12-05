@@ -774,7 +774,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     /// Below are some examples of permissions and their associated values: read, write, and execute: 7 read and execute: 5 read and write: 6 read only: 4
     /// </summary>
     public TerraformValue<string> Permissions
-        => AsReference("permissions");
+        => CreateReference("permissions");
 
     /// <summary>
     /// Desired state of the file. Possible values: [&amp;quot;DESIRED_STATE_UNSPECIFIED&amp;quot;, &amp;quot;PRESENT&amp;quot;, &amp;quot;ABSENT&amp;quot;, &amp;quot;CONTENTS_MATCH&amp;quot;]
@@ -1971,7 +1971,7 @@ public partial class GoogleOsConfigOsPolicyAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2000,7 +2000,7 @@ public partial class GoogleOsConfigOsPolicyAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -2018,19 +2018,19 @@ public partial class GoogleOsConfigOsPolicyAssignment(string name) : TerraformRe
     /// For a given OS policy assignment, there is only one revision with a value of &#39;true&#39; for this field.
     /// </summary>
     public TerraformValue<bool> Baseline
-        => AsReference("baseline");
+        => CreateReference("baseline");
 
     /// <summary>
     /// Output only. Indicates that this revision deletes the OS policy assignment.
     /// </summary>
     public TerraformValue<bool> Deleted
-        => AsReference("deleted");
+        => CreateReference("deleted");
 
     /// <summary>
     /// The etag for this OS policy assignment. If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Output only. Indicates that reconciliation is in progress for the revision. This value is &#39;true&#39; when the &#39;rollout_state&#39; is one of:
@@ -2038,31 +2038,31 @@ public partial class GoogleOsConfigOsPolicyAssignment(string name) : TerraformRe
     /// * CANCELLING
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// Output only. The timestamp that the revision was created.
     /// </summary>
     public TerraformValue<string> RevisionCreateTime
-        => AsReference("revision_create_time");
+        => CreateReference("revision_create_time");
 
     /// <summary>
     /// Output only. The assignment revision ID A new revision is committed whenever a rollout is triggered for a OS policy assignment
     /// </summary>
     public TerraformValue<string> RevisionId
-        => AsReference("revision_id");
+        => CreateReference("revision_id");
 
     /// <summary>
     /// Output only. OS policy assignment rollout state
     /// </summary>
     public TerraformValue<string> RolloutState
-        => AsReference("rollout_state");
+        => CreateReference("rollout_state");
 
     /// <summary>
     /// Output only. Server generated unique id for the OS policy assignment resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// InstanceFilter block (nesting mode: list).

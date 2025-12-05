@@ -33,7 +33,7 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -71,67 +71,67 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     /// The aws_device attribute.
     /// </summary>
     public TerraformValue<string> AwsDevice
-        => AsReference("aws_device");
+        => CreateReference("aws_device");
 
     /// <summary>
     /// The connection_region attribute.
     /// </summary>
     public TerraformValue<string> ConnectionRegion
-        => AsReference("connection_region");
+        => CreateReference("connection_region");
 
     /// <summary>
     /// The has_logical_redundancy attribute.
     /// </summary>
     public TerraformValue<string> HasLogicalRedundancy
-        => AsReference("has_logical_redundancy");
+        => CreateReference("has_logical_redundancy");
 
     /// <summary>
     /// The jumbo_frame_capable attribute.
     /// </summary>
     public TerraformValue<bool> JumboFrameCapable
-        => AsReference("jumbo_frame_capable");
+        => CreateReference("jumbo_frame_capable");
 
     /// <summary>
     /// The lag_id attribute.
     /// </summary>
     public TerraformValue<string> LagId
-        => AsReference("lag_id");
+        => CreateReference("lag_id");
 
     /// <summary>
     /// The loa_issue_time attribute.
     /// </summary>
     public TerraformValue<string> LoaIssueTime
-        => AsReference("loa_issue_time");
+        => CreateReference("loa_issue_time");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The partner_name attribute.
     /// </summary>
     public TerraformValue<string> PartnerName
-        => AsReference("partner_name");
+        => CreateReference("partner_name");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     public TerraformValue<string> ProviderName
-        => AsReference("provider_name");
+        => CreateReference("provider_name");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Region
-        => AsReference("region");
+        => CreateReference("region");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
 }

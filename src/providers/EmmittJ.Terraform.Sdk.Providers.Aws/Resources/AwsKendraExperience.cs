@@ -160,7 +160,7 @@ public partial class AwsKendraExperience(string name) : TerraformResource("aws_k
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsKendraExperience(string name) : TerraformResource("aws_k
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -207,25 +207,25 @@ public partial class AwsKendraExperience(string name) : TerraformResource("aws_k
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Endpoints
-        => AsReference("endpoints");
+        => CreateReference("endpoints");
 
     /// <summary>
     /// The experience_id attribute.
     /// </summary>
     public TerraformValue<string> ExperienceId
-        => AsReference("experience_id");
+        => CreateReference("experience_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

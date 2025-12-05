@@ -18,7 +18,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformList<string> DaysOfWeek
     {
-        get => GetArgument<TerraformList<string>>("days_of_week") ?? AsReference("days_of_week");
+        get => GetArgument<TerraformList<string>>("days_of_week") ?? CreateReference("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformList<double> HoursOfDay
     {
-        get => GetArgument<TerraformList<double>>("hours_of_day") ?? AsReference("hours_of_day");
+        get => GetArgument<TerraformList<double>>("hours_of_day") ?? CreateReference("hours_of_day");
         set => SetArgument("hours_of_day", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformValue<double> LeadTimeInWeeks
     {
-        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks") ?? AsReference("lead_time_in_weeks");
+        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks") ?? CreateReference("lead_time_in_weeks");
         set => SetArgument("lead_time_in_weeks", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformList<string> Months
     {
-        get => GetArgument<TerraformList<string>>("months") ?? AsReference("months");
+        get => GetArgument<TerraformList<string>>("months") ?? CreateReference("months");
         set => SetArgument("months", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformValue<string> PatchingMode
     {
-        get => GetArgument<TerraformValue<string>>("patching_mode") ?? AsReference("patching_mode");
+        get => GetArgument<TerraformValue<string>>("patching_mode") ?? CreateReference("patching_mode");
         set => SetArgument("patching_mode", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformValue<string> Preference
     {
-        get => GetArgument<TerraformValue<string>>("preference") ?? AsReference("preference");
+        get => GetArgument<TerraformValue<string>>("preference") ?? CreateReference("preference");
         set => SetArgument("preference", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformList<double> WeeksOfMonth
     {
-        get => GetArgument<TerraformList<double>>("weeks_of_month") ?? AsReference("weeks_of_month");
+        get => GetArgument<TerraformList<double>>("weeks_of_month") ?? CreateReference("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     /// </summary>
     public TerraformList<string> CustomerContacts
     {
-        get => GetArgument<TerraformList<string>>("customer_contacts") ?? AsReference("customer_contacts");
+        get => GetArgument<TerraformList<string>>("customer_contacts") ?? CreateReference("customer_contacts");
         set => SetArgument("customer_contacts", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     /// </summary>
     public TerraformValue<string> DatabaseServerType
     {
-        get => GetArgument<TerraformValue<string>>("database_server_type") ?? AsReference("database_server_type");
+        get => GetArgument<TerraformValue<string>>("database_server_type") ?? CreateReference("database_server_type");
         set => SetArgument("database_server_type", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     /// </summary>
     public TerraformValue<string> StorageServerType
     {
-        get => GetArgument<TerraformValue<string>>("storage_server_type") ?? AsReference("storage_server_type");
+        get => GetArgument<TerraformValue<string>>("storage_server_type") ?? CreateReference("storage_server_type");
         set => SetArgument("storage_server_type", value);
     }
 

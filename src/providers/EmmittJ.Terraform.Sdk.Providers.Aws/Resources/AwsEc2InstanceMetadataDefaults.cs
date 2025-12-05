@@ -13,7 +13,7 @@ public partial class AwsEc2InstanceMetadataDefaults(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> HttpEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("http_endpoint") ?? AsReference("http_endpoint");
+        get => GetArgument<TerraformValue<string>>("http_endpoint") ?? CreateReference("http_endpoint");
         set => SetArgument("http_endpoint", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsEc2InstanceMetadataDefaults(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double> HttpPutResponseHopLimit
     {
-        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit") ?? AsReference("http_put_response_hop_limit");
+        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit") ?? CreateReference("http_put_response_hop_limit");
         set => SetArgument("http_put_response_hop_limit", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsEc2InstanceMetadataDefaults(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> HttpTokens
     {
-        get => GetArgument<TerraformValue<string>>("http_tokens") ?? AsReference("http_tokens");
+        get => GetArgument<TerraformValue<string>>("http_tokens") ?? CreateReference("http_tokens");
         set => SetArgument("http_tokens", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsEc2InstanceMetadataDefaults(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> InstanceMetadataTags
     {
-        get => GetArgument<TerraformValue<string>>("instance_metadata_tags") ?? AsReference("instance_metadata_tags");
+        get => GetArgument<TerraformValue<string>>("instance_metadata_tags") ?? CreateReference("instance_metadata_tags");
         set => SetArgument("instance_metadata_tags", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsEc2InstanceMetadataDefaults(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -57,6 +57,6 @@ public partial class AwsEc2InstanceMetadataDefaults(string name) : TerraformReso
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

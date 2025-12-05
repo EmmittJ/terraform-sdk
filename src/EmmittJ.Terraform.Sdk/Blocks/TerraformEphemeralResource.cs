@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/ephemeral"/></para>
 /// </remarks>
-public class TerraformEphemeralResource(string type, string name) : TerraformBlock(), ITerraformReferenceable
+public class TerraformEphemeralResource(string type, string name) : TerraformBlock()
 {
     /// <summary>
     /// Gets the type of this ephemeral resource (e.g., "random_id").
@@ -30,7 +30,8 @@ public class TerraformEphemeralResource(string type, string name) : TerraformBlo
     /// </summary>
     public override string[] BlockLabels => [ResourceType, ResourceName];
 
-    /// <inheritdoc/>
-    public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"ephemeral.{ResourceType}.{ResourceName}");
+    /// <summary>
+    /// Gets the Terraform reference identifier for this ephemeral resource (e.g., "ephemeral.aws_secretsmanager_secret_version.example").
+    /// </summary>
+    public override string ReferenceIdentifier => $"ephemeral.{ResourceType}.{ResourceName}";
 }

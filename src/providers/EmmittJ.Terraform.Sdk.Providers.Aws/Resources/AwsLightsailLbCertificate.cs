@@ -13,7 +13,7 @@ public partial class AwsLightsailLbCertificate(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name") ?? AsReference("domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name") ?? CreateReference("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsLightsailLbCertificate(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsLightsailLbCertificate(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsLightsailLbCertificate(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string> SubjectAlternativeNames
     {
-        get => GetArgument<TerraformSet<string>>("subject_alternative_names") ?? AsReference("subject_alternative_names");
+        get => GetArgument<TerraformSet<string>>("subject_alternative_names") ?? CreateReference("subject_alternative_names");
         set => SetArgument("subject_alternative_names", value);
     }
 
@@ -68,24 +68,24 @@ public partial class AwsLightsailLbCertificate(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The domain_validation_records attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> DomainValidationRecords
-        => AsReference("domain_validation_records");
+        => CreateReference("domain_validation_records");
 
     /// <summary>
     /// The support_code attribute.
     /// </summary>
     public TerraformValue<string> SupportCode
-        => AsReference("support_code");
+        => CreateReference("support_code");
 
 }

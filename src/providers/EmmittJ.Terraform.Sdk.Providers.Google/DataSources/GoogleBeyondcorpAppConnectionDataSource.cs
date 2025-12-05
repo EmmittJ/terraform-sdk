@@ -13,7 +13,7 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,31 +49,31 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// Address of the remote application endpoint for the BeyondCorp AppConnection.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApplicationEndpoint
-        => AsReference("application_endpoint");
+        => CreateReference("application_endpoint");
 
     /// <summary>
     /// List of AppConnectors that are authorised to be associated with this AppConnection
     /// </summary>
     public TerraformList<string> Connectors
-        => AsReference("connectors");
+        => CreateReference("connectors");
 
     /// <summary>
     /// An arbitrary user-provided name for the AppConnection.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// Gateway used by the AppConnection.
     /// </summary>
     public TerraformList<TerraformMap<object>> Gateway
-        => AsReference("gateway");
+        => CreateReference("gateway");
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -83,14 +83,14 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The type of network connectivity used by the AppConnection. Refer
@@ -98,6 +98,6 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// for a list of possible values.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
 }

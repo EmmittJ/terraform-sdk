@@ -13,7 +13,7 @@ public partial class AwsLightsailCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name") ?? AsReference("domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name") ?? CreateReference("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsLightsailCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsLightsailCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsLightsailCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string> SubjectAlternativeNames
     {
-        get => GetArgument<TerraformSet<string>>("subject_alternative_names") ?? AsReference("subject_alternative_names");
+        get => GetArgument<TerraformSet<string>>("subject_alternative_names") ?? CreateReference("subject_alternative_names");
         set => SetArgument("subject_alternative_names", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsLightsailCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -76,18 +76,18 @@ public partial class AwsLightsailCertificate(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The domain_validation_options attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> DomainValidationOptions
-        => AsReference("domain_validation_options");
+        => CreateReference("domain_validation_options");
 
 }

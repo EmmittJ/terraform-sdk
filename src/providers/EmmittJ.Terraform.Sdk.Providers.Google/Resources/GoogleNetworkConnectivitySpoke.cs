@@ -99,7 +99,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     /// The URI of the Producer VPC.
     /// </summary>
     public TerraformValue<string> ProducerNetwork
-        => AsReference("producer_network");
+        => CreateReference("producer_network");
 
 }
 
@@ -330,7 +330,7 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Group
     {
-        get => GetArgument<TerraformValue<string>>("group") ?? AsReference("group");
+        get => GetArgument<TerraformValue<string>>("group") ?? CreateReference("group");
         set => SetArgument("group", value);
     }
 
@@ -349,7 +349,7 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -390,7 +390,7 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -398,44 +398,44 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     /// Output only. The time the spoke was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The reasons for the current state in the lifecycle
     /// </summary>
     public TerraformList<TerraformMap<object>> Reasons
-        => AsReference("reasons");
+        => CreateReference("reasons");
 
     /// <summary>
     /// Output only. The current lifecycle state of this spoke.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different unique_id.
     /// </summary>
     public TerraformValue<string> UniqueId
-        => AsReference("unique_id");
+        => CreateReference("unique_id");
 
     /// <summary>
     /// Output only. The time the spoke was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// LinkedInterconnectAttachments block (nesting mode: list).

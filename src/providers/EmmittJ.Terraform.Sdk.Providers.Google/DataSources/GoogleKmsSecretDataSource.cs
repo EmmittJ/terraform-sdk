@@ -42,7 +42,7 @@ public partial class GoogleKmsSecretDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,6 +50,6 @@ public partial class GoogleKmsSecretDataSource(string name) : TerraformDataSourc
     /// The plaintext attribute.
     /// </summary>
     public TerraformValue<string> Plaintext
-        => AsReference("plaintext");
+        => CreateReference("plaintext");
 
 }

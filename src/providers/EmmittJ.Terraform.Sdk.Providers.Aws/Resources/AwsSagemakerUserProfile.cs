@@ -18,7 +18,7 @@ public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> AutoMountHomeEfs
     {
-        get => GetArgument<TerraformValue<string>>("auto_mount_home_efs") ?? AsReference("auto_mount_home_efs");
+        get => GetArgument<TerraformValue<string>>("auto_mount_home_efs") ?? CreateReference("auto_mount_home_efs");
         set => SetArgument("auto_mount_home_efs", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> StudioWebPortal
     {
-        get => GetArgument<TerraformValue<string>>("studio_web_portal") ?? AsReference("studio_web_portal");
+        get => GetArgument<TerraformValue<string>>("studio_web_portal") ?? CreateReference("studio_web_portal");
         set => SetArgument("studio_web_portal", value);
     }
 
@@ -1809,7 +1809,7 @@ public partial class AwsSagemakerUserProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1818,7 +1818,7 @@ public partial class AwsSagemakerUserProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1854,7 +1854,7 @@ public partial class AwsSagemakerUserProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1872,13 +1872,13 @@ public partial class AwsSagemakerUserProfile(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The home_efs_file_system_uid attribute.
     /// </summary>
     public TerraformValue<string> HomeEfsFileSystemUid
-        => AsReference("home_efs_file_system_uid");
+        => CreateReference("home_efs_file_system_uid");
 
     /// <summary>
     /// UserSettings block (nesting mode: list).

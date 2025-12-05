@@ -13,7 +13,7 @@ public partial class AwsOamLinkDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsOamLinkDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsOamLinkDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,42 +49,42 @@ public partial class AwsOamLinkDataSource(string name) : TerraformDataSource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The label attribute.
     /// </summary>
     public TerraformValue<string> Label
-        => AsReference("label");
+        => CreateReference("label");
 
     /// <summary>
     /// The label_template attribute.
     /// </summary>
     public TerraformValue<string> LabelTemplate
-        => AsReference("label_template");
+        => CreateReference("label_template");
 
     /// <summary>
     /// The link_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LinkConfiguration
-        => AsReference("link_configuration");
+        => CreateReference("link_configuration");
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
     public TerraformValue<string> LinkId
-        => AsReference("link_id");
+        => CreateReference("link_id");
 
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
     public TerraformSet<string> ResourceTypes
-        => AsReference("resource_types");
+        => CreateReference("resource_types");
 
     /// <summary>
     /// The sink_arn attribute.
     /// </summary>
     public TerraformValue<string> SinkArn
-        => AsReference("sink_arn");
+        => CreateReference("sink_arn");
 
 }

@@ -109,7 +109,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id") ?? AsReference("workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id") ?? CreateReference("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -210,19 +210,19 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// The app_id attribute.
     /// </summary>
     public TerraformValue<string> AppId
-        => AsReference("app_id");
+        => CreateReference("app_id");
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     public TerraformValue<string> ConnectionString
-        => AsReference("connection_string");
+        => CreateReference("connection_string");
 
     /// <summary>
     /// The instrumentation_key attribute.
     /// </summary>
     public TerraformValue<string> InstrumentationKey
-        => AsReference("instrumentation_key");
+        => CreateReference("instrumentation_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

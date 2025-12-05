@@ -18,7 +18,7 @@ public class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool> Enable
     {
-        get => GetArgument<TerraformValue<bool>>("enable") ?? AsReference("enable");
+        get => GetArgument<TerraformValue<bool>>("enable") ?? CreateReference("enable");
         set => SetArgument("enable", value);
     }
 
@@ -369,7 +369,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace") ?? AsReference("replace");
+        get => GetArgument<TerraformValue<bool>>("replace") ?? CreateReference("replace");
         set => SetArgument("replace", value);
     }
 
@@ -434,7 +434,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace") ?? AsReference("replace");
+        get => GetArgument<TerraformValue<bool>>("replace") ?? CreateReference("replace");
         set => SetArgument("replace", value);
     }
 
@@ -490,7 +490,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<bool> IgnoreCase
     {
-        get => GetArgument<TerraformValue<bool>>("ignore_case") ?? AsReference("ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case") ?? CreateReference("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -578,7 +578,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<bool> InvertMatch
     {
-        get => GetArgument<TerraformValue<bool>>("invert_match") ?? AsReference("invert_match");
+        get => GetArgument<TerraformValue<bool>>("invert_match") ?? CreateReference("invert_match");
         set => SetArgument("invert_match", value);
     }
 
@@ -724,7 +724,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<string> CacheMode
     {
-        get => GetArgument<TerraformValue<string>>("cache_mode") ?? AsReference("cache_mode");
+        get => GetArgument<TerraformValue<string>>("cache_mode") ?? CreateReference("cache_mode");
         set => SetArgument("cache_mode", value);
     }
 
@@ -765,7 +765,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<string> DefaultTtl
     {
-        get => GetArgument<TerraformValue<string>>("default_ttl") ?? AsReference("default_ttl");
+        get => GetArgument<TerraformValue<string>>("default_ttl") ?? CreateReference("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -787,7 +787,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<string> MaxTtl
     {
-        get => GetArgument<TerraformValue<string>>("max_ttl") ?? AsReference("max_ttl");
+        get => GetArgument<TerraformValue<string>>("max_ttl") ?? CreateReference("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -827,7 +827,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<string> SignedRequestKeyset
     {
-        get => GetArgument<TerraformValue<string>>("signed_request_keyset") ?? AsReference("signed_request_keyset");
+        get => GetArgument<TerraformValue<string>>("signed_request_keyset") ?? CreateReference("signed_request_keyset");
         set => SetArgument("signed_request_keyset", value);
     }
 
@@ -856,7 +856,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<string> SignedRequestMode
     {
-        get => GetArgument<TerraformValue<string>>("signed_request_mode") ?? AsReference("signed_request_mode");
+        get => GetArgument<TerraformValue<string>>("signed_request_mode") ?? CreateReference("signed_request_mode");
         set => SetArgument("signed_request_mode", value);
     }
 
@@ -1008,7 +1008,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<bool> ExcludeHost
     {
-        get => GetArgument<TerraformValue<bool>>("exclude_host") ?? AsReference("exclude_host");
+        get => GetArgument<TerraformValue<bool>>("exclude_host") ?? CreateReference("exclude_host");
         set => SetArgument("exclude_host", value);
     }
 
@@ -1043,7 +1043,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<bool> IncludeProtocol
     {
-        get => GetArgument<TerraformValue<bool>>("include_protocol") ?? AsReference("include_protocol");
+        get => GetArgument<TerraformValue<bool>>("include_protocol") ?? CreateReference("include_protocol");
         set => SetArgument("include_protocol", value);
     }
 
@@ -1323,7 +1323,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<bool> HttpsRedirect
     {
-        get => GetArgument<TerraformValue<bool>>("https_redirect") ?? AsReference("https_redirect");
+        get => GetArgument<TerraformValue<bool>>("https_redirect") ?? CreateReference("https_redirect");
         set => SetArgument("https_redirect", value);
     }
 
@@ -1364,7 +1364,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<string> RedirectResponseCode
     {
-        get => GetArgument<TerraformValue<string>>("redirect_response_code") ?? AsReference("redirect_response_code");
+        get => GetArgument<TerraformValue<string>>("redirect_response_code") ?? CreateReference("redirect_response_code");
         set => SetArgument("redirect_response_code", value);
     }
 
@@ -1373,7 +1373,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// </summary>
     public TerraformValue<bool> StripQuery
     {
-        get => GetArgument<TerraformValue<bool>>("strip_query") ?? AsReference("strip_query");
+        get => GetArgument<TerraformValue<bool>>("strip_query") ?? CreateReference("strip_query");
         set => SetArgument("strip_query", value);
     }
 
@@ -1454,7 +1454,7 @@ public partial class GoogleNetworkServicesEdgeCacheService(string name) : Terraf
     /// </summary>
     public TerraformValue<bool> DisableQuic
     {
-        get => GetArgument<TerraformValue<bool>>("disable_quic") ?? AsReference("disable_quic");
+        get => GetArgument<TerraformValue<bool>>("disable_quic") ?? CreateReference("disable_quic");
         set => SetArgument("disable_quic", value);
     }
 
@@ -1483,7 +1483,7 @@ public partial class GoogleNetworkServicesEdgeCacheService(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1516,7 +1516,7 @@ public partial class GoogleNetworkServicesEdgeCacheService(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1528,7 +1528,7 @@ public partial class GoogleNetworkServicesEdgeCacheService(string name) : Terraf
     /// </summary>
     public TerraformValue<bool> RequireTls
     {
-        get => GetArgument<TerraformValue<bool>>("require_tls") ?? AsReference("require_tls");
+        get => GetArgument<TerraformValue<bool>>("require_tls") ?? CreateReference("require_tls");
         set => SetArgument("require_tls", value);
     }
 
@@ -1547,26 +1547,26 @@ public partial class GoogleNetworkServicesEdgeCacheService(string name) : Terraf
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The IPv4 addresses associated with this service. Addresses are static for the lifetime of the service.
     /// </summary>
     public TerraformList<string> Ipv4Addresses
-        => AsReference("ipv4_addresses");
+        => CreateReference("ipv4_addresses");
 
     /// <summary>
     /// The IPv6 addresses associated with this service. Addresses are static for the lifetime of the service.
     /// </summary>
     public TerraformList<string> Ipv6Addresses
-        => AsReference("ipv6_addresses");
+        => CreateReference("ipv6_addresses");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// LogConfig block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermVirtualHubRouteTableDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,19 +74,19 @@ public partial class AzurermVirtualHubRouteTableDataSource(string name) : Terraf
     /// The labels attribute.
     /// </summary>
     public TerraformSet<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The route attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Route
-        => AsReference("route");
+        => CreateReference("route");
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualHubId
-        => AsReference("virtual_hub_id");
+        => CreateReference("virtual_hub_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

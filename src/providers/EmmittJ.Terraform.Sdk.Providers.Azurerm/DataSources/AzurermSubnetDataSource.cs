@@ -36,7 +36,7 @@ public partial class AzurermSubnetDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,49 +74,49 @@ public partial class AzurermSubnetDataSource(string name) : TerraformDataSource(
     /// The address_prefix attribute.
     /// </summary>
     public TerraformValue<string> AddressPrefix
-        => AsReference("address_prefix");
+        => CreateReference("address_prefix");
 
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
     public TerraformList<string> AddressPrefixes
-        => AsReference("address_prefixes");
+        => CreateReference("address_prefixes");
 
     /// <summary>
     /// The default_outbound_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> DefaultOutboundAccessEnabled
-        => AsReference("default_outbound_access_enabled");
+        => CreateReference("default_outbound_access_enabled");
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkSecurityGroupId
-        => AsReference("network_security_group_id");
+        => CreateReference("network_security_group_id");
 
     /// <summary>
     /// The private_endpoint_network_policies attribute.
     /// </summary>
     public TerraformValue<string> PrivateEndpointNetworkPolicies
-        => AsReference("private_endpoint_network_policies");
+        => CreateReference("private_endpoint_network_policies");
 
     /// <summary>
     /// The private_link_service_network_policies_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PrivateLinkServiceNetworkPoliciesEnabled
-        => AsReference("private_link_service_network_policies_enabled");
+        => CreateReference("private_link_service_network_policies_enabled");
 
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
     public TerraformValue<string> RouteTableId
-        => AsReference("route_table_id");
+        => CreateReference("route_table_id");
 
     /// <summary>
     /// The service_endpoints attribute.
     /// </summary>
     public TerraformList<string> ServiceEndpoints
-        => AsReference("service_endpoints");
+        => CreateReference("service_endpoints");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

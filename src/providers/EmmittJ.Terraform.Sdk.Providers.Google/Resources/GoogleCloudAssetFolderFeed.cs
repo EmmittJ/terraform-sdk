@@ -224,7 +224,7 @@ public partial class GoogleCloudAssetFolderFeed(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -233,13 +233,13 @@ public partial class GoogleCloudAssetFolderFeed(string name) : TerraformResource
     /// and folders/[FOLDER_NUMBER] are accepted.
     /// </summary>
     public TerraformValue<string> FolderId
-        => AsReference("folder_id");
+        => CreateReference("folder_id");
 
     /// <summary>
     /// The format will be folders/{folder_number}/feeds/{client-assigned_feed_identifier}.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Condition block (nesting mode: list).

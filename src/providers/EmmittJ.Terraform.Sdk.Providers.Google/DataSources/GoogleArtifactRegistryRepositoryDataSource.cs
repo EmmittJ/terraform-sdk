@@ -13,7 +13,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -59,38 +59,38 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// unique within a repository and be under 128 characters in length.
     /// </summary>
     public TerraformSet<TerraformMap<object>> CleanupPolicies
-        => AsReference("cleanup_policies");
+        => CreateReference("cleanup_policies");
 
     /// <summary>
     /// If true, the cleanup pipeline is prevented from deleting versions in this
     /// repository.
     /// </summary>
     public TerraformValue<bool> CleanupPolicyDryRun
-        => AsReference("cleanup_policy_dry_run");
+        => CreateReference("cleanup_policy_dry_run");
 
     /// <summary>
     /// The time when the repository was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The user-provided description of the repository.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// Docker repository config contains repository level configuration for the repositories of docker type.
     /// </summary>
     public TerraformList<TerraformMap<object>> DockerConfig
-        => AsReference("docker_config");
+        => CreateReference("docker_config");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The format of packages that are stored in the repository. Supported formats
@@ -99,7 +99,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// [alpha user group](https://cloud.google.com/artifact-registry/docs/supported-formats#alpha-access).
     /// </summary>
     public TerraformValue<string> Format
-        => AsReference("format");
+        => CreateReference("format");
 
     /// <summary>
     /// The Cloud KMS resource name of the customer managed encryption key that’s
@@ -108,7 +108,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// This value may not be changed after the Repository has been created.
     /// </summary>
     public TerraformValue<string> KmsKeyName
-        => AsReference("kms_key_name");
+        => CreateReference("kms_key_name");
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -122,7 +122,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// MavenRepositoryConfig is maven related repository details.
@@ -130,56 +130,56 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// format type.
     /// </summary>
     public TerraformList<TerraformMap<object>> MavenConfig
-        => AsReference("maven_config");
+        => CreateReference("maven_config");
 
     /// <summary>
     /// The mode configures the repository to serve artifacts from different sources. Default value: &amp;quot;STANDARD_REPOSITORY&amp;quot; Possible values: [&amp;quot;STANDARD_REPOSITORY&amp;quot;, &amp;quot;VIRTUAL_REPOSITORY&amp;quot;, &amp;quot;REMOTE_REPOSITORY&amp;quot;]
     /// </summary>
     public TerraformValue<string> Mode
-        => AsReference("mode");
+        => CreateReference("mode");
 
     /// <summary>
     /// The name of the repository, for example:
     /// &amp;quot;repo1&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The repository endpoint, for example: us-docker.pkg.dev/my-proj/my-repo.
     /// </summary>
     public TerraformValue<string> RegistryUri
-        => AsReference("registry_uri");
+        => CreateReference("registry_uri");
 
     /// <summary>
     /// Configuration specific for a Remote Repository.
     /// </summary>
     public TerraformList<TerraformMap<object>> RemoteRepositoryConfig
-        => AsReference("remote_repository_config");
+        => CreateReference("remote_repository_config");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Configuration specific for a Virtual Repository.
     /// </summary>
     public TerraformList<TerraformMap<object>> VirtualRepositoryConfig
-        => AsReference("virtual_repository_config");
+        => CreateReference("virtual_repository_config");
 
     /// <summary>
     /// Configuration for vulnerability scanning of artifacts stored in this repository.
     /// </summary>
     public TerraformList<TerraformMap<object>> VulnerabilityScanningConfig
-        => AsReference("vulnerability_scanning_config");
+        => CreateReference("vulnerability_scanning_config");
 
 }

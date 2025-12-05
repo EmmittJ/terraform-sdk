@@ -294,7 +294,7 @@ public partial class AwsAppsyncChannelNamespace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -311,13 +311,13 @@ public partial class AwsAppsyncChannelNamespace(string name) : TerraformResource
     /// The channel_namespace_arn attribute.
     /// </summary>
     public TerraformValue<string> ChannelNamespaceArn
-        => AsReference("channel_namespace_arn");
+        => CreateReference("channel_namespace_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// HandlerConfigs block (nesting mode: list).

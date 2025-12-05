@@ -1,0 +1,4 @@
+﻿resource "test_role_assignment" "pull" {
+  role_definition_name = "Reader"
+  scope                = data.test_container_registry.acr.id
+}

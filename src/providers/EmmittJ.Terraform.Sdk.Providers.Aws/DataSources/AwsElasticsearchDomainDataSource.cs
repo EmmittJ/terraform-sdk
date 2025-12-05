@@ -23,7 +23,7 @@ public partial class AwsElasticsearchDomainDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsElasticsearchDomainDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsElasticsearchDomainDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,120 +49,120 @@ public partial class AwsElasticsearchDomainDataSource(string name) : TerraformDa
     /// The access_policies attribute.
     /// </summary>
     public TerraformValue<string> AccessPolicies
-        => AsReference("access_policies");
+        => CreateReference("access_policies");
 
     /// <summary>
     /// The advanced_options attribute.
     /// </summary>
     public TerraformMap<string> AdvancedOptions
-        => AsReference("advanced_options");
+        => CreateReference("advanced_options");
 
     /// <summary>
     /// The advanced_security_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AdvancedSecurityOptions
-        => AsReference("advanced_security_options");
+        => CreateReference("advanced_security_options");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The auto_tune_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoTuneOptions
-        => AsReference("auto_tune_options");
+        => CreateReference("auto_tune_options");
 
     /// <summary>
     /// The cluster_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClusterConfig
-        => AsReference("cluster_config");
+        => CreateReference("cluster_config");
 
     /// <summary>
     /// The cognito_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CognitoOptions
-        => AsReference("cognito_options");
+        => CreateReference("cognito_options");
 
     /// <summary>
     /// The created attribute.
     /// </summary>
     public TerraformValue<bool> Created
-        => AsReference("created");
+        => CreateReference("created");
 
     /// <summary>
     /// The deleted attribute.
     /// </summary>
     public TerraformValue<bool> Deleted
-        => AsReference("deleted");
+        => CreateReference("deleted");
 
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
     public TerraformValue<string> DomainId
-        => AsReference("domain_id");
+        => CreateReference("domain_id");
 
     /// <summary>
     /// The ebs_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EbsOptions
-        => AsReference("ebs_options");
+        => CreateReference("ebs_options");
 
     /// <summary>
     /// The elasticsearch_version attribute.
     /// </summary>
     public TerraformValue<string> ElasticsearchVersion
-        => AsReference("elasticsearch_version");
+        => CreateReference("elasticsearch_version");
 
     /// <summary>
     /// The encryption_at_rest attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionAtRest
-        => AsReference("encryption_at_rest");
+        => CreateReference("encryption_at_rest");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The kibana_endpoint attribute.
     /// </summary>
     public TerraformValue<string> KibanaEndpoint
-        => AsReference("kibana_endpoint");
+        => CreateReference("kibana_endpoint");
 
     /// <summary>
     /// The log_publishing_options attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LogPublishingOptions
-        => AsReference("log_publishing_options");
+        => CreateReference("log_publishing_options");
 
     /// <summary>
     /// The node_to_node_encryption attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodeToNodeEncryption
-        => AsReference("node_to_node_encryption");
+        => CreateReference("node_to_node_encryption");
 
     /// <summary>
     /// The processing attribute.
     /// </summary>
     public TerraformValue<bool> Processing
-        => AsReference("processing");
+        => CreateReference("processing");
 
     /// <summary>
     /// The snapshot_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SnapshotOptions
-        => AsReference("snapshot_options");
+        => CreateReference("snapshot_options");
 
     /// <summary>
     /// The vpc_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpcOptions
-        => AsReference("vpc_options");
+        => CreateReference("vpc_options");
 
 }

@@ -64,7 +64,7 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformList<string> GuardrailPolicyArns
     {
-        get => GetArgument<TerraformList<string>>("guardrail_policy_arns") ?? AsReference("guardrail_policy_arns");
+        get => GetArgument<TerraformList<string>>("guardrail_policy_arns") ?? CreateReference("guardrail_policy_arns");
         set => SetArgument("guardrail_policy_arns", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> LoggingLevel
     {
-        get => GetArgument<TerraformValue<string>>("logging_level") ?? AsReference("logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level") ?? CreateReference("logging_level");
         set => SetArgument("logging_level", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformSet<string> SnsTopicArns
     {
-        get => GetArgument<TerraformSet<string>>("sns_topic_arns") ?? AsReference("sns_topic_arns");
+        get => GetArgument<TerraformSet<string>>("sns_topic_arns") ?? CreateReference("sns_topic_arns");
         set => SetArgument("sns_topic_arns", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool> UserAuthorizationRequired
     {
-        get => GetArgument<TerraformValue<bool>>("user_authorization_required") ?? AsReference("user_authorization_required");
+        get => GetArgument<TerraformValue<bool>>("user_authorization_required") ?? CreateReference("user_authorization_required");
         set => SetArgument("user_authorization_required", value);
     }
 
@@ -147,25 +147,25 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     /// The chat_configuration_arn attribute.
     /// </summary>
     public TerraformValue<string> ChatConfigurationArn
-        => AsReference("chat_configuration_arn");
+        => CreateReference("chat_configuration_arn");
 
     /// <summary>
     /// The slack_channel_name attribute.
     /// </summary>
     public TerraformValue<string> SlackChannelName
-        => AsReference("slack_channel_name");
+        => CreateReference("slack_channel_name");
 
     /// <summary>
     /// The slack_team_name attribute.
     /// </summary>
     public TerraformValue<string> SlackTeamName
-        => AsReference("slack_team_name");
+        => CreateReference("slack_team_name");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

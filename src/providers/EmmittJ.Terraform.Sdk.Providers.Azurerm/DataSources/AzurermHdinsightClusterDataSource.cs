@@ -36,7 +36,7 @@ public partial class AzurermHdinsightClusterDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,79 +64,79 @@ public partial class AzurermHdinsightClusterDataSource(string name) : TerraformD
     /// The cluster_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterId
-        => AsReference("cluster_id");
+        => CreateReference("cluster_id");
 
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
     public TerraformValue<string> ClusterVersion
-        => AsReference("cluster_version");
+        => CreateReference("cluster_version");
 
     /// <summary>
     /// The component_versions attribute.
     /// </summary>
     public TerraformMap<string> ComponentVersions
-        => AsReference("component_versions");
+        => CreateReference("component_versions");
 
     /// <summary>
     /// The edge_ssh_endpoint attribute.
     /// </summary>
     public TerraformValue<string> EdgeSshEndpoint
-        => AsReference("edge_ssh_endpoint");
+        => CreateReference("edge_ssh_endpoint");
 
     /// <summary>
     /// The gateway attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Gateway
-        => AsReference("gateway");
+        => CreateReference("gateway");
 
     /// <summary>
     /// The https_endpoint attribute.
     /// </summary>
     public TerraformValue<string> HttpsEndpoint
-        => AsReference("https_endpoint");
+        => CreateReference("https_endpoint");
 
     /// <summary>
     /// The kafka_rest_proxy_endpoint attribute.
     /// </summary>
     public TerraformValue<string> KafkaRestProxyEndpoint
-        => AsReference("kafka_rest_proxy_endpoint");
+        => CreateReference("kafka_rest_proxy_endpoint");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-        => AsReference("kind");
+        => CreateReference("kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SshEndpoint
-        => AsReference("ssh_endpoint");
+        => CreateReference("ssh_endpoint");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
     public TerraformValue<string> Tier
-        => AsReference("tier");
+        => CreateReference("tier");
 
     /// <summary>
     /// The tls_min_version attribute.
     /// </summary>
     public TerraformValue<string> TlsMinVersion
-        => AsReference("tls_min_version");
+        => CreateReference("tls_min_version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

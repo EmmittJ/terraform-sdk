@@ -45,7 +45,7 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,32 +97,32 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     /// Only present if the chosen ImportMethod is one with a protection level of HSM.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attestation
-        => AsReference("attestation");
+        => CreateReference("attestation");
 
     /// <summary>
     /// The time at which this resource is scheduled for expiration and can no longer be used.
     /// This is in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// The resource name for this ImportJob in the format projects/*/locations/*/keyRings/*/importJobs/*.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The public key with which to wrap key material prior to import. Only returned if state is &#39;ACTIVE&#39;.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicKey
-        => AsReference("public_key");
+        => CreateReference("public_key");
 
     /// <summary>
     /// The current state of the ImportJob, indicating if it can be used.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

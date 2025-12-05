@@ -13,7 +13,7 @@ public partial class AwsRedshiftserverlessNamespaceDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRedshiftserverlessNamespaceDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,48 +40,48 @@ public partial class AwsRedshiftserverlessNamespaceDataSource(string name) : Ter
     /// The admin_username attribute.
     /// </summary>
     public TerraformValue<string> AdminUsername
-        => AsReference("admin_username");
+        => CreateReference("admin_username");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The db_name attribute.
     /// </summary>
     public TerraformValue<string> DbName
-        => AsReference("db_name");
+        => CreateReference("db_name");
 
     /// <summary>
     /// The default_iam_role_arn attribute.
     /// </summary>
     public TerraformValue<string> DefaultIamRoleArn
-        => AsReference("default_iam_role_arn");
+        => CreateReference("default_iam_role_arn");
 
     /// <summary>
     /// The iam_roles attribute.
     /// </summary>
     public TerraformSet<string> IamRoles
-        => AsReference("iam_roles");
+        => CreateReference("iam_roles");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-        => AsReference("kms_key_id");
+        => CreateReference("kms_key_id");
 
     /// <summary>
     /// The log_exports attribute.
     /// </summary>
     public TerraformSet<string> LogExports
-        => AsReference("log_exports");
+        => CreateReference("log_exports");
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
     public TerraformValue<string> NamespaceId
-        => AsReference("namespace_id");
+        => CreateReference("namespace_id");
 
 }

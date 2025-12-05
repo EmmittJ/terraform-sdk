@@ -64,7 +64,7 @@ public partial class AzurermStorageSyncCloudEndpoint(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermStorageSyncCloudEndpoint(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> StorageAccountTenantId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_tenant_id") ?? AsReference("storage_account_tenant_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_tenant_id") ?? CreateReference("storage_account_tenant_id");
         set => SetArgument("storage_account_tenant_id", value);
     }
 

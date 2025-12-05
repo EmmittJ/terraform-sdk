@@ -23,7 +23,7 @@ public partial class AwsImagebuilderInfrastructureConfigurationDataSource(string
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsImagebuilderInfrastructureConfigurationDataSource(string
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsImagebuilderInfrastructureConfigurationDataSource(string
     /// </summary>
     public TerraformMap<string> ResourceTags
     {
-        get => GetArgument<TerraformMap<string>>("resource_tags") ?? AsReference("resource_tags");
+        get => GetArgument<TerraformMap<string>>("resource_tags") ?? CreateReference("resource_tags");
         set => SetArgument("resource_tags", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsImagebuilderInfrastructureConfigurationDataSource(string
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,84 +58,84 @@ public partial class AwsImagebuilderInfrastructureConfigurationDataSource(string
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-        => AsReference("date_created");
+        => CreateReference("date_created");
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
     public TerraformValue<string> DateUpdated
-        => AsReference("date_updated");
+        => CreateReference("date_updated");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The instance_metadata_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceMetadataOptions
-        => AsReference("instance_metadata_options");
+        => CreateReference("instance_metadata_options");
 
     /// <summary>
     /// The instance_profile_name attribute.
     /// </summary>
     public TerraformValue<string> InstanceProfileName
-        => AsReference("instance_profile_name");
+        => CreateReference("instance_profile_name");
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
     public TerraformSet<string> InstanceTypes
-        => AsReference("instance_types");
+        => CreateReference("instance_types");
 
     /// <summary>
     /// The key_pair attribute.
     /// </summary>
     public TerraformValue<string> KeyPair
-        => AsReference("key_pair");
+        => CreateReference("key_pair");
 
     /// <summary>
     /// The logging attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Logging
-        => AsReference("logging");
+        => CreateReference("logging");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The placement attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Placement
-        => AsReference("placement");
+        => CreateReference("placement");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
-        => AsReference("security_group_ids");
+        => CreateReference("security_group_ids");
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
     public TerraformValue<string> SnsTopicArn
-        => AsReference("sns_topic_arn");
+        => CreateReference("sns_topic_arn");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-        => AsReference("subnet_id");
+        => CreateReference("subnet_id");
 
     /// <summary>
     /// The terminate_instance_on_failure attribute.
     /// </summary>
     public TerraformValue<bool> TerminateInstanceOnFailure
-        => AsReference("terminate_instance_on_failure");
+        => CreateReference("terminate_instance_on_failure");
 
 }

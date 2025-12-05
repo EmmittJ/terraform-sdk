@@ -13,7 +13,7 @@ public partial class AwsEcrpublicAuthorizationTokenDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsEcrpublicAuthorizationTokenDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -30,24 +30,24 @@ public partial class AwsEcrpublicAuthorizationTokenDataSource(string name) : Ter
     /// The authorization_token attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationToken
-        => AsReference("authorization_token");
+        => CreateReference("authorization_token");
 
     /// <summary>
     /// The expires_at attribute.
     /// </summary>
     public TerraformValue<string> ExpiresAt
-        => AsReference("expires_at");
+        => CreateReference("expires_at");
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     public TerraformValue<string> Password
-        => AsReference("password");
+        => CreateReference("password");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     public TerraformValue<string> UserName
-        => AsReference("user_name");
+        => CreateReference("user_name");
 
 }

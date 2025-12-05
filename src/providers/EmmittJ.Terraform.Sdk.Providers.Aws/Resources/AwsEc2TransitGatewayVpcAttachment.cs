@@ -31,7 +31,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> SecurityGroupReferencingSupport
     {
-        get => GetArgument<TerraformValue<string>>("security_group_referencing_support") ?? AsReference("security_group_referencing_support");
+        get => GetArgument<TerraformValue<string>>("security_group_referencing_support") ?? CreateReference("security_group_referencing_support");
         set => SetArgument("security_group_referencing_support", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> TransitGatewayDefaultRouteTableAssociation
     {
-        get => GetArgument<TerraformValue<bool>>("transit_gateway_default_route_table_association") ?? AsReference("transit_gateway_default_route_table_association");
+        get => GetArgument<TerraformValue<bool>>("transit_gateway_default_route_table_association") ?? CreateReference("transit_gateway_default_route_table_association");
         set => SetArgument("transit_gateway_default_route_table_association", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool> TransitGatewayDefaultRouteTablePropagation
     {
-        get => GetArgument<TerraformValue<bool>>("transit_gateway_default_route_table_propagation") ?? AsReference("transit_gateway_default_route_table_propagation");
+        get => GetArgument<TerraformValue<bool>>("transit_gateway_default_route_table_propagation") ?? CreateReference("transit_gateway_default_route_table_propagation");
         set => SetArgument("transit_gateway_default_route_table_propagation", value);
     }
 
@@ -132,12 +132,12 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The vpc_owner_id attribute.
     /// </summary>
     public TerraformValue<string> VpcOwnerId
-        => AsReference("vpc_owner_id");
+        => CreateReference("vpc_owner_id");
 
 }

@@ -63,7 +63,7 @@ public partial class AzurermWebAppActiveSlot(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermWebAppActiveSlot(string name) : TerraformResource("a
     /// The timestamp of the last successful swap with `Production`
     /// </summary>
     public TerraformValue<string> LastSuccessfulSwap
-        => AsReference("last_successful_swap");
+        => CreateReference("last_successful_swap");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

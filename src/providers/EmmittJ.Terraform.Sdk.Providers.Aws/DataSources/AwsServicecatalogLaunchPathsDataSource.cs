@@ -45,7 +45,7 @@ public partial class AwsServicecatalogLaunchPathsDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsServicecatalogLaunchPathsDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsServicecatalogLaunchPathsDataSource(string name) : Terra
     /// The summaries attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Summaries
-        => AsReference("summaries");
+        => CreateReference("summaries");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -33,7 +33,7 @@ public partial class AwsEksAddonDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsEksAddonDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsEksAddonDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -59,42 +59,42 @@ public partial class AwsEksAddonDataSource(string name) : TerraformDataSource("a
     /// The addon_version attribute.
     /// </summary>
     public TerraformValue<string> AddonVersion
-        => AsReference("addon_version");
+        => CreateReference("addon_version");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The configuration_values attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationValues
-        => AsReference("configuration_values");
+        => CreateReference("configuration_values");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
     public TerraformValue<string> ModifiedAt
-        => AsReference("modified_at");
+        => CreateReference("modified_at");
 
     /// <summary>
     /// The pod_identity_association attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PodIdentityAssociation
-        => AsReference("pod_identity_association");
+        => CreateReference("pod_identity_association");
 
     /// <summary>
     /// The service_account_role_arn attribute.
     /// </summary>
     public TerraformValue<string> ServiceAccountRoleArn
-        => AsReference("service_account_role_arn");
+        => CreateReference("service_account_role_arn");
 
 }

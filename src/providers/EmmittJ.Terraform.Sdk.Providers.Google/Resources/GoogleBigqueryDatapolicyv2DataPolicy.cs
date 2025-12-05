@@ -127,7 +127,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? CreateReference("etag");
         set => SetArgument("etag", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// </summary>
     public TerraformList<string> Grantees
     {
-        get => GetArgument<TerraformList<string>>("grantees") ?? AsReference("grantees");
+        get => GetArgument<TerraformList<string>>("grantees") ?? CreateReference("grantees");
         set => SetArgument("grantees", value);
     }
 
@@ -152,7 +152,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -171,7 +171,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -180,7 +180,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// &#39;projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Policy tag resource name, in the format of
@@ -188,7 +188,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// policy_tag is supported only for V1 data policies.
     /// </summary>
     public TerraformValue<string> PolicyTag
-        => AsReference("policy_tag");
+        => CreateReference("policy_tag");
 
     /// <summary>
     /// The version of the Data Policy resource.
@@ -197,7 +197,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// V2
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
     /// <summary>
     /// DataMaskingPolicy block (nesting mode: list).

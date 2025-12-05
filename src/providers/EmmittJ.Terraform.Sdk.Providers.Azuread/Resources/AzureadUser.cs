@@ -81,7 +81,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformList<string> BusinessPhones
     {
-        get => GetArgument<TerraformList<string>>("business_phones") ?? AsReference("business_phones");
+        get => GetArgument<TerraformList<string>>("business_phones") ?? CreateReference("business_phones");
         set => SetArgument("business_phones", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string> Mail
     {
-        get => GetArgument<TerraformValue<string>>("mail") ?? AsReference("mail");
+        get => GetArgument<TerraformValue<string>>("mail") ?? CreateReference("mail");
         set => SetArgument("mail", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string> MailNickname
     {
-        get => GetArgument<TerraformValue<string>>("mail_nickname") ?? AsReference("mail_nickname");
+        get => GetArgument<TerraformValue<string>>("mail_nickname") ?? CreateReference("mail_nickname");
         set => SetArgument("mail_nickname", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string> OnpremisesImmutableId
     {
-        get => GetArgument<TerraformValue<string>>("onpremises_immutable_id") ?? AsReference("onpremises_immutable_id");
+        get => GetArgument<TerraformValue<string>>("onpremises_immutable_id") ?? CreateReference("onpremises_immutable_id");
         set => SetArgument("onpremises_immutable_id", value);
     }
 
@@ -316,7 +316,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password") ?? AsReference("password");
+        get => GetArgument<TerraformValue<string>>("password") ?? CreateReference("password");
         set => SetArgument("password", value);
     }
 
@@ -397,79 +397,79 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// A freeform field for the user to describe themselves
     /// </summary>
     public TerraformValue<string> AboutMe
-        => AsReference("about_me");
+        => CreateReference("about_me");
 
     /// <summary>
     /// Indicates whether the user account was created as a regular school or work account (`null`), an external account (`Invitation`), a local account for an Azure Active Directory B2C tenant (`LocalAccount`) or self-service sign-up using email verification (`EmailVerified`)
     /// </summary>
     public TerraformValue<string> CreationType
-        => AsReference("creation_type");
+        => CreateReference("creation_type");
 
     /// <summary>
     /// For an external user invited to the tenant, this property represents the invited user&#39;s invitation status
     /// </summary>
     public TerraformValue<string> ExternalUserState
-        => AsReference("external_user_state");
+        => CreateReference("external_user_state");
 
     /// <summary>
     /// The instant message voice over IP (VOIP) session initiation protocol (SIP) addresses for the user
     /// </summary>
     public TerraformList<string> ImAddresses
-        => AsReference("im_addresses");
+        => CreateReference("im_addresses");
 
     /// <summary>
     /// The object ID of the user
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// The on-premise Active Directory distinguished name (DN) of the user
     /// </summary>
     public TerraformValue<string> OnpremisesDistinguishedName
-        => AsReference("onpremises_distinguished_name");
+        => CreateReference("onpremises_distinguished_name");
 
     /// <summary>
     /// The on-premise FQDN (i.e. dnsDomainName) of the user
     /// </summary>
     public TerraformValue<string> OnpremisesDomainName
-        => AsReference("onpremises_domain_name");
+        => CreateReference("onpremises_domain_name");
 
     /// <summary>
     /// The on-premise SAM account name of the user
     /// </summary>
     public TerraformValue<string> OnpremisesSamAccountName
-        => AsReference("onpremises_sam_account_name");
+        => CreateReference("onpremises_sam_account_name");
 
     /// <summary>
     /// The on-premise security identifier (SID) of the user
     /// </summary>
     public TerraformValue<string> OnpremisesSecurityIdentifier
-        => AsReference("onpremises_security_identifier");
+        => CreateReference("onpremises_security_identifier");
 
     /// <summary>
     /// Whether this user is synchronized from an on-premises directory (true), no longer synchronized (false), or has never been synchronized (null)
     /// </summary>
     public TerraformValue<bool> OnpremisesSyncEnabled
-        => AsReference("onpremises_sync_enabled");
+        => CreateReference("onpremises_sync_enabled");
 
     /// <summary>
     /// The on-premise user principal name of the user
     /// </summary>
     public TerraformValue<string> OnpremisesUserPrincipalName
-        => AsReference("onpremises_user_principal_name");
+        => CreateReference("onpremises_user_principal_name");
 
     /// <summary>
     /// Email addresses for the user that direct to the same mailbox
     /// </summary>
     public TerraformList<string> ProxyAddresses
-        => AsReference("proxy_addresses");
+        => CreateReference("proxy_addresses");
 
     /// <summary>
     /// The user type in the directory. Possible values are `Guest` or `Member`
     /// </summary>
     public TerraformValue<string> UserType
-        => AsReference("user_type");
+        => CreateReference("user_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

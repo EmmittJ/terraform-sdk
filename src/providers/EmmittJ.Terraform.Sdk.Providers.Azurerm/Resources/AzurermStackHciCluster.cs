@@ -17,13 +17,13 @@ public class AzurermStackHciClusterIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -117,7 +117,7 @@ public partial class AzurermStackHciCluster(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermStackHciCluster(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? CreateReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -173,19 +173,19 @@ public partial class AzurermStackHciCluster(string name) : TerraformResource("az
     /// The cloud_id attribute.
     /// </summary>
     public TerraformValue<string> CloudId
-        => AsReference("cloud_id");
+        => CreateReference("cloud_id");
 
     /// <summary>
     /// The resource_provider_object_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceProviderObjectId
-        => AsReference("resource_provider_object_id");
+        => CreateReference("resource_provider_object_id");
 
     /// <summary>
     /// The service_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ServiceEndpoint
-        => AsReference("service_endpoint");
+        => CreateReference("service_endpoint");
 
     /// <summary>
     /// Identity block (nesting mode: list).

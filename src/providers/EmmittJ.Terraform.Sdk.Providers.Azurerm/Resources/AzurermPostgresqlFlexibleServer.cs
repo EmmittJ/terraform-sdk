@@ -151,13 +151,13 @@ public class AzurermPostgresqlFlexibleServerIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -274,7 +274,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> AdministratorLogin
     {
-        get => GetArgument<TerraformValue<string>>("administrator_login") ?? AsReference("administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login") ?? CreateReference("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -319,7 +319,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<double> BackupRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_days") ?? AsReference("backup_retention_days");
+        get => GetArgument<TerraformValue<double>>("backup_retention_days") ?? CreateReference("backup_retention_days");
         set => SetArgument("backup_retention_days", value);
     }
 
@@ -355,7 +355,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -393,7 +393,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> PrivateDnsZoneId
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_zone_id") ?? AsReference("private_dns_zone_id");
+        get => GetArgument<TerraformValue<string>>("private_dns_zone_id") ?? CreateReference("private_dns_zone_id");
         set => SetArgument("private_dns_zone_id", value);
     }
 
@@ -430,7 +430,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name") ?? AsReference("sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name") ?? CreateReference("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -448,7 +448,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<double> StorageMb
     {
-        get => GetArgument<TerraformValue<double>>("storage_mb") ?? AsReference("storage_mb");
+        get => GetArgument<TerraformValue<double>>("storage_mb") ?? CreateReference("storage_mb");
         set => SetArgument("storage_mb", value);
     }
 
@@ -457,7 +457,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> StorageTier
     {
-        get => GetArgument<TerraformValue<string>>("storage_tier") ?? AsReference("storage_tier");
+        get => GetArgument<TerraformValue<string>>("storage_tier") ?? CreateReference("storage_tier");
         set => SetArgument("storage_tier", value);
     }
 
@@ -475,7 +475,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -492,7 +492,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// Authentication block (nesting mode: list).

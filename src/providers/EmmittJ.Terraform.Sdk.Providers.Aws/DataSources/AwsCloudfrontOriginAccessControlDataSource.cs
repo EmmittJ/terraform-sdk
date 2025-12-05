@@ -22,42 +22,42 @@ public partial class AwsCloudfrontOriginAccessControlDataSource(string name) : T
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The origin_access_control_origin_type attribute.
     /// </summary>
     public TerraformValue<string> OriginAccessControlOriginType
-        => AsReference("origin_access_control_origin_type");
+        => CreateReference("origin_access_control_origin_type");
 
     /// <summary>
     /// The signing_behavior attribute.
     /// </summary>
     public TerraformValue<string> SigningBehavior
-        => AsReference("signing_behavior");
+        => CreateReference("signing_behavior");
 
     /// <summary>
     /// The signing_protocol attribute.
     /// </summary>
     public TerraformValue<string> SigningProtocol
-        => AsReference("signing_protocol");
+        => CreateReference("signing_protocol");
 
 }

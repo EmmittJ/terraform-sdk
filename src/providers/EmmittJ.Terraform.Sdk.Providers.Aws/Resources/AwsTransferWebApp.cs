@@ -39,7 +39,7 @@ public class AwsTransferWebAppIdentityProviderDetailsBlockIdentityCenterConfigBl
     /// The application_arn attribute.
     /// </summary>
     public TerraformValue<string> ApplicationArn
-        => AsReference("application_arn");
+        => CreateReference("application_arn");
 
     /// <summary>
     /// The instance_arn attribute.
@@ -73,7 +73,7 @@ public partial class AwsTransferWebApp(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformValue<string> AccessEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("access_endpoint") ?? AsReference("access_endpoint");
+        get => GetArgument<TerraformValue<string>>("access_endpoint") ?? CreateReference("access_endpoint");
         set => SetArgument("access_endpoint", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsTransferWebApp(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsTransferWebApp(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformValue<string> WebAppEndpointPolicy
     {
-        get => GetArgument<TerraformValue<string>>("web_app_endpoint_policy") ?? AsReference("web_app_endpoint_policy");
+        get => GetArgument<TerraformValue<string>>("web_app_endpoint_policy") ?? CreateReference("web_app_endpoint_policy");
         set => SetArgument("web_app_endpoint_policy", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsTransferWebApp(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformList<TerraformMap<object>> WebAppUnits
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("web_app_units") ?? AsReference("web_app_units");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("web_app_units") ?? CreateReference("web_app_units");
         set => SetArgument("web_app_units", value);
     }
 
@@ -117,19 +117,19 @@ public partial class AwsTransferWebApp(string name) : TerraformResource("aws_tra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The web_app_id attribute.
     /// </summary>
     public TerraformValue<string> WebAppId
-        => AsReference("web_app_id");
+        => CreateReference("web_app_id");
 
     /// <summary>
     /// IdentityProviderDetails block (nesting mode: list).

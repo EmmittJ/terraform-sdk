@@ -36,7 +36,7 @@ public partial class AzurermMssqlManagedInstanceDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,115 +64,115 @@ public partial class AzurermMssqlManagedInstanceDataSource(string name) : Terraf
     /// The administrator_login attribute.
     /// </summary>
     public TerraformValue<string> AdministratorLogin
-        => AsReference("administrator_login");
+        => CreateReference("administrator_login");
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
     public TerraformValue<string> Collation
-        => AsReference("collation");
+        => CreateReference("collation");
 
     /// <summary>
     /// The customer_managed_key_id attribute.
     /// </summary>
     public TerraformValue<string> CustomerManagedKeyId
-        => AsReference("customer_managed_key_id");
+        => CreateReference("customer_managed_key_id");
 
     /// <summary>
     /// The dns_zone attribute.
     /// </summary>
     public TerraformValue<string> DnsZone
-        => AsReference("dns_zone");
+        => CreateReference("dns_zone");
 
     /// <summary>
     /// The dns_zone_partner_id attribute.
     /// </summary>
     public TerraformValue<string> DnsZonePartnerId
-        => AsReference("dns_zone_partner_id");
+        => CreateReference("dns_zone_partner_id");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     public TerraformValue<string> LicenseType
-        => AsReference("license_type");
+        => CreateReference("license_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
     public TerraformValue<string> MinimumTlsVersion
-        => AsReference("minimum_tls_version");
+        => CreateReference("minimum_tls_version");
 
     /// <summary>
     /// The proxy_override attribute.
     /// </summary>
     public TerraformValue<string> ProxyOverride
-        => AsReference("proxy_override");
+        => CreateReference("proxy_override");
 
     /// <summary>
     /// The public_data_endpoint_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicDataEndpointEnabled
-        => AsReference("public_data_endpoint_enabled");
+        => CreateReference("public_data_endpoint_enabled");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     public TerraformValue<string> StorageAccountType
-        => AsReference("storage_account_type");
+        => CreateReference("storage_account_type");
 
     /// <summary>
     /// The storage_size_in_gb attribute.
     /// </summary>
     public TerraformValue<double> StorageSizeInGb
-        => AsReference("storage_size_in_gb");
+        => CreateReference("storage_size_in_gb");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-        => AsReference("subnet_id");
+        => CreateReference("subnet_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The timezone_id attribute.
     /// </summary>
     public TerraformValue<string> TimezoneId
-        => AsReference("timezone_id");
+        => CreateReference("timezone_id");
 
     /// <summary>
     /// The vcores attribute.
     /// </summary>
     public TerraformValue<double> Vcores
-        => AsReference("vcores");
+        => CreateReference("vcores");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

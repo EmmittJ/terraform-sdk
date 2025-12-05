@@ -65,7 +65,7 @@ public partial class GoogleProjectDefaultServiceAccounts(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleProjectDefaultServiceAccounts(string name) : Terrafor
     /// The Service Accounts changed by this resource. It is used for revert the action on the destroy.
     /// </summary>
     public TerraformMap<string> ServiceAccounts
-        => AsReference("service_accounts");
+        => CreateReference("service_accounts");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -73,7 +73,7 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,13 +111,13 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     /// The cluster_number attribute.
     /// </summary>
     public TerraformValue<double> ClusterNumber
-        => AsReference("cluster_number");
+        => CreateReference("cluster_number");
 
     /// <summary>
     /// The hosts attribute.
     /// </summary>
     public TerraformList<string> Hosts
-        => AsReference("hosts");
+        => CreateReference("hosts");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

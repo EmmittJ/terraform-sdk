@@ -50,7 +50,7 @@ public class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlockS3Conf
     /// </summary>
     public TerraformValue<string> EncryptionOption
     {
-        get => GetArgument<TerraformValue<string>>("encryption_option") ?? AsReference("encryption_option");
+        get => GetArgument<TerraformValue<string>>("encryption_option") ?? CreateReference("encryption_option");
         set => SetArgument("encryption_option", value);
     }
 
@@ -81,25 +81,25 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : TerraformBloc
     /// The failure_reason attribute.
     /// </summary>
     public TerraformValue<string> FailureReason
-        => AsReference("failure_reason");
+        => CreateReference("failure_reason");
 
     /// <summary>
     /// The invocation_time attribute.
     /// </summary>
     public TerraformValue<string> InvocationTime
-        => AsReference("invocation_time");
+        => CreateReference("invocation_time");
 
     /// <summary>
     /// The run_status attribute.
     /// </summary>
     public TerraformValue<string> RunStatus
-        => AsReference("run_status");
+        => CreateReference("run_status");
 
     /// <summary>
     /// The trigger_time attribute.
     /// </summary>
     public TerraformValue<string> TriggerTime
-        => AsReference("trigger_time");
+        => CreateReference("trigger_time");
 
     /// <summary>
     /// ErrorReportLocation block (nesting mode: list).
@@ -167,13 +167,13 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockErrorReportLocat
     /// The bucket_name attribute.
     /// </summary>
     public TerraformValue<string> BucketName
-        => AsReference("bucket_name");
+        => CreateReference("bucket_name");
 
     /// <summary>
     /// The object_key attribute.
     /// </summary>
     public TerraformValue<string> ObjectKey
-        => AsReference("object_key");
+        => CreateReference("object_key");
 
 }
 
@@ -192,37 +192,37 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockExecutionStatsBl
     /// The bytes_metered attribute.
     /// </summary>
     public TerraformValue<double> BytesMetered
-        => AsReference("bytes_metered");
+        => CreateReference("bytes_metered");
 
     /// <summary>
     /// The cumulative_bytes_scanned attribute.
     /// </summary>
     public TerraformValue<double> CumulativeBytesScanned
-        => AsReference("cumulative_bytes_scanned");
+        => CreateReference("cumulative_bytes_scanned");
 
     /// <summary>
     /// The data_writes attribute.
     /// </summary>
     public TerraformValue<double> DataWrites
-        => AsReference("data_writes");
+        => CreateReference("data_writes");
 
     /// <summary>
     /// The execution_time_in_millis attribute.
     /// </summary>
     public TerraformValue<double> ExecutionTimeInMillis
-        => AsReference("execution_time_in_millis");
+        => CreateReference("execution_time_in_millis");
 
     /// <summary>
     /// The query_result_rows attribute.
     /// </summary>
     public TerraformValue<double> QueryResultRows
-        => AsReference("query_result_rows");
+        => CreateReference("query_result_rows");
 
     /// <summary>
     /// The records_ingested attribute.
     /// </summary>
     public TerraformValue<double> RecordsIngested
-        => AsReference("records_ingested");
+        => CreateReference("records_ingested");
 
 }
 
@@ -241,19 +241,19 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockQueryInsightsRes
     /// The output_bytes attribute.
     /// </summary>
     public TerraformValue<double> OutputBytes
-        => AsReference("output_bytes");
+        => CreateReference("output_bytes");
 
     /// <summary>
     /// The output_rows attribute.
     /// </summary>
     public TerraformValue<double> OutputRows
-        => AsReference("output_rows");
+        => CreateReference("output_rows");
 
     /// <summary>
     /// The query_table_count attribute.
     /// </summary>
     public TerraformValue<double> QueryTableCount
-        => AsReference("query_table_count");
+        => CreateReference("query_table_count");
 
     /// <summary>
     /// QuerySpatialCoverage block (nesting mode: list).
@@ -312,19 +312,19 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockQueryInsightsRes
     /// The partition_key attribute.
     /// </summary>
     public TerraformList<string> PartitionKey
-        => AsReference("partition_key");
+        => CreateReference("partition_key");
 
     /// <summary>
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-        => AsReference("table_arn");
+        => CreateReference("table_arn");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-        => AsReference("value");
+        => CreateReference("value");
 
 }
 
@@ -365,13 +365,13 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockQueryInsightsRes
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-        => AsReference("table_arn");
+        => CreateReference("table_arn");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-        => AsReference("value");
+        => CreateReference("value");
 
 }
 
@@ -437,25 +437,25 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : Terraform
     /// The failure_reason attribute.
     /// </summary>
     public TerraformValue<string> FailureReason
-        => AsReference("failure_reason");
+        => CreateReference("failure_reason");
 
     /// <summary>
     /// The invocation_time attribute.
     /// </summary>
     public TerraformValue<string> InvocationTime
-        => AsReference("invocation_time");
+        => CreateReference("invocation_time");
 
     /// <summary>
     /// The run_status attribute.
     /// </summary>
     public TerraformValue<string> RunStatus
-        => AsReference("run_status");
+        => CreateReference("run_status");
 
     /// <summary>
     /// The trigger_time attribute.
     /// </summary>
     public TerraformValue<string> TriggerTime
-        => AsReference("trigger_time");
+        => CreateReference("trigger_time");
 
     /// <summary>
     /// ErrorReportLocation block (nesting mode: list).
@@ -523,13 +523,13 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockErrorReportL
     /// The bucket_name attribute.
     /// </summary>
     public TerraformValue<string> BucketName
-        => AsReference("bucket_name");
+        => CreateReference("bucket_name");
 
     /// <summary>
     /// The object_key attribute.
     /// </summary>
     public TerraformValue<string> ObjectKey
-        => AsReference("object_key");
+        => CreateReference("object_key");
 
 }
 
@@ -548,37 +548,37 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockExecutionSta
     /// The bytes_metered attribute.
     /// </summary>
     public TerraformValue<double> BytesMetered
-        => AsReference("bytes_metered");
+        => CreateReference("bytes_metered");
 
     /// <summary>
     /// The cumulative_bytes_scanned attribute.
     /// </summary>
     public TerraformValue<double> CumulativeBytesScanned
-        => AsReference("cumulative_bytes_scanned");
+        => CreateReference("cumulative_bytes_scanned");
 
     /// <summary>
     /// The data_writes attribute.
     /// </summary>
     public TerraformValue<double> DataWrites
-        => AsReference("data_writes");
+        => CreateReference("data_writes");
 
     /// <summary>
     /// The execution_time_in_millis attribute.
     /// </summary>
     public TerraformValue<double> ExecutionTimeInMillis
-        => AsReference("execution_time_in_millis");
+        => CreateReference("execution_time_in_millis");
 
     /// <summary>
     /// The query_result_rows attribute.
     /// </summary>
     public TerraformValue<double> QueryResultRows
-        => AsReference("query_result_rows");
+        => CreateReference("query_result_rows");
 
     /// <summary>
     /// The records_ingested attribute.
     /// </summary>
     public TerraformValue<double> RecordsIngested
-        => AsReference("records_ingested");
+        => CreateReference("records_ingested");
 
 }
 
@@ -597,19 +597,19 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockQueryInsight
     /// The output_bytes attribute.
     /// </summary>
     public TerraformValue<double> OutputBytes
-        => AsReference("output_bytes");
+        => CreateReference("output_bytes");
 
     /// <summary>
     /// The output_rows attribute.
     /// </summary>
     public TerraformValue<double> OutputRows
-        => AsReference("output_rows");
+        => CreateReference("output_rows");
 
     /// <summary>
     /// The query_table_count attribute.
     /// </summary>
     public TerraformValue<double> QueryTableCount
-        => AsReference("query_table_count");
+        => CreateReference("query_table_count");
 
     /// <summary>
     /// QuerySpatialCoverage block (nesting mode: list).
@@ -668,19 +668,19 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockQueryInsight
     /// The partition_key attribute.
     /// </summary>
     public TerraformList<string> PartitionKey
-        => AsReference("partition_key");
+        => CreateReference("partition_key");
 
     /// <summary>
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-        => AsReference("table_arn");
+        => CreateReference("table_arn");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-        => AsReference("value");
+        => CreateReference("value");
 
 }
 
@@ -721,13 +721,13 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockQueryInsight
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-        => AsReference("table_arn");
+        => CreateReference("table_arn");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-        => AsReference("value");
+        => CreateReference("value");
 
 }
 
@@ -1156,7 +1156,7 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1173,37 +1173,37 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-        => AsReference("creation_time");
+        => CreateReference("creation_time");
 
     /// <summary>
     /// The next_invocation_time attribute.
     /// </summary>
     public TerraformValue<string> NextInvocationTime
-        => AsReference("next_invocation_time");
+        => CreateReference("next_invocation_time");
 
     /// <summary>
     /// The previous_invocation_time attribute.
     /// </summary>
     public TerraformValue<string> PreviousInvocationTime
-        => AsReference("previous_invocation_time");
+        => CreateReference("previous_invocation_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// ErrorReportConfiguration block (nesting mode: list).

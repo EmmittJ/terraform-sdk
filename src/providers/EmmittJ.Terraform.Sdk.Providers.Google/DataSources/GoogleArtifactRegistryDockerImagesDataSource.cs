@@ -13,7 +13,7 @@ public partial class GoogleArtifactRegistryDockerImagesDataSource(string name) :
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,6 +50,6 @@ public partial class GoogleArtifactRegistryDockerImagesDataSource(string name) :
     /// The docker_images attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DockerImages
-        => AsReference("docker_images");
+        => CreateReference("docker_images");
 
 }

@@ -49,7 +49,7 @@ public class AwsVerifiedpermissionsIdentitySourceConfigurationBlockCognitoUserPo
     /// </summary>
     public TerraformList<string> ClientIds
     {
-        get => GetArgument<TerraformList<string>>("client_ids") ?? AsReference("client_ids");
+        get => GetArgument<TerraformList<string>>("client_ids") ?? CreateReference("client_ids");
         set => SetArgument("client_ids", value);
     }
 
@@ -295,7 +295,7 @@ public partial class AwsVerifiedpermissionsIdentitySource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> PrincipalEntityType
     {
-        get => GetArgument<TerraformValue<string>>("principal_entity_type") ?? AsReference("principal_entity_type");
+        get => GetArgument<TerraformValue<string>>("principal_entity_type") ?? CreateReference("principal_entity_type");
         set => SetArgument("principal_entity_type", value);
     }
 
@@ -304,7 +304,7 @@ public partial class AwsVerifiedpermissionsIdentitySource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AwsVerifiedpermissionsIdentitySource(string name) : Terrafo
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

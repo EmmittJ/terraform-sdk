@@ -70,7 +70,7 @@ public partial class AwsNatGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsNatGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsNatGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? CreateReference("state");
         set => SetArgument("state", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsNatGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? CreateReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsNatGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsNatGatewayDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id") ?? AsReference("vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id") ?? CreateReference("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -123,55 +123,55 @@ public partial class AwsNatGatewayDataSource(string name) : TerraformDataSource(
     /// The allocation_id attribute.
     /// </summary>
     public TerraformValue<string> AllocationId
-        => AsReference("allocation_id");
+        => CreateReference("allocation_id");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// The connectivity_type attribute.
     /// </summary>
     public TerraformValue<string> ConnectivityType
-        => AsReference("connectivity_type");
+        => CreateReference("connectivity_type");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
-        => AsReference("network_interface_id");
+        => CreateReference("network_interface_id");
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
     public TerraformValue<string> PrivateIp
-        => AsReference("private_ip");
+        => CreateReference("private_ip");
 
     /// <summary>
     /// The public_ip attribute.
     /// </summary>
     public TerraformValue<string> PublicIp
-        => AsReference("public_ip");
+        => CreateReference("public_ip");
 
     /// <summary>
     /// The secondary_allocation_ids attribute.
     /// </summary>
     public TerraformList<string> SecondaryAllocationIds
-        => AsReference("secondary_allocation_ids");
+        => CreateReference("secondary_allocation_ids");
 
     /// <summary>
     /// The secondary_private_ip_address_count attribute.
     /// </summary>
     public TerraformValue<double> SecondaryPrivateIpAddressCount
-        => AsReference("secondary_private_ip_address_count");
+        => CreateReference("secondary_private_ip_address_count");
 
     /// <summary>
     /// The secondary_private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> SecondaryPrivateIpAddresses
-        => AsReference("secondary_private_ip_addresses");
+        => CreateReference("secondary_private_ip_addresses");
 
     /// <summary>
     /// Filter block (nesting mode: set).

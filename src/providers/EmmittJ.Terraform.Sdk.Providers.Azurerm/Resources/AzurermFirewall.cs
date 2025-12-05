@@ -27,7 +27,7 @@ public class AzurermFirewallIpConfigurationBlock : TerraformBlock
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The public_ip_address_id attribute.
@@ -75,7 +75,7 @@ public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The public_ip_address_id attribute.
@@ -165,13 +165,13 @@ public class AzurermFirewallVirtualHubBlock : TerraformBlock
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-        => AsReference("public_ip_addresses");
+        => CreateReference("public_ip_addresses");
 
     /// <summary>
     /// The public_ip_count attribute.
@@ -206,7 +206,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// </summary>
     public TerraformValue<bool> DnsProxyEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("dns_proxy_enabled") ?? AsReference("dns_proxy_enabled");
+        get => GetArgument<TerraformValue<bool>>("dns_proxy_enabled") ?? CreateReference("dns_proxy_enabled");
         set => SetArgument("dns_proxy_enabled", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -310,7 +310,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// </summary>
     public TerraformValue<string> ThreatIntelMode
     {
-        get => GetArgument<TerraformValue<string>>("threat_intel_mode") ?? AsReference("threat_intel_mode");
+        get => GetArgument<TerraformValue<string>>("threat_intel_mode") ?? CreateReference("threat_intel_mode");
         set => SetArgument("threat_intel_mode", value);
     }
 

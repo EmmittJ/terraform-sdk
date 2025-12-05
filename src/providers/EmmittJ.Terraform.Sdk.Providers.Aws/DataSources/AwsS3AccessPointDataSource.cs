@@ -13,7 +13,7 @@ public partial class AwsS3AccessPointDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? CreateReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsS3AccessPointDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,66 +40,66 @@ public partial class AwsS3AccessPointDataSource(string name) : TerraformDataSour
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-        => AsReference("alias");
+        => CreateReference("alias");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     public TerraformValue<string> Bucket
-        => AsReference("bucket");
+        => CreateReference("bucket");
 
     /// <summary>
     /// The bucket_account_id attribute.
     /// </summary>
     public TerraformValue<string> BucketAccountId
-        => AsReference("bucket_account_id");
+        => CreateReference("bucket_account_id");
 
     /// <summary>
     /// The data_source_id attribute.
     /// </summary>
     public TerraformValue<string> DataSourceId
-        => AsReference("data_source_id");
+        => CreateReference("data_source_id");
 
     /// <summary>
     /// The data_source_type attribute.
     /// </summary>
     public TerraformValue<string> DataSourceTypeAttribute
-        => AsReference("data_source_type");
+        => CreateReference("data_source_type");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     public TerraformMap<string> Endpoints
-        => AsReference("endpoints");
+        => CreateReference("endpoints");
 
     /// <summary>
     /// The network_origin attribute.
     /// </summary>
     public TerraformValue<string> NetworkOrigin
-        => AsReference("network_origin");
+        => CreateReference("network_origin");
 
     /// <summary>
     /// The public_access_block_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicAccessBlockConfiguration
-        => AsReference("public_access_block_configuration");
+        => CreateReference("public_access_block_configuration");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The vpc_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpcConfiguration
-        => AsReference("vpc_configuration");
+        => CreateReference("vpc_configuration");
 
 }

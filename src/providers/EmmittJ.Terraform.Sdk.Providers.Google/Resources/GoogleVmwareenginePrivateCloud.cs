@@ -384,7 +384,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// DNS Server IP of the Private Cloud.
     /// </summary>
     public TerraformValue<string> DnsServerIp
-        => AsReference("dns_server_ip");
+        => CreateReference("dns_server_ip");
 
     /// <summary>
     /// Management CIDR used by VMware management appliances.
@@ -405,7 +405,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// used by all newly created private clouds. This version supports all current features.
     /// </summary>
     public TerraformValue<double> ManagementIpAddressLayoutVersion
-        => AsReference("management_ip_address_layout_version");
+        => CreateReference("management_ip_address_layout_version");
 
     /// <summary>
     /// The relative resource name of the VMware Engine network attached to the private cloud.
@@ -423,7 +423,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// the form: projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId}
     /// </summary>
     public TerraformValue<string> VmwareEngineNetworkCanonical
-        => AsReference("vmware_engine_network_canonical");
+        => CreateReference("vmware_engine_network_canonical");
 
 }
 
@@ -498,7 +498,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -527,7 +527,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -555,7 +555,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Time when the resource was scheduled for deletion.
@@ -563,7 +563,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// Time when the resource will be irreversibly deleted.
@@ -571,31 +571,31 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// Details about a HCX Cloud Manager appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Hcx
-        => AsReference("hcx");
+        => CreateReference("hcx");
 
     /// <summary>
     /// Details about a NSX Manager appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Nsx
-        => AsReference("nsx");
+        => CreateReference("nsx");
 
     /// <summary>
     /// State of the resource. New values may be added to this enum when appropriate.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// Last update time of this resource.
@@ -603,13 +603,13 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Details about a vCenter Server management appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Vcenter
-        => AsReference("vcenter");
+        => CreateReference("vcenter");
 
     /// <summary>
     /// ManagementCluster block (nesting mode: list).

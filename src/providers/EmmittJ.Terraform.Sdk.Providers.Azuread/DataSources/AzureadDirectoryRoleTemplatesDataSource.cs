@@ -36,7 +36,7 @@ public partial class AzureadDirectoryRoleTemplatesDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -44,13 +44,13 @@ public partial class AzureadDirectoryRoleTemplatesDataSource(string name) : Terr
     /// The object IDs of the role templates
     /// </summary>
     public TerraformList<string> ObjectIds
-        => AsReference("object_ids");
+        => CreateReference("object_ids");
 
     /// <summary>
     /// A list of role templates
     /// </summary>
     public TerraformList<TerraformMap<object>> RoleTemplates
-        => AsReference("role_templates");
+        => CreateReference("role_templates");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

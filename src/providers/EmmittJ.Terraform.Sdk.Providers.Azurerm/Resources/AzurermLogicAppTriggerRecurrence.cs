@@ -114,7 +114,7 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone") ?? AsReference("time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone") ?? CreateReference("time_zone");
         set => SetArgument("time_zone", value);
     }
 

@@ -36,7 +36,7 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,19 +64,19 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource(string name) : Te
     /// The source_id attribute.
     /// </summary>
     public TerraformValue<string> SourceId
-        => AsReference("source_id");
+        => CreateReference("source_id");
 
     /// <summary>
     /// The source_volume_size_in_gib attribute.
     /// </summary>
     public TerraformValue<double> SourceVolumeSizeInGib
-        => AsReference("source_volume_size_in_gib");
+        => CreateReference("source_volume_size_in_gib");
 
     /// <summary>
     /// The volume_name attribute.
     /// </summary>
     public TerraformValue<string> VolumeName
-        => AsReference("volume_name");
+        => CreateReference("volume_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

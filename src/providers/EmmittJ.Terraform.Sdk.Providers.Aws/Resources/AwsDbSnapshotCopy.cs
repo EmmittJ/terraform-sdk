@@ -54,7 +54,7 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     /// </summary>
     public TerraformValue<string> OptionGroupName
     {
-        get => GetArgument<TerraformValue<string>>("option_group_name") ?? AsReference("option_group_name");
+        get => GetArgument<TerraformValue<string>>("option_group_name") ?? CreateReference("option_group_name");
         set => SetArgument("option_group_name", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -154,79 +154,79 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     /// The allocated_storage attribute.
     /// </summary>
     public TerraformValue<double> AllocatedStorage
-        => AsReference("allocated_storage");
+        => CreateReference("allocated_storage");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The db_snapshot_arn attribute.
     /// </summary>
     public TerraformValue<string> DbSnapshotArn
-        => AsReference("db_snapshot_arn");
+        => CreateReference("db_snapshot_arn");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-        => AsReference("encrypted");
+        => CreateReference("encrypted");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-        => AsReference("engine");
+        => CreateReference("engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-        => AsReference("engine_version");
+        => CreateReference("engine_version");
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
     public TerraformValue<double> Iops
-        => AsReference("iops");
+        => CreateReference("iops");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
     public TerraformValue<string> LicenseModel
-        => AsReference("license_model");
+        => CreateReference("license_model");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-        => AsReference("port");
+        => CreateReference("port");
 
     /// <summary>
     /// The snapshot_type attribute.
     /// </summary>
     public TerraformValue<string> SnapshotType
-        => AsReference("snapshot_type");
+        => CreateReference("snapshot_type");
 
     /// <summary>
     /// The source_region attribute.
     /// </summary>
     public TerraformValue<string> SourceRegion
-        => AsReference("source_region");
+        => CreateReference("source_region");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     public TerraformValue<string> StorageType
-        => AsReference("storage_type");
+        => CreateReference("storage_type");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

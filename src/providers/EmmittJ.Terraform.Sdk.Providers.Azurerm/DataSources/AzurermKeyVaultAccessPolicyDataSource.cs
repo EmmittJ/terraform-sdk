@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultAccessPolicyDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,19 +54,19 @@ public partial class AzurermKeyVaultAccessPolicyDataSource(string name) : Terraf
     /// The certificate_permissions attribute.
     /// </summary>
     public TerraformList<string> CertificatePermissions
-        => AsReference("certificate_permissions");
+        => CreateReference("certificate_permissions");
 
     /// <summary>
     /// The key_permissions attribute.
     /// </summary>
     public TerraformList<string> KeyPermissions
-        => AsReference("key_permissions");
+        => CreateReference("key_permissions");
 
     /// <summary>
     /// The secret_permissions attribute.
     /// </summary>
     public TerraformList<string> SecretPermissions
-        => AsReference("secret_permissions");
+        => CreateReference("secret_permissions");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

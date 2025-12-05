@@ -46,7 +46,7 @@ public partial class AzurermApiManagementSubscriptionDataSource(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,49 +64,49 @@ public partial class AzurermApiManagementSubscriptionDataSource(string name) : T
     /// The allow_tracing attribute.
     /// </summary>
     public TerraformValue<bool> AllowTracing
-        => AsReference("allow_tracing");
+        => CreateReference("allow_tracing");
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     public TerraformValue<string> ApiId
-        => AsReference("api_id");
+        => CreateReference("api_id");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-        => AsReference("primary_key");
+        => CreateReference("primary_key");
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
     public TerraformValue<string> ProductId
-        => AsReference("product_id");
+        => CreateReference("product_id");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-        => AsReference("secondary_key");
+        => CreateReference("secondary_key");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     public TerraformValue<string> UserId
-        => AsReference("user_id");
+        => CreateReference("user_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

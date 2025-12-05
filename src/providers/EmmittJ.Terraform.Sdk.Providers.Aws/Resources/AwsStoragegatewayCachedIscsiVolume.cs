@@ -23,7 +23,7 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -124,42 +124,42 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The chap_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ChapEnabled
-        => AsReference("chap_enabled");
+        => CreateReference("chap_enabled");
 
     /// <summary>
     /// The lun_number attribute.
     /// </summary>
     public TerraformValue<double> LunNumber
-        => AsReference("lun_number");
+        => CreateReference("lun_number");
 
     /// <summary>
     /// The network_interface_port attribute.
     /// </summary>
     public TerraformValue<double> NetworkInterfacePort
-        => AsReference("network_interface_port");
+        => CreateReference("network_interface_port");
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
     public TerraformValue<string> TargetArn
-        => AsReference("target_arn");
+        => CreateReference("target_arn");
 
     /// <summary>
     /// The volume_arn attribute.
     /// </summary>
     public TerraformValue<string> VolumeArn
-        => AsReference("volume_arn");
+        => CreateReference("volume_arn");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-        => AsReference("volume_id");
+        => CreateReference("volume_id");
 
 }

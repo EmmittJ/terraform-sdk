@@ -67,14 +67,14 @@ public class AzurermVirtualNetworkGatewayBgpSettingsBlockPeeringAddressesBlock :
     /// The default_addresses attribute.
     /// </summary>
     public TerraformList<string> DefaultAddresses
-        => AsReference("default_addresses");
+        => CreateReference("default_addresses");
 
     /// <summary>
     /// The ip_configuration_name attribute.
     /// </summary>
     public TerraformValue<string> IpConfigurationName
     {
-        get => GetArgument<TerraformValue<string>>("ip_configuration_name") ?? AsReference("ip_configuration_name");
+        get => GetArgument<TerraformValue<string>>("ip_configuration_name") ?? CreateReference("ip_configuration_name");
         set => SetArgument("ip_configuration_name", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermVirtualNetworkGatewayBgpSettingsBlockPeeringAddressesBlock :
     /// The tunnel_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> TunnelIpAddresses
-        => AsReference("tunnel_ip_addresses");
+        => CreateReference("tunnel_ip_addresses");
 
 }
 
@@ -379,7 +379,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     /// </summary>
     public TerraformSet<string> VpnAuthTypes
     {
-        get => GetArgument<TerraformSet<string>>("vpn_auth_types") ?? AsReference("vpn_auth_types");
+        get => GetArgument<TerraformSet<string>>("vpn_auth_types") ?? CreateReference("vpn_auth_types");
         set => SetArgument("vpn_auth_types", value);
     }
 
@@ -388,7 +388,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     /// </summary>
     public TerraformSet<string> VpnClientProtocols
     {
-        get => GetArgument<TerraformSet<string>>("vpn_client_protocols") ?? AsReference("vpn_client_protocols");
+        get => GetArgument<TerraformSet<string>>("vpn_client_protocols") ?? CreateReference("vpn_client_protocols");
         set => SetArgument("vpn_client_protocols", value);
     }
 
@@ -697,7 +697,7 @@ public partial class AzurermVirtualNetworkGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool> ActiveActive
     {
-        get => GetArgument<TerraformValue<bool>>("active_active") ?? AsReference("active_active");
+        get => GetArgument<TerraformValue<bool>>("active_active") ?? CreateReference("active_active");
         set => SetArgument("active_active", value);
     }
 
@@ -742,7 +742,7 @@ public partial class AzurermVirtualNetworkGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool> EnableBgp
     {
-        get => GetArgument<TerraformValue<bool>>("enable_bgp") ?? AsReference("enable_bgp");
+        get => GetArgument<TerraformValue<bool>>("enable_bgp") ?? CreateReference("enable_bgp");
         set => SetArgument("enable_bgp", value);
     }
 
@@ -751,7 +751,7 @@ public partial class AzurermVirtualNetworkGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Generation
     {
-        get => GetArgument<TerraformValue<string>>("generation") ?? AsReference("generation");
+        get => GetArgument<TerraformValue<string>>("generation") ?? CreateReference("generation");
         set => SetArgument("generation", value);
     }
 
@@ -760,7 +760,7 @@ public partial class AzurermVirtualNetworkGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

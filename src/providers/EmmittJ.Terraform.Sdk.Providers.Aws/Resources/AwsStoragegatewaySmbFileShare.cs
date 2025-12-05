@@ -140,7 +140,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> FileShareName
     {
-        get => GetArgument<TerraformValue<string>>("file_share_name") ?? AsReference("file_share_name");
+        get => GetArgument<TerraformValue<string>>("file_share_name") ?? CreateReference("file_share_name");
         set => SetArgument("file_share_name", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool> OplocksEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("oplocks_enabled") ?? AsReference("oplocks_enabled");
+        get => GetArgument<TerraformValue<bool>>("oplocks_enabled") ?? CreateReference("oplocks_enabled");
         set => SetArgument("oplocks_enabled", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -322,19 +322,19 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The fileshare_id attribute.
     /// </summary>
     public TerraformValue<string> FileshareId
-        => AsReference("fileshare_id");
+        => CreateReference("fileshare_id");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-        => AsReference("path");
+        => CreateReference("path");
 
     /// <summary>
     /// CacheAttributes block (nesting mode: list).

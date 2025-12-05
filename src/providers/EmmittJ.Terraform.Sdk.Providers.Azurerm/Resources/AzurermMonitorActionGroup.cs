@@ -314,7 +314,7 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? CreateReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -323,7 +323,7 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? CreateReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -662,7 +662,7 @@ public class AzurermMonitorActionGroupWebhookReceiverBlockAadAuthBlock : Terrafo
     /// </summary>
     public TerraformValue<string> IdentifierUri
     {
-        get => GetArgument<TerraformValue<string>>("identifier_uri") ?? AsReference("identifier_uri");
+        get => GetArgument<TerraformValue<string>>("identifier_uri") ?? CreateReference("identifier_uri");
         set => SetArgument("identifier_uri", value);
     }
 
@@ -681,7 +681,7 @@ public class AzurermMonitorActionGroupWebhookReceiverBlockAadAuthBlock : Terrafo
     /// </summary>
     public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? CreateReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -708,7 +708,7 @@ public partial class AzurermMonitorActionGroup(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

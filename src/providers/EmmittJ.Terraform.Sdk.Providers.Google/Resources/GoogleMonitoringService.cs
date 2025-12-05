@@ -97,7 +97,7 @@ public partial class GoogleMonitoringService(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleMonitoringService(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -140,13 +140,13 @@ public partial class GoogleMonitoringService(string name) : TerraformResource("g
     /// projects/[PROJECT_ID]/services/[SERVICE_ID].
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Configuration for how to query telemetry on a Service.
     /// </summary>
     public TerraformList<TerraformMap<object>> Telemetry
-        => AsReference("telemetry");
+        => CreateReference("telemetry");
 
     /// <summary>
     /// BasicService block (nesting mode: list).

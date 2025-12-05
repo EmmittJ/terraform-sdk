@@ -36,7 +36,7 @@ public partial class AzureadAccessPackageCatalogRoleDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzureadAccessPackageCatalogRoleDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzureadAccessPackageCatalogRoleDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? CreateReference("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -62,13 +62,13 @@ public partial class AzureadAccessPackageCatalogRoleDataSource(string name) : Te
     /// The description of the catalog role
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The object ID of the template associated with the catalog role
     /// </summary>
     public TerraformValue<string> TemplateId
-        => AsReference("template_id");
+        => CreateReference("template_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

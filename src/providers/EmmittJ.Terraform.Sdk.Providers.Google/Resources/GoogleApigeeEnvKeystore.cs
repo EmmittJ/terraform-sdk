@@ -56,7 +56,7 @@ public partial class GoogleApigeeEnvKeystore(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleApigeeEnvKeystore(string name) : TerraformResource("g
     /// Aliases in this keystore.
     /// </summary>
     public TerraformList<string> Aliases
-        => AsReference("aliases");
+        => CreateReference("aliases");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

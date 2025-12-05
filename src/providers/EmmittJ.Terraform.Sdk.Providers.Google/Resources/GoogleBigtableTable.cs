@@ -18,7 +18,7 @@ public class GoogleBigtableTableAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency") ?? AsReference("frequency");
+        get => GetArgument<TerraformValue<string>>("frequency") ?? CreateReference("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleBigtableTableAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> RetentionPeriod
     {
-        get => GetArgument<TerraformValue<string>>("retention_period") ?? AsReference("retention_period");
+        get => GetArgument<TerraformValue<string>>("retention_period") ?? CreateReference("retention_period");
         set => SetArgument("retention_period", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> ChangeStreamRetention
     {
-        get => GetArgument<TerraformValue<string>>("change_stream_retention") ?? AsReference("change_stream_retention");
+        get => GetArgument<TerraformValue<string>>("change_stream_retention") ?? CreateReference("change_stream_retention");
         set => SetArgument("change_stream_retention", value);
     }
 
@@ -119,7 +119,7 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> DeletionProtection
     {
-        get => GetArgument<TerraformValue<string>>("deletion_protection") ?? AsReference("deletion_protection");
+        get => GetArgument<TerraformValue<string>>("deletion_protection") ?? CreateReference("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 

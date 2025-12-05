@@ -88,13 +88,13 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -262,7 +262,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> AddonJson
     {
-        get => GetArgument<TerraformValue<string>>("addon_json") ?? AsReference("addon_json");
+        get => GetArgument<TerraformValue<string>>("addon_json") ?? CreateReference("addon_json");
         set => SetArgument("addon_json", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -345,13 +345,13 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// CustomPersistentDisk block (nesting mode: list).

@@ -70,7 +70,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// </summary>
     public TerraformValue<bool> Decrypt
     {
-        get => GetArgument<TerraformValue<bool>>("decrypt") ?? AsReference("decrypt");
+        get => GetArgument<TerraformValue<bool>>("decrypt") ?? CreateReference("decrypt");
         set => SetArgument("decrypt", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// </summary>
     public TerraformValue<bool> DeriveKey
     {
-        get => GetArgument<TerraformValue<bool>>("derive_key") ?? AsReference("derive_key");
+        get => GetArgument<TerraformValue<bool>>("derive_key") ?? CreateReference("derive_key");
         set => SetArgument("derive_key", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// </summary>
     public TerraformValue<bool> Encrypt
     {
-        get => GetArgument<TerraformValue<bool>>("encrypt") ?? AsReference("encrypt");
+        get => GetArgument<TerraformValue<bool>>("encrypt") ?? CreateReference("encrypt");
         set => SetArgument("encrypt", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// </summary>
     public TerraformValue<bool> Generate
     {
-        get => GetArgument<TerraformValue<bool>>("generate") ?? AsReference("generate");
+        get => GetArgument<TerraformValue<bool>>("generate") ?? CreateReference("generate");
         set => SetArgument("generate", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// </summary>
     public TerraformValue<bool> NoRestrictions
     {
-        get => GetArgument<TerraformValue<bool>>("no_restrictions") ?? AsReference("no_restrictions");
+        get => GetArgument<TerraformValue<bool>>("no_restrictions") ?? CreateReference("no_restrictions");
         set => SetArgument("no_restrictions", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// </summary>
     public TerraformValue<bool> Sign
     {
-        get => GetArgument<TerraformValue<bool>>("sign") ?? AsReference("sign");
+        get => GetArgument<TerraformValue<bool>>("sign") ?? CreateReference("sign");
         set => SetArgument("sign", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// </summary>
     public TerraformValue<bool> Unwrap
     {
-        get => GetArgument<TerraformValue<bool>>("unwrap") ?? AsReference("unwrap");
+        get => GetArgument<TerraformValue<bool>>("unwrap") ?? CreateReference("unwrap");
         set => SetArgument("unwrap", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// </summary>
     public TerraformValue<bool> Verify
     {
-        get => GetArgument<TerraformValue<bool>>("verify") ?? AsReference("verify");
+        get => GetArgument<TerraformValue<bool>>("verify") ?? CreateReference("verify");
         set => SetArgument("verify", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// </summary>
     public TerraformValue<bool> Wrap
     {
-        get => GetArgument<TerraformValue<bool>>("wrap") ?? AsReference("wrap");
+        get => GetArgument<TerraformValue<bool>>("wrap") ?? CreateReference("wrap");
         set => SetArgument("wrap", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double> DeletionWindowInDays
     {
-        get => GetArgument<TerraformValue<double>>("deletion_window_in_days") ?? AsReference("deletion_window_in_days");
+        get => GetArgument<TerraformValue<double>>("deletion_window_in_days") ?? CreateReference("deletion_window_in_days");
         set => SetArgument("deletion_window_in_days", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? CreateReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> KeyCheckValueAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("key_check_value_algorithm") ?? AsReference("key_check_value_algorithm");
+        get => GetArgument<TerraformValue<string>>("key_check_value_algorithm") ?? CreateReference("key_check_value_algorithm");
         set => SetArgument("key_check_value_algorithm", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -255,37 +255,37 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The key_check_value attribute.
     /// </summary>
     public TerraformValue<string> KeyCheckValue
-        => AsReference("key_check_value");
+        => CreateReference("key_check_value");
 
     /// <summary>
     /// The key_origin attribute.
     /// </summary>
     public TerraformValue<string> KeyOrigin
-        => AsReference("key_origin");
+        => CreateReference("key_origin");
 
     /// <summary>
     /// The key_state attribute.
     /// </summary>
     public TerraformValue<string> KeyState
-        => AsReference("key_state");
+        => CreateReference("key_state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// KeyAttributes block (nesting mode: list).

@@ -184,7 +184,7 @@ public partial class GoogleGkeHubFleet(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -193,7 +193,7 @@ public partial class GoogleGkeHubFleet(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -201,19 +201,19 @@ public partial class GoogleGkeHubFleet(string name) : TerraformResource("google_
     /// The time the fleet was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// The time the fleet was deleted, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// The state of the fleet resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Google-generated UUID for this resource. This is unique across all
@@ -221,13 +221,13 @@ public partial class GoogleGkeHubFleet(string name) : TerraformResource("google_
     /// resource with the same name is created, it gets a different uid.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The time the fleet was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// DefaultClusterConfig block (nesting mode: list).

@@ -23,7 +23,7 @@ public partial class GoogleProjectsDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,6 +31,6 @@ public partial class GoogleProjectsDataSource(string name) : TerraformDataSource
     /// The projects attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Projects
-        => AsReference("projects");
+        => CreateReference("projects");
 
 }

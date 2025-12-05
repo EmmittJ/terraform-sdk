@@ -13,7 +13,7 @@ public partial class GoogleCloudRunV2JobDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -57,49 +57,49 @@ public partial class GoogleCloudRunV2JobDataSource(string name) : TerraformDataS
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
     public TerraformMap<string> Annotations
-        => AsReference("annotations");
+        => CreateReference("annotations");
 
     /// <summary>
     /// Settings for the Binary Authorization feature.
     /// </summary>
     public TerraformList<TerraformMap<object>> BinaryAuthorization
-        => AsReference("binary_authorization");
+        => CreateReference("binary_authorization");
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
     public TerraformValue<string> Client
-        => AsReference("client");
+        => CreateReference("client");
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
     public TerraformValue<string> ClientVersion
-        => AsReference("client_version");
+        => CreateReference("client_version");
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Job does not reach its desired state. See comments in reconciling for additional information on &#39;reconciliation&#39; process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> Conditions
-        => AsReference("conditions");
+        => CreateReference("conditions");
 
     /// <summary>
     /// The creation time.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
     public TerraformValue<string> Creator
-        => AsReference("creator");
+        => CreateReference("creator");
 
     /// <summary>
     /// The deletion time.
     /// </summary>
     public TerraformValue<string> DeleteTime
-        => AsReference("delete_time");
+        => CreateReference("delete_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the job. Defaults to true.
@@ -110,43 +110,43 @@ public partial class GoogleCloudRunV2JobDataSource(string name) : TerraformDataS
     /// When the field is set to false, deleting the job is allowed.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-        => AsReference("deletion_protection");
+        => CreateReference("deletion_protection");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-        => AsReference("effective_annotations");
+        => CreateReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
     public TerraformValue<string> Etag
-        => AsReference("etag");
+        => CreateReference("etag");
 
     /// <summary>
     /// Number of executions created for this job.
     /// </summary>
     public TerraformValue<double> ExecutionCount
-        => AsReference("execution_count");
+        => CreateReference("execution_count");
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
     public TerraformValue<string> ExpireTime
-        => AsReference("expire_time");
+        => CreateReference("expire_time");
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state.
     /// </summary>
     public TerraformValue<string> Generation
-        => AsReference("generation");
+        => CreateReference("generation");
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component,
@@ -159,19 +159,19 @@ public partial class GoogleCloudRunV2JobDataSource(string name) : TerraformDataS
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
     public TerraformValue<string> LastModifier
-        => AsReference("last_modifier");
+        => CreateReference("last_modifier");
 
     /// <summary>
     /// Name of the last created execution.
     /// </summary>
     public TerraformList<TerraformMap<object>> LatestCreatedExecution
-        => AsReference("latest_created_execution");
+        => CreateReference("latest_created_execution");
 
     /// <summary>
     /// The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/products#product-launch-stages). Cloud Run supports ALPHA, BETA, and GA.
@@ -180,13 +180,13 @@ public partial class GoogleCloudRunV2JobDataSource(string name) : TerraformDataS
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
     public TerraformValue<string> LaunchStage
-        => AsReference("launch_stage");
+        => CreateReference("launch_stage");
 
     /// <summary>
     /// The generation of this Job. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformValue<string> ObservedGeneration
-        => AsReference("observed_generation");
+        => CreateReference("observed_generation");
 
     /// <summary>
     /// Returns true if the Job is currently being acted upon by the system to bring it into the desired state.
@@ -198,37 +198,37 @@ public partial class GoogleCloudRunV2JobDataSource(string name) : TerraformDataS
     /// If reconciliation failed, observedGeneration and latest_succeeded_execution will have the state of the last succeeded execution or empty for newly created Job. Additional information on the failure can be found in terminalCondition and conditions
     /// </summary>
     public TerraformValue<bool> Reconciling
-        => AsReference("reconciling");
+        => CreateReference("reconciling");
 
     /// <summary>
     /// The template used to create executions for this Job.
     /// </summary>
     public TerraformList<TerraformMap<object>> Template
-        => AsReference("template");
+        => CreateReference("template");
 
     /// <summary>
     /// The Condition of this Job, containing its readiness status, and detailed error information in case it did not reach the desired state
     /// </summary>
     public TerraformList<TerraformMap<object>> TerminalCondition
-        => AsReference("terminal_condition");
+        => CreateReference("terminal_condition");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Server assigned unique identifier for the Execution. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     public TerraformValue<string> Uid
-        => AsReference("uid");
+        => CreateReference("uid");
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
 }

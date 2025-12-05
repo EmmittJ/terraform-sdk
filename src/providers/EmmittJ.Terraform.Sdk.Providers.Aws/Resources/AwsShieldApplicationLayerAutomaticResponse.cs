@@ -74,7 +74,7 @@ public partial class AwsShieldApplicationLayerAutomaticResponse(string name) : T
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -32,7 +32,7 @@ public partial class AwsSecurityhubMember(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsSecurityhubMember(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,12 +58,12 @@ public partial class AwsSecurityhubMember(string name) : TerraformResource("aws_
     /// The master_id attribute.
     /// </summary>
     public TerraformValue<string> MasterId
-        => AsReference("master_id");
+        => CreateReference("master_id");
 
     /// <summary>
     /// The member_status attribute.
     /// </summary>
     public TerraformValue<string> MemberStatus
-        => AsReference("member_status");
+        => CreateReference("member_status");
 
 }

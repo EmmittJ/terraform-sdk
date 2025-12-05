@@ -23,7 +23,7 @@ public partial class AwsEksAccessEntryDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsEksAccessEntryDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsEksAccessEntryDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -68,36 +68,36 @@ public partial class AwsEksAccessEntryDataSource(string name) : TerraformDataSou
     /// The access_entry_arn attribute.
     /// </summary>
     public TerraformValue<string> AccessEntryArn
-        => AsReference("access_entry_arn");
+        => CreateReference("access_entry_arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The kubernetes_groups attribute.
     /// </summary>
     public TerraformSet<string> KubernetesGroups
-        => AsReference("kubernetes_groups");
+        => CreateReference("kubernetes_groups");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
     public TerraformValue<string> ModifiedAt
-        => AsReference("modified_at");
+        => CreateReference("modified_at");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     public TerraformValue<string> UserName
-        => AsReference("user_name");
+        => CreateReference("user_name");
 
 }

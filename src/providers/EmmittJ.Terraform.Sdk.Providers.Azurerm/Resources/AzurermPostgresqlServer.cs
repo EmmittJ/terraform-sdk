@@ -17,13 +17,13 @@ public class AzurermPostgresqlServerIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -177,7 +177,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> AdministratorLogin
     {
-        get => GetArgument<TerraformValue<string>>("administrator_login") ?? AsReference("administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login") ?? CreateReference("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -222,7 +222,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double> BackupRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_days") ?? AsReference("backup_retention_days");
+        get => GetArgument<TerraformValue<double>>("backup_retention_days") ?? CreateReference("backup_retention_days");
         set => SetArgument("backup_retention_days", value);
     }
 
@@ -258,7 +258,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -353,7 +353,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double> StorageMb
     {
-        get => GetArgument<TerraformValue<double>>("storage_mb") ?? AsReference("storage_mb");
+        get => GetArgument<TerraformValue<double>>("storage_mb") ?? CreateReference("storage_mb");
         set => SetArgument("storage_mb", value);
     }
 
@@ -380,7 +380,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// Identity block (nesting mode: list).

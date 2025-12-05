@@ -33,7 +33,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email") ?? AsReference("service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email") ?? CreateReference("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleSourcerepoRepository(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class GoogleSourcerepoRepository(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -139,13 +139,13 @@ public partial class GoogleSourcerepoRepository(string name) : TerraformResource
     /// The disk usage of the repo, in bytes.
     /// </summary>
     public TerraformValue<double> Size
-        => AsReference("size");
+        => CreateReference("size");
 
     /// <summary>
     /// URL to clone the repository from Google Cloud Source Repositories.
     /// </summary>
     public TerraformValue<string> Url
-        => AsReference("url");
+        => CreateReference("url");
 
     /// <summary>
     /// PubsubConfigs block (nesting mode: set).

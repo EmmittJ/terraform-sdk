@@ -202,7 +202,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> CustomizationType
     {
-        get => GetArgument<TerraformValue<string>>("customization_type") ?? AsReference("customization_type");
+        get => GetArgument<TerraformValue<string>>("customization_type") ?? CreateReference("customization_type");
         set => SetArgument("customization_type", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -258,44 +258,44 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     /// The custom_model_arn attribute.
     /// </summary>
     public TerraformValue<string> CustomModelArn
-        => AsReference("custom_model_arn");
+        => CreateReference("custom_model_arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The job_arn attribute.
     /// </summary>
     public TerraformValue<string> JobArn
-        => AsReference("job_arn");
+        => CreateReference("job_arn");
 
     /// <summary>
     /// The job_status attribute.
     /// </summary>
     public TerraformValue<string> JobStatus
-        => AsReference("job_status");
+        => CreateReference("job_status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The training_metrics attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrainingMetrics
-        => AsReference("training_metrics");
+        => CreateReference("training_metrics");
 
     /// <summary>
     /// The validation_metrics attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValidationMetrics
-        => AsReference("validation_metrics");
+        => CreateReference("validation_metrics");
 
     /// <summary>
     /// OutputDataConfig block (nesting mode: list).

@@ -28,7 +28,7 @@ public class GoogleVpcAccessConnectorSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? CreateReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> MaxInstances
     {
-        get => GetArgument<TerraformValue<double>>("max_instances") ?? AsReference("max_instances");
+        get => GetArgument<TerraformValue<double>>("max_instances") ?? CreateReference("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -126,7 +126,7 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> MaxThroughput
     {
-        get => GetArgument<TerraformValue<double>>("max_throughput") ?? AsReference("max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput") ?? CreateReference("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -136,7 +136,7 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> MinInstances
     {
-        get => GetArgument<TerraformValue<double>>("min_instances") ?? AsReference("min_instances");
+        get => GetArgument<TerraformValue<double>>("min_instances") ?? CreateReference("min_instances");
         set => SetArgument("min_instances", value);
     }
 
@@ -147,7 +147,7 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double> MinThroughput
     {
-        get => GetArgument<TerraformValue<double>>("min_throughput") ?? AsReference("min_throughput");
+        get => GetArgument<TerraformValue<double>>("min_throughput") ?? CreateReference("min_throughput");
         set => SetArgument("min_throughput", value);
     }
 
@@ -166,7 +166,7 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? CreateReference("network");
         set => SetArgument("network", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -184,7 +184,7 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -192,19 +192,19 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// List of projects using the connector.
     /// </summary>
     public TerraformList<string> ConnectedProjects
-        => AsReference("connected_projects");
+        => CreateReference("connected_projects");
 
     /// <summary>
     /// The fully qualified name of this VPC connector
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// State of the VPC access connector.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// Subnet block (nesting mode: list).

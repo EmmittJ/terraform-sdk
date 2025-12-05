@@ -96,7 +96,7 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,13 +162,13 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup(string name) : Ter
     /// The partner_region attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PartnerRegion
-        => AsReference("partner_region");
+        => CreateReference("partner_region");
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     public TerraformValue<string> Role
-        => AsReference("role");
+        => CreateReference("role");
 
     /// <summary>
     /// ReadWriteEndpointFailoverPolicy block (nesting mode: list).

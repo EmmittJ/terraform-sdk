@@ -18,7 +18,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration") ?? AsReference("encryption_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration") ?? CreateReference("encryption_configuration");
         set => SetArgument("encryption_configuration", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AwsSecuritylakeDataLake(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -247,25 +247,25 @@ public partial class AwsSecuritylakeDataLake(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The s3_bucket_arn attribute.
     /// </summary>
     public TerraformValue<string> S3BucketArn
-        => AsReference("s3_bucket_arn");
+        => CreateReference("s3_bucket_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

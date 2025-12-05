@@ -120,7 +120,7 @@ public partial class AzurermApplicationInsightsWebTest(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AzurermApplicationInsightsWebTest(string name) : TerraformR
     /// The synthetic_monitor_id attribute.
     /// </summary>
     public TerraformValue<string> SyntheticMonitorId
-        => AsReference("synthetic_monitor_id");
+        => CreateReference("synthetic_monitor_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

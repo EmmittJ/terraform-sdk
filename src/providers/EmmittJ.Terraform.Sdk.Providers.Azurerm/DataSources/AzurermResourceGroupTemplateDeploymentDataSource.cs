@@ -36,7 +36,7 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSource(string nam
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSource(string nam
     /// The output_content attribute.
     /// </summary>
     public TerraformValue<string> OutputContent
-        => AsReference("output_content");
+        => CreateReference("output_content");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

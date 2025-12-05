@@ -139,7 +139,7 @@ public partial class AzurermStorageTable(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermStorageTable(string name) : TerraformResource("azure
     /// The Resource Manager ID of this Storage Table.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-        => AsReference("resource_manager_id");
+        => CreateReference("resource_manager_id");
 
     /// <summary>
     /// Acl block (nesting mode: set).

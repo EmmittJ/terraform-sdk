@@ -167,7 +167,7 @@ public partial class GoogleIamPolicyDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleIamPolicyDataSource(string name) : TerraformDataSourc
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-        => AsReference("policy_data");
+        => CreateReference("policy_data");
 
     /// <summary>
     /// AuditConfig block (nesting mode: set).

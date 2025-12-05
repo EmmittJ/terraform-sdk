@@ -23,7 +23,7 @@ public partial class AwsEcsClusterDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsEcsClusterDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsEcsClusterDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,42 +49,42 @@ public partial class AwsEcsClusterDataSource(string name) : TerraformDataSource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The pending_tasks_count attribute.
     /// </summary>
     public TerraformValue<double> PendingTasksCount
-        => AsReference("pending_tasks_count");
+        => CreateReference("pending_tasks_count");
 
     /// <summary>
     /// The registered_container_instances_count attribute.
     /// </summary>
     public TerraformValue<double> RegisteredContainerInstancesCount
-        => AsReference("registered_container_instances_count");
+        => CreateReference("registered_container_instances_count");
 
     /// <summary>
     /// The running_tasks_count attribute.
     /// </summary>
     public TerraformValue<double> RunningTasksCount
-        => AsReference("running_tasks_count");
+        => CreateReference("running_tasks_count");
 
     /// <summary>
     /// The service_connect_defaults attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceConnectDefaults
-        => AsReference("service_connect_defaults");
+        => CreateReference("service_connect_defaults");
 
     /// <summary>
     /// The setting attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Setting
-        => AsReference("setting");
+        => CreateReference("setting");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

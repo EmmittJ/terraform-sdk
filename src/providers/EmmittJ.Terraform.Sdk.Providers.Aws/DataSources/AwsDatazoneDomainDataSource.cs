@@ -13,7 +13,7 @@ public partial class AwsDatazoneDomainDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDatazoneDomainDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsDatazoneDomainDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -39,48 +39,48 @@ public partial class AwsDatazoneDomainDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The domain_version attribute.
     /// </summary>
     public TerraformValue<string> DomainVersion
-        => AsReference("domain_version");
+        => CreateReference("domain_version");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedAt
-        => AsReference("last_updated_at");
+        => CreateReference("last_updated_at");
 
     /// <summary>
     /// The managed_account_id attribute.
     /// </summary>
     public TerraformValue<string> ManagedAccountId
-        => AsReference("managed_account_id");
+        => CreateReference("managed_account_id");
 
     /// <summary>
     /// The portal_url attribute.
     /// </summary>
     public TerraformValue<string> PortalUrl
-        => AsReference("portal_url");
+        => CreateReference("portal_url");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
 }

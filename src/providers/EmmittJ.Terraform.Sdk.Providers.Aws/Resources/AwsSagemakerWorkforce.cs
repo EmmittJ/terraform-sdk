@@ -205,7 +205,7 @@ public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
     /// The vpc_endpoint_id attribute.
     /// </summary>
     public TerraformValue<string> VpcEndpointId
-        => AsReference("vpc_endpoint_id");
+        => CreateReference("vpc_endpoint_id");
 
     /// <summary>
     /// The vpc_id attribute.
@@ -230,7 +230,7 @@ public partial class AwsSagemakerWorkforce(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AwsSagemakerWorkforce(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -257,13 +257,13 @@ public partial class AwsSagemakerWorkforce(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The subdomain attribute.
     /// </summary>
     public TerraformValue<string> Subdomain
-        => AsReference("subdomain");
+        => CreateReference("subdomain");
 
     /// <summary>
     /// CognitoConfig block (nesting mode: list).

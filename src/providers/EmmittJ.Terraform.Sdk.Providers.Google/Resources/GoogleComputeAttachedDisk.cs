@@ -45,7 +45,7 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name") ?? AsReference("device_name");
+        get => GetArgument<TerraformValue<string>>("device_name") ?? CreateReference("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -64,7 +64,7 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? CreateReference("zone");
         set => SetArgument("zone", value);
     }
 

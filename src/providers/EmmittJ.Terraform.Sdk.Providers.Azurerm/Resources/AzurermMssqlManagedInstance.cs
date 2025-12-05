@@ -88,13 +88,13 @@ public class AzurermMssqlManagedInstanceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -170,7 +170,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> AdministratorLogin
     {
-        get => GetArgument<TerraformValue<string>>("administrator_login") ?? AsReference("administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login") ?? CreateReference("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -393,13 +393,13 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     /// The dns_zone attribute.
     /// </summary>
     public TerraformValue<string> DnsZone
-        => AsReference("dns_zone");
+        => CreateReference("dns_zone");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// AzureActiveDirectoryAdministrator block (nesting mode: list).

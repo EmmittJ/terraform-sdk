@@ -54,7 +54,7 @@ public partial class GoogleStorageHmacKey(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class GoogleStorageHmacKey(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -90,25 +90,25 @@ public partial class GoogleStorageHmacKey(string name) : TerraformResource("goog
     /// The access ID of the HMAC Key.
     /// </summary>
     public TerraformValue<string> AccessId
-        => AsReference("access_id");
+        => CreateReference("access_id");
 
     /// <summary>
     /// HMAC secret key material.
     /// </summary>
     public TerraformValue<string> Secret
-        => AsReference("secret");
+        => CreateReference("secret");
 
     /// <summary>
     /// &#39;The creation time of the HMAC key in RFC 3339 format. &#39;
     /// </summary>
     public TerraformValue<string> TimeCreated
-        => AsReference("time_created");
+        => CreateReference("time_created");
 
     /// <summary>
     /// &#39;The last modification time of the HMAC key metadata in RFC 3339 format.&#39;
     /// </summary>
     public TerraformValue<string> Updated
-        => AsReference("updated");
+        => CreateReference("updated");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

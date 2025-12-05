@@ -84,13 +84,13 @@ public class AzurermVirtualMachineIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -150,7 +150,7 @@ public class AzurermVirtualMachineOsProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> CustomData
     {
-        get => GetArgument<TerraformValue<string>>("custom_data") ?? AsReference("custom_data");
+        get => GetArgument<TerraformValue<string>>("custom_data") ?? CreateReference("custom_data");
         set => SetArgument("custom_data", value);
     }
 
@@ -492,7 +492,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Caching
     {
-        get => GetArgument<TerraformValue<string>>("caching") ?? AsReference("caching");
+        get => GetArgument<TerraformValue<string>>("caching") ?? CreateReference("caching");
         set => SetArgument("caching", value);
     }
 
@@ -511,7 +511,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -530,7 +530,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ManagedDiskId
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_id") ?? AsReference("managed_disk_id");
+        get => GetArgument<TerraformValue<string>>("managed_disk_id") ?? CreateReference("managed_disk_id");
         set => SetArgument("managed_disk_id", value);
     }
 
@@ -539,7 +539,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ManagedDiskType
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? AsReference("managed_disk_type");
+        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? CreateReference("managed_disk_type");
         set => SetArgument("managed_disk_type", value);
     }
 
@@ -626,7 +626,7 @@ public class AzurermVirtualMachineStorageImageReferenceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? CreateReference("version");
         set => SetArgument("version", value);
     }
 
@@ -649,7 +649,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> Caching
     {
-        get => GetArgument<TerraformValue<string>>("caching") ?? AsReference("caching");
+        get => GetArgument<TerraformValue<string>>("caching") ?? CreateReference("caching");
         set => SetArgument("caching", value);
     }
 
@@ -668,7 +668,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? CreateReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -686,7 +686,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ManagedDiskId
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_id") ?? AsReference("managed_disk_id");
+        get => GetArgument<TerraformValue<string>>("managed_disk_id") ?? CreateReference("managed_disk_id");
         set => SetArgument("managed_disk_id", value);
     }
 
@@ -695,7 +695,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> ManagedDiskType
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? AsReference("managed_disk_type");
+        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? CreateReference("managed_disk_type");
         set => SetArgument("managed_disk_type", value);
     }
 
@@ -714,7 +714,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> OsType
     {
-        get => GetArgument<TerraformValue<string>>("os_type") ?? AsReference("os_type");
+        get => GetArgument<TerraformValue<string>>("os_type") ?? CreateReference("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -800,7 +800,7 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> AvailabilitySetId
     {
-        get => GetArgument<TerraformValue<string>>("availability_set_id") ?? AsReference("availability_set_id");
+        get => GetArgument<TerraformValue<string>>("availability_set_id") ?? CreateReference("availability_set_id");
         set => SetArgument("availability_set_id", value);
     }
 
@@ -827,7 +827,7 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -836,7 +836,7 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> LicenseType
     {
-        get => GetArgument<TerraformValue<string>>("license_type") ?? AsReference("license_type");
+        get => GetArgument<TerraformValue<string>>("license_type") ?? CreateReference("license_type");
         set => SetArgument("license_type", value);
     }
 

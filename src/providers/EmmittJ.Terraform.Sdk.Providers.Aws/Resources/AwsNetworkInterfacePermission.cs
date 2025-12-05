@@ -75,7 +75,7 @@ public partial class AwsNetworkInterfacePermission(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsNetworkInterfacePermission(string name) : TerraformResou
     /// The network_interface_permission_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInterfacePermissionId
-        => AsReference("network_interface_permission_id");
+        => CreateReference("network_interface_permission_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

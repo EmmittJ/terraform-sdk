@@ -13,7 +13,7 @@ public partial class AwsOutpostsOutpostDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? CreateReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsOutpostsOutpostDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsOutpostsOutpostDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsOutpostsOutpostDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsOutpostsOutpostDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -66,42 +66,42 @@ public partial class AwsOutpostsOutpostDataSource(string name) : TerraformDataSo
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-        => AsReference("availability_zone");
+        => CreateReference("availability_zone");
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneId
-        => AsReference("availability_zone_id");
+        => CreateReference("availability_zone_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The lifecycle_status attribute.
     /// </summary>
     public TerraformValue<string> LifecycleStatus
-        => AsReference("lifecycle_status");
+        => CreateReference("lifecycle_status");
 
     /// <summary>
     /// The site_arn attribute.
     /// </summary>
     public TerraformValue<string> SiteArn
-        => AsReference("site_arn");
+        => CreateReference("site_arn");
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
     public TerraformValue<string> SiteId
-        => AsReference("site_id");
+        => CreateReference("site_id");
 
     /// <summary>
     /// The supported_hardware_type attribute.
     /// </summary>
     public TerraformValue<string> SupportedHardwareType
-        => AsReference("supported_hardware_type");
+        => CreateReference("supported_hardware_type");
 
 }

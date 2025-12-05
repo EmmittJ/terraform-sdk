@@ -26,13 +26,13 @@ public class AzurermDiskEncryptionSetIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -135,7 +135,7 @@ public partial class AzurermDiskEncryptionSet(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermDiskEncryptionSet(string name) : TerraformResource("
     /// The key_vault_key_url attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultKeyUrl
-        => AsReference("key_vault_key_url");
+        => CreateReference("key_vault_key_url");
 
     /// <summary>
     /// Identity block (nesting mode: list).

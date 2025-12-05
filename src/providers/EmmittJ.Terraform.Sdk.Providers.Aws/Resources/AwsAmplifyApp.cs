@@ -198,7 +198,7 @@ public class AwsAmplifyAppJobConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string> BuildComputeType
     {
-        get => GetArgument<TerraformValue<string>>("build_compute_type") ?? AsReference("build_compute_type");
+        get => GetArgument<TerraformValue<string>>("build_compute_type") ?? CreateReference("build_compute_type");
         set => SetArgument("build_compute_type", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// </summary>
     public TerraformValue<string> BuildSpec
     {
-        get => GetArgument<TerraformValue<string>>("build_spec") ?? AsReference("build_spec");
+        get => GetArgument<TerraformValue<string>>("build_spec") ?? CreateReference("build_spec");
         set => SetArgument("build_spec", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// </summary>
     public TerraformValue<string> CustomHeaders
     {
-        get => GetArgument<TerraformValue<string>>("custom_headers") ?? AsReference("custom_headers");
+        get => GetArgument<TerraformValue<string>>("custom_headers") ?? CreateReference("custom_headers");
         set => SetArgument("custom_headers", value);
     }
 
@@ -333,7 +333,7 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -370,7 +370,7 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -397,7 +397,7 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -405,19 +405,19 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The default_domain attribute.
     /// </summary>
     public TerraformValue<string> DefaultDomain
-        => AsReference("default_domain");
+        => CreateReference("default_domain");
 
     /// <summary>
     /// The production_branch attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProductionBranch
-        => AsReference("production_branch");
+        => CreateReference("production_branch");
 
     /// <summary>
     /// AutoBranchCreationConfig block (nesting mode: list).

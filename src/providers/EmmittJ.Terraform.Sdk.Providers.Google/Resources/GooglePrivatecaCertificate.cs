@@ -939,7 +939,7 @@ public partial class GooglePrivatecaCertificate(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1012,7 +1012,7 @@ public partial class GooglePrivatecaCertificate(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1020,59 +1020,59 @@ public partial class GooglePrivatecaCertificate(string name) : TerraformResource
     /// Output only. Details regarding the revocation of this Certificate. This Certificate is considered revoked if and only if this field is present.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificateDescription
-        => AsReference("certificate_description");
+        => CreateReference("certificate_description");
 
     /// <summary>
     /// The time that this resource was created on the server.
     /// This is in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The resource name of the issuing CertificateAuthority in the format &#39;projects/*/locations/*/caPools/*/certificateAuthorities/*&#39;.
     /// </summary>
     public TerraformValue<string> IssuerCertificateAuthority
-        => AsReference("issuer_certificate_authority");
+        => CreateReference("issuer_certificate_authority");
 
     /// <summary>
     /// Output only. The pem-encoded, signed X.509 certificate.
     /// </summary>
     public TerraformValue<string> PemCertificate
-        => AsReference("pem_certificate");
+        => CreateReference("pem_certificate");
 
     /// <summary>
     /// The chain that may be used to verify the X.509 certificate. Expected to be in issuer-to-root order according to RFC 5246.
     /// </summary>
     public TerraformList<string> PemCertificateChain
-        => AsReference("pem_certificate_chain");
+        => CreateReference("pem_certificate_chain");
 
     /// <summary>
     /// Output only. Details regarding the revocation of this Certificate. This Certificate is
     /// considered revoked if and only if this field is present.
     /// </summary>
     public TerraformList<TerraformMap<object>> RevocationDetails
-        => AsReference("revocation_details");
+        => CreateReference("revocation_details");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Output only. The time at which this CertificateAuthority was updated.
     /// This is in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Config block (nesting mode: list).

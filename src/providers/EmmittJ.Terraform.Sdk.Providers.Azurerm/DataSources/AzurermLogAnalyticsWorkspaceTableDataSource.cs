@@ -36,7 +36,7 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,19 +64,19 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource(string name) : 
     /// The plan attribute.
     /// </summary>
     public TerraformValue<string> Plan
-        => AsReference("plan");
+        => CreateReference("plan");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     public TerraformValue<double> RetentionInDays
-        => AsReference("retention_in_days");
+        => CreateReference("retention_in_days");
 
     /// <summary>
     /// The total_retention_in_days attribute.
     /// </summary>
     public TerraformValue<double> TotalRetentionInDays
-        => AsReference("total_retention_in_days");
+        => CreateReference("total_retention_in_days");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

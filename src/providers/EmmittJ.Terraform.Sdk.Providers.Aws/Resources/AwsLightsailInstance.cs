@@ -87,7 +87,7 @@ public partial class AwsLightsailInstance(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsLightsailInstance(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsLightsailInstance(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -159,55 +159,55 @@ public partial class AwsLightsailInstance(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The cpu_count attribute.
     /// </summary>
     public TerraformValue<double> CpuCount
-        => AsReference("cpu_count");
+        => CreateReference("cpu_count");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
     public TerraformList<string> Ipv6Addresses
-        => AsReference("ipv6_addresses");
+        => CreateReference("ipv6_addresses");
 
     /// <summary>
     /// The is_static_ip attribute.
     /// </summary>
     public TerraformValue<bool> IsStaticIp
-        => AsReference("is_static_ip");
+        => CreateReference("is_static_ip");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-        => AsReference("private_ip_address");
+        => CreateReference("private_ip_address");
 
     /// <summary>
     /// The public_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-        => AsReference("public_ip_address");
+        => CreateReference("public_ip_address");
 
     /// <summary>
     /// The ram_size attribute.
     /// </summary>
     public TerraformValue<double> RamSize
-        => AsReference("ram_size");
+        => CreateReference("ram_size");
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     public TerraformValue<string> Username
-        => AsReference("username");
+        => CreateReference("username");
 
     /// <summary>
     /// AddOn block (nesting mode: list).

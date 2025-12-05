@@ -26,7 +26,7 @@ public class AzurermContainerRegistryTokenPasswordPassword1Block : TerraformBloc
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-        => AsReference("value");
+        => CreateReference("value");
 
 }
 
@@ -55,7 +55,7 @@ public class AzurermContainerRegistryTokenPasswordPassword2Block : TerraformBloc
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-        => AsReference("value");
+        => CreateReference("value");
 
 }
 
@@ -131,7 +131,7 @@ public partial class AzurermContainerRegistryTokenPassword(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

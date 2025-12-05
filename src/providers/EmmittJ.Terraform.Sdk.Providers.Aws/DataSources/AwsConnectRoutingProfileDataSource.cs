@@ -13,7 +13,7 @@ public partial class AwsConnectRoutingProfileDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsConnectRoutingProfileDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsConnectRoutingProfileDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsConnectRoutingProfileDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string> RoutingProfileId
     {
-        get => GetArgument<TerraformValue<string>>("routing_profile_id") ?? AsReference("routing_profile_id");
+        get => GetArgument<TerraformValue<string>>("routing_profile_id") ?? CreateReference("routing_profile_id");
         set => SetArgument("routing_profile_id", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsConnectRoutingProfileDataSource(string name) : Terraform
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -67,30 +67,30 @@ public partial class AwsConnectRoutingProfileDataSource(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The default_outbound_queue_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultOutboundQueueId
-        => AsReference("default_outbound_queue_id");
+        => CreateReference("default_outbound_queue_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The media_concurrencies attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> MediaConcurrencies
-        => AsReference("media_concurrencies");
+        => CreateReference("media_concurrencies");
 
     /// <summary>
     /// The queue_configs attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> QueueConfigs
-        => AsReference("queue_configs");
+        => CreateReference("queue_configs");
 
 }

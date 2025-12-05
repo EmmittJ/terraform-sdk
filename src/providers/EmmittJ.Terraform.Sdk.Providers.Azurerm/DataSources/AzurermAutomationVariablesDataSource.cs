@@ -46,7 +46,7 @@ public partial class AzurermAutomationVariablesDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,43 +54,43 @@ public partial class AzurermAutomationVariablesDataSource(string name) : Terrafo
     /// The bool attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BoolAttribute
-        => AsReference("bool");
+        => CreateReference("bool");
 
     /// <summary>
     /// The datetime attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Datetime
-        => AsReference("datetime");
+        => CreateReference("datetime");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Encrypted
-        => AsReference("encrypted");
+        => CreateReference("encrypted");
 
     /// <summary>
     /// The int attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IntAttribute
-        => AsReference("int");
+        => CreateReference("int");
 
     /// <summary>
     /// The null attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NullAttribute
-        => AsReference("null");
+        => CreateReference("null");
 
     /// <summary>
     /// The object attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ObjectAttribute
-        => AsReference("object");
+        => CreateReference("object");
 
     /// <summary>
     /// The string attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StringAttribute
-        => AsReference("string");
+        => CreateReference("string");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

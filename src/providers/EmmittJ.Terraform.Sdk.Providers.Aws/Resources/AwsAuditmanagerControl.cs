@@ -35,14 +35,14 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     /// The source_id attribute.
     /// </summary>
     public TerraformValue<string> SourceId
-        => AsReference("source_id");
+        => CreateReference("source_id");
 
     /// <summary>
     /// The source_keyword attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceKeyword
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("source_keyword") ?? AsReference("source_keyword");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("source_keyword") ?? CreateReference("source_keyword");
         set => SetArgument("source_keyword", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -162,25 +162,25 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-        => AsReference("type");
+        => CreateReference("type");
 
     /// <summary>
     /// ControlMappingSources block (nesting mode: set).

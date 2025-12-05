@@ -77,7 +77,7 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -125,37 +125,37 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     /// The time when the instance was created
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Resource name of data source which will be used as storage location for backups taken
     /// </summary>
     public TerraformValue<string> DataSource
-        => AsReference("data_source");
+        => CreateReference("data_source");
 
     /// <summary>
     /// The point in time when the last successful backup was captured from the source
     /// </summary>
     public TerraformValue<string> LastSuccessfulBackupConsistencyTime
-        => AsReference("last_successful_backup_consistency_time");
+        => CreateReference("last_successful_backup_consistency_time");
 
     /// <summary>
     /// The name of backup plan association resource created
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Message for rules config info
     /// </summary>
     public TerraformList<TerraformMap<object>> RulesConfigInfo
-        => AsReference("rules_config_info");
+        => CreateReference("rules_config_info");
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

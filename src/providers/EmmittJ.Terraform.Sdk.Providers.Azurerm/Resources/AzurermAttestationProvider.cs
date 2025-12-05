@@ -63,7 +63,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -155,13 +155,13 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// The attestation_uri attribute.
     /// </summary>
     public TerraformValue<string> AttestationUri
-        => AsReference("attestation_uri");
+        => CreateReference("attestation_uri");
 
     /// <summary>
     /// The trust_model attribute.
     /// </summary>
     public TerraformValue<string> TrustModel
-        => AsReference("trust_model");
+        => CreateReference("trust_model");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

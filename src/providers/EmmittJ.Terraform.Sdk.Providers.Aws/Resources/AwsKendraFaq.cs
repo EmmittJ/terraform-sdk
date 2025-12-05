@@ -97,7 +97,7 @@ public partial class AwsKendraFaq(string name) : TerraformResource("aws_kendra_f
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsKendraFaq(string name) : TerraformResource("aws_kendra_f
     /// </summary>
     public TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code") ?? AsReference("language_code");
+        get => GetArgument<TerraformValue<string>>("language_code") ?? CreateReference("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsKendraFaq(string name) : TerraformResource("aws_kendra_f
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsKendraFaq(string name) : TerraformResource("aws_kendra_f
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -171,37 +171,37 @@ public partial class AwsKendraFaq(string name) : TerraformResource("aws_kendra_f
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-        => AsReference("created_at");
+        => CreateReference("created_at");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-        => AsReference("error_message");
+        => CreateReference("error_message");
 
     /// <summary>
     /// The faq_id attribute.
     /// </summary>
     public TerraformValue<string> FaqId
-        => AsReference("faq_id");
+        => CreateReference("faq_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-        => AsReference("updated_at");
+        => CreateReference("updated_at");
 
     /// <summary>
     /// S3Path block (nesting mode: list).

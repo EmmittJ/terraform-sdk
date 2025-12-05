@@ -13,7 +13,7 @@ public partial class AwsIamRoleDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsIamRoleDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -40,54 +40,54 @@ public partial class AwsIamRoleDataSource(string name) : TerraformDataSource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The assume_role_policy attribute.
     /// </summary>
     public TerraformValue<string> AssumeRolePolicy
-        => AsReference("assume_role_policy");
+        => CreateReference("assume_role_policy");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-        => AsReference("create_date");
+        => CreateReference("create_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The max_session_duration attribute.
     /// </summary>
     public TerraformValue<double> MaxSessionDuration
-        => AsReference("max_session_duration");
+        => CreateReference("max_session_duration");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-        => AsReference("path");
+        => CreateReference("path");
 
     /// <summary>
     /// The permissions_boundary attribute.
     /// </summary>
     public TerraformValue<string> PermissionsBoundary
-        => AsReference("permissions_boundary");
+        => CreateReference("permissions_boundary");
 
     /// <summary>
     /// The role_last_used attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RoleLastUsed
-        => AsReference("role_last_used");
+        => CreateReference("role_last_used");
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
     public TerraformValue<string> UniqueId
-        => AsReference("unique_id");
+        => CreateReference("unique_id");
 
 }

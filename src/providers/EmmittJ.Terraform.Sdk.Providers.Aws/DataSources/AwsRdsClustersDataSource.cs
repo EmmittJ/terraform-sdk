@@ -47,7 +47,7 @@ public partial class AwsRdsClustersDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsRdsClustersDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -64,13 +64,13 @@ public partial class AwsRdsClustersDataSource(string name) : TerraformDataSource
     /// The cluster_arns attribute.
     /// </summary>
     public TerraformSet<string> ClusterArns
-        => AsReference("cluster_arns");
+        => CreateReference("cluster_arns");
 
     /// <summary>
     /// The cluster_identifiers attribute.
     /// </summary>
     public TerraformSet<string> ClusterIdentifiers
-        => AsReference("cluster_identifiers");
+        => CreateReference("cluster_identifiers");
 
     /// <summary>
     /// Filter block (nesting mode: set).

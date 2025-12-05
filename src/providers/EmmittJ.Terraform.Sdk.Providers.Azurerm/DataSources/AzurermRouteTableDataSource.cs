@@ -36,7 +36,7 @@ public partial class AzurermRouteTableDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermRouteTableDataSource(string name) : TerraformDataSou
     /// The bgp_route_propagation_enabled attribute.
     /// </summary>
     public TerraformValue<bool> BgpRoutePropagationEnabled
-        => AsReference("bgp_route_propagation_enabled");
+        => CreateReference("bgp_route_propagation_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The route attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Route
-        => AsReference("route");
+        => CreateReference("route");
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     public TerraformSet<string> Subnets
-        => AsReference("subnets");
+        => CreateReference("subnets");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

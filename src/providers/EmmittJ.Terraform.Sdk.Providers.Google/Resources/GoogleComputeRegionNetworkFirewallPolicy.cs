@@ -63,7 +63,7 @@ public partial class GoogleComputeRegionNetworkFirewallPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleComputeRegionNetworkFirewallPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string> PolicyType
     {
-        get => GetArgument<TerraformValue<string>>("policy_type") ?? AsReference("policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type") ?? CreateReference("policy_type");
         set => SetArgument("policy_type", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleComputeRegionNetworkFirewallPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleComputeRegionNetworkFirewallPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -110,37 +110,37 @@ public partial class GoogleComputeRegionNetworkFirewallPolicy(string name) : Ter
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-        => AsReference("creation_timestamp");
+        => CreateReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of the resource. This field is used internally during updates of this resource.
     /// </summary>
     public TerraformValue<string> Fingerprint
-        => AsReference("fingerprint");
+        => CreateReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> RegionNetworkFirewallPolicyId
-        => AsReference("region_network_firewall_policy_id");
+        => CreateReference("region_network_firewall_policy_id");
 
     /// <summary>
     /// Total count of all firewall policy rule tuples. A firewall policy can not exceed a set number of tuples.
     /// </summary>
     public TerraformValue<double> RuleTupleCount
-        => AsReference("rule_tuple_count");
+        => CreateReference("rule_tuple_count");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
     public TerraformValue<string> SelfLinkWithId
-        => AsReference("self_link_with_id");
+        => CreateReference("self_link_with_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

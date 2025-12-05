@@ -13,7 +13,7 @@ public partial class GoogleCloudIdentityGroupsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -35,6 +35,6 @@ public partial class GoogleCloudIdentityGroupsDataSource(string name) : Terrafor
     /// List of Cloud Identity groups.
     /// </summary>
     public TerraformList<TerraformMap<object>> Groups
-        => AsReference("groups");
+        => CreateReference("groups");
 
 }

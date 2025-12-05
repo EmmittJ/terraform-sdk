@@ -36,7 +36,7 @@ public partial class AzurermDedicatedHostGroupDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermDedicatedHostGroupDataSource(string name) : Terrafor
     /// The automatic_placement_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AutomaticPlacementEnabled
-        => AsReference("automatic_placement_enabled");
+        => CreateReference("automatic_placement_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The platform_fault_domain_count attribute.
     /// </summary>
     public TerraformValue<double> PlatformFaultDomainCount
-        => AsReference("platform_fault_domain_count");
+        => CreateReference("platform_fault_domain_count");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-        => AsReference("tags");
+        => CreateReference("tags");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-        => AsReference("zones");
+        => CreateReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

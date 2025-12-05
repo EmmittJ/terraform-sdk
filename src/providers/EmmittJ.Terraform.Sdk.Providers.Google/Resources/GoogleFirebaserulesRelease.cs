@@ -45,7 +45,7 @@ public partial class GoogleFirebaserulesRelease(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class GoogleFirebaserulesRelease(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -82,19 +82,19 @@ public partial class GoogleFirebaserulesRelease(string name) : TerraformResource
     /// Output only. Time the release was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Disable the release to keep it from being served. The response code of NOT_FOUND will be given for executables generated from this Release.
     /// </summary>
     public TerraformValue<bool> Disabled
-        => AsReference("disabled");
+        => CreateReference("disabled");
 
     /// <summary>
     /// Output only. Time the release was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

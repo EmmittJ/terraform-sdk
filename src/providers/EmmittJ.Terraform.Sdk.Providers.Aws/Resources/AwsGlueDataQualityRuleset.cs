@@ -65,7 +65,7 @@ public partial class AwsGlueDataQualityRuleset(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsGlueDataQualityRuleset(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsGlueDataQualityRuleset(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -120,25 +120,25 @@ public partial class AwsGlueDataQualityRuleset(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The created_on attribute.
     /// </summary>
     public TerraformValue<string> CreatedOn
-        => AsReference("created_on");
+        => CreateReference("created_on");
 
     /// <summary>
     /// The last_modified_on attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedOn
-        => AsReference("last_modified_on");
+        => CreateReference("last_modified_on");
 
     /// <summary>
     /// The recommendation_run_id attribute.
     /// </summary>
     public TerraformValue<string> RecommendationRunId
-        => AsReference("recommendation_run_id");
+        => CreateReference("recommendation_run_id");
 
     /// <summary>
     /// TargetTable block (nesting mode: list).

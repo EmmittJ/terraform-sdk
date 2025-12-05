@@ -32,7 +32,7 @@ public partial class AwsRoute53ResolverFirewallRulesDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsRoute53ResolverFirewallRulesDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -58,6 +58,6 @@ public partial class AwsRoute53ResolverFirewallRulesDataSource(string name) : Te
     /// The firewall_rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FirewallRules
-        => AsReference("firewall_rules");
+        => CreateReference("firewall_rules");
 
 }

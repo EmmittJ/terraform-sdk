@@ -282,7 +282,7 @@ public partial class AwsCodegurureviewerRepositoryAssociation(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -291,7 +291,7 @@ public partial class AwsCodegurureviewerRepositoryAssociation(string name) : Ter
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -309,7 +309,7 @@ public partial class AwsCodegurureviewerRepositoryAssociation(string name) : Ter
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -317,55 +317,55 @@ public partial class AwsCodegurureviewerRepositoryAssociation(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-        => AsReference("association_id");
+        => CreateReference("association_id");
 
     /// <summary>
     /// The connection_arn attribute.
     /// </summary>
     public TerraformValue<string> ConnectionArn
-        => AsReference("connection_arn");
+        => CreateReference("connection_arn");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-        => AsReference("owner");
+        => CreateReference("owner");
 
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
     public TerraformValue<string> ProviderType
-        => AsReference("provider_type");
+        => CreateReference("provider_type");
 
     /// <summary>
     /// The s3_repository_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> S3RepositoryDetails
-        => AsReference("s3_repository_details");
+        => CreateReference("s3_repository_details");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The state_reason attribute.
     /// </summary>
     public TerraformValue<string> StateReason
-        => AsReference("state_reason");
+        => CreateReference("state_reason");
 
     /// <summary>
     /// KmsKeyDetails block (nesting mode: list).

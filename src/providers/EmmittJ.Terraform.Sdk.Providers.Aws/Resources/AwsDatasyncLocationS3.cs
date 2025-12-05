@@ -46,7 +46,7 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string> S3StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("s3_storage_class") ?? AsReference("s3_storage_class");
+        get => GetArgument<TerraformValue<string>>("s3_storage_class") ?? CreateReference("s3_storage_class");
         set => SetArgument("s3_storage_class", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -110,13 +110,13 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-        => AsReference("uri");
+        => CreateReference("uri");
 
     /// <summary>
     /// S3Config block (nesting mode: list).

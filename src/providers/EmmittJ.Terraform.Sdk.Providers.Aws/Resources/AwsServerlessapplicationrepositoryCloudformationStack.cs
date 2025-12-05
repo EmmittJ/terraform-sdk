@@ -74,7 +74,7 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     /// </summary>
     public TerraformMap<string> Parameters
     {
-        get => GetArgument<TerraformMap<string>>("parameters") ?? AsReference("parameters");
+        get => GetArgument<TerraformMap<string>>("parameters") ?? CreateReference("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     /// </summary>
     public TerraformValue<string> SemanticVersion
     {
-        get => GetArgument<TerraformValue<string>>("semantic_version") ?? AsReference("semantic_version");
+        get => GetArgument<TerraformValue<string>>("semantic_version") ?? CreateReference("semantic_version");
         set => SetArgument("semantic_version", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     /// The outputs attribute.
     /// </summary>
     public TerraformMap<string> Outputs
-        => AsReference("outputs");
+        => CreateReference("outputs");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

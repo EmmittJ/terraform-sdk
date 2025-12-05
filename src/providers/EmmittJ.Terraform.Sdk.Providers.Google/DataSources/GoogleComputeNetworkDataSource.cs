@@ -13,7 +13,7 @@ public partial class GoogleComputeNetworkDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -49,43 +49,43 @@ public partial class GoogleComputeNetworkDataSource(string name) : TerraformData
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The gateway_ipv4 attribute.
     /// </summary>
     public TerraformValue<string> GatewayIpv4
-        => AsReference("gateway_ipv4");
+        => CreateReference("gateway_ipv4");
 
     /// <summary>
     /// The internal_ipv6_range attribute.
     /// </summary>
     public TerraformValue<string> InternalIpv6Range
-        => AsReference("internal_ipv6_range");
+        => CreateReference("internal_ipv6_range");
 
     /// <summary>
     /// The network_id attribute.
     /// </summary>
     public TerraformValue<double> NetworkId
-        => AsReference("network_id");
+        => CreateReference("network_id");
 
     /// <summary>
     /// The numeric_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> NumericId
-        => AsReference("numeric_id");
+        => CreateReference("numeric_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-        => AsReference("self_link");
+        => CreateReference("self_link");
 
     /// <summary>
     /// The subnetworks_self_links attribute.
     /// </summary>
     public TerraformList<string> SubnetworksSelfLinks
-        => AsReference("subnetworks_self_links");
+        => CreateReference("subnetworks_self_links");
 
 }

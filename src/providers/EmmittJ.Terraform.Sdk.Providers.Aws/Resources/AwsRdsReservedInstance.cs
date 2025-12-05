@@ -54,7 +54,7 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -117,79 +117,79 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The currency_code attribute.
     /// </summary>
     public TerraformValue<string> CurrencyCode
-        => AsReference("currency_code");
+        => CreateReference("currency_code");
 
     /// <summary>
     /// The db_instance_class attribute.
     /// </summary>
     public TerraformValue<string> DbInstanceClass
-        => AsReference("db_instance_class");
+        => CreateReference("db_instance_class");
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
     public TerraformValue<double> Duration
-        => AsReference("duration");
+        => CreateReference("duration");
 
     /// <summary>
     /// The fixed_price attribute.
     /// </summary>
     public TerraformValue<double> FixedPrice
-        => AsReference("fixed_price");
+        => CreateReference("fixed_price");
 
     /// <summary>
     /// The lease_id attribute.
     /// </summary>
     public TerraformValue<string> LeaseId
-        => AsReference("lease_id");
+        => CreateReference("lease_id");
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
     public TerraformValue<bool> MultiAz
-        => AsReference("multi_az");
+        => CreateReference("multi_az");
 
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
     public TerraformValue<string> OfferingType
-        => AsReference("offering_type");
+        => CreateReference("offering_type");
 
     /// <summary>
     /// The product_description attribute.
     /// </summary>
     public TerraformValue<string> ProductDescription
-        => AsReference("product_description");
+        => CreateReference("product_description");
 
     /// <summary>
     /// The recurring_charges attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RecurringCharges
-        => AsReference("recurring_charges");
+        => CreateReference("recurring_charges");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-        => AsReference("start_time");
+        => CreateReference("start_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The usage_price attribute.
     /// </summary>
     public TerraformValue<double> UsagePrice
-        => AsReference("usage_price");
+        => CreateReference("usage_price");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -23,7 +23,7 @@ public partial class AwsWorkspaceswebUserAccessLoggingSettings(string name) : Te
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,18 +40,18 @@ public partial class AwsWorkspaceswebUserAccessLoggingSettings(string name) : Te
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-        => AsReference("associated_portal_arns");
+        => CreateReference("associated_portal_arns");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-        => AsReference("tags_all");
+        => CreateReference("tags_all");
 
     /// <summary>
     /// The user_access_logging_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> UserAccessLoggingSettingsArn
-        => AsReference("user_access_logging_settings_arn");
+        => CreateReference("user_access_logging_settings_arn");
 
 }

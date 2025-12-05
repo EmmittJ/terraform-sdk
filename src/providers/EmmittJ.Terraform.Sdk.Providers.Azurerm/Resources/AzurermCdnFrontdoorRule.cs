@@ -1498,7 +1498,7 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1526,7 +1526,7 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     /// The cdn_frontdoor_rule_set_name attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorRuleSetName
-        => AsReference("cdn_frontdoor_rule_set_name");
+        => CreateReference("cdn_frontdoor_rule_set_name");
 
     /// <summary>
     /// Actions block (nesting mode: list).

@@ -136,7 +136,7 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// </summary>
     public TerraformValue<string> CertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("certificate_arn") ?? AsReference("certificate_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_arn") ?? CreateReference("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
@@ -336,7 +336,7 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -363,7 +363,7 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// </summary>
     public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? CreateReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -408,7 +408,7 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -454,7 +454,7 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// </summary>
     public TerraformValue<string> SslMode
     {
-        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? AsReference("ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? CreateReference("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -472,7 +472,7 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// </summary>
     public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? CreateReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -507,25 +507,25 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// The endpoint_arn attribute.
     /// </summary>
     public TerraformValue<string> EndpointArn
-        => AsReference("endpoint_arn");
+        => CreateReference("endpoint_arn");
 
     /// <summary>
     /// The engine_display_name attribute.
     /// </summary>
     public TerraformValue<string> EngineDisplayName
-        => AsReference("engine_display_name");
+        => CreateReference("engine_display_name");
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
     public TerraformValue<string> ExternalId
-        => AsReference("external_id");
+        => CreateReference("external_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

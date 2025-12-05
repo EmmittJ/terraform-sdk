@@ -70,7 +70,7 @@ public partial class AwsEipsDataSource(string name) : TerraformDataSource("aws_e
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEipsDataSource(string name) : TerraformDataSource("aws_e
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -96,13 +96,13 @@ public partial class AwsEipsDataSource(string name) : TerraformDataSource("aws_e
     /// The allocation_ids attribute.
     /// </summary>
     public TerraformList<string> AllocationIds
-        => AsReference("allocation_ids");
+        => CreateReference("allocation_ids");
 
     /// <summary>
     /// The public_ips attribute.
     /// </summary>
     public TerraformList<string> PublicIps
-        => AsReference("public_ips");
+        => CreateReference("public_ips");
 
     /// <summary>
     /// Filter block (nesting mode: set).

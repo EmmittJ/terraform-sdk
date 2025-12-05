@@ -328,7 +328,7 @@ public partial class AwsRoute53Record(string name) : TerraformResource("aws_rout
     /// </summary>
     public TerraformValue<bool> AllowOverwrite
     {
-        get => GetArgument<TerraformValue<bool>>("allow_overwrite") ?? AsReference("allow_overwrite");
+        get => GetArgument<TerraformValue<bool>>("allow_overwrite") ?? CreateReference("allow_overwrite");
         set => SetArgument("allow_overwrite", value);
     }
 
@@ -346,7 +346,7 @@ public partial class AwsRoute53Record(string name) : TerraformResource("aws_rout
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -420,7 +420,7 @@ public partial class AwsRoute53Record(string name) : TerraformResource("aws_rout
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-        => AsReference("fqdn");
+        => CreateReference("fqdn");
 
     /// <summary>
     /// Alias block (nesting mode: list).

@@ -36,7 +36,7 @@ public partial class AzurermApiManagementDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,109 +73,109 @@ public partial class AzurermApiManagementDataSource(string name) : TerraformData
     /// The additional_location attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AdditionalLocation
-        => AsReference("additional_location");
+        => CreateReference("additional_location");
 
     /// <summary>
     /// The developer_portal_url attribute.
     /// </summary>
     public TerraformValue<string> DeveloperPortalUrl
-        => AsReference("developer_portal_url");
+        => CreateReference("developer_portal_url");
 
     /// <summary>
     /// The gateway_regional_url attribute.
     /// </summary>
     public TerraformValue<string> GatewayRegionalUrl
-        => AsReference("gateway_regional_url");
+        => CreateReference("gateway_regional_url");
 
     /// <summary>
     /// The gateway_url attribute.
     /// </summary>
     public TerraformValue<string> GatewayUrl
-        => AsReference("gateway_url");
+        => CreateReference("gateway_url");
 
     /// <summary>
     /// The hostname_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HostnameConfiguration
-        => AsReference("hostname_configuration");
+        => CreateReference("hostname_configuration");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-        => AsReference("identity");
+        => CreateReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The management_api_url attribute.
     /// </summary>
     public TerraformValue<string> ManagementApiUrl
-        => AsReference("management_api_url");
+        => CreateReference("management_api_url");
 
     /// <summary>
     /// The notification_sender_email attribute.
     /// </summary>
     public TerraformValue<string> NotificationSenderEmail
-        => AsReference("notification_sender_email");
+        => CreateReference("notification_sender_email");
 
     /// <summary>
     /// The portal_url attribute.
     /// </summary>
     public TerraformValue<string> PortalUrl
-        => AsReference("portal_url");
+        => CreateReference("portal_url");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-        => AsReference("private_ip_addresses");
+        => CreateReference("private_ip_addresses");
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
     public TerraformValue<string> PublicIpAddressId
-        => AsReference("public_ip_address_id");
+        => CreateReference("public_ip_address_id");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-        => AsReference("public_ip_addresses");
+        => CreateReference("public_ip_addresses");
 
     /// <summary>
     /// The publisher_email attribute.
     /// </summary>
     public TerraformValue<string> PublisherEmail
-        => AsReference("publisher_email");
+        => CreateReference("publisher_email");
 
     /// <summary>
     /// The publisher_name attribute.
     /// </summary>
     public TerraformValue<string> PublisherName
-        => AsReference("publisher_name");
+        => CreateReference("publisher_name");
 
     /// <summary>
     /// The scm_url attribute.
     /// </summary>
     public TerraformValue<string> ScmUrl
-        => AsReference("scm_url");
+        => CreateReference("scm_url");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-        => AsReference("sku_name");
+        => CreateReference("sku_name");
 
     /// <summary>
     /// The tenant_access attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TenantAccess
-        => AsReference("tenant_access");
+        => CreateReference("tenant_access");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

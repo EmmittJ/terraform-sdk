@@ -63,7 +63,7 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -143,57 +143,57 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     /// Region in which backup is stored.
     /// </summary>
     public TerraformValue<string> BackupRegion
-        => AsReference("backup_region");
+        => CreateReference("backup_region");
 
     /// <summary>
     /// Type of backup, manually created or created by a backup policy. Possible Values : [TYPE_UNSPECIFIED, MANUAL, SCHEDULED]
     /// </summary>
     public TerraformValue<string> BackupType
-        => AsReference("backup_type");
+        => CreateReference("backup_type");
 
     /// <summary>
     /// Backups of a volume build incrementally on top of each other. They form a &amp;quot;backup chain&amp;quot;.
     /// Total size of all backups in a chain in bytes = baseline backup size + sum(incremental backup size)
     /// </summary>
     public TerraformValue<string> ChainStorageBytes
-        => AsReference("chain_storage_bytes");
+        => CreateReference("chain_storage_bytes");
 
     /// <summary>
     /// Create time of the backup. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The state of the Backup Vault. Possible Values : [STATE_UNSPECIFIED, CREATING, UPLOADING, READY, DELETING, ERROR, UPDATING]
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// Region of the volume from which the backup was created.
     /// </summary>
     public TerraformValue<string> VolumeRegion
-        => AsReference("volume_region");
+        => CreateReference("volume_region");
 
     /// <summary>
     /// Size of the file system when the backup was created. When creating a new volume from the backup, the volume capacity will have to be at least as big.
     /// </summary>
     public TerraformValue<string> VolumeUsageBytes
-        => AsReference("volume_usage_bytes");
+        => CreateReference("volume_usage_bytes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

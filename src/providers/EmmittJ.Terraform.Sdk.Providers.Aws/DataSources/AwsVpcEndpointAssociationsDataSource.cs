@@ -13,7 +13,7 @@ public partial class AwsVpcEndpointAssociationsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,6 +31,6 @@ public partial class AwsVpcEndpointAssociationsDataSource(string name) : Terrafo
     /// The associations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Associations
-        => AsReference("associations");
+        => CreateReference("associations");
 
 }

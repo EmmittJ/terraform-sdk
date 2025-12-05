@@ -23,7 +23,7 @@ public partial class AwsCloudhsmV2ClusterDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> ClusterState
     {
-        get => GetArgument<TerraformValue<string>>("cluster_state") ?? AsReference("cluster_state");
+        get => GetArgument<TerraformValue<string>>("cluster_state") ?? CreateReference("cluster_state");
         set => SetArgument("cluster_state", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCloudhsmV2ClusterDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCloudhsmV2ClusterDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -49,24 +49,24 @@ public partial class AwsCloudhsmV2ClusterDataSource(string name) : TerraformData
     /// The cluster_certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClusterCertificates
-        => AsReference("cluster_certificates");
+        => CreateReference("cluster_certificates");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupId
-        => AsReference("security_group_id");
+        => CreateReference("security_group_id");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     public TerraformSet<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-        => AsReference("vpc_id");
+        => CreateReference("vpc_id");
 
 }

@@ -115,7 +115,7 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -189,55 +189,55 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// The dns_suffix attribute.
     /// </summary>
     public TerraformValue<string> DnsSuffix
-        => AsReference("dns_suffix");
+        => CreateReference("dns_suffix");
 
     /// <summary>
     /// The external_inbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ExternalInboundIpAddresses
-        => AsReference("external_inbound_ip_addresses");
+        => CreateReference("external_inbound_ip_addresses");
 
     /// <summary>
     /// The inbound_network_dependencies attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InboundNetworkDependencies
-        => AsReference("inbound_network_dependencies");
+        => CreateReference("inbound_network_dependencies");
 
     /// <summary>
     /// The internal_inbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> InternalInboundIpAddresses
-        => AsReference("internal_inbound_ip_addresses");
+        => CreateReference("internal_inbound_ip_addresses");
 
     /// <summary>
     /// The ip_ssl_address_count attribute.
     /// </summary>
     public TerraformValue<double> IpSslAddressCount
-        => AsReference("ip_ssl_address_count");
+        => CreateReference("ip_ssl_address_count");
 
     /// <summary>
     /// The linux_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> LinuxOutboundIpAddresses
-        => AsReference("linux_outbound_ip_addresses");
+        => CreateReference("linux_outbound_ip_addresses");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The pricing_tier attribute.
     /// </summary>
     public TerraformValue<string> PricingTier
-        => AsReference("pricing_tier");
+        => CreateReference("pricing_tier");
 
     /// <summary>
     /// The windows_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WindowsOutboundIpAddresses
-        => AsReference("windows_outbound_ip_addresses");
+        => CreateReference("windows_outbound_ip_addresses");
 
     /// <summary>
     /// ClusterSetting block (nesting mode: list).

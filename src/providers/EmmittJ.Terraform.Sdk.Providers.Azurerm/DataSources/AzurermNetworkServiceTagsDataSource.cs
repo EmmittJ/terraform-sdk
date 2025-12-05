@@ -36,7 +36,7 @@ public partial class AzurermNetworkServiceTagsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,25 +73,25 @@ public partial class AzurermNetworkServiceTagsDataSource(string name) : Terrafor
     /// The address_prefixes attribute.
     /// </summary>
     public TerraformList<string> AddressPrefixes
-        => AsReference("address_prefixes");
+        => CreateReference("address_prefixes");
 
     /// <summary>
     /// The ipv4_cidrs attribute.
     /// </summary>
     public TerraformList<string> Ipv4Cidrs
-        => AsReference("ipv4_cidrs");
+        => CreateReference("ipv4_cidrs");
 
     /// <summary>
     /// The ipv6_cidrs attribute.
     /// </summary>
     public TerraformList<string> Ipv6Cidrs
-        => AsReference("ipv6_cidrs");
+        => CreateReference("ipv6_cidrs");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

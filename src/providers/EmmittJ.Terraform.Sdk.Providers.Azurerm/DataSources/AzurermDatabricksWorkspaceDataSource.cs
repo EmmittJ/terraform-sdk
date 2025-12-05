@@ -36,7 +36,7 @@ public partial class AzurermDatabricksWorkspaceDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,49 +73,49 @@ public partial class AzurermDatabricksWorkspaceDataSource(string name) : Terrafo
     /// The custom_parameters attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomParameters
-        => AsReference("custom_parameters");
+        => CreateReference("custom_parameters");
 
     /// <summary>
     /// The enhanced_security_compliance attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EnhancedSecurityCompliance
-        => AsReference("enhanced_security_compliance");
+        => CreateReference("enhanced_security_compliance");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-        => AsReference("location");
+        => CreateReference("location");
 
     /// <summary>
     /// The managed_disk_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedDiskIdentity
-        => AsReference("managed_disk_identity");
+        => CreateReference("managed_disk_identity");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-        => AsReference("sku");
+        => CreateReference("sku");
 
     /// <summary>
     /// The storage_account_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageAccountIdentity
-        => AsReference("storage_account_identity");
+        => CreateReference("storage_account_identity");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-        => AsReference("workspace_id");
+        => CreateReference("workspace_id");
 
     /// <summary>
     /// The workspace_url attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceUrl
-        => AsReference("workspace_url");
+        => CreateReference("workspace_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

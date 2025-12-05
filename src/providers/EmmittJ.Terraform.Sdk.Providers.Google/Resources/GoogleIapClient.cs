@@ -68,7 +68,7 @@ public partial class GoogleIapClient(string name) : TerraformResource("google_ia
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -76,13 +76,13 @@ public partial class GoogleIapClient(string name) : TerraformResource("google_ia
     /// Output only. Unique identifier of the OAuth client.
     /// </summary>
     public TerraformValue<string> ClientId
-        => AsReference("client_id");
+        => CreateReference("client_id");
 
     /// <summary>
     /// Output only. Client secret of the OAuth client.
     /// </summary>
     public TerraformValue<string> Secret
-        => AsReference("secret");
+        => CreateReference("secret");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

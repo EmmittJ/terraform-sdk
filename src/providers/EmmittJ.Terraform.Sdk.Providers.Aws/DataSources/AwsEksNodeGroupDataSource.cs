@@ -23,7 +23,7 @@ public partial class AwsEksNodeGroupDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsEksNodeGroupDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsEksNodeGroupDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -59,96 +59,96 @@ public partial class AwsEksNodeGroupDataSource(string name) : TerraformDataSourc
     /// The ami_type attribute.
     /// </summary>
     public TerraformValue<string> AmiType
-        => AsReference("ami_type");
+        => CreateReference("ami_type");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The capacity_type attribute.
     /// </summary>
     public TerraformValue<string> CapacityType
-        => AsReference("capacity_type");
+        => CreateReference("capacity_type");
 
     /// <summary>
     /// The disk_size attribute.
     /// </summary>
     public TerraformValue<double> DiskSize
-        => AsReference("disk_size");
+        => CreateReference("disk_size");
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
     public TerraformList<string> InstanceTypes
-        => AsReference("instance_types");
+        => CreateReference("instance_types");
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
     public TerraformMap<string> Labels
-        => AsReference("labels");
+        => CreateReference("labels");
 
     /// <summary>
     /// The launch_template attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LaunchTemplate
-        => AsReference("launch_template");
+        => CreateReference("launch_template");
 
     /// <summary>
     /// The node_role_arn attribute.
     /// </summary>
     public TerraformValue<string> NodeRoleArn
-        => AsReference("node_role_arn");
+        => CreateReference("node_role_arn");
 
     /// <summary>
     /// The release_version attribute.
     /// </summary>
     public TerraformValue<string> ReleaseVersion
-        => AsReference("release_version");
+        => CreateReference("release_version");
 
     /// <summary>
     /// The remote_access attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RemoteAccess
-        => AsReference("remote_access");
+        => CreateReference("remote_access");
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Resources
-        => AsReference("resources");
+        => CreateReference("resources");
 
     /// <summary>
     /// The scaling_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScalingConfig
-        => AsReference("scaling_config");
+        => CreateReference("scaling_config");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     public TerraformSet<string> SubnetIds
-        => AsReference("subnet_ids");
+        => CreateReference("subnet_ids");
 
     /// <summary>
     /// The taints attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Taints
-        => AsReference("taints");
+        => CreateReference("taints");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

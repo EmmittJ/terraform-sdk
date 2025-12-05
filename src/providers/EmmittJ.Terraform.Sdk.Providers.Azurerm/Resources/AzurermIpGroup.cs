@@ -72,7 +72,7 @@ public partial class AzurermIpGroup(string name) : TerraformResource("azurerm_ip
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,13 +119,13 @@ public partial class AzurermIpGroup(string name) : TerraformResource("azurerm_ip
     /// The firewall_ids attribute.
     /// </summary>
     public TerraformList<string> FirewallIds
-        => AsReference("firewall_ids");
+        => CreateReference("firewall_ids");
 
     /// <summary>
     /// The firewall_policy_ids attribute.
     /// </summary>
     public TerraformList<string> FirewallPolicyIds
-        => AsReference("firewall_policy_ids");
+        => CreateReference("firewall_policy_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

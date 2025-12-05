@@ -13,7 +13,7 @@ public partial class GoogleDnsRecordSetDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -60,12 +60,12 @@ public partial class GoogleDnsRecordSetDataSource(string name) : TerraformDataSo
     /// The rrdatas attribute.
     /// </summary>
     public TerraformList<string> Rrdatas
-        => AsReference("rrdatas");
+        => CreateReference("rrdatas");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     public TerraformValue<double> Ttl
-        => AsReference("ttl");
+        => CreateReference("ttl");
 
 }

@@ -45,7 +45,7 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepter(string name) : T
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepter(string name) : T
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -72,25 +72,25 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepter(string name) : T
     /// The method attribute.
     /// </summary>
     public TerraformValue<string> Method
-        => AsReference("method");
+        => CreateReference("method");
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
     public TerraformValue<string> Notes
-        => AsReference("notes");
+        => CreateReference("notes");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-        => AsReference("owner_account_id");
+        => CreateReference("owner_account_id");
 
     /// <summary>
     /// The owner_directory_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerDirectoryId
-        => AsReference("owner_directory_id");
+        => CreateReference("owner_directory_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

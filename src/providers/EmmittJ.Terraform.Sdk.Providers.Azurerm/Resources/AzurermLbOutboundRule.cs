@@ -17,7 +17,7 @@ public class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -113,7 +113,7 @@ public partial class AzurermLbOutboundRule(string name) : TerraformResource("azu
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableTcpReset
     {
-        get => GetArgument<TerraformValue<bool>>("enable_tcp_reset") ?? AsReference("enable_tcp_reset");
+        get => GetArgument<TerraformValue<bool>>("enable_tcp_reset") ?? CreateReference("enable_tcp_reset");
         set => SetArgument("enable_tcp_reset", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermLbOutboundRule(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzurermLbOutboundRule(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool> TcpResetEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("tcp_reset_enabled") ?? AsReference("tcp_reset_enabled");
+        get => GetArgument<TerraformValue<bool>>("tcp_reset_enabled") ?? CreateReference("tcp_reset_enabled");
         set => SetArgument("tcp_reset_enabled", value);
     }
 

@@ -46,7 +46,7 @@ public partial class AzurermApiManagementApiVersionSetDataSource(string name) : 
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,31 +74,31 @@ public partial class AzurermApiManagementApiVersionSetDataSource(string name) : 
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-        => AsReference("display_name");
+        => CreateReference("display_name");
 
     /// <summary>
     /// The version_header_name attribute.
     /// </summary>
     public TerraformValue<string> VersionHeaderName
-        => AsReference("version_header_name");
+        => CreateReference("version_header_name");
 
     /// <summary>
     /// The version_query_name attribute.
     /// </summary>
     public TerraformValue<string> VersionQueryName
-        => AsReference("version_query_name");
+        => CreateReference("version_query_name");
 
     /// <summary>
     /// The versioning_scheme attribute.
     /// </summary>
     public TerraformValue<string> VersioningScheme
-        => AsReference("versioning_scheme");
+        => CreateReference("versioning_scheme");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

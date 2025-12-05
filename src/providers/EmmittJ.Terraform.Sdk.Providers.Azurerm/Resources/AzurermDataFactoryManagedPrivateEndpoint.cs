@@ -64,7 +64,7 @@ public partial class AzurermDataFactoryManagedPrivateEndpoint(string name) : Ter
     /// </summary>
     public TerraformList<string> Fqdns
     {
-        get => GetArgument<TerraformList<string>>("fqdns") ?? AsReference("fqdns");
+        get => GetArgument<TerraformList<string>>("fqdns") ?? CreateReference("fqdns");
         set => SetArgument("fqdns", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermDataFactoryManagedPrivateEndpoint(string name) : Ter
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 

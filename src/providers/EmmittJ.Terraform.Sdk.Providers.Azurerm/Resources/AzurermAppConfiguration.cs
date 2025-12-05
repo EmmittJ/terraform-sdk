@@ -58,13 +58,13 @@ public class AzurermAppConfigurationIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-        => AsReference("principal_id");
+        => CreateReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-        => AsReference("tenant_id");
+        => CreateReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -94,13 +94,13 @@ public class AzurermAppConfigurationReplicaBlock : TerraformBlock
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The location attribute.
@@ -204,7 +204,7 @@ public partial class AzurermAppConfiguration(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -296,31 +296,31 @@ public partial class AzurermAppConfiguration(string name) : TerraformResource("a
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-        => AsReference("endpoint");
+        => CreateReference("endpoint");
 
     /// <summary>
     /// The primary_read_key attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrimaryReadKey
-        => AsReference("primary_read_key");
+        => CreateReference("primary_read_key");
 
     /// <summary>
     /// The primary_write_key attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrimaryWriteKey
-        => AsReference("primary_write_key");
+        => CreateReference("primary_write_key");
 
     /// <summary>
     /// The secondary_read_key attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecondaryReadKey
-        => AsReference("secondary_read_key");
+        => CreateReference("secondary_read_key");
 
     /// <summary>
     /// The secondary_write_key attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecondaryWriteKey
-        => AsReference("secondary_write_key");
+        => CreateReference("secondary_write_key");
 
     /// <summary>
     /// Encryption block (nesting mode: list).

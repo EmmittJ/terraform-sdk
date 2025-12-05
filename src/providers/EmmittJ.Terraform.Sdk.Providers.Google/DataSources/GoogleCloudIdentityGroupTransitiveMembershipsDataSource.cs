@@ -23,7 +23,7 @@ public partial class GoogleCloudIdentityGroupTransitiveMembershipsDataSource(str
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -31,6 +31,6 @@ public partial class GoogleCloudIdentityGroupTransitiveMembershipsDataSource(str
     /// List of Cloud Identity group memberships.
     /// </summary>
     public TerraformList<TerraformMap<object>> Memberships
-        => AsReference("memberships");
+        => CreateReference("memberships");
 
 }

@@ -107,7 +107,7 @@ public partial class AzurermCosmosdbSqlRoleDefinition(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermCosmosdbSqlRoleDefinition(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? AsReference("role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? CreateReference("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 

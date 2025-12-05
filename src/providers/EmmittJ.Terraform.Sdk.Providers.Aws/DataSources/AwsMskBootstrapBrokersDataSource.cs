@@ -23,7 +23,7 @@ public partial class AwsMskBootstrapBrokersDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsMskBootstrapBrokersDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,60 +40,60 @@ public partial class AwsMskBootstrapBrokersDataSource(string name) : TerraformDa
     /// The bootstrap_brokers attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokers
-        => AsReference("bootstrap_brokers");
+        => CreateReference("bootstrap_brokers");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_iam attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersPublicSaslIam
-        => AsReference("bootstrap_brokers_public_sasl_iam");
+        => CreateReference("bootstrap_brokers_public_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_scram attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersPublicSaslScram
-        => AsReference("bootstrap_brokers_public_sasl_scram");
+        => CreateReference("bootstrap_brokers_public_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_public_tls attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersPublicTls
-        => AsReference("bootstrap_brokers_public_tls");
+        => CreateReference("bootstrap_brokers_public_tls");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersSaslIam
-        => AsReference("bootstrap_brokers_sasl_iam");
+        => CreateReference("bootstrap_brokers_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_scram attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersSaslScram
-        => AsReference("bootstrap_brokers_sasl_scram");
+        => CreateReference("bootstrap_brokers_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_tls attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersTls
-        => AsReference("bootstrap_brokers_tls");
+        => CreateReference("bootstrap_brokers_tls");
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_sasl_iam attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersVpcConnectivitySaslIam
-        => AsReference("bootstrap_brokers_vpc_connectivity_sasl_iam");
+        => CreateReference("bootstrap_brokers_vpc_connectivity_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_sasl_scram attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersVpcConnectivitySaslScram
-        => AsReference("bootstrap_brokers_vpc_connectivity_sasl_scram");
+        => CreateReference("bootstrap_brokers_vpc_connectivity_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_tls attribute.
     /// </summary>
     public TerraformValue<string> BootstrapBrokersVpcConnectivityTls
-        => AsReference("bootstrap_brokers_vpc_connectivity_tls");
+        => CreateReference("bootstrap_brokers_vpc_connectivity_tls");
 
 }

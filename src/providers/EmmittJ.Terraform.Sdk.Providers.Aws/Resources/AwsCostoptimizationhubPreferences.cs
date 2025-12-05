@@ -13,7 +13,7 @@ public partial class AwsCostoptimizationhubPreferences(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> MemberAccountDiscountVisibility
     {
-        get => GetArgument<TerraformValue<string>>("member_account_discount_visibility") ?? AsReference("member_account_discount_visibility");
+        get => GetArgument<TerraformValue<string>>("member_account_discount_visibility") ?? CreateReference("member_account_discount_visibility");
         set => SetArgument("member_account_discount_visibility", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCostoptimizationhubPreferences(string name) : TerraformR
     /// </summary>
     public TerraformValue<string> SavingsEstimationMode
     {
-        get => GetArgument<TerraformValue<string>>("savings_estimation_mode") ?? AsReference("savings_estimation_mode");
+        get => GetArgument<TerraformValue<string>>("savings_estimation_mode") ?? CreateReference("savings_estimation_mode");
         set => SetArgument("savings_estimation_mode", value);
     }
 
@@ -30,6 +30,6 @@ public partial class AwsCostoptimizationhubPreferences(string name) : TerraformR
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
 }

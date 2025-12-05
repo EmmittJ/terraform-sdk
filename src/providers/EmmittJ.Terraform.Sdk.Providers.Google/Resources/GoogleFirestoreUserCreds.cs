@@ -55,7 +55,7 @@ public partial class GoogleFirestoreUserCreds(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class GoogleFirestoreUserCreds(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -87,31 +87,31 @@ public partial class GoogleFirestoreUserCreds(string name) : TerraformResource("
     /// The timestamp at which these user creds were created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// Describes the Resource Identity principal.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceIdentity
-        => AsReference("resource_identity");
+        => CreateReference("resource_identity");
 
     /// <summary>
     /// The plaintext server-generated password for the user creds.
     /// </summary>
     public TerraformValue<string> SecurePassword
-        => AsReference("secure_password");
+        => CreateReference("secure_password");
 
     /// <summary>
     /// The state of the user creds.
     /// </summary>
     public TerraformValue<string> State
-        => AsReference("state");
+        => CreateReference("state");
 
     /// <summary>
     /// The timestamp at which these user creds were updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -98,7 +98,7 @@ public class AzurermIothubDpsLinkedHubBlock : TerraformBlock
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-        => AsReference("hostname");
+        => CreateReference("hostname");
 
     /// <summary>
     /// The location attribute.
@@ -226,7 +226,7 @@ public partial class AzurermIothubDps(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -282,19 +282,19 @@ public partial class AzurermIothubDps(string name) : TerraformResource("azurerm_
     /// The device_provisioning_host_name attribute.
     /// </summary>
     public TerraformValue<string> DeviceProvisioningHostName
-        => AsReference("device_provisioning_host_name");
+        => CreateReference("device_provisioning_host_name");
 
     /// <summary>
     /// The id_scope attribute.
     /// </summary>
     public TerraformValue<string> IdScope
-        => AsReference("id_scope");
+        => CreateReference("id_scope");
 
     /// <summary>
     /// The service_operations_host_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceOperationsHostName
-        => AsReference("service_operations_host_name");
+        => CreateReference("service_operations_host_name");
 
     /// <summary>
     /// IpFilterRule block (nesting mode: list).

@@ -23,7 +23,7 @@ public partial class AwsLicensemanagerGrantAccepter(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLicensemanagerGrantAccepter(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -40,48 +40,48 @@ public partial class AwsLicensemanagerGrantAccepter(string name) : TerraformReso
     /// Allowed operations for the grant.
     /// </summary>
     public TerraformSet<string> AllowedOperations
-        => AsReference("allowed_operations");
+        => CreateReference("allowed_operations");
 
     /// <summary>
     /// Home Region of the grant.
     /// </summary>
     public TerraformValue<string> HomeRegion
-        => AsReference("home_region");
+        => CreateReference("home_region");
 
     /// <summary>
     /// License ARN.
     /// </summary>
     public TerraformValue<string> LicenseArn
-        => AsReference("license_arn");
+        => CreateReference("license_arn");
 
     /// <summary>
     /// Name of the grant.
     /// </summary>
     public TerraformValue<string> Name
-        => AsReference("name");
+        => CreateReference("name");
 
     /// <summary>
     /// Parent ARN.
     /// </summary>
     public TerraformValue<string> ParentArn
-        => AsReference("parent_arn");
+        => CreateReference("parent_arn");
 
     /// <summary>
     /// The grantee principal ARN.
     /// </summary>
     public TerraformValue<string> Principal
-        => AsReference("principal");
+        => CreateReference("principal");
 
     /// <summary>
     /// GrantAccepter status.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// GrantAccepter version.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

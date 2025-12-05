@@ -23,7 +23,7 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -70,30 +70,30 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     /// Amazon Resource Name (ARN) of the grant.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// Home Region of the grant.
     /// </summary>
     public TerraformValue<string> HomeRegion
-        => AsReference("home_region");
+        => CreateReference("home_region");
 
     /// <summary>
     /// Parent ARN.
     /// </summary>
     public TerraformValue<string> ParentArn
-        => AsReference("parent_arn");
+        => CreateReference("parent_arn");
 
     /// <summary>
     /// Grant status.
     /// </summary>
     public TerraformValue<string> Status
-        => AsReference("status");
+        => CreateReference("status");
 
     /// <summary>
     /// Grant version.
     /// </summary>
     public TerraformValue<string> Version
-        => AsReference("version");
+        => CreateReference("version");
 
 }

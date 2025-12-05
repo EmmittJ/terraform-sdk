@@ -13,7 +13,7 @@ public partial class AwsConnectSecurityProfileDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsConnectSecurityProfileDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? CreateReference("name");
         set => SetArgument("name", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsConnectSecurityProfileDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsConnectSecurityProfileDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string> SecurityProfileId
     {
-        get => GetArgument<TerraformValue<string>>("security_profile_id") ?? AsReference("security_profile_id");
+        get => GetArgument<TerraformValue<string>>("security_profile_id") ?? CreateReference("security_profile_id");
         set => SetArgument("security_profile_id", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsConnectSecurityProfileDataSource(string name) : Terrafor
     /// </summary>
     public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? CreateReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -67,24 +67,24 @@ public partial class AwsConnectSecurityProfileDataSource(string name) : Terrafor
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-        => AsReference("arn");
+        => CreateReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The organization_resource_id attribute.
     /// </summary>
     public TerraformValue<string> OrganizationResourceId
-        => AsReference("organization_resource_id");
+        => CreateReference("organization_resource_id");
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     public TerraformSet<string> Permissions
-        => AsReference("permissions");
+        => CreateReference("permissions");
 
 }

@@ -92,7 +92,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -140,7 +140,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     /// Output only. The timestamp representing when the constraint was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

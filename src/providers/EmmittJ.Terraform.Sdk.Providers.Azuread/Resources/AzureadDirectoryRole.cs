@@ -54,7 +54,7 @@ public partial class AzureadDirectoryRole(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? CreateReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzureadDirectoryRole(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzureadDirectoryRole(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? CreateReference("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -80,13 +80,13 @@ public partial class AzureadDirectoryRole(string name) : TerraformResource("azur
     /// The description of the directory role
     /// </summary>
     public TerraformValue<string> Description
-        => AsReference("description");
+        => CreateReference("description");
 
     /// <summary>
     /// The object ID of the directory role
     /// </summary>
     public TerraformValue<string> ObjectId
-        => AsReference("object_id");
+        => CreateReference("object_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

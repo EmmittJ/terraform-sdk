@@ -36,7 +36,7 @@ public partial class AzurermMssqlManagedDatabaseDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,31 +64,31 @@ public partial class AzurermMssqlManagedDatabaseDataSource(string name) : Terraf
     /// The long_term_retention_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LongTermRetentionPolicy
-        => AsReference("long_term_retention_policy");
+        => CreateReference("long_term_retention_policy");
 
     /// <summary>
     /// The managed_instance_name attribute.
     /// </summary>
     public TerraformValue<string> ManagedInstanceName
-        => AsReference("managed_instance_name");
+        => CreateReference("managed_instance_name");
 
     /// <summary>
     /// The point_in_time_restore attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PointInTimeRestore
-        => AsReference("point_in_time_restore");
+        => CreateReference("point_in_time_restore");
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     public TerraformValue<string> ResourceGroupName
-        => AsReference("resource_group_name");
+        => CreateReference("resource_group_name");
 
     /// <summary>
     /// The short_term_retention_days attribute.
     /// </summary>
     public TerraformValue<double> ShortTermRetentionDays
-        => AsReference("short_term_retention_days");
+        => CreateReference("short_term_retention_days");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

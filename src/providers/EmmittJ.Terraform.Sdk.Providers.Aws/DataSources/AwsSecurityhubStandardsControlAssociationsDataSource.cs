@@ -13,7 +13,7 @@ public partial class AwsSecurityhubStandardsControlAssociationsDataSource(string
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -31,12 +31,12 @@ public partial class AwsSecurityhubStandardsControlAssociationsDataSource(string
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-        => AsReference("id");
+        => CreateReference("id");
 
     /// <summary>
     /// The standards_control_associations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StandardsControlAssociations
-        => AsReference("standards_control_associations");
+        => CreateReference("standards_control_associations");
 
 }

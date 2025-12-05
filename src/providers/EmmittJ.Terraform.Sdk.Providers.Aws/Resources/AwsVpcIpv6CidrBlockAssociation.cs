@@ -45,7 +45,7 @@ public partial class AwsVpcIpv6CidrBlockAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool> AssignGeneratedIpv6CidrBlock
     {
-        get => GetArgument<TerraformValue<bool>>("assign_generated_ipv6_cidr_block") ?? AsReference("assign_generated_ipv6_cidr_block");
+        get => GetArgument<TerraformValue<bool>>("assign_generated_ipv6_cidr_block") ?? CreateReference("assign_generated_ipv6_cidr_block");
         set => SetArgument("assign_generated_ipv6_cidr_block", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsVpcIpv6CidrBlockAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsVpcIpv6CidrBlockAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Ipv6CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block") ?? AsReference("ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block") ?? CreateReference("ipv6_cidr_block");
         set => SetArgument("ipv6_cidr_block", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsVpcIpv6CidrBlockAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Ipv6Pool
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_pool") ?? AsReference("ipv6_pool");
+        get => GetArgument<TerraformValue<string>>("ipv6_pool") ?? CreateReference("ipv6_pool");
         set => SetArgument("ipv6_pool", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsVpcIpv6CidrBlockAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? CreateReference("region");
         set => SetArgument("region", value);
     }
 
@@ -117,13 +117,13 @@ public partial class AwsVpcIpv6CidrBlockAssociation(string name) : TerraformReso
     /// The ip_source attribute.
     /// </summary>
     public TerraformValue<string> IpSource
-        => AsReference("ip_source");
+        => CreateReference("ip_source");
 
     /// <summary>
     /// The ipv6_address_attribute attribute.
     /// </summary>
     public TerraformValue<string> Ipv6AddressAttribute
-        => AsReference("ipv6_address_attribute");
+        => CreateReference("ipv6_address_attribute");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

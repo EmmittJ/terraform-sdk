@@ -63,7 +63,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLink(string name) : Terr
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLink(string name) : Terr
     /// </summary>
     public TerraformValue<string> ResolutionPolicy
     {
-        get => GetArgument<TerraformValue<string>>("resolution_policy") ?? AsReference("resolution_policy");
+        get => GetArgument<TerraformValue<string>>("resolution_policy") ?? CreateReference("resolution_policy");
         set => SetArgument("resolution_policy", value);
     }
 

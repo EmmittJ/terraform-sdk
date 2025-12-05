@@ -87,7 +87,7 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool> EnableHighAvailability
     {
-        get => GetArgument<TerraformValue<bool>>("enable_high_availability") ?? AsReference("enable_high_availability");
+        get => GetArgument<TerraformValue<bool>>("enable_high_availability") ?? CreateReference("enable_high_availability");
         set => SetArgument("enable_high_availability", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? CreateReference("id");
         set => SetArgument("id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? CreateReference("project");
         set => SetArgument("project", value);
     }
 
@@ -173,32 +173,32 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     /// The time when the VPN connection was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-        => AsReference("create_time");
+        => CreateReference("create_time");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Details
-        => AsReference("details");
+        => CreateReference("details");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-        => AsReference("effective_labels");
+        => CreateReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-        => AsReference("terraform_labels");
+        => CreateReference("terraform_labels");
 
     /// <summary>
     /// The time when the VPN connection was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-        => AsReference("update_time");
+        => CreateReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).
