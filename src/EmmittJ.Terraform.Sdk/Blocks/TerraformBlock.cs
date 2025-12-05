@@ -35,6 +35,17 @@ public abstract class TerraformBlock : TerraformMap<object>
     public virtual string? ReferenceIdentifier => null;
 
     /// <summary>
+    /// Gets or sets the lineage of this block.
+    /// When getting, if lineage hasn't been set but ReferenceIdentifier is available,
+    /// a lineage is lazily created from ReferenceIdentifier.
+    /// </summary>
+    public override TerraformLineage? Lineage
+    {
+        get => field ?? (ReferenceIdentifier is not null ? new TerraformLineage(ReferenceIdentifier) : null);
+        set => field = value;
+    }
+
+    /// <summary>
     /// Initializes a new instance of TerraformBlock.
     /// </summary>
     protected TerraformBlock() : base()
@@ -52,43 +63,24 @@ public abstract class TerraformBlock : TerraformMap<object>
     {
         get
         {
+            var lineage = Lineage;
+
             // If we have a stored value, return it with lineage attached
             if (_elements.TryGetValue(key, out var value))
             {
-                // Build the lineage for this attribute if we have block lineage
-                if (Lineage is not null)
-                {
-                    // Use WithMember for block attributes (not WithKey like maps)
-                    return value.WithLineage(Lineage.WithMember(key));
-                }
-                // No lineage yet, but we can still build a reference from ReferenceIdentifier
-                if (ReferenceIdentifier is not null)
-                {
-                    var refLineage = new TerraformLineage(ReferenceIdentifier).WithMember(key);
-                    return value.WithLineage(refLineage);
-                }
-                return value;
+                return lineage is not null
+                    ? value.WithLineage(lineage.WithMember(key))
+                    : value;
             }
 
             // No stored value - create a placeholder reference expression
-            if (ReferenceIdentifier is null)
+            if (lineage is null)
             {
                 throw new InvalidOperationException(
                     $"Cannot create reference to '{key}' on {GetType().Name}: block type does not support references.");
             }
 
-            // Build reference expression from lineage or reference identifier
-            TerraformExpression expr;
-            if (Lineage is not null)
-            {
-                expr = Lineage.WithMember(key).BuildExpression();
-            }
-            else
-            {
-                expr = new TerraformLineage(ReferenceIdentifier).WithMember(key).BuildExpression();
-            }
-
-            return new TerraformValue<object>(expr);
+            return new TerraformValue<object>(lineage.WithMember(key).BuildExpression());
         }
         set => SetArgument(key, value);
     }
@@ -102,19 +94,11 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// <exception cref="InvalidOperationException">Thrown when the block has no lineage and no reference identifier.</exception>
     protected TerraformExpression CreateReference(string attributeName)
     {
-        // Use lineage if available, otherwise fall back to ReferenceIdentifier
-        if (Lineage is not null)
-        {
-            return Lineage.WithMember(attributeName).BuildExpression();
-        }
+        var lineage = Lineage
+            ?? throw new InvalidOperationException(
+                $"Cannot create reference to '{attributeName}' on {GetType().Name}: block has no lineage or reference identifier.");
 
-        if (ReferenceIdentifier is not null)
-        {
-            return new TerraformLineage(ReferenceIdentifier).WithMember(attributeName).BuildExpression();
-        }
-
-        throw new InvalidOperationException(
-            $"Cannot create reference to '{attributeName}' on {GetType().Name}: block has no lineage or reference identifier.");
+        return lineage.WithMember(attributeName).BuildExpression();
     }
 
     /// <summary>
@@ -127,25 +111,15 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// </exception>
     public TerraformExpression ToReference()
     {
-        if (ReferenceIdentifier is null)
-        {
-            throw new InvalidOperationException(
+        var lineage = Lineage
+            ?? throw new InvalidOperationException(
                 $"Cannot create reference to {GetType().Name}: block type does not support references.");
-        }
 
-        if (Lineage is null)
-        {
-            // Return identifier-based reference when block hasn't been added to a stack yet
-            return TerraformExpression.Identifier(ReferenceIdentifier);
-        }
-
-        return Lineage.BuildExpression();
-    }
-
-    /// <summary>
-    /// Resolves this block to multiple syntax nodes (arguments + nested blocks).
-    /// Nodes are sorted by the context's formatter.
-    /// </summary>
+        return lineage.BuildExpression();
+    }    /// <summary>
+         /// Resolves this block to multiple syntax nodes (arguments + nested blocks).
+         /// Nodes are sorted by the context's formatter.
+         /// </summary>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var nodes = new List<TerraformSyntaxNode>();

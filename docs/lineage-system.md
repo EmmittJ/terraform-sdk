@@ -19,21 +19,25 @@ The Lineage System is a fundamental redesign of how terraform-sdk tracks the ori
 An immutable record that tracks where a value came from:
 
 ```csharp
-public sealed record TerraformLineage(
-    TerraformStack Stack,
-    ImmutableArray<TerraformPathSegment> Path)
+public sealed record TerraformLineage
 {
+    public ImmutableArray<TerraformPathSegment> Path { get; }
+
+    // Constructor for a single identifier
+    public TerraformLineage(string identifier)
+        : this([new IdentifierSegment(identifier)]) { }
+
     // Extend the path with a new segment
-    public TerraformLineage WithMember(string name) =>
-        this with { Path = Path.Add(new MemberSegment(name)) };
+    public TerraformLineage WithMember(string name)
+        => new(Path.Add(new MemberSegment(name)));
 
-    public TerraformLineage WithIndex(int index) =>
-        this with { Path = Path.Add(new IndexSegment(index)) };
+    public TerraformLineage WithIndex(int index)
+        => new(Path.Add(new IndexSegment(index)));
 
-    public TerraformLineage WithKey(string key) =>
-        this with { Path = Path.Add(new KeySegment(key)) };
+    public TerraformLineage WithKey(string key)
+        => new(Path.Add(new KeySegment(key)));
 
-    // Build the HCL reference expression
+    // Build the HCL reference expression by composing path segments
     public TerraformExpression BuildExpression() { ... }
 }
 ```
@@ -45,32 +49,42 @@ Abstract record with concrete segment types:
 ```csharp
 public abstract record TerraformPathSegment
 {
-    // Renders to HCL syntax
-    public abstract string ToHcl();
+    // Applies this segment to extend an expression
+    public abstract TerraformExpression Apply(TerraformExpression? source);
 }
 
-// First segment: "aws_vpc", "var", "local", "data.aws_ami"
+// First segment: "aws_vpc.main", "var", "local", "data.aws_ami.ubuntu"
 public sealed record IdentifierSegment(string Identifier) : TerraformPathSegment
 {
-    public override string ToHcl() => Identifier;
+    public override TerraformExpression Apply(TerraformExpression? source)
+        => TerraformExpression.Identifier(Identifier);
 }
 
 // Dot access: .id, .tags, .ingress
 public sealed record MemberSegment(string Name) : TerraformPathSegment
 {
-    public override string ToHcl() => $".{Name}";
+    public override TerraformExpression Apply(TerraformExpression? source)
+        => source is null
+            ? throw new InvalidOperationException("MemberSegment requires a source.")
+            : source[Name];
 }
 
 // Numeric index: [0], [1]
 public sealed record IndexSegment(int Index) : TerraformPathSegment
 {
-    public override string ToHcl() => $"[{Index}]";
+    public override TerraformExpression Apply(TerraformExpression? source)
+        => source is null
+            ? throw new InvalidOperationException("IndexSegment requires a source.")
+            : TerraformExpression.Index(source, TerraformExpression.Literal(Index));
 }
 
 // String key: ["key"], ["us-west-2"]
 public sealed record KeySegment(string Key) : TerraformPathSegment
 {
-    public override string ToHcl() => $"[\"{Key}\"]";
+    public override TerraformExpression Apply(TerraformExpression? source)
+        => source is null
+            ? throw new InvalidOperationException("KeySegment requires a source.")
+            : TerraformExpression.Index(source, TerraformExpression.Literal(Key));
 }
 ```
 
@@ -167,14 +181,14 @@ subnet["vpc_id"] = vpcIdRef;
 
 ```csharp
 var vpc = stack.Add(new AwsVpc("main"));
-// vpc.Lineage = TerraformLineage(stack, [IdentifierSegment("aws_vpc.main")])
+// vpc.Lineage = TerraformLineage("aws_vpc.main")
 
 // Natural property access - lineage flows automatically
 var vpcId = vpc.Id;
-// vpcId.Lineage = TerraformLineage(stack, [IdentifierSegment("aws_vpc.main"), MemberSegment("id")])
+// vpcId.Lineage = TerraformLineage([IdentifierSegment("aws_vpc.main"), MemberSegment("id")])
 
 var fqdn = vpc.Ingress[0].Fqdn;
-// fqdn.Lineage = TerraformLineage(stack, [
+// fqdn.Lineage = TerraformLineage([
 //     IdentifierSegment("aws_vpc.main"),
 //     MemberSegment("ingress"),
 //     IndexSegment(0),
@@ -187,7 +201,7 @@ subnet["vpc_id"] = vpcId;  // Resolves to: aws_vpc.main.id
 
 ## Implementation Plan
 
-### Phase 1: Core Infrastructure
+### Phase 1: Core Infrastructure ✅
 
 **TerraformValue<T>** - Add lineage support:
 
@@ -195,18 +209,19 @@ subnet["vpc_id"] = vpcId;  // Resolves to: aws_vpc.main.id
 - Update `ResolveNodes()` to emit reference expression when lineaged
 - Add `WithLineage()` method to create a copy with lineage set
 
-### Phase 2: TerraformBlock Updates
+### Phase 2: TerraformBlock Updates ✅
 
 **TerraformBlock** - Central lineage management:
 
 - Add `Lineage` property (inherited from TerraformValue via TerraformMap)
 - Add `ReferenceIdentifier` virtual property (e.g., "aws_vpc.main", "var.region")
 - Add `CreateReference(string attributeName)` helper for generated property getters
+- Add `ToReference()` method to get block reference expression
 - Remove `ITerraformHasParent`, `ITerraformReferenceable` interfaces
 - Remove `ParentBlock`, `ParentAttributeName` properties
 - Remove `AsReference()` methods
 
-### Phase 3: Block Type ReferenceIdentifiers
+### Phase 3: Block Type ReferenceIdentifiers ✅
 
 Each block type overrides `ReferenceIdentifier`:
 
@@ -216,32 +231,37 @@ Each block type overrides `ReferenceIdentifier`:
 - `TerraformLocals` → `local` (then member access for each local)
 - `TerraformModule` → `module.{Name}` (e.g., "module.vpc")
 - `TerraformOutput` → `output.{Name}` (rarely referenced directly)
-- `TerraformProvider` → provider reference
+- `TerraformProvider` → `Name` (the provider name)
 - `TerraformEphemeralResource` → `ephemeral.{ResourceType}.{ResourceName}`
+- `TerraformBlock` (base) → `null` (nested blocks can't be referenced)
 
-### Phase 4: Stack Sets Lineage
+### Phase 4: Stack Sets Lineage ✅
 
 **TerraformStack.Add()** - Initialize lineage:
 
 ```csharp
 public T Add<T>(T block) where T : TerraformBlock
 {
-    block.Lineage = new TerraformLineage(this, block.ReferenceIdentifier);
+    // Set lineage for blocks that can be referenced
+    if (block.ReferenceIdentifier is not null)
+    {
+        block.Lineage = new TerraformLineage(block.ReferenceIdentifier);
+    }
     _blocks.Add(block);
     return block;
 }
 ```
 
-### Phase 5: Template Updates
+### Phase 5: Template Updates ✅
 
 **\_argument.mustache** - Generated property getters use lineage:
 
 - Computed attributes: `get => CreateReference("{{TerraformName}}")`
 - Optional+computed: `get => GetArgument<T>("name") ?? CreateReference("name")`
 
-### Phase 6: Cleanup
+### Phase 6: Cleanup ✅
 
-Delete obsolete types:
+Deleted obsolete types:
 
 - `TerraformReference<T>` - replaced by lineaged values
 - `TerraformIndexedBlockReference` - replaced by lineage indexing
@@ -250,11 +270,13 @@ Delete obsolete types:
 - `TerraformReferenceExpression` - if unused
 - Parent tracking in `TerraformMap.SetArgument()` and `TerraformList`
 
-### Phase 7: Test Updates
+### Phase 7: Test Updates ✅
 
-Update tests to use new patterns:
+Updated tests to use new patterns:
 
 - Replace `resource.AsReference("id")` with `resource["id"]` (returns lineaged value)
+- Use `resource.ToReference()` to get block reference expression
+- Use `resource.ToReference().Member("id")` for explicit attribute references
 - For base `TerraformResource` is a `TerraformBlock`, so `resource["id"]` works directly.
 
 ## Key Insight: TerraformMap Already Stores Lineaged Values

@@ -1,5 +1,5 @@
 ﻿resource "test_log_analytics" "law" {
-  location            = "westus2"
+  location            = test_resource_group.rg.location
   name                = "my-log-analytics"
-  resource_group_name = "my-resource-group"
+  resource_group_name = test_resource_group.rg.name
 }

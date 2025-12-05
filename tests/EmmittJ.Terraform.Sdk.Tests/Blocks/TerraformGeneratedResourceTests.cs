@@ -452,7 +452,7 @@ public class TerraformGeneratedResourceTests
 
     #endregion
 
-    #region Block Not Added to Stack (No Lineage)
+    #region Block Not Added to Stack (Still Has Lineage)
 
     [Fact]
     public Task GeneratedResource_NotAddedToStack_PropertyRendersLiteral()
@@ -460,7 +460,9 @@ public class TerraformGeneratedResourceTests
         var stack = new TerraformStack { Name = "test" };
         var context = new TerraformContext(stack);
 
-        // Resource NOT added to stack - should have no lineage
+        // Resource NOT added to stack - but still has lineage via ReferenceIdentifier
+        // This ensures proper Terraform references are created even if the user
+        // forgets to add a resource to the stack
         var resourceGroup = new TestResourceGroup("rg")
         {
             Name = "my-resource-group",
@@ -468,7 +470,8 @@ public class TerraformGeneratedResourceTests
         };
         // Note: NOT calling stack.Add(resourceGroup)
 
-        // When used in another resource, should render as literal since no lineage
+        // When used in another resource, should still render as reference
+        // because blocks lazily create lineage from ReferenceIdentifier
         var logAnalytics = new TestLogAnalytics("law")
         {
             Name = "my-log-analytics",
