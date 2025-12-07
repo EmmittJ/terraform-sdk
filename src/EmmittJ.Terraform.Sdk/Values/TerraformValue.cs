@@ -219,8 +219,10 @@ public class TerraformValue<T> : ITerraformValue
         // Always create a copy to avoid mutating the original value.
         // This ensures the source block renders with its original literal values,
         // while the copy used in other blocks renders as a reference.
-        var result = new TerraformValue<T>(this);
-        result.Lineage = lineage;
+        var result = new TerraformValue<T>(this)
+        {
+            Lineage = lineage
+        };
         return result;
     }
 
@@ -287,8 +289,10 @@ internal class TerraformLazyValue<T> : TerraformValue<T>
     /// </summary>
     public override TerraformValue<T> WithLineage(TerraformLineage? lineage)
     {
-        var result = new TerraformLazyValue<T>(this);
-        result.Lineage = lineage;
+        var result = new TerraformLazyValue<T>(this)
+        {
+            Lineage = lineage
+        };
         return result;
     }
 }

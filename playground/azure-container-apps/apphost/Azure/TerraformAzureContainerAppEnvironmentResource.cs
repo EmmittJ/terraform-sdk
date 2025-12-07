@@ -101,8 +101,10 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
         : base(name)
     {
         // Create container registry resource (Stage 1)
-        ContainerRegistryResource = new TerraformContainerRegistryResource($"{Name}-acr");
-        ContainerRegistryResource.LoginCallback = TerraformContainerRegistryHelpers.CreateAzureCliLoginCallback();
+        ContainerRegistryResource = new TerraformContainerRegistryResource($"{Name}-acr")
+        {
+            LoginCallback = TerraformContainerRegistryHelpers.CreateAzureCliLoginCallback()
+        };
 
         // Create environment resource (Stage 2) - depends on the container registry
         EnvironmentResource = new TerraformEnvironmentResource(Name, ContainerRegistryResource);

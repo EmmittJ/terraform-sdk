@@ -278,18 +278,17 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         {
             MinReplicas = GetReplicaCount(),
             MaxReplicas = 3,
-            Container = [container]
+            Container = [container],
+            // Add scale rules
+            HttpScaleRule =
+            [
+                new AzurermContainerAppTemplateBlockHttpScaleRuleBlock
+                {
+                    Name = "http-scale",
+                    ConcurrentRequests = "100"
+                }
+            ]
         };
-
-        // Add scale rules
-        template.HttpScaleRule =
-        [
-            new AzurermContainerAppTemplateBlockHttpScaleRuleBlock
-            {
-                Name = "http-scale",
-                ConcurrentRequests = "100"
-            }
-        ];
 
         // Build container app with template
         var containerApp = new AzurermContainerApp(NormalizedName)
