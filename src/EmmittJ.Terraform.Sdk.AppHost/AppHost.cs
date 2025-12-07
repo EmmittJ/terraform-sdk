@@ -22,4 +22,7 @@ var azuread = builder
 var google = builder
     .AddTerraformProvider("google", "~> 7.0");
 
+var random = builder
+    .AddTerraformProvider("random", "~> 3.0");
+
 builder.Build().Run();
