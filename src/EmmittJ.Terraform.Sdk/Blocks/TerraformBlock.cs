@@ -102,23 +102,6 @@ public abstract class TerraformBlock : TerraformMap<object>
     }
 
     /// <summary>
-    /// Creates a reference expression for this block (e.g., <c>var.region</c>, <c>aws_vpc.main</c>).
-    /// Used when the block itself needs to be referenced in expressions.
-    /// </summary>
-    /// <returns>A TerraformExpression representing a reference to this block.</returns>
-    /// <exception cref="InvalidOperationException">
-    /// Thrown when the block has no lineage or no reference identifier.
-    /// </exception>
-    public TerraformExpression ToReference()
-    {
-        var lineage = Lineage
-            ?? throw new InvalidOperationException(
-                $"Cannot create reference to {GetType().Name}: block type does not support references.");
-
-        return lineage.BuildExpression();
-    }
-
-    /// <summary>
     /// Implicit conversion to <see cref="TerraformExpression"/> by creating a reference expression.
     /// This allows blocks like <see cref="TerraformVariable"/> to be used directly where expressions are expected.
     /// </summary>

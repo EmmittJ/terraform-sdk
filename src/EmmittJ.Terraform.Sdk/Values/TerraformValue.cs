@@ -85,6 +85,24 @@ public class TerraformValue<T> : ITerraformValue
     }
 
     /// <summary>
+    /// Creates a reference expression for this value based on its lineage.
+    /// Used when the value needs to be referenced in expressions rather than resolved to its content.
+    /// </summary>
+    /// <returns>A TerraformExpression representing a reference to this value.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the value has no lineage (has not been attached to a stack or accessed through a property).
+    /// </exception>
+    public TerraformExpression ToReference()
+    {
+        var lineage = Lineage
+            ?? throw new InvalidOperationException(
+                $"Cannot create reference to {GetType().Name}: value has no lineage. " +
+                $"Ensure the value is attached to a stack or accessed through a property.");
+
+        return lineage.BuildExpression();
+    }
+
+    /// <summary>
     /// Creates a lazy TerraformValue that will be resolved at resolution time.
     /// The producer function is called during resolution to generate the final expression.
     /// </summary>

@@ -247,17 +247,30 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
 
 /// <summary>
 /// Internal lazy map implementation for deferred resolution.
+/// Unlike <see cref="TerraformLazyValue{T}"/>, this type does not preserve identity
+/// because lazy maps are created for deferred evaluation, not for wrapping stored values.
 /// </summary>
 internal sealed class TerraformLazyMap<T> : TerraformMap<T>
 {
     private readonly Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> _producer;
 
+    /// <summary>
+    /// Creates a lazy map with a custom producer function.
+    /// </summary>
+    /// <param name="producer">The function that produces syntax nodes during resolution.</param>
     public TerraformLazyMap(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         : base()
     {
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
+    /// <summary>
+    /// Resolves this lazy map to syntax nodes.
+    /// If lineage is present, resolves to a reference expression.
+    /// Otherwise, invokes the producer function.
+    /// </summary>
+    /// <param name="context">The resolution context.</param>
+    /// <returns>The resolved syntax nodes.</returns>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         // Check lineage first - if present, resolve to reference
@@ -267,14 +280,5 @@ internal sealed class TerraformLazyMap<T> : TerraformMap<T>
         }
 
         return _producer(context);
-    }
-
-    /// <summary>
-    /// Sets the lineage on this lazy map and returns it.
-    /// </summary>
-    public override TerraformValue<IDictionary<string, T>> WithLineage(TerraformLineage? lineage)
-    {
-        Lineage = lineage;
-        return this;
     }
 }

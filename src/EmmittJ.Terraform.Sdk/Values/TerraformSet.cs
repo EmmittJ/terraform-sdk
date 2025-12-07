@@ -1,86 +1,69 @@
-using System.Collections;
-
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// Represents a Terraform set argument that can contain multiple unique unordered elements.
 /// Terraform sets are unordered collections that do not allow duplicates.
-/// Inherits from TerraformValue&lt;IEnumerable&lt;T&gt;&gt; for clean typing.
 /// </summary>
-/// <typeparam name="T">The element type (string, double, bool, TerraformBlock&lt;T&gt;, etc.)</typeparam>
-public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
+/// <typeparam name="T">The element type (string, double, bool, TerraformBlock, etc.)</typeparam>
+/// <remarks>
+/// <para>
+/// Note: Uniqueness for literal values is enforced at construction time using <see cref="Enumerable.Distinct{TSource}(IEnumerable{TSource})"/>.
+/// For TerraformValue elements containing references or expressions, uniqueness is enforced at resolution time by Terraform.
+/// </para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/expressions/types#set"/></para>
+/// </remarks>
+public class TerraformSet<T> : TerraformEnumerable<T>
 {
-    // Internal: Store elements as TerraformValue<T> to preserve unknowns
-    private readonly List<TerraformValue<T>> _elements;
-
-    // Parameterless constructor for collection initializer syntax
+    /// <summary>
+    /// Initializes a new empty set for collection initializer syntax.
+    /// </summary>
     public TerraformSet()
         : base()
     {
-        _elements = new List<TerraformValue<T>>();
     }
 
-    // Constructor for literal values - enforces uniqueness
+    /// <summary>
+    /// Initializes a set from literal values, enforcing uniqueness.
+    /// </summary>
+    /// <param name="values">The literal values to add (duplicates are removed).</param>
     public TerraformSet(IEnumerable<T> values)
-        : this()
+        : base(values?.Distinct())
     {
-        if (values != null)
-        {
-            foreach (var value in values.Distinct())
-            {
-                _elements.Add(value);
-            }
-        }
     }
 
-    // Constructor for mixed TerraformValue<T> elements
+    /// <summary>
+    /// Initializes a set from TerraformValue elements.
+    /// Uniqueness is enforced at resolution time by Terraform.
+    /// </summary>
+    /// <param name="values">The TerraformValue elements to add.</param>
     public TerraformSet(IEnumerable<TerraformValue<T>> values)
-        : this()
+        : base(values)
     {
-        if (values != null)
-        {
-            _elements.AddRange(values); // Uniqueness enforced at resolution
-        }
     }
 
-    // Constructor for expressions/references
+    /// <summary>
+    /// Initializes a set from a resolvable expression.
+    /// </summary>
+    /// <param name="resolvable">The resolvable to wrap.</param>
     private TerraformSet(ITerraformResolvable resolvable)
         : base(resolvable)
     {
-        _elements = new List<TerraformValue<T>>();
     }
 
     /// <summary>
-    /// Sets the lineage on this set and returns it.
-    /// Unlike primitive values, sets are mutable so we set lineage in place.
-    /// </summary>
-    /// <param name="lineage">The lineage to attach.</param>
-    /// <returns>This set with the lineage set.</returns>
-    public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
-    {
-        Lineage = lineage;
-        return this;
-    }
-
-    /// <summary>
-    /// Override resolution to handle nested TerraformValue&lt;T&gt; elements.
-    /// If elements are TerraformBlocks, returns them directly as multiple blocks.
+    /// Resolves this set to syntax nodes.
+    /// If elements are TerraformBlocks, returns them directly as multiple nested blocks.
     /// Otherwise wraps elements in a set expression.
     /// </summary>
+    /// <param name="context">The resolution context.</param>
+    /// <returns>The resolved syntax nodes.</returns>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        var resolved = new List<TerraformSyntaxNode>();
-        foreach (var element in _elements)
-        {
-            var nodes = element.ResolveNodes(context);
-            resolved.AddRange(nodes);
-        }
-        var formatted = context.Formatter.Format(resolved);
+        var formatted = ResolveElementNodes(context).ToList();
 
         // Check if T is a TerraformBlock type - if so, resolve as multiple nested blocks
         // Otherwise, resolve as a set expression
-        var elementType = typeof(T);
-        if (typeof(TerraformBlock).IsAssignableFrom(elementType))
+        if (typeof(TerraformBlock).IsAssignableFrom(typeof(T)))
         {
             foreach (var node in formatted)
             {
@@ -89,102 +72,37 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
         }
         else
         {
-            yield return TerraformExpression.Set(resolved);
+            yield return TerraformExpression.Set(formatted);
         }
     }
 
-    // Add method for collection initializer syntax
-    public void Add(T value)
-    {
-        _elements.Add(value);
-    }
-
-    // Add method for adding TerraformValue<T> directly
-    public void Add(TerraformValue<T> value)
-    {
-        _elements.Add(value);
-    }
-
     /// <summary>
-    /// Add method for adding TerraformBlock (e.g., TerraformVariable) directly.
-    /// Converts the block to a reference expression automatically.
+    /// Implicit conversion from a HashSet.
     /// </summary>
-    /// <param name="block">The block to add.</param>
-    public void Add(TerraformBlock block)
-    {
-        ArgumentNullException.ThrowIfNull(block);
-        _elements.Add((TerraformValue<T>)block);
-    }
-
-    /// <summary>
-    /// Gets the element at the specified index with lineage attached.
-    /// When this set has lineage, the returned element will have extended lineage
-    /// that includes the index (e.g., "resource.identity_ids[0]").
-    /// For value types, returns a COPY with lineage attached.
-    /// For blocks, sets lineage directly (blocks resolve their own content, lineage is for references).
-    /// </summary>
-    /// <remarks>
-    /// Note: Sets are unordered in Terraform, so index-based access should be used
-    /// carefully. This is primarily useful for accessing elements in generated code
-    /// where the order is known at definition time.
-    /// </remarks>
-    /// <param name="index">The zero-based index of the element to get.</param>
-    /// <returns>The element at the specified index with lineage attached.</returns>
-    public T this[int index]
-    {
-        get
-        {
-            if (index < 0 || index >= _elements.Count)
-            {
-                throw new ArgumentOutOfRangeException(nameof(index), $"Index {index} is out of range. Set has {_elements.Count} elements.");
-            }
-
-            var element = _elements[index];
-
-            // If the element is a lazy value wrapping an original T, get the original
-            T? result = element switch
-            {
-                TerraformLazyValue<T> { Original: T original } => original,
-                T directValue => directValue,
-                _ => default
-            };
-
-            // If this set has lineage, attach it to the element
-            if (Lineage is not null && result is ITerraformValue terraformValue)
-            {
-                var lineageForIndex = Lineage.WithIndex(index);
-
-                // For blocks, set lineage directly (blocks resolve their own content, lineage is for reference building)
-                // For other values, return a COPY with lineage to preserve original for source rendering
-                if (result is TerraformBlock block)
-                {
-                    block.Lineage = lineageForIndex;
-                    return result;
-                }
-
-                return (T)terraformValue.WithLineage(lineageForIndex);
-            }
-
-            return result ?? throw new InvalidOperationException(
-                $"Cannot retrieve element at index {index}. The element was not stored as type {typeof(T).Name}.");
-        }
-    }
-
-    // Implicit conversions - enforce uniqueness with Distinct()
     public static implicit operator TerraformSet<T>(HashSet<T> value)
         => new TerraformSet<T>(value);
 
+    /// <summary>
+    /// Implicit conversion from a List (duplicates are removed).
+    /// </summary>
     public static implicit operator TerraformSet<T>(List<T> value)
-        => new TerraformSet<T>(value.Distinct());
+        => new TerraformSet<T>(value);
 
+    /// <summary>
+    /// Implicit conversion from an array (duplicates are removed).
+    /// </summary>
     public static implicit operator TerraformSet<T>(T[] value)
-        => new TerraformSet<T>(value.Distinct());
+        => new TerraformSet<T>(value);
 
-    // Accept mixed TerraformValue<T> elements
+    /// <summary>
+    /// Implicit conversion from a list of TerraformValue elements.
+    /// </summary>
     public static implicit operator TerraformSet<T>(List<TerraformValue<T>> values)
         => new TerraformSet<T>(values);
 
-    // Implicit conversion from TerraformExpression
+    /// <summary>
+    /// Implicit conversion from TerraformExpression.
+    /// </summary>
     public static implicit operator TerraformSet<T>(TerraformExpression expression)
         => new TerraformSet<T>(expression);
 
@@ -192,60 +110,57 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     /// Creates a lazy TerraformSet that will be resolved at resolution time.
     /// The producer function is called during resolution to generate the final expression.
     /// </summary>
-    /// <param name="producer">A function that produces a TerraformExpression when called with a resolution context.</param>
+    /// <param name="producer">A function that produces syntax nodes when called with a resolution context.</param>
     /// <returns>A TerraformSet that wraps the lazy producer.</returns>
     public static new TerraformSet<T> Lazy(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         => new TerraformLazySet<T>(producer);
 
-    // IEnumerable for collection initializer syntax (non-functional)
-    IEnumerator IEnumerable.GetEnumerator()
-        => throw new NotSupportedException(
-            "TerraformSet cannot be enumerated synchronously. " +
-            "Values are resolved during Terraform synthesis.");
-
-    // Static empty set
-    public static TerraformSet<T> Empty
-        => new TerraformSet<T>();
+    /// <summary>
+    /// Gets an empty set.
+    /// </summary>
+    public static TerraformSet<T> Empty => new TerraformSet<T>();
 
     /// <summary>
     /// Converts this TerraformSet to a lazy TerraformSet of a different type.
     /// This is useful when the underlying value is known to be of a different type
-    /// but needs to be treated as such in certain contexts (e.g., casting from string to a more specific type).
-    /// /// </summary>
+    /// but needs to be treated as such in certain contexts.
+    /// </summary>
+    /// <typeparam name="TLazy">The target element type.</typeparam>
+    /// <returns>A lazy TerraformSet of the target type.</returns>
     public new TerraformSet<TLazy> AsLazy<TLazy>()
         => TerraformSet<TLazy>.Lazy(ResolveNodes);
 }
 
 /// <summary>
 /// Internal lazy set implementation for deferred resolution.
+/// Unlike <see cref="TerraformLazyValue{T}"/>, this type does not preserve identity
+/// because lazy sets are created for deferred evaluation, not for wrapping stored values.
 /// </summary>
 internal sealed class TerraformLazySet<T> : TerraformSet<T>
 {
     private readonly Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> _producer;
 
+    /// <summary>
+    /// Creates a lazy set with a custom producer function.
+    /// </summary>
+    /// <param name="producer">The function that produces syntax nodes during resolution.</param>
     public TerraformLazySet(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         : base()
     {
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
+    /// <summary>
+    /// Resolves this lazy set to syntax nodes.
+    /// If lineage is present, resolves to a reference expression.
+    /// Otherwise, invokes the producer function.
+    /// </summary>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        // Check lineage first - if present, resolve to reference
         if (Lineage is not null)
         {
             return [Lineage.BuildExpression()];
         }
-
         return _producer(context);
-    }
-
-    /// <summary>
-    /// Sets the lineage on this lazy set and returns it.
-    /// </summary>
-    public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
-    {
-        Lineage = lineage;
-        return this;
     }
 }

@@ -18,4 +18,14 @@ public interface ITerraformValue : ITerraformResolvable
     /// <param name="lineage">The lineage to set on the copy, or null to clear lineage.</param>
     /// <returns>A new value with the lineage set.</returns>
     ITerraformValue WithLineage(TerraformLineage? lineage);
+
+    /// <summary>
+    /// Creates a reference expression for this value based on its lineage.
+    /// Used when the value needs to be referenced in expressions rather than resolved to its content.
+    /// </summary>
+    /// <returns>A TerraformExpression representing a reference to this value.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the value has no lineage (has not been attached to a stack or accessed through a property).
+    /// </exception>
+    TerraformExpression ToReference();
 }
