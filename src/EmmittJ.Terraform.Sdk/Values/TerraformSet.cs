@@ -51,28 +51,15 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     }
 
     /// <summary>
-    /// Copy constructor for creating a copy of an existing set.
-    /// Used by <see cref="WithLineage"/> to create copies with lineage attached.
+    /// Sets the lineage on this set and returns it.
+    /// Unlike primitive values, sets are mutable so we set lineage in place.
     /// </summary>
-    /// <param name="other">The set to copy.</param>
-    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
-    private TerraformSet(TerraformSet<T> other, bool isCopy)
-        : base()
-    {
-        _ = isCopy; // Marker parameter for disambiguation
-        _elements = new List<TerraformValue<T>>(other._elements);
-    }
-
-    /// <summary>
-    /// Creates a copy of this set with the specified lineage attached.
-    /// </summary>
-    /// <param name="lineage">The lineage to attach to the copy.</param>
-    /// <returns>A new <see cref="TerraformSet{T}"/> with the specified lineage.</returns>
+    /// <param name="lineage">The lineage to attach.</param>
+    /// <returns>This set with the lineage set.</returns>
     public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
     {
-        var copy = new TerraformSet<T>(this, isCopy: true);
-        copy.Lineage = lineage;
-        return copy;
+        Lineage = lineage;
+        return this;
     }
 
     /// <summary>
@@ -116,6 +103,17 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     public void Add(TerraformValue<T> value)
     {
         _elements.Add(value);
+    }
+
+    /// <summary>
+    /// Add method for adding TerraformBlock (e.g., TerraformVariable) directly.
+    /// Converts the block to a reference expression automatically.
+    /// </summary>
+    /// <param name="block">The block to add.</param>
+    public void Add(TerraformBlock block)
+    {
+        ArgumentNullException.ThrowIfNull(block);
+        _elements.Add((TerraformValue<T>)block);
     }
 
     /// <summary>
@@ -231,18 +229,6 @@ internal sealed class TerraformLazySet<T> : TerraformSet<T>
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
-    /// <summary>
-    /// Copy constructor for creating a copy with lineage.
-    /// </summary>
-    /// <param name="other">The set to copy.</param>
-    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
-    private TerraformLazySet(TerraformLazySet<T> other, bool isCopy)
-        : base()
-    {
-        _ = isCopy; // Marker parameter for disambiguation
-        _producer = other._producer;
-    }
-
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         // Check lineage first - if present, resolve to reference
@@ -255,12 +241,11 @@ internal sealed class TerraformLazySet<T> : TerraformSet<T>
     }
 
     /// <summary>
-    /// Creates a copy of this lazy set with the specified lineage attached.
+    /// Sets the lineage on this lazy set and returns it.
     /// </summary>
     public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
     {
-        var copy = new TerraformLazySet<T>(this, isCopy: true);
-        copy.Lineage = lineage;
-        return copy;
+        Lineage = lineage;
+        return this;
     }
 }

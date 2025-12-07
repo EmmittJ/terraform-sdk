@@ -68,15 +68,15 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     }
 
     /// <summary>
-    /// Creates a copy of this map with the specified lineage attached.
+    /// Sets the lineage on this map and returns it.
+    /// Unlike primitive values, maps are mutable so we set lineage in place.
     /// </summary>
-    /// <param name="lineage">The lineage to attach to the copy.</param>
-    /// <returns>A new <see cref="TerraformMap{T}"/> with the specified lineage.</returns>
+    /// <param name="lineage">The lineage to attach.</param>
+    /// <returns>This map with the lineage set.</returns>
     public override TerraformValue<IDictionary<string, T>> WithLineage(TerraformLineage? lineage)
     {
-        var copy = new TerraformMap<T>(this, isCopy: true);
-        copy.Lineage = lineage;
-        return copy;
+        Lineage = lineage;
+        return this;
     }
 
     /// <summary>
@@ -171,15 +171,6 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
         if (result is ITerraformValue terraformValue && Lineage is not null)
         {
             var lineageForMember = Lineage.WithMember(terraformName);
-
-            // For blocks, set lineage directly (blocks resolve their own content, lineage is for reference building)
-            // For other values, return a COPY with lineage to preserve original for source rendering
-            if (result is TerraformBlock block)
-            {
-                block.Lineage = lineageForMember;
-                return result;
-            }
-
             return (TValue)terraformValue.WithLineage(lineageForMember);
         }
 
@@ -267,18 +258,6 @@ internal sealed class TerraformLazyMap<T> : TerraformMap<T>
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
-    /// <summary>
-    /// Copy constructor for creating a copy with lineage.
-    /// </summary>
-    /// <param name="other">The map to copy.</param>
-    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
-    private TerraformLazyMap(TerraformLazyMap<T> other, bool isCopy)
-        : base()
-    {
-        _ = isCopy; // Marker parameter for disambiguation
-        _producer = other._producer;
-    }
-
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         // Check lineage first - if present, resolve to reference
@@ -291,12 +270,11 @@ internal sealed class TerraformLazyMap<T> : TerraformMap<T>
     }
 
     /// <summary>
-    /// Creates a copy of this lazy map with the specified lineage attached.
+    /// Sets the lineage on this lazy map and returns it.
     /// </summary>
     public override TerraformValue<IDictionary<string, T>> WithLineage(TerraformLineage? lineage)
     {
-        var copy = new TerraformLazyMap<T>(this, isCopy: true);
-        copy.Lineage = lineage;
-        return copy;
+        Lineage = lineage;
+        return this;
     }
 }

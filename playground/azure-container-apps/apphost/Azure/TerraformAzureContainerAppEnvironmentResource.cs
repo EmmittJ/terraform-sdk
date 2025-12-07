@@ -178,7 +178,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
             var resourceGroup = new AzurermResourceGroup("rg")
             {
                 Name = $"{Name}-registry-rg",
-                Location = locationVar.AsReference(),
+                Location = locationVar,
                 Tags = tags
             };
             registry.Add(resourceGroup);
@@ -199,7 +199,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
 
             var containerRegistry = new AzurermContainerRegistry("acr")
             {
-                Name = Tf.Interpolate($"acr{acrSuffix.AsReference("result")}"),
+                Name = Tf.Interpolate($"acr{acrSuffix["result"]}"),
                 Location = resourceGroup.Location,
                 ResourceGroupName = resourceGroup.Name,
                 Sku = "Basic",
@@ -237,7 +237,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
             var resourceGroup = new AzurermResourceGroup("rg")
             {
                 Name = $"{Name}-aca-rg",
-                Location = locationVar.AsReference(),
+                Location = locationVar,
                 Tags = tags
             };
             infra.Add(resourceGroup);
@@ -245,7 +245,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
             var logAnalytics = new AzurermLogAnalyticsWorkspace("law")
             {
                 Name = $"{Name}-law",
-                Location = locationVar.AsReference(),
+                Location = locationVar,
                 ResourceGroupName = resourceGroup.Name,
                 Sku = "PerGB2018",
                 RetentionInDays = 30,
@@ -256,7 +256,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
             var managedIdentity = new AzurermUserAssignedIdentity("mi")
             {
                 Name = $"{Name}-mi",
-                Location = locationVar.AsReference(),
+                Location = locationVar,
                 ResourceGroupName = resourceGroup.Name,
                 Tags = tags
             };
@@ -265,7 +265,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
             // Data source to reference the existing ACR for role assignment
             var acrDataSource = new TerraformDataSource("azurerm_container_registry", "acr")
             {
-                ["name"] = registryNameVar.AsReference(),
+                ["name"] = registryNameVar,
                 ["resource_group_name"] = $"{Name}-registry-rg"
             };
             infra.Add(acrDataSource);
@@ -273,7 +273,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
             // Grant the managed identity permission to pull images from ACR
             var acrPullRole = new AzurermRoleAssignment("acr-pull")
             {
-                Scope = acrDataSource.AsReference("id"),
+                Scope = acrDataSource["id"].AsLazy<string>(),
                 RoleDefinitionName = "AcrPull",
                 PrincipalId = managedIdentity.PrincipalId,
                 PrincipalType = "ServicePrincipal"
@@ -283,7 +283,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
             var containerAppEnvironment = new AzurermContainerAppEnvironment("cae")
             {
                 Name = $"{Name}-cae",
-                Location = locationVar.AsReference(),
+                Location = locationVar,
                 ResourceGroupName = resourceGroup.Name,
                 LogAnalyticsWorkspaceId = logAnalytics.Id,
                 LogsDestination = "log-analytics",
@@ -323,7 +323,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource :
         var azurerm = new AzurermProvider("azurerm")
         {
             UseCli = true,
-            SubscriptionId = infra.AddVariable(SubscriptionIdParameter).AsReference(),
+            SubscriptionId = infra.AddVariable(SubscriptionIdParameter),
             Features = [new()]
         };
         infra.Add(azurerm);

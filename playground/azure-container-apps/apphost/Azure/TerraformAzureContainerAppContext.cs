@@ -241,7 +241,7 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         var container = new AzurermContainerAppTemplateBlockContainerBlock
         {
             Name = NormalizedName,
-            Image = containerImageVar.ToReference(),
+            Image = containerImageVar,
             Cpu = 0.25,
             Memory = "0.5Gi"
         };
@@ -249,13 +249,11 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         // Add environment variables
         foreach (var (key, value) in EnvironmentVariables)
         {
-            var envValue = ProcessEnvironmentValue(value, infra);
-
             container.Env ??= [];
             container.Env.Add(new AzurermContainerAppTemplateBlockContainerBlockEnvBlock
             {
                 Name = key,
-                Value = envValue
+                Value = ResolveValue(value, infra)
             });
         }
 
@@ -271,8 +269,7 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
             var argsList = new TerraformList<string>();
             foreach (var arg in Args)
             {
-                var argValue = ProcessEnvironmentValue(arg, infra);
-                argsList.Add(argValue);
+                argsList.Add(ResolveValue(arg, infra));
             }
             container.Args = argsList;
         }
@@ -298,8 +295,8 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         var containerApp = new AzurermContainerApp(NormalizedName)
         {
             Name = NormalizedName,
-            ResourceGroupName = resourceGroupVar.ToReference(),
-            ContainerAppEnvironmentId = containerEnvIdVar.ToReference(),
+            ResourceGroupName = resourceGroupVar,
+            ContainerAppEnvironmentId = containerEnvIdVar,
             RevisionMode = "Single",
             Tags = tags,
             Template = [template],
@@ -308,15 +305,15 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
                 new AzurermContainerAppIdentityBlock
                 {
                     Type = "UserAssigned",
-                    IdentityIds = [managedIdentityIdVar.ToReference()]
+                    IdentityIds = [managedIdentityIdVar]
                 }
             ],
             Registry =
             [
                 new AzurermContainerAppRegistryBlock
                 {
-                    Server = registryEndpointVar.ToReference(),
-                    Identity = managedIdentityIdVar.ToReference()
+                    Server = registryEndpointVar,
+                    Identity = managedIdentityIdVar
                 }
             ]
         };
@@ -367,10 +364,13 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
     }
 
     /// <summary>
-    /// Processes environment values, handling self-referencing endpoints locally
+    /// Resolves a value to a Terraform expression, handling self-referencing endpoints locally
     /// and delegating external references to the SDK's <see cref="TerraformProvisioningResource.ResolveValueProvider"/>.
     /// </summary>
-    private TerraformValue<string> ProcessEnvironmentValue(object value, TerraformProvisioningResource infra)
+    /// <param name="value">The value to resolve (string, endpoint reference, parameter, etc.).</param>
+    /// <param name="infra">The provisioning resource for resolving external references.</param>
+    /// <returns>A resolved Terraform value.</returns>
+    private TerraformValue<string> ResolveValue(object value, TerraformProvisioningResource infra)
     {
         // Handle self-referencing endpoints locally (Azure-specific logic for _endpointMapping)
         if (TryResolveSelfEndpoint(value, out var resolved))
@@ -424,7 +424,11 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
 
         result = epExpr.Property switch
         {
-            EndpointProperty.Url => $"{mapping.Scheme}://{mapping.Host}:{mapping.Port}",
+            // For HTTP ingress, omit port (Azure Container Apps uses standard 80/443)
+            // For TCP/additional ports, include the port
+            EndpointProperty.Url => mapping.IsHttpIngress
+                ? $"{mapping.Scheme}://{mapping.Host}"
+                : $"{mapping.Scheme}://{mapping.Host}:{mapping.Port}",
             EndpointProperty.Host or EndpointProperty.IPV4Host => mapping.Host,
             EndpointProperty.Port => mapping.Port.ToString(),
             EndpointProperty.TargetPort => mapping.TargetPort?.ToString() ?? "8080",

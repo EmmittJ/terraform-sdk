@@ -163,6 +163,19 @@ public class TerraformValue<T> : ITerraformValue
     }
 
     /// <summary>
+    /// Direct conversion from TerraformBlock (e.g., TerraformVariable, TerraformResource).
+    /// Converts the block to a reference expression, allowing blocks to be used directly
+    /// where TerraformValue&lt;T&gt; is expected without calling ToReference().
+    /// </summary>
+    /// <param name="block">The block to convert.</param>
+    /// <returns>A TerraformValue wrapping the block's reference expression.</returns>
+    public static implicit operator TerraformValue<T>(TerraformBlock block)
+    {
+        ArgumentNullException.ThrowIfNull(block);
+        return new TerraformValue<T>((ITerraformResolvable)block.ToReference());
+    }
+
+    /// <summary>
     /// Creates a TerraformValue from a TerraformExpression.
     /// </summary>
     public static TerraformValue<T> ConvertFrom(TerraformExpression expression)

@@ -30,9 +30,11 @@ public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     public override string[] BlockLabels => [Name];
 
     /// <summary>
-    /// Gets the Terraform reference identifier for this output (e.g., "output.id").
+    /// Gets the Terraform reference identifier for this output.
+    /// Returns <c>null</c> because outputs cannot be referenced within the same module.
+    /// Outputs are only referenceable from parent modules as <c>module.child.output_name</c>.
     /// </summary>
-    public override string ReferenceIdentifier => $"output.{Name}";
+    public override string? ReferenceIdentifier => null;
 
     /// <summary>
     /// Initializes a new instance of TerraformOutput.

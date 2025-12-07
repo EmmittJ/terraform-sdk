@@ -51,7 +51,7 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_log_analytics_workspace" "law" {
   location            = var.location
   name                = "azure-law"
-  resource_group_name = "azure-aca-rg"
+  resource_group_name = azurerm_resource_group.rg.name
   retention_in_days   = 30
   sku                 = "PerGB2018"
   tags = {
@@ -63,7 +63,7 @@ resource "azurerm_log_analytics_workspace" "law" {
 resource "azurerm_user_assigned_identity" "mi" {
   location            = var.location
   name                = "azure-mi"
-  resource_group_name = "azure-aca-rg"
+  resource_group_name = azurerm_resource_group.rg.name
   tags = {
     Environment = "Development"
     ManagedBy   = "Aspire-Terraform"
@@ -87,7 +87,7 @@ resource "azurerm_container_app_environment" "cae" {
   log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
   logs_destination           = "log-analytics"
   name                       = "azure-cae"
-  resource_group_name        = "azure-aca-rg"
+  resource_group_name        = azurerm_resource_group.rg.name
   tags = {
     Environment = "Development"
     ManagedBy   = "Aspire-Terraform"
@@ -103,7 +103,7 @@ output "managed_identity_id" {
 }
 
 output "resource_group_name" {
-  value = "azure-aca-rg"
+  value = azurerm_resource_group.rg.name
 }
 
 module "app" {
@@ -111,7 +111,7 @@ module "app" {
   azure_acr_endpoint        = var.azure_acr_endpoint
   azure_container_env_id    = azurerm_container_app_environment.cae.id
   azure_managed_identity_id = azurerm_user_assigned_identity.mi.id
-  azure_resource_group_name = "azure-aca-rg"
+  azure_resource_group_name = azurerm_resource_group.rg.name
   source                    = "./app"
 }
 

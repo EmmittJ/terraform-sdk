@@ -207,7 +207,16 @@ subnet["vpc_id"] = vpcId;  // Resolves to: aws_vpc.main.id
 
 - Add `Lineage` property (get/set)
 - Update `ResolveNodes()` to emit reference expression when lineaged
-- Add `WithLineage()` method to create a copy with lineage set
+- Add `WithLineage()` method to set lineage on a value
+
+**WithLineage Semantics:**
+
+The `WithLineage()` method has different semantics depending on the value type:
+
+- **Primitive values** (`TerraformValue<string>`, `TerraformValue<int>`, etc.): Creates a copy with the new lineage. Primitive values are treated as immutable, so extending lineage produces a new instance.
+- **Mutable collections** (`TerraformMap<T>`, `TerraformList<T>`, `TerraformSet<T>`): Mutates the lineage in place and returns `this`. Collections are mutable by design (users add/remove items), so lineage is set directly to preserve identity and allow modifications to propagate.
+
+This distinction ensures that when users modify collections (e.g., adding tags via customization callbacks), those modifications are visible in the final output.
 
 ### Phase 2: TerraformBlock Updates ✅
 
@@ -230,7 +239,7 @@ Each block type overrides `ReferenceIdentifier`:
 - `TerraformVariable` → `var.{Name}` (e.g., "var.region")
 - `TerraformLocals` → `local` (then member access for each local)
 - `TerraformModule` → `module.{Name}` (e.g., "module.vpc")
-- `TerraformOutput` → `output.{Name}` (rarely referenced directly)
+- `TerraformOutput` → `null` (outputs cannot be referenced within the same module)
 - `TerraformProvider` → `Name` (the provider name)
 - `TerraformEphemeralResource` → `ephemeral.{ResourceType}.{ResourceName}`
 - `TerraformBlock` (base) → `null` (nested blocks can't be referenced)

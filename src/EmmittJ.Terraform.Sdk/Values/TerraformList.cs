@@ -51,28 +51,15 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     }
 
     /// <summary>
-    /// Copy constructor for creating a copy of an existing list.
-    /// Used by <see cref="WithLineage"/> to create copies with lineage attached.
+    /// Sets the lineage on this list and returns it.
+    /// Unlike primitive values, lists are mutable so we set lineage in place.
     /// </summary>
-    /// <param name="other">The list to copy.</param>
-    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
-    private TerraformList(TerraformList<T> other, bool isCopy)
-        : base()
-    {
-        _ = isCopy; // Marker parameter for disambiguation
-        _elements = new List<TerraformValue<T>>(other._elements);
-    }
-
-    /// <summary>
-    /// Creates a copy of this list with the specified lineage attached.
-    /// </summary>
-    /// <param name="lineage">The lineage to attach to the copy.</param>
-    /// <returns>A new <see cref="TerraformList{T}"/> with the specified lineage.</returns>
+    /// <param name="lineage">The lineage to attach.</param>
+    /// <returns>This list with the lineage set.</returns>
     public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
     {
-        var copy = new TerraformList<T>(this, isCopy: true);
-        copy.Lineage = lineage;
-        return copy;
+        Lineage = lineage;
+        return this;
     }
 
     /// <summary>
@@ -223,18 +210,6 @@ internal sealed class TerraformLazyList<T> : TerraformList<T>
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
-    /// <summary>
-    /// Copy constructor for creating a copy with lineage.
-    /// </summary>
-    /// <param name="other">The list to copy.</param>
-    /// <param name="isCopy">Marker to disambiguate from other constructors.</param>
-    private TerraformLazyList(TerraformLazyList<T> other, bool isCopy)
-        : base()
-    {
-        _ = isCopy; // Marker parameter for disambiguation
-        _producer = other._producer;
-    }
-
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         // Check lineage first - if present, resolve to reference
@@ -247,12 +222,11 @@ internal sealed class TerraformLazyList<T> : TerraformList<T>
     }
 
     /// <summary>
-    /// Creates a copy of this lazy list with the specified lineage attached.
+    /// Sets the lineage on this lazy list and returns it.
     /// </summary>
     public override TerraformValue<IEnumerable<T>> WithLineage(TerraformLineage? lineage)
     {
-        var copy = new TerraformLazyList<T>(this, isCopy: true);
-        copy.Lineage = lineage;
-        return copy;
+        Lineage = lineage;
+        return this;
     }
 }

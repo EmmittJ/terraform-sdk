@@ -119,6 +119,21 @@ public abstract class TerraformBlock : TerraformMap<object>
     }
 
     /// <summary>
+    /// Implicit conversion to <see cref="TerraformExpression"/> by creating a reference expression.
+    /// This allows blocks like <see cref="TerraformVariable"/> to be used directly where expressions are expected.
+    /// </summary>
+    /// <param name="block">The block to convert.</param>
+    /// <returns>A reference expression for the block.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the block has no lineage or no reference identifier.
+    /// </exception>
+    public static implicit operator TerraformExpression(TerraformBlock block)
+    {
+        ArgumentNullException.ThrowIfNull(block);
+        return block.ToReference();
+    }
+
+    /// <summary>
     /// Resolves this block to multiple syntax nodes (arguments + nested blocks).
     /// Nodes are sorted by the context's formatter.
     /// </summary>
