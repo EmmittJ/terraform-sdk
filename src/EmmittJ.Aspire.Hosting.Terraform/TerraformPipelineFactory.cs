@@ -77,7 +77,7 @@ internal static class TerraformPipelineFactory
             Action = async ctx =>
             {
                 var outputPath = getOutputPath(ctx);
-                var sensitiveEnvVars = await ResolveParameterVariablesAsync(ctx, environment, outputPath).ConfigureAwait(false);
+                var sensitiveEnvVars = await ResolveVariablesAsync(ctx, environment, outputPath).ConfigureAwait(false);
                 await TerraformCli.RunCommandAsync(
                     ctx,
                     "plan -out=aspire.tfplan -input=false -no-color",
@@ -103,7 +103,7 @@ internal static class TerraformPipelineFactory
             Action = async ctx =>
             {
                 var outputPath = getOutputPath(ctx);
-                var sensitiveEnvVars = await ResolveParameterVariablesAsync(ctx, environment, outputPath).ConfigureAwait(false);
+                var sensitiveEnvVars = await ResolveVariablesAsync(ctx, environment, outputPath).ConfigureAwait(false);
                 await TerraformCli.RunCommandAsync(
                     ctx,
                     "apply -auto-approve -input=false -no-color aspire.tfplan",
@@ -210,14 +210,16 @@ internal static class TerraformPipelineFactory
     #region Variable Resolution
 
     /// <summary>
-    /// Resolves parameter values from the environment and writes non-sensitive values to aspire.auto.tfvars.
-    /// Returns sensitive values as a dictionary to be passed as TF_VAR_* environment variables.
+    /// Resolves all applicable variables for the environment based on its capabilities.
     /// </summary>
-    /// <param name="context">The pipeline step context.</param>
-    /// <param name="environment">The Terraform environment containing parameter variables.</param>
-    /// <param name="outputPath">The output path where aspire.auto.tfvars will be written.</param>
-    /// <returns>A dictionary of sensitive variable names to values for TF_VAR_* environment variables.</returns>
-    public static async Task<Dictionary<string, string>> ResolveParameterVariablesAsync(
+    /// <remarks>
+    /// Resolution is based on the interfaces the environment implements:
+    /// <list type="bullet">
+    /// <item><see cref="ITerraformEnvironment"/>: Resolves parameter variables</item>
+    /// <item><see cref="IComputeEnvironmentResource"/>: Resolves container images and terraform inputs from compute resources</item>
+    /// </list>
+    /// </remarks>
+    private static async Task<Dictionary<string, string>> ResolveVariablesAsync(
         PipelineStepContext context,
         ITerraformEnvironment environment,
         string outputPath)
@@ -225,31 +227,14 @@ internal static class TerraformPipelineFactory
         var sensitiveVars = new Dictionary<string, string>();
         var nonSensitiveVars = new List<(string Name, string Value)>();
 
-        if (environment.ParameterVariables.Count > 0)
+        // All ITerraformEnvironment implementations have parameter variables
+        await ResolveParameterVariablesAsync(context, environment, sensitiveVars, nonSensitiveVars).ConfigureAwait(false);
+
+        // IComputeEnvironmentResource implementations host compute resources with container images and inputs
+        if (environment is IComputeEnvironmentResource computeEnvironment)
         {
-            context.Logger.LogDebug("Resolving {Count} Terraform parameter variables", environment.ParameterVariables.Count);
-
-            foreach (var (parameter, variable) in environment.ParameterVariables)
-            {
-                var value = await parameter.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
-
-                if (string.IsNullOrEmpty(value))
-                {
-                    context.Logger.LogWarning(
-                        "Parameter '{ParameterName}' (variable '{VariableName}') has no value.",
-                        parameter.Name, variable.Name);
-                    continue;
-                }
-
-                if (parameter.Secret)
-                {
-                    sensitiveVars[variable.Name] = value;
-                }
-                else
-                {
-                    nonSensitiveVars.Add((variable.Name, value));
-                }
-            }
+            var allInputs = CollectInputs(context, environment, computeEnvironment);
+            await ResolveInputsAsync(context, allInputs, sensitiveVars, nonSensitiveVars).ConfigureAwait(false);
         }
 
         await WriteTfvarsFileAsync(outputPath, nonSensitiveVars, context.Logger).ConfigureAwait(false);
@@ -258,64 +243,50 @@ internal static class TerraformPipelineFactory
     }
 
     /// <summary>
-    /// Resolves all variables for the environment including parameter variables, output references, and container image references.
-    /// Writes non-sensitive values to aspire.auto.tfvars and returns sensitive values for TF_VAR_* environment variables.
+    /// Resolves parameter values from the environment.
     /// </summary>
-    /// <param name="context">The pipeline step context.</param>
-    /// <param name="environment">The Terraform environment.</param>
-    /// <param name="outputPath">The output path where aspire.auto.tfvars will be written.</param>
-    /// <returns>A dictionary of sensitive variable names to values for TF_VAR_* environment variables.</returns>
-    public static async Task<Dictionary<string, string>> ResolveAllVariablesAsync(
+    private static async Task ResolveParameterVariablesAsync(
         PipelineStepContext context,
-        TerraformEnvironmentResource environment,
-        string outputPath)
+        ITerraformEnvironment environment,
+        Dictionary<string, string> sensitiveVars,
+        List<(string Name, string Value)> nonSensitiveVars)
     {
-        var sensitiveVars = new Dictionary<string, string>();
-        var nonSensitiveVars = new List<(string Name, string Value)>();
-
-        // Resolve Aspire parameter values
-        if (environment.ParameterVariables.Count > 0)
+        if (environment.ParameterVariables.Count == 0)
         {
-            context.Logger.LogDebug("Resolving {Count} Terraform parameter variables", environment.ParameterVariables.Count);
-
-            foreach (var (parameter, variable) in environment.ParameterVariables)
-            {
-                var value = await parameter.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
-
-                if (string.IsNullOrEmpty(value))
-                {
-                    context.Logger.LogWarning(
-                        "Parameter '{ParameterName}' (variable '{VariableName}') has no value. " +
-                        "Terraform may prompt for it or use a default if defined.",
-                        parameter.Name, variable.Name);
-                    continue;
-                }
-
-                if (parameter.Secret)
-                {
-                    sensitiveVars[variable.Name] = value;
-                    context.Logger.LogDebug("Sensitive variable '{VariableName}' will be passed via TF_VAR_* environment variable", variable.Name);
-                }
-                else
-                {
-                    nonSensitiveVars.Add((variable.Name, value));
-                    context.Logger.LogDebug("Variable '{VariableName}' will be written to aspire.auto.tfvars", variable.Name);
-                }
-            }
+            return;
         }
 
-        // Collect all inputs from the environment's TerraformResource and all compute resources
-        var allInputs = CollectInputs(context, environment);
+        context.Logger.LogDebug("Resolving {Count} Terraform parameter variables", environment.ParameterVariables.Count);
 
-        // Resolve all collected inputs
-        await ResolveInputsAsync(context, allInputs, sensitiveVars, nonSensitiveVars).ConfigureAwait(false);
+        foreach (var (parameter, variable) in environment.ParameterVariables)
+        {
+            var value = await parameter.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
 
-        await WriteTfvarsFileAsync(outputPath, nonSensitiveVars, context.Logger).ConfigureAwait(false);
+            if (string.IsNullOrEmpty(value))
+            {
+                context.Logger.LogWarning(
+                    "Parameter '{ParameterName}' (variable '{VariableName}') has no value.",
+                    parameter.Name, variable.Name);
+                continue;
+            }
 
-        return sensitiveVars;
+            if (parameter.Secret)
+            {
+                sensitiveVars[variable.Name] = value;
+                context.Logger.LogDebug("Sensitive variable '{VariableName}' will be passed via TF_VAR_* environment variable", variable.Name);
+            }
+            else
+            {
+                nonSensitiveVars.Add((variable.Name, value));
+                context.Logger.LogDebug("Variable '{VariableName}' will be written to aspire.auto.tfvars", variable.Name);
+            }
+        }
     }
 
-    private static Dictionary<string, object> CollectInputs(PipelineStepContext context, TerraformEnvironmentResource environment)
+    private static Dictionary<string, object> CollectInputs(
+        PipelineStepContext context,
+        ITerraformEnvironment environment,
+        IComputeEnvironmentResource computeEnvironment)
     {
         var allInputs = new Dictionary<string, object>();
 
@@ -328,7 +299,7 @@ internal static class TerraformPipelineFactory
         // Add inputs from all compute resources that are deployed to this environment
         foreach (var computeResource in context.Model.GetComputeResources())
         {
-            if (computeResource.GetDeploymentTargetAnnotation(environment)?.DeploymentTarget is TerraformProvisioningResource terraformResource)
+            if (computeResource.GetDeploymentTargetAnnotation(computeEnvironment)?.DeploymentTarget is TerraformProvisioningResource terraformResource)
             {
                 foreach (var (inputName, inputValue) in terraformResource.Inputs)
                 {
