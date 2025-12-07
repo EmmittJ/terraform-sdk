@@ -31,11 +31,11 @@ variable "location" {
   type    = string
 }
 
-variable "azure_acr_endpoint" {
+variable "azure_registry_endpoint" {
   type = string
 }
 
-variable "azure_acr_name" {
+variable "azure_registry_name" {
   type = string
 }
 
@@ -71,7 +71,7 @@ resource "azurerm_user_assigned_identity" "mi" {
 }
 
 data "azurerm_container_registry" "acr" {
-  name                = var.azure_acr_name
+  name                = var.azure_registry_name
   resource_group_name = "azure-registry-rg"
 }
 
@@ -108,9 +108,9 @@ output "resource_group_name" {
 
 module "app" {
   app_container_image       = var.app_container_image
-  azure_acr_endpoint        = var.azure_acr_endpoint
   azure_container_env_id    = azurerm_container_app_environment.cae.id
   azure_managed_identity_id = azurerm_user_assigned_identity.mi.id
+  azure_registry_endpoint   = var.azure_registry_endpoint
   azure_resource_group_name = azurerm_resource_group.rg.name
   source                    = "./app"
 }

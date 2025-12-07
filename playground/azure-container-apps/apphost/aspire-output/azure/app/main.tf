@@ -15,7 +15,7 @@ variable "app_container_image" {
   type        = string
 }
 
-variable "azure_acr_endpoint" {
+variable "azure_registry_endpoint" {
   type = string
 }
 
@@ -44,7 +44,7 @@ resource "azurerm_container_app" "app" {
   }
   registry {
     identity = var.azure_managed_identity_id
-    server   = var.azure_acr_endpoint
+    server   = var.azure_registry_endpoint
   }
   template {
     max_replicas = 3
