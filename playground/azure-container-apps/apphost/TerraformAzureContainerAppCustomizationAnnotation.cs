@@ -4,7 +4,7 @@ using Aspire.Hosting.ApplicationModel;
 using EmmittJ.Aspire.Hosting.Terraform;
 using EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
-namespace TerraformPlayground.AppHost.Azure;
+namespace TerraformPlayground.AppHost;
 
 /// <summary>
 /// Annotation that stores a customization callback for Terraform Azure Container App resources.

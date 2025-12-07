@@ -10,7 +10,7 @@ using EmmittJ.Terraform.Sdk;
 using EmmittJ.Terraform.Sdk.Providers.Azurerm;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TerraformPlayground.AppHost.Azure;
+namespace TerraformPlayground.AppHost;
 
 /// <summary>
 /// Extension methods for configuring Terraform Azure Container Apps environment resources.

@@ -9,7 +9,7 @@ using EmmittJ.Terraform.Sdk;
 using EmmittJ.Terraform.Sdk.Providers.Azurerm;
 using Microsoft.Extensions.Logging;
 
-namespace TerraformPlayground.AppHost.Azure;
+namespace TerraformPlayground.AppHost;
 
 /// <summary>
 /// Simple resolved endpoint info for container apps.

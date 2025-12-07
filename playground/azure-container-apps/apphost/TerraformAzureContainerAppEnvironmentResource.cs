@@ -9,7 +9,7 @@ using EmmittJ.Aspire.Hosting.Terraform;
 using EmmittJ.Terraform.Sdk;
 using EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
-namespace TerraformPlayground.AppHost.Azure;
+namespace TerraformPlayground.AppHost;
 
 /// <summary>
 /// Represents a Terraform-managed Azure Container Apps environment that automatically provisions

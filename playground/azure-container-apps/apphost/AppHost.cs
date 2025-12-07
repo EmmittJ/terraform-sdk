@@ -2,7 +2,7 @@
 
 using Aspire.Hosting;
 using EmmittJ.Terraform.Sdk.Providers.Azurerm;
-using TerraformPlayground.AppHost.Azure;
+using TerraformPlayground.AppHost;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
