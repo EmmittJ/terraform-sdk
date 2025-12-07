@@ -25,9 +25,9 @@ permissions:
   contents: write
 
 jobs:
-  # Phase 1: Build and pack the core SDK
+  # Phase 1: Build and pack EmmittJ.Terraform.Sdk
   build-sdk:
-    name: Build Core SDK
+    name: Build EmmittJ.Terraform.Sdk
     runs-on: ubuntu-latest
     outputs:
       version_prefix: ${{ steps.version.outputs.version_prefix }}
@@ -81,7 +81,7 @@ jobs:
           echo "📦 Updating EmmittJ package versions to: $FULL_VERSION"
           sed -i "s/Version=\"42.42.42\"/Version=\"$FULL_VERSION\"/g" Directory.Packages.props
 
-      - name: Build and pack core SDK
+      - name: Build and pack EmmittJ.Terraform.Sdk
         run: |
           # Build version args - only include VersionSuffix if it's not empty
           VERSION_ARGS="-p:VersionPrefix=${{ steps.version.outputs.version_prefix }}"
@@ -120,16 +120,18 @@ jobs:
       fail-fast: true
       matrix:
         include:
-          - name: Aspire.Hosting.Terraform
+          - name: EmmittJ.Aspire.Hosting.Terraform
             project: src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.Hosting.Terraform.csproj
-          - name: Providers.Aws
+          - name: EmmittJ.Terraform.Sdk.Providers.Aws
             project: src/providers/EmmittJ.Terraform.Sdk.Providers.Aws/EmmittJ.Terraform.Sdk.Providers.Aws.csproj
-          - name: Providers.Azuread
+          - name: EmmittJ.Terraform.Sdk.Providers.Azuread
             project: src/providers/EmmittJ.Terraform.Sdk.Providers.Azuread/EmmittJ.Terraform.Sdk.Providers.Azuread.csproj
-          - name: Providers.Azurerm
+          - name: EmmittJ.Terraform.Sdk.Providers.Azurerm
             project: src/providers/EmmittJ.Terraform.Sdk.Providers.Azurerm/EmmittJ.Terraform.Sdk.Providers.Azurerm.csproj
-          - name: Providers.Google
+          - name: EmmittJ.Terraform.Sdk.Providers.Google
             project: src/providers/EmmittJ.Terraform.Sdk.Providers.Google/EmmittJ.Terraform.Sdk.Providers.Google.csproj
+          - name: EmmittJ.Terraform.Sdk.Providers.Random
+            project: src/providers/EmmittJ.Terraform.Sdk.Providers.Random/EmmittJ.Terraform.Sdk.Providers.Random.csproj
 
     steps:
       - name: Checkout repository
