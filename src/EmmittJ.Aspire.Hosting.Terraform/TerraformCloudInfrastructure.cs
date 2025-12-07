@@ -11,45 +11,22 @@ using Microsoft.Extensions.Logging;
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
 /// <summary>
-/// Abstract base class for cloud-specific infrastructure subscribers that automatically
-/// create deployment targets for compute resources.
+/// Infrastructure subscriber for Terraform cloud environments that automatically
+/// creates deployment targets for compute resources.
 /// </summary>
-/// <typeparam name="TEnvironment">The cloud environment resource type (e.g., TerraformAzureContainerAppEnvironmentResource).</typeparam>
+/// <typeparam name="TEnvironment">The cloud environment resource type.</typeparam>
 /// <remarks>
 /// <para>
-/// This class handles the common lifecycle of compute resource deployment:
+/// This class handles the lifecycle of compute resource deployment:
 /// </para>
 /// <list type="number">
 /// <item>Finds all compute resources (projects, containers with Dockerfile)</item>
-/// <item>Processes each resource using the cloud-specific <see cref="ITerraformComputeResourceBuilder"/></item>
+/// <item>Delegates to the environment's <see cref="TerraformCloudEnvironmentResource.ProcessComputeResourceAsync"/> method</item>
 /// <item>Creates <see cref="TerraformProvisioningResource"/> deployment targets</item>
 /// <item>Adds <see cref="DeploymentTargetAnnotation"/> to wire up the pipeline</item>
 /// </list>
-/// <para>
-/// Derived classes must implement <see cref="GetComputeResourceBuilder"/> to provide
-/// the platform-specific compute resource builder.
-/// </para>
 /// </remarks>
-/// <example>
-/// <code>
-/// internal sealed class TerraformAzureContainerAppsInfrastructure
-///     : TerraformCloudInfrastructure&lt;TerraformAzureContainerAppEnvironmentResource&gt;
-/// {
-///     public TerraformAzureContainerAppsInfrastructure(
-///         ILogger&lt;TerraformAzureContainerAppsInfrastructure&gt; logger,
-///         DistributedApplicationExecutionContext executionContext)
-///         : base(logger, executionContext) { }
-///
-///     protected override ITerraformComputeResourceBuilder GetComputeResourceBuilder(
-///         TerraformAzureContainerAppEnvironmentResource environment,
-///         IServiceProvider services)
-///     {
-///         return new AzureContainerAppBuilder(environment, services);
-///     }
-/// }
-/// </code>
-/// </example>
-public abstract class TerraformCloudInfrastructure<TEnvironment> : IDistributedApplicationEventingSubscriber
+public sealed class TerraformCloudInfrastructure<TEnvironment> : IDistributedApplicationEventingSubscriber
     where TEnvironment : TerraformCloudEnvironmentResource
 {
     private readonly ILogger _logger;
@@ -60,8 +37,8 @@ public abstract class TerraformCloudInfrastructure<TEnvironment> : IDistributedA
     /// </summary>
     /// <param name="logger">The logger instance.</param>
     /// <param name="executionContext">The execution context.</param>
-    protected TerraformCloudInfrastructure(
-        ILogger logger,
+    public TerraformCloudInfrastructure(
+        ILogger<TerraformCloudInfrastructure<TEnvironment>> logger,
         DistributedApplicationExecutionContext executionContext)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -69,21 +46,9 @@ public abstract class TerraformCloudInfrastructure<TEnvironment> : IDistributedA
     }
 
     /// <summary>
-    /// Gets the compute resource builder for the specified environment.
-    /// </summary>
-    /// <param name="environment">The cloud environment resource.</param>
-    /// <param name="services">The service provider for dependency injection.</param>
-    /// <returns>A compute resource builder for the target platform.</returns>
-    protected abstract ITerraformComputeResourceBuilder GetComputeResourceBuilder(
-        TEnvironment environment,
-        IServiceProvider services);
-
-    /// <summary>
     /// Called before the application starts. Discovers compute resources and creates deployment targets.
     /// </summary>
-    /// <param name="event">The before start event.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
-    protected virtual async Task OnBeforeStartAsync(BeforeStartEvent @event, CancellationToken cancellationToken = default)
+    private async Task OnBeforeStartAsync(BeforeStartEvent @event, CancellationToken cancellationToken = default)
     {
         if (_executionContext.IsRunMode)
         {
@@ -103,8 +68,6 @@ public abstract class TerraformCloudInfrastructure<TEnvironment> : IDistributedA
             var terraformEnvironment = environment.EnvironmentResource;
             var containerRegistry = environment.ContainerRegistry;
 
-            var builder = GetComputeResourceBuilder(environment, @event.Services);
-
             foreach (var resource in @event.Model.GetComputeResources())
             {
                 // Skip if already has a deployment target annotation (manual configuration)
@@ -115,13 +78,13 @@ public abstract class TerraformCloudInfrastructure<TEnvironment> : IDistributedA
 
                 _logger.LogDebug("Auto-generating Terraform compute resource for '{ResourceName}'", resource.Name);
 
-                // Process the resource and store the context for later use
-                var context = await builder.ProcessResourceAsync(resource, _executionContext, cancellationToken).ConfigureAwait(false);
+                // Process the resource and get the context
+                var context = await environment.ProcessComputeResourceAsync(resource, _executionContext, cancellationToken).ConfigureAwait(false);
 
                 // Add customization annotation that builds the compute resource
                 resource.Annotations.Add(new TerraformCustomizationAnnotation(infra =>
                 {
-                    builder.BuildComputeResource(context, infra);
+                    context.BuildComputeResource(infra);
                 }));
 
                 // Create the TerraformProvisioningResource deployment target

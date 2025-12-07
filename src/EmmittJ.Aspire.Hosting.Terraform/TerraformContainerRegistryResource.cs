@@ -101,7 +101,7 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     /// This callback is invoked during the login-registry pipeline step after the registry is provisioned.
     /// Use <see cref="TerraformContainerRegistryHelpers"/> to create common login callbacks for Azure, AWS, and Docker.
     /// </remarks>
-    public Func<PipelineStepContext, TerraformContainerRegistryResource, Task>? LoginCallback { get; set; }
+    public Func<PipelineStepContext, IContainerRegistry, Task>? LoginCallback { get; set; }
 
     /// <summary>
     /// Gets the <see cref="TerraformOutputsAnnotation"/> for this registry.

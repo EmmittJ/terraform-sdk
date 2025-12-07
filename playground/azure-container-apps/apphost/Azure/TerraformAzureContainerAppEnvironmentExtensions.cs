@@ -42,7 +42,7 @@ public static class TerraformAzureContainerAppEnvironmentExtensions
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentNullException.ThrowIfNull(name);
 
-        builder.Services.TryAddEventingSubscriber<TerraformAzureContainerAppsInfrastructure>();
+        builder.Services.TryAddEventingSubscriber<TerraformCloudInfrastructure<TerraformAzureContainerAppEnvironmentResource>>();
 
         var resource = new TerraformAzureContainerAppEnvironmentResource(name);
 

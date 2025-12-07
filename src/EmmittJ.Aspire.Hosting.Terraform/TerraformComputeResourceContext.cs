@@ -170,6 +170,34 @@ public abstract class TerraformComputeResourceContext
     }
 
     /// <summary>
+    /// Builds the compute resource into the provisioning resource.
+    /// Override in derived classes to generate platform-specific Terraform resources.
+    /// </summary>
+    /// <param name="infra">The provisioning resource to add Terraform blocks to.</param>
+    /// <remarks>
+    /// <para>
+    /// This method is called after <see cref="ProcessResourceAsync"/> to generate the actual
+    /// Terraform resources. Implementations should use the resolved <see cref="EnvironmentVariables"/>,
+    /// <see cref="Args"/>, and endpoint state to build the compute resource.
+    /// </para>
+    /// <para>
+    /// Example implementation for Azure Container Apps:
+    /// <code>
+    /// public override void BuildComputeResource(TerraformProvisioningResource infra)
+    /// {
+    ///     var containerApp = new AzurermContainerApp(NormalizedName)
+    ///     {
+    ///         Name = NormalizedName,
+    ///         // ... configure using EnvironmentVariables, Args, etc.
+    ///     };
+    ///     infra.Add(containerApp);
+    /// }
+    /// </code>
+    /// </para>
+    /// </remarks>
+    public abstract void BuildComputeResource(TerraformProvisioningResource infra);
+
+    /// <summary>
     /// Gets the replica count for the resource.
     /// </summary>
     /// <returns>The replica count, defaulting to 1 if not specified.</returns>

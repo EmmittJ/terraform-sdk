@@ -181,7 +181,7 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         }
     }
 
-    public void BuildContainerApp(TerraformProvisioningResource infra)
+    public override void BuildComputeResource(TerraformProvisioningResource infra)
     {
         // Get variables from the environment
         var containerEnvIdVar = infra.AddVariable("container_env_id");

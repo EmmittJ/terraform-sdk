@@ -3,6 +3,7 @@
 #pragma warning disable ASPIREPIPELINES001
 #pragma warning disable ASPIRECOMPUTE002
 
+using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
 using EmmittJ.Terraform.Sdk;
@@ -158,6 +159,35 @@ public abstract class TerraformCloudEnvironmentResource :
     }
 
     /// <summary>
+    /// Processes a compute resource and returns a context for building the Terraform configuration.
+    /// Called by the infrastructure subscriber during the BeforeStartEvent.
+    /// </summary>
+    /// <param name="resource">The Aspire compute resource.</param>
+    /// <param name="executionContext">The execution context.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>A context containing the processed resource information.</returns>
+    internal async Task<TerraformComputeResourceContext> ProcessComputeResourceAsync(
+        IResource resource,
+        DistributedApplicationExecutionContext executionContext,
+        CancellationToken cancellationToken)
+    {
+        var context = CreateComputeResourceContext(resource, executionContext);
+        await context.ProcessResourceAsync(cancellationToken).ConfigureAwait(false);
+        return context;
+    }
+
+    /// <summary>
+    /// Creates a compute resource context for the specified resource.
+    /// Override in derived classes to provide platform-specific context creation.
+    /// </summary>
+    /// <param name="resource">The Aspire resource to create a context for.</param>
+    /// <param name="executionContext">The execution context.</param>
+    /// <returns>A compute resource context for building the Terraform resource.</returns>
+    protected abstract TerraformComputeResourceContext CreateComputeResourceContext(
+        IResource resource,
+        DistributedApplicationExecutionContext executionContext);
+
+    /// <summary>
     /// Configures the cloud environment with the specified options.
     /// Call this method in the derived class constructor to set up child resources.
     /// </summary>
@@ -307,5 +337,5 @@ public sealed class TerraformCloudEnvironmentOptions
     /// Use helper methods from <see cref="TerraformContainerRegistryHelpers"/> to create
     /// login callbacks for specific cloud providers (Azure CLI, AWS ECR, GCloud).
     /// </remarks>
-    public Func<PipelineStepContext, TerraformContainerRegistryResource, Task>? RegistryLoginCallback { get; set; }
+    public Func<PipelineStepContext, IContainerRegistry, Task>? RegistryLoginCallback { get; set; }
 }

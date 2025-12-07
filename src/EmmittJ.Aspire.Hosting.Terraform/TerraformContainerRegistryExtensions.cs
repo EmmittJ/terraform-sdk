@@ -99,7 +99,7 @@ public static class TerraformContainerRegistryExtensions
     /// </example>
     public static IResourceBuilder<TerraformContainerRegistryResource> WithLoginCallback(
         this IResourceBuilder<TerraformContainerRegistryResource> builder,
-        Func<PipelineStepContext, TerraformContainerRegistryResource, Task> loginCallback)
+        Func<PipelineStepContext, IContainerRegistry, Task> loginCallback)
     {
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentNullException.ThrowIfNull(loginCallback);

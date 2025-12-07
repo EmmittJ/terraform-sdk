@@ -3,6 +3,7 @@
 #pragma warning disable ASPIREPIPELINES001
 #pragma warning disable ASPIRECOMPUTE002
 
+using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using EmmittJ.Aspire.Hosting.Terraform;
 using EmmittJ.Terraform.Sdk;
@@ -273,5 +274,13 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
         };
         infra.Stack.Add(locationVar);
         return locationVar;
+    }
+
+    /// <inheritdoc/>
+    protected override TerraformComputeResourceContext CreateComputeResourceContext(
+        IResource resource,
+        DistributedApplicationExecutionContext executionContext)
+    {
+        return new TerraformAzureContainerAppContext(resource, executionContext, Name);
     }
 }

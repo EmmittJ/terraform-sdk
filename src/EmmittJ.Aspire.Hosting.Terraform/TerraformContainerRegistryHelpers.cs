@@ -4,6 +4,7 @@
 
 using System.ComponentModel;
 using System.Diagnostics;
+using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
 using Aspire.Hosting.Publishing;
 using Microsoft.Extensions.Logging;
@@ -77,16 +78,16 @@ public static class TerraformContainerRegistryHelpers
     ///     .WithRegistryLogin(TerraformContainerRegistryHelpers.CreateAzureCliLoginCallback());
     /// </code>
     /// </example>
-    public static Func<PipelineStepContext, TerraformContainerRegistryResource, Task> CreateAzureCliLoginCallback()
+    public static Func<PipelineStepContext, IContainerRegistry, Task> CreateAzureCliLoginCallback()
     {
         return async (context, registry) =>
         {
-            var registryName = registry.NameOutput.Value;
+            var registryName = await registry.Name.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
 
             if (string.IsNullOrEmpty(registryName))
             {
                 throw new InvalidOperationException(
-                    $"Registry name not available for '{registry.Name}'. Ensure the 'name' output is defined and terraform apply has completed.");
+                    "Registry name not available. Ensure the registry is provisioned and the 'name' output is defined.");
             }
 
             context.Logger.LogInformation("Logging in to Azure Container Registry '{RegistryName}'", registryName);
@@ -160,16 +161,16 @@ public static class TerraformContainerRegistryHelpers
     ///     .WithRegistryLogin(TerraformContainerRegistryHelpers.CreateAwsEcrLoginCallback("us-west-2"));
     /// </code>
     /// </example>
-    public static Func<PipelineStepContext, TerraformContainerRegistryResource, Task> CreateAwsEcrLoginCallback(string? region = null)
+    public static Func<PipelineStepContext, IContainerRegistry, Task> CreateAwsEcrLoginCallback(string? region = null)
     {
         return async (context, registry) =>
         {
-            var registryEndpoint = registry.EndpointOutput.Value;
+            var registryEndpoint = await registry.Endpoint.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
 
             if (string.IsNullOrEmpty(registryEndpoint))
             {
                 throw new InvalidOperationException(
-                    $"Registry endpoint not available for '{registry.Name}'. Ensure the 'endpoint' output is defined and terraform apply has completed.");
+                    "Registry endpoint not available. Ensure the registry is provisioned and the 'endpoint' output is defined.");
             }
 
             context.Logger.LogInformation("Logging in to AWS ECR '{RegistryEndpoint}'", registryEndpoint);
@@ -300,7 +301,7 @@ public static class TerraformContainerRegistryHelpers
     ///     .WithRegistryLogin(TerraformContainerRegistryHelpers.CreateDockerLoginCallback("username", "password"));
     /// </code>
     /// </example>
-    public static Func<PipelineStepContext, TerraformContainerRegistryResource, Task> CreateDockerLoginCallback(
+    public static Func<PipelineStepContext, IContainerRegistry, Task> CreateDockerLoginCallback(
         string usernameOutputName,
         string passwordOutputName)
     {
@@ -309,27 +310,33 @@ public static class TerraformContainerRegistryHelpers
 
         return async (context, registry) =>
         {
-            var registryEndpoint = registry.EndpointOutput.Value;
+            if (registry is not TerraformContainerRegistryResource terraformRegistry)
+            {
+                throw new InvalidOperationException(
+                    $"CreateDockerLoginCallback requires a TerraformContainerRegistryResource to access named outputs, but received {registry.GetType().Name}.");
+            }
+
+            var registryEndpoint = await registry.Endpoint.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
 
             if (string.IsNullOrEmpty(registryEndpoint))
             {
                 throw new InvalidOperationException(
-                    $"Registry endpoint not available for '{registry.Name}'. Ensure the 'endpoint' output is defined and terraform apply has completed.");
+                    "Registry endpoint not available. Ensure the registry is provisioned and the 'endpoint' output is defined.");
             }
 
             // Get username and password from outputs
-            if (!registry.OutputsAnnotation.Outputs.TryGetValue(usernameOutputName, out var usernameValue) ||
+            if (!terraformRegistry.OutputsAnnotation.Outputs.TryGetValue(usernameOutputName, out var usernameValue) ||
                 usernameValue is null)
             {
                 throw new InvalidOperationException(
-                    $"Username output '{usernameOutputName}' not found for registry '{registry.Name}'.");
+                    $"Username output '{usernameOutputName}' not found for registry '{terraformRegistry.Name}'.");
             }
 
-            if (!registry.OutputsAnnotation.Outputs.TryGetValue(passwordOutputName, out var passwordValue) ||
+            if (!terraformRegistry.OutputsAnnotation.Outputs.TryGetValue(passwordOutputName, out var passwordValue) ||
                 passwordValue is null)
             {
                 throw new InvalidOperationException(
-                    $"Password output '{passwordOutputName}' not found for registry '{registry.Name}'.");
+                    $"Password output '{passwordOutputName}' not found for registry '{terraformRegistry.Name}'.");
             }
 
             var username = usernameValue.ToString() ?? "";
