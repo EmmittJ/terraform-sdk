@@ -16,7 +16,7 @@ public class TerraformConfigTemplate(TerraformCodeGenOptions options)
 
     public string Generate(string providerName, string version)
     {
-        var templateFileName = $"{providerName}.tf.mustache";
+        var templateFileName = $"providers/{providerName}.tf.mustache";
         var templatePath = Path.Combine(_templatesDirectory, templateFileName);
 
         // Check if provider-specific template exists
