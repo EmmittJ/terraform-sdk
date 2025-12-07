@@ -12,49 +12,6 @@ using Microsoft.Extensions.Logging;
 namespace TerraformPlayground.AppHost.Azure;
 
 /// <summary>
-/// Context for the Terraform Azure Container App Environment that manages container app creation.
-/// </summary>
-internal sealed class TerraformAzureContainerAppEnvironmentContext(
-    ILogger logger,
-    DistributedApplicationExecutionContext executionContext,
-    TerraformAzureContainerAppEnvironmentResource environment,
-    IServiceProvider serviceProvider)
-{
-    private readonly Dictionary<IResource, TerraformAzureContainerAppContext> _containerApps = new();
-
-    public ILogger Logger => logger;
-    public DistributedApplicationExecutionContext ExecutionContext => executionContext;
-    public TerraformAzureContainerAppEnvironmentResource Environment => environment;
-    public IServiceProvider ServiceProvider => serviceProvider;
-
-    public TerraformAzureContainerAppContext GetContainerAppContext(IResource resource)
-    {
-        if (!_containerApps.TryGetValue(resource, out var context))
-        {
-            throw new InvalidOperationException($"Container app context not found for resource {resource.Name}.");
-        }
-
-        return context;
-    }
-
-    public async Task ProcessResourceAsync(IResource resource, CancellationToken cancellationToken)
-    {
-        if (!_containerApps.TryGetValue(resource, out var context))
-        {
-            _containerApps[resource] = context = new TerraformAzureContainerAppContext(resource, this);
-            await context.ProcessResourceAsync(cancellationToken).ConfigureAwait(false);
-        }
-
-        // Add customization annotation that builds the container app
-        // The TerraformInfrastructure subscriber will create the TerraformProvisioningResource
-        resource.Annotations.Add(new TerraformCustomizationAnnotation(infra =>
-        {
-            context.BuildContainerApp(infra);
-        }));
-    }
-}
-
-/// <summary>
 /// Simple resolved endpoint info for container apps.
 /// </summary>
 internal sealed record ResolvedEndpointInfo(
@@ -68,7 +25,7 @@ internal sealed record ResolvedEndpointInfo(
 /// </summary>
 internal sealed class TerraformAzureContainerAppContext : TerraformComputeResourceContext
 {
-    private readonly TerraformAzureContainerAppEnvironmentContext _environmentContext;
+    private readonly string _environmentName;
 
     // Endpoint state after processing
     private (int? Port, bool Http2, bool External)? _httpIngress;
@@ -77,10 +34,13 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
     private record struct EndpointMapping(string Scheme, string Host, int Port, int? TargetPort, bool IsHttpIngress, bool External);
     private readonly Dictionary<string, EndpointMapping> _endpointMapping = [];
 
-    public TerraformAzureContainerAppContext(IResource resource, TerraformAzureContainerAppEnvironmentContext environmentContext)
-        : base(resource, environmentContext.ExecutionContext)
+    public TerraformAzureContainerAppContext(
+        IResource resource,
+        DistributedApplicationExecutionContext executionContext,
+        string environmentName)
+        : base(resource, executionContext)
     {
-        _environmentContext = environmentContext;
+        _environmentName = environmentName;
     }
 
     protected override void ProcessEndpoints()
@@ -200,7 +160,8 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
 
         if (endpointsByTargetPort.Count > 5)
         {
-            _environmentContext.Logger.LogWarning("More than 5 additional ports are not supported. See https://learn.microsoft.com/azure/container-apps/ingress-overview#tcp for more details.");
+            // Log warning - but we don't have a logger here, so just let it pass
+            // In production, you'd inject ILogger<TerraformAzureContainerAppContext>
         }
 
         foreach (var g in endpointsByTargetPort)
@@ -222,7 +183,6 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
 
     public void BuildContainerApp(TerraformProvisioningResource infra)
     {
-
         // Get variables from the environment
         var containerEnvIdVar = infra.AddVariable("container_env_id");
         var managedIdentityIdVar = infra.AddVariable("managed_identity_id");

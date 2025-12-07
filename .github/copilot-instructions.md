@@ -30,6 +30,7 @@
 - ✅ **Preview C# 14 features** are enabled - use modern patterns
 - ✅ Insert newline before opening braces of code blocks
 - ✅ Use **pattern matching** and **switch expressions** wherever possible
+- ✅ **Prefer pattern matching over explicit casting** (e.g., `if (obj is MyType typed)` instead of `var typed = (MyType)obj`)
 - ✅ Use `nameof` instead of string literals for member names
 - ✅ Place private class declarations at the bottom of files
 - ✅ Final return statement should be on its own line

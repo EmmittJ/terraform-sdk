@@ -3,7 +3,7 @@
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 
-namespace TerraformPlayground.AppHost.Azure;
+namespace EmmittJ.Aspire.Hosting.Terraform;
 
 /// <summary>
 /// Base context for processing Aspire resources for Terraform compute environments.
@@ -23,6 +23,26 @@ namespace TerraformPlayground.AppHost.Azure;
 /// Derived classes can add customization to generate provider-specific resources.
 /// </para>
 /// </remarks>
+/// <example>
+/// <code>
+/// // Create a custom compute resource context for AWS ECS
+/// public class EcsTaskContext : TerraformComputeResourceContext
+/// {
+///     public EcsTaskContext(IResource resource, DistributedApplicationExecutionContext executionContext)
+///         : base(resource, executionContext) { }
+///
+///     protected override void ProcessEndpoints()
+///     {
+///         // AWS-specific endpoint processing
+///     }
+///
+///     public void BuildTaskDefinition(TerraformProvisioningResource infra)
+///     {
+///         // Build ECS task definition using EnvironmentVariables and Args
+///     }
+/// }
+/// </code>
+/// </example>
 public abstract class TerraformComputeResourceContext
 {
     /// <summary>
