@@ -313,16 +313,7 @@ public abstract class TerraformCloudEnvironmentResource :
     /// </para>
     /// </remarks>
     ReferenceExpression IComputeEnvironmentResource.GetHostAddressExpression(EndpointReference endpointReference)
-    {
-        var resource = endpointReference.Resource;
-        var endpointName = endpointReference.EndpointName;
-
-        // Create an output reference using the naming convention: {endpoint_name}_endpoint
-        var outputName = $"{endpointName}{TerraformProvisioningResource.EndpointOutputNameSuffix}";
-        var outputRef = new TerraformOutputReference(outputName, resource);
-
-        return ReferenceExpression.Create($"{outputRef}");
-    }
+        => TerraformPipelineFactory.GetHostAddressExpression(endpointReference);
 }
 
 /// <summary>

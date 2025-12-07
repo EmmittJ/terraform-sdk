@@ -28,6 +28,12 @@ public sealed class TerraformOutputsAnnotation : IResourceAnnotation
     public Dictionary<string, object?> Outputs { get; } = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
+    /// Gets or sets the set of output names that are marked as sensitive.
+    /// Used to filter outputs when printing summaries.
+    /// </summary>
+    public HashSet<string>? SensitiveOutputs { get; set; }
+
+    /// <summary>
     /// Gets or sets the task completion source for the provisioning operation.
     /// </summary>
     /// <remarks>

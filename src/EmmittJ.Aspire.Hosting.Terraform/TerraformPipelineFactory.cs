@@ -25,15 +25,13 @@ internal static class TerraformPipelineFactory
     /// <param name="getOutputPath">Function to get the output path from the pipeline context.</param>
     /// <param name="publishAction">The action to run for the publish step.</param>
     /// <param name="additionalTags">Additional tags to add to all steps.</param>
-    /// <param name="readOutputsAction">Optional custom action for reading outputs. If null, a default step is created.</param>
     /// <returns>A list of configured pipeline steps.</returns>
     public static List<PipelineStep> CreateTerraformSteps(
         ITerraformEnvironment environment,
         string stepNamePrefix,
         Func<PipelineStepContext, string> getOutputPath,
         Func<PipelineStepContext, Task> publishAction,
-        string[]? additionalTags = null,
-        Func<PipelineStepContext, Task>? readOutputsAction = null)
+        string[]? additionalTags = null)
     {
         var steps = new List<PipelineStep>();
         var tags = additionalTags ?? [];
@@ -123,17 +121,28 @@ internal static class TerraformPipelineFactory
         var readOutputsStep = new PipelineStep
         {
             Name = $"read-outputs-{stepNamePrefix}-{environment.Name}",
-            Action = readOutputsAction ?? (ctx => DefaultReadOutputsAsync(ctx, environment, getOutputPath(ctx))),
+            Action = ctx => ReadOutputsAsync(ctx, environment, getOutputPath(ctx)),
             Tags = [TerraformPipelineTags.TerraformOutputs, .. tags],
             DependsOnSteps = [applyStep.Name],
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
         };
         steps.Add(readOutputsStep);
 
+        // Print summary step
+        var printSummaryStep = new PipelineStep
+        {
+            Name = $"print-summary-{stepNamePrefix}-{environment.Name}",
+            Action = ctx => PrintOutputSummaryAsync(ctx, environment),
+            Tags = [TerraformPipelineTags.TerraformSummary, .. tags],
+            DependsOnSteps = [readOutputsStep.Name],
+            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+        };
+        steps.Add(printSummaryStep);
+
         return steps;
     }
 
-    private static async Task DefaultReadOutputsAsync(
+    private static async Task ReadOutputsAsync(
         PipelineStepContext context,
         ITerraformEnvironment environment,
         string outputPath)
@@ -142,13 +151,58 @@ internal static class TerraformPipelineFactory
 
         // Populate the OutputsAnnotation for TerraformOutputReference access
         var outputsAnnotation = environment.TerraformResource.OutputsAnnotation;
-        foreach (var (key, (value, _)) in outputs)
+        foreach (var (key, (value, sensitive)) in outputs)
         {
             outputsAnnotation.Outputs[key] = value;
+            // Track sensitivity for summary printing
+            if (sensitive)
+            {
+                outputsAnnotation.SensitiveOutputs ??= new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                outputsAnnotation.SensitiveOutputs.Add(key);
+            }
         }
 
         // Signal that provisioning is complete
         outputsAnnotation.ProvisioningTaskCompletionSource?.TrySetResult();
+
+        context.Logger.LogDebug("Read {Count} Terraform outputs for '{EnvironmentName}'", outputs.Count, environment.Name);
+    }
+
+    private static async Task PrintOutputSummaryAsync(
+        PipelineStepContext context,
+        ITerraformEnvironment environment)
+    {
+        var outputsAnnotation = environment.TerraformResource.OutputsAnnotation;
+        var sensitiveOutputs = outputsAnnotation.SensitiveOutputs ?? [];
+
+        var nonSensitiveOutputs = outputsAnnotation.Outputs
+            .Where(kvp => !sensitiveOutputs.Contains(kvp.Key))
+            .OrderBy(kvp => kvp.Key)
+            .ToList();
+
+        if (nonSensitiveOutputs.Count > 0)
+        {
+            context.Logger.LogInformation("Terraform outputs for '{EnvironmentName}':", environment.Name);
+            foreach (var (name, value) in nonSensitiveOutputs)
+            {
+                context.Logger.LogInformation("  {OutputName}: {OutputValue}", name, FormatOutputValue(value));
+            }
+        }
+
+        await context.ReportingStep.CompleteAsync(
+            $"Deployment complete for '{environment.Name}'",
+            CompletionState.Completed,
+            context.CancellationToken).ConfigureAwait(false);
+    }
+
+    private static string FormatOutputValue(object? value)
+    {
+        return value switch
+        {
+            null => "(null)",
+            string s => s,
+            _ => value.ToString() ?? "(null)"
+        };
     }
 
     #endregion
@@ -409,6 +463,49 @@ internal static class TerraformPipelineFactory
         }
 
         logger.LogDebug("Wrote {Count} variables to {Path}", nonSensitiveVars.Count, tfvarsPath);
+    }
+
+    #endregion
+
+    #region Shared Helpers
+
+    /// <summary>
+    /// Computes the host URL <see cref="ReferenceExpression"/> for the given <see cref="EndpointReference"/>.
+    /// </summary>
+    /// <param name="endpointReference">The endpoint reference to compute the host address for.</param>
+    /// <returns>A <see cref="ReferenceExpression"/> representing the host address.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method returns a <see cref="ReferenceExpression"/> that wraps a <see cref="TerraformOutputReference"/>
+    /// for the endpoint. The output name follows the convention: <c>{endpoint_name}_endpoint</c>.
+    /// </para>
+    /// <para>
+    /// Resources should define corresponding outputs in their <c>PublishAsTerraform</c> callback:
+    /// </para>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     var containerApp = new AzurermContainerApp("app") { ... };
+    ///     infra.Add(containerApp);
+    ///
+    ///     // Export the endpoint for cross-resource references
+    ///     infra.AddOutput("http_endpoint", Tf.Interpolate($"https://{containerApp.LatestRevisionFqdn}"));
+    /// });
+    /// </code>
+    /// </example>
+    /// </remarks>
+    public static ReferenceExpression GetHostAddressExpression(EndpointReference endpointReference)
+    {
+        var resource = endpointReference.Resource;
+        var endpointName = endpointReference.EndpointName;
+
+        // Create an output reference using the naming convention: {endpoint_name}_endpoint
+        // Examples: "http_endpoint", "https_endpoint", "grpc_endpoint"
+        var outputName = $"{endpointName}{TerraformProvisioningResource.EndpointOutputNameSuffix}";
+        var outputRef = new TerraformOutputReference(outputName, resource);
+
+        return ReferenceExpression.Create($"{outputRef}");
     }
 
     #endregion

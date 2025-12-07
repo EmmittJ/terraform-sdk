@@ -6,9 +6,7 @@
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
 using Aspire.Hosting.Publishing;
-using Aspire.Hosting.Utils;
 using EmmittJ.Terraform.Sdk;
-using Microsoft.Extensions.Logging;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
@@ -64,13 +62,6 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     public IContainerRegistry? ContainerRegistry { get; }
 
     /// <summary>
-    /// Gets the dictionary of Terraform outputs produced by this environment.
-    /// Keys are output names (case-insensitive), values are tuples of (value, sensitive flag).
-    /// This dictionary is populated after Terraform apply completes.
-    /// </summary>
-    internal Dictionary<string, (object? Value, bool Sensitive)> Outputs { get; } = new(StringComparer.OrdinalIgnoreCase);
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="TerraformEnvironmentResource"/> class.
     /// </summary>
     /// <param name="name">The name of the Terraform environment.</param>
@@ -85,104 +76,13 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
         Annotations.Add(new PipelineStepAnnotation(async (factoryContext) =>
         {
             var model = factoryContext.PipelineContext.Model;
-            var steps = new List<PipelineStep>();
 
-            // Add the publish step that generates Terraform files
-            var publishStep = new PipelineStep
-            {
-                Name = $"publish-terraform-{Name}",
-                Action = ctx => PublishAsync(ctx),
-                Tags = [TerraformPipelineTags.PublishTerraform],
-                RequiredBySteps = [WellKnownPipelineSteps.Publish, WellKnownPipelineSteps.Deploy]
-            };
-            steps.Add(publishStep);
-
-            // Optionally add terraform init step
-            if (AutoInit)
-            {
-                var initStep = new PipelineStep
-                {
-                    Name = $"terraform-init-{Name}",
-                    Action = ctx => TerraformCli.RunCommandAsync(
-                        ctx,
-                        "init -input=false -no-color",
-                        PublishingContextUtils.GetEnvironmentOutputPath(ctx, this)),
-                    Tags = [TerraformPipelineTags.TerraformInit],
-                    DependsOnSteps = [publishStep.Name],
-                    RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-                };
-                steps.Add(initStep);
-
-                // Optionally add terraform plan step
-                if (AutoPlan)
-                {
-                    var planStep = new PipelineStep
-                    {
-                        Name = $"terraform-plan-{Name}",
-                        Action = async ctx =>
-                        {
-                            var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(ctx, this);
-                            var sensitiveEnvVars = await TerraformPipelineFactory.ResolveAllVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
-                            await TerraformCli.RunCommandAsync(
-                                ctx,
-                                "plan -out=aspire.tfplan -input=false -no-color",
-                                outputPath,
-                                sensitiveEnvVars,
-                                logOutput: true).ConfigureAwait(false);
-                        },
-                        Tags = [TerraformPipelineTags.TerraformPlan],
-                        DependsOnSteps = [initStep.Name, WellKnownPipelineSteps.DeployPrereq],
-                        RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-                    };
-                    steps.Add(planStep);
-
-                    // Optionally add terraform apply step
-                    if (AutoApply)
-                    {
-                        var applyStep = new PipelineStep
-                        {
-                            Name = $"terraform-apply-{Name}",
-                            Action = async ctx =>
-                            {
-                                var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(ctx, this);
-                                var sensitiveEnvVars = await TerraformPipelineFactory.ResolveAllVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
-                                await TerraformCli.RunCommandAsync(
-                                    ctx,
-                                    "apply -auto-approve -input=false -no-color aspire.tfplan",
-                                    outputPath,
-                                    sensitiveEnvVars,
-                                    logOutput: true).ConfigureAwait(false);
-                            },
-                            Tags = [TerraformPipelineTags.TerraformApply, WellKnownPipelineTags.ProvisionInfrastructure],
-                            DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
-                            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-                        };
-                        steps.Add(applyStep);
-
-                        // Read outputs step - reads terraform outputs after apply
-                        var readOutputsStep = new PipelineStep
-                        {
-                            Name = $"read-outputs-{Name}",
-                            Action = ctx => ReadEnvironmentOutputsAsync(ctx),
-                            Tags = [TerraformPipelineTags.TerraformOutputs],
-                            DependsOnSteps = [applyStep.Name],
-                            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-                        };
-                        steps.Add(readOutputsStep);
-
-                        // Print summary step - displays non-sensitive outputs
-                        var printSummaryStep = new PipelineStep
-                        {
-                            Name = $"print-summary-{Name}",
-                            Action = ctx => PrintOutputSummaryAsync(ctx),
-                            Tags = [TerraformPipelineTags.TerraformSummary],
-                            DependsOnSteps = [readOutputsStep.Name],
-                            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-                        };
-                        steps.Add(printSummaryStep);
-                    }
-                }
-            }
+            // Use the factory to create standard Terraform steps (publish, init, plan, apply, read-outputs, print-summary)
+            var steps = TerraformPipelineFactory.CreateTerraformSteps(
+                this,
+                "terraform",
+                ctx => PublishingContextUtils.GetEnvironmentOutputPath(ctx, this),
+                PublishAsync);
 
             // Expand deployment target steps for all compute resources
             // This ensures the push/provision steps from deployment targets are included in the pipeline
@@ -261,17 +161,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     /// </example>
     /// </remarks>
     ReferenceExpression IComputeEnvironmentResource.GetHostAddressExpression(EndpointReference endpointReference)
-    {
-        var resource = endpointReference.Resource;
-        var endpointName = endpointReference.EndpointName;
-
-        // Create an output reference using the naming convention: {endpoint_name}_endpoint
-        // Examples: "http_endpoint", "https_endpoint", "grpc_endpoint"
-        var outputName = $"{endpointName}{TerraformProvisioningResource.EndpointOutputNameSuffix}";
-        var outputRef = new TerraformOutputReference(outputName, resource);
-
-        return ReferenceExpression.Create($"{outputRef}");
-    }
+        => TerraformPipelineFactory.GetHostAddressExpression(endpointReference);
 
     private Task PublishAsync(PipelineStepContext context)
     {
@@ -287,52 +177,5 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             context.CancellationToken);
 
         return terraformContext.WriteModelAsync(context.Model, this);
-    }
-
-    private async Task ReadEnvironmentOutputsAsync(PipelineStepContext context)
-    {
-        var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(context, this);
-        var outputs = await TerraformCli.ReadOutputsAsync(context, outputPath).ConfigureAwait(false);
-
-        // Populate the outputs dictionary
-        foreach (var (key, value) in outputs)
-        {
-            Outputs[key] = value;
-        }
-
-        context.Logger.LogDebug("Read {Count} Terraform outputs for environment '{EnvironmentName}'", outputs.Count, Name);
-    }
-
-    private async Task PrintOutputSummaryAsync(PipelineStepContext context)
-    {
-        var nonSensitiveOutputs = Outputs
-            .Where(kvp => !kvp.Value.Sensitive)
-            .OrderBy(kvp => kvp.Key)
-            .ToList();
-
-        if (nonSensitiveOutputs.Count > 0)
-        {
-            // Log non-sensitive outputs
-            context.Logger.LogInformation("Terraform outputs for '{EnvironmentName}':", Name);
-            foreach (var (name, (value, _)) in nonSensitiveOutputs)
-            {
-                context.Logger.LogInformation("  {OutputName}: {OutputValue}", name, FormatOutputValue(value));
-            }
-        }
-
-        await context.ReportingStep.CompleteAsync(
-            $"Deployment complete for '{Name}'",
-            CompletionState.Completed,
-            context.CancellationToken).ConfigureAwait(false);
-    }
-
-    private static string FormatOutputValue(object? value)
-    {
-        return value switch
-        {
-            null => "(null)",
-            string s => s,
-            _ => value.ToString() ?? "(null)"
-        };
     }
 }
