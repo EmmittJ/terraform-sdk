@@ -43,6 +43,15 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
     public ParameterResource? SubscriptionIdParameter { get; set; }
 
     /// <summary>
+    /// Gets or sets the Azure tenant ID parameter.
+    /// </summary>
+    /// <remarks>
+    /// This is optional when using Azure CLI authentication. If not specified,
+    /// the tenant is inferred from the CLI context.
+    /// </remarks>
+    public ParameterResource? TenantIdParameter { get; set; }
+
+    /// <summary>
     /// Gets or sets the Azure location (region) as a string.
     /// </summary>
     public string? Location { get; set; }
@@ -83,11 +92,8 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
     /// <inheritdoc/>
     protected override void ValidateConfiguration()
     {
-        if (SubscriptionIdParameter is null)
-        {
-            throw new InvalidOperationException(
-                $"Azure subscription ID is required. Call .WithSubscriptionId() on the '{Name}' resource.");
-        }
+        // SubscriptionIdParameter and TenantIdParameter are optional when using Azure CLI authentication
+        // If not specified, the provider uses the current CLI context
 
         if (Location is null && LocationParameter is null)
         {
@@ -105,7 +111,6 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
 
         var tags = new TerraformMap<string>
         {
-            ["Environment"] = "Development",
             ["ManagedBy"] = "Aspire-Terraform"
         };
 
@@ -118,14 +123,23 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
         registry.Add(resourceGroup);
 
         // Generate a random pet name and suffix for globally unique ACR name
+        // Use subscription as keeper so names regenerate if subscription changes
+        var keepers = SubscriptionIdParameter is not null
+            ? new TerraformMap<string>
+            {
+                ["resource_group"] = resourceGroup.Name,
+                ["subscription_id"] = registry.AddVariable(SubscriptionIdParameter)
+            }
+            : new TerraformMap<string>
+            {
+                ["resource_group"] = resourceGroup.Name
+            };
+
         var acrPet = new RandomPet("acr_pet")
         {
             Length = 1,
             Separator = "",
-            Keepers = new TerraformMap<string>
-            {
-                ["resource_group"] = resourceGroup.Name
-            }
+            Keepers = keepers
         };
         registry.Add(acrPet);
 
@@ -136,10 +150,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
             Upper = false,
             Numeric = true,
             Lower = false,
-            Keepers = new TerraformMap<string>
-            {
-                ["resource_group"] = resourceGroup.Name
-            }
+            Keepers = keepers
         };
         registry.Add(acrSuffix);
 
@@ -180,7 +191,6 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
 
         var tags = new TerraformMap<string>
         {
-            ["Environment"] = "Development",
             ["ManagedBy"] = "Aspire-Terraform"
         };
 
@@ -258,15 +268,23 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
 
     private void ConfigureAzurermProvider(TerraformProvisioningResource infra)
     {
-        // SubscriptionIdParameter is validated in ValidateConfiguration before this method is called
-        ArgumentNullException.ThrowIfNull(SubscriptionIdParameter);
-
+        // SubscriptionIdParameter and TenantIdParameter are optional - if not set, uses CLI context
         var azurerm = new AzurermProvider("azurerm")
         {
             UseCli = true,
-            SubscriptionId = infra.AddVariable(SubscriptionIdParameter),
             Features = [new()]
         };
+
+        if (SubscriptionIdParameter is not null)
+        {
+            azurerm.SubscriptionId = infra.AddVariable(SubscriptionIdParameter);
+        }
+
+        if (TenantIdParameter is not null)
+        {
+            azurerm.TenantId = infra.AddVariable(TenantIdParameter);
+        }
+
         infra.Add(azurerm);
     }
 

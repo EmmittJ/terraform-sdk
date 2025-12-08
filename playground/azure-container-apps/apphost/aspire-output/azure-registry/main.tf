@@ -35,14 +35,14 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
   name     = "azure-registry-rg"
   tags = {
-    Environment = "Development"
-    ManagedBy   = "Aspire-Terraform"
+    ManagedBy = "Aspire-Terraform"
   }
 }
 
 resource "random_pet" "acr_pet" {
   keepers = {
-    resource_group = azurerm_resource_group.rg.name
+    resource_group  = azurerm_resource_group.rg.name
+    subscription_id = var.azure_subscription_id
   }
   length    = 1
   separator = ""
@@ -50,7 +50,8 @@ resource "random_pet" "acr_pet" {
 
 resource "random_string" "acr_suffix" {
   keepers = {
-    resource_group = azurerm_resource_group.rg.name
+    resource_group  = azurerm_resource_group.rg.name
+    subscription_id = var.azure_subscription_id
   }
   length  = 4
   lower   = false
@@ -66,8 +67,7 @@ resource "azurerm_container_registry" "acr" {
   resource_group_name = azurerm_resource_group.rg.name
   sku                 = "Basic"
   tags = {
-    Environment = "Development"
-    ManagedBy   = "Aspire-Terraform"
+    ManagedBy = "Aspire-Terraform"
   }
 }
 

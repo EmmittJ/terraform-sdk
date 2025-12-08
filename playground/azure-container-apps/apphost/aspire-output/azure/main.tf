@@ -43,8 +43,7 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
   name     = "azure-aca-rg"
   tags = {
-    Environment = "Development"
-    ManagedBy   = "Aspire-Terraform"
+    ManagedBy = "Aspire-Terraform"
   }
 }
 
@@ -55,8 +54,7 @@ resource "azurerm_log_analytics_workspace" "law" {
   retention_in_days   = 30
   sku                 = "PerGB2018"
   tags = {
-    Environment = "Development"
-    ManagedBy   = "Aspire-Terraform"
+    ManagedBy = "Aspire-Terraform"
   }
 }
 
@@ -65,8 +63,7 @@ resource "azurerm_user_assigned_identity" "mi" {
   name                = "azure-mi"
   resource_group_name = azurerm_resource_group.rg.name
   tags = {
-    Environment = "Development"
-    ManagedBy   = "Aspire-Terraform"
+    ManagedBy = "Aspire-Terraform"
   }
 }
 
@@ -89,8 +86,7 @@ resource "azurerm_container_app_environment" "cae" {
   name                       = "azure-cae"
   resource_group_name        = azurerm_resource_group.rg.name
   tags = {
-    Environment = "Development"
-    ManagedBy   = "Aspire-Terraform"
+    ManagedBy = "Aspire-Terraform"
   }
 }
 

@@ -85,6 +85,36 @@ public static class TerraformAzureContainerAppEnvironmentExtensions
     }
 
     /// <summary>
+    /// Configures the Azure tenant ID for the environment.
+    /// </summary>
+    /// <param name="builder">The resource builder.</param>
+    /// <param name="tenantId">The tenant ID parameter.</param>
+    /// <returns>The resource builder for chaining.</returns>
+    public static IResourceBuilder<TerraformAzureContainerAppEnvironmentResource> WithTenantId(
+        this IResourceBuilder<TerraformAzureContainerAppEnvironmentResource> builder,
+        ParameterResource tenantId)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(tenantId);
+
+        builder.Resource.TenantIdParameter = tenantId;
+        return builder;
+    }
+
+    /// <summary>
+    /// Configures the Azure tenant ID for the environment.
+    /// </summary>
+    /// <param name="builder">The resource builder.</param>
+    /// <param name="tenantId">The tenant ID parameter builder.</param>
+    /// <returns>The resource builder for chaining.</returns>
+    public static IResourceBuilder<TerraformAzureContainerAppEnvironmentResource> WithTenantId(
+        this IResourceBuilder<TerraformAzureContainerAppEnvironmentResource> builder,
+        IResourceBuilder<ParameterResource> tenantId)
+    {
+        return builder.WithTenantId(tenantId.Resource);
+    }
+
+    /// <summary>
     /// Configures the Azure location (region) for the environment.
     /// </summary>
     /// <param name="builder">The resource builder.</param>
