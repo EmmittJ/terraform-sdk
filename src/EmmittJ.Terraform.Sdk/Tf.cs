@@ -360,6 +360,29 @@ public static partial class Tf
         }
 
         /// <summary>
+        /// Replaces all occurrences of a substring in a string.
+        /// replace(string, search, replace)
+        /// </summary>
+        /// <param name="str">The string to search in.</param>
+        /// <param name="search">The substring to search for.</param>
+        /// <param name="replacement">The replacement string.</param>
+        /// <returns>A TerraformValue wrapping the function call.</returns>
+        /// <remarks>
+        /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/functions/replace"/></para>
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// // Remove a prefix from a string
+        /// var imageName = Tf.Functions.Replace(fullImagePath, Tf.Interpolate($"{registryUrl}/"), "");
+        /// // → replace(var.full_image_path, "${var.registry_url}/", "")
+        /// </code>
+        /// </example>
+        public static TerraformValue<string> Replace(TerraformValue<string> str, TerraformValue<string> search, TerraformValue<string> replacement)
+        {
+            return Call<string>("replace", str, search, replacement);
+        }
+
+        /// <summary>
         /// Calls a Terraform function by name with the given arguments.
         /// This is an escape hatch for functions not explicitly supported.
         /// Arguments can be any resolvable type (TerraformValue, TerraformList, TerraformExpression, etc.).
