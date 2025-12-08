@@ -1,7 +1,7 @@
 #pragma warning disable ASPIREPIPELINES001 // Experimental API usage
 
 using Aspire.Hosting;
-using EmmittJ.Terraform.Sdk.Providers.Azurerm;
+using Aspire.Hosting.Yarp.Transforms;
 using TerraformPlayground.AppHost;
 
 var builder = DistributedApplication.CreateBuilder(args);
@@ -17,15 +17,26 @@ builder.AddTerraformAzureContainerAppEnvironment("azure")
     .WithLocation("westus2")
     .WithBackend("local");
 
-// Frontend Vite app
-var frontend = builder.AddViteApp("frontend", "../frontend");
+// FastAPI backend - Todo API
+var api = builder.AddUvicornApp("api", "../api", "main:app")
+    .WithHttpHealthCheck("/health");
 
-// YARP reverse proxy - automatically published as Azure Container App
+// Frontend Vite React app
+var frontend = builder.AddViteApp("frontend", "../frontend")
+    .WithReference(api);
+
+// YARP reverse proxy - routes /api to backend, everything else to frontend
+// Automatically published as Azure Container App
 builder.AddYarp("app")
     .WithConfiguration(c =>
     {
+        // Always proxy /api requests to FastAPI backend
+        c.AddRoute("api/{**catch-all}", api)
+            .WithTransformPathRemovePrefix("/api");
+
         if (builder.ExecutionContext.IsRunMode)
         {
+            // In dev mode, proxy all other requests to Vite dev server
             c.AddRoute("{**catch-all}", frontend);
         }
     })
@@ -33,14 +44,6 @@ builder.AddYarp("app")
     .PublishWithStaticFiles(frontend)
     .PublishAsTerraformContainerApp((infra, app) =>
     {
-        // Example: Add a custom environment variable
-        // The container app is already configured by the auto-generation,
-        // this just adds additional customizations
-
-        // Access the template and container via the Index extension method
-        // Note: The template and container blocks are created during auto-generation
-        // For more complex customizations, you may want to rebuild the entire app
-
         // Simple customization example - add tags
         app.Tags ??= new();
         app.Tags["CustomTag"] = "MyValue";
