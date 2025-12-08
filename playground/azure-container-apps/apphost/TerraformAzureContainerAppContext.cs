@@ -193,7 +193,6 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         // Common tags
         var tags = new TerraformMap<string>
         {
-            ["Environment"] = "Development",
             ["ManagedBy"] = "Aspire-Terraform"
         };
 
