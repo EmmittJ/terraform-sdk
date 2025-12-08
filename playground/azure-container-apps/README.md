@@ -1,33 +1,75 @@
 # Azure Container Apps with Terraform
 
-This sample demonstrates deploying an Aspire application to Azure Container Apps using Terraform instead of Bicep. It mirrors the functionality of `Aspire.Hosting.Azure.AppContainers` but generates Terraform configuration.
+This sample demonstrates deploying an Aspire application to Azure Container Apps using Terraform instead of Bicep. It mirrors the functionality of `Aspire.Hosting.Azure.AppContainers` but generates Terraform configuration using the **EmmittJ.Terraform.Sdk**.
+
+## Application Overview
+
+This sample deploys a full-stack Todo application:
+
+- **Frontend**: React + Vite SPA for managing todos
+- **Backend**: FastAPI (Python) REST API with in-memory storage
+- **Gateway**: YARP reverse proxy that routes `/api/*` to the backend and serves static files
 
 ## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                         Azure Resource Group                            │
+│                    Azure Resource Group: {name}-aca-rg                  │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
 │  ┌─────────────────────┐     ┌─────────────────────────────────────────┐│
 │  │  Log Analytics      │     │  Container App Environment              ││
-│  │  Workspace          │────>│  (Consumption workload profile)         ││
+│  │  Workspace          │────▶│  (Consumption workload profile)         ││
+│  │  {name}-law         │     │  {name}-cae                             ││
 │  └─────────────────────┘     │                                         ││
-│                              │  ┌─────────────────────────────────┐    ││
-│  ┌─────────────────────┐     │  │  Container App: app             │    ││
-│  │  Azure Container    │     │  │  - YARP reverse proxy           │    ││
-│  │  Registry (ACR)     │────>│  │  - Static files baked in        │    ││
-│  └─────────────────────┘     │  │  - External HTTPS ingress       │    ││
-│           │                  │  └─────────────────────────────────┘    ││
-│           │                  └─────────────────────────────────────────┘│
-│           │                                                             │
-│  ┌─────────────────────┐                                                │
-│  │  User Assigned      │<──── AcrPull role assignment                   │
-│  │  Managed Identity   │                                                │
-│  └─────────────────────┘                                                │
+│                              │  ┌─────────────────────────────────────┐││
+│                              │  │  Container App: app                 │││
+│                              │  │  - YARP reverse proxy               │││
+│                              │  │  - Static files baked in            │││
+│                              │  │  - External HTTPS ingress           │││
+│                              │  │  - Auto-scaling (1-3 replicas)      │││
+│                              │  └─────────────────────────────────────┘││
+│                              └─────────────────────────────────────────┘│
+│                                           │                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐│
+│  │  User Assigned Managed Identity: {name}-mi                          ││
+│  │  └── AcrPull role assignment ─────────────────────────────────────┐ ││
+│  └───────────────────────────────────────────────────────────────────│─┘│
+│                                                                      │  │
+└──────────────────────────────────────────────────────────────────────│──┘
+                                                                       │
+┌──────────────────────────────────────────────────────────────────────│──┐
+│                  Azure Resource Group: {name}-registry-rg            │  │
+├──────────────────────────────────────────────────────────────────────│──┤
+│                                                                      ▼  │
+│  ┌─────────────────────────────────────────────────────────────────────┐│
+│  │  Azure Container Registry: acr{random_pet}{random_suffix}           ││
+│  │  (Basic SKU, globally unique name via random_pet + random_string)   ││
+│  └─────────────────────────────────────────────────────────────────────┘│
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
+
+### Two-Stage Terraform Deployment
+
+The infrastructure uses a **two-stage deployment** pattern to handle the container registry dependency:
+
+1. **Stage 1: Container Registry** (separate Terraform state)
+
+   - Resource Group: `{name}-registry-rg`
+   - Azure Container Registry with globally unique name (`random_pet` + `random_string`)
+   - Outputs: `name`, `endpoint` (consumed by Stage 2)
+
+2. **Stage 2: Environment + Container Apps** (`azure/main.tf` - single `terraform apply`)
+
+   - Resource Group: `{name}-aca-rg`
+   - Log Analytics Workspace
+   - User Assigned Managed Identity with AcrPull role
+   - Container App Environment
+   - **Container App modules** (e.g., `./api`, `./app`) - provisioned together with environment
+   - Inter-app references resolved via module outputs (e.g., `module.api.http_endpoint`)
+
+This two-stage approach is required because images must be pushed to ACR before the Container Apps can reference them.
 
 ## Infrastructure Comparison
 
@@ -53,18 +95,26 @@ This sample demonstrates deploying an Aspire application to Azure Container Apps
 ```
 azure-container-apps/
 ├── apphost/
-│   ├── AppHost.cs          # Aspire app host with Terraform configuration
-│   └── AppHost.csproj      # Project file
+│   ├── AppHost.cs                                      # Aspire app host with Terraform configuration
+│   ├── AppHost.csproj                                  # Project file
+│   ├── TerraformAzureContainerAppEnvironmentResource.cs # Environment resource (ACR, LAW, CAE)
+│   ├── TerraformAzureContainerAppEnvironmentExtensions.cs # Fluent API extensions
+│   ├── TerraformAzureContainerAppContext.cs            # Container App builder context
+│   └── TerraformAzureContainerAppCustomizationAnnotation.cs # Customization callback
+├── api/
+│   ├── main.py                 # FastAPI Todo REST API
+│   └── requirements.txt        # Python dependencies (fastapi, uvicorn)
 ├── frontend/
-│   ├── src/                # Vite application source
-│   ├── package.json        # Node.js dependencies
-│   └── vite.config.js      # Vite configuration
-└── README.md               # This file
+│   ├── src/
+│   │   └── App.jsx             # React Todo app component
+│   ├── package.json            # Node.js dependencies
+│   └── vite.config.js          # Vite configuration
+└── README.md                   # This file
 ```
 
 ## Local Development
 
-Run the application locally with the Vite dev server:
+Run the application locally with the Aspire app host:
 
 ```bash
 cd apphost
@@ -74,7 +124,8 @@ aspire run
 This starts:
 
 - YARP reverse proxy on https://localhost:5001
-- Vite dev server (proxied through YARP)
+- FastAPI backend (Todo API with `/api/todos` endpoints)
+- Vite dev server (proxied through YARP for hot module replacement)
 
 ## Publishing to Azure
 
@@ -106,8 +157,20 @@ aspire publish
 
 This generates:
 
-- `aspire-output/azure/main.tf` - Main Terraform configuration
-- `aspire-output/azure/app/main.tf` - Container App specific configuration
+```
+aspire-output/azure/
+├── main.tf              # Root module: environment + module calls
+├── api/
+│   └── main.tf          # API Container App (FastAPI backend)
+└── app/
+    └── main.tf          # YARP reverse proxy Container App
+```
+
+The root `main.tf` includes:
+
+- Provider configuration (azurerm ~> 4.0, random ~> 3.0)
+- Environment resources (resource group, log analytics, managed identity, CAE)
+- Module calls: `module "api"` and `module "app"` with inter-module references
 
 You can then review the generated HCL and optionally run Terraform manually:
 
@@ -149,19 +212,29 @@ open $(terraform output -raw app_url)
 
 ## Outputs
 
-The Terraform configuration exports these outputs (matching Aspire's Azure.AppContainers):
+The Terraform configuration exports these outputs:
 
-| Output                                            | Description                             |
-| ------------------------------------------------- | --------------------------------------- |
-| `AZURE_LOG_ANALYTICS_WORKSPACE_NAME`              | Name of the Log Analytics workspace     |
-| `AZURE_LOG_ANALYTICS_WORKSPACE_ID`                | ID of the Log Analytics workspace       |
-| `AZURE_CONTAINER_REGISTRY_NAME`                   | Name of the Azure Container Registry    |
-| `AZURE_CONTAINER_REGISTRY_ENDPOINT`               | Login server URL for ACR                |
-| `AZURE_CONTAINER_REGISTRY_MANAGED_IDENTITY_ID`    | ID of the managed identity for ACR pull |
-| `AZURE_CONTAINER_APPS_ENVIRONMENT_NAME`           | Name of the Container App Environment   |
-| `AZURE_CONTAINER_APPS_ENVIRONMENT_ID`             | ID of the Container App Environment     |
-| `AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN` | Default domain for the environment      |
-| `app_url`                                         | URL of the deployed application         |
+### Stage 1: Registry Outputs (separate state)
+
+| Output     | Description                                        |
+| ---------- | -------------------------------------------------- |
+| `name`     | Name of the Azure Container Registry               |
+| `endpoint` | Login server URL for ACR (e.g., `acr*.azurecr.io`) |
+
+### Stage 2: Environment + Apps Outputs (`azure/main.tf`)
+
+| Output                | Description                               |
+| --------------------- | ----------------------------------------- |
+| `container_env_id`    | ID of the Container App Environment       |
+| `managed_identity_id` | ID of the managed identity for ACR pull   |
+| `resource_group_name` | Name of the Container Apps resource group |
+
+### Container App Module Outputs (e.g., `module.api`, `module.app`)
+
+| Output           | Description                                   |
+| ---------------- | --------------------------------------------- |
+| `http_endpoint`  | HTTP endpoint URL for inter-app communication |
+| `https_endpoint` | HTTPS endpoint URL (for external ingress)     |
 
 ## CI/CD Integration
 
@@ -214,29 +287,90 @@ terraform destroy
 
 ## How It Works
 
+### Implementation Overview
+
+The sample implements a custom `TerraformAzureContainerAppEnvironmentResource` that extends `TerraformCloudEnvironmentResource` from the SDK. This provides:
+
+1. **Two-stage infrastructure** via `ConfigureContainerRegistry()` and `ConfigureEnvironment()` overrides
+2. **Fluent configuration API** via extension methods (`WithSubscriptionId()`, `WithLocation()`, `WithBackend()`)
+3. **Per-resource Container App generation** via `TerraformAzureContainerAppContext`
+
+### AppHost.cs - The Entry Point
+
+```csharp
+// Add the Terraform Azure Container App Environment
+builder.AddTerraformAzureContainerAppEnvironment("azure")
+    .WithSubscriptionId(subscriptionIdParameter)
+    .WithLocation("westus2")
+    .WithBackend("local");
+
+// Publish resources as Terraform Container Apps
+builder.AddYarp("app")
+    .WithExternalHttpEndpoints()
+    .PublishWithStaticFiles(frontend)
+    .PublishAsTerraformContainerApp((infra, app) =>
+    {
+        // Customization callback - add tags, modify settings, etc.
+        app.Tags ??= new();
+        app.Tags["CustomTag"] = "MyValue";
+    });
+```
+
+### Key Components
+
+#### TerraformAzureContainerAppEnvironmentResource
+
+Extends `TerraformCloudEnvironmentResource` and implements:
+
+- **`ConfigureContainerRegistry()`**: Creates ACR with globally unique name using `random_pet` and `random_string`
+- **`ConfigureEnvironment()`**: Creates Log Analytics, Managed Identity, Role Assignment, and Container App Environment
+- **`CreateComputeResourceContext()`**: Returns `TerraformAzureContainerAppContext` for building Container Apps
+
+#### TerraformAzureContainerAppContext
+
+Extends `TerraformComputeResourceContext` and handles:
+
+- **Endpoint processing**: Validates HTTP/HTTPS/TCP schemes, maps endpoints to ingress configuration
+- **Container App generation**: Creates `AzurermContainerApp` with template, identity, registry, and ingress
+- **Self-referencing resolution**: Resolves endpoint references within the same resource
+
 ### Aspire → Terraform Translation
 
-The `PublishAsTerraform` extension method captures the infrastructure definition and generates Terraform HCL instead of Bicep. The pattern mirrors `Aspire.Hosting.Azure.AppContainers`:
+The `PublishAsTerraformContainerApp` extension method captures the infrastructure definition and generates Terraform HCL instead of Bicep. The pattern mirrors `Aspire.Hosting.Azure.AppContainers`:
 
-1. **Environment Setup** (`AddTerraformEnvironment`):
+1. **Environment Setup** (`AddTerraformAzureContainerAppEnvironment`):
 
-   - Creates resource group, Log Analytics, ACR, managed identity, and Container App Environment
-   - Exports outputs that can be referenced by dependent resources
+   - Creates resource group, Log Analytics, managed identity with AcrPull role, and Container App Environment
+   - References ACR from Stage 1 via data source
+   - All resources defined in root `main.tf`
 
-2. **Resource Configuration** (`PublishAsTerraform` on resources):
-   - Defines the Container App configuration
-   - References outputs from the environment (ACR endpoint, environment ID, etc.)
-   - Configures ingress, scaling, and environment variables
+2. **Container Apps as Modules** (`PublishAsTerraformContainerApp` on resources):
+   - Each Container App is generated as a separate Terraform module (e.g., `./api`, `./app`)
+   - Modules receive environment outputs via variables (`azure_container_env_id`, `azure_managed_identity_id`, etc.)
+   - Inter-app references use module outputs (e.g., `module.api.http_endpoint`)
+   - Supports customization via callback for adding tags, modifying settings, etc.
+
+### Container App Features
+
+The generated `AzurermContainerApp` includes:
+
+- **User Assigned Identity**: For secure ACR pull without admin credentials
+- **Registry configuration**: Points to the created ACR with identity-based auth
+- **HTTP ingress**: External or internal, with HTTP/2 support
+- **Auto-scaling**: HTTP-based scaling rules (1-3 replicas, 100 concurrent requests)
+- **Environment variables**: Resolved from Aspire resource annotations
+- **Custom tags**: `ManagedBy: Aspire-Terraform`
 
 ### Key Differences from Bicep
 
-| Feature    | Bicep (Azure.AppContainers) | Terraform (this sample) |
-| ---------- | --------------------------- | ----------------------- |
-| Language   | Bicep DSL                   | HCL                     |
-| State      | Azure Resource Manager      | Local or remote backend |
-| Outputs    | `output` statements         | `output` blocks         |
-| References | `@` syntax                  | Attribute references    |
-| Modules    | Bicep modules               | Terraform modules       |
+| Feature      | Bicep (Azure.AppContainers) | Terraform (this sample)        |
+| ------------ | --------------------------- | ------------------------------ |
+| Language     | Bicep DSL                   | HCL via EmmittJ.Terraform.Sdk  |
+| State        | Azure Resource Manager      | Local or remote backend        |
+| Outputs      | `output` statements         | `output` blocks                |
+| References   | `@` syntax                  | Attribute references           |
+| Modules      | Bicep modules               | Terraform modules              |
+| Unique Names | `uniqueString()` function   | `random_pet` + `random_string` |
 
 ## Troubleshooting
 
@@ -258,8 +392,8 @@ Check the logs:
 
 ```bash
 az containerapp logs show \
-  --name aspire-vite-yarp-app \
-  --resource-group $(terraform output -raw resource_group_name) \
+  --name app \
+  --resource-group {name}-aca-rg \
   --follow
 ```
 
