@@ -8,6 +8,7 @@ using Aspire.Hosting.ApplicationModel;
 using EmmittJ.Aspire.Hosting.Terraform;
 using EmmittJ.Terraform.Sdk;
 using EmmittJ.Terraform.Sdk.Providers.Azurerm;
+using EmmittJ.Terraform.Sdk.Providers.Random;
 
 namespace TerraformPlayground.AppHost;
 
@@ -116,14 +117,26 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
         };
         registry.Add(resourceGroup);
 
-        // Generate a random suffix for globally unique ACR name
-        var acrSuffix = new TerraformResource("random_string", "acr_suffix")
+        // Generate a random pet name and suffix for globally unique ACR name
+        var acrPet = new RandomPet("acr_pet")
         {
-            ["length"] = 8,
-            ["special"] = false,
-            ["upper"] = false,
-            ["numeric"] = true,
-            ["keepers"] = new TerraformMap<string>
+            Length = 1,
+            Separator = "",
+            Keepers = new TerraformMap<string>
+            {
+                ["resource_group"] = resourceGroup.Name
+            }
+        };
+        registry.Add(acrPet);
+
+        var acrSuffix = new RandomString("acr_suffix")
+        {
+            Length = 4,
+            Special = false,
+            Upper = false,
+            Numeric = true,
+            Lower = false,
+            Keepers = new TerraformMap<string>
             {
                 ["resource_group"] = resourceGroup.Name
             }
@@ -132,7 +145,7 @@ public sealed class TerraformAzureContainerAppEnvironmentResource : TerraformClo
 
         var containerRegistry = new AzurermContainerRegistry("acr")
         {
-            Name = Tf.Interpolate($"acr{acrSuffix["result"]}"),
+            Name = Tf.Interpolate($"acr{acrPet.Id}{acrSuffix.Result}"),
             Location = resourceGroup.Location,
             ResourceGroupName = resourceGroup.Name,
             Sku = "Basic",

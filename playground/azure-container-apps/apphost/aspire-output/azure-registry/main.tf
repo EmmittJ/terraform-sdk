@@ -40,11 +40,20 @@ resource "azurerm_resource_group" "rg" {
   }
 }
 
+resource "random_pet" "acr_pet" {
+  keepers = {
+    resource_group = azurerm_resource_group.rg.name
+  }
+  length    = 1
+  separator = ""
+}
+
 resource "random_string" "acr_suffix" {
   keepers = {
     resource_group = azurerm_resource_group.rg.name
   }
-  length  = 8
+  length  = 4
+  lower   = false
   numeric = true
   special = false
   upper   = false
@@ -53,7 +62,7 @@ resource "random_string" "acr_suffix" {
 resource "azurerm_container_registry" "acr" {
   admin_enabled       = true
   location            = azurerm_resource_group.rg.location
-  name                = "acr${random_string.acr_suffix.result}"
+  name                = "acr${random_pet.acr_pet.id}${random_string.acr_suffix.result}"
   resource_group_name = azurerm_resource_group.rg.name
   sku                 = "Basic"
   tags = {
