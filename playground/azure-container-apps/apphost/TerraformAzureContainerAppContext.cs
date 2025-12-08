@@ -355,12 +355,19 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         };
     }
 
+    /// <summary>
+    /// Determines if the given resource is the same as this container app.
+    /// Uses both reference equality and name comparison since object identity may differ
+    /// when resources are wrapped or accessed through different paths.
+    /// </summary>
+    private bool IsSelf(IResource resource) =>
+        resource == Resource || resource.Name == Resource.Name;
+
     private bool TryResolveSelfEndpointReference(EndpointReference ep, out TerraformValue<string> result)
     {
         result = default!;
 
-        // Only handle self endpoints
-        if (ep.Resource != Resource || !_endpointMapping.TryGetValue(ep.EndpointName, out var mapping) || !mapping.IsHttpIngress)
+        if (!IsSelf(ep.Resource) || !_endpointMapping.TryGetValue(ep.EndpointName, out var mapping) || !mapping.IsHttpIngress)
         {
             return false;
         }
@@ -374,8 +381,7 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         result = default!;
         var ep = epExpr.Endpoint;
 
-        // Only handle self endpoints
-        if (ep.Resource != Resource || !_endpointMapping.TryGetValue(ep.EndpointName, out var mapping))
+        if (!IsSelf(ep.Resource) || !_endpointMapping.TryGetValue(ep.EndpointName, out var mapping))
         {
             return false;
         }
