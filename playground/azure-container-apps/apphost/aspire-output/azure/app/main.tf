@@ -19,6 +19,10 @@ variable "azure_registry_endpoint" {
   type = string
 }
 
+variable "api_http_endpoint" {
+  type = string
+}
+
 resource "azurerm_container_app" "app" {
   container_app_environment_id = var.azure_container_env_id
   name                         = "app"
@@ -58,6 +62,30 @@ resource "azurerm_container_app" "app" {
       env {
         name  = "ASPNETCORE_ENVIRONMENT"
         value = "Production"
+      }
+      env {
+        name  = "API_HTTP"
+        value = var.api_http_endpoint
+      }
+      env {
+        name  = "REVERSEPROXY__ROUTES__route0__MATCH__PATH"
+        value = "api/{**catch-all}"
+      }
+      env {
+        name  = "REVERSEPROXY__ROUTES__route0__CLUSTERID"
+        value = "cluster_api"
+      }
+      env {
+        name  = "REVERSEPROXY__ROUTES__route0__TRANSFORMS__0__PathRemovePrefix"
+        value = "/api"
+      }
+      env {
+        name  = "REVERSEPROXY__CLUSTERS__cluster_api__DESTINATIONS__destination1__ADDRESS"
+        value = "http://api"
+      }
+      env {
+        name  = "services__api__http__0"
+        value = var.api_http_endpoint
       }
       env {
         name  = "YARP_ENABLE_STATIC_FILES"

@@ -102,13 +102,28 @@ output "resource_group_name" {
   value = azurerm_resource_group.rg.name
 }
 
+module "api" {
+  api_container_image       = var.api_container_image
+  azure_container_env_id    = azurerm_container_app_environment.cae.id
+  azure_managed_identity_id = azurerm_user_assigned_identity.mi.id
+  azure_registry_endpoint   = var.azure_registry_endpoint
+  azure_resource_group_name = azurerm_resource_group.rg.name
+  source                    = "./api"
+}
+
 module "app" {
+  api_http_endpoint         = module.api.http_endpoint
   app_container_image       = var.app_container_image
   azure_container_env_id    = azurerm_container_app_environment.cae.id
   azure_managed_identity_id = azurerm_user_assigned_identity.mi.id
   azure_registry_endpoint   = var.azure_registry_endpoint
   azure_resource_group_name = azurerm_resource_group.rg.name
   source                    = "./app"
+}
+
+variable "api_container_image" {
+  description = "Container image reference for 'api'"
+  type        = string
 }
 
 variable "app_container_image" {

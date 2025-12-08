@@ -312,11 +312,21 @@ internal sealed class TerraformAzureContainerAppContext : TerraformComputeResour
         // Add endpoint outputs
         foreach (var (endpointName, mapping) in _endpointMapping)
         {
-            if (mapping.IsHttpIngress)
+            if (mapping.IsHttpIngress && containerApp.Ingress is { } ingressList)
             {
-                var fqdn = containerApp.Ingress![0].Fqdn;
-                var scheme = mapping.Scheme;
-                infra.AddOutput($"{endpointName}{TerraformProvisioningResource.EndpointOutputNameSuffix}", Tf.Interpolate($"{scheme}://{fqdn}"));
+                // For internal endpoints, use simple app name (internal DNS within ACA environment)
+                // For external endpoints, use the full FQDN from ingress
+                if (mapping.External)
+                {
+                    var fqdn = ingressList[0].Fqdn;
+                    infra.AddOutput($"{endpointName}{TerraformProvisioningResource.EndpointOutputNameSuffix}", Tf.Interpolate($"{mapping.Scheme}://{fqdn}"));
+                }
+                else
+                {
+                    // Internal endpoints use http://appname for container-to-container communication
+                    // This avoids the ingress HTTP->HTTPS redirect
+                    infra.AddOutput($"{endpointName}{TerraformProvisioningResource.EndpointOutputNameSuffix}", $"http://{NormalizedName}");
+                }
             }
         }
     }
