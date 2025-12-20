@@ -291,8 +291,6 @@ var api = builder.AddProject<Projects.ApiService>("api")
     });
 ```
 
-````
-
 Run `aspire publish` to generate and deploy Terraform infrastructure.
 
 ## 🔨 Development
