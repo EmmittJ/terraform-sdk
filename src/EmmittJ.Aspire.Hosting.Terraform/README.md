@@ -252,7 +252,7 @@ app.PublishAsTerraform(infra =>
 
 A plain `string` is treated as data and is quoted; use `TerraformRawExpression` only when an expression cannot be represented by the typed value providers. The contained HCL is rendered as-is and is not validated or escaped.
 
-> **Note:** The Aspire Type System (ATS) attributes used for generating non-C# SDKs (`[AspireExport]` / `[AspireDto]`) are not present in the Aspire version this integration targets (`13.4.2`). The cross-language *contract* above (value providers + the raw-HCL escape-hatch) is in place; surfacing it via ATS annotations is deferred until those attributes are available.
+> **Note:** The Aspire Type System (ATS) attributes used for generating non-C# SDKs (`[AspireExport]` / `[AspireDto]`) **are** available in the Aspire version this integration targets (`13.4.2`), in the `Aspire.Hosting` namespace. Their validation analyzer (`Aspire.Hosting.Integration.Analyzers`) is opt-in behind the `EnableAspireIntegrationAnalyzers` MSBuild property (default `false`). The cross-language *contract* above (value providers + the raw-HCL escape-hatch) is already in place. Surfacing the public builder API via ATS annotations is the remaining step: enabling the analyzer reports `ASPIREEXPORT008` for every extension method on the Aspire-exported `IResourceBuilder<T>`, so each must be marked `[AspireExport]` (for ATS-compatible signatures) or `[AspireExportIgnore]`, and the domain types they expose (e.g. `TerraformOutputReference`, configuration/block types) must first be made ATS-compatible (`[AspireExport]` / `[AspireDto]`).
 
 ### Publish-Only Execution
 
