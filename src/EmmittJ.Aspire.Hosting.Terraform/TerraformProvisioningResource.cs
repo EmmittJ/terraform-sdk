@@ -290,7 +290,7 @@ public class TerraformProvisioningResource : Resource
                     throw new InvalidOperationException($"Failed to get target tag for {resource.Name}");
                 }
 
-                // Tags the local image with the registry-qualified remote name and pushes it.
+                // Pushes the local image, which internally tags it with the registry-qualified remote name.
                 await containerImageManager.PushImageAsync(resource, context.CancellationToken).ConfigureAwait(false);
 
                 await pushTask.CompleteAsync(
