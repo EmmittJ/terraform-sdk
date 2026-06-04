@@ -326,6 +326,9 @@ internal sealed class TerraformPublishingContext
             ContainerImageReference imageRef =>
                 ResolveContainerImageReference(imageRef),
 
+            TerraformRawExpression raw =>
+                TerraformExpression.Raw(raw.Hcl),
+
             string s =>
                 TerraformExpression.Literal(s),
 
@@ -334,7 +337,7 @@ internal sealed class TerraformPublishingContext
 
             _ => throw new NotSupportedException(
                 $"Input value type '{inputValue.GetType().Name}' is not supported for module parameters. " +
-                $"Supported types: TerraformOutputReference, ParameterResource, ContainerImageReference, string, TerraformExpression")
+                $"Supported types: TerraformOutputReference, ParameterResource, ContainerImageReference, TerraformRawExpression, string, TerraformExpression")
         };
     }
 

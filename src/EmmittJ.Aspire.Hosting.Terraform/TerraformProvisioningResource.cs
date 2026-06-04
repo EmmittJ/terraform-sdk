@@ -268,16 +268,10 @@ public class TerraformProvisioningResource : Resource
         IResource resource,
         PipelineStepContext context)
     {
-        var containerImageBuilder = context.Services.GetRequiredService<IResourceContainerImageBuilder>();
+        var containerImageManager = context.Services.GetRequiredService<IResourceContainerImageManager>();
 
         var registryEndpoint = await registry.Endpoint.GetValueAsync(context.CancellationToken).ConfigureAwait(false) ??
             throw new InvalidOperationException("Failed to retrieve container registry endpoint.");
-
-        // Get the local image name (defaults to resource name)
-        if (!resource.TryGetContainerImageName(out var localImageName))
-        {
-            localImageName = resource.Name.ToLowerInvariant();
-        }
 
         // Get the target tag using ContainerImageReference
         IValueProvider cir = new ContainerImageReference(resource);
@@ -296,8 +290,8 @@ public class TerraformProvisioningResource : Resource
                     throw new InvalidOperationException($"Failed to get target tag for {resource.Name}");
                 }
 
-                await containerImageBuilder.TagImageAsync(localImageName, targetTag, context.CancellationToken).ConfigureAwait(false);
-                await containerImageBuilder.PushImageAsync(targetTag, context.CancellationToken).ConfigureAwait(false);
+                // Pushes the local image, which internally tags it with the registry-qualified remote name.
+                await containerImageManager.PushImageAsync(resource, context.CancellationToken).ConfigureAwait(false);
 
                 await pushTask.CompleteAsync(
                     $"Successfully pushed **{resource.Name}** to `{targetTag}`",
@@ -954,6 +948,7 @@ public class TerraformProvisioningResource : Resource
     /// </para>
     /// <list type="bullet">
     /// <item><see cref="string"/>: Returned as-is</item>
+    /// <item><see cref="TerraformRawExpression"/>: Lowered to a verbatim (unquoted) HCL expression</item>
     /// <item><see cref="EndpointReference"/>: Resolved via <see cref="ResolveEndpointReference"/></item>
     /// <item><see cref="ParameterResource"/>: Resolved via <see cref="AddVariable(ParameterResource, string?)"/></item>
     /// <item><see cref="TerraformOutputReference"/>: Resolved via <see cref="AddVariable(TerraformOutputReference, string?)"/></item>
@@ -978,6 +973,7 @@ public class TerraformProvisioningResource : Resource
         return value switch
         {
             string s => s,
+            TerraformRawExpression raw => raw.ToTerraformValue(),
             EndpointReference ep => ResolveEndpointReference(ep).ToReference(),
             EndpointReferenceExpression epExpr => ResolveEndpointReferenceExpression(epExpr),
             ParameterResource param => AddVariable(param).ToReference(),
