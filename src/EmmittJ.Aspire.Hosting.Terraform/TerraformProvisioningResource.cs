@@ -268,16 +268,10 @@ public class TerraformProvisioningResource : Resource
         IResource resource,
         PipelineStepContext context)
     {
-        var containerImageBuilder = context.Services.GetRequiredService<IResourceContainerImageBuilder>();
+        var containerImageManager = context.Services.GetRequiredService<IResourceContainerImageManager>();
 
         var registryEndpoint = await registry.Endpoint.GetValueAsync(context.CancellationToken).ConfigureAwait(false) ??
             throw new InvalidOperationException("Failed to retrieve container registry endpoint.");
-
-        // Get the local image name (defaults to resource name)
-        if (!resource.TryGetContainerImageName(out var localImageName))
-        {
-            localImageName = resource.Name.ToLowerInvariant();
-        }
 
         // Get the target tag using ContainerImageReference
         IValueProvider cir = new ContainerImageReference(resource);
@@ -296,8 +290,8 @@ public class TerraformProvisioningResource : Resource
                     throw new InvalidOperationException($"Failed to get target tag for {resource.Name}");
                 }
 
-                await containerImageBuilder.TagImageAsync(localImageName, targetTag, context.CancellationToken).ConfigureAwait(false);
-                await containerImageBuilder.PushImageAsync(targetTag, context.CancellationToken).ConfigureAwait(false);
+                // Tags the local image with the registry-qualified remote name and pushes it.
+                await containerImageManager.PushImageAsync(resource, context.CancellationToken).ConfigureAwait(false);
 
                 await pushTask.CompleteAsync(
                     $"Successfully pushed **{resource.Name}** to `{targetTag}`",

@@ -252,7 +252,7 @@ app.PublishAsTerraform(infra =>
 
 A plain `string` is treated as data and is quoted; use `TerraformRawExpression` only when an expression cannot be represented by the typed value providers. The contained HCL is rendered as-is and is not validated or escaped.
 
-> **Note:** The Aspire Type System (ATS) attributes used for generating non-C# SDKs (`[AspireExport]` / `[AspireDto]`) are not present in the Aspire version this integration targets (`13.0.0`). The cross-language *contract* above (value providers + the raw-HCL escape-hatch) is in place; surfacing it via ATS annotations is deferred until those attributes are available.
+> **Note:** The Aspire Type System (ATS) attributes used for generating non-C# SDKs (`[AspireExport]` / `[AspireDto]`) are not present in the Aspire version this integration targets (`13.4.2`). The cross-language *contract* above (value providers + the raw-HCL escape-hatch) is in place; surfacing it via ATS annotations is deferred until those attributes are available.
 
 ### Publish-Only Execution
 
