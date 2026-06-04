@@ -954,6 +954,7 @@ public class TerraformProvisioningResource : Resource
     /// </para>
     /// <list type="bullet">
     /// <item><see cref="string"/>: Returned as-is</item>
+    /// <item><see cref="TerraformRawExpression"/>: Lowered to a verbatim (unquoted) HCL expression</item>
     /// <item><see cref="EndpointReference"/>: Resolved via <see cref="ResolveEndpointReference"/></item>
     /// <item><see cref="ParameterResource"/>: Resolved via <see cref="AddVariable(ParameterResource, string?)"/></item>
     /// <item><see cref="TerraformOutputReference"/>: Resolved via <see cref="AddVariable(TerraformOutputReference, string?)"/></item>
@@ -978,6 +979,7 @@ public class TerraformProvisioningResource : Resource
         return value switch
         {
             string s => s,
+            TerraformRawExpression raw => raw.ToTerraformValue(),
             EndpointReference ep => ResolveEndpointReference(ep).ToReference(),
             EndpointReferenceExpression epExpr => ResolveEndpointReferenceExpression(epExpr),
             ParameterResource param => AddVariable(param).ToReference(),

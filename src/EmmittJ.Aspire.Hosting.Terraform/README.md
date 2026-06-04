@@ -227,6 +227,33 @@ builder.AddProject<Projects.Api>("api")
     });
 ```
 
+### Cross-language expression contract
+
+This integration reuses **Aspire's own expression system** as the language-neutral contract for wiring Terraform infrastructure, instead of introducing a parallel expression IR. Everything is lowered host-side into the C# Terraform AST:
+
+- **References & wiring** — resource-to-resource edges flow through Aspire value providers (`TerraformOutputReference`, `ReferenceExpression`) and are lowered by `ResolveValueProvider` / `ResolveReferenceExpression`.
+- **External inputs** — Aspire `ParameterResource` values are surfaced as Terraform `variable` blocks (secret parameters are passed via `TF_VAR_*`, non-secret via `aspire.auto.tfvars`).
+
+#### Raw-HCL escape-hatch (`TerraformRawExpression`)
+
+Aspire's expression algebra is interpolation/concatenation only, so Terraform's *structured* operators (conditionals, `for` expressions, function calls, index/key access, and symbolic references such as `module.x.output`) have no direct counterpart. `TerraformRawExpression` is the escape-hatch: it is an Aspire value provider (`IValueProvider` + `IManifestExpressionProvider`) that carries a verbatim HCL fragment and renders **unquoted** (symbolic), instead of being emitted as a quoted string literal.
+
+Because it is a value provider, it can be embedded directly inside a `ReferenceExpression` hole and flows through the existing lowering:
+
+```csharp
+// Inject a symbolic Terraform reference through the Aspire expression system.
+var vnetId = TerraformRawExpression.Create("module.network.vnet_id");
+
+app.PublishAsTerraform(infra =>
+{
+    var value = infra.ResolveValueProvider(vnetId); // renders: module.network.vnet_id (unquoted)
+});
+```
+
+A plain `string` is treated as data and is quoted; use `TerraformRawExpression` only when an expression cannot be represented by the typed value providers. The contained HCL is rendered as-is and is not validated or escaped.
+
+> **Note:** The Aspire Type System (ATS) attributes used for generating non-C# SDKs (`[AspireExport]` / `[AspireDto]`) are not present in the Aspire version this integration targets (`13.0.0`). The cross-language *contract* above (value providers + the raw-HCL escape-hatch) is in place; surfacing it via ATS annotations is deferred until those attributes are available.
+
 ### Publish-Only Execution
 
 Terraform file generation **only occurs during publish mode** (`aspire publish`), not during `dotnet run`. This ensures:
