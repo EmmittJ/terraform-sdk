@@ -37,7 +37,7 @@ public sealed class TerraformModuleResource : Resource
     private readonly Dictionary<string, object> _variables = new(StringComparer.Ordinal);
     private readonly SemaphoreSlim _stateLock = new(1, 1);
     private Dictionary<string, object?>? _existingStateOutputs;
-    private readonly Dictionary<string, ParameterResource> _runParameters = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Dictionary<string, ParameterResource> _runParameters = new(StringComparer.Ordinal);
     private bool _runAsExisting;
 
     internal TerraformModuleResource(string name, string moduleDirectory, bool deployable) : base(name)
@@ -61,9 +61,9 @@ public sealed class TerraformModuleResource : Resource
     /// <summary>Gets the Aspire values that will be passed to the module as Terraform variables.</summary>
     public IReadOnlyDictionary<string, object> Variables => _variables;
 
-    internal Dictionary<string, object?> Outputs { get; } = new(StringComparer.OrdinalIgnoreCase);
+    internal Dictionary<string, object?> Outputs { get; } = new(StringComparer.Ordinal);
 
-    internal HashSet<string> SensitiveOutputs { get; } = new(StringComparer.OrdinalIgnoreCase);
+    internal HashSet<string> SensitiveOutputs { get; } = new(StringComparer.Ordinal);
 
     internal void SetVariable(string variableName, object value) => _variables[variableName] = value;
 
@@ -123,7 +123,7 @@ public sealed class TerraformModuleResource : Resource
                 EnsureModuleDirectoryExists();
                 await TerraformCli.RunAsync(NullLogger.Instance, "init -input=false -no-color", ModuleDirectory, cancellationToken).ConfigureAwait(false);
                 var read = await TerraformCli.ReadOutputsAsync(NullLogger.Instance, ModuleDirectory, cancellationToken).ConfigureAwait(false);
-                _existingStateOutputs = read.ToDictionary(kv => kv.Key, kv => kv.Value.Value, StringComparer.OrdinalIgnoreCase);
+                _existingStateOutputs = read.ToDictionary(kv => kv.Key, kv => kv.Value.Value, StringComparer.Ordinal);
             }
 
             return _existingStateOutputs;
@@ -268,11 +268,13 @@ public sealed class TerraformModuleResource : Resource
 
             if (value is TerraformModuleResource module)
             {
-                if (!ReferenceEquals(module, this))
+                if (ReferenceEquals(module, this))
                 {
-                    found.Add(module);
+                    throw new DistributedApplicationException(
+                        $"Terraform module '{Name}' uses its own output as a variable, which can never resolve.");
                 }
 
+                found.Add(module);
                 return;
             }
 

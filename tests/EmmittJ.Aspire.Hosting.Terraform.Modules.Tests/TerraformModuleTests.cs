@@ -106,7 +106,7 @@ public class TerraformModuleTests
         var dir = Directory.CreateTempSubdirectory().FullName;
         try
         {
-            File.WriteAllText(Path.Combine(dir, "main.tf"), "output \"greeting\" { value = \"hello\" }");
+            File.WriteAllText(Path.Combine(dir, "main.tf"), "output \"greeting\" { value = \"hello\" }\noutput \"flag\" { value = true }\noutput \"id\" { value = \"lower\" }\noutput \"ID\" { value = \"upper\" }");
             RunTerraform(dir, "init -input=false");
             RunTerraform(dir, "apply -auto-approve -input=false");
 
@@ -114,6 +114,9 @@ public class TerraformModuleTests
             var module = builder.AddTerraformModule("m", dir).RunAsExisting();
 
             Assert.Equal("hello", await module.GetOutput("greeting").GetValueAsync());
+            Assert.Equal("true", await module.GetOutput("flag").GetValueAsync());
+            Assert.Equal("lower", await module.GetOutput("id").GetValueAsync());
+            Assert.Equal("upper", await module.GetOutput("ID").GetValueAsync());
             await Assert.ThrowsAsync<DistributedApplicationException>(async () => await module.GetOutput("nope").GetValueAsync());
         }
         finally
