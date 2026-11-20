@@ -8,11 +8,15 @@
   <Folder Name="/playground/azure-container-apps/">
     <Project Path="playground/azure-container-apps/apphost/AppHost.csproj" />
   </Folder>
+  <Folder Name="/playground/modules/">
+    <Project Path="playground/modules/Modules.csproj" />
+  </Folder>
   <Folder Name="/playground/getting-started/">
     <Project Path="playground/getting-started/GettingStarted.csproj" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.Hosting.Terraform.csproj" />
+    <Project Path="src/EmmittJ.Aspire.Hosting.Terraform.Modules/EmmittJ.Aspire.Hosting.Terraform.Modules.csproj" />
     <Project Path="src/EmmittJ.Terraform.Sdk.AppHost/EmmittJ.Terraform.Sdk.AppHost.csproj" />
     <Project Path="src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj" />
   </Folder>
@@ -24,6 +28,7 @@
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/EmmittJ.Aspire.Hosting.Terraform.Tests/EmmittJ.Aspire.Hosting.Terraform.Tests.csproj" />
+    <Project Path="tests/EmmittJ.Aspire.Hosting.Terraform.Modules.Tests/EmmittJ.Aspire.Hosting.Terraform.Modules.Tests.csproj" />
     <Project Path="tests/EmmittJ.Terraform.Sdk.Tests/EmmittJ.Terraform.Sdk.Tests.csproj" />
   </Folder>
 </Solution>
