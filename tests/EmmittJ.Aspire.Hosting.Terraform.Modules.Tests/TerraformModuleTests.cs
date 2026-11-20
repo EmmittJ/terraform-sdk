@@ -31,15 +31,35 @@ public class TerraformModuleTests
     }
 
     [Fact]
-    public async Task GetOutput_InRunMode_ExplainsRunAsExisting()
+    public async Task GetOutput_InRunMode_UsesParameter()
+    {
+        var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOptions { Args = [] });
+        builder.Configuration["Parameters:network-network-id"] = "net-1";
+        var module = builder.AddTerraformModule("network", "./infra/network");
+
+        var output = module.GetOutput("network_id");
+
+        Assert.Contains(builder.Resources, r => r is ParameterResource { Name: "network-network-id" });
+        Assert.Equal("net-1", await output.GetValueAsync());
+    }
+
+    [Fact]
+    public void RunAsExisting_AfterGetOutput_Throws()
     {
         var builder = DistributedApplication.CreateBuilder();
         var module = builder.AddTerraformModule("network", "./infra/network");
+        module.GetOutput("network_id");
 
-        var ex = await Assert.ThrowsAsync<DistributedApplicationException>(
-            async () => await module.GetOutput("network_id").GetValueAsync());
+        Assert.Throws<DistributedApplicationException>(() => module.RunAsExisting());
+    }
 
-        Assert.Contains("RunAsExisting", ex.Message);
+    [Fact]
+    public void GetOutput_InRunMode_WithRunAsExisting_AddsNoParameter()
+    {
+        var builder = DistributedApplication.CreateBuilder();
+        builder.AddTerraformModule("network", "./infra/network").RunAsExisting().GetOutput("network_id");
+
+        Assert.DoesNotContain(builder.Resources, r => r is ParameterResource);
     }
 
     [Fact]

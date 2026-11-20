@@ -79,7 +79,11 @@ public static class TerraformModuleExtensions
         object value)
         => builder.SetVariable(variableName, value is IResourceBuilder<ParameterResource> parameter ? parameter.Resource : value);
 
-    /// <summary>Gets an Aspire value backed by one of the module's Terraform outputs.</summary>
+    /// <summary>
+    /// Gets an Aspire value backed by one of the module's Terraform outputs. In run mode the module is not applied,
+    /// so the value comes from a parameter named <c>{module}-{output}</c> (prompted for), unless
+    /// <see cref="RunAsExisting"/> was called first.
+    /// </summary>
     /// <param name="builder">The module resource builder.</param>
     /// <param name="name">The name of the Terraform <c>output</c>.</param>
     /// <returns>A value that resolves to the output.</returns>
@@ -90,12 +94,24 @@ public static class TerraformModuleExtensions
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentException.ThrowIfNullOrEmpty(name);
 
-        return new TerraformModuleOutputReference(name, builder.Resource);
+        var module = builder.Resource;
+
+        // Run mode never applies the module, so the output becomes a parameter the user is prompted for.
+        if (!module.IsDeployable && !module.UsesExistingState)
+        {
+            var parameterName = $"{module.Name}-{name.Replace('_', '-')}";
+            var parameter = builder.ApplicationBuilder.Resources.OfType<ParameterResource>().FirstOrDefault(p => p.Name == parameterName)
+                ?? builder.ApplicationBuilder.AddParameter(parameterName).Resource;
+            module.SetRunParameter(name, parameter);
+        }
+
+        return new TerraformModuleOutputReference(name, module);
     }
 
     /// <summary>
     /// In run mode, reads outputs from state that was already applied (<c>terraform init</c> then
-    /// <c>terraform output</c>) instead of applying the module. Ignored when publishing or deploying.
+    /// <c>terraform output</c>) instead of prompting for parameters. Call it before <see cref="GetOutput"/>.
+    /// Ignored when publishing or deploying.
     /// </summary>
     /// <param name="builder">The module resource builder.</param>
     /// <returns>The module resource builder.</returns>

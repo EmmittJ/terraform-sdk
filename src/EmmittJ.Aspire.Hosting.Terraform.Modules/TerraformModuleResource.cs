@@ -37,6 +37,7 @@ public sealed class TerraformModuleResource : Resource
     private readonly Dictionary<string, object> _variables = new(StringComparer.Ordinal);
     private readonly SemaphoreSlim _stateLock = new(1, 1);
     private Dictionary<string, object?>? _existingStateOutputs;
+    private readonly Dictionary<string, ParameterResource> _runParameters = new(StringComparer.OrdinalIgnoreCase);
     private bool _runAsExisting;
 
     internal TerraformModuleResource(string name, string moduleDirectory, bool deployable) : base(name)
@@ -66,7 +67,22 @@ public sealed class TerraformModuleResource : Resource
 
     internal void SetVariable(string variableName, object value) => _variables[variableName] = value;
 
-    internal void UseExistingState() => _runAsExisting = true;
+    internal void UseExistingState()
+    {
+        if (_runParameters.Count > 0)
+        {
+            throw new DistributedApplicationException(
+                $"Terraform module '{Name}': call RunAsExisting() before GetOutput() so outputs are not also requested as parameters.");
+        }
+
+        _runAsExisting = true;
+    }
+
+    internal bool UsesExistingState => _runAsExisting;
+
+    internal bool IsDeployable => _outputsReady is not null;
+
+    internal void SetRunParameter(string outputName, ParameterResource parameter) => _runParameters[outputName] = parameter;
 
     internal async ValueTask<object?> GetOutputValueAsync(string name, CancellationToken cancellationToken)
     {
@@ -80,6 +96,11 @@ public sealed class TerraformModuleResource : Resource
         }
 
         // Run mode: nothing is applied, so values come from existing state.
+        if (!_runAsExisting && _runParameters.TryGetValue(name, out var parameter))
+        {
+            return await parameter.GetValueAsync(cancellationToken).ConfigureAwait(false);
+        }
+
         if (_runAsExisting)
         {
             var state = await LoadExistingStateAsync(cancellationToken).ConfigureAwait(false);
@@ -88,7 +109,7 @@ public sealed class TerraformModuleResource : Resource
 
         throw new DistributedApplicationException(
             $"Terraform module '{Name}' output '{name}' is not available in run mode. " +
-            $"Call RunAsExisting() to read outputs from state that was already applied.");
+            $"Call GetOutput() so it is requested as a parameter, or RunAsExisting() to read outputs from state that was already applied.");
     }
 
     private async Task<Dictionary<string, object?>> LoadExistingStateAsync(CancellationToken cancellationToken)
