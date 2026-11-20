@@ -267,7 +267,7 @@ Deploy Terraform infrastructure as part of your Aspire applications:
 var builder = DistributedApplication.CreateBuilder(args);
 
 // Add Terraform environment
-var terraform = builder.AddTerraformEnvironment("terraform")
+var terraform = builder.AddTerraformSdkEnvironment("terraform")
     .WithBackend("s3", backend =>
     {
         backend["bucket"] = "my-terraform-state";

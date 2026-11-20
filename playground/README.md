@@ -57,7 +57,7 @@ Once you have a playground project, you can experiment with various scenarios:
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
 
-var terraform = builder.AddTerraformEnvironment("aws")
+var terraform = builder.AddTerraformSdkEnvironment("aws")
     .WithBackend("s3", backend =>
     {
         backend["bucket"] = "my-terraform-state";
@@ -81,12 +81,12 @@ builder.Build().Run();
 
 ```csharp
 // AWS Production
-var aws = builder.AddTerraformEnvironment("aws-prod")
+var aws = builder.AddTerraformSdkEnvironment("aws-prod")
     .WithBackend("s3", backend => { /* ... */ })
     .WithOutputPath("aws-infra");
 
 // Azure Staging
-var azure = builder.AddTerraformEnvironment("azure-staging")
+var azure = builder.AddTerraformSdkEnvironment("azure-staging")
     .WithBackend("azurerm", backend => { /* ... */ })
     .WithOutputPath("azure-infra");
 ```
@@ -94,7 +94,7 @@ var azure = builder.AddTerraformEnvironment("azure-staging")
 ### Development with Local State
 
 ```csharp
-var dev = builder.AddTerraformEnvironment("dev")
+var dev = builder.AddTerraformSdkEnvironment("dev")
     .WithBackend("local");
 ```
 

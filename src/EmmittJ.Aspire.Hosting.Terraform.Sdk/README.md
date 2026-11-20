@@ -20,7 +20,7 @@ Deploy Aspire resources to a Terraform environment:
 var builder = DistributedApplication.CreateBuilder(args);
 
 // Add a Terraform deployment environment
-var terraform = builder.AddTerraformEnvironment("terraform")
+var terraform = builder.AddTerraformSdkEnvironment("terraform")
     .WithBackend("s3", backend =>
     {
         backend["bucket"] = "my-terraform-state";
@@ -48,7 +48,7 @@ This library implements a complete Terraform deployment environment for Aspire, 
 
 **Key Components:**
 
-1. **Terraform Environment** (`AddTerraformEnvironment`) - Deployment target for your application
+1. **Terraform Environment** (`AddTerraformSdkEnvironment`) - Deployment target for your application
 2. **Resource Publishing** (`PublishAsTerraform`) - Customize infrastructure per resource
 3. **Pipeline Integration** - Automated terraform init/plan/apply steps
 4. **File Generation** - Generates Terraform JSON configuration during publish
@@ -110,7 +110,7 @@ You can attach multiple Terraform stacks to a single resource by calling `Publis
 Configure the Terraform environment with backend, version, and automation settings:
 
 ```csharp
-builder.AddTerraformEnvironment("terraform")
+builder.AddTerraformSdkEnvironment("terraform")
     .WithWorkspace("production")
     .WithVersion("1.9.0")
     .WithBackend("azurerm", backend =>
@@ -127,7 +127,7 @@ For advanced scenarios, you can configure the entire `TerraformSettingsBlock` ob
 ```csharp
 using EmmittJ.Terraform.Sdk;
 
-builder.AddTerraformEnvironment("terraform")
+builder.AddTerraformSdkEnvironment("terraform")
     .WithSettings(settings =>
     {
         // Configure required version

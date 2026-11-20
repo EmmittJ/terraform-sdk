@@ -53,7 +53,7 @@ public static class TerraformContainerRegistryExtensions
     ///     })
     ///     .WithLoginCallback(TerraformContainerRegistryHelpers.CreateAzureCliLoginCallback());
     ///
-    /// var terraform = builder.AddTerraformEnvironment("azure", acr);
+    /// var terraform = builder.AddTerraformSdkEnvironment("azure", acr);
     /// </code>
     /// </example>
     public static IResourceBuilder<TerraformContainerRegistryResource> AddTerraformContainerRegistry(

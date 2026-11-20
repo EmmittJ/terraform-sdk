@@ -338,7 +338,7 @@ public class TerraformPipelineIntegrationTests
                 DisableDashboard = true
             });
 
-            builder.AddTerraformEnvironment("terraform");
+            builder.AddTerraformSdkEnvironment("terraform");
 
             var container = builder.AddContainer("myapp", "image")
                 .PublishAsTerraform((stack, _) =>

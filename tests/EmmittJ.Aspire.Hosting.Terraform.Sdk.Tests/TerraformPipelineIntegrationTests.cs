@@ -31,7 +31,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             // Add Terraform environment
-            builder.AddTerraformEnvironment("terraform");
+            builder.AddTerraformSdkEnvironment("terraform");
 
             var container = builder.AddContainer("myapp", "image")
                 .PublishAsTerraform(infra =>
@@ -79,7 +79,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             // Add Terraform environment
-            builder.AddTerraformEnvironment("terraform");
+            builder.AddTerraformSdkEnvironment("terraform");
 
             builder.AddContainer("myapp", "image")
                 .WithTerraformConfiguration(config => config.OutputPath = customOutput)
@@ -126,7 +126,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             // Add Terraform environment
-            builder.AddTerraformEnvironment("terraform");
+            builder.AddTerraformSdkEnvironment("terraform");
 
             var container = builder.AddContainer("myapp", "image")
                 .PublishAsTerraform(infra =>
@@ -182,7 +182,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             // Add Terraform environment
-            builder.AddTerraformEnvironment("terraform");
+            builder.AddTerraformSdkEnvironment("terraform");
 
             var container = builder.AddContainer("myapp", "image")
                 .WithTerraformConfiguration(config => config.OutputPath = parentOutputDir)
@@ -236,7 +236,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             // Add Terraform environment
-            builder.AddTerraformEnvironment("terraform");
+            builder.AddTerraformSdkEnvironment("terraform");
 
             var container = builder.AddContainer("myapp", "image")
                 .PublishAsTerraform(infra =>

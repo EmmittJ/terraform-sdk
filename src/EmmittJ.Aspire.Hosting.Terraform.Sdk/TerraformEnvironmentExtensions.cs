@@ -28,12 +28,12 @@ public static class TerraformEnvironmentExtensions
     /// <returns>A reference to the <see cref="IResourceBuilder{TerraformEnvironmentResource}"/>.</returns>
     /// <example>
     /// <code>
-    /// var terraform = builder.AddTerraformEnvironment("azure")
+    /// var terraform = builder.AddTerraformSdkEnvironment("azure")
     ///     .WithBackend("local")
     ///     .PublishAsTerraform(infra => { ... });
     /// </code>
     /// </example>
-    public static IResourceBuilder<TerraformEnvironmentResource> AddTerraformEnvironment(
+    public static IResourceBuilder<TerraformEnvironmentResource> AddTerraformSdkEnvironment(
         this IDistributedApplicationBuilder builder,
         string name)
     {
@@ -70,12 +70,12 @@ public static class TerraformEnvironmentExtensions
     ///     .PublishAsTerraform(registry => { ... })
     ///     .WithLoginCallback(TerraformContainerRegistryHelpers.CreateAzureCliLoginCallback());
     ///
-    /// var terraform = builder.AddTerraformEnvironment("azure", acr)
+    /// var terraform = builder.AddTerraformSdkEnvironment("azure", acr)
     ///     .WithBackend("local")
     ///     .PublishAsTerraform(infra => { ... });
     /// </code>
     /// </example>
-    public static IResourceBuilder<TerraformEnvironmentResource> AddTerraformEnvironment<TRegistry>(
+    public static IResourceBuilder<TerraformEnvironmentResource> AddTerraformSdkEnvironment<TRegistry>(
         this IDistributedApplicationBuilder builder,
         string name,
         IResourceBuilder<TRegistry> containerRegistry)

@@ -20,7 +20,7 @@ public class TerraformRawExpressionTests
     private static TerraformProvisioningResource CreateProvisioningResource()
     {
         var builder = DistributedApplication.CreateBuilder();
-        var environment = builder.AddTerraformEnvironment("env").Resource;
+        var environment = builder.AddTerraformSdkEnvironment("env").Resource;
         return new TerraformProvisioningResource("module", environment);
     }
 

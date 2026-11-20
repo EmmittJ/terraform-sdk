@@ -27,7 +27,7 @@ public static class TerraformExtensions
     /// <code>
     /// var builder = DistributedApplication.CreateBuilder(args);
     ///
-    /// var terraform = builder.AddTerraformEnvironment("azure");
+    /// var terraform = builder.AddTerraformSdkEnvironment("azure");
     ///
     /// builder.AddResource(myResource)
     ///     .PublishAsTerraform(terraform =>

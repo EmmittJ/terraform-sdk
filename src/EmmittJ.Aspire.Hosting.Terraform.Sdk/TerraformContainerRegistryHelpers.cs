@@ -73,7 +73,7 @@ public static class TerraformContainerRegistryHelpers
     /// </remarks>
     /// <example>
     /// <code>
-    /// var terraform = builder.AddTerraformEnvironment("azure")
+    /// var terraform = builder.AddTerraformSdkEnvironment("azure")
     ///     .WithContainerRegistry("acr", configure => { ... })
     ///     .WithRegistryLogin(TerraformContainerRegistryHelpers.CreateAzureCliLoginCallback());
     /// </code>
@@ -156,7 +156,7 @@ public static class TerraformContainerRegistryHelpers
     /// </remarks>
     /// <example>
     /// <code>
-    /// var terraform = builder.AddTerraformEnvironment("aws")
+    /// var terraform = builder.AddTerraformSdkEnvironment("aws")
     ///     .WithContainerRegistry("ecr", configure => { ... })
     ///     .WithRegistryLogin(TerraformContainerRegistryHelpers.CreateAwsEcrLoginCallback("us-west-2"));
     /// </code>
@@ -289,7 +289,7 @@ public static class TerraformContainerRegistryHelpers
     /// </remarks>
     /// <example>
     /// <code>
-    /// var terraform = builder.AddTerraformEnvironment("docker")
+    /// var terraform = builder.AddTerraformSdkEnvironment("docker")
     ///     .WithContainerRegistry("registry", registry =>
     ///     {
     ///         // ... create registry ...

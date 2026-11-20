@@ -24,7 +24,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 var environment = builder.AddParameter("environment");
 var projectName = builder.AddParameter("project-name");
 
-builder.AddTerraformEnvironment("demo")
+builder.AddTerraformSdkEnvironment("demo")
     .WithBackend("local")
     .WithOutputPath("infra")
     .PublishAsTerraform(infra =>

@@ -190,7 +190,7 @@ public class TerraformProvisioningResource : Resource
         var endpoint = Environment.ContainerRegistryEndpoint()
             ?? throw new InvalidOperationException(
                 $"No container registry configured for environment '{Environment.Name}'. " +
-                "Use AddTerraformEnvironment(name, registry) to configure one.");
+                "Use AddTerraformSdkEnvironment(name, registry) to configure one.");
 
         return AddVariable(endpoint);
     }
@@ -200,7 +200,7 @@ public class TerraformProvisioningResource : Resource
         var name = Environment.ContainerRegistryName()
             ?? throw new InvalidOperationException(
                 $"No container registry configured for environment '{Environment.Name}'. " +
-                "Use AddTerraformEnvironment(name, registry) to configure one.");
+                "Use AddTerraformSdkEnvironment(name, registry) to configure one.");
 
         return AddVariable(name);
     }

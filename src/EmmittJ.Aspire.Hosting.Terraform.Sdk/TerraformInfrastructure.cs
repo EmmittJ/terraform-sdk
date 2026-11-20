@@ -99,7 +99,7 @@ internal sealed class TerraformInfrastructure(
         {
             if (r.HasAnnotationOfType<TerraformCustomizationAnnotation>())
             {
-                throw new InvalidOperationException($"Resource '{r.Name}' is configured to publish with Terraform, but there are no '{nameof(TerraformEnvironmentResource)}' resources. Ensure you have added one by calling 'AddTerraformEnvironment()'.");
+                throw new InvalidOperationException($"Resource '{r.Name}' is configured to publish with Terraform, but there are no '{nameof(TerraformEnvironmentResource)}' resources. Ensure you have added one by calling 'AddTerraformSdkEnvironment()'.");
             }
         }
     }

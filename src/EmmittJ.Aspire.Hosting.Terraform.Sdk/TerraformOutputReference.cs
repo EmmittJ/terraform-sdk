@@ -216,7 +216,7 @@ public static class TerraformOutputReferenceExtensions
     /// </remarks>
     /// <example>
     /// <code>
-    /// var azure = builder.AddTerraformEnvironment("azure");
+    /// var azure = builder.AddTerraformSdkEnvironment("azure");
     ///
     /// // Get a reference to an output that will be defined in the environment's PublishAsTerraform callback
     /// var containerEnvId = azure.Resource.GetOutput("container-env-id");

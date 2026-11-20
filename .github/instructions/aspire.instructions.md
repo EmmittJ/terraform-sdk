@@ -11,7 +11,7 @@ The `EmmittJ.Aspire.Hosting.Terraform.Sdk` library enables Terraform deployments
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
 
-var terraform = builder.AddTerraformEnvironment("terraform")
+var terraform = builder.AddTerraformSdkEnvironment("terraform")
     .WithBackend("s3", backend =>
     {
         backend["bucket"] = "my-state";
@@ -51,7 +51,7 @@ var api = builder.AddProject<Projects.Api>("api")
 
 ### Extension Methods
 
-- `AddTerraformEnvironment()` - Adds a Terraform environment to the Aspire app
+- `AddTerraformSdkEnvironment()` - Adds a Terraform environment to the Aspire app
 - `PublishAsTerraform()` - Marks a resource for Terraform deployment with customization callback
 - `WithBackend()` - Configures Terraform backend for state storage (e.g., "local", "s3", "azurerm")
 - `WithVersion()` - Sets the Terraform version constraint (e.g., ">= 1.9.0")
