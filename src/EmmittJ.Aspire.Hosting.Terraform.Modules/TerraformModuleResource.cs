@@ -35,7 +35,6 @@ public sealed class TerraformModuleResource : Resource
 {
     private readonly TaskCompletionSource? _outputsReady;
     private readonly Dictionary<string, object> _variables = new(StringComparer.Ordinal);
-    private readonly Dictionary<string, object> _runOutputs = new(StringComparer.OrdinalIgnoreCase);
     private readonly SemaphoreSlim _stateLock = new(1, 1);
     private Dictionary<string, object?>? _existingStateOutputs;
     private bool _runAsExisting;
@@ -67,8 +66,6 @@ public sealed class TerraformModuleResource : Resource
 
     internal void SetVariable(string variableName, object value) => _variables[variableName] = value;
 
-    internal void SetRunOutput(string outputName, object value) => _runOutputs[outputName] = value;
-
     internal void UseExistingState() => _runAsExisting = true;
 
     internal async ValueTask<object?> GetOutputValueAsync(string name, CancellationToken cancellationToken)
@@ -82,16 +79,7 @@ public sealed class TerraformModuleResource : Resource
                 : throw MissingOutput(name);
         }
 
-        // Run mode: nothing is applied, so values come from explicit stand-ins or existing state.
-        if (_runOutputs.TryGetValue(name, out var runOutput))
-        {
-            return runOutput switch
-            {
-                IValueProvider provider => await provider.GetValueAsync(cancellationToken).ConfigureAwait(false),
-                _ => runOutput
-            };
-        }
-
+        // Run mode: nothing is applied, so values come from existing state.
         if (_runAsExisting)
         {
             var state = await LoadExistingStateAsync(cancellationToken).ConfigureAwait(false);
@@ -100,7 +88,7 @@ public sealed class TerraformModuleResource : Resource
 
         throw new DistributedApplicationException(
             $"Terraform module '{Name}' output '{name}' is not available in run mode. " +
-            $"Call RunWithOutput(\"{name}\", ...) to supply a local value, or RunAsExisting() to read outputs from state that was already applied.");
+            $"Call RunAsExisting() to read outputs from state that was already applied.");
     }
 
     private async Task<Dictionary<string, object?>> LoadExistingStateAsync(CancellationToken cancellationToken)

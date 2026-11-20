@@ -31,7 +31,7 @@ public class TerraformModuleTests
     }
 
     [Fact]
-    public async Task GetOutput_InRunMode_ExplainsHowToSupplyValue()
+    public async Task GetOutput_InRunMode_ExplainsRunAsExisting()
     {
         var builder = DistributedApplication.CreateBuilder();
         var module = builder.AddTerraformModule("network", "./infra/network");
@@ -39,7 +39,7 @@ public class TerraformModuleTests
         var ex = await Assert.ThrowsAsync<DistributedApplicationException>(
             async () => await module.GetOutput("network_id").GetValueAsync());
 
-        Assert.Contains("RunWithOutput", ex.Message);
+        Assert.Contains("RunAsExisting", ex.Message);
     }
 
     [Fact]
@@ -73,30 +73,6 @@ public class TerraformModuleTests
 
         Assert.Contains(module.Resource, builder.Resources);
         Assert.True(module.Resource.Annotations.Count > 0);
-    }
-
-    [Fact]
-    public async Task GetOutput_InRunMode_UsesRunWithOutputValue()
-    {
-        var builder = DistributedApplication.CreateBuilder();
-        var module = builder.AddTerraformModule("app", "./infra/app")
-            .RunWithOutput("app_id", "local-app")
-            .RunWithOutput("url", ReferenceExpression.Create($"http://{"host"}:80"));
-
-        Assert.Equal("local-app", await module.GetOutput("app_id").GetValueAsync());
-        Assert.Equal("http://host:80", await module.GetOutput("url").GetValueAsync());
-    }
-
-    [Fact]
-    public async Task GetOutput_InPublishMode_IgnoresRunWithOutput()
-    {
-        var builder = DistributedApplication.CreateBuilder(["--operation", "publish", "--output-path", Path.GetTempPath()]);
-        var module = builder.AddTerraformModule("app", "./infra/app").RunWithOutput("app_id", "local-app");
-
-        using var cts = new CancellationTokenSource(TimeSpan.FromMilliseconds(100));
-
-        await Assert.ThrowsAnyAsync<OperationCanceledException>(
-            async () => await module.GetOutput("app_id").GetValueAsync(cts.Token));
     }
 
     [Fact]

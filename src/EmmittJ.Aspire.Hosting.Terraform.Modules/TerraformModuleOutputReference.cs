@@ -8,7 +8,7 @@ namespace EmmittJ.Aspire.Hosting.Terraform.Modules;
 /// <summary>
 /// An Aspire value backed by a Terraform output of a <see cref="TerraformModuleResource"/>.
 /// When deploying it resolves after the module has been applied; in run mode it resolves from
-/// <c>RunWithOutput</c> or <c>RunAsExisting</c>.
+/// state read by <c>RunAsExisting</c>.
 /// </summary>
 /// <param name="name">The Terraform output name.</param>
 /// <param name="module">The module that produces the output.</param>

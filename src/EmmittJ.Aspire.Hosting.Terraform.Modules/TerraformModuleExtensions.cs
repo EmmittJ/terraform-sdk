@@ -94,34 +94,6 @@ public static class TerraformModuleExtensions
     }
 
     /// <summary>
-    /// Supplies a local value for an output in run mode, where the module is not applied.
-    /// Ignored when publishing or deploying.
-    /// </summary>
-    [AspireExportIgnore(Reason = "Use the exported runWithOutput adapter, which accepts all value shapes.")]
-    public static IResourceBuilder<TerraformModuleResource> RunWithOutput(
-        this IResourceBuilder<TerraformModuleResource> builder, string outputName, string value)
-        => builder.SetRunOutput(outputName, value);
-
-    /// <inheritdoc cref="RunWithOutput(IResourceBuilder{TerraformModuleResource}, string, string)"/>
-    [AspireExportIgnore(Reason = "Use the exported runWithOutput adapter, which accepts all value shapes.")]
-    public static IResourceBuilder<TerraformModuleResource> RunWithOutput(
-        this IResourceBuilder<TerraformModuleResource> builder, string outputName, ReferenceExpression value)
-        => builder.SetRunOutput(outputName, value);
-
-    /// <summary>Supplies a local value for an output in run mode from a string, reference expression or other Aspire value.</summary>
-    /// <param name="builder">The module resource builder.</param>
-    /// <param name="outputName">The name of the Terraform <c>output</c>.</param>
-    /// <param name="value">The value to use in run mode.</param>
-    /// <returns>The module resource builder.</returns>
-    [AspireExport("runWithOutput")]
-    internal static IResourceBuilder<TerraformModuleResource> RunWithOutputPolyglot(
-        this IResourceBuilder<TerraformModuleResource> builder,
-        string outputName,
-        [AspireUnion(typeof(string), typeof(ReferenceExpression), typeof(IExpressionValue))]
-        object value)
-        => builder.SetRunOutput(outputName, value);
-
-    /// <summary>
     /// In run mode, reads outputs from state that was already applied (<c>terraform init</c> then
     /// <c>terraform output</c>) instead of applying the module. Ignored when publishing or deploying.
     /// </summary>
@@ -145,17 +117,6 @@ public static class TerraformModuleExtensions
         ArgumentNullException.ThrowIfNull(value);
 
         builder.Resource.SetVariable(variableName, value);
-        return builder;
-    }
-
-    private static IResourceBuilder<TerraformModuleResource> SetRunOutput(
-        this IResourceBuilder<TerraformModuleResource> builder, string outputName, object value)
-    {
-        ArgumentNullException.ThrowIfNull(builder);
-        ArgumentException.ThrowIfNullOrEmpty(outputName);
-        ArgumentNullException.ThrowIfNull(value);
-
-        builder.Resource.SetRunOutput(outputName, value);
         return builder;
     }
 }
