@@ -7,6 +7,7 @@ This directory contains example applications demonstrating the Terraform SDK and
 | Sample                                          | Description                                                                                         |
 | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | [getting-started](./getting-started/)           | **Start here!** Minimal example with variables, resources, and outputs (no cloud provider required) |
+| [existing-terraform](./existing-terraform/) | Run Terraform you already wrote (configurations, modules, templates, `PublishAs*`) with `EmmittJ.Aspire.Hosting.Terraform`; no cloud account needed |
 | [azure-container-apps](./azure-container-apps/) | Full Aspire application deploying to Azure Container Apps                                           |
 
 ## Getting Started

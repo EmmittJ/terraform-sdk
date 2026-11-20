@@ -8,8 +8,8 @@
   <Folder Name="/playground/azure-container-apps/">
     <Project Path="playground/azure-container-apps/apphost/AppHost.csproj" />
   </Folder>
-  <Folder Name="/playground/modules/">
-    <Project Path="playground/modules/Modules.csproj" />
+  <Folder Name="/playground/existing-terraform/">
+    <Project Path="playground/existing-terraform/ExistingTerraform.csproj" />
   </Folder>
   <Folder Name="/playground/getting-started/">
     <Project Path="playground/getting-started/GettingStarted.csproj" />

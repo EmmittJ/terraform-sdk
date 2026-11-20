@@ -8,7 +8,7 @@
     <NoWarn>$(NoWarn);EMMITTJTF001</NoWarn>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <UserSecretsId>modules-terraform-demo</UserSecretsId>
+    <UserSecretsId>existing-terraform-demo</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

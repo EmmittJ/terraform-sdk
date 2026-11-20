@@ -70,12 +70,23 @@ internal sealed class TerraformModulesConfiguration(
             });
         }
 
-        var root = new Dictionary<string, object>
+        // Terraform rejects empty block-type objects, so only emit sections that have entries.
+        var root = new Dictionary<string, object>();
+        if (variableBlocks.Count > 0)
         {
-            ["variable"] = variableBlocks,
-            ["module"] = moduleBlocks,
-            ["output"] = outputBlocks
-        };
+            root["variable"] = variableBlocks;
+        }
+
+        if (moduleBlocks.Count > 0)
+        {
+            root["module"] = moduleBlocks;
+        }
+
+        if (outputBlocks.Count > 0)
+        {
+            root["output"] = outputBlocks;
+        }
+
         return JsonSerializer.Serialize(root, new JsonSerializerOptions { WriteIndented = true }) + "\n";
     }
 

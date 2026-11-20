@@ -41,4 +41,4 @@ Not yet validated: an end-to-end `aspire deploy`, generated TypeScript SDK outpu
 
 This package runs Terraform you already wrote. To generate Terraform from C#, see `EmmittJ.Aspire.Hosting.Terraform.Sdk`.
 
-See `playground/modules` for a runnable sample.
+See `playground/existing-terraform` for a runnable sample.
