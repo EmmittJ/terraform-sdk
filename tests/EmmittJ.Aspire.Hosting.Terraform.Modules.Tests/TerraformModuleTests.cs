@@ -95,6 +95,41 @@ public class TerraformModuleTests
         Assert.True(module.Resource.Annotations.Count > 0);
     }
 
+    [Theory]
+    [InlineData("module")]
+    [InlineData("configuration")]
+    [InlineData("template")]
+    [InlineData("templateString")]
+    public void PublishAsTerraform_InPublishMode_AddsTerraformDeploymentTarget(string kind)
+    {
+        var builder = DistributedApplication.CreateBuilder(["--operation", "publish", "--output-path", Path.GetTempPath()]);
+        var api = builder.AddContainer("api", "img").WithHttpEndpoint(name: "http");
+
+        _ = kind switch
+        {
+            "module" => api.PublishAsTerraformModule("./modules/api", m => m.MapEndpoint("http", EndpointProperty.Url, "url")),
+            "configuration" => api.PublishAsTerraformConfiguration("./infra/api", m => m.MapEndpoint("http", EndpointProperty.Url, "url")),
+            "template" => api.PublishAsTerraformTemplate("./api.tf", m => m.MapEndpoint("http", EndpointProperty.Url, "url")),
+            _ => api.PublishAsTerraformTemplateString("variable \"x\" {}", m => m.MapEndpoint("http", EndpointProperty.Url, "url"))
+        };
+
+        var target = Assert.IsType<TerraformModuleResource>(api.Resource.GetDeploymentTargetAnnotation()!.DeploymentTarget);
+        Assert.Equal(kind == "configuration", target.ModuleDirectory is not null);
+    }
+
+    [Fact]
+    public void PublishAsTerraform_InRunMode_DoesNothing()
+    {
+        var builder = DistributedApplication.CreateBuilder();
+        var api = builder.AddContainer("api", "img");
+
+        api.PublishAsTerraformModule("./modules/api");
+        api.PublishAsTerraformTemplateString("variable \"x\" {}");
+
+        Assert.Null(api.Resource.GetDeploymentTargetAnnotation());
+        Assert.DoesNotContain(builder.Resources, r => r is TerraformModuleResource);
+    }
+
     [Fact]
     public async Task GetOutput_InRunMode_RunAsExistingReadsApplyState()
     {

@@ -163,6 +163,14 @@ internal sealed class TerraformModulesConfiguration(
 
     private string ResolveSource(TerraformModuleResource module)
     {
+        if (module.Template is not null)
+        {
+            var templateDirectory = Path.Combine(outputDirectory, "templates", ModuleLabel(module));
+            Directory.CreateDirectory(templateDirectory);
+            File.WriteAllText(Path.Combine(templateDirectory, "main.tf"), module.Template());
+            return $"./templates/{ModuleLabel(module)}";
+        }
+
         var source = module.Source!;
         if (!Path.IsPathRooted(source) &&
             !source.StartsWith("./", StringComparison.Ordinal) &&

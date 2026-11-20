@@ -50,15 +50,62 @@ public static class TerraformModuleExtensions
         return AddModule(builder, name, path, isRootConfiguration: true);
     }
 
+    /// <summary>
+    /// Adds a Terraform template, an HCL file that is used as a module. This is the escape hatch, like a Bicep template.
+    /// </summary>
+    /// <param name="builder">The distributed application builder.</param>
+    /// <param name="name">The resource name.</param>
+    /// <param name="path">The HCL file, relative to the AppHost directory.</param>
+    /// <returns>The module resource builder.</returns>
+    [AspireExport]
+    public static IResourceBuilder<TerraformModuleResource> AddTerraformTemplate(
+        this IDistributedApplicationBuilder builder,
+        [ResourceName] string name,
+        string path)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentException.ThrowIfNullOrEmpty(name);
+        ArgumentException.ThrowIfNullOrEmpty(path);
+
+        return AddTemplate(builder, name, path, null);
+    }
+
+    /// <summary>Adds a Terraform template from inline HCL.</summary>
+    /// <param name="builder">The distributed application builder.</param>
+    /// <param name="name">The resource name.</param>
+    /// <param name="hcl">The HCL content.</param>
+    /// <returns>The module resource builder.</returns>
+    [AspireExport]
+    public static IResourceBuilder<TerraformModuleResource> AddTerraformTemplateString(
+        this IDistributedApplicationBuilder builder,
+        [ResourceName] string name,
+        string hcl)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentException.ThrowIfNullOrEmpty(name);
+        ArgumentException.ThrowIfNullOrEmpty(hcl);
+
+        return AddTemplate(builder, name, null, hcl);
+    }
+
+    private static IResourceBuilder<TerraformModuleResource> AddTemplate(
+        IDistributedApplicationBuilder builder, string name, string? path, string? hcl, IResource? target = null)
+    {
+        var appHostDirectory = builder.AppHostDirectory;
+        Func<string> template = hcl is not null ? () => hcl : () => File.ReadAllText(Path.GetFullPath(path!, appHostDirectory));
+        return AddModule(builder, name, $"template:{name}", isRootConfiguration: false, target, template);
+    }
+
     private static IResourceBuilder<TerraformModuleResource> AddModule(
         IDistributedApplicationBuilder builder,
         string name,
         string source,
         bool isRootConfiguration,
-        IResource? targetResource = null)
+        IResource? targetResource = null,
+        Func<string>? template = null)
     {
         var resource = new TerraformModuleResource(
-            name, source, builder.AppHostDirectory, !builder.ExecutionContext.IsRunMode, isRootConfiguration, targetResource);
+            name, source, builder.AppHostDirectory, !builder.ExecutionContext.IsRunMode, isRootConfiguration, targetResource, template);
 
         if (builder.ExecutionContext.IsRunMode)
         {
@@ -86,6 +133,80 @@ public static class TerraformModuleExtensions
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentException.ThrowIfNullOrEmpty(source);
 
+        return PublishAs(builder, configure,
+            target => AddModule(builder.ApplicationBuilder, $"{target.Name}-terraform", source, isRootConfiguration: false, target));
+    }
+
+    /// <summary>
+    /// Publishes an Aspire resource using an existing root Terraform configuration on disk, without changing its local run behavior.
+    /// </summary>
+    /// <typeparam name="T">The type of the Aspire resource.</typeparam>
+    /// <param name="builder">The Aspire resource builder.</param>
+    /// <param name="path">The configuration directory, relative to the AppHost directory.</param>
+    /// <param name="configure">Configures Terraform variables and endpoint mappings.</param>
+    /// <returns>The original resource builder.</returns>
+    [AspireExport(RunSyncOnBackgroundThread = true)]
+    public static IResourceBuilder<T> PublishAsTerraformConfiguration<T>(
+        this IResourceBuilder<T> builder,
+        string path,
+        Action<IResourceBuilder<TerraformModuleResource>>? configure = null)
+        where T : IResource
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentException.ThrowIfNullOrEmpty(path);
+
+        return PublishAs(builder, configure,
+            target => AddModule(builder.ApplicationBuilder, $"{target.Name}-terraform", path, isRootConfiguration: true, target));
+    }
+
+    /// <summary>
+    /// Publishes an Aspire resource using a Terraform template (an HCL file), without changing its local run behavior.
+    /// </summary>
+    /// <typeparam name="T">The type of the Aspire resource.</typeparam>
+    /// <param name="builder">The Aspire resource builder.</param>
+    /// <param name="path">The HCL file, relative to the AppHost directory.</param>
+    /// <param name="configure">Configures Terraform variables and endpoint mappings.</param>
+    /// <returns>The original resource builder.</returns>
+    [AspireExport(RunSyncOnBackgroundThread = true)]
+    public static IResourceBuilder<T> PublishAsTerraformTemplate<T>(
+        this IResourceBuilder<T> builder,
+        string path,
+        Action<IResourceBuilder<TerraformModuleResource>>? configure = null)
+        where T : IResource
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentException.ThrowIfNullOrEmpty(path);
+
+        return PublishAs(builder, configure,
+            target => AddTemplate(builder.ApplicationBuilder, $"{target.Name}-terraform", path, null, target));
+    }
+
+    /// <summary>Publishes an Aspire resource using inline Terraform HCL, without changing its local run behavior.</summary>
+    /// <typeparam name="T">The type of the Aspire resource.</typeparam>
+    /// <param name="builder">The Aspire resource builder.</param>
+    /// <param name="hcl">The HCL content.</param>
+    /// <param name="configure">Configures Terraform variables and endpoint mappings.</param>
+    /// <returns>The original resource builder.</returns>
+    [AspireExport(RunSyncOnBackgroundThread = true)]
+    public static IResourceBuilder<T> PublishAsTerraformTemplateString<T>(
+        this IResourceBuilder<T> builder,
+        string hcl,
+        Action<IResourceBuilder<TerraformModuleResource>>? configure = null)
+        where T : IResource
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentException.ThrowIfNullOrEmpty(hcl);
+
+        return PublishAs(builder, configure,
+            target => AddTemplate(builder.ApplicationBuilder, $"{target.Name}-terraform", null, hcl, target));
+    }
+
+    private static IResourceBuilder<T> PublishAs<T>(
+        IResourceBuilder<T> builder,
+        Action<IResourceBuilder<TerraformModuleResource>>? configure,
+        Func<IResource, IResourceBuilder<TerraformModuleResource>> createModule)
+        where T : IResource
+    {
         if (!builder.ApplicationBuilder.ExecutionContext.IsPublishMode)
         {
             return builder;
@@ -97,9 +218,7 @@ public static class TerraformModuleExtensions
                 $"Resource '{builder.Resource.Name}' already has a deployment target. Select a single publishing target.");
         }
 
-        var module = AddModule(
-            builder.ApplicationBuilder, $"{builder.Resource.Name}-terraform", source,
-            isRootConfiguration: false, targetResource: builder.Resource);
+        var module = createModule(builder.Resource);
         configure?.Invoke(module);
 
         var endpointEnvironment = new TerraformEndpointEnvironmentResource(module.Resource);

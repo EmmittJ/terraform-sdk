@@ -11,10 +11,10 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var environment = builder.AddParameter("environment");
 
-var network = builder.AddTerraformModule("network", "./infra/network")
+var network = builder.AddTerraformConfiguration("network", "./infra/network")
     .WithVariable("environment", environment);
 
-var app = builder.AddTerraformModule("app", "./infra/app")
+var app = builder.AddTerraformConfiguration("app", "./infra/app")
     .WithVariable("network_id", network.GetOutput("network_id"))
     .WithVariable("callback_url", "https://example.com/hook");
 

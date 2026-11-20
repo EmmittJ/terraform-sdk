@@ -48,8 +48,10 @@ public sealed class TerraformModuleResource : Resource
         string appHostDirectory,
         bool deployable,
         bool isRootConfiguration,
-        IResource? targetResource = null) : base(name)
+        IResource? targetResource = null,
+        Func<string>? template = null) : base(name)
     {
+        Template = template;
         AppHostDirectory = appHostDirectory;
         TargetResource = targetResource;
         if (isRootConfiguration)
@@ -97,6 +99,7 @@ public sealed class TerraformModuleResource : Resource
     public IReadOnlyDictionary<string, object> Variables => _variables;
 
     internal string? Source { get; }
+    internal Func<string>? Template { get; }
     internal string AppHostDirectory { get; }
     internal IResource? TargetResource { get; }
     internal string ModuleLabel => TargetResource?.Name ?? Name;
