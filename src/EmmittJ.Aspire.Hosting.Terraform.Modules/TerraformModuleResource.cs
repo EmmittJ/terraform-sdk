@@ -5,7 +5,9 @@
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
+using Aspire.Hosting.Publishing;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace EmmittJ.Aspire.Hosting.Terraform.Modules;
 
@@ -28,10 +30,15 @@ public static class TerraformModulePipelineTags
 /// An existing Terraform module/root configuration on disk. Aspire values are passed in as
 /// variables and its outputs are exposed back as Aspire values. No HCL is generated.
 /// </summary>
+[AspireExport]
 public sealed class TerraformModuleResource : Resource
 {
     private readonly TaskCompletionSource? _outputsReady;
     private readonly Dictionary<string, object> _variables = new(StringComparer.Ordinal);
+    private readonly Dictionary<string, object> _runOutputs = new(StringComparer.OrdinalIgnoreCase);
+    private readonly SemaphoreSlim _stateLock = new(1, 1);
+    private Dictionary<string, object?>? _existingStateOutputs;
+    private bool _runAsExisting;
 
     internal TerraformModuleResource(string name, string moduleDirectory, bool deployable) : base(name)
     {
@@ -60,17 +67,66 @@ public sealed class TerraformModuleResource : Resource
 
     internal void SetVariable(string variableName, object value) => _variables[variableName] = value;
 
-    internal Task WaitForOutputsAsync(CancellationToken cancellationToken)
+    internal void SetRunOutput(string outputName, object value) => _runOutputs[outputName] = value;
+
+    internal void UseExistingState() => _runAsExisting = true;
+
+    internal async ValueTask<object?> GetOutputValueAsync(string name, CancellationToken cancellationToken)
     {
-        if (_outputsReady is null)
+        // Deploy mode: the module is applied by this AppHost's pipeline.
+        if (_outputsReady is not null)
         {
-            throw new DistributedApplicationException(
-                $"Terraform module '{Name}' outputs are only available when deploying, not in run mode. " +
-                "Guard consumers with `builder.ExecutionContext.IsPublishMode`.");
+            await _outputsReady.Task.WaitAsync(cancellationToken).ConfigureAwait(false);
+            return Outputs.TryGetValue(name, out var deployed)
+                ? deployed
+                : throw MissingOutput(name);
         }
 
-        return _outputsReady.Task.WaitAsync(cancellationToken);
+        // Run mode: nothing is applied, so values come from explicit stand-ins or existing state.
+        if (_runOutputs.TryGetValue(name, out var runOutput))
+        {
+            return runOutput switch
+            {
+                IValueProvider provider => await provider.GetValueAsync(cancellationToken).ConfigureAwait(false),
+                _ => runOutput
+            };
+        }
+
+        if (_runAsExisting)
+        {
+            var state = await LoadExistingStateAsync(cancellationToken).ConfigureAwait(false);
+            return state.TryGetValue(name, out var existing) ? existing : throw MissingOutput(name);
+        }
+
+        throw new DistributedApplicationException(
+            $"Terraform module '{Name}' output '{name}' is not available in run mode. " +
+            $"Call RunWithOutput(\"{name}\", ...) to supply a local value, or RunAsExisting() to read outputs from state that was already applied.");
     }
+
+    private async Task<Dictionary<string, object?>> LoadExistingStateAsync(CancellationToken cancellationToken)
+    {
+        await _stateLock.WaitAsync(cancellationToken).ConfigureAwait(false);
+        try
+        {
+            // Only successful reads are cached so a failure (e.g. not yet applied) can be retried.
+            if (_existingStateOutputs is null)
+            {
+                EnsureModuleDirectoryExists();
+                await TerraformCli.RunAsync(NullLogger.Instance, "init -input=false -no-color", ModuleDirectory, cancellationToken).ConfigureAwait(false);
+                var read = await TerraformCli.ReadOutputsAsync(NullLogger.Instance, ModuleDirectory, cancellationToken).ConfigureAwait(false);
+                _existingStateOutputs = read.ToDictionary(kv => kv.Key, kv => kv.Value.Value, StringComparer.OrdinalIgnoreCase);
+            }
+
+            return _existingStateOutputs;
+        }
+        finally
+        {
+            _stateLock.Release();
+        }
+    }
+
+    private DistributedApplicationException MissingOutput(string name) => new(
+        $"Terraform module '{Name}' has no output named '{name}'. Declare it with an `output \"{name}\"` block in {ModuleDirectory}.");
 
     private List<PipelineStep> CreateSteps()
     {
@@ -78,10 +134,10 @@ public sealed class TerraformModuleResource : Resource
         {
             Name = $"terraform-init-{Name}",
             Tags = [TerraformModulePipelineTags.Init],
-            Action = ctx => RunAsync(ctx, async () =>
+            Action = ctx => RunStepAsync(ctx, async () =>
             {
                 EnsureModuleDirectoryExists();
-                await TerraformCli.RunAsync(ctx, "init -input=false -no-color", ModuleDirectory).ConfigureAwait(false);
+                await TerraformCli.RunAsync(ctx.Logger, "init -input=false -no-color", ModuleDirectory, ctx.CancellationToken).ConfigureAwait(false);
             }),
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
         };
@@ -90,11 +146,11 @@ public sealed class TerraformModuleResource : Resource
         {
             Name = $"terraform-apply-{Name}",
             Tags = [TerraformModulePipelineTags.Apply, WellKnownPipelineTags.ProvisionInfrastructure],
-            Action = ctx => RunAsync(ctx, async () =>
+            Action = ctx => RunStepAsync(ctx, async () =>
             {
                 var variables = await ResolveVariablesAsync(ctx.CancellationToken).ConfigureAwait(false);
                 await TerraformCli.RunAsync(
-                    ctx, "apply -auto-approve -input=false -no-color", ModuleDirectory, variables, logOutput: true).ConfigureAwait(false);
+                    ctx.Logger, "apply -auto-approve -input=false -no-color", ModuleDirectory, ctx.CancellationToken, variables, logOutput: true).ConfigureAwait(false);
             }),
             DependsOnSteps = [init.Name, WellKnownPipelineSteps.DeployPrereq],
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
@@ -104,9 +160,9 @@ public sealed class TerraformModuleResource : Resource
         {
             Name = $"terraform-outputs-{Name}",
             Tags = [TerraformModulePipelineTags.Outputs],
-            Action = ctx => RunAsync(ctx, async () =>
+            Action = ctx => RunStepAsync(ctx, async () =>
             {
-                var read = await TerraformCli.ReadOutputsAsync(ctx, ModuleDirectory).ConfigureAwait(false);
+                var read = await TerraformCli.ReadOutputsAsync(ctx.Logger, ModuleDirectory, ctx.CancellationToken).ConfigureAwait(false);
                 foreach (var (key, (value, sensitive)) in read)
                 {
                     Outputs[key] = value;
@@ -130,7 +186,7 @@ public sealed class TerraformModuleResource : Resource
     }
 
     // Faults the outputs task on failure so consumers waiting on a value don't hang.
-    private async Task RunAsync(PipelineStepContext _, Func<Task> action)
+    private async Task RunStepAsync(PipelineStepContext context, Func<Task> action)
     {
         try
         {
@@ -139,6 +195,12 @@ public sealed class TerraformModuleResource : Resource
         catch (Exception ex)
         {
             _outputsReady!.TrySetException(ex);
+
+            if (ex is not OperationCanceledException)
+            {
+                await context.ReportingStep.CompleteAsync(ex.Message, CompletionState.CompletedWithError, context.CancellationToken).ConfigureAwait(false);
+            }
+
             throw;
         }
     }

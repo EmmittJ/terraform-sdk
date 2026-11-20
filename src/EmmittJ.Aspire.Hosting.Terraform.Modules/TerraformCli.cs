@@ -1,13 +1,9 @@
 // Licensed under the MIT License.
 
-#pragma warning disable ASPIREPIPELINES001
-
 using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Aspire.Hosting;
-using Aspire.Hosting.Pipelines;
-using Aspire.Hosting.Publishing;
 using Microsoft.Extensions.Logging;
 
 namespace EmmittJ.Aspire.Hosting.Terraform.Modules;
@@ -21,13 +17,14 @@ internal static class TerraformCli
     /// environment variables so values (including secrets) are never written to disk.
     /// </summary>
     public static async Task<string> RunAsync(
-        PipelineStepContext context,
+        ILogger logger,
         string arguments,
         string workingDirectory,
+        CancellationToken cancellationToken,
         IReadOnlyDictionary<string, string>? variables = null,
         bool logOutput = false)
     {
-        context.Logger.LogDebug("Running terraform {Arguments} in {Path}", arguments, workingDirectory);
+        logger.LogDebug("Running terraform {Arguments} in {Path}", arguments, workingDirectory);
 
         var startInfo = new ProcessStartInfo
         {
@@ -50,33 +47,36 @@ internal static class TerraformCli
         }
 
         using var process = new Process { StartInfo = startInfo };
-        process.Start();
 
-        var outputTask = process.StandardOutput.ReadToEndAsync(context.CancellationToken);
-        var errorTask = process.StandardError.ReadToEndAsync(context.CancellationToken);
+        try
+        {
+            process.Start();
+        }
+        catch (System.ComponentModel.Win32Exception ex)
+        {
+            throw new DistributedApplicationException("Could not start 'terraform'. Ensure the Terraform CLI is installed and on PATH.", ex);
+        }
 
-        await process.WaitForExitAsync(context.CancellationToken).ConfigureAwait(false);
+        var outputTask = process.StandardOutput.ReadToEndAsync(cancellationToken);
+        var errorTask = process.StandardError.ReadToEndAsync(cancellationToken);
+
+        await process.WaitForExitAsync(cancellationToken).ConfigureAwait(false);
 
         var output = await outputTask.ConfigureAwait(false);
         var error = await errorTask.ConfigureAwait(false);
 
         if (!string.IsNullOrWhiteSpace(output))
         {
-            context.Logger.Log(logOutput ? LogLevel.Information : LogLevel.Debug, "Terraform output:\n{Output}", output);
+            logger.Log(logOutput ? LogLevel.Information : LogLevel.Debug, "Terraform output:\n{Output}", output);
         }
 
         if (!string.IsNullOrWhiteSpace(error))
         {
-            context.Logger.LogWarning("Terraform stderr:\n{Error}", error);
+            logger.LogWarning("Terraform stderr:\n{Error}", error);
         }
 
         if (process.ExitCode != 0)
         {
-            await context.ReportingStep.CompleteAsync(
-                $"terraform {arguments.Split(' ')[0]} failed with exit code {process.ExitCode}",
-                CompletionState.CompletedWithError,
-                context.CancellationToken).ConfigureAwait(false);
-
             throw new DistributedApplicationException($"terraform {arguments} failed with exit code {process.ExitCode}. {error}");
         }
 
@@ -84,10 +84,11 @@ internal static class TerraformCli
     }
 
     public static async Task<Dictionary<string, (object? Value, bool Sensitive)>> ReadOutputsAsync(
-        PipelineStepContext context,
-        string workingDirectory)
+        ILogger logger,
+        string workingDirectory,
+        CancellationToken cancellationToken)
     {
-        var json = await RunAsync(context, "output -json", workingDirectory).ConfigureAwait(false);
+        var json = await RunAsync(logger, "output -json", workingDirectory, cancellationToken).ConfigureAwait(false);
         var result = new Dictionary<string, (object? Value, bool Sensitive)>(StringComparer.OrdinalIgnoreCase);
 
         if (string.IsNullOrWhiteSpace(json))

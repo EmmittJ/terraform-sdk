@@ -7,10 +7,14 @@ namespace EmmittJ.Aspire.Hosting.Terraform.Modules;
 
 /// <summary>
 /// An Aspire value backed by a Terraform output of a <see cref="TerraformModuleResource"/>.
-/// Resolves once the module has been applied and its outputs read.
+/// When deploying it resolves after the module has been applied; in run mode it resolves from
+/// <c>RunWithOutput</c> or <c>RunAsExisting</c>.
 /// </summary>
+/// <param name="name">The Terraform output name.</param>
+/// <param name="module">The module that produces the output.</param>
+[AspireExport]
 public sealed class TerraformModuleOutputReference(string name, TerraformModuleResource module)
-    : IManifestExpressionProvider, IValueProvider, IValueWithReferences, IEquatable<TerraformModuleOutputReference>
+    : IExpressionValue, IValueWithReferences, IEquatable<TerraformModuleOutputReference>
 {
     /// <summary>Gets the Terraform output name.</summary>
     public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
@@ -26,14 +30,7 @@ public sealed class TerraformModuleOutputReference(string name, TerraformModuleR
     /// <inheritdoc/>
     public async ValueTask<string?> GetValueAsync(CancellationToken cancellationToken = default)
     {
-        await Module.WaitForOutputsAsync(cancellationToken).ConfigureAwait(false);
-
-        if (!Module.Outputs.TryGetValue(Name, out var value))
-        {
-            throw new DistributedApplicationException(
-                $"Terraform module '{Module.Name}' has no output named '{Name}'. Declare it with an `output \"{Name}\"` block in {Module.ModuleDirectory}.");
-        }
-
+        var value = await Module.GetOutputValueAsync(Name, cancellationToken).ConfigureAwait(false);
         return value?.ToString();
     }
 
