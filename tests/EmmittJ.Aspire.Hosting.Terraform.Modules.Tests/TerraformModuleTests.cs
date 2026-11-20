@@ -1,6 +1,7 @@
 // Licensed under the MIT License.
 
 using Aspire.Hosting;
+using Aspire.Hosting.ApplicationModel;
 using EmmittJ.Aspire.Hosting.Terraform.Modules;
 
 namespace EmmittJ.Aspire.Hosting.Terraform.Modules.Tests;
@@ -35,7 +36,7 @@ public class TerraformModuleTests
         var builder = DistributedApplication.CreateBuilder();
         var module = builder.AddTerraformModule("network", "./infra/network");
 
-        var ex = await Assert.ThrowsAsync<InvalidOperationException>(
+        var ex = await Assert.ThrowsAsync<DistributedApplicationException>(
             async () => await module.GetOutput("network_id").GetValueAsync());
 
         Assert.Contains("IsPublishMode", ex.Message);
@@ -51,5 +52,26 @@ public class TerraformModuleTests
             .WithVariable("callback_url", "https://example.com");
 
         Assert.Equal(["callback_url", "network_id"], app.Resource.Variables.Keys.Order());
+    }
+
+    [Fact]
+    public void AddTerraformModule_InRunMode_IsNotAddedToModel()
+    {
+        var builder = DistributedApplication.CreateBuilder();
+
+        builder.AddTerraformModule("network", "./infra/network");
+
+        Assert.Empty(builder.Resources.OfType<TerraformModuleResource>());
+    }
+
+    [Fact]
+    public void AddTerraformModule_InPublishMode_IsAddedToModelWithPipelineSteps()
+    {
+        var builder = DistributedApplication.CreateBuilder(["--operation", "publish", "--output-path", Path.GetTempPath()]);
+
+        var module = builder.AddTerraformModule("network", "./infra/network");
+
+        Assert.Contains(module.Resource, builder.Resources);
+        Assert.True(module.Resource.Annotations.Count > 0);
     }
 }

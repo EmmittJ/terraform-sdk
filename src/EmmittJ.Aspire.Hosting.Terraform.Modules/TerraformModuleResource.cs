@@ -2,6 +2,7 @@
 
 #pragma warning disable ASPIREPIPELINES001
 
+using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
 using Microsoft.Extensions.Logging;
@@ -53,11 +54,9 @@ public sealed class TerraformModuleResource : Resource
     /// <summary>Gets the Aspire values that will be passed to the module as Terraform variables.</summary>
     public IReadOnlyDictionary<string, object> Variables => _variables;
 
-    /// <summary>Gets the outputs read after the module was applied.</summary>
-    public Dictionary<string, object?> Outputs { get; } = new(StringComparer.OrdinalIgnoreCase);
+    internal Dictionary<string, object?> Outputs { get; } = new(StringComparer.OrdinalIgnoreCase);
 
-    /// <summary>Gets the names of outputs Terraform reported as sensitive.</summary>
-    public HashSet<string> SensitiveOutputs { get; } = new(StringComparer.OrdinalIgnoreCase);
+    internal HashSet<string> SensitiveOutputs { get; } = new(StringComparer.OrdinalIgnoreCase);
 
     internal void SetVariable(string variableName, object value) => _variables[variableName] = value;
 
@@ -65,7 +64,7 @@ public sealed class TerraformModuleResource : Resource
     {
         if (_outputsReady is null)
         {
-            throw new InvalidOperationException(
+            throw new DistributedApplicationException(
                 $"Terraform module '{Name}' outputs are only available when deploying, not in run mode. " +
                 "Guard consumers with `builder.ExecutionContext.IsPublishMode`.");
         }
@@ -148,7 +147,7 @@ public sealed class TerraformModuleResource : Resource
     {
         if (!Directory.Exists(ModuleDirectory))
         {
-            throw new DirectoryNotFoundException($"Terraform module directory for '{Name}' does not exist: {ModuleDirectory}");
+            throw new DistributedApplicationException($"Terraform module directory for '{Name}' does not exist: {ModuleDirectory}");
         }
     }
 

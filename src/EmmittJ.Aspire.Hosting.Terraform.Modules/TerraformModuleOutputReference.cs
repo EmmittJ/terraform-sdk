@@ -1,5 +1,6 @@
 // Licensed under the MIT License.
 
+using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 
 namespace EmmittJ.Aspire.Hosting.Terraform.Modules;
@@ -29,7 +30,7 @@ public sealed class TerraformModuleOutputReference(string name, TerraformModuleR
 
         if (!Module.Outputs.TryGetValue(Name, out var value))
         {
-            throw new InvalidOperationException(
+            throw new DistributedApplicationException(
                 $"Terraform module '{Module.Name}' has no output named '{Name}'. Declare it with an `output \"{Name}\"` block in {Module.ModuleDirectory}.");
         }
 

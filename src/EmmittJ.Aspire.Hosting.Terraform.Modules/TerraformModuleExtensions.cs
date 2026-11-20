@@ -16,6 +16,7 @@ public static class TerraformModuleExtensions
     /// <param name="builder">The distributed application builder.</param>
     /// <param name="name">The resource name.</param>
     /// <param name="path">Directory containing the Terraform files, relative to the AppHost directory.</param>
+    [AspireExportIgnore(Reason = "Polyglot projection of module variables and outputs has not been designed yet.")]
     public static IResourceBuilder<TerraformModuleResource> AddTerraformModule(
         this IDistributedApplicationBuilder builder,
         string name,
@@ -36,26 +37,31 @@ public static class TerraformModuleExtensions
     }
 
     /// <summary>Passes a literal value to the module's Terraform variable.</summary>
+    [AspireExportIgnore(Reason = "Polyglot projection of module variables and outputs has not been designed yet.")]
     public static IResourceBuilder<TerraformModuleResource> WithVariable(
         this IResourceBuilder<TerraformModuleResource> builder, string variableName, string value)
         => builder.SetVariable(variableName, value);
 
     /// <summary>Passes an Aspire expression (endpoints, parameters, other outputs) to the module's Terraform variable.</summary>
+    [AspireExportIgnore(Reason = "Polyglot projection of module variables and outputs has not been designed yet.")]
     public static IResourceBuilder<TerraformModuleResource> WithVariable(
         this IResourceBuilder<TerraformModuleResource> builder, string variableName, ReferenceExpression value)
         => builder.SetVariable(variableName, value);
 
     /// <summary>Passes an Aspire parameter to the module's Terraform variable.</summary>
+    [AspireExportIgnore(Reason = "Polyglot projection of module variables and outputs has not been designed yet.")]
     public static IResourceBuilder<TerraformModuleResource> WithVariable(
         this IResourceBuilder<TerraformModuleResource> builder, string variableName, IResourceBuilder<ParameterResource> value)
         => builder.SetVariable(variableName, value.Resource);
 
     /// <summary>Passes another module's output to the module's Terraform variable.</summary>
+    [AspireExportIgnore(Reason = "Polyglot projection of module variables and outputs has not been designed yet.")]
     public static IResourceBuilder<TerraformModuleResource> WithVariable(
         this IResourceBuilder<TerraformModuleResource> builder, string variableName, TerraformModuleOutputReference value)
         => builder.SetVariable(variableName, value);
 
     /// <summary>Gets an Aspire value backed by one of the module's Terraform outputs.</summary>
+    [AspireExportIgnore(Reason = "Polyglot projection of module variables and outputs has not been designed yet.")]
     public static TerraformModuleOutputReference GetOutput(
         this IResourceBuilder<TerraformModuleResource> builder, string name)
     {

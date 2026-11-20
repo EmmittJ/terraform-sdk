@@ -5,6 +5,7 @@
 using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Aspire.Hosting;
 using Aspire.Hosting.Pipelines;
 using Aspire.Hosting.Publishing;
 using Microsoft.Extensions.Logging;
@@ -76,7 +77,7 @@ internal static class TerraformCli
                 CompletionState.CompletedWithError,
                 context.CancellationToken).ConfigureAwait(false);
 
-            throw new InvalidOperationException($"terraform {arguments} failed with exit code {process.ExitCode}. {error}");
+            throw new DistributedApplicationException($"terraform {arguments} failed with exit code {process.ExitCode}. {error}");
         }
 
         return output;
@@ -102,7 +103,7 @@ internal static class TerraformCli
         catch (JsonException ex)
         {
             // Raw output is intentionally not logged: it may contain sensitive values.
-            throw new InvalidOperationException($"Failed to parse 'terraform output -json': {ex.Message}", ex);
+            throw new DistributedApplicationException($"Failed to parse 'terraform output -json': {ex.Message}", ex);
         }
 
         foreach (var (name, output) in outputs ?? [])
