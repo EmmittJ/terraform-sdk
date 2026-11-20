@@ -22,3 +22,5 @@ Parameters__environment=dev dotnet run -- --operation publish --output-path ./ou
 ```
 
 `aspire deploy` runs the same steps.
+
+In run mode only outputs used directly by a resource become parameters (`network-network-id`, `cache-cache-id`). Outputs used only inside a `PublishAs*` callback, like `queue_id`, are not requested until you publish.
