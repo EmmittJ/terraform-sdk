@@ -365,7 +365,7 @@ dotnet verify accept -y
 - **EmmittJ.Terraform.Sdk.Providers.\*** - Auto-generated provider-specific resources (AWS, Azure, GCP)
 - **EmmittJ.Terraform.Sdk.SourceGenerators** - Roslyn source generators for meta-arguments and properties
 - **EmmittJ.Terraform.Sdk.AppHost** - Code generation using Aspire to generate provider bindings
-- **EmmittJ.Aspire.Hosting.Terraform** - Integration with Aspire for deployment scenarios
+- **EmmittJ.Aspire.Hosting.Terraform.Sdk** - Integration with Aspire for deployment scenarios
 
 ## 🛠️ Technology Stack
 

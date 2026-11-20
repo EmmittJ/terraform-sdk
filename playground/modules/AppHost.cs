@@ -5,7 +5,7 @@
 // in run mode, outputs are prompted for as parameters, or read via RunAsExisting())
 
 using Aspire.Hosting;
-using EmmittJ.Aspire.Hosting.Terraform.Modules;
+using EmmittJ.Aspire.Hosting.Terraform;
 
 var builder = DistributedApplication.CreateBuilder(args);
 

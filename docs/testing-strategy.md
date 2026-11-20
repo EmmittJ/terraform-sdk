@@ -293,7 +293,7 @@ public class TerraformStackTests
 }
 ```
 
-### Layer 5: Aspire Integration Tests (`EmmittJ.Aspire.Hosting.Terraform.Tests`)
+### Layer 5: Aspire Integration Tests (`EmmittJ.Aspire.Hosting.Terraform.Sdk.Tests`)
 
 **Purpose**: Validate end-to-end pipeline execution and file generation
 

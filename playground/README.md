@@ -37,7 +37,7 @@ dotnet new aspire-starter -n MyTerraformApp
 
 # Add reference to the Terraform hosting package
 cd MyTerraformApp/MyTerraformApp.AppHost
-dotnet add reference ../../src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.Hosting.Terraform.csproj
+dotnet add reference ../../src/EmmittJ.Aspire.Hosting.Terraform.Sdk/EmmittJ.Aspire.Hosting.Terraform.Sdk.csproj
 ```
 
 ### Option 2: Use Existing Aspire App
@@ -45,7 +45,7 @@ dotnet add reference ../../src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.H
 If you have an existing Aspire application in this repository, add the Terraform hosting reference:
 
 ```bash
-dotnet add reference ../src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.Hosting.Terraform.csproj
+dotnet add reference ../src/EmmittJ.Aspire.Hosting.Terraform.Sdk/EmmittJ.Aspire.Hosting.Terraform.Sdk.csproj
 ```
 
 ## Example Scenarios

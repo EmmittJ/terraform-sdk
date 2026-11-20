@@ -1,12 +1,12 @@
 ---
-applyTo: "**/src/EmmittJ.Aspire.Hosting.Terraform/**"
+applyTo: "**/src/EmmittJ.Aspire.Hosting.Terraform.Sdk/**"
 ---
 
 # Aspire Integration Development
 
 ## 🔗 Integration with Aspire
 
-The `EmmittJ.Aspire.Hosting.Terraform` library enables Terraform deployments in Aspire:
+The `EmmittJ.Aspire.Hosting.Terraform.Sdk` library enables Terraform deployments in Aspire:
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);

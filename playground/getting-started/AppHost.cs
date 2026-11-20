@@ -12,7 +12,7 @@
 // ============================================================================
 
 using Aspire.Hosting;
-using EmmittJ.Aspire.Hosting.Terraform;
+using EmmittJ.Aspire.Hosting.Terraform.Sdk;
 using EmmittJ.Terraform.Sdk;
 
 var builder = DistributedApplication.CreateBuilder(args);

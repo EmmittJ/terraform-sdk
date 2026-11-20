@@ -2,9 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <PackageTags>aspire integration hosting terraform infrastructure-as-code</PackageTags>
-    <Description>Terraform support for Aspire using EmmittJ.Terraform.Sdk.</Description>
+    <PackageTags>aspire integration hosting terraform hcl iac</PackageTags>
+    <Description>Run your existing Terraform (root configurations, modules, or HCL templates) from an Aspire AppHost: Aspire values in as variables, Terraform outputs out as Aspire values, and PublishAs* to deploy Aspire resources with Terraform.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableAspireIntegrationAnalyzers>true</EnableAspireIntegrationAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,10 +15,6 @@
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectOrPackageReference Include="EmmittJ.Terraform.Sdk" />
   </ItemGroup>
 
 </Project>

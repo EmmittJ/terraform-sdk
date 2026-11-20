@@ -1,53 +1,41 @@
 // Licensed under the MIT License.
 
-#pragma warning disable ASPIREPIPELINES001
-
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Aspire.Hosting.Pipelines;
-using Aspire.Hosting.Publishing;
+using Aspire.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
-/// <summary>
-/// Provides methods for running Terraform CLI commands and parsing output.
-/// </summary>
 internal static class TerraformCli
 {
+    private static readonly JsonSerializerOptions s_jsonOptions = new() { PropertyNameCaseInsensitive = true };
+    private static readonly TimeSpan s_shutdownGracePeriod = TimeSpan.FromSeconds(30);
+
+    [DllImport("libc", EntryPoint = "kill", SetLastError = true)]
+    private static extern int Kill(int pid, int signal);
+
     /// <summary>
-    /// Runs a Terraform command in the specified working directory.
+    /// Runs a Terraform command. <paramref name="variables"/> are passed as <c>TF_VAR_*</c>
+    /// environment variables so values (including secrets) are never written to disk.
     /// </summary>
-    /// <param name="context">The pipeline step context.</param>
-    /// <param name="command">The Terraform command to run (e.g., "init -input=false").</param>
-    /// <param name="workingDirectory">The working directory for the command.</param>
-    /// <param name="sensitiveEnvironmentVariables">Optional dictionary of sensitive variables to pass as TF_VAR_* environment variables.</param>
-    /// <param name="logOutput">Whether to log the command output at Information level. When <c>false</c>, output is logged at Debug level.</param>
-    /// <returns>The standard output from the command.</returns>
-    /// <exception cref="InvalidOperationException">Thrown when the command fails.</exception>
-    public static async Task<string> RunCommandAsync(
-        PipelineStepContext context,
-        string command,
+    public static async Task<string> RunAsync(
+        ILogger logger,
+        string arguments,
         string workingDirectory,
-        Dictionary<string, string>? sensitiveEnvironmentVariables = null,
-        bool logOutput = false)
+        CancellationToken cancellationToken,
+        IReadOnlyDictionary<string, string>? variables = null,
+        bool logOutput = false,
+        bool suppressOutputLog = false)
     {
-        if (!Directory.Exists(workingDirectory))
-        {
-            Directory.CreateDirectory(workingDirectory);
-        }
+        logger.LogDebug("Running terraform {Arguments} in {Path}", arguments, workingDirectory);
 
-        context.Logger.LogDebug("Running terraform {Command} in {Path}", command, workingDirectory);
-
-        await context.ReportingStep.CompleteAsync(
-            $"Running terraform {command}",
-            CompletionState.InProgress,
-            context.CancellationToken).ConfigureAwait(false);
-
-        var processStartInfo = new System.Diagnostics.ProcessStartInfo
+        var startInfo = new ProcessStartInfo
         {
             FileName = "terraform",
-            Arguments = command,
+            Arguments = arguments,
             WorkingDirectory = workingDirectory,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
@@ -56,153 +44,144 @@ internal static class TerraformCli
             Environment = { ["TF_IN_AUTOMATION"] = "true" }
         };
 
-        // Add sensitive variables as TF_VAR_* environment variables
-        if (sensitiveEnvironmentVariables is not null)
+        if (variables is not null)
         {
-            foreach (var (varName, varValue) in sensitiveEnvironmentVariables)
+            foreach (var (name, value) in variables)
             {
-                processStartInfo.Environment[$"TF_VAR_{varName}"] = varValue;
+                startInfo.Environment[$"TF_VAR_{name}"] = value;
             }
         }
 
-        using var process = new System.Diagnostics.Process { StartInfo = processStartInfo };
+        using var process = new Process { StartInfo = startInfo };
 
-        process.Start();
+        try
+        {
+            process.Start();
+        }
+        catch (System.ComponentModel.Win32Exception ex)
+        {
+            throw new DistributedApplicationException("Could not start 'terraform'. Ensure the Terraform CLI is installed and on PATH.", ex);
+        }
 
-        // Read output asynchronously to prevent deadlocks
-        var outputTask = process.StandardOutput.ReadToEndAsync(context.CancellationToken);
-        var errorTask = process.StandardError.ReadToEndAsync(context.CancellationToken);
+        var outputTask = process.StandardOutput.ReadToEndAsync(CancellationToken.None);
+        var errorTask = process.StandardError.ReadToEndAsync(CancellationToken.None);
 
-        await process.WaitForExitAsync(context.CancellationToken).ConfigureAwait(false);
+        // Cancelling only the wait would leave Terraform provisioning (and holding the state lock),
+        // so interrupt it, let it shut down gracefully, and kill the process tree as a fallback.
+        using var exited = new CancellationTokenSource();
+        using (cancellationToken.Register(() => Interrupt(process, exited.Token)))
+        {
+            await process.WaitForExitAsync(CancellationToken.None).ConfigureAwait(false);
+            exited.Cancel();
+        }
+
+        cancellationToken.ThrowIfCancellationRequested();
 
         var output = await outputTask.ConfigureAwait(false);
         var error = await errorTask.ConfigureAwait(false);
 
-        if (!string.IsNullOrWhiteSpace(output))
+        if (!suppressOutputLog && !string.IsNullOrWhiteSpace(output))
         {
-            if (logOutput)
-            {
-                context.Logger.LogInformation("Terraform output:\n{Output}", output);
-            }
-            else
-            {
-                context.Logger.LogDebug("Terraform output:\n{Output}", output);
-            }
+            logger.Log(logOutput ? LogLevel.Information : LogLevel.Debug, "Terraform output:\n{Output}", output);
         }
 
         if (!string.IsNullOrWhiteSpace(error))
         {
-            context.Logger.LogWarning("Terraform stderr:\n{Error}", error);
+            logger.LogWarning("Terraform stderr:\n{Error}", error);
         }
 
         if (process.ExitCode != 0)
         {
-            await context.ReportingStep.CompleteAsync(
-                $"Terraform '{command}' failed with exit code {process.ExitCode}",
-                CompletionState.CompletedWithError,
-                context.CancellationToken).ConfigureAwait(false);
-
-            throw new InvalidOperationException($"Terraform '{command}' failed with exit code {process.ExitCode}. Error: {error}");
+            throw new DistributedApplicationException($"terraform {arguments} failed with exit code {process.ExitCode}. {error}");
         }
-
-        await context.ReportingStep.CompleteAsync(
-            $"Terraform '{command}' completed successfully",
-            CompletionState.Completed,
-            context.CancellationToken).ConfigureAwait(false);
 
         return output;
     }
 
-    /// <summary>
-    /// Reads Terraform outputs from the specified working directory by running <c>terraform output -json</c>.
-    /// </summary>
-    /// <param name="context">The pipeline step context.</param>
-    /// <param name="workingDirectory">The directory containing the Terraform configuration.</param>
-    /// <returns>A dictionary of output names to tuples of (value, sensitive flag).</returns>
-    /// <exception cref="InvalidOperationException">Thrown when the terraform command fails.</exception>
-    public static async Task<Dictionary<string, (object? Value, bool Sensitive)>> ReadOutputsAsync(
-        PipelineStepContext context,
-        string workingDirectory)
+    private static void Interrupt(Process process, CancellationToken exited)
     {
-        context.Logger.LogDebug("Reading Terraform outputs from {Path}", workingDirectory);
-
-        var output = await RunCommandAsync(
-            context,
-            "output -json",
-            workingDirectory).ConfigureAwait(false);
-
-        if (string.IsNullOrWhiteSpace(output))
-        {
-            context.Logger.LogWarning("Terraform returned no outputs");
-            return new Dictionary<string, (object? Value, bool Sensitive)>();
-        }
-
-        // Parse the JSON output
-        Dictionary<string, TerraformOutputValue>? terraformOutputs;
         try
         {
-            terraformOutputs = JsonSerializer.Deserialize<Dictionary<string, TerraformOutputValue>>(output, JsonSerializerOptions);
+            if (process.HasExited)
+            {
+                return;
+            }
+
+            if (OperatingSystem.IsWindows())
+            {
+                process.Kill(entireProcessTree: true);
+                return;
+            }
+
+            Kill(process.Id, 2); // SIGINT: Terraform stops gracefully and releases the state lock.
+
+            _ = Task.Delay(s_shutdownGracePeriod, exited).ContinueWith(
+                _ =>
+                {
+                    try
+                    {
+                        process.Kill(entireProcessTree: true);
+                    }
+                    catch (InvalidOperationException)
+                    {
+                        // Already exited or disposed.
+                    }
+                },
+                CancellationToken.None,
+                TaskContinuationOptions.OnlyOnRanToCompletion,
+                TaskScheduler.Default);
+        }
+        catch (InvalidOperationException)
+        {
+            // Already exited or disposed.
+        }
+    }
+
+    public static async Task<Dictionary<string, (object? Value, bool Sensitive)>> ReadOutputsAsync(
+        ILogger logger,
+        string workingDirectory,
+        CancellationToken cancellationToken)
+    {
+        var json = await RunAsync(logger, "output -json", workingDirectory, cancellationToken, suppressOutputLog: true).ConfigureAwait(false);
+        var result = new Dictionary<string, (object? Value, bool Sensitive)>(StringComparer.Ordinal);
+
+        if (string.IsNullOrWhiteSpace(json))
+        {
+            return result;
+        }
+
+        Dictionary<string, OutputValue>? outputs;
+        try
+        {
+            outputs = JsonSerializer.Deserialize<Dictionary<string, OutputValue>>(json, s_jsonOptions);
         }
         catch (JsonException ex)
         {
-            // Don't log raw output as it may contain sensitive values
-            context.Logger.LogError(ex, "Failed to parse Terraform output JSON.");
-            throw new InvalidOperationException(
-                $"Failed to parse Terraform output JSON. Ensure 'terraform output -json' produces valid JSON. " +
-                $"Error: {ex.Message}", ex);
+            // Raw output is intentionally not logged: it may contain sensitive values.
+            throw new DistributedApplicationException($"Failed to parse 'terraform output -json': {ex.Message}", ex);
         }
 
-        if (terraformOutputs is null)
+        foreach (var (name, output) in outputs ?? [])
         {
-            context.Logger.LogWarning("Failed to parse Terraform outputs - deserialization returned null");
-            return new Dictionary<string, (object? Value, bool Sensitive)>();
+            result[name] = (ToValue(output.Value), output.Sensitive);
         }
 
-        // Convert to dictionary with sensitivity info
-        var result = new Dictionary<string, (object? Value, bool Sensitive)>(StringComparer.OrdinalIgnoreCase);
-        foreach (var (name, outputValue) in terraformOutputs)
-        {
-            result[name] = (outputValue.Value, outputValue.Sensitive);
-
-            if (outputValue.Sensitive)
-            {
-                context.Logger.LogDebug("Read output '{OutputName}' (sensitive: value redacted)", name);
-            }
-            else
-            {
-                context.Logger.LogDebug("Read output '{OutputName}' = {Value}", name, outputValue.Value);
-            }
-        }
-
-        context.Logger.LogDebug("Read {Count} Terraform outputs", result.Count);
         return result;
     }
 
-    private static readonly JsonSerializerOptions JsonSerializerOptions = new()
+    // Strings are unwrapped; everything else keeps its JSON text (e.g. true, 42, {"a":1}).
+    private static string? ToValue(JsonElement element) => element.ValueKind switch
     {
-        PropertyNameCaseInsensitive = true
+        JsonValueKind.Null or JsonValueKind.Undefined => null,
+        JsonValueKind.String => element.GetString(),
+        _ => element.GetRawText()
     };
 
-    /// <summary>
-    /// Represents a Terraform output value from the JSON output.
-    /// </summary>
-    private sealed class TerraformOutputValue
+    private sealed class OutputValue
     {
-        /// <summary>
-        /// Gets or sets the output value.
-        /// </summary>
         [JsonPropertyName("value")]
-        public object? Value { get; set; }
+        public JsonElement Value { get; set; }
 
-        /// <summary>
-        /// Gets or sets the output type.
-        /// </summary>
-        [JsonPropertyName("type")]
-        public object? Type { get; set; }
-
-        /// <summary>
-        /// Gets or sets whether the output is marked as sensitive.
-        /// </summary>
         [JsonPropertyName("sensitive")]
         public bool Sensitive { get; set; }
     }
