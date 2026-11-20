@@ -10,7 +10,7 @@
 - **EmmittJ.Terraform.Sdk.Providers.\***: Auto-generated provider-specific resources (AWS, Azure, GCP)
 - **EmmittJ.Terraform.Sdk.SourceGenerators**: Roslyn source generators for meta-arguments and properties
 - **EmmittJ.Terraform.Sdk.AppHost**: Code generation using Aspire to generate provider bindings
-- **EmmittJ.Aspire.Hosting.Terraform**: Integration with Aspire for deployment scenarios
+- **EmmittJ.Aspire.Hosting.Terraform.Sdk**: Integration with Aspire for deployment scenarios
 
 ### 🛠️ Technology Stack
 
@@ -114,7 +114,7 @@ Detailed instructions for specific areas of the codebase are in separate files:
 - **Testing** (`tests/**`): See `.github/copilot-instructions-tests.md`
 - **AppHost/Code Generation** (`src/EmmittJ.Terraform.Sdk.AppHost/**`): See `.github/copilot-instructions-apphost.md`
 - **Source Generators** (`src/EmmittJ.Terraform.Sdk.SourceGenerators/**`): See `.github/copilot-instructions-sourcegenerators.md`
-- **Aspire Integration** (`src/EmmittJ.Aspire.Hosting.Terraform/**`): See `.github/copilot-instructions-aspire.md`
+- **Aspire Integration** (`src/EmmittJ.Aspire.Hosting.Terraform.Sdk/**`): See `.github/copilot-instructions-aspire.md`
 
 ## 🔨 Building the SDK
 

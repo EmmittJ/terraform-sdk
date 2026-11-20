@@ -120,6 +120,8 @@ jobs:
       fail-fast: true
       matrix:
         include:
+          - name: EmmittJ.Aspire.Hosting.Terraform.Sdk
+            project: src/EmmittJ.Aspire.Hosting.Terraform.Sdk/EmmittJ.Aspire.Hosting.Terraform.Sdk.csproj
           - name: EmmittJ.Aspire.Hosting.Terraform
             project: src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.Hosting.Terraform.csproj
           - name: EmmittJ.Terraform.Sdk.Providers.Aws

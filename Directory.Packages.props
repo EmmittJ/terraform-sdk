@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup Label="Aspire">
-    <PackageVersion Include="Aspire.Hosting.AppHost" Version="13.4.2" />
-    <PackageVersion Include="Aspire.Hosting.Redis" Version="13.4.2" />
-    <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="13.4.2" />
-    <PackageVersion Include="Aspire.Hosting.Testing" Version="13.4.2" />
-    <PackageVersion Include="Aspire.StackExchange.Redis" Version="13.4.2" />
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="13.6.5" />
+    <PackageVersion Include="Aspire.Hosting.Redis" Version="13.6.5" />
+    <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="13.6.5" />
+    <PackageVersion Include="Aspire.Hosting.Testing" Version="13.6.5" />
+    <PackageVersion Include="Aspire.StackExchange.Redis" Version="13.6.5" />
     <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.6.0" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="10.6.0" />
     <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.15.3" />
@@ -38,13 +38,13 @@
   </ItemGroup>
 
   <ItemGroup Label="Source Link">
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.300" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.404" />
   </ItemGroup>
 
   <!-- EmmittJ Terraform SDK packages (marker version replaced during publish) -->
   <ItemGroup Label="EmmittJ Terraform SDK">
     <PackageVersion Include="EmmittJ.Terraform.Sdk" Version="42.42.42" />
-    <PackageVersion Include="EmmittJ.Aspire.Hosting.Terraform" Version="42.42.42" />
+    <PackageVersion Include="EmmittJ.Aspire.Hosting.Terraform.Sdk" Version="42.42.42" />
     <PackageVersion Include="EmmittJ.Terraform.Sdk.Providers.Aws" Version="42.42.42" />
     <PackageVersion Include="EmmittJ.Terraform.Sdk.Providers.Azuread" Version="42.42.42" />
     <PackageVersion Include="EmmittJ.Terraform.Sdk.Providers.Azurerm" Version="42.42.42" />

@@ -7,6 +7,7 @@ This directory contains example applications demonstrating the Terraform SDK and
 | Sample                                          | Description                                                                                         |
 | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | [getting-started](./getting-started/)           | **Start here!** Minimal example with variables, resources, and outputs (no cloud provider required) |
+| [existing-terraform](./existing-terraform/) | Run Terraform you already wrote (configurations, modules, templates, `PublishAs*`) with `EmmittJ.Aspire.Hosting.Terraform`; no cloud account needed |
 | [azure-container-apps](./azure-container-apps/) | Full Aspire application deploying to Azure Container Apps                                           |
 
 ## Getting Started
@@ -37,7 +38,7 @@ dotnet new aspire-starter -n MyTerraformApp
 
 # Add reference to the Terraform hosting package
 cd MyTerraformApp/MyTerraformApp.AppHost
-dotnet add reference ../../src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.Hosting.Terraform.csproj
+dotnet add reference ../../src/EmmittJ.Aspire.Hosting.Terraform.Sdk/EmmittJ.Aspire.Hosting.Terraform.Sdk.csproj
 ```
 
 ### Option 2: Use Existing Aspire App
@@ -45,7 +46,7 @@ dotnet add reference ../../src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.H
 If you have an existing Aspire application in this repository, add the Terraform hosting reference:
 
 ```bash
-dotnet add reference ../src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.Hosting.Terraform.csproj
+dotnet add reference ../src/EmmittJ.Aspire.Hosting.Terraform.Sdk/EmmittJ.Aspire.Hosting.Terraform.Sdk.csproj
 ```
 
 ## Example Scenarios
@@ -57,7 +58,7 @@ Once you have a playground project, you can experiment with various scenarios:
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
 
-var terraform = builder.AddTerraformEnvironment("aws")
+var terraform = builder.AddTerraformSdkEnvironment("aws")
     .WithBackend("s3", backend =>
     {
         backend["bucket"] = "my-terraform-state";
@@ -81,12 +82,12 @@ builder.Build().Run();
 
 ```csharp
 // AWS Production
-var aws = builder.AddTerraformEnvironment("aws-prod")
+var aws = builder.AddTerraformSdkEnvironment("aws-prod")
     .WithBackend("s3", backend => { /* ... */ })
     .WithOutputPath("aws-infra");
 
 // Azure Staging
-var azure = builder.AddTerraformEnvironment("azure-staging")
+var azure = builder.AddTerraformSdkEnvironment("azure-staging")
     .WithBackend("azurerm", backend => { /* ... */ })
     .WithOutputPath("azure-infra");
 ```
@@ -94,7 +95,7 @@ var azure = builder.AddTerraformEnvironment("azure-staging")
 ### Development with Local State
 
 ```csharp
-var dev = builder.AddTerraformEnvironment("dev")
+var dev = builder.AddTerraformSdkEnvironment("dev")
     .WithBackend("local");
 ```
 

@@ -5,7 +5,7 @@
 
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
-using EmmittJ.Aspire.Hosting.Terraform;
+using EmmittJ.Aspire.Hosting.Terraform.Sdk;
 using EmmittJ.Terraform.Sdk;
 using EmmittJ.Terraform.Sdk.Providers.Azurerm;
 using EmmittJ.Terraform.Sdk.Providers.Random;

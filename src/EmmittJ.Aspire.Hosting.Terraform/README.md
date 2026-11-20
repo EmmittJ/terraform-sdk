@@ -1,273 +1,44 @@
-# EmmittJ.Aspire.Hosting.Terraform library
+# EmmittJ.Aspire.Hosting.Terraform
 
-Provides extension methods for deploying Aspire applications using Terraform infrastructure-as-code.
-
-## Getting started
-
-### Install the package
-
-In your AppHost project, install the EmmittJ Aspire Terraform Hosting library with [NuGet](https://www.nuget.org):
-
-```dotnetcli
-dotnet add package EmmittJ.Aspire.Hosting.Terraform
-```
-
-## Usage example
-
-Deploy Aspire resources to a Terraform environment:
+Wire Terraform that already lives on disk into an Aspire AppHost. No HCL is generated and the C# Terraform SDK is not required.
 
 ```csharp
-var builder = DistributedApplication.CreateBuilder(args);
+var environment = builder.AddParameter("environment");
 
-// Add a Terraform deployment environment
-var terraform = builder.AddTerraformEnvironment("terraform")
-    .WithBackend("s3", backend =>
-    {
-        backend["bucket"] = "my-terraform-state";
-        backend["region"] = "us-west-2";
-    })
-    .WithVersion("1.9.0");
+var network = builder.AddTerraformConfiguration("network", "./infra/network")
+    .WithVariable("environment", environment);
 
-// Add resources - they'll be deployed via Terraform when published
-var api = builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform(terraform =>
-    {
-        // Customize Terraform infrastructure for this resource
-        // terraform.Stack - the TerraformStack to add resources to
-        // terraform.TargetResource - the Aspire resource being published
-    });
+var app = builder.AddTerraformConfiguration("app", "./infra/app")
+    .WithVariable("network_id", network.GetOutput("network_id"));
 
-builder.Build().Run();
-```
-
-## Core Concepts
-
-### Deployment Model
-
-This library implements a complete Terraform deployment environment for Aspire, following the same pattern as Azure Container Apps and Kubernetes deployments.
-
-**Key Components:**
-
-1. **Terraform Environment** (`AddTerraformEnvironment`) - Deployment target for your application
-2. **Resource Publishing** (`PublishAsTerraform`) - Customize infrastructure per resource
-3. **Pipeline Integration** - Automated terraform init/plan/apply steps
-4. **File Generation** - Generates Terraform JSON configuration during publish
-
-**Benefits:**
-
-- ✅ Deploy to any cloud provider (AWS, Azure, GCP)
-- ✅ Type-safe infrastructure with EmmittJ.Terraform.Sdk
-- ✅ Only operates in publish mode (no overhead during `dotnet run`)
-- ✅ Integrates with Aspire deployment pipeline
-- ✅ Flexible backend configuration (local, S3, Azure, GCS, Terraform Cloud)
-
-### Publishing Resources
-
-Use `PublishAsTerraform` to customize how resources are deployed:
-
-```csharp
-var api = builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform(terraform =>
-    {
-        // Add cloud-specific infrastructure
-        // terraform.Stack - the TerraformStack to add resources to
-        // terraform.TargetResource - the Aspire resource being published
-
-        // Example: Add an AWS ECS task or Azure Container App
-        var container = new TerraformResource("aws_ecs_task_definition", "api")
-        {
-            ["family"] = "api-task"
-        };
-        terraform.Add(container);
-    });
-```
-
-### Configuring Output Path
-
-Customize where Terraform files are generated:
-
-```csharp
-var api = builder.AddContainer("api", "myapi")
-    .PublishAsTerraform(terraform =>
-    {
-        // Configure infrastructure
-        // terraform.Stack - the TerraformStack to add resources to
-    })
-    .WithTerraformConfiguration(config =>
-    {
-        config.OutputPath = "./terraform/api";
-    });
-```
-
-By default, files are generated to `{output-path}/{resource-name}/main.tf`.
-
-### Multiple Terraform Stacks
-
-You can attach multiple Terraform stacks to a single resource by calling `PublishAsTerraform` multiple times.
-
-### Environment Configuration
-
-Configure the Terraform environment with backend, version, and automation settings:
-
-```csharp
-builder.AddTerraformEnvironment("terraform")
-    .WithWorkspace("production")
-    .WithVersion("1.9.0")
-    .WithBackend("azurerm", backend =>
-    {
-        backend["resource_group_name"] = "terraform-state";
-        backend["storage_account_name"] = "tfstate";
-        backend["container_name"] = "state";
-        backend["key"] = "aspire.tfstate";
-    });
-```
-
-For advanced scenarios, you can configure the entire `TerraformSettingsBlock` object:
-
-```csharp
-using EmmittJ.Terraform.Sdk;
-
-builder.AddTerraformEnvironment("terraform")
-    .WithSettings(settings =>
-    {
-        // Configure required version
-        settings.RequiredVersion = ">= 1.9.0";
-
-        // Add required providers
-        settings.RequiredProviders ??= new TerraformRequiredProvidersBlock();
-        settings.RequiredProviders["aws"] = new ProviderRequirement
-        {
-            Source = "hashicorp/aws",
-            Version = "~> 5.0"
-        };
-
-        // Configure backend
-        var backend = new TerraformBackendBlock("s3");
-        backend["bucket"] = "my-state-bucket";
-        backend["key"] = "terraform.tfstate";
-        backend["region"] = "us-west-2";
-        settings.Backend = backend;
-    });
-```
-
-## API Reference
-
-### Extension Methods
-
-#### `PublishAsTerraform<T>`
-
-Publishes a resource to the Terraform environment with customization.
-
-```csharp
-IResourceBuilder<T> PublishAsTerraform<T>(
-    this IResourceBuilder<T> builder,
-    Action<TerraformResource> configure)
-    where T : IResource
-```
-
-**Parameters:**
-
-- `builder` - The resource builder
-- `configure` - Action to configure the Terraform resource. The `TerraformResource` provides:
-  - `Stack` - The `TerraformStack` to add resources to
-  - `TargetResource` - The Aspire `IResource` being published
-  - `Add(block)` - Helper method to add blocks to the stack
-  - `AddOutput(outputRef, value)` - Helper to create outputs
-  - `AddVariable(outputRef)` - Helper to create input variables from output references
-  - `AddVariable(parameterResource)` - Helper to create input variables from Aspire parameters
-
-**Returns:** The resource builder for chaining
-
-**Example:**
-
-```csharp
 builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform(terraform =>
-    {
-        // Add infrastructure for this resource
-        // terraform.Stack - TerraformStack to add resources to
-        // terraform.TargetResource - IResource being published
-
-        // Create a variable for a connection string from another resource
-        var connVar = terraform.AddVariable(redisResource.ConnectionStringOutput);
-
-        var container = new TerraformResource("azurerm_container_app", "api")
-        {
-            ["name"] = terraform.TargetResource?.Name ?? "api"
-        };
-        terraform.Add(container);
-    });
+    .WithEnvironment("APP_ID", app.GetOutput("app_id"));
 ```
 
-#### `WithTerraformConfiguration<T>`
+- `AddTerraformConfiguration(name, path)` points at a root configuration directory of `.tf` files (relative to the AppHost). Terraform's own backend/state configuration is used as-is.
+- `WithVariable(name, value)` sets the Terraform `variable` called `name` from a string, parameter, `ReferenceExpression`, or another module's output. Values are passed via `TF_VAR_*` environment variables and are never written to disk.
+- `GetOutput(name)` returns an Aspire value for the Terraform `output` called `name` (non-string outputs are raw JSON).
 
-Configures Terraform generation settings for a resource.
+Modules run during `aspire deploy` (`terraform init` → `apply` → `output -json`), ordered by the variables/outputs that link them. They are never applied in run mode, so there `GetOutput(name)` becomes a parameter named `{module}-{output}` that you are prompted for. Alternatively call `RunAsExisting()` on the module (before `GetOutput`) to read outputs from state that was already applied (`terraform init` + `terraform output -json`) instead. Both only affect run mode; deploy always uses real outputs. Note that an output consumed only as another module's variable is also prompted for in run mode, unless that module uses `RunAsExisting()`.
 
-```csharp
-IResourceBuilder<T> WithTerraformConfiguration<T>(
-    this IResourceBuilder<T> builder,
-    Action<TerraformConfigurationAnnotation> configure)
-    where T : IResource
-```
+## Three shapes, two entry points
 
-**Parameters:**
+| Shape | Standalone | Publish an existing Aspire resource |
+| --- | --- | --- |
+| Configuration (root dir with its own backend/state) | `AddTerraformConfiguration(name, dir)` | `resource.PublishAsTerraformConfiguration(dir, configure)` |
+| Module (local path, registry or Git source) | `AddTerraformModule(name, source)` | `resource.PublishAsTerraformModule(source, configure)` |
+| Template (HCL file or string, like a Bicep template) | `AddTerraformTemplate(name, file)` / `AddTerraformTemplateString(name, hcl)` | `PublishAsTerraformTemplate(file, configure)` / `PublishAsTerraformTemplateString(hcl, configure)` |
 
-- `builder` - The resource builder
-- `configure` - Action to configure Terraform settings
+Modules and templates are called from a generated root, which needs `AddTerraformEnvironment()`. `PublishAs*` does nothing in run mode, so `RunAsEmulator` and friends are unchanged. When publishing, call `MapEndpoint(name, property, output)` in `configure` to point the resource's endpoints at Terraform outputs.
 
-**Returns:** The resource builder for chaining
+TypeScript AppHosts get the same API: `addTerraformModule`, `withVariable`, `getOutput`, `runAsExisting`.
 
-**Example:**
+## Experimental API
 
-```csharp
-builder.AddProject<Projects.Api>("api")
-    .WithTerraformConfiguration(config =>
-    {
-        config.OutputPath = "./terraform/custom-path";
-    });
-```
+Every public type in this package is marked `[Experimental("EMMITTJTF001")]` while the shape stabilizes (the package is also published as a preview). Using it produces compiler diagnostic `EMMITTJTF001`; acknowledge it with `<NoWarn>$(NoWarn);EMMITTJTF001</NoWarn>` in your AppHost project or `#pragma warning disable EMMITTJTF001`. The API may change between preview releases.
 
-### Cross-language expression contract
+Not yet validated: an end-to-end `aspire deploy`, generated TypeScript SDK output, and Terraform complex (non-string) variable types.
 
-This integration reuses **Aspire's own expression system** as the language-neutral contract for wiring Terraform infrastructure, instead of introducing a parallel expression IR. Everything is lowered host-side into the C# Terraform AST:
+This package runs Terraform you already wrote. To generate Terraform from C#, see `EmmittJ.Aspire.Hosting.Terraform.Sdk`.
 
-- **References & wiring** — resource-to-resource edges flow through Aspire value providers (`TerraformOutputReference`, `ReferenceExpression`) and are lowered by `ResolveValueProvider` / `ResolveReferenceExpression`.
-- **External inputs** — Aspire `ParameterResource` values are surfaced as Terraform `variable` blocks (secret parameters are passed via `TF_VAR_*`, non-secret via `aspire.auto.tfvars`).
-
-#### Raw-HCL escape-hatch (`TerraformRawExpression`)
-
-Aspire's expression algebra is interpolation/concatenation only, so Terraform's *structured* operators (conditionals, `for` expressions, function calls, index/key access, and symbolic references such as `module.x.output`) have no direct counterpart. `TerraformRawExpression` is the escape-hatch: it is an Aspire value provider (`IValueProvider` + `IManifestExpressionProvider`) that carries a verbatim HCL fragment and renders **unquoted** (symbolic), instead of being emitted as a quoted string literal.
-
-Because it is a value provider, it can be embedded directly inside a `ReferenceExpression` hole and flows through the existing lowering:
-
-```csharp
-// Inject a symbolic Terraform reference through the Aspire expression system.
-var vnetId = TerraformRawExpression.Create("module.network.vnet_id");
-
-app.PublishAsTerraform(infra =>
-{
-    var value = infra.ResolveValueProvider(vnetId); // renders: module.network.vnet_id (unquoted)
-});
-```
-
-A plain `string` is treated as data and is quoted; use `TerraformRawExpression` only when an expression cannot be represented by the typed value providers. The contained HCL is rendered as-is and is not validated or escaped.
-
-> **Note:** The Aspire Type System (ATS) attributes used for generating non-C# SDKs (`[AspireExport]` / `[AspireDto]`) **are** available in the Aspire version this integration targets (`13.4.2`), in the `Aspire.Hosting` namespace. Their validation analyzer (`Aspire.Hosting.Integration.Analyzers`) is opt-in behind the `EnableAspireIntegrationAnalyzers` MSBuild property (default `false`). The cross-language *contract* above (value providers + the raw-HCL escape-hatch) is already in place. Surfacing the public builder API via ATS annotations is the remaining step: enabling the analyzer reports `ASPIREEXPORT008` for every extension method on the Aspire-exported `IResourceBuilder<T>`, so each must be marked `[AspireExport]` (for ATS-compatible signatures) or `[AspireExportIgnore]`, and the domain types they expose (e.g. `TerraformOutputReference`, configuration/block types) must first be made ATS-compatible (`[AspireExport]` / `[AspireDto]`).
-
-### Publish-Only Execution
-
-Terraform file generation **only occurs during publish mode** (`aspire publish`), not during `dotnet run`. This ensures:
-
-- ✅ Faster local development (no file I/O during app startup)
-- ✅ Infrastructure provisioning decoupled from application runtime
-- ✅ Terraform execution controlled by deployment pipelines
-
-## Additional documentation
-
-- [Architecture Overview](../../../docs/architecture-overview.md)
-- [EmmittJ.Terraform.Sdk Documentation](../EmmittJ.Terraform.Sdk/README.md)
-- [Terraform Documentation](https://www.terraform.io/docs)
-
-## Feedback & contributing
-
-https://github.com/EmmittJ/terraform-sdk
+See `playground/existing-terraform` for a runnable sample.
