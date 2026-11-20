@@ -27,8 +27,8 @@ public static class TerraformModulePipelineTags
 }
 
 /// <summary>
-/// An existing Terraform module/root configuration on disk. Aspire values are passed in as
-/// variables and its outputs are exposed back as Aspire values. No HCL is generated.
+/// A Terraform module or an existing root configuration. Aspire values are passed as
+/// variables and Terraform outputs are exposed as Aspire values.
 /// </summary>
 [AspireExport]
 public sealed class TerraformModuleResource : Resource
@@ -38,11 +38,28 @@ public sealed class TerraformModuleResource : Resource
     private readonly SemaphoreSlim _stateLock = new(1, 1);
     private Dictionary<string, object?>? _existingStateOutputs;
     private readonly Dictionary<string, ParameterResource> _runParameters = new(StringComparer.Ordinal);
+    private readonly Dictionary<string, bool> _requestedOutputs = new(StringComparer.Ordinal);
+    private readonly Dictionary<(string Endpoint, EndpointProperty Property), string> _endpointOutputs = new();
     private bool _runAsExisting;
 
-    internal TerraformModuleResource(string name, string moduleDirectory, bool deployable) : base(name)
+    internal TerraformModuleResource(
+        string name,
+        string source,
+        string appHostDirectory,
+        bool deployable,
+        bool isRootConfiguration,
+        IResource? targetResource = null) : base(name)
     {
-        ModuleDirectory = moduleDirectory;
+        AppHostDirectory = appHostDirectory;
+        TargetResource = targetResource;
+        if (isRootConfiguration)
+        {
+            ModuleDirectory = Path.GetFullPath(source, appHostDirectory);
+        }
+        else
+        {
+            Source = source;
+        }
 
         if (!deployable)
         {
@@ -51,15 +68,40 @@ public sealed class TerraformModuleResource : Resource
 
         _outputsReady = new(TaskCreationOptions.RunContinuationsAsynchronously);
 
-        Annotations.Add(new PipelineStepAnnotation(_ => Task.FromResult<IEnumerable<PipelineStep>>(CreateSteps())));
-        Annotations.Add(new PipelineConfigurationAnnotation(ConfigurePipeline));
+        if (isRootConfiguration)
+        {
+            Annotations.Add(new PipelineStepAnnotation(_ => Task.FromResult<IEnumerable<PipelineStep>>(CreateSteps())));
+            Annotations.Add(new PipelineConfigurationAnnotation(ConfigurePipeline));
+        }
+        else
+        {
+            Annotations.Add(new PipelineStepAnnotation(context =>
+            {
+                var environments = context.PipelineContext.Model.Resources.OfType<TerraformModulesEnvironmentResource>().ToArray();
+                if (environments.Length != 1)
+                {
+                    throw new DistributedApplicationException(
+                        $"Terraform module '{Name}' requires exactly one Terraform modules environment. Call AddTerraformEnvironment().");
+                }
+
+                Environment = environments[0];
+                return Array.Empty<PipelineStep>();
+            }));
+        }
     }
 
-    /// <summary>Gets the absolute path of the Terraform configuration directory.</summary>
-    public string ModuleDirectory { get; }
+    /// <summary>Gets the absolute path of the root configuration directory, if this is an existing configuration.</summary>
+    public string? ModuleDirectory { get; }
 
     /// <summary>Gets the Aspire values that will be passed to the module as Terraform variables.</summary>
     public IReadOnlyDictionary<string, object> Variables => _variables;
+
+    internal string? Source { get; }
+    internal string AppHostDirectory { get; }
+    internal IResource? TargetResource { get; }
+    internal string ModuleLabel => TargetResource?.Name ?? Name;
+    internal TerraformModulesEnvironmentResource? Environment { get; private set; }
+    internal IReadOnlyDictionary<string, bool> RequestedOutputs => _requestedOutputs;
 
     internal Dictionary<string, object?> Outputs { get; } = new(StringComparer.Ordinal);
 
@@ -69,6 +111,12 @@ public sealed class TerraformModuleResource : Resource
 
     internal void UseExistingState()
     {
+        if (ModuleDirectory is null)
+        {
+            throw new DistributedApplicationException(
+                $"RunAsExisting() requires an existing root configuration. Use AddTerraformConfiguration() for '{Name}'.");
+        }
+
         if (_runParameters.Count > 0)
         {
             throw new DistributedApplicationException(
@@ -83,6 +131,65 @@ public sealed class TerraformModuleResource : Resource
     internal bool IsDeployable => _outputsReady is not null;
 
     internal void SetRunParameter(string outputName, ParameterResource parameter) => _runParameters[outputName] = parameter;
+
+    internal void RequestOutput(string outputName, bool sensitive = false)
+    {
+        _requestedOutputs[outputName] = sensitive || (_requestedOutputs.TryGetValue(outputName, out var existing) && existing);
+    }
+
+    internal void MapEndpoint(string endpointName, EndpointProperty property, string outputName)
+    {
+        if (TargetResource is not IResourceWithEndpoints)
+        {
+            throw new DistributedApplicationException(
+                $"Resource '{TargetResource?.Name ?? Name}' does not expose endpoints to map to Terraform outputs.");
+        }
+
+        var existing = _endpointOutputs.Keys.FirstOrDefault(k =>
+            string.Equals(k.Endpoint, endpointName, StringComparison.OrdinalIgnoreCase) && k.Property == property);
+        if (existing != default)
+        {
+            _endpointOutputs.Remove(existing);
+        }
+
+        _endpointOutputs[(endpointName, property)] = outputName;
+        RequestOutput(outputName);
+    }
+
+    internal string GetEndpointOutput(string endpointName, EndpointProperty property)
+    {
+        foreach (var (key, output) in _endpointOutputs)
+        {
+            if (string.Equals(key.Endpoint, endpointName, StringComparison.OrdinalIgnoreCase) && key.Property == property)
+            {
+                return output;
+            }
+        }
+
+        throw new DistributedApplicationException(
+            $"Terraform module for '{TargetResource?.Name ?? Name}' does not map endpoint '{endpointName}' property '{property}'. " +
+            "Add a MapEndpoint() mapping for the property.");
+    }
+
+    internal void CompleteOutputs(IReadOnlyDictionary<string, (object? Value, bool Sensitive)> outputs)
+    {
+        foreach (var (name, _) in _requestedOutputs)
+        {
+            var rootName = TerraformModulesEnvironmentResource.GetRootOutputName(this, name);
+            if (outputs.TryGetValue(rootName, out var output))
+            {
+                Outputs[name] = output.Value;
+                if (output.Sensitive)
+                {
+                    SensitiveOutputs.Add(name);
+                }
+            }
+        }
+
+        _outputsReady!.TrySetResult();
+    }
+
+    internal void FailOutputs(Exception exception) => _outputsReady?.TrySetException(exception);
 
     internal async ValueTask<object?> GetOutputValueAsync(string name, CancellationToken cancellationToken)
     {
@@ -121,8 +228,8 @@ public sealed class TerraformModuleResource : Resource
             if (_existingStateOutputs is null)
             {
                 EnsureModuleDirectoryExists();
-                await TerraformCli.RunAsync(NullLogger.Instance, "init -input=false -no-color", ModuleDirectory, cancellationToken).ConfigureAwait(false);
-                var read = await TerraformCli.ReadOutputsAsync(NullLogger.Instance, ModuleDirectory, cancellationToken).ConfigureAwait(false);
+                await TerraformCli.RunAsync(NullLogger.Instance, "init -input=false -no-color", ModuleDirectory!, cancellationToken).ConfigureAwait(false);
+                var read = await TerraformCli.ReadOutputsAsync(NullLogger.Instance, ModuleDirectory!, cancellationToken).ConfigureAwait(false);
                 _existingStateOutputs = read.ToDictionary(kv => kv.Key, kv => kv.Value.Value, StringComparer.Ordinal);
             }
 
@@ -135,7 +242,7 @@ public sealed class TerraformModuleResource : Resource
     }
 
     private DistributedApplicationException MissingOutput(string name) => new(
-        $"Terraform module '{Name}' has no output named '{name}'. Declare it with an `output \"{name}\"` block in {ModuleDirectory}.");
+        $"Terraform module '{Name}' has no output named '{name}'. Declare it with an `output \"{name}\"` block in {ModuleDirectory ?? Source}.");
 
     private List<PipelineStep> CreateSteps()
     {
@@ -146,7 +253,7 @@ public sealed class TerraformModuleResource : Resource
             Action = ctx => RunStepAsync(ctx, async () =>
             {
                 EnsureModuleDirectoryExists();
-                await TerraformCli.RunAsync(ctx.Logger, "init -input=false -no-color", ModuleDirectory, ctx.CancellationToken).ConfigureAwait(false);
+                await TerraformCli.RunAsync(ctx.Logger, "init -input=false -no-color", ModuleDirectory!, ctx.CancellationToken).ConfigureAwait(false);
             }),
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
         };
@@ -159,7 +266,7 @@ public sealed class TerraformModuleResource : Resource
             {
                 var variables = await ResolveVariablesAsync(ctx.CancellationToken).ConfigureAwait(false);
                 await TerraformCli.RunAsync(
-                    ctx.Logger, "apply -auto-approve -input=false -no-color", ModuleDirectory, ctx.CancellationToken, variables, logOutput: true).ConfigureAwait(false);
+                    ctx.Logger, "apply -auto-approve -input=false -no-color", ModuleDirectory!, ctx.CancellationToken, variables, logOutput: true).ConfigureAwait(false);
             }),
             DependsOnSteps = [init.Name, WellKnownPipelineSteps.DeployPrereq],
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
@@ -171,7 +278,7 @@ public sealed class TerraformModuleResource : Resource
             Tags = [TerraformModulePipelineTags.Outputs],
             Action = ctx => RunStepAsync(ctx, async () =>
             {
-                var read = await TerraformCli.ReadOutputsAsync(ctx.Logger, ModuleDirectory, ctx.CancellationToken).ConfigureAwait(false);
+                var read = await TerraformCli.ReadOutputsAsync(ctx.Logger, ModuleDirectory!, ctx.CancellationToken).ConfigureAwait(false);
                 foreach (var (key, (value, sensitive)) in read)
                 {
                     Outputs[key] = value;
@@ -216,7 +323,7 @@ public sealed class TerraformModuleResource : Resource
 
     private void EnsureModuleDirectoryExists()
     {
-        if (!Directory.Exists(ModuleDirectory))
+        if (ModuleDirectory is null || !Directory.Exists(ModuleDirectory))
         {
             throw new DistributedApplicationException($"Terraform module directory for '{Name}' does not exist: {ModuleDirectory}");
         }
@@ -250,7 +357,9 @@ public sealed class TerraformModuleResource : Resource
         foreach (var upstream in FindUpstreamModules())
         {
             context.GetSteps(this, TerraformModulePipelineTags.Init)
-                .DependsOn(context.GetSteps(upstream, TerraformModulePipelineTags.Outputs));
+                .DependsOn(upstream.Environment is { } environment
+                    ? context.GetSteps(environment, TerraformModulesEnvironmentResource.OutputsTag)
+                    : context.GetSteps(upstream, TerraformModulePipelineTags.Outputs));
         }
     }
 

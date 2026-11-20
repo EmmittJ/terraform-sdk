@@ -9,11 +9,11 @@ namespace EmmittJ.Aspire.Hosting.Terraform.Modules.Tests;
 public class TerraformModuleTests
 {
     [Fact]
-    public void AddTerraformModule_ResolvesPathRelativeToAppHost()
+    public void AddTerraformConfiguration_ResolvesPathRelativeToAppHost()
     {
         var builder = DistributedApplication.CreateBuilder();
 
-        var module = builder.AddTerraformModule("network", "./infra/network");
+        var module = builder.AddTerraformConfiguration("network", "./infra/network");
 
         Assert.Equal(Path.GetFullPath("./infra/network", builder.AppHostDirectory), module.Resource.ModuleDirectory);
     }
@@ -47,7 +47,7 @@ public class TerraformModuleTests
     public void RunAsExisting_AfterGetOutput_Throws()
     {
         var builder = DistributedApplication.CreateBuilder();
-        var module = builder.AddTerraformModule("network", "./infra/network");
+        var module = builder.AddTerraformConfiguration("network", "./infra/network");
         module.GetOutput("network_id");
 
         Assert.Throws<DistributedApplicationException>(() => module.RunAsExisting());
@@ -57,7 +57,7 @@ public class TerraformModuleTests
     public void GetOutput_InRunMode_WithRunAsExisting_AddsNoParameter()
     {
         var builder = DistributedApplication.CreateBuilder();
-        builder.AddTerraformModule("network", "./infra/network").RunAsExisting().GetOutput("network_id");
+        builder.AddTerraformConfiguration("network", "./infra/network").RunAsExisting().GetOutput("network_id");
 
         Assert.DoesNotContain(builder.Resources, r => r is ParameterResource);
     }
@@ -111,7 +111,7 @@ public class TerraformModuleTests
             RunTerraform(dir, "apply -auto-approve -input=false");
 
             var builder = DistributedApplication.CreateBuilder();
-            var module = builder.AddTerraformModule("m", dir).RunAsExisting();
+            var module = builder.AddTerraformConfiguration("m", dir).RunAsExisting();
 
             Assert.Equal("hello", await module.GetOutput("greeting").GetValueAsync());
             Assert.Equal("true", await module.GetOutput("flag").GetValueAsync());
