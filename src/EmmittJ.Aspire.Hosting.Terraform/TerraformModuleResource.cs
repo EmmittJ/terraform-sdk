@@ -344,6 +344,8 @@ public sealed class TerraformModuleResource : Resource
             var value = input switch
             {
                 string s => s,
+                // Terraform only accepts lowercase booleans in TF_VAR_* values.
+                bool b => b ? "true" : "false",
                 IValueProvider provider => await provider.GetValueAsync(cancellationToken).ConfigureAwait(false),
                 _ => Convert.ToString(input, System.Globalization.CultureInfo.InvariantCulture)
             };
