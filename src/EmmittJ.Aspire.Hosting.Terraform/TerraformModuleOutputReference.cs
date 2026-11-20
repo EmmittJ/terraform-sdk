@@ -1,5 +1,6 @@
 // Licensed under the MIT License.
 
+using System.Diagnostics.CodeAnalysis;
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 
@@ -13,6 +14,7 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// <param name="name">The Terraform output name.</param>
 /// <param name="module">The module that produces the output.</param>
 [AspireExport]
+[Experimental(TerraformDiagnostics.Experimental, UrlFormat = TerraformDiagnostics.UrlFormat)]
 public sealed class TerraformModuleOutputReference(string name, TerraformModuleResource module)
     : IExpressionValue, IValueWithReferences, IEquatable<TerraformModuleOutputReference>
 {

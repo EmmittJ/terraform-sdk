@@ -4,10 +4,12 @@ using System.Globalization;
 using System.Text;
 using System.Text.Json;
 using Aspire.Hosting;
+using System.Diagnostics.CodeAnalysis;
 using Aspire.Hosting.ApplicationModel;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
+[Experimental(TerraformDiagnostics.Experimental)]
 internal sealed class TerraformModulesConfiguration(
     IReadOnlyList<TerraformModuleResource> modules,
     string outputDirectory)

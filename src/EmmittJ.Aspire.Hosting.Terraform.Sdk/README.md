@@ -1,5 +1,7 @@
 # EmmittJ.Aspire.Hosting.Terraform.Sdk library
 
+> **Package rename:** this package was previously `EmmittJ.Aspire.Hosting.Terraform`, and `AddTerraformEnvironment` is now `AddTerraformSdkEnvironment`. The `EmmittJ.Aspire.Hosting.Terraform` name now belongs to the package that runs Terraform you already wrote (root configurations, modules, HCL templates). That package's API is marked experimental (`EMMITTJTF001`).
+
 Provides extension methods for deploying Aspire applications using Terraform infrastructure-as-code.
 
 ## Getting started

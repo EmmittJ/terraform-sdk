@@ -1,5 +1,6 @@
 // Licensed under the MIT License.
 
+using System.Diagnostics.CodeAnalysis;
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 
@@ -8,6 +9,7 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// <summary>
 /// Extension methods for wiring Terraform modules into an Aspire AppHost.
 /// </summary>
+[Experimental(TerraformDiagnostics.Experimental, UrlFormat = TerraformDiagnostics.UrlFormat)]
 public static class TerraformModuleExtensions
 {
     /// <summary>

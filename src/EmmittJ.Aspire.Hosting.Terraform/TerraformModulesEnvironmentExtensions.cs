@@ -1,11 +1,13 @@
 // Licensed under the MIT License.
 
+using System.Diagnostics.CodeAnalysis;
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
 /// <summary>Extension methods for a Terraform modules deployment environment.</summary>
+[Experimental(TerraformDiagnostics.Experimental, UrlFormat = TerraformDiagnostics.UrlFormat)]
 public static class TerraformModulesEnvironmentExtensions
 {
     /// <summary>Adds an environment that publishes Terraform modules as one root configuration.</summary>

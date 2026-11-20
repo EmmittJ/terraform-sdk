@@ -3,6 +3,7 @@
 #pragma warning disable ASPIREPIPELINES001
 #pragma warning disable ASPIREPIPELINES004
 
+using System.Diagnostics.CodeAnalysis;
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
@@ -13,6 +14,7 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 
 /// <summary>A publish-only environment that renders and applies Terraform modules together.</summary>
 [AspireExport]
+[Experimental(TerraformDiagnostics.Experimental, UrlFormat = TerraformDiagnostics.UrlFormat)]
 public sealed class TerraformModulesEnvironmentResource : Resource
 {
     internal const string OutputsTag = "terraform-modules-outputs";

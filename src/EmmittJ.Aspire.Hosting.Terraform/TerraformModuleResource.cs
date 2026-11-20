@@ -2,6 +2,7 @@
 
 #pragma warning disable ASPIREPIPELINES001
 
+using System.Diagnostics.CodeAnalysis;
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
@@ -14,6 +15,7 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// <summary>
 /// Well-known pipeline tags for <see cref="TerraformModuleResource"/> steps.
 /// </summary>
+[Experimental(TerraformDiagnostics.Experimental, UrlFormat = TerraformDiagnostics.UrlFormat)]
 public static class TerraformModulePipelineTags
 {
     /// <summary>Tag for <c>terraform init</c> steps.</summary>
@@ -31,6 +33,7 @@ public static class TerraformModulePipelineTags
 /// variables and Terraform outputs are exposed as Aspire values.
 /// </summary>
 [AspireExport]
+[Experimental(TerraformDiagnostics.Experimental, UrlFormat = TerraformDiagnostics.UrlFormat)]
 public sealed class TerraformModuleResource : Resource
 {
     private readonly TaskCompletionSource? _outputsReady;

@@ -2,10 +2,12 @@
 
 #pragma warning disable ASPIRECOMPUTE002
 
+using System.Diagnostics.CodeAnalysis;
 using Aspire.Hosting.ApplicationModel;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
+[Experimental(TerraformDiagnostics.Experimental)]
 internal sealed class TerraformEndpointEnvironmentResource(TerraformModuleResource module)
     : Resource($"{module.Name}-endpoints"), IComputeEnvironmentResource
 {

@@ -33,4 +33,12 @@ Modules and templates are called from a generated root, which needs `AddTerrafor
 
 TypeScript AppHosts get the same API: `addTerraformModule`, `withVariable`, `getOutput`, `runAsExisting`.
 
+## Experimental API
+
+Every public type in this package is marked `[Experimental("EMMITTJTF001")]` while the shape stabilizes (the package is also published as a preview). Using it produces compiler diagnostic `EMMITTJTF001`; acknowledge it with `<NoWarn>$(NoWarn);EMMITTJTF001</NoWarn>` in your AppHost project or `#pragma warning disable EMMITTJTF001`. The API may change between preview releases.
+
+Not yet validated: an end-to-end `aspire deploy`, generated TypeScript SDK output, and Terraform complex (non-string) variable types.
+
+This package runs Terraform you already wrote. To generate Terraform from C#, see `EmmittJ.Aspire.Hosting.Terraform.Sdk`.
+
 See `playground/modules` for a runnable sample.
