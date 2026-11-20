@@ -226,6 +226,9 @@ jobs:
     name: Publish to NuGet
     runs-on: ubuntu-latest
     needs: [build-sdk, build-dependent, test]
+    permissions:
+      contents: write
+      id-token: write
     if: always() && needs.build-sdk.result == 'success' && needs.build-dependent.result == 'success' && (needs.test.result == 'success' || needs.test.result == 'skipped')
 
     steps:
@@ -258,6 +261,13 @@ jobs:
             ./artifacts/*.snupkg
           retention-days: 30
 
+      - name: NuGet login (trusted publishing)
+        id: nuget-login
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: NuGet/login@v1
+        with:
+          user: EmmittJ
+
       - name: Publish to NuGet.org
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
@@ -265,7 +275,7 @@ jobs:
           for package in ./artifacts/*.nupkg; do
             echo "Publishing $package..."
             dotnet nuget push "$package" \
-              --api-key ${{ secrets.NUGET_API_KEY }} \
+              --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} \
               --source https://api.nuget.org/v3/index.json \
               --skip-duplicate
           done
